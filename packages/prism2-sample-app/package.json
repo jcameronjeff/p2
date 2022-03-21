@@ -1,17 +1,18 @@
 {
-  "name": "prism2-react",
+  "name": "@prism2/sample-react-app",
   "version": "2.0.0-beta.1",
   "files": [
     "dist",
     "src",
     "lib"
   ],
-  "main": "./dist/prism2-react.js",
-  "module": "./dist/prism2-react.es.js",
+  "main": "./dist/index.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/index.es.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/prism2-react.es.js",
-      "require": "./dist/prism2-react.js"
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.js"
     }
   },
   "scripts": {
@@ -19,13 +20,14 @@
     "test": "yarn build",
     "build": "tsc && vite build && yarn build:fonts",
     "build:fonts": "postcss lib/Styles/fonts.css -o dist/fonts.css",
-    "postbuild": "tsc dist/prism2-react.es.js --declaration --emitDeclarationOnly --jsx react --esModuleInterop --allowJs --outDir dist",
+    "postbuild": "tsc dist/index.es.js --declaration --emitDeclarationOnly --jsx react --esModuleInterop --allowJs --outDir dist",
     "preview": "vite preview",
     "precommit": "yarn test"
   },
   "dependencies": {
     "@headlessui/react": "^1.5.0",
     "@heroicons/react": "^1.0.5",
+    "@prism2/tailwind-preset": "^1.0.0-alpha.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-router-dom": "6"

@@ -2,7 +2,7 @@ import { useMemo, useState } from 'react';
 
 import { Home, Swatch } from './views/Home';
 import { AppContext } from './context/AppContext';
-import { Button, Tab } from '../dist/prism2-react.es';
+import { Button, Tab } from '../lib/main';
 import Presentation from './views/Presentation';
 import '../lib/Styles/tailwind.css';
 
