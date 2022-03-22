@@ -1,4 +1,11 @@
-const prismConfig = require('@prism2/config-postcss');
 module.exports = {
-  ...prismConfig
+  plugins: {
+    'postcss-import': {},
+    'tailwindcss/nesting': {},
+    tailwindcss: {},
+    autoprefixer: {},
+    'postcss-extend': {},
+    'postcss-apply': {},
+    'postcss-minify': {},
+  }
 }
