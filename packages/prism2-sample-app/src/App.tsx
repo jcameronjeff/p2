@@ -17,7 +17,7 @@ function App() {
           <Tab.Group>
             <div className="flex w-full border justify-between items-center p-4">
               <div className="flex items-center gap-4">
-                <h1>PRISM2</h1>
+                <span className='text-3xl font-bold font-alt'>PRISM2</span>
                 <Tab.List className="flex gap-2 px-4 text-xs">
                   <Tab className="aux">Prose</Tab>
                   <Tab className="aux">Kitchen Sink</Tab>
