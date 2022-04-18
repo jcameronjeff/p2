@@ -15,14 +15,6 @@
       "require": "./dist/index.js"
     }
   },
-  "workspaces": {
-    "nohoist": [
-      "**/react-native",
-      "**/react-native/**",
-      "**/jest",
-      "**/jest/**"
-    ]
-  },
   "scripts": {
     "dev": "vite",
     "test": "yarn build",
