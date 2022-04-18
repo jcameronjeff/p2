@@ -18,22 +18,21 @@ interface Props extends React.DetailsHTMLAttributes<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'outline', label = 'OK', ...args }: Props):React.ReactElement {
+export function Button({ variant = 'base', label = 'OK', ...args }: Props):React.ReactElement {
   const { children, className } = args;
 
   const vars:Variant = {
-    outline: 'bg-transparent ring-1 ring-navy-dark',
-    text: 'ring-0',
-    auxiliary: 'text-sm uppercase font-alt ring-0',
-    link: 'ring-0 font-regular capitalize',
-    base: '',
+    outline: 'bg-transparent border border-blue-300 ring-0',
+    text: 'border-0',
+    auxiliary: 'text-sm uppercase font-alt border-0',
+    link: 'border-0 font-regular uppercase',
+    base: 'border',
   };
 
-  const cl = Object.getOwnPropertyDescriptor(vars, variant)?.value || ''
   const clsx = [vars[variant], className].join(' ');
 
   return (
-    <button type="button" {...args} className={clsx}>{children || label}</button>
+    <button {...args} className={clsx}>{children || label}</button>
   );
 }
 Button.defaultProps = {

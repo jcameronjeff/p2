@@ -56,12 +56,14 @@ export const Headings = HeadingsHTML.bind({})
 
 export const NavsHTML: ComponentStory<any> = (args) => (
   <section>
-    <header>
+    <header className='border shadow-sm rounded-sm flex items-center px-4'>
+      <img className='w-12 h-12 rounded-full' src="https://www.fillmurray.com/48/48" />
+      <div className='border-l h-16 ml-4' />
       <nav>
-        <ul>
-          <li><a href='#'>One</a></li>
-          <li><a href='#'>Two</a></li>
-          <li><a href='#'>Three</a></li>
+        <ul className='px-2'>
+          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Home</a></li>
+          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Buy</a></li>
+          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Sell</a></li>
         </ul>
       </nav>
     </header>

@@ -25,31 +25,6 @@ const Template: ComponentStory<typeof Button> = (args) => {
   )
 }
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  variant: 'primary',
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  className: 'px-4 py-8 ring-1 rounded-xl',
-  variant: 'outline',
-  label: 'My Large Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
-
 
 const ButtonTemplate: ComponentStory<any> = (args) => {
   const [count, setCount] = React.useState(0);
