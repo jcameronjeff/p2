@@ -3,6 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 import { Button } from '../lib/Button';
+import { Avatar } from '../lib/Avatar';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -19,6 +20,7 @@ const Template: ComponentStory<typeof Button> = (args) => {
   const [count, setCount] = React.useState(0);
   return (
     <>
+      <Avatar />
       <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count+1)} {...args} />
       {count > 4 && <h3>Automation Completed!</h3>}
     </>
@@ -30,6 +32,10 @@ const ButtonTemplate: ComponentStory<any> = (args) => {
   const [count, setCount] = React.useState(0);
   return (
     <>
+      <Avatar name="Darin Cassler" />
+      <Avatar name="Darin" />
+      <Avatar name="DC" />
+      <Avatar name="DC" src="//www.fillmurray.com/128/128" />
       <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count+1)}/>
       {count > 4 && <h3>Automation Completed!</h3>}
     </>
