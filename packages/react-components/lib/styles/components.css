@@ -1,0 +1,279 @@
+@import 'tailwindcss/components';
+
+  .prism {
+    font-family: theme('fontFamily.sans');
+    line-height: theme('lineHeight.tight');
+    color: theme('colors.gray.700');
+
+
+    .prism-table {
+      tr, td, thead, th {
+        @apply border;
+        @apply p-2;
+        @apply text-left;
+      }
+      th {
+        @apply bg-navy;
+        @apply text-white;
+        @apply border-navy;
+      }
+      caption, tfoot {
+        @apply italic;
+        @apply p-2;
+        @apply text-gray-500;
+        @apply text-sm;
+      }
+    }
+
+    .card {
+      border-radius: theme('borderRadius.xs');
+      box-shadow: theme('boxShadow.DEFAULT');
+      background-color: theme('colors.white');
+
+      > header, > div, > main, > footer {
+        @apply py-4;
+        @apply px-8;
+      }
+      header {
+        @apply border-b;
+      }
+      footer {
+        @apply border-t;
+        @apply py-2;
+      }
+    }
+
+    a:link {
+      color: theme('colors.primary');
+    }
+
+    h1 {
+      font-family: theme('fontFamily.alt');
+      font-weight: theme('fontWeight.bold');
+      text-transform: uppercase;
+      color: theme('colors.primary-dark');
+      font-size: theme('fontSize.3xl');
+
+      small {
+        color: theme('colors.gray.500');
+        text-transform: none;
+        font-weight: theme('fontWeight.normal');
+      }
+    }
+    h2 {
+      font-size: theme('fontSize.2xl');
+      color: theme('colors.primary-dark');
+      font-weight: theme('fontWeight.medium');
+    }
+    h3 {
+      font-size: theme('fontSize.xl');
+      color: theme('colors.primary-dark');
+      font-weight: theme('fontWeight.normal');
+    }
+    h4 {
+      font-size: theme('fontSize.lg');
+      color: theme('colors.primary-dark');
+      font-weight: theme('fontWeight.light');
+    }
+    h5 {
+      font-weight: theme('fontWeight.bold');
+      font-size: theme('fontSize.sm');
+      color: theme('colors.primary-dark');
+    }
+    h6 {
+      font-size: theme('fontSize.xs');
+      color: theme('colors.primary-dark');
+      text-transform: uppercase;
+      font-weight: theme('fontWeight.semibold');
+    }
+
+    figure {
+      @apply space-y-2;
+      @apply flex;
+      @apply flex-col;
+      img {
+        @apply mb-1;
+      }
+      figcaption {
+
+      }
+    }
+    form {
+      p {
+        @apply grid;
+        @apply grid-cols-[120px,1fr];
+        @apply gap-4;
+        @apply items-center;
+
+        label {
+          @apply text-right;
+        }
+      }
+
+    }
+
+    label {
+      @apply text-gray-600;
+      @apply text-sm;
+    }
+    input,
+    input[type='text'],
+    input[type='textarea'],
+    textarea {
+      @apply p-2 py-2;
+      @apply text-base;
+      @apply text-black;
+      @apply placeholder-black;
+      @apply placeholder-opacity-50;
+      @apply rounded-xs;
+      @apply border;
+      @apply shadow-inner;
+      @apply focus-within:shadow-md;
+      @apply overflow-ellipsis;
+    }
+    input:read-only {
+      @apply border-0;
+      @apply shadow-none;
+      @apply pl-0;
+    }
+    figcaption {
+      font-size: theme('fontSize.xs');
+      color: theme('colors.gray.500');
+    }
+
+    input[type='checkbox'] {
+      @apply mr-1;
+      @apply accent-red-500;
+    }
+    input[type='checkbox'] + span {
+      @apply text-gray-700/50;
+      @apply text-sm;
+      @apply ml-1;
+      @apply cursor-pointer;
+      @apply selection:bg-transparent;
+    }
+
+
+    legend {
+      @apply font-medium;
+      @apply text-sm;
+      @apply text-gray-500;
+    }
+    dl {
+      @apply space-y-2;
+      dt + dd { @apply -translate-y-1.5; }
+      dt {
+        @apply font-medium;
+        @apply text-sm;
+        @apply text-gray-500;
+      }
+    }
+  }
+
+  ul.prism-nav-list {
+    @apply list-none;
+    @apply flex;
+  }
+
+
+.prism {
+  button, button[type='button'], input[type='submit'], input[type='button'], input[type='reset'] {
+    @apply bg-transparent;
+    @apply px-4 py-3;
+    @apply ring-1 ring-cerulean-light;
+    @apply font-alt;
+    @apply rounded-sm;
+    @apply uppercase font-bold;
+    @apply text-cerulean-dark;
+    @apply flex-nowrap whitespace-nowrap;
+    @apply overflow-ellipsis;
+    @apply transition-all duration-300;
+    @apply items-center justify-between;
+
+    svg {
+      @apply w-[1.2em] h-[1.2em];
+      @apply inline-block;
+    }
+    &:disabled {
+      @apply text-gray-400;
+      @apply ring-gray-300;
+    }
+    &:active {
+      @apply scale-95;
+    }
+    &:focus {
+      @apply ring-offset-2;
+      @apply ring-0;
+      @apply shadow-md shadow-gray-400;
+      @apply bg-cerulean-light;
+    }
+    &:hover:not(:disabled) {
+      @apply ring-1 ring-cerulean-light;
+      @apply text-primary-dark;
+      @apply bg-cerulean-light;
+    }
+    &.outline {
+      @apply bg-transparent;
+      @apply text-blue-900;
+      @apply ring-1 ring-blue-900;
+    }
+    &.action {
+      @apply text-base;
+      @apply font-semibold;
+      @apply capitalize;
+      @apply ring-0;
+      &:hover {
+        @apply ring-0;
+        @apply bg-transparent;
+        @apply text-cerulean;
+      }
+    }
+    &.link {
+      @apply ring-0;
+      @apply p-0 px-1;
+      @apply text-sm;
+      @apply font-normal;
+      @apply capitalize;
+      &:hover {
+        @apply ring-0 bg-transparent;
+      }
+    }
+    &.aux {
+      @apply text-sm uppercase font-alt ring-0
+    }
+    &.text {
+      @apply ring-0;
+    }
+  }
+
+  input + button {
+    @apply rounded-l-none;
+    @apply -ml-0.5
+  }
+
+  button[type='submit'] {
+    @apply bg-gold-dark ring-gold-dark;
+    @apply text-navy-dark;
+    &:hover {
+      @apply bg-gold ring-gold;
+      @apply text-navy-dark;
+    }
+  }
+  button.ghosted {
+    @apply ring-0;
+  }
+
+  nav ul {
+    @apply flex;
+    @apply list-none;
+  }
+  nav ul li {
+    @apply p-2;
+    @apply font-medium;
+  }
+
+  article {
+    @apply prose prose-sm;
+  }
+}
+

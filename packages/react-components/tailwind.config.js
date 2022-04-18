@@ -1,11 +1,13 @@
-
 const defaultTheme = require('tailwindcss/defaultTheme')
-/**
- * @name @prism2/tailwind-preset
- * @abstract Tailwind3 theme preset for fonts, colors, sizing and more based on PRISM design system.
- * @see https://www.figma.com/file/s6JUhCoI4VK6RGNyDFWc2z/%F0%9F%A7%B0-PRISM-Component-Library
- */
 module.exports = {
+  important: true,
+  content: [
+    "./index.html",
+    "./lib/**/*.{vue,js,ts,jsx,tsx}",
+    "./site/**/*.{vue,js,ts,jsx,tsx}",
+    "./stories/**/*.{tsx,css,mdx,jsx}",
+    "./stories/*.{tsx,css,mdx,jsx}"
+  ],
   theme: {
     extend: {
       screens: {
@@ -25,6 +27,29 @@ module.exports = {
         'lg': '61rem', // 976px
         'xl': '73rem', // 1168px
         '2xl': '85rem' // 1360px
+      },
+      spacing: {
+        px: '1px',
+        0: '0px',
+        0.5: '0.125rem',
+        1: '0.25rem',
+        1.5: '0.375rem',
+        2: '0.5rem',
+        2.5: '0.625rem',
+        3: '0.75rem',
+        3.5: '0.875rem',
+        4: '1.5rem',
+      },
+      boxShadow: {
+        sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
+        DEFAULT: '0 0 0.4rem #babcbe',
+        // DEFAULT: '0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1)',
+        md: '0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1)',
+        lg: '0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1)',
+        xl: '0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)',
+        '2xl': '0 25px 50px -12px rgb(0 0 0 / 0.25)',
+        inner: 'inset 0 2px 4px 0 rgb(0 0 0 / 0.05)',
+        none: 'none',
       },
       fontFamily: {
         // source: https://prism.coxautoinc.com/foundation/typography/typography--usage
@@ -64,7 +89,7 @@ module.exports = {
       borderColor: ({ theme }) => ({
         ...theme('colors'),
         // #babcbe
-        DEFAULT: theme('colors.gray.400', 'currentColor'),
+        DEFAULT: theme('colors.gray.200', 'currentColor'),
       }),
       borderOpacity: ({ theme }) => theme('opacity'),
       borderRadius: {
@@ -94,4 +119,7 @@ module.exports = {
     require('@tailwindcss/typography'),
     // require('@tailwindcss/forms')
   ],
+  // presets: [
+  //   require('@prism2/tailwind-preset')
+  // ]
 }

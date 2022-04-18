@@ -2,7 +2,7 @@ import { useContext, useMemo } from 'react';
 import {
   BeakerIcon, ChevronDownIcon, ChevronRightIcon, FilterIcon, MailIcon, PrinterIcon,
 } from '@heroicons/react/solid';
-import { Button } from '../../lib/Button';
+import { Button } from '@prism2/react-components';
 import { para, headings } from './sample';
 import { AppContext } from '../context/AppContext';
 
@@ -44,7 +44,7 @@ function Samples({ className = '' }: Props) {
               <ChevronDownIcon />
             </Button>
           </header>
-          <main className="space-y-4">
+          <main className="space-y-2">
             <p>{para[4]}</p>
           </main>
         </div>
@@ -190,13 +190,12 @@ export function Swatch() {
     </figure>
   ), []);
   return (
-    <>
+    <div className='space-y-4'>
       <CTAButtons />
-      <ColorGrid />
-      <FigureWithCaption />
       <FormSample />
       <ColorGrid />
-    </>
+      <FigureWithCaption />
+    </div>
   );
 }
 export function Home() {

@@ -1,6 +1,5 @@
 import { useState } from 'react'
-import { Dialog, Transition } from '@headlessui/react'
-import { Button } from '../../lib/Button';
+import { Button, Dialog, Transition } from '@prism2/react-components';
 
 export function Presentation() {
   let [isOpen, setIsOpen] = useState(true)
@@ -24,7 +23,6 @@ export function Presentation() {
     >
       <div className="flex items-center justify-center min-h-screen">
         <Dialog.Overlay className="fixed inset-0 bg-black opacity-30" />
-
         <div className="relative bg-white rounded max-w-sm mx-auto w-[400px] p-4 space-y-4">
           <Dialog.Title as="h3">Complete your order</Dialog.Title>
           <Dialog.Description>This is the description my friends</Dialog.Description>

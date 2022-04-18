@@ -1,14 +1,13 @@
-/**
- * @remark Our TailwindCSS preset is intended to quickstart app development at Mannheim
- * by applying our basic branding guidelines to Tailwind out of the box.
- *
- * @abstract Provide a set of presets that include our base theme for PRISM.
- */
+const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
+  important: true,
   content: [
     "./index.html",
-    "./src/**/*.{vue,js,ts,jsx,tsx}",
+    "./src/**/*.{vue,js,ts,jsx,tsx,css}",
+    // "./src/views/*.tsx",
+    // "./src/App.tsx",
     "./lib/**/*.{vue,js,ts,jsx,tsx}",
+    "./lib/*.{vue,js,ts,jsx,tsx}",
   ],
   presets: [
     require('@prism2/tailwind-preset')
