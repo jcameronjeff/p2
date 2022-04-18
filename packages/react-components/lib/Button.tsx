@@ -1,12 +1,28 @@
 import React from 'react';
 
+/**
+ * @remark - Define types inline at the top of the file
+ * @remark - Include comments explaining each key of Props
+ * @remark - `interface Props` should extend the corresponding HTML elements args.
+ * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
+ * @remark - Alternately: define components in TW3 and reference as variants.
+ */
 type VariantName = 'text'|'outline'|'auxiliary'|'link'|'base'
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends React.DetailsHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+  /**
+   * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
+   */
   variant?: keyof Variant,
+  /**
+   * HTML Type attribute https://www.w3schools.com/tags/att_type.asp
+   */
   type?: ButtonType,
+  /**
+   * Optional text to display on button, otherwise use children.
+   */
   label?: string
 }
 
@@ -24,7 +40,7 @@ export function Button({ variant = 'base', label = 'OK', ...args }: Props):React
   const vars:Variant = {
     outline: 'bg-transparent border border-blue-300 ring-0',
     text: 'border-0',
-    auxiliary: 'text-sm uppercase font-alt border-0',
+    auxiliary: 'text-sm uppercase font-alt border-8',
     link: 'border-0 font-regular uppercase',
     base: 'border',
   };

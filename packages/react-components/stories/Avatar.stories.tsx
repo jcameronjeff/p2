@@ -39,7 +39,11 @@ WithMiddleName.args = {
   name: 'Darin Singer Cassler'
 }
 
-export const WithMiddleNameAndImage = AvatarTemplate.bind({});
-WithMiddleNameAndImage.args = {
-  name: 'Darin Singer Cassler'
-}
+// More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
+// AutoAvatarClick.play = async ({ canvasElement }) => {
+//   const canvas = within(canvasElement);
+//   const loginAvatar = await canvas.getByRole('Avatar', { name: /Clicked/i });
+//   for (let step = 0; step < 5; step++) {
+//     await sleep(250).then(() => userEvent.click(loginAvatar)).then(() => sleep(250))
+//   }
+// };

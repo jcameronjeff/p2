@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { KitchenSink } from '../lib/HTML5';
 
 export default {
   title: 'Example/Page',
-  component: KitchenSink,
   argTypes: {
     enablePrism: { control: 'boolean'},
     textSize: {
@@ -16,7 +14,7 @@ export default {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof KitchenSink>;
+} as ComponentMeta<any>;
 
 const Template: ComponentStory<any> = (args) => (
 
@@ -30,7 +28,6 @@ const Template: ComponentStory<any> = (args) => (
     <FigureHTML />
     <TableHTML />
     <AddressHTML />
-    <KitchenSink {...args} />
   </div>
 )
 
