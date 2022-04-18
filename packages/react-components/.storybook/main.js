@@ -6,10 +6,6 @@ module.exports = {
     "../stories/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    "@storybook/addon-links",
-    "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-storysource",
     {
       name: '@storybook/addon-docs',
       options: {
@@ -19,6 +15,10 @@ module.exports = {
         transcludeMarkdown: true,
       },
     },
+    "@storybook/addon-links",
+    "@storybook/addon-essentials",
+    "@storybook/addon-interactions",
+    "@storybook/addon-storysource",
   ],
   async viteFinal(config, { configType }) {
     // return the customized config
