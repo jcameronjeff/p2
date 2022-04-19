@@ -1,0 +1,78 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Avatar, Button } from '../lib';
+import { HeadingsHTML, ArticleHTML, FormHTML, ListHTML, DefinitionHTML, FigureHTML, TableHTML, AddressHTML, CodeblockHTML } from './Page.stories';
+
+<Meta title="Elements/HTML5" component={Avatar} />
+
+# HTML5 Elements
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+### Headings
+
+<Canvas>
+<Story name="1. Heading Text">
+  <HeadingsHTML />
+</Story>
+</Canvas>
+
+
+### Body Text
+
+<Canvas>
+<Story name="2. Body Text">
+  <ArticleHTML />
+</Story>
+</Canvas>
+
+
+### Forms
+
+<Canvas>
+  <Story name='3. Forms'>
+    <FormHTML />
+  </Story>
+</Canvas>
+
+### Tables
+
+<Canvas>
+  <Story name='4. Tables'>
+    <TableHTML />
+  </Story>
+</Canvas>
+
+### Lists
+
+<Canvas>
+  <Story name='5. Lists'>
+    <ListHTML />
+  </Story>
+</Canvas>
+
+
+### Definitions
+
+<Canvas>
+  <Story name='6. Definitions'>
+    <DefinitionHTML />
+  </Story>
+</Canvas>
+
+### Figures
+
+<Canvas>
+  <Story name='7. Figure'>
+    <FigureHTML />
+  </Story>
+</Canvas>
+
+
+### Address
+
+<Canvas>
+  <Story name='8. Address'>
+    <AddressHTML />
+  </Story>
+</Canvas>

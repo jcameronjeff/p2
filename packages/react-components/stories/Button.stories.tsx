@@ -7,7 +7,7 @@ import { Avatar } from '../lib/Avatar';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Elements/Button/AutoClick',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {

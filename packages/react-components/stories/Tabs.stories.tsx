@@ -4,7 +4,7 @@ import { Tab } from '../lib';
 import { HeadingsHTML, NavsHTML } from './Page.stories';
 
 export default {
-  title: 'Example/Tabs',
+  title: 'Interaction/Tabs',
   component: Tab,
   argTypes: {
     enablePrism: { control: 'boolean'},

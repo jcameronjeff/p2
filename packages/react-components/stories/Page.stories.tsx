@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
-  title: 'Example/Page',
+  title: 'Views/HTML',
   argTypes: {
     enablePrism: { control: 'boolean'},
     textSize: {
@@ -16,7 +16,7 @@ export default {
   },
 } as ComponentMeta<any>;
 
-const Template: ComponentStory<any> = (args) => (
+export const Template: ComponentStory<any> = (args) => (
 
   <div className='space-y-8'>
     <HeadingsHTML />
@@ -31,7 +31,6 @@ const Template: ComponentStory<any> = (args) => (
   </div>
 )
 
-export const HTML5KitchenSink = Template.bind({});
 
 
 
@@ -48,7 +47,6 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
   </section>
 )
 
-export const Headings = HeadingsHTML.bind({})
 
 
 export const NavsHTML: ComponentStory<any> = (args) => (
@@ -67,10 +65,9 @@ export const NavsHTML: ComponentStory<any> = (args) => (
   </section>
 )
 
-export const Navigation = NavsHTML.bind({})
 
 
-const ArticleHTML: ComponentStory<any> = (args) => (
+export const ArticleHTML: ComponentStory<any> = (args) => (
 
   <article>
     <p>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
@@ -80,11 +77,10 @@ const ArticleHTML: ComponentStory<any> = (args) => (
 
 )
 
-export const Articles = ArticleHTML.bind({})
 
-const TableHTML: ComponentStory<any> = (args) => (
+export const TableHTML: ComponentStory<any> = (args) => (
 
-  <table className={`prism-table ${args.textSize}`}>
+  <table className={`prism-table`}>
     <caption>Tables can have captions now.</caption>
     <tbody>
       <tr>
@@ -115,12 +111,11 @@ const TableHTML: ComponentStory<any> = (args) => (
     </tbody>
   </table>
 )
-export const Tables = TableHTML.bind({})
 
 
 
 
-const FormHTML: ComponentStory<any> = (args) => (
+export const FormHTML: ComponentStory<any> = (args) => (
 
   <form className='space-y-2'>
     <p>
@@ -243,10 +238,9 @@ const FormHTML: ComponentStory<any> = (args) => (
 
 )
 
-export const Forms = FormHTML.bind({})
 
 
-const ListHTML: ComponentStory<any> = (args) => (
+export const ListHTML: ComponentStory<any> = (args) => (
 
   <section className='space-y-4'>
     <ul>
@@ -293,10 +287,9 @@ const ListHTML: ComponentStory<any> = (args) => (
   </section>
 
 )
-export const Lists = ListHTML.bind({})
 
 
-const DefinitionHTML: ComponentStory<any> = (args) => (
+export const DefinitionHTML: ComponentStory<any> = (args) => (
 
   <section>
     <dl>
@@ -312,9 +305,8 @@ const DefinitionHTML: ComponentStory<any> = (args) => (
   </section>
 
 )
-export const Definitions = DefinitionHTML.bind({})
 
-const FigureHTML: ComponentStory<any> = (args) => (
+export const FigureHTML: ComponentStory<any> = (args) => (
 
   <figure>
     <img src="https://www.fillmurray.com/505/314" />
@@ -322,9 +314,8 @@ const FigureHTML: ComponentStory<any> = (args) => (
   </figure>
 
 )
-export const Figures = FigureHTML.bind({})
 
-const BlockquoteHTML: ComponentStory<any> = (args) => (
+export const BlockquoteHTML: ComponentStory<any> = (args) => (
   <section className='space-y-4 prose prose-sm'>
     <blockquote>
       <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
@@ -337,18 +328,16 @@ const BlockquoteHTML: ComponentStory<any> = (args) => (
     </blockquote>
   </section>
 )
-export const Blockquotes = BlockquoteHTML.bind({})
 
 
-const AddressHTML: ComponentStory<any> = (args) => (
+export const AddressHTML: ComponentStory<any> = (args) => (
   <address>1 Infinite Loop<br/>
   Cupertino, CA 95014<br/>
   United States</address>
 )
-export const Address = AddressHTML.bind({})
 
 
-const CodeblockHTML: ComponentStory<any> = (args) => (
+export const CodeblockHTML: ComponentStory<any> = (args) => (
   <pre>
     {`pre {
       display: block;
@@ -362,17 +351,3 @@ const CodeblockHTML: ComponentStory<any> = (args) => (
       line-height: 160%;
     }`}</pre>
 )
-export const PreCode = CodeblockHTML.bind({})
-
-HTML5KitchenSink.args = { enablePrism: true, textSize: 'text-base' }
-Headings.args = { enablePrism: true, textSize: 'text-base' }
-Navigation.args = { enablePrism: true, textSize: 'text-base' }
-Articles.args = { enablePrism: true, textSize: 'text-base' }
-Tables.args = { enablePrism: true, textSize: 'text-base' }
-Forms.args = { enablePrism: true, textSize: 'text-base' }
-Lists.args = { enablePrism: true, textSize: 'text-base' }
-Definitions.args = { enablePrism: true, textSize: 'text-base' }
-Figures.args = { enablePrism: true, textSize: 'text-base' }
-Blockquotes.args = { enablePrism: true, textSize: 'text-base' }
-Address.args = { enablePrism: true, textSize: 'text-base' }
-PreCode.args = { enablePrism: true, textSize: 'text-base' }
