@@ -57,8 +57,6 @@ const Template: ComponentStory<any> = (args) => (
         </Tab.Panels>
     </Tab.Group>
   </div>
-
-    <HeadingsHTML />
   </div>
 )
 
