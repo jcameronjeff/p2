@@ -1,26 +1,15 @@
 import React from 'react';
 
-type VariantName = 'text'|'outline'|'auxiliary'|'link'|'base'
-type Variant = Record<VariantName, string>;
-type ButtonType = 'button' | 'submit' | 'reset';
-
-interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
-  size?: string,
+interface Props extends React.HTMLProps<HTMLDivElement> {
+  /**
+   * Username to be displayed. Will return up to 3 initials..
+   */
   name?: string,
 }
 
-/**
- *
- * @todo Generate a singular Button component that:
- * - includes styles for everything with small footprint.
- * - styles do not pollute other elements.
- * - minimal API surface area (variant + tailwind)
- *
- */
-export function Avatar({ size = '12', alt = 'Image', ...args }: Props):React.ReactElement {
-  const { children, className } = args;
+export function Avatar({ alt = 'Image', src, name, className, ...args }: Props) {
   const [hasImage, setHasImage] = React.useState(true)
-  const clsx = ["rounded-full flex border-2 items-center justify-center border-gold-dark w-12 h-12 overflow-hidden",  className].join(' ');
+  const clsx = ["rounded-full flex border-4 items-center justify-center border-gold-dark w-12 h-12 overflow-hidden",  className].join(' ');
 
   function getInitials(str: string) {
     if (str.split(' ').length === 1) {
@@ -31,11 +20,11 @@ export function Avatar({ size = '12', alt = 'Image', ...args }: Props):React.Rea
   }
 
   return (
-    <div className={clsx}>
-      {hasImage && args.src ? (
-        <img className='w-full h-full' src={args.src} alt={alt} onError={() => setHasImage(false)} />
+    <div {...args} className={clsx}>
+      {hasImage && src ? (
+        <img className='w-full h-full' src={src} alt={alt} onError={() => setHasImage(false)} />
       ) : (
-        <span className='font-normal'>{getInitials(args.name || '')}</span>
+        <span className='font-normal translate-y-[1px]'>{getInitials(name || '')}</span>
       )}
     </div>
   );

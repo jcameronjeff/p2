@@ -11,7 +11,7 @@ type VariantName = 'text'|'outline'|'auxiliary'|'link'|'base'
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends React.ButtonHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.HTMLProps<HTMLButtonElement> {
   /**
    * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
    */
