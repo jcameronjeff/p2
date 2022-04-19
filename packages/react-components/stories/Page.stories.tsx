@@ -31,9 +31,6 @@ export const Template: ComponentStory<any> = (args) => (
   </div>
 )
 
-
-
-
 export const HeadingsHTML: ComponentStory<any> = (args) => (
   <section>
     <hgroup className='space-y-4'>
@@ -43,8 +40,29 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <h4>h4 Five or six big jet planes zoomed quickly by the new tower.</h4>
       <h5>h5 Expect skilled signwriters to use many jazzy, quaint old alphabets effectively.</h5>
       <h6>h6 Pack my box with five dozen liquor jugs.</h6>
+      <p>Basic paragraph text <code>.text-base / 16px</code></p>
+      <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
+      <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
+      <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
+      <p className='prism-label'>.prism-label</p>
+      <p className='prism-label-xs'>.prism-label-xs</p>
+      <p className='prism-text-link-xs'>.prism-text-link-xs</p>
+      <p className='prism-text-link-sm'>.prism-text-link-sm</p>
     </hgroup>
   </section>
+)
+
+export const BodyTextHTML: ComponentStory<any> = (args) => (
+  <div>
+    <p>Basic paragraph text <code>.text-base / 16px</code></p>
+    <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
+    <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
+    <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
+    <p className='prism-label'>.prism-label</p>
+    <p className='prism-label-xs'>.prism-label-xs</p>
+    <p className='prism-text-link-xs'>.prism-text-link-xs</p>
+    <p className='prism-text-link-sm'>.prism-text-link-sm</p>
+  </div>
 )
 
 
@@ -69,10 +87,12 @@ export const NavsHTML: ComponentStory<any> = (args) => (
 
 export const ArticleHTML: ComponentStory<any> = (args) => (
 
-  <article>
-    <p>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p>You can also use <kbd>keyboard text</kbd>, which sometimes is styled similarly to the <code>&lt;code&gt;</code> or <samp>samp</samp> tags. Even more specifically, there is a tag just for <var>variables</var>. Not to be mistaken with blockquotes
-      below, the quote tag lets you denote something as <q>quoted text</q>. Lastly don't forget the sub (H<sub>2</sub>O) and sup (E = MC<sup>2</sup>) tags. </p>
+  <article className='space-y-4'>
+    <input className='prism-text-input' type='text' placeholder="my placeholder" />
+    <p className='prism-prose'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-sm'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xxs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
   </article>
 
 )
@@ -120,7 +140,7 @@ export const FormHTML: ComponentStory<any> = (args) => (
   <form className='space-y-2'>
     <p>
       <label htmlFor="example-input-email">Email address</label>
-      <input type="email" id="example-input-email" placeholder="Enter email" />
+      <input className='form-input' type="email" id="example-input-email" placeholder="Enter email" />
     </p>
     <p>
       <label htmlFor="example-input-password1">Number</label>
@@ -242,12 +262,20 @@ export const FormHTML: ComponentStory<any> = (args) => (
 
 export const ListHTML: ComponentStory<any> = (args) => (
 
-  <section className='space-y-4'>
-    <ul>
+  <section className='grid grid-cols-2 w-full space-between'>
+    <div className='space-y-4'>
+    <h3>Basic </h3>
+    <ul className='prism-list'>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ul>
+    <h3>Nested</h3>
+    <ul className='prism-list'>
       <li>Unordered List item one
-        <ul>
+        <ul className='prism-list'>
           <li>Nested list item
-            <ul>
+            <ul className='prism-list'>
               <li>Level 3, item one</li>
               <li>Level 3, item two</li>
               <li>Level 3, item three</li>
@@ -263,27 +291,23 @@ export const ListHTML: ComponentStory<any> = (args) => (
       <li>List item three</li>
       <li>List item four</li>
     </ul>
-    <hr/>
-    <ol>
-      <li>List item one
-        <ol>
-          <li>List item one
-            <ol>
-              <li>List item one</li>
-              <li>List item two</li>
-              <li>List item three</li>
-              <li>List item four</li>
-            </ol>
-          </li>
-          <li>List item two</li>
-          <li>List item three</li>
-          <li>List item four</li>
-        </ol>
-      </li>
+    </div>
+    <div className='space-y-4'>
+    <h3>Small Text</h3>
+    <ol className='prism-list text-sm'>
+      <li>List item one 2</li>
       <li>List item two</li>
       <li>List item three</li>
       <li>List item four</li>
     </ol>
+    <h3>Extra Small Text</h3>
+    <ol className='prism-list text-xs'>
+      <li>List item one 2</li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ol>
+    </div>
   </section>
 
 )

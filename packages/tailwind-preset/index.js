@@ -74,6 +74,7 @@ module.exports = {
       },
       fontSize: {
         // source: https://prism.coxautoinc.com/foundation/typography/typography--usage
+        "xxs": '10px',
         "xs": "12px",
         "sm": "14px",
         base: "16px",

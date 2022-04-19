@@ -1,5 +1,8 @@
+const plugin = require('tailwindcss/plugin')
+
 const defaultTheme = require('tailwindcss/defaultTheme')
 module.exports = {
+
   important: true,
   content: [
     "./index.html",
@@ -77,7 +80,7 @@ module.exports = {
           200: '#eeeeee',
           300: '#dfe0e0',
           350: '#babcbe',
-          400: '#babcbe',
+          400: '#808080',
           500: '#98999b',
           600: '#6a6a6a',
           700: '#5b5b5b',
@@ -89,7 +92,7 @@ module.exports = {
       borderColor: ({ theme }) => ({
         ...theme('colors'),
         // #babcbe
-        DEFAULT: theme('colors.gray.200', 'currentColor'),
+        DEFAULT: theme('colors.gray.350', 'currentColor'),
       }),
       borderOpacity: ({ theme }) => theme('opacity'),
       borderRadius: {
@@ -99,6 +102,7 @@ module.exports = {
       },
       fontSize: {
         // source: https://prism.coxautoinc.com/foundation/typography/typography--usage
+        "xxs": "10px",
         "xs": "12px",
         "sm": "14px",
         base: "16px",
@@ -106,18 +110,95 @@ module.exports = {
         "xl": "20px",
         "2xl": "22px",
         "3xl": '26px',
-        '4xl': ['2.25rem', { lineHeight: '2.5rem' }],
-        '5xl': ['3rem', { lineHeight: '1' }],
-        '6xl': ['3.75rem', { lineHeight: '1' }],
-        '7xl': ['4.5rem', { lineHeight: '1' }],
-        '8xl': ['6rem', { lineHeight: '1' }],
-        '9xl': ['8rem', { lineHeight: '1' }],
+
+
+
+
+
+
+      },
+      fontWeight: {
+        thin: '100',
+        extralight: '200',
+        light: '300',
+        normal: '400',
+        medium: '500',
+        semibold: '600',
+        bold: '700',
+        extrabold: '800',
+        black: '900',
       },
     },
   },
   plugins: [
     require('@tailwindcss/typography'),
-    // require('@tailwindcss/forms')
+    require("@tailwindcss/forms")({
+      // strategy: 'base', // only generate global styles
+      strategy: 'class', // only generate classes
+    }),
+    plugin(({ addComponents, theme }) => {
+      addComponents({
+        '.prism-label': {
+          fontSize: theme('fontSize.sm'),
+          color: theme('colors.gray.400'),
+        },
+        '.prism-label-xs': {
+          fontSize: theme('fontSize.xs'),
+          color: theme('colors.gray.400'),
+        },
+        '.prism-link': {
+          fontSize: theme('fontSize.base'),
+          color: theme('colors.cerulean-dark'),
+          fontWeight: theme('fontWeight.medium')
+        },
+        '.prism-link-sm': {
+          fontSize: theme('fontSize.sm'),
+          color: theme('colors.cerulean-dark'),
+          fontWeight: theme('fontWeight.medium')
+        },
+        '.prism-link-xs': {
+          fontSize: theme('fontSize.xs'),
+          color: theme('colors.cerulean-dark'),
+          fontWeight: theme('fontWeight.normal'),
+          textDecoration: 'underline'
+        },
+        '.prism-link-xxs': {
+          fontSize: theme('fontSize.xxs'),
+          color: theme('colors.gray.400'),
+          textDecoration: 'underline'
+        },
+        '.prism-prose': {
+          fontSize: theme('fontSize.base'),
+          lineHeight: theme('fontSize.xl')
+        },
+        '.prism-prose-sm': {
+          fontSize: theme('fontSize.sm'),
+          lineHeight: theme('fontSize.lg')
+        },
+        '.prism-prose-xs': {
+          fontSize: theme('fontSize.xs'),
+          lineHeight: theme('fontSize.base')
+        },
+        '.prism-prose-xxs': {
+          fontSize: theme('fontSize.xxs'),
+          lineHeight: theme('fontSize.sm')
+        }
+        // '.prism-text-input': {
+        //   borderWidth: theme('borderWidth.DEFAULT'),
+        //   borderColor: theme('borderColor.DEFAULT'),
+        //   borderRadius: theme('borderRadius.xs'),
+        //   boxShadow: theme('boxShadow.inner'),
+        //   backgroundColor: theme('colors.white'),
+        //   padding: theme('spacing.2'),
+        //   '&:placeholder': {
+        //     color: theme('colors.gray.400')
+        //   },
+        //   '&:readonly': {
+        //     backgroundColor: theme('colors.gray.100')
+        //   },
+        // }
+      })
+    })
   ],
   // presets: [
   //   require('@prism2/tailwind-preset')
