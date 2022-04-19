@@ -46,8 +46,8 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
       <p className='prism-label'>.prism-label</p>
       <p className='prism-label-xs'>.prism-label-xs</p>
-      <p className='prism-text-link-xs'>.prism-text-link-xs</p>
-      <p className='prism-text-link-sm'>.prism-text-link-sm</p>
+      <p className='prism-link-xs'>.prism-text-link-xs</p>
+      <p className='prism-link-sm'>.prism-text-link-sm</p>
     </hgroup>
   </section>
 )
@@ -60,8 +60,9 @@ export const BodyTextHTML: ComponentStory<any> = (args) => (
     <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
     <p className='prism-label'>.prism-label</p>
     <p className='prism-label-xs'>.prism-label-xs</p>
-    <p className='prism-text-link-xs'>.prism-text-link-xs</p>
-    <p className='prism-text-link-sm'>.prism-text-link-sm</p>
+    <p className='prism-link'>.prism-link</p>
+    <p className='prism-link-sm'>.prism-text-link-sm</p>
+    <p className='prism-link-xs'>.prism-xs</p>
   </div>
 )
 
@@ -88,7 +89,8 @@ export const NavsHTML: ComponentStory<any> = (args) => (
 export const ArticleHTML: ComponentStory<any> = (args) => (
 
   <article className='space-y-4'>
-    <input className='prism-text-input' type='text' placeholder="my placeholder" />
+    <input className='prism-input' type='text' placeholder="my placeholder" />
+    <input type='text' placeholder='my-placeholder' />
     <p className='prism-prose'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
     <p className='prism-prose-sm'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
     <p className='prism-prose-xs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
@@ -100,7 +102,7 @@ export const ArticleHTML: ComponentStory<any> = (args) => (
 
 export const TableHTML: ComponentStory<any> = (args) => (
 
-  <table className={`prism-table`}>
+  <table className="prism-table">
     <caption>Tables can have captions now.</caption>
     <tbody>
       <tr>
@@ -139,8 +141,8 @@ export const FormHTML: ComponentStory<any> = (args) => (
 
   <form className='space-y-2'>
     <p>
-      <label htmlFor="example-input-email">Email address</label>
-      <input className='form-input' type="email" id="example-input-email" placeholder="Enter email" />
+      <label htmlFor="example-input-email" className='prism-label'>Email address</label>
+      <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
     </p>
     <p>
       <label htmlFor="example-input-password1">Number</label>

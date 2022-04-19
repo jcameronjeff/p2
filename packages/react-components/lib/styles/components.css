@@ -5,26 +5,6 @@
     line-height: theme('lineHeight.tight');
     color: theme('colors.gray.700');
 
-
-    .prism-table {
-      tr, td, thead, th {
-        @apply border;
-        @apply p-2;
-        @apply text-left;
-      }
-      th {
-        @apply bg-navy;
-        @apply text-white;
-        @apply border-navy;
-      }
-      caption, tfoot {
-        @apply italic;
-        @apply p-2;
-        @apply text-gray-500;
-        @apply text-sm;
-      }
-    }
-
     .card {
       border-radius: theme('borderRadius.xs');
       box-shadow: theme('boxShadow.DEFAULT');
@@ -99,69 +79,10 @@
       }
     }
     form {
-      p {
-        @apply grid;
-        @apply grid-cols-[120px,1fr];
-        @apply gap-4;
-        @apply items-center;
-
-        label {
-          @apply text-right;
-        }
-      }
-
+      label { @apply prism-label }
     }
 
-    label {
-      @apply text-gray-600;
-      @apply text-sm;
-    }
-    /**
-    input,
-    input[type='text'],
-    input[type='textarea'],
-    textarea {
-      @apply p-2 py-2;
-      @apply text-base;
-      @apply text-black;
-      @apply placeholder-black;
-      @apply placeholder-opacity-50;
-      @apply rounded-xs;
-      @apply border;
-      @apply shadow-inner;
-      @apply focus-within:shadow-md;
-      @apply overflow-ellipsis;
-    }
-    input:read-only {
-      @apply border-0;
-      @apply shadow-none;
-      @apply pl-0;
-    }
-    **/
 
-    .prism-text-input {
-
-      --tw-ring-color: theme('colors.gray.500');
-      --tw-ring-offset-shadow: var(--tw-ring-inset) 0 0 0 var(--tw-ring-offset-width) var(--tw-ring-offset-color)!important;
-      --tw-ring-shadow: var(--tw-ring-inset) 0 0 0 calc(1px + var(--tw-ring-offset-width)) var(--tw-ring-color)!important;
-
-
-
-      border-width: 0;
-      border-color: theme('borderColor.DEFAULT');
-      border-radius: theme('borderRadius.xs');
-      box-Shadow: var(--tw-ring-offset-shadow),var(--tw-ring-shadow),var(--tw-shadow,0 0 #0000)!important;
-      background-color: theme('colors.white');
-      padding: theme('spacing[2.5]');
-      font-size: theme('fontSize.base');
-      &::placeholder {
-        color: theme('colors.gray.400');
-      }
-      &:focus, &:active {
-        outline: none;
-        border: none;
-      }
-    }
     figcaption {
       font-size: theme('fontSize.xs');
       color: theme('colors.gray.500');
@@ -213,31 +134,3 @@
       @apply mb-0;
     }
   }
-
-
-.prism {
-
-
-  button[type='submit'] {
-    @apply bg-gold-dark ring-gold-dark;
-    @apply text-navy-dark;
-    &:hover {
-      @apply bg-gold ring-gold;
-      @apply text-navy-dark;
-    }
-  }
-  button.ghosted {
-    @apply ring-0;
-  }
-
-  nav ul {
-    @apply flex;
-    @apply list-none;
-  }
-  nav ul li {
-    @apply p-2;
-    @apply font-medium;
-  }
-
-}
-
