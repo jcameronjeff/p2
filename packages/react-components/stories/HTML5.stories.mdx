@@ -8,11 +8,41 @@ import { HeadingsHTML, ArticleHTML, FormHTML, ListHTML, DefinitionHTML, FigureHT
 
 Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 elements.
 
-### Headings
+### Typography
 
 <Canvas>
 <Story name="1. Heading Text">
-  <HeadingsHTML />
+  <section className='prism space-y-4'>
+    <hgroup className='space-y-4'>
+      <h1>Heading One</h1>
+      <h2>Heading Two</h2>
+      <h3>Heading Three Jaunty vie with flaunting phlox</h3>
+      <h4>Heading Four Five or six big jet planes zoomed quickly by the new tower.</h4>
+      <h5>Heading Five Expect skilled signwriters to use many jazzy, quaint old alphabets effectively.</h5>
+      <h6>Heading Six Pack my box with five dozen liquor jugs.</h6>
+    </hgroup>
+  </section>
+</Story>
+</Canvas>
+
+### Utility Text Styles
+
+<Canvas>
+<Story name='1b. Utility Text Styles'>
+  <div className='space-y-4'>
+    <p>Basic paragraph text <code>.text-base / 16px</code></p>
+    <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
+    <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
+    <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
+    <hr />
+    <p className='prism-label'>.prism-label (14px)</p>
+    <p className='prism-label-xs'>.prism-label-xs (12px)</p>
+    <hr />
+    <p className='prism-link'>.prism-link - Accordion Link, Inline Link, Menu Link (16px)</p>
+    <p className='prism-link-sm'>.prism-link-sm - Accordion Link, Inline Link (14px)</p>
+    <p className='prism-link-xs'>.prism-link-xs - Inline Link XS (12px) </p>
+    <p className='prism-link-xxs'>.prism-link-xxs - Inline Link XXS (10px) </p>
+  </div>
 </Story>
 </Canvas>
 
@@ -21,9 +51,12 @@ Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 
 
 <Canvas>
 <Story name="2. Body Text">
-  <div className='space-y-4'>
-    <ArticleHTML />
-  </div>
+  <article className='space-y-4 prism'>
+    <p className='prism-prose'><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-sm'><strong>.prism-prose-sm</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xs'><strong>.prism-prose-xs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xxs'><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+  </article>
 </Story>
 </Canvas>
 
@@ -36,19 +69,92 @@ Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 
   </Story>
 </Canvas>
 
-### Tables
+## Tables
+
+### Styled Table
 
 <Canvas>
-  <Story name='4. Tables'>
-    <TableHTML />
+  <Story name='4a. Tables'>
+    <table className="prism-table">
+    <caption>Tables can have captions now.</caption>
+    <tbody>
+      <tr>
+        <th>Person</th>
+        <th>Number</th>
+        <th>Third Column</th>
+      </tr>
+      <tr>
+        <td>Someone Lastname</td>
+        <td>900</td>
+        <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+      </tr>
+      <tr>
+        <td><a href="#">Person Name</a></td>
+        <td>1200</td>
+        <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
+      </tr>
+      <tr>
+        <td>Another Person</td>
+        <td>1500</td>
+        <td>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
+      </tr>
+      <tr>
+        <td>Last One</td>
+        <td>2800</td>
+        <td>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</td>
+      </tr>
+    </tbody>
+  </table>
   </Story>
 </Canvas>
+
+### Unstyled Table
+
+<Canvas>
+  <Story name='4b. Unstyled Table'>
+    <table>
+    <caption>Tables can have captions now.</caption>
+    <tbody>
+      <tr>
+        <th>Person</th>
+        <th>Number</th>
+        <th>Third Column</th>
+      </tr>
+      <tr>
+        <td>Someone Lastname</td>
+        <td>900</td>
+        <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+      </tr>
+      <tr>
+        <td><a href="#">Person Name</a></td>
+        <td>1200</td>
+        <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
+      </tr>
+      <tr>
+        <td>Another Person</td>
+        <td>1500</td>
+        <td>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
+      </tr>
+      <tr>
+        <td>Last One</td>
+        <td>2800</td>
+        <td>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</td>
+      </tr>
+    </tbody>
+  </table>
+  </Story>
+</Canvas>
+
 
 ### Lists
 
 <Canvas>
   <Story name='5. Lists'>
-    <ListHTML />
+    <ul className='prism-list'>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ul>
   </Story>
 </Canvas>
 

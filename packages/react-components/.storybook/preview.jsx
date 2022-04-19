@@ -14,6 +14,6 @@ export const parameters = {
 }
 
 export const decorators = [
-  (Story) => <div className='prism' style={{padding: '3rem'}}><div className='flex justify-center gap-2'>
+  (Story) => <div style={{padding: '3rem'}}><div className='flex justify-center gap-2'>
     <Story /></div></div>
 ];
