@@ -38,19 +38,19 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
       // Prose (Body Text) --------------------------
       [`.${prefix}prose`]: {
         fontSize: theme('fontSize.base'),
-        lineHeight: theme('fontSize.xl')
+        lineHeight: theme('fontSize.2xl')
       },
       [`.${prefix}prose-sm`]: {
         fontSize: theme('fontSize.sm'),
-        lineHeight: theme('fontSize.lg')
+        lineHeight: theme('fontSize.xl')
       },
       [`.${prefix}prose-xs`]: {
         fontSize: theme('fontSize.xs'),
-        lineHeight: theme('fontSize.base')
+        lineHeight: theme('fontSize.lg')
       },
       [`.${prefix}prose-xxs`]: {
         fontSize: theme('fontSize.xxs'),
-        lineHeight: theme('fontSize.sm')
+        lineHeight: theme('fontSize.md')
       },
       // Tables ------------------------------------
       [`.${prefix}table, .prism table`]: {
@@ -118,7 +118,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         }
       },
       // Input Box ---------------------------------
-      [`.${prefix}input`]: {
+      [`.${prefix}input, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
         borderColor: theme('colors.gray.350'),
         borderWidth: '1px',
         borderStyle: 'solid',

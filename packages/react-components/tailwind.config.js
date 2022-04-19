@@ -20,5 +20,8 @@ module.exports = {
       prefix: 'prism-'
     })
   ],
+  // presets: [
+  //   require('@prism2/tailwind-preset')
+  // ]
 }
 

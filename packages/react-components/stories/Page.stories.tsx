@@ -40,14 +40,35 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <h4>h4 Five or six big jet planes zoomed quickly by the new tower.</h4>
       <h5>h5 Expect skilled signwriters to use many jazzy, quaint old alphabets effectively.</h5>
       <h6>h6 Pack my box with five dozen liquor jugs.</h6>
+
       <p>Basic paragraph text <code>.text-base / 16px</code></p>
       <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
       <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
       <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
-      <p className='prism-label'>.prism-label</p>
-      <p className='prism-label-xs'>.prism-label-xs</p>
-      <p className='prism-link-xs'>.prism-text-link-xs</p>
-      <p className='prism-link-sm'>.prism-text-link-sm</p>
+      <hr />
+      <p className='prism-label'>.prism-label (14px)</p>
+      <p className='prism-label-xs'>.prism-label-xs (12px)</p>
+      <hr />
+      <p className='prism-link'>.prism-link - Accordion Link, Inline Link, Menu Link (16px)</p>
+      <p className='prism-link-sm'>.prism-link-sm - Accordion Link, Inline Link (14px)</p>
+      <p className='prism-link-xs'>.prism-link-xs - Inline Link XS (12px) </p>
+      <p className='prism-link-xxs'>.prism-link-xxs - Inline Link XXS (10px) </p>
+      <hr />
+
+      <div className='space-y-2'>
+      <div className='space-y-1 flex items-center'>
+        <div className='prism-label w-[120px]'>Name</div>
+        <input className='prism-input w-full' />
+      </div>
+      <div className='space-y-1 flex items-center'>
+        <div className='prism-label w-[120px]'>Address</div>
+        <input className='prism-input w-full' />
+      </div>
+      <div className='space-y-1 flex items-center'>
+        <div className='prism-label w-[120px]'>Phone</div>
+        <input className='prism-input w-full' type="tel" />
+      </div>
+      </div>
     </hgroup>
   </section>
 )
@@ -93,8 +114,6 @@ export const NavsHTML: ComponentStory<any> = (args) => (
 export const ArticleHTML: ComponentStory<any> = (args) => (
 
   <article className='space-y-4 prism'>
-    <input className='prism-input' type='text' placeholder="my placeholder" />
-    <input type='text' placeholder='my-placeholder' />
     <p className='prism-prose'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
     <p className='prism-prose-sm'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
     <p className='prism-prose-xs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
