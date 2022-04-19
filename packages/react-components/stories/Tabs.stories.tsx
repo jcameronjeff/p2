@@ -20,8 +20,8 @@ export default {
 } as ComponentMeta<typeof Tab>;
 
 const Template: ComponentStory<any> = (args) => (
-
-  <div className='space-y-8 border p-8'>
+  <div>
+  <div className='space-y-8 border p-8 prism'>
      <Tab.Group defaultIndex={3}>
         <Tab.List className="flex gap-2 px-4 text-xs border-b-4 pb-4">
           <Tab as={Fragment}>
@@ -56,6 +56,9 @@ const Template: ComponentStory<any> = (args) => (
           ))}
         </Tab.Panels>
     </Tab.Group>
+  </div>
+
+    <HeadingsHTML />
   </div>
 )
 
