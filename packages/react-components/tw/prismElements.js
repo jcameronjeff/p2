@@ -53,7 +53,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         lineHeight: theme('fontSize.sm')
       },
       // Tables ------------------------------------
-      [`.${prefix}table`]: {
+      [`.${prefix}table, .prism table`]: {
         ['tr,td,thead,th']: {
           borderColor: theme('colors.gray.350'),
           borderWidth: '1px',
@@ -72,6 +72,49 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           padding: theme('spacing.2'),
           color: theme('colors.gray.500'),
           fontSize: theme('fontSize.sm')
+        }
+      },
+      // Buttons -----------------------------------
+      [`.${prefix}btn`]: {
+        padding: theme('spacing[2.5]'),
+        paddingLeft: theme('spacing.4'),
+        paddingRight: theme('spacing.4'),
+        backgroundColor: 'transparent',
+        color: theme('colors.cerulean-dark'),
+        outline: 'none',
+        border: 'none',
+        fontWeight: theme('fontWeight.bold'),
+        textTransform: 'uppercase',
+        borderColor: 'transparent',
+        borderRadius: theme('borderRadius.sm'),
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipses',
+        overflow: 'hidden',
+        cursor: 'pointer',
+
+        '&.outline': {
+          borderColor: theme('colors.cerulean-dark'),
+          outlineWidth: '1px',
+        },
+        '&.fill': {
+          backgroundColor: theme('colors.navy'),
+          color: theme('colors.white'),
+        },
+        '&:hover:not(:disabled):not([type="submit"]), &.active': {
+          backgroundColor: theme('colors.cerulean-light'),
+          color: theme('colors.cerulean-dark')
+        },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: theme('colors.gray.700'),
+          color: theme('colors.white')
+        },
+        '&[type="submit"]': {
+          backgroundColor: theme('colors.gold'),
+          color: theme('colors.gray.900'),
+          '&:hover': {
+            backgroundColor: theme('colors.gold-dark')
+          }
         }
       },
       // Input Box ---------------------------------

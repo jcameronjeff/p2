@@ -117,20 +117,4 @@
     }
   }
 
-  ul.prism-nav-list {
-    @apply list-none;
-    @apply flex;
-  }
 
-  ol.prism-list,
-  ul.prism-list {
-    @apply list-inside;
-    @apply list-disc;
-    @apply space-y-2;
-    ul.prism-list,
-    ol.prism-list {
-      @apply pt-2;
-      @apply ml-4;
-      @apply mb-0;
-    }
-  }

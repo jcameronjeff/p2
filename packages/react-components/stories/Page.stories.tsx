@@ -74,10 +74,14 @@ export const NavsHTML: ComponentStory<any> = (args) => (
       <img className='w-12 h-12 rounded-full' src="https://www.fillmurray.com/48/48" />
       <div className='border-l h-16 ml-4' />
       <nav>
-        <ul className='px-2'>
-          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Home</a></li>
-          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Buy</a></li>
-          <li className='p-0'><a className='h-16 tracking-tight uppercase hover:bg-gray-100 inline-block p-4' href='#'>Sell</a></li>
+        <ul className='px-2 flex items-stretch'>
+
+          <a className='h-16 items-center hover:bg-gray-100 flex px-4' href='#'>
+            <span>Home</span>
+          </a>
+         <a className='h-16 items-center hover:bg-gray-100 flex px-4' href='#'>
+            <span>Home</span>
+          </a>
         </ul>
       </nav>
     </header>
@@ -88,7 +92,7 @@ export const NavsHTML: ComponentStory<any> = (args) => (
 
 export const ArticleHTML: ComponentStory<any> = (args) => (
 
-  <article className='space-y-4'>
+  <article className='space-y-4 prism'>
     <input className='prism-input' type='text' placeholder="my placeholder" />
     <input type='text' placeholder='my-placeholder' />
     <p className='prism-prose'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
@@ -139,7 +143,7 @@ export const TableHTML: ComponentStory<any> = (args) => (
 
 export const FormHTML: ComponentStory<any> = (args) => (
 
-  <form className='space-y-2'>
+  <form className='space-y-2 prism'>
     <p>
       <label htmlFor="example-input-email" className='prism-label'>Email address</label>
       <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
@@ -250,11 +254,17 @@ export const FormHTML: ComponentStory<any> = (args) => (
       <input type="checkbox" /> Check me out
       <input type="checkbox" /> Or check me out
     </fieldset>
+    <div className='flex gap-2 flex-wrap'>
+      <button type="button" name="button">No Class Button</button>
+      <input className='prism-btn' type="button" name="input" value="Input Button" />
+      <input className='prism-btn outline' type="button" name="input" value="Outline Button" />
+      <input className='prism-btn fill' type="button" name="input" value="Fill Button" />
+      <input className='prism-btn'  type="submit" name="submit" value="Submit Button" />
+      <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
+    </div>
     <div className='flex gap-2'>
-      <button type="button" name="button">Button</button>
-      <input type="button" name="input" value="Input Button" />
-      <input type="submit" name="submit" value="Submit Button" />
-      <input type="reset" name="reset" value="Reset Button" />
+      <input className='prism-btn flex-grow' type="button" name="input" value="More Info" />
+      <input className='prism-btn flex-grow fill' type="submit" name="input" value="Submit" />
     </div>
   </form>
 

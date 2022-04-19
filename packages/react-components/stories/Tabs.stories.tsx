@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tab } from '../lib';
 import { HeadingsHTML, NavsHTML } from './Page.stories';
@@ -21,17 +21,29 @@ export default {
 
 const Template: ComponentStory<any> = (args) => (
 
-  <div className='space-y-8'>
+  <div className='space-y-8 border p-8'>
      <Tab.Group defaultIndex={3}>
-        <Tab.List className="flex gap-2 px-4 text-xs">
-          <Tab className="aux">Prose</Tab>
-          <Tab className="aux">Kitchen Sink</Tab>
-          <Tab className="aux">Kitchen Sink 2</Tab>
-          <Tab className="aux">Modals</Tab>
-          <Tab className="aux">Saving &amp; Editing</Tab>
-          <Tab className="aux">VLP</Tab>
+        <Tab.List className="flex gap-2 px-4 text-xs border-b-4 pb-4">
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Prose</button>)}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Kitchen Sink</button>)}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>KS 2</button>)}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Modals</button>)}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Saving & Editing</button>)}
+          </Tab>
+          <Tab as={Fragment}>
+            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>VLP</button>)}
+          </Tab>
         </Tab.List>
-        <Tab.Panels className="p-4 border rounded-sm m-4">
+        <Tab.Panels className="m-4">
           {[
             <HeadingsHTML />,
             <NavsHTML />,
