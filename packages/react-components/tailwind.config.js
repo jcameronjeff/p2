@@ -18,8 +18,7 @@ module.exports = {
       strategy: 'base',
     }),
     require('@prism2/tailwind-elements')({
-      parent: '.prism-enabled',
-      prefix: 'my-component-',
+      prefix: 'prism-',
       strategy: 'class',
     }),
   ],
