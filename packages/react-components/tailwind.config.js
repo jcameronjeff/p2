@@ -11,17 +11,17 @@ module.exports = {
     "./stories/*.{tsx,css,mdx,jsx}",
     "./tw/*.{js,ts,jsx,tsx}"
   ],
-  theme: {
-    extend: prismTheme
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-    prismElements({
-      prefix: 'prism-'
-    })
-  ],
-  // presets: [
-  //   require('@prism2/tailwind-preset')
-  // ]
+  // theme: {
+  //   extend: prismTheme
+  // },
+  // plugins: [
+  //   require('@tailwindcss/typography'),
+  //   prismElements({
+  //     prefix: 'prism-'
+  //   })
+  // ],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ]
 }
 

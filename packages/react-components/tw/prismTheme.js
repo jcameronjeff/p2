@@ -1,5 +1,32 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+const prismColors = {
+  'accent': '#ff5ba8',
+  'navy': '#003468',
+  'navy-dark': '#001b35',
+  'primary': '#005ba8',
+  'primary-dark': '#004986',
+  'cerulean-light': '#c1dff2',
+  'cerulean': '#2c90cc',
+  'cerulean-dark': '#2372a2',
+  'gold-light': '#fff0c3',
+  'gold': '#ffc20e',
+  'gold-dark': '#ebb000',
+  'meadow-light': '#e3fad1',
+  'scarlet-light': '#fcccc0',
+  gray: {
+    100: '#f6f6f6',
+    200: '#eeeeee',
+    300: '#dfe0e0',
+    350: '#babcbe',
+    400: '#808080',
+    500: '#98999b',
+    600: '#6a6a6a',
+    700: '#5b5b5b',
+    800: '#4a4a4a',
+    900: '#333333',
+  }
+}
 module.exports = {
   screens: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
@@ -51,31 +78,11 @@ module.exports = {
   },
   colors: {
     // source: https://prism.coxautoinc.com/foundation/colors/colors
-    accent: '#ff5ba8',
-    'navy': '#003468',
-    'navy-dark': '#001b35',
-    'primary': '#005ba8',
-    'primary-dark': '#004986',
-    'cerulean-light': '#c1dff2',
-    'cerulean': '#2c90cc',
-    'cerulean-dark': '#2372a2',
-    'gold-light': '#fff0c3',
-    'gold': '#ffc20e',
-    'gold-dark': '#ebb000',
-    'meadow-light': '#e3fad1',
-    'scarlet-light': '#fcccc0',
-    gray: {
-      100: '#f6f6f6',
-      200: '#eeeeee',
-      300: '#dfe0e0',
-      350: '#babcbe',
-      400: '#808080',
-      500: '#98999b',
-      600: '#6a6a6a',
-      700: '#5b5b5b',
-      800: '#4a4a4a',
-      900: '#333333',
-    }
+    ...prismColors,
+    headings: prismColors['primary-dark'],
+    links: prismColors['cerulean-dark'],
+    body: prismColors.gray['800'],
+    muted: prismColors.gray['400']
   },
   // This will set the color for `.border` out of the box.
   borderColor: ({ theme }) => ({

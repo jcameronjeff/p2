@@ -3,22 +3,89 @@ const plugin = require('tailwindcss/plugin')
 module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
   return function ({ addBase, addComponents, theme }) {
     const prefix = options.prefix === undefined ? 'prism-' : options.prefix
-    addComponents({
-
-      // Links ------------------------------------
+    addComponents({ // Headings -------------------------
+      [`*[class^=${prefix}heading-]`]: {
+        color: theme('colors.headings'),
+      },
+      [`.${prefix}heading-1`]: {
+        fontFamily: theme('fontFamily.alt'),
+        fontSize: theme('fontSize.3xl'),
+        fontWeight: theme('fontWeight.bold'),
+        textTransform: 'uppercase'
+      },
+      [`.${prefix}heading-2`]: {
+        color: theme('colors.headings'),
+        fontSize: theme('fontSize.2xl'),
+        fontWeight: theme('fontWeight.medium'),
+      },
+      [`.${prefix}heading-3`]: {
+        fontSize: theme('fontSize.xl'),
+        fontWeight: theme('fontWeight.normal'),
+      },
+      [`.${prefix}heading-4`]: {
+        fontSize: theme('fontSize.lg'),
+        fontWeight: theme('fontWeight.light'),
+      },
+      [`.${prefix}heading-5`]: {
+        fontSize: theme('fontSize.sm'),
+        fontWeight: theme('fontWeight.bold'),
+      },
+      [`.${prefix}heading-6`]: {
+        fontSize: theme('fontSize.xs'),
+        textTransform: 'uppercase',
+        fontWeight: theme('fontWeight.semibold'),
+      },
+      [`*[class^=${prefix}caption]`]: {
+        color: theme('colors.gray.400'),
+      },
+      [`.${prefix}caption, .${prefix}caption-sm`]: {
+        fontSize: theme('fontSize.sm'),
+        lineHeight: theme('fontSize.lg'),
+      },
+      [`.${prefix}caption-xs`]: {
+        fontSize: theme('fontSize.xs'),
+        lineHeight: theme('fontSize.base'),
+      },
+      [`*[class^=${prefix}prose]`]: {
+        color: theme('colors.body'),
+        '--tw-space-y-reverse': '0!important',
+        '--tw-prose-rhythm': theme('spacing[4]'),
+        '>:not([hidden])~:not([hidden])': {
+          'margin-bottom': "calc(var(--tw-prose-rhythm)*var(--tw-space-y-reverse))!important",
+          "margin-top": "calc(var(--tw-prose-rhythm)*(1 - var(--tw-space-y-reverse)))!important"
+        }
+      },
+      [`.${prefix}prose`]: {
+        fontSize: theme('fontSize.base'),
+        lineHeight: theme('fontSize.2xl'),
+      },
+      [`.${prefix}prose-sm`]: {
+        fontSize: theme('fontSize.sm'),
+        lineHeight: theme('fontSize.xl')
+      },
+      [`.${prefix}prose-xs`]: {
+        '--tw-prose-rhythm': theme('spacing.2'),
+        fontSize: theme('fontSize.xs'),
+        lineHeight: theme('fontSize.lg')
+      },
+      [`.${prefix}prose-xxs`]: {
+        '--tw-prose-rhythm': theme('spacing[1.5]'),
+        fontSize: theme('fontSize.xxs'),
+        lineHeight: theme('fontSize.md')
+      },
+      [`*[class^=${prefix}link]`]: {
+        color: theme('colors.cerulean-dark'),
+      },
       [`.${prefix}link`]: {
         fontSize: theme('fontSize.base'),
-        color: theme('colors.cerulean-dark'),
         fontWeight: theme('fontWeight.medium')
       },
       [`.${prefix}link-sm`]: {
         fontSize: theme('fontSize.sm'),
-        color: theme('colors.cerulean-dark'),
         fontWeight: theme('fontWeight.medium')
       },
       [`.${prefix}link-xs`]: {
         fontSize: theme('fontSize.xs'),
-        color: theme('colors.cerulean-dark'),
         fontWeight: theme('fontWeight.normal'),
         textDecoration: 'underline'
       },
@@ -27,24 +94,28 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         color: theme('colors.gray.400'),
         textDecoration: 'underline'
       },
-      // Prose (Body Text) --------------------------
-      [`.${prefix}prose`]: {
-        fontSize: theme('fontSize.base'),
-        lineHeight: theme('fontSize.2xl')
+      [`*[class^=${prefix}list]`]: {
+        listStyle: 'disc',
+        listStylePosition: 'inside',
+        paddingLeft: theme('spacing.4'),
+        'li > ul, li > ol': {
+          paddingTop: theme('spacing[0.5]')
+        }
       },
-      [`.${prefix}prose-sm`]: {
-        fontSize: theme('fontSize.sm'),
-        lineHeight: theme('fontSize.xl')
+      [`.${prefix}def`]: {
+        'dt' : {
+          fontSize: theme('fontSize.xs'),
+          color: theme('colors.muted')
+        } ,
+        'dd' : {
+          fontSize: theme('fontSize.base'),
+          lineHeight: theme('fontSize.lg')
+        },
+        'dd + dt': {
+          marginTop: theme('spacing.2')
+        }
       },
-      [`.${prefix}prose-xs`]: {
-        fontSize: theme('fontSize.xs'),
-        lineHeight: theme('fontSize.lg')
-      },
-      [`.${prefix}prose-xxs`]: {
-        fontSize: theme('fontSize.xxs'),
-        lineHeight: theme('fontSize.md')
-      },
-      // Lists -------------------------------------
+
       [`.${prefix}combobox`]: {
         borderRadius: theme('borderRadius.xs'),
         position: 'relative',
@@ -82,7 +153,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           color: theme('colors.black')
         }
       },
-      // Tables ------------------------------------
+
       [`.${prefix}table, .prism table`]: {
         ['tr,td,thead,th']: {
           borderColor: theme('colors.gray.350'),
@@ -104,7 +175,11 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           fontSize: theme('fontSize.sm')
         }
       },
-      // Buttons -----------------------------------
+      [`*[class^=${prefix}btn]`]: {
+        fontWeight: theme('fontWeight.bold'),
+        textTransform: 'uppercase',
+        borderRadius: theme('borderRadius.sm'),
+      },
       [`.${prefix}btn`]: {
         padding: theme('spacing[2.5]'),
         paddingLeft: theme('spacing.4'),
@@ -113,10 +188,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         color: theme('colors.cerulean-dark'),
         outline: 'none',
         border: 'none',
-        fontWeight: theme('fontWeight.bold'),
-        textTransform: 'uppercase',
         borderColor: 'transparent',
-        borderRadius: theme('borderRadius.sm'),
         whiteSpace: 'nowrap',
         textOverflow: 'ellipses',
         overflow: 'hidden',
@@ -147,7 +219,6 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           }
         }
       },
-      // Labels ------------------------------------
       [`.${prefix}label, .${prefix}form-control`]: {
         fontSize: theme('fontSize.sm'),
         color: theme('colors.gray.400'),
