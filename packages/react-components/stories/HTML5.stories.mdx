@@ -8,7 +8,7 @@ import { HeadingsHTML, ArticleHTML, FormHTML, ListHTML, DefinitionHTML, FigureHT
 
 Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 elements.
 
-## `@prism2/tailwind-elements`
+## tailwind-elements
 
 `@prism2/tailwind-elements` provides a flexible way to generate styles for your app or component. *(Currently this is `./prismElements.js`)*.
 
@@ -132,6 +132,25 @@ plugins: [
     <p><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
   </article>
   </div>
+</Story>
+</Canvas>
+
+
+### Blockquotes
+
+<Canvas name="bq">
+<Story name="BlockQuote">
+<section className='space-y-4 prose prose-sm'>
+  <blockquote>
+    <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
+  </blockquote>
+  <blockquote>
+    <p>This is a mult-line blockquote with a cite reference. People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick
+      carefully. I’m actually as proud of the things we haven’tdone as the things I have done. Innovation is saying no to 1,000 things.
+      <cite>Steve Jobs – Apple Worldwide Developers’ Conference, 1997</cite>
+    </p>
+  </blockquote>
+</section>
 </Story>
 </Canvas>
 
