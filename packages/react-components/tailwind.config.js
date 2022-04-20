@@ -1,6 +1,3 @@
-const prismElements = require('./tw/prismElements')
-const prismTheme = require('./tw/prismTheme');
-
 module.exports = {
   important: true,
   content: [
@@ -12,22 +9,19 @@ module.exports = {
     "./tw/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: prismTheme
+    extend: require('./tw/prismTheme')
   },
   plugins: [
     require('@tailwindcss/typography'),
-    prismElements({
+    require('@prism2/tailwind-elements')({
       parent: '.prism-base',
       strategy: 'base',
     }),
-    prismElements({
+    require('@prism2/tailwind-elements')({
       parent: '.prism-enabled',
       prefix: 'my-component-',
       strategy: 'class'
     })
   ],
-  // presets: [
-  //   require('@prism2/tailwind-preset')
-  // ]
 }
 

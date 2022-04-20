@@ -1,8 +1,4 @@
 
-const defaultTheme = require('tailwindcss/defaultTheme')
-const plugin = require('tailwindcss/plugin')
-const prismElements = require('./prismElements')
-const prismTheme = require('./prismTheme');
 /**
  * @name @prism2/tailwind-preset
  * @abstract Tailwind3 theme preset for fonts, colors, sizing and more based on PRISM design system.
@@ -10,12 +6,25 @@ const prismTheme = require('./prismTheme');
  */
 module.exports = {
   theme: {
-    extend: prismTheme
+    extend: require('@prism2/tailwind-theme')
   },
   plugins: [
     require('@tailwindcss/typography'),
-    prismElements({
-      prefix: 'prism-'
+    // allows ex: .prism-base h2
+    require('@prism2/tailwind-elements')({
+      parent: '.prism-base',
+      strategy: 'base',
+    }),
+    // allows ex: .prism-heading-2
+    require('@prism2/tailwind-elements')({
+      prefix: 'prism-',
+      strategy: 'class',
+    }),
+    // allows ex: .prism-enabled .prism-heading-2
+    require('@prism2/tailwind-elements')({
+      parent: '.prism-enabled',
+      prefix: 'my-component-',
+      strategy: 'class'
     })
   ],
 }
