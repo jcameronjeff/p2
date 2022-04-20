@@ -52,6 +52,43 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         fontSize: theme('fontSize.xxs'),
         lineHeight: theme('fontSize.md')
       },
+      // Lists -------------------------------------
+      [`.${prefix}combobox`]: {
+        borderRadius: theme('borderRadius.xs'),
+        position: 'relative',
+        '&:focus-within': {
+          boxShadow: theme('boxShadow.DEFAULT'),
+        },
+        [`.${prefix}input`]: {
+          width: '100%'
+        }
+      },
+      [`.${prefix}menu`]: {
+        width: '100%',
+        backgroundColor: theme('colors.white'),
+        borderRadius: theme('borderRadius.xs'),
+        boxShadow: theme('boxShadow.sm'),
+        borderWidth: theme('borderWidth.DEFAULT'),
+        marginTop: '-1px'
+      },
+      [`.${prefix}menu-item`]: {
+        padding: theme('spacing.2'),
+        width: '100%',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        gap: theme('spacing.2'),
+        backgroundColor: theme('colors.white'),
+        color: theme('colors.gray.700'),
+        '&.active': {
+          backgroundColor: theme('colors.navy'),
+          color: theme('colors.white')
+        },
+        '&.selected': {
+          backgroundColor: theme('colors.gray.200'),
+          color: theme('colors.black')
+        }
+      },
       // Tables ------------------------------------
       [`.${prefix}table, .prism table`]: {
         ['tr,td,thead,th']: {
@@ -131,7 +168,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           color: theme('colors.gray.400')
         },
         '&:focus': {
-          boxShadow: theme('boxShadow.md'),
+          boxShadow: theme('boxShadow.lg'),
           outline: 'none'
         }
       }

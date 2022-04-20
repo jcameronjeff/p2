@@ -21,6 +21,20 @@ const items = [
   'Katelyn Rohan',
 ]
 
+
+const MenuItem = ({active, selected, value}) => {
+  const clsx = [
+    'prism-menu-item text-sm',
+    active && 'active',
+    selected && 'selected'
+  ].filter(Boolean).join(' ')
+  return (
+    <li className={clsx}>
+      <span>{value}</span>
+      {selected && <CheckIcon className='w-6 h-6'/>}
+    </li>
+  )
+}
 const Template: ComponentStory<any> = (args) => {
 
   const [selectedOption, setSelectedOptions] = useState('')
@@ -34,32 +48,21 @@ const Template: ComponentStory<any> = (args) => {
         })
 
   return (
-    <Combobox value={selectedOption} onChange={setSelectedOptions}>
-      <div className="relative mt-1 flex gap-2 items-start">
-        <div className='relative'>
-        <Combobox.Input onChange={(event) => setQuery(event.target.value)} className='prism-input w-[240px]' role='combobox' />
-        <Combobox.Options className='w-full bg-white rounded-xs border shadow-sm -translate-y-[1px]'>
-          {options.map((person) => (
-            <Combobox.Option key={person} value={person} as={Fragment}>
-              {({ active, selected }) => (
-                <li
-                  className={`p-2 flex w-full justify-between gap-2 items-center text-sm ${
-                    active ? 'bg-navy text-white' : 'bg-white text-black'
-                  }`}
-                >
-                  <span>{person}</span>
-                  {selected && (
-                    <CheckIcon className='w-6 h-6 justify-self-end text-white rounded-full bg-black p-1'/>
-                  )}
-                </li>
-              )}
-            </Combobox.Option>
-          ))}
-        </Combobox.Options>
+    <div className="relative mt-1 flex gap-2 items-start">
+      <Combobox value={selectedOption} onChange={setSelectedOptions}>
+        <div className='prism-combobox w-[500px]'>
+          <Combobox.Input onChange={(event) => setQuery(event.target.value)} className='prism-input' role='combobox' />
+          <Combobox.Options className='prism-menu'>
+            {options.map((person) => (
+              <Combobox.Option key={person} value={person} as={Fragment}>
+                {({ active, selected }) => <MenuItem active={active} selected={selected} value={person} />}
+              </Combobox.Option>
+            ))}
+          </Combobox.Options>
         </div>
-        <button className='prism-btn' type='submit' data-test-id='outside'>Ok</button>
-      </div>
-    </Combobox>
+      </Combobox>
+      <button className='prism-btn' type='submit' data-test-id='outside'>Ok</button>
+    </div>
   )
 }
 
