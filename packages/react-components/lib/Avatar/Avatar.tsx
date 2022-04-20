@@ -5,8 +5,17 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
    * Username to be displayed. Will return up to 3 initials..
    */
   name?: string,
+  /**
+   * Standard HTML 'alt' attribute to be used on profile picture
+   */
   alt?: string,
+  /**
+   * URL of image to be displayed
+   */
   src?: string,
+  /**
+   * Optional classes to include on the container
+   */
   className?: string
 }
 
