@@ -7,7 +7,7 @@ module.exports = {
     require('postcss-extend'),
     require('postcss-apply'),
     require('postcss-minify'),
-    require('cssnano')
-  ]
-}
+    require('cssnano'),
+  ],
+};
 

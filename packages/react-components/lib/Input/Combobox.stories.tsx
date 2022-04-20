@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Combobox } from '..';
+import { Combobox } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/solid';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
@@ -29,7 +29,7 @@ const MenuItem = ({ active, selected, value, onClick }: MProps) => {
     selected && 'selected',
   ].filter(Boolean).join(' ');
   return (
-    <li className={clsx} onClick={onClick()}>
+    <li className={clsx} {...onClick}>
       <span>{value}</span>
       {selected && <CheckIcon className='w-6 h-6'/>}
     </li>

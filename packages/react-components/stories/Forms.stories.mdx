@@ -1,0 +1,136 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Avatar, Button } from '../lib';
+
+<Meta title="HTML5/Forms" />
+
+export const FormHTML = () => (
+  <form className='space-y-2 prism'>
+    <label htmlFor="example-input-email" className='prism-label'>Email address
+      <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
+    </label>
+    <label htmlFor="example-input-email" className='prism-form-control'>Inline Form
+      <input className='prism-text-input' type="text" id="example-input-text" placeholder="Text input" />
+    </label>
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Number
+      <input type="number" id="example-input-number" placeholder="Number" />
+    </label>
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Password
+      <input type="password" id="example-input-password" placeholder="Password" />
+    </label>
+    <label htmlFor="example-input-search" className='prism-label'>
+      Search
+      <input type="search" id="example-input-serach" placeholder="Search .." />
+    </label>
+    <label className='prism-label' htmlFor="example-input-tel">
+      Telephone number
+      <input type="tel" id="example-input-tel" placeholder="Telephone number" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-text">
+      Text
+      <input type="text" id="example-input-text" placeholder="Enter some text here" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-url">
+      Url
+      <input type="url" id="example-input-url" placeholder="Enter a url here" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-color">
+      Color
+      <input type="color" id="example-inupt-color" placeholder="#fff" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-date">
+      Date
+      <input type="date" id="example-input-date" placeholder="date" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-date-time">
+      Date / Time
+      <input type="datetime" id="example-input-date-time" placeholder="date / time" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-date-time-local">
+      Date / Time local
+      <input type="datetime-local" id="example-input-date-time-local" placeholder="date / time local" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-month">
+      Month
+      <input type="month" id="example-input-month" placeholder="Month" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-week">
+      Week
+      <input type="week" id="example-input-week" placeholder="Week" />
+    </label>
+    <label className='prism-label' htmlFor="example-input-time">
+      Time
+      <input type="time" id="example-input-time" placeholder="Time" />
+    </label>
+    <label className='prism-label' htmlFor="example-select1">
+      Example select
+      <select id="example-select1" className='prism-select'>
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </select>
+    </label>
+    <label htmlFor="example-select2" className='prism-label'>
+      Example multiple select
+      <select multiple id="example-select2" className='prism-select'>
+        <option className='prism-menu-item'>1</option>
+        <option className='prism-menu-item'>2</option>
+        <option className='prism-menu-item'>3</option>
+        <option className='prism-menu-item'>4</option>
+        <option className='prism-menu-item'>5</option>
+      </select>
+    </label>
+    <p>
+      <label htmlFor="example-textarea">Example textarea</label>
+      <textarea id="example-textarea" rows={3} />
+    </p>
+    <p>
+      <label htmlFor="example-input-file">File input</label>
+      <input type="file" id="example-input-file" />
+    </p>
+    <fieldset>
+      <legend>I am legend</legend>
+      <div>
+        <label>
+          <input type="radio" name="options-radios" id="optionsR-radios1" value="option1" checked /> Option one is this and that&mdash;be sure to include why it's great
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="options-radios" id="options-radios2" value="option2" /> Option two can be something else and selecting it will deselect option one
+        </label>
+      </div>
+      <div>
+        <label>
+          <input type="radio" name="optionsRadios" id="options-radios3" value="option3" disabled /> Option three is disabled
+        </label>
+      </div>
+    </fieldset>
+    <fieldset>
+      <legend>I am also legend</legend>
+      <input type="checkbox" /> Check me out
+      <input type="checkbox" /> Or check me out
+    </fieldset>
+    <div className='flex gap-2 flex-wrap'>
+      <button type="button" name="button">No Class Button</button>
+      <input className='prism-btn' type="button" name="input" value="Input Button" />
+      <input className='prism-btn outline' type="button" name="input" value="Outline Button" />
+      <input className='prism-btn fill' type="button" name="input" value="Fill Button" />
+      <input className='prism-btn'  type="submit" name="submit" value="Submit Button" />
+      <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
+    </div>
+    <div className='flex gap-2'>
+      <input className='prism-btn flex-grow' type="button" name="input" value="More Info" />
+      <input className='prism-btn flex-grow fill' type="submit" name="input" value="Submit" />
+    </div>
+  </form>
+)
+
+<Canvas>
+  <Story name='Forms'>
+    <FormHTML />
+  </Story>
+</Canvas>

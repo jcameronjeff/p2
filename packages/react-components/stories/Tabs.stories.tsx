@@ -1,7 +1,8 @@
 import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tab } from '@headlessui/react';
-
+import { userEvent, within } from '@storybook/testing-library';
+import { sleep } from '../lib/utils';
 
 export default {
   title: 'Interaction/Tabs',
@@ -61,3 +62,37 @@ const Template: ComponentStory<any> = () => (
 );
 
 export const BasicUsage = Template.bind({});
+BasicUsage.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const tab1 = await canvas.getByText('Prose');
+  const tab2 = await canvas.getByText('Kitchen Sink');
+  const tab3 = await canvas.getByText('KS 2');
+  const tab4 = await canvas.getByText('Modals');
+  const tab5 = await canvas.getByText('Saving & Editing');
+  const tab6 = await canvas.getByText('VLP');
+
+  const delay = 400;
+  for (let step = 0; step < 5; step++) {
+    await sleep(delay).then(() => {
+      userEvent.click(tab4);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab1);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab2);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab3);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab4);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab3);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab2);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab5);
+    }).then(() => sleep(delay)).then(() => {
+      userEvent.click(tab6);
+    }).then(() => sleep(delay));
+  }
+
+
+};

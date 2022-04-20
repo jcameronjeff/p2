@@ -1,36 +1,13 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Avatar, Button } from '../lib';
 
-<Meta title="Elements/HTML5" component={Avatar} />
+<Meta title="HTML5/Basics" component={Avatar} />
 
 # HTML5 Elements
 
 Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 elements.
 
-## tailwind-elements
-
-`@prism2/tailwind-elements` provides a flexible way to generate styles for your app or component. *(Currently this is `./prismElements.js`)*.
-
-### Using as an HTML Reset
-
-In some cases, you may want to apply design guidelines directly to HTML5 elements. To gain styling on `<h1>, <label>, <input>, etc.` you can
-indicate `strategy:base`.`
-
-```js
-// tailwind.config.js
-plugins: [
-  require("@prism2/tailwind-elements")({
-    parent: '.my-css-scope', // scope rules to children of this CSS selector.
-    strategy: 'base', // only generate global styles, ex: <h1>, <h2>, <h3>
-  }),
-  // You can add the plugin more than once
-  require("@prism2/tailwind-elements")({
-    strategy: 'class', // only generate global styles, ex: <h1>, <h2>, <h3>
-    parent: '.my-other-css-scope', // scope rules to children of this CSS selector.
-    prefix: 'my-component-',
-  }),
-],
-```
+See [tailwind-elements](/story/install-tailwind--page) for more.
 
 <Canvas>
 <Story name="Headings">
@@ -153,15 +130,6 @@ plugins: [
 </Story>
 </Canvas>
 
-
-### Forms
-
-<Canvas>
-  <Story name='Forms'>
-    <FormHTML />
-  </Story>
-</Canvas>
-
 ## Tables
 
 ### Styled Table
@@ -263,7 +231,10 @@ plugins: [
 
 <Canvas>
   <Story name='Figure'>
-    <FigureHTML />
+    <figure>
+      <img src="https://www.fillmurray.com/505/314" />
+      <figcaption>Fig1. A picture of Bill Murray from <a href="https://www.fillmurray.com/">fillmurray.com</a></figcaption>
+    </figure>
   </Story>
 </Canvas>
 
@@ -272,6 +243,8 @@ plugins: [
 
 <Canvas>
   <Story name='Address'>
-    <AddressHTML />
+    <address>1 Infinite Loop<br/>
+    Cupertino, CA 95014<br/>
+    United States</address>
   </Story>
 </Canvas>
