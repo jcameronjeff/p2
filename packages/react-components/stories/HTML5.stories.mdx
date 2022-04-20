@@ -1,6 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Avatar, Button } from '../lib';
-import { HeadingsHTML, ArticleHTML, FormHTML, ListHTML, DefinitionHTML, FigureHTML, TableHTML, AddressHTML, CodeblockHTML } from './Page.stories';
 
 <Meta title="Elements/HTML5" component={Avatar} />
 
@@ -34,7 +33,7 @@ plugins: [
 ```
 
 <Canvas>
-<Story name="1a. Heading Text">
+<Story name="Headings">
   <div className='space-y-8'>
     <div className='grid w-full grid-cols-[50%,50%] gap-8'>
       <hgroup className='space-y-4 prism-base'>
@@ -81,7 +80,7 @@ plugins: [
 ### Utility Text Styles
 
 <Canvas>
-<Story name='1c. Utility Text Styles'>
+<Story name='Text Styles'>
   <div className='space-y-4'>
     <p>Basic paragraph text <code>.text-base / 16px</code></p>
     <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
@@ -103,7 +102,7 @@ plugins: [
 ### Body Text
 
 <Canvas>
-<Story name="2. Body Text">
+<Story name="Prose">
   <div className='space-y-12'>
   <article className='prism-prose'>
     <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
@@ -138,8 +137,8 @@ plugins: [
 
 ### Blockquotes
 
-<Canvas name="bq">
-<Story name="BlockQuote">
+<Canvas>
+<Story name="Blockquotes">
 <section className='space-y-4 prose prose-sm'>
   <blockquote>
     <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
@@ -158,7 +157,7 @@ plugins: [
 ### Forms
 
 <Canvas>
-  <Story name='3. Forms'>
+  <Story name='Forms'>
     <FormHTML />
   </Story>
 </Canvas>
@@ -168,7 +167,7 @@ plugins: [
 ### Styled Table
 
 <Canvas>
-  <Story name='4a. Tables'>
+  <Story name='Tables'>
     <table className="prism-table">
     <caption>Tables can have captions now.</caption>
     <tbody>
@@ -202,48 +201,10 @@ plugins: [
   </Story>
 </Canvas>
 
-### Unstyled Table
-
-<Canvas>
-  <Story name='4b. Unstyled Table'>
-    <table>
-    <caption>Tables can have captions now.</caption>
-    <tbody>
-      <tr>
-        <th>Person</th>
-        <th>Number</th>
-        <th>Third Column</th>
-      </tr>
-      <tr>
-        <td>Someone Lastname</td>
-        <td>900</td>
-        <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
-      </tr>
-      <tr>
-        <td><a href="#">Person Name</a></td>
-        <td>1200</td>
-        <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
-      </tr>
-      <tr>
-        <td>Another Person</td>
-        <td>1500</td>
-        <td>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
-      </tr>
-      <tr>
-        <td>Last One</td>
-        <td>2800</td>
-        <td>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</td>
-      </tr>
-    </tbody>
-  </table>
-  </Story>
-</Canvas>
-
-
 ### Lists
 
 <Canvas>
-  <Story name='5. Lists'>
+  <Story name='Lists'>
     <ul className='prism-list'>
       <li>List item two</li>
       <li>List item three</li>
@@ -262,7 +223,7 @@ plugins: [
 ### Definitions
 
 <Canvas>
-  <Story name='6. Definitions'>
+  <Story name='Definitions'>
     <div>
     <dl className='prism-def'>
       <dt>Engine</dt>
@@ -301,7 +262,7 @@ plugins: [
 ### Figures
 
 <Canvas>
-  <Story name='7. Figure'>
+  <Story name='Figure'>
     <FigureHTML />
   </Story>
 </Canvas>
@@ -310,7 +271,7 @@ plugins: [
 ### Address
 
 <Canvas>
-  <Story name='8. Address'>
+  <Story name='Address'>
     <AddressHTML />
   </Story>
 </Canvas>

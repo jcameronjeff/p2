@@ -1,13 +1,13 @@
 import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Tab } from '../lib';
-import { HeadingsHTML, NavsHTML } from './Page.stories';
+import { Tab } from '@headlessui/react';
+
 
 export default {
   title: 'Interaction/Tabs',
   component: Tab,
   argTypes: {
-    enablePrism: { control: 'boolean'},
+    enablePrism: { control: 'boolean' },
     textSize: {
       control: { type: 'select' },
       options: ['text-sm', 'text-base', 'text-xl', 'text-xs'],
@@ -19,7 +19,7 @@ export default {
   },
 } as ComponentMeta<typeof Tab>;
 
-const Template: ComponentStory<any> = (args) => (
+const Template: ComponentStory<any> = () => (
   <div>
   <div className='space-y-8 border p-8 prism'>
      <Tab.Group defaultIndex={3}>
@@ -45,12 +45,12 @@ const Template: ComponentStory<any> = (args) => (
         </Tab.List>
         <Tab.Panels className="m-4">
           {[
-            <HeadingsHTML />,
-            <NavsHTML />,
-            <HeadingsHTML />,
-            <NavsHTML />,
-            <HeadingsHTML />,
-            <NavsHTML />,
+            <h1>Heading One</h1>,
+            <h2>Heading 3</h2>,
+            <h1>Heading One</h1>,
+            <h2>Heading 3</h2>,
+            <h1>Heading One</h1>,
+            <h2>Heading 3</h2>,
           ].map(panel => (
             <Tab.Panel>{panel}</Tab.Panel>
           ))}
@@ -58,6 +58,6 @@ const Template: ComponentStory<any> = (args) => (
     </Tab.Group>
   </div>
   </div>
-)
+);
 
 export const BasicUsage = Template.bind({});
