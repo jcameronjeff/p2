@@ -1,10 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Combobox } from '..'
+import { Combobox } from '..';
 import { CheckIcon } from '@heroicons/react/solid';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
-import { clear } from 'console';
 
 export default {
   title: 'Interaction/Combobox',
@@ -19,34 +18,35 @@ const items = [
   'Darin Hazelnuts',
   'Benedict D Kessler',
   'Katelyn Rohan',
-]
+];
 
+type MProps = { active: boolean, selected: boolean, value: string, onClick: Function };
 
-const MenuItem = ({active, selected, value, onClick}) => {
+const MenuItem = ({ active, selected, value, onClick }: MProps) => {
   const clsx = [
     'prism-menu-item text-sm',
     active && 'active',
-    selected && 'selected'
-  ].filter(Boolean).join(' ')
+    selected && 'selected',
+  ].filter(Boolean).join(' ');
   return (
-    <li className={clsx} onClick={onClick}>
+    <li className={clsx} onClick={onClick()}>
       <span>{value}</span>
       {selected && <CheckIcon className='w-6 h-6'/>}
     </li>
-  )
-}
+  );
+};
 
-const Template: ComponentStory<any> = (args) => {
+const Template: ComponentStory<any> = () => {
 
-  const [selectedOption, setSelectedOptions] = useState('')
-  const [query, setQuery] = useState('')
+  const [selectedOption, setSelectedOptions] = useState('');
+  const [query, setQuery] = useState('');
 
   const options =
     query === ''
       ? items
       : items.filter((item) => {
-          return item.toLowerCase().includes(query.toLowerCase())
-        })
+        return item.toLowerCase().includes(query.toLowerCase());
+      });
 
   return (
     <div className="relative mt-1 flex gap-2 items-start">
@@ -64,8 +64,8 @@ const Template: ComponentStory<any> = (args) => {
       </Combobox>
       <button className='prism-btn' type='submit' data-test-id='outside'>Ok</button>
     </div>
-  )
-}
+  );
+};
 
 export const BasicUsage = Template.bind({});
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
@@ -75,26 +75,26 @@ BasicUsage.play = async ({ canvasElement }) => {
   const framelength = 550;
   for (let step = 0; step < 5; step++) {
     await sleep(framelength).then(() => {
-      userEvent.click(loginButton)
-      userEvent.clear(loginButton)
+      userEvent.click(loginButton);
+      userEvent.clear(loginButton);
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.type(loginButton, 'D')
+      userEvent.type(loginButton, 'D');
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.type(loginButton, 'a')
+      userEvent.type(loginButton, 'a');
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.type(loginButton, 'r')
+      userEvent.type(loginButton, 'r');
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.type(loginButton, 'i')
+      userEvent.type(loginButton, 'i');
     }).then(() => sleep(framelength * 2)).then(() => {
-      userEvent.type(loginButton, '{arrowdown}')
+      userEvent.type(loginButton, '{arrowdown}');
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.type(loginButton, '{arrowdown}')
+      userEvent.type(loginButton, '{arrowdown}');
     }).then(() => sleep(framelength * 3)).then(() => {
-      userEvent.type(loginButton, '{enter}')
+      userEvent.type(loginButton, '{enter}');
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.clear(loginButton)
+      userEvent.clear(loginButton);
     }).then(() => sleep(framelength)).then(() => {
-      userEvent.tab()
-    }).then(() => sleep(framelength))
+      userEvent.tab();
+    }).then(() => sleep(framelength));
   }
 };

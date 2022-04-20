@@ -38,9 +38,9 @@ type Props = React.HTMLProps<HTMLInputElement> & {
    * Escape hatch to use if the parent <label /> tag must be modified.
    */
   labelClassName?: string;
-}
+};
 
-export function TextInput({label = '', name = '', labelClassName = 'flex flex-col w-auto', inline = false, ...props}: Props) {
+export function TextInput({ label = '', name = '', labelClassName = 'flex flex-col w-auto', inline = false, ...props }: Props) {
   const htmlFor = name || label && label.split(' ').join('-').toLowerCase() || 'prism-input';
   return (
     <label htmlFor={htmlFor} className={labelClassName}>
@@ -48,5 +48,5 @@ export function TextInput({label = '', name = '', labelClassName = 'flex flex-co
       {!inline && <br />}
       <input name={htmlFor} type="text" {...props} />
     </label>
-  )
+  );
 }

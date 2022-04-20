@@ -7,7 +7,7 @@ import React from 'react';
  * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
  * @remark - Alternately: define components in TW3 and reference as variants.
  */
-type VariantName = 'text'|'outline'|'auxiliary'|'link'|'base'
+type VariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
