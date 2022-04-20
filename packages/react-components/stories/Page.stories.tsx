@@ -1,10 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { KitchenSink } from '../lib/HTML5';
 
 export default {
-  title: 'Example/Page',
-  component: KitchenSink,
+  title: 'Views/HTML',
   argTypes: {
     enablePrism: { control: 'boolean'},
     textSize: {
@@ -16,9 +14,9 @@ export default {
     // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
     layout: 'fullscreen',
   },
-} as ComponentMeta<typeof KitchenSink>;
+} as ComponentMeta<any>;
 
-const Template: ComponentStory<any> = (args) => (
+export const Template: ComponentStory<any> = (args) => (
 
   <div className='space-y-8'>
     <HeadingsHTML />
@@ -30,13 +28,8 @@ const Template: ComponentStory<any> = (args) => (
     <FigureHTML />
     <TableHTML />
     <AddressHTML />
-    <KitchenSink {...args} />
   </div>
 )
-
-export const HTML5KitchenSink = Template.bind({});
-
-
 
 export const HeadingsHTML: ComponentStory<any> = (args) => (
   <section>
@@ -48,44 +41,77 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <h5>h5 Expect skilled signwriters to use many jazzy, quaint old alphabets effectively.</h5>
       <h6>h6 Pack my box with five dozen liquor jugs.</h6>
     </hgroup>
+      <p>Basic paragraph text <code>.text-base / 16px</code></p>
+      <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
+      <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
+      <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
+      <hr />
+      <p className='prism-label'>.prism-label (14px)</p>
+      <p className='prism-label-xs'>.prism-label-xs (12px)</p>
+      <hr />
+      <p className='prism-link'>.prism-link - Accordion Link, Inline Link, Menu Link (16px)</p>
+      <p className='prism-link-sm'>.prism-link-sm - Accordion Link, Inline Link (14px)</p>
+      <p className='prism-link-xs'>.prism-link-xs - Inline Link XS (12px) </p>
+      <p className='prism-link-xxs'>.prism-link-xxs - Inline Link XXS (10px) </p>
+      <hr />
+
+
   </section>
 )
 
-export const Headings = HeadingsHTML.bind({})
+export const BodyTextHTML: ComponentStory<any> = (args) => (
+  <div>
+    <p>Basic paragraph text <code>.text-base / 16px</code></p>
+    <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
+    <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
+    <p className='text-xxs'>Extra Extra Small paragraph text <code>.text-xxs / 10px</code></p>
+    <p className='prism-label'>.prism-label</p>
+    <p className='prism-label-xs'>.prism-label-xs</p>
+    <p className='prism-link'>.prism-link</p>
+    <p className='prism-link-sm'>.prism-text-link-sm</p>
+    <p className='prism-link-xs'>.prism-xs</p>
+  </div>
+)
+
 
 
 export const NavsHTML: ComponentStory<any> = (args) => (
   <section>
-    <header>
+    <header className='border shadow-sm rounded-sm flex items-center px-4'>
+      <img className='w-12 h-12 rounded-full' src="https://www.fillmurray.com/48/48" />
+      <div className='border-l h-16 ml-4' />
       <nav>
-        <ul>
-          <li><a href='#'>One</a></li>
-          <li><a href='#'>Two</a></li>
-          <li><a href='#'>Three</a></li>
+        <ul className='px-2 flex items-stretch'>
+
+          <a className='h-16 items-center hover:bg-gray-100 flex px-4' href='#'>
+            <span>Home</span>
+          </a>
+         <a className='h-16 items-center hover:bg-gray-100 flex px-4' href='#'>
+            <span>Home</span>
+          </a>
         </ul>
       </nav>
     </header>
   </section>
 )
 
-export const Navigation = NavsHTML.bind({})
 
 
-const ArticleHTML: ComponentStory<any> = (args) => (
+export const ArticleHTML: ComponentStory<any> = (args) => (
 
-  <article>
-    <p>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p>You can also use <kbd>keyboard text</kbd>, which sometimes is styled similarly to the <code>&lt;code&gt;</code> or <samp>samp</samp> tags. Even more specifically, there is a tag just for <var>variables</var>. Not to be mistaken with blockquotes
-      below, the quote tag lets you denote something as <q>quoted text</q>. Lastly don't forget the sub (H<sub>2</sub>O) and sup (E = MC<sup>2</sup>) tags. </p>
+  <article className='space-y-4 prism'>
+    <p className='prism-prose'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-sm'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+    <p className='prism-prose-xxs'>This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
   </article>
 
 )
 
-export const Articles = ArticleHTML.bind({})
 
-const TableHTML: ComponentStory<any> = (args) => (
+export const TableHTML: ComponentStory<any> = (args) => (
 
-  <table className={`prism-table ${args.textSize}`}>
+  <table className="prism-table">
     <caption>Tables can have captions now.</caption>
     <tbody>
       <tr>
@@ -116,91 +142,121 @@ const TableHTML: ComponentStory<any> = (args) => (
     </tbody>
   </table>
 )
-export const Tables = TableHTML.bind({})
 
 
 
 
-const FormHTML: ComponentStory<any> = (args) => (
+export const FormHTML: ComponentStory<any> = (args) => (
 
-  <form className='space-y-2'>
-    <p>
-      <label htmlFor="example-input-email">Email address</label>
-      <input type="email" id="example-input-email" placeholder="Enter email" />
-    </p>
-    <p>
-      <label htmlFor="example-input-password1">Number</label>
+  <form className='space-y-2 prism'>
+
+    <label htmlFor="example-input-email" className='prism-label'>Email address
+      <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
+    </label>
+
+    <label htmlFor="example-input-email" className='prism-form-control'>Inline Form
+      <input className='prism-text-input' type="text" id="example-input-text" placeholder="Text input" />
+    </label>
+
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Number
       <input type="number" id="example-input-number" placeholder="Number" />
-    </p>
-    <p>
-      <label htmlFor="example-input-password">Password</label>
-      <input type="password" id="example-input-password" placeholder="Password" />
-    </p>
-    <p>
-      <label htmlFor="example-input-search">Search</label>
-      <input type="search" id="example-input-serach" placeholder="Search .." />
-    </p>
-    <p>
-      <label htmlFor="example-input-tel">Telephone number</label>
-      <input type="tel" id="example-input-tel" placeholder="Telephone number" />
-    </p>
+    </label>
 
-    <p>
-      <label htmlFor="example-input-text">Text</label>
-      <input type="text" id="example-input-text" placeholder="Enter some text here" />
-    </p>
-    <p>
-      <label htmlFor="example-input-url">Url</label>
-      <input type="url" id="example-input-url" placeholder="Enter a url here" />
-    </p>
-    <p>
-      <label htmlFor="example-input-color">Color</label>
-      <input type="color" id="example-inupt-color" placeholder="#fff" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date">Date</label>
-      <input type="date" id="example-input-date" placeholder="date" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date-time">Date / Time</label>
-      <input type="datetime" id="example-input-date-time" placeholder="date / time" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date-time-local">Date / Time local</label>
-      <input type="datetime-local" id="example-input-date-time-local" placeholder="date / time local" />
-    </p>
-    <p>
-      <label htmlFor="example-input-month">Month</label>
-      <input type="month" id="example-input-month" placeholder="Month" />
-    </p>
-    <p>
-      <label htmlFor="example-input-week">Week</label>
-      <input type="week" id="example-input-week" placeholder="Week" />
-    </p>
-    <p>
-      <label htmlFor="example-input-time">Time</label>
-      <input type="time" id="example-input-time" placeholder="Time" />
-    </p>
-    <p>
-      <label htmlFor="example-select1">Example select</label>
-      <select id="example-select1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </p>
-    <p>
-      <label htmlFor="example-select2">Example multiple select</label>
-      <select multiple id="example-select2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </p>
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Password
+      <input type="password" id="example-input-password" placeholder="Password" />
+    </label>
+
+    <label htmlFor="example-input-search" className='prism-label'>
+      Search
+      <input type="search" id="example-input-serach" placeholder="Search .." />
+    </label>
+
+
+      <label className='prism-label' htmlFor="example-input-tel">
+        Telephone number
+        <input type="tel" id="example-input-tel" placeholder="Telephone number" />
+      </label>
+
+
+
+      <label className='prism-label' htmlFor="example-input-text">
+        Text
+        <input type="text" id="example-input-text" placeholder="Enter some text here" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-url">
+        Url
+        <input type="url" id="example-input-url" placeholder="Enter a url here" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-color">
+        Color
+        <input type="color" id="example-inupt-color" placeholder="#fff" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date">
+        Date
+        <input type="date" id="example-input-date" placeholder="date" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date-time">
+        Date / Time
+        <input type="datetime" id="example-input-date-time" placeholder="date / time" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date-time-local">
+        Date / Time local
+        <input type="datetime-local" id="example-input-date-time-local" placeholder="date / time local" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-month">
+        Month
+        <input type="month" id="example-input-month" placeholder="Month" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-week">
+        Week
+        <input type="week" id="example-input-week" placeholder="Week" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-time">
+        Time
+        <input type="time" id="example-input-time" placeholder="Time" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-select1">
+        Example select
+        <select id="example-select1" className='prism-select'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </label>
+
+      <label htmlFor="example-select2" className='prism-label'>
+        Example multiple select
+        <select multiple id="example-select2" className='prism-select'>
+          <option className='prism-menu-item'>1</option>
+          <option className='prism-menu-item'>2</option>
+          <option className='prism-menu-item'>3</option>
+          <option className='prism-menu-item'>4</option>
+          <option className='prism-menu-item'>5</option>
+        </select>
+      </label>
+
     <p>
       <label htmlFor="example-textarea">Example textarea</label>
       <textarea id="example-textarea" rows={3} />
@@ -234,27 +290,40 @@ const FormHTML: ComponentStory<any> = (args) => (
       <input type="checkbox" /> Check me out
       <input type="checkbox" /> Or check me out
     </fieldset>
+    <div className='flex gap-2 flex-wrap'>
+      <button type="button" name="button">No Class Button</button>
+      <input className='prism-btn' type="button" name="input" value="Input Button" />
+      <input className='prism-btn outline' type="button" name="input" value="Outline Button" />
+      <input className='prism-btn fill' type="button" name="input" value="Fill Button" />
+      <input className='prism-btn'  type="submit" name="submit" value="Submit Button" />
+      <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
+    </div>
     <div className='flex gap-2'>
-      <button type="button" name="button">Button</button>
-      <input type="button" name="input" value="Input Button" />
-      <input type="submit" name="submit" value="Submit Button" />
-      <input type="reset" name="reset" value="Reset Button" />
+      <input className='prism-btn flex-grow' type="button" name="input" value="More Info" />
+      <input className='prism-btn flex-grow fill' type="submit" name="input" value="Submit" />
     </div>
   </form>
 
 )
 
-export const Forms = FormHTML.bind({})
 
 
-const ListHTML: ComponentStory<any> = (args) => (
+export const ListHTML: ComponentStory<any> = (args) => (
 
-  <section className='space-y-4'>
-    <ul>
+  <section className='grid grid-cols-2 w-full space-between'>
+    <div className='space-y-4'>
+    <h3>Basic </h3>
+    <ul className='prism-list'>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ul>
+    <h3>Nested</h3>
+    <ul className='prism-list'>
       <li>Unordered List item one
-        <ul>
+        <ul className='prism-list'>
           <li>Nested list item
-            <ul>
+            <ul className='prism-list'>
               <li>Level 3, item one</li>
               <li>Level 3, item two</li>
               <li>Level 3, item three</li>
@@ -270,34 +339,29 @@ const ListHTML: ComponentStory<any> = (args) => (
       <li>List item three</li>
       <li>List item four</li>
     </ul>
-    <hr/>
-    <ol>
-      <li>List item one
-        <ol>
-          <li>List item one
-            <ol>
-              <li>List item one</li>
-              <li>List item two</li>
-              <li>List item three</li>
-              <li>List item four</li>
-            </ol>
-          </li>
-          <li>List item two</li>
-          <li>List item three</li>
-          <li>List item four</li>
-        </ol>
-      </li>
+    </div>
+    <div className='space-y-4'>
+    <h3>Small Text</h3>
+    <ol className='prism-list text-sm'>
+      <li>List item one 2</li>
       <li>List item two</li>
       <li>List item three</li>
       <li>List item four</li>
     </ol>
+    <h3>Extra Small Text</h3>
+    <ol className='prism-list text-xs'>
+      <li>List item one 2</li>
+      <li>List item two</li>
+      <li>List item three</li>
+      <li>List item four</li>
+    </ol>
+    </div>
   </section>
 
 )
-export const Lists = ListHTML.bind({})
 
 
-const DefinitionHTML: ComponentStory<any> = (args) => (
+export const DefinitionHTML: ComponentStory<any> = (args) => (
 
   <section>
     <dl>
@@ -313,9 +377,8 @@ const DefinitionHTML: ComponentStory<any> = (args) => (
   </section>
 
 )
-export const Definitions = DefinitionHTML.bind({})
 
-const FigureHTML: ComponentStory<any> = (args) => (
+export const FigureHTML: ComponentStory<any> = (args) => (
 
   <figure>
     <img src="https://www.fillmurray.com/505/314" />
@@ -323,9 +386,8 @@ const FigureHTML: ComponentStory<any> = (args) => (
   </figure>
 
 )
-export const Figures = FigureHTML.bind({})
 
-const BlockquoteHTML: ComponentStory<any> = (args) => (
+export const BlockquoteHTML: ComponentStory<any> = (args) => (
   <section className='space-y-4 prose prose-sm'>
     <blockquote>
       <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
@@ -338,18 +400,16 @@ const BlockquoteHTML: ComponentStory<any> = (args) => (
     </blockquote>
   </section>
 )
-export const Blockquotes = BlockquoteHTML.bind({})
 
 
-const AddressHTML: ComponentStory<any> = (args) => (
+export const AddressHTML: ComponentStory<any> = (args) => (
   <address>1 Infinite Loop<br/>
   Cupertino, CA 95014<br/>
   United States</address>
 )
-export const Address = AddressHTML.bind({})
 
 
-const CodeblockHTML: ComponentStory<any> = (args) => (
+export const CodeblockHTML: ComponentStory<any> = (args) => (
   <pre>
     {`pre {
       display: block;
@@ -363,17 +423,3 @@ const CodeblockHTML: ComponentStory<any> = (args) => (
       line-height: 160%;
     }`}</pre>
 )
-export const PreCode = CodeblockHTML.bind({})
-
-HTML5KitchenSink.args = { enablePrism: true, textSize: 'text-base' }
-Headings.args = { enablePrism: true, textSize: 'text-base' }
-Navigation.args = { enablePrism: true, textSize: 'text-base' }
-Articles.args = { enablePrism: true, textSize: 'text-base' }
-Tables.args = { enablePrism: true, textSize: 'text-base' }
-Forms.args = { enablePrism: true, textSize: 'text-base' }
-Lists.args = { enablePrism: true, textSize: 'text-base' }
-Definitions.args = { enablePrism: true, textSize: 'text-base' }
-Figures.args = { enablePrism: true, textSize: 'text-base' }
-Blockquotes.args = { enablePrism: true, textSize: 'text-base' }
-Address.args = { enablePrism: true, textSize: 'text-base' }
-PreCode.args = { enablePrism: true, textSize: 'text-base' }

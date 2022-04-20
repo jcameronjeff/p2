@@ -1,15 +1,15 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button } from '../lib';
 
-<Meta title="Example/Views/LoginDialog" component={Button} />
+<Meta title="Views/LoginDialog" component={Button} />
 
-# Button
+# Logins
 
 With `MDX` we can define a story for `Button` right in the middle of our
-markdown documentation.
+markdown documentation. Here we show a recreation of the [Manheim login page](https://api.manheim.com/auth/authorization.oauth2?adaptor=manheim_customer&client_id=qdp6ewmug522t9umyxyqydnx&response_type=code&scope=email+profile+openid+offline_access&redirect_uri=https%3A%2F%2Fmembers.manheim.com%2Fgateway%2Fcallback&brand_href=false&signup=manheim) using P2.
 
 <Canvas>
-<Story name="All Buttons">
+<Story name="M.com Login Card">
 <form className='card w-[400px]'>
   <header className='flex items-center justify-center'>
     <img className='h-[48px] w-[48px]' src='https://api.manheim.com/assets/images/manheimLogo.svg' />

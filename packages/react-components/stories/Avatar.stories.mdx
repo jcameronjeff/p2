@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Avatar, Button } from '../lib';
+
+<Meta title="Elements/Avatar" component={Avatar} />
+
+# Avatar
+
+With `MDX` we can define a story for `Button` right in the middle of our
+markdown documentation.
+
+### Basic Examples
+
+<Canvas>
+<Story name="Default">
+<form className='flex gap-2 items-center'>
+  <Avatar name="Darin Cassler" />
+  <Avatar name="Darin" />
+  <Avatar className='w-16 h-16' name="DC" />
+  <Avatar className='w-24 h-24' name="DC" src="//www.fillmurray.com/128/128" />
+</form>
+</Story>
+</Canvas>
+
+
+### With name
+
+<Canvas>
+<Story name="Avatar with Name">
+  <div className='flex items-center gap-2'>
+    <Avatar className='w-12 h-12' name="DC" src="//www.fillmurray.com/128/128" />
+    <span>Darin Cassler</span>
+  </div>
+</Story>
+</Canvas>

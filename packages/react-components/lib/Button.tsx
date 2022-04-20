@@ -1,12 +1,28 @@
 import React from 'react';
 
+/**
+ * @remark - Define types inline at the top of the file
+ * @remark - Include comments explaining each key of Props
+ * @remark - `interface Props` should extend the corresponding HTML elements args.
+ * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
+ * @remark - Alternately: define components in TW3 and reference as variants.
+ */
 type VariantName = 'text'|'outline'|'auxiliary'|'link'|'base'
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends React.DetailsHTMLAttributes<HTMLButtonElement> {
+interface Props extends React.HTMLProps<HTMLButtonElement> {
+  /**
+   * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
+   */
   variant?: keyof Variant,
+  /**
+   * HTML Type attribute https://www.w3schools.com/tags/att_type.asp
+   */
   type?: ButtonType,
+  /**
+   * Optional text to display on button, otherwise use children.
+   */
   label?: string
 }
 
@@ -18,22 +34,21 @@ interface Props extends React.DetailsHTMLAttributes<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'outline', label = 'OK', ...args }: Props):React.ReactElement {
+export function Button({ variant = 'base', label = 'OK', ...args }: Props):React.ReactElement {
   const { children, className } = args;
 
   const vars:Variant = {
-    outline: 'bg-transparent ring-1 ring-navy-dark',
-    text: 'ring-0',
-    auxiliary: 'text-sm uppercase font-alt ring-0',
-    link: 'ring-0 font-regular capitalize',
-    base: '',
+    outline: 'bg-transparent border border-blue-300 ring-0',
+    text: 'border-0',
+    auxiliary: 'text-sm uppercase font-alt border-8',
+    link: 'border-0 font-regular uppercase',
+    base: 'border',
   };
 
-  const cl = Object.getOwnPropertyDescriptor(vars, variant)?.value || ''
   const clsx = [vars[variant], className].join(' ');
 
   return (
-    <button type="button" {...args} className={clsx}>{children || label}</button>
+    <button {...args} className={clsx}>{children || label}</button>
   );
 }
 Button.defaultProps = {

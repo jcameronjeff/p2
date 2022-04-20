@@ -3,10 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 import { Button } from '../lib/Button';
+import { Avatar } from '../lib/Avatar';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Example/Button',
+  title: 'Elements/Button/AutoClick',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -19,42 +20,22 @@ const Template: ComponentStory<typeof Button> = (args) => {
   const [count, setCount] = React.useState(0);
   return (
     <>
+      <Avatar />
       <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count+1)} {...args} />
       {count > 4 && <h3>Automation Completed!</h3>}
     </>
   )
 }
 
-export const Primary = Template.bind({});
-// More on args: https://storybook.js.org/docs/react/writing-stories/args
-Primary.args = {
-  variant: 'primary',
-  label: 'Button',
-};
-
-export const Secondary = Template.bind({});
-Secondary.args = {
-  label: 'Button',
-};
-
-export const Large = Template.bind({});
-Large.args = {
-  className: 'px-4 py-8 ring-1 rounded-xl',
-  variant: 'outline',
-  label: 'My Large Button',
-};
-
-export const Small = Template.bind({});
-Small.args = {
-  size: 'small',
-  label: 'Button',
-};
-
 
 const ButtonTemplate: ComponentStory<any> = (args) => {
   const [count, setCount] = React.useState(0);
   return (
     <>
+      <Avatar name="Darin Cassler" />
+      <Avatar name="Darin" />
+      <Avatar name="DC" />
+      <Avatar name="DC" src="//www.fillmurray.com/128/128" />
       <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count+1)}/>
       {count > 4 && <h3>Automation Completed!</h3>}
     </>

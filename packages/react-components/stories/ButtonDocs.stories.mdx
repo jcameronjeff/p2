@@ -1,7 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Button } from '../lib';
 
-<Meta title="Example/Button/Overview" component={Button} />
+<Meta title="Elements/Button" component={Button} />
 
 # Button
 
@@ -11,14 +11,34 @@ markdown documentation.
 <Canvas>
 <Story name="All Buttons">
 <form className='flex gap-2'>
-  <Button id="Unchecked" label="Unchecked" />
-  <Button id="Checked" label="Checked" checked />
-  <Button variant="aux" id="second" label="Secondary" />
+  <Button label="default" />
+  <Button variant='outline' label="Outline" />
+  <Button variant='text' label="text" />
+  <Button variant='auxiliary' label="auxiliary" />
+  <Button variant='link' label="link" />
 </form>
 </Story>
 </Canvas>
 
 # Usage
+
+## Customize Appearance
+
+Whether or not you use a `variant` prop, you can customize the appearance of buttons with any of
+the Tailwind CSS class names.
+<Canvas>
+<Story name="Customized Buttons">
+<form className='flex justify-center flex-wrap gap-4'>
+  <Button label="default" />
+  <Button variant='outline' label="custom border" className='border-4' />
+  <Button variant='text' label="with shadow" className='shadow-lg' />
+  <Button variant='auxiliary' label="light font weight" className='font-light' />
+  <Button variant='link' label="Very customized" className='lowercase border-0 ring-0 opacity-50 color-gray-300 font-normal font-sans' />
+</form>
+</Story>
+</Canvas>
+
+## Rationale
 
 Buttons allow a user to submit or request information, make decisions, and for navigation.
 
@@ -27,7 +47,7 @@ Button hierarchy is established by whether a button is contained (i.e. with a ba
 Buttons may be normal (40px high) or small (32px). Full-screen width buttons are only allowed on the XS grid (0-479). In all other cases, button width is determined by the length of the label plus minimum L/R padding.
 
 
-### Common Characteristics
+## Common Characteristics
 
 All buttons have bold, ALL-CAPS labels.
 
@@ -40,7 +60,7 @@ All buttons have these states: disabled, active, hover/tap, and focused.
 </div>
 </Story>
 
-### Size
+## Size Considerations
 
 Buttons are normally 40px high, but a small 32px alternative may be used when vertical space is at a premium. Whichever size is used, use the same size for any associated elements like inputs and selects.
 
@@ -50,8 +70,8 @@ Special controls like the keyword search button, pagination controls, icon butto
 <Canvas>
 <Story name="Sizing">
 <div className='flex gap-2'>
-<Button color="primary">CONTAINED BUTTON</Button>
-<Button className='text-sm'>CONTAINED BUTTON SMALL</Button>
+  <Button type="submit">Submit Button</Button>
+  <Button type='button'>CONTAINED BUTTON SMALL</Button>
 </div>
 </Story>
 </Canvas>
