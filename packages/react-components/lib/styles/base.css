@@ -1,2 +1,20 @@
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
+
+
+@layer base {
+  h1,h2,h3,h4,h5,h6 { @apply text-headings }
+  h1 { @apply prism-heading-1 }
+  h2 { @apply prism-heading-2 }
+  h3 { @apply prism-heading-3 }
+  h4 { @apply prism-heading-4 }
+  h5 { @apply prism-heading-5 }
+  h6 { @apply prism-heading-6 }
+
+  a {
+    @apply prism-link;
+  }
+
+  table { @apply prism-table; @apply text-xs }
+
+}

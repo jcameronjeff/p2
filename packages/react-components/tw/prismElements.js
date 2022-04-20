@@ -4,7 +4,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
   return function ({ addBase, addComponents, theme }) {
     const prefix = options.prefix === undefined ? 'prism-' : options.prefix
     addComponents({ // Headings -------------------------
-      [`*[class^=${prefix}heading-]`]: {
+      [`*[class*=${prefix}heading-], .${prefix}heading`]: {
         color: theme('colors.headings'),
       },
       [`.${prefix}heading-1`]: {
@@ -73,7 +73,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         fontSize: theme('fontSize.xxs'),
         lineHeight: theme('fontSize.md')
       },
-      [`*[class^=${prefix}link]`]: {
+      [`*[class*=${prefix}link]`]: {
         color: theme('colors.cerulean-dark'),
       },
       [`.${prefix}link`]: {
@@ -159,7 +159,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           borderColor: theme('colors.gray.350'),
           borderWidth: '1px',
           borderStyle: 'solid',
-          padding: theme('spacing.3')
+          padding: theme('spacing.2')
         },
         'th': {
           backgroundColor: theme('colors.navy'),
