@@ -1,9 +1,9 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
-import { sleep } from '../lib/utils';
-import { Button } from '../lib/Button';
-import { Avatar } from '../lib/Avatar';
+import { sleep } from '../utils';
+import { Button } from '../Button';
+import { Avatar } from '../Avatar';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {

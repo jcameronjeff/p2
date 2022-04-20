@@ -3,7 +3,9 @@ const { mergeConfig } = require('vite');
 module.exports = {
   "stories": [
     "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
+    "../lib/**/*.stories.mdx",
+    "../lib/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
     {

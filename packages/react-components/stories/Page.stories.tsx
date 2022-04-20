@@ -33,7 +33,7 @@ export const Template: ComponentStory<any> = (args) => (
 
 export const HeadingsHTML: ComponentStory<any> = (args) => (
   <section>
-    <hgroup className='space-y-4'>
+    <hgroup className='space-y-2 prism-base'>
       <h1>h1 HTML5 Kitchen Sink</h1>
       <h2>h2 Back in my quaint</h2>
       <h3>h3 Jaunty vie with flaunting phlox</h3>

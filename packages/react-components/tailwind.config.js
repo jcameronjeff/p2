@@ -9,7 +9,7 @@ module.exports = {
     "./tw/*.{js,ts,jsx,tsx}"
   ],
   theme: {
-    extend: require('./tw/prismTheme')
+    extend: require('@prism2/tailwind-theme')
   },
   plugins: [
     require('@tailwindcss/typography'),
