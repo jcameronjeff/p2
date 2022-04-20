@@ -1,40 +1,93 @@
 const plugin = require('tailwindcss/plugin')
 
-module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
+module.exports = plugin.withOptions(function (options = {
+  strategy: undefined,
+  prefix: undefined,
+  parent: undefined,
+}) {
   return function ({ addBase, addComponents, theme }) {
+    const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy]
     const prefix = options.prefix === undefined ? 'prism-' : options.prefix
-    addComponents({ // Headings -------------------------
-      [`*[class*=${prefix}heading-], .${prefix}heading`]: {
-        color: theme('colors.headings'),
-      },
-      [`.${prefix}heading-1`]: {
+    const parent = options.parent ? `${options.parent} ` : ''
+
+    function withPrefix(classArr) {
+      return classArr.map(cls => `${parent}.${prefix}${cls}`)
+    }
+
+    const rules = [{
+      base: ["h1","h2","h3","h4","h5","h6"],
+      class: [`${parent}*[class*=heading-]`],
+      styles: {
+        color: theme('colors.headings')
+      }
+    },{
+      base: ["h1"],
+      class: withPrefix(['heading-1']),
+      styles: {
         fontFamily: theme('fontFamily.alt'),
         fontSize: theme('fontSize.3xl'),
         fontWeight: theme('fontWeight.bold'),
         textTransform: 'uppercase'
-      },
-      [`.${prefix}heading-2`]: {
-        color: theme('colors.headings'),
+      }
+    }, {
+      base: ["h2"],
+      class: withPrefix(['heading-2']),
+      styles: {
         fontSize: theme('fontSize.2xl'),
         fontWeight: theme('fontWeight.medium'),
-      },
-      [`.${prefix}heading-3`]: {
+      }
+    }, {
+      base: ["h3"],
+      class: withPrefix(['heading-3']),
+      styles: {
         fontSize: theme('fontSize.xl'),
         fontWeight: theme('fontWeight.normal'),
       },
-      [`.${prefix}heading-4`]: {
+    }, {
+      base: ["h4"],
+      class: withPrefix(['heading-4']),
+      styles: {
         fontSize: theme('fontSize.lg'),
         fontWeight: theme('fontWeight.light'),
-      },
-      [`.${prefix}heading-5`]: {
+      }
+    }, {
+      base: ["h5"],
+      class: withPrefix(['heading-5']),
+      styles: {
         fontSize: theme('fontSize.sm'),
         fontWeight: theme('fontWeight.bold'),
       },
-      [`.${prefix}heading-6`]: {
+    },{
+      base: ["h6"],
+      class: withPrefix(['heading-6']),
+      styles: {
         fontSize: theme('fontSize.xs'),
         textTransform: 'uppercase',
         fontWeight: theme('fontWeight.semibold'),
       },
+    }
+  ].map(rule => ({
+    ...rule,
+    base: rule.base.map(b => `${parent}${b}`)
+  }))
+
+    const getStrategyRules = (strategy) => rules
+      .map((rule) => {
+        if (rule[strategy] === null) return null
+        return { [rule[strategy]]: rule.styles }
+      })
+      .filter(Boolean)
+
+    if (strategy.includes('base')) {
+      addBase(getStrategyRules('base'))
+    }
+
+    if (strategy.includes('class')) {
+      addComponents(getStrategyRules('class'))
+    }
+
+
+    addComponents({ // Headings -------------------------
       [`*[class^=${prefix}caption]`]: {
         color: theme('colors.gray.400'),
       },
@@ -73,7 +126,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         fontSize: theme('fontSize.xxs'),
         lineHeight: theme('fontSize.md')
       },
-      [`*[class*=${prefix}link]`]: {
+      [`*[class^=${prefix}link]`]: {
         color: theme('colors.cerulean-dark'),
       },
       [`.${prefix}link`]: {
@@ -159,7 +212,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           borderColor: theme('colors.gray.350'),
           borderWidth: '1px',
           borderStyle: 'solid',
-          padding: theme('spacing.2')
+          padding: theme('spacing.3')
         },
         'th': {
           backgroundColor: theme('colors.navy'),
