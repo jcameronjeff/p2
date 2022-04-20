@@ -1,9 +1,9 @@
 import React, { Fragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Combobox } from '@headlessui/react'
+import { Combobox } from '..'
 import { CheckIcon } from '@heroicons/react/solid';
 import { userEvent, within } from '@storybook/testing-library';
-import { sleep } from '../lib/utils';
+import { sleep } from '../utils';
 import { clear } from 'console';
 
 export default {

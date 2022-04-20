@@ -1,5 +1,5 @@
 {
-  "name": "@prism2/tailwind-preset",
+  "name": "@prism2/tailwind-elements",
   "version": "2.0.0-alpha.2",
   "description": "TailwindCSS preset package for PRISM design system from @prism2",
   "main": "index.js",
@@ -17,8 +17,6 @@
   "author": "Darin Cassler",
   "license": "ISC",
   "dependencies": {
-    "@prism2/tailwind-elements": "file:../tailwind-plugin-elements",
-    "@prism2/tailwind-theme": "file:../tailwind-theme-prism",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
     "tailwindcss": "^3.0.23"

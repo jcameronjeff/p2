@@ -1,6 +1,3 @@
-const prismElements = require('./tw/prismElements')
-const prismTheme = require('./tw/prismTheme');
-
 module.exports = {
   important: true,
   content: [
@@ -11,17 +8,20 @@ module.exports = {
     "./stories/*.{tsx,css,mdx,jsx}",
     "./tw/*.{js,ts,jsx,tsx}"
   ],
-  // theme: {
-  //   extend: prismTheme
-  // },
-  // plugins: [
-  //   require('@tailwindcss/typography'),
-  //   prismElements({
-  //     prefix: 'prism-'
-  //   })
-  // ],
-  presets: [
-    require('@prism2/tailwind-preset')
-  ]
+  theme: {
+    extend: require('@prism2/tailwind-theme')
+  },
+  plugins: [
+    require('@tailwindcss/typography'),
+    require('@prism2/tailwind-elements')({
+      parent: '.prism-base',
+      strategy: 'base',
+    }),
+    require('@prism2/tailwind-elements')({
+      parent: '.prism-enabled',
+      prefix: 'my-component-',
+      strategy: 'class'
+    })
+  ],
 }
 
