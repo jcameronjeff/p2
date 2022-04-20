@@ -22,19 +22,20 @@ const items = [
 ]
 
 
-const MenuItem = ({active, selected, value}) => {
+const MenuItem = ({active, selected, value, onClick}) => {
   const clsx = [
     'prism-menu-item text-sm',
     active && 'active',
     selected && 'selected'
   ].filter(Boolean).join(' ')
   return (
-    <li className={clsx}>
+    <li className={clsx} onClick={onClick}>
       <span>{value}</span>
       {selected && <CheckIcon className='w-6 h-6'/>}
     </li>
   )
 }
+
 const Template: ComponentStory<any> = (args) => {
 
   const [selectedOption, setSelectedOptions] = useState('')
@@ -54,8 +55,8 @@ const Template: ComponentStory<any> = (args) => {
           <Combobox.Input onChange={(event) => setQuery(event.target.value)} className='prism-input' role='combobox' />
           <Combobox.Options className='prism-menu'>
             {options.map((person) => (
-              <Combobox.Option key={person} value={person} as={Fragment}>
-                {({ active, selected }) => <MenuItem active={active} selected={selected} value={person} />}
+              <Combobox.Option key={person} value={person} as={Fragment} >
+                {({ active, selected }) => <MenuItem active={active} selected={selected} value={person} onClick={() => setQuery(person)} />}
               </Combobox.Option>
             ))}
           </Combobox.Options>

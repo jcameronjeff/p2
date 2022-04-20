@@ -4,15 +4,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
   return function ({ addBase, addComponents, theme }) {
     const prefix = options.prefix === undefined ? 'prism-' : options.prefix
     addComponents({
-      // Labels ------------------------------------
-      [`.${prefix}label`]: {
-        fontSize: theme('fontSize.sm'),
-        color: theme('colors.gray.400'),
-      },
-      [`.${prefix}label-xs`]: {
-        fontSize: theme('fontSize.xs'),
-        color: theme('colors.gray.400'),
-      },
+
       // Links ------------------------------------
       [`.${prefix}link`]: {
         fontSize: theme('fontSize.base'),
@@ -71,7 +63,8 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         borderWidth: theme('borderWidth.DEFAULT'),
         marginTop: '-1px'
       },
-      [`.${prefix}menu-item`]: {
+
+      [`.${prefix}menu-item, ${prefix}menu option`]: {
         padding: theme('spacing.2'),
         width: '100%',
         display: 'flex',
@@ -80,7 +73,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
         gap: theme('spacing.2'),
         backgroundColor: theme('colors.white'),
         color: theme('colors.gray.700'),
-        '&.active': {
+        '&.active, &:hover': {
           backgroundColor: theme('colors.navy'),
           color: theme('colors.white')
         },
@@ -154,8 +147,33 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           }
         }
       },
+      // Labels ------------------------------------
+      [`.${prefix}label, .${prefix}form-control`]: {
+        fontSize: theme('fontSize.sm'),
+        color: theme('colors.gray.400'),
+        display: 'flex',
+        flexDirection: 'column',
+        '&.inline': {
+          flexDirection: 'row',
+          gap: theme('spacing.2')
+        }
+      },
+      [`.${prefix}label-xs`]: {
+        fontSize: theme('fontSize.xs'),
+        color: theme('colors.gray.400'),
+      },
       // Input Box ---------------------------------
-      [`.${prefix}input, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
+      [`.${prefix}select`]: {
+        borderColor: theme('colors.gray.350'),
+        borderWidth: '1px',
+        borderStyle: 'solid',
+        borderRadius: theme('borderRadius.xs'),
+        outline: 'none',
+        backgroundColor: theme('colors.white'),
+        padding: theme('spacing[2.5]'),
+        backgroundPositionY: '-40px'
+      },
+      [`.${prefix}input, ${prefix}select, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
         borderColor: theme('colors.gray.350'),
         borderWidth: '1px',
         borderStyle: 'solid',
@@ -168,7 +186,7 @@ module.exports = plugin.withOptions(function (options = { prefix: undefined }) {
           color: theme('colors.gray.400')
         },
         '&:focus': {
-          boxShadow: theme('boxShadow.lg'),
+          boxShadow: theme('boxShadow.sm'),
           outline: 'none'
         }
       }

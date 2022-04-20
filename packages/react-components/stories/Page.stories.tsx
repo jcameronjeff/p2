@@ -40,7 +40,7 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <h4>h4 Five or six big jet planes zoomed quickly by the new tower.</h4>
       <h5>h5 Expect skilled signwriters to use many jazzy, quaint old alphabets effectively.</h5>
       <h6>h6 Pack my box with five dozen liquor jugs.</h6>
-
+    </hgroup>
       <p>Basic paragraph text <code>.text-base / 16px</code></p>
       <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
       <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
@@ -55,21 +55,7 @@ export const HeadingsHTML: ComponentStory<any> = (args) => (
       <p className='prism-link-xxs'>.prism-link-xxs - Inline Link XXS (10px) </p>
       <hr />
 
-      <div className='space-y-2'>
-      <div className='space-y-1 flex items-center'>
-        <div className='prism-label w-[120px]'>Name</div>
-        <input className='prism-input w-full' />
-      </div>
-      <div className='space-y-1 flex items-center'>
-        <div className='prism-label w-[120px]'>Address</div>
-        <input className='prism-input w-full' />
-      </div>
-      <div className='space-y-1 flex items-center'>
-        <div className='prism-label w-[120px]'>Phone</div>
-        <input className='prism-input w-full' type="tel" />
-      </div>
-      </div>
-    </hgroup>
+
   </section>
 )
 
@@ -163,83 +149,114 @@ export const TableHTML: ComponentStory<any> = (args) => (
 export const FormHTML: ComponentStory<any> = (args) => (
 
   <form className='space-y-2 prism'>
-    <p>
-      <label htmlFor="example-input-email" className='prism-label'>Email address</label>
-      <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
-    </p>
-    <p>
-      <label htmlFor="example-input-password1">Number</label>
-      <input type="number" id="example-input-number" placeholder="Number" />
-    </p>
-    <p>
-      <label htmlFor="example-input-password">Password</label>
-      <input type="password" id="example-input-password" placeholder="Password" />
-    </p>
-    <p>
-      <label htmlFor="example-input-search">Search</label>
-      <input type="search" id="example-input-serach" placeholder="Search .." />
-    </p>
-    <p>
-      <label htmlFor="example-input-tel">Telephone number</label>
-      <input type="tel" id="example-input-tel" placeholder="Telephone number" />
-    </p>
 
-    <p>
-      <label htmlFor="example-input-text">Text</label>
-      <input type="text" id="example-input-text" placeholder="Enter some text here" />
-    </p>
-    <p>
-      <label htmlFor="example-input-url">Url</label>
-      <input type="url" id="example-input-url" placeholder="Enter a url here" />
-    </p>
-    <p>
-      <label htmlFor="example-input-color">Color</label>
-      <input type="color" id="example-inupt-color" placeholder="#fff" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date">Date</label>
-      <input type="date" id="example-input-date" placeholder="date" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date-time">Date / Time</label>
-      <input type="datetime" id="example-input-date-time" placeholder="date / time" />
-    </p>
-    <p>
-      <label htmlFor="example-input-date-time-local">Date / Time local</label>
-      <input type="datetime-local" id="example-input-date-time-local" placeholder="date / time local" />
-    </p>
-    <p>
-      <label htmlFor="example-input-month">Month</label>
-      <input type="month" id="example-input-month" placeholder="Month" />
-    </p>
-    <p>
-      <label htmlFor="example-input-week">Week</label>
-      <input type="week" id="example-input-week" placeholder="Week" />
-    </p>
-    <p>
-      <label htmlFor="example-input-time">Time</label>
-      <input type="time" id="example-input-time" placeholder="Time" />
-    </p>
-    <p>
-      <label htmlFor="example-select1">Example select</label>
-      <select id="example-select1">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </p>
-    <p>
-      <label htmlFor="example-select2">Example multiple select</label>
-      <select multiple id="example-select2">
-        <option>1</option>
-        <option>2</option>
-        <option>3</option>
-        <option>4</option>
-        <option>5</option>
-      </select>
-    </p>
+    <label htmlFor="example-input-email" className='prism-label'>Email address
+      <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
+    </label>
+
+    <label htmlFor="example-input-email" className='prism-form-control'>Inline Form
+      <input className='prism-text-input' type="text" id="example-input-text" placeholder="Text input" />
+    </label>
+
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Number
+      <input type="number" id="example-input-number" placeholder="Number" />
+    </label>
+
+    <label className='prism-form-control' htmlFor="example-input-password1">
+      Password
+      <input type="password" id="example-input-password" placeholder="Password" />
+    </label>
+
+    <label htmlFor="example-input-search" className='prism-label'>
+      Search
+      <input type="search" id="example-input-serach" placeholder="Search .." />
+    </label>
+
+
+      <label className='prism-label' htmlFor="example-input-tel">
+        Telephone number
+        <input type="tel" id="example-input-tel" placeholder="Telephone number" />
+      </label>
+
+
+
+      <label className='prism-label' htmlFor="example-input-text">
+        Text
+        <input type="text" id="example-input-text" placeholder="Enter some text here" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-url">
+        Url
+        <input type="url" id="example-input-url" placeholder="Enter a url here" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-color">
+        Color
+        <input type="color" id="example-inupt-color" placeholder="#fff" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date">
+        Date
+        <input type="date" id="example-input-date" placeholder="date" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date-time">
+        Date / Time
+        <input type="datetime" id="example-input-date-time" placeholder="date / time" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-date-time-local">
+        Date / Time local
+        <input type="datetime-local" id="example-input-date-time-local" placeholder="date / time local" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-month">
+        Month
+        <input type="month" id="example-input-month" placeholder="Month" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-week">
+        Week
+        <input type="week" id="example-input-week" placeholder="Week" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-input-time">
+        Time
+        <input type="time" id="example-input-time" placeholder="Time" />
+      </label>
+
+
+      <label className='prism-label' htmlFor="example-select1">
+        Example select
+        <select id="example-select1" className='prism-select'>
+          <option>1</option>
+          <option>2</option>
+          <option>3</option>
+          <option>4</option>
+          <option>5</option>
+        </select>
+      </label>
+
+      <label htmlFor="example-select2" className='prism-label'>
+        Example multiple select
+        <select multiple id="example-select2" className='prism-select'>
+          <option className='prism-menu-item'>1</option>
+          <option className='prism-menu-item'>2</option>
+          <option className='prism-menu-item'>3</option>
+          <option className='prism-menu-item'>4</option>
+          <option className='prism-menu-item'>5</option>
+        </select>
+      </label>
+
     <p>
       <label htmlFor="example-textarea">Example textarea</label>
       <textarea id="example-textarea" rows={3} />
