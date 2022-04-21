@@ -21,7 +21,7 @@ export const Checkbox:React.FC<IProps>  = ({
 }) => {
   const cbRef = React.useRef<HTMLInputElement>(null);
   const [isChecked, setChecked] = React.useState(checked);
-  const baseClasses = 'flex gap-2 items-center cursor-pointer';
+  const baseClasses = 'group flex gap-2 items-center cursor-pointer ';
   const clsx = [baseClasses, className].join(' ');
 
   function handleClick(e:React.BaseSyntheticEvent) {
@@ -38,9 +38,10 @@ export const Checkbox:React.FC<IProps>  = ({
         name={label}
         ref={cbRef}
         type='checkbox'
+        className='group-focus-within:shadow-lg focus-within:scale-125'
         checked={isChecked}
         onChange={handleClick} />
-      <span className='prism-label'>{label}</span>
+      <span className='prism-label group-focus-within:text-black'>{label}</span>
     </div>
   );
 };

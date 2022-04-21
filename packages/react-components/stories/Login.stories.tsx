@@ -43,18 +43,18 @@ const Template: ComponentStory<any> = () => (
       <main className='space-y-4 p-8 py-4 '>
         <h1 className='text-center prism-heading-1'>Sign In</h1>
         <div className='space-y-2'>
-          <input name='username' type='text' className='w-full' placeholder="Username" />
-          <input name='password' type='password' className='w-full' placeholder="Password" />
+          <input name='username' type='text' className='w-full focus-within:shadow-lg' placeholder="Username" />
+          <input name='password' type='password' className='w-full focus-within:shadow-lg' placeholder="Password" />
         </div>
         <Checkbox checked={false} label="Remember my password" onToggle={console.log} />
         <Checkbox checked={false} label="Remember my username" onChange={console.log} onToggle={console.log} />
-        <button type='submit' className='prism-btn w-full center'>Login</button>
+        <button type="submit" className='prism-btn w-full center focus-within:shadow-lg focus-within:ring-1'>Login</button>
       </main>
       <footer className='flex justify-between items-center p-8 py-4 border-t'>
         <div className='prism-caption'>Forgot?</div>
         <div className='text-xs prism-base flex gap-2'>
-          <button className='prism-btn p-2'>Username?</button>
-          <button className='prism-btn p-2'>Password?</button>
+          <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Username?</button>
+          <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Password?</button>
         </div>
       </footer>
     </Form>
@@ -72,41 +72,48 @@ Basic.play = async ({ canvasElement }) => {
   const opt2 = canvas.getByText(/my username/);
   const word = 'darin@cassler.net';
 
-  for (let i = 0; i < 999; i++) {
+  for (let i = 0; i < 5; i++) {
     /* type username into input */
     userEvent.clear(userInput);
-    userEvent.click(userInput);
+    userEvent.clear(pwInput);
+
     for (let step = 0; step < word.length; step++) {
       await sleep(25).then(() => {
+        userEvent.click(userInput);
         userEvent.type(userInput, word.split('')[step]);
       });
     }
 
-    userEvent.tab();
-
     /* type password into input */
-    userEvent.clear(pwInput);
     for (let step = 0; step < word.length; step++) {
       await sleep(25).then(() => {
         userEvent.type(pwInput, word.split('')[step]);
       });
     }
 
-    /* click remember pass */
-    userEvent.click(opt1);
-    await sleep(250);
+    /**
+     * 1. Check remember pass
+     * 2. Check remember username
+     * 3. Uncheck remember pass
+     * 4. Uncheck remember username
+     */
+    for (let opt of [opt1, opt2, opt1, opt2]) {
+      userEvent.click(opt);
+      await sleep(250);
+    }
 
-    /* click remember username */
-    userEvent.click(opt2);
-    await sleep(250);
+    for (let p = 0; p < 12; i++) {
+      userEvent.keyboard('{Tab}');
+      userEvent.tab();
+      await sleep(250);
+    }
 
-    /* click disable rememebr pass */
-    userEvent.click(opt1);
-    await sleep(250);
-
-    /* click disable rememeber username */
-    userEvent.click(opt2);
-    await sleep(250);
+    userEvent.keyboard('{Tab}');
+    userEvent.keyboard('{Tab}');
+    userEvent.keyboard('{Tab}');
+    userEvent.tab();
+    userEvent.tab();
+    userEvent.tab();
   }
 
 };
