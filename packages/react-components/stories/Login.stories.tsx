@@ -45,7 +45,7 @@ const Template: ComponentStory<any> = () => (
           <input type='password' className='w-full' placeholder="Password" />
         </div>
         <Checkbox checked={false} label="Remember my password" onToggle={console.log} />
-        <Checkbox checked={false} label="Remember my username" onChange={(e) => console.log(e.currentTarget)} onToggle={console.log} />
+        <Checkbox checked={false} label="Remember my username" onChange={console.log} onToggle={console.log} />
         <button type='submit' className='prism-btn w-full center'>Login</button>
       </main>
       <footer className='flex justify-between items-center p-8 py-4 border-t'>

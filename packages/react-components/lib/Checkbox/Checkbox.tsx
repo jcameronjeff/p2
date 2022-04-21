@@ -17,7 +17,6 @@ export const Checkbox:React.FC<IProps>  = ({
   className = '',
   onChange = () => {},
   onToggle = () => {},
-  onClick = () => {},
   ...props
 }) => {
   const cbRef = React.useRef<HTMLInputElement>(null);
@@ -26,16 +25,15 @@ export const Checkbox:React.FC<IProps>  = ({
   const clsx = [baseClasses, className].join(' ');
 
   function handleClick(e:React.BaseSyntheticEvent) {
-    onClick(e as React.MouseEvent<any>);
-    e.currentTarget = cbRef.current;
-    e.currentTarget.checked = !isChecked;
-    onChange(e as React.FormEvent<HTMLInputElement>);
-    onToggle([label, !isChecked]);
-    setChecked(!isChecked);
+    if (e.type === 'click') {
+      onChange(e as React.FormEvent<HTMLInputElement>);
+      onToggle([label, !isChecked]);
+      setChecked(!isChecked);
+    }
   }
 
   return (
-    <div className={clsx} onClick={handleClick} {...props}>
+    <div className={clsx} onClick={handleClick} {...props} >
       <input
         name={label}
         ref={cbRef}
