@@ -14,6 +14,9 @@ export const parameters = {
 }
 
 export const decorators = [
-  (Story) => <div style={{padding: '0rem 3rem'}}><div className='flex justify-center gap-2'>
-    <Story /></div></div>
+  (Story) => <div style={{padding: '0rem 3rem'}}>
+    <div className='flex justify-center gap-2'>
+      <Story />
+    </div>
+  </div>
 ];
