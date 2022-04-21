@@ -1,7 +1,9 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { ReactEventHandler } from 'react';
 import { HTMLProps } from 'react';
-import { Checkbox } from '../lib/Checkbox';
+import { Checkbox } from '../lib';
+import { userEvent, within } from '@storybook/testing-library';
+import { sleep } from '../lib/utils';
 
 export default {
   title: 'Interaction/LoginPrompt',
@@ -21,7 +23,7 @@ export const FormHeader:React.FC<HTMLProps<HTMLDivElement>> = ({ children, class
   const baseClasses = 'flex items-center justify-center p-8 py-4 border-b';
   const clsx = [baseClasses, className].join(' ');
   return (
-    <header className={clsx}>
+    <header className={clsx} {...props}>
       {children}
     </header>
   );
@@ -41,8 +43,8 @@ const Template: ComponentStory<any> = () => (
       <main className='space-y-4 p-8 py-4 '>
         <h1 className='text-center prism-heading-1'>Sign In</h1>
         <div className='space-y-2'>
-          <input type='text' className='w-full' placeholder="Username" />
-          <input type='password' className='w-full' placeholder="Password" />
+          <input name='username' type='text' className='w-full' placeholder="Username" />
+          <input name='password' type='password' className='w-full' placeholder="Password" />
         </div>
         <Checkbox checked={false} label="Remember my password" onToggle={console.log} />
         <Checkbox checked={false} label="Remember my username" onChange={console.log} onToggle={console.log} />
@@ -60,3 +62,51 @@ const Template: ComponentStory<any> = () => (
 );
 
 export const Basic = Template.bind({});
+
+
+Basic.play = async ({ canvasElement }) => {
+  const canvas = within(canvasElement);
+  const userInput = await canvas.getByPlaceholderText('Username');
+  const pwInput = await canvas.getByPlaceholderText('Password');
+  const opt1 = canvas.getByText(/my password/);
+  const opt2 = canvas.getByText(/my username/);
+  const word = 'darin@cassler.net';
+
+  for (let i = 0; i < 999; i++) {
+    /* type username into input */
+    userEvent.clear(userInput);
+    userEvent.click(userInput);
+    for (let step = 0; step < word.length; step++) {
+      await sleep(25).then(() => {
+        userEvent.type(userInput, word.split('')[step]);
+      });
+    }
+
+    userEvent.tab();
+
+    /* type password into input */
+    userEvent.clear(pwInput);
+    for (let step = 0; step < word.length; step++) {
+      await sleep(25).then(() => {
+        userEvent.type(pwInput, word.split('')[step]);
+      });
+    }
+
+    /* click remember pass */
+    userEvent.click(opt1);
+    await sleep(250);
+
+    /* click remember username */
+    userEvent.click(opt2);
+    await sleep(250);
+
+    /* click disable rememebr pass */
+    userEvent.click(opt1);
+    await sleep(250);
+
+    /* click disable rememeber username */
+    userEvent.click(opt2);
+    await sleep(250);
+  }
+
+};
