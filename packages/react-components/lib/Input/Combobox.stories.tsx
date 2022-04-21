@@ -37,7 +37,8 @@ const MenuItem = ({ active, selected, value, onClick }: MProps) => {
 };
 
 const Template: ComponentStory<any> = () => {
-
+  // import { Combobox } from '@headlessui/react';
+  // import { CheckIcon } from '@heroicons/react/solid';
   const [selectedOption, setSelectedOptions] = useState('');
   const [query, setQuery] = useState('');
 
