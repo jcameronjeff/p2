@@ -18,5 +18,5 @@
     "declaration": true
   },
   "include": ["lib", "./node_modules/@headlessui"],
-  "exclude": ["./*.js", "./node_modules", "./test"],
+  "exclude": ["./node_modules", "./test"],
 }

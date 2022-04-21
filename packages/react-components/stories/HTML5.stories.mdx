@@ -1,40 +1,16 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
 import { Avatar, Button } from '../lib';
-import { HeadingsHTML, ArticleHTML, FormHTML, ListHTML, DefinitionHTML, FigureHTML, TableHTML, AddressHTML, CodeblockHTML } from './Page.stories';
 
-<Meta title="Elements/HTML5" component={Avatar} />
+<Meta title="HTML5/Basics" component={Avatar} />
 
 # HTML5 Elements
 
 Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 elements.
 
-## `@prism2/tailwind-elements`
-
-`@prism2/tailwind-elements` provides a flexible way to generate styles for your app or component. *(Currently this is `./prismElements.js`)*.
-
-### Using as an HTML Reset
-
-In some cases, you may want to apply design guidelines directly to HTML5 elements. To gain styling on `<h1>, <label>, <input>, etc.` you can
-indicate `strategy:base`.`
-
-```js
-// tailwind.config.js
-plugins: [
-  require("@prism2/tailwind-elements")({
-    parent: '.my-css-scope', // scope rules to children of this CSS selector.
-    strategy: 'base', // only generate global styles, ex: <h1>, <h2>, <h3>
-  }),
-  // You can add the plugin more than once
-  require("@prism2/tailwind-elements")({
-    strategy: 'class', // only generate global styles, ex: <h1>, <h2>, <h3>
-    parent: '.my-other-css-scope', // scope rules to children of this CSS selector.
-    prefix: 'my-component-',
-  }),
-],
-```
+See [tailwind-elements](/story/install-tailwind--page) for more.
 
 <Canvas>
-<Story name="1a. Heading Text">
+<Story name="Headings">
   <div className='space-y-8'>
     <div className='grid w-full grid-cols-[50%,50%] gap-8'>
       <hgroup className='space-y-4 prism-base'>
@@ -81,7 +57,7 @@ plugins: [
 ### Utility Text Styles
 
 <Canvas>
-<Story name='1c. Utility Text Styles'>
+<Story name='Text Styles'>
   <div className='space-y-4'>
     <p>Basic paragraph text <code>.text-base / 16px</code></p>
     <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
@@ -103,7 +79,7 @@ plugins: [
 ### Body Text
 
 <Canvas>
-<Story name="2. Body Text">
+<Story name="Prose">
   <div className='space-y-12'>
   <article className='prism-prose'>
     <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
@@ -136,12 +112,22 @@ plugins: [
 </Canvas>
 
 
-### Forms
+### Blockquotes
 
 <Canvas>
-  <Story name='3. Forms'>
-    <FormHTML />
-  </Story>
+<Story name="Blockquotes">
+<section className='space-y-4 prose prose-sm'>
+  <blockquote>
+    <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
+  </blockquote>
+  <blockquote>
+    <p>This is a mult-line blockquote with a cite reference. People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick
+      carefully. I’m actually as proud of the things we haven’tdone as the things I have done. Innovation is saying no to 1,000 things.
+      <cite>Steve Jobs – Apple Worldwide Developers’ Conference, 1997</cite>
+    </p>
+  </blockquote>
+</section>
+</Story>
 </Canvas>
 
 ## Tables
@@ -149,7 +135,7 @@ plugins: [
 ### Styled Table
 
 <Canvas>
-  <Story name='4a. Tables'>
+  <Story name='Tables'>
     <table className="prism-table">
     <caption>Tables can have captions now.</caption>
     <tbody>
@@ -183,48 +169,10 @@ plugins: [
   </Story>
 </Canvas>
 
-### Unstyled Table
-
-<Canvas>
-  <Story name='4b. Unstyled Table'>
-    <table>
-    <caption>Tables can have captions now.</caption>
-    <tbody>
-      <tr>
-        <th>Person</th>
-        <th>Number</th>
-        <th>Third Column</th>
-      </tr>
-      <tr>
-        <td>Someone Lastname</td>
-        <td>900</td>
-        <td>Nullam quis risus eget urna mollis ornare vel eu leo.</td>
-      </tr>
-      <tr>
-        <td><a href="#">Person Name</a></td>
-        <td>1200</td>
-        <td>Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
-      </tr>
-      <tr>
-        <td>Another Person</td>
-        <td>1500</td>
-        <td>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
-      </tr>
-      <tr>
-        <td>Last One</td>
-        <td>2800</td>
-        <td>Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</td>
-      </tr>
-    </tbody>
-  </table>
-  </Story>
-</Canvas>
-
-
 ### Lists
 
 <Canvas>
-  <Story name='5. Lists'>
+  <Story name='Lists'>
     <ul className='prism-list'>
       <li>List item two</li>
       <li>List item three</li>
@@ -243,7 +191,7 @@ plugins: [
 ### Definitions
 
 <Canvas>
-  <Story name='6. Definitions'>
+  <Story name='Definitions'>
     <div>
     <dl className='prism-def'>
       <dt>Engine</dt>
@@ -282,8 +230,11 @@ plugins: [
 ### Figures
 
 <Canvas>
-  <Story name='7. Figure'>
-    <FigureHTML />
+  <Story name='Figure'>
+    <figure>
+      <img src="https://www.fillmurray.com/505/314" />
+      <figcaption>Fig1. A picture of Bill Murray from <a href="https://www.fillmurray.com/">fillmurray.com</a></figcaption>
+    </figure>
   </Story>
 </Canvas>
 
@@ -291,7 +242,9 @@ plugins: [
 ### Address
 
 <Canvas>
-  <Story name='8. Address'>
-    <AddressHTML />
+  <Story name='Address'>
+    <address>1 Infinite Loop<br/>
+    Cupertino, CA 95014<br/>
+    United States</address>
   </Story>
 </Canvas>
