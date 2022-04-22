@@ -5,14 +5,16 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
   title: 'Interaction/Modal',
+  component: Modal,
+
 } as ComponentMeta<any>;
 
-const Template: ComponentStory<typeof Modal> = () => {
+export const Template: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <>
+    <div>
     <button className='prism-btn outline' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)}>
+    <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)} {...args}>
       <Dialog.Title className='prism-heading-2'>
         Deactivate account
       </Dialog.Title>
@@ -28,7 +30,7 @@ const Template: ComponentStory<typeof Modal> = () => {
         <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>
-    </>
+    </div>
   );
 };
 

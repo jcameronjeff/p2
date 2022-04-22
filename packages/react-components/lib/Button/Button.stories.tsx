@@ -8,7 +8,7 @@ import { Avatar } from '../Avatar';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Elements/Button/AutoClick',
+  title: 'Elements/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
@@ -19,14 +19,16 @@ export default {
 const ButtonTemplate: ComponentStory<any> = () => {
   const [count, setCount] = React.useState(0);
   return (
-    <>
-      <Avatar name="Darin Cassler" />
-      <Avatar name="Darin" />
-      <Avatar name="DC" />
-      <Avatar name="DC" src="//www.fillmurray.com/128/128" />
-      <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count + 1)}/>
-      {count > 4 && <h3>Automation Completed!</h3>}
-    </>
+    <div className='flex gap-2 flex-wrap'>
+    <button type="button" name="button">No Class Button</button>
+    <input className='prism-btn' type="button" name="input" value="Input Button" />
+    <input className='prism-btn outline' type="button" name="input" value="Outline Button" />
+    <input className='prism-btn fill' type="button" name="input" value="Fill Button" />
+    <input className='prism-btn'  type="submit" name="submit" value="Submit Button" />
+    <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
+    <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count + 1)}/>
+    {count > 4 && <h3>Automation Completed!</h3>}
+  </div>
   );
 };
 

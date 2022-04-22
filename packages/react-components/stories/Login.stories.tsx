@@ -103,7 +103,7 @@ Basic.play = async ({ canvasElement }) => {
   const opt2 = canvas.getByText(/my username/);
   const word = 'darin@cassler.net';
 
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < 2; i++) {
     /* type username into input */
     userEvent.clear(userInput);
     userEvent.clear(pwInput);

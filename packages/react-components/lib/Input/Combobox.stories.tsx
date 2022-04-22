@@ -36,7 +36,7 @@ const MenuItem = ({ active, selected, value, onClick }: MProps) => {
   );
 };
 
-const Template: ComponentStory<any> = () => {
+export const Template: ComponentStory<any> = (args) => {
   // import { Combobox } from '@headlessui/react';
   // import { CheckIcon } from '@heroicons/react/solid';
   const [selectedOption, setSelectedOptions] = useState('');
@@ -51,7 +51,7 @@ const Template: ComponentStory<any> = () => {
 
   return (
     <div className="relative mt-1 flex gap-2 items-start">
-      <Combobox value={selectedOption} onChange={setSelectedOptions}>
+      <Combobox value={selectedOption} onChange={setSelectedOptions} {...args}>
         <div className='prism-combobox w-[500px]'>
           <Combobox.Input onChange={(event) => setQuery(event.target.value)} className='prism-input' role='combobox' />
           <Combobox.Options className='prism-menu'>
@@ -69,6 +69,13 @@ const Template: ComponentStory<any> = () => {
 };
 
 export const BasicUsage = Template.bind({});
+BasicUsage.parameters = {
+  docs: {
+    source: {
+      type: 'code',
+    },
+  },
+};
 // More on interaction testing: https://storybook.js.org/docs/react/writing-tests/interaction-testing
 BasicUsage.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);

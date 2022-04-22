@@ -4,13 +4,37 @@ import React, { Fragment } from 'react';
 
 
 export interface ModalProps {
+  /**
+   *  Use the show prop to control whether the content should be
+   *  visible or hidden.
+   *  @default false
+   */
   show?: boolean;
+  /**
+   * If true, element will transition on initial render. Useful for
+   * conditional rendering or animating initial page load.
+   * @default false
+   */
   appear?: boolean;
+  /**
+   * Callback to fire when modal is dismissed
+   */
   onClose?: (value:boolean) => void;
-  as?: any,
+  /**
+   * Optionally use a custom element, default: Fragment.
+   * @default Fragment
+   */
+  as?: React.ElementType<any> | undefined,
+  /**
+   * If you'd like something other than the first focusable element
+   * to receive initial focus when your dialog is initially rendered,
+   * you can use the initialFocus ref:
+   */
   initialFocus?: React.MutableRefObject<HTMLElement | null>
 }
-export const Modal:React.FC<ModalProps> = ({ children, initialFocus, onClose = () => {}, as, show = false }) => {
+
+
+export const Modal:React.FC<ModalProps> = ({ children, initialFocus, onClose = () => {}, as = Fragment, show = false }) => {
 
   return (
   <Transition as={as} show={show}>
