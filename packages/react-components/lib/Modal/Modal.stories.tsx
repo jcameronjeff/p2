@@ -8,10 +8,10 @@ export default {
 } as ComponentMeta<any>;
 
 const Template: ComponentStory<typeof Modal> = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-    <button className='prism-btn' onClick={() => setIsOpen(true)}>Toggle</button>
+    <button className='prism-btn outline' onClick={() => setIsOpen(true)}>Toggle Modal</button>
     <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)}>
       <Dialog.Title className='prism-heading-2'>
         Deactivate account

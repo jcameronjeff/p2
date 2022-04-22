@@ -1,6 +1,6 @@
 import React, { Fragment, useState } from 'react';
-import { Dialog, Transition } from '@headlessui/react';
-import { Appear, Modal } from '../lib/Modal';
+import { Dialog } from '@headlessui/react';
+import { Modal } from '../lib/Modal';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { HTMLProps } from 'react';
 import { Checkbox } from '../lib';
