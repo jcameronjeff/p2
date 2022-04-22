@@ -40,7 +40,8 @@ const Form = Object.assign(FormRoot, {
 
 
 const Template: ComponentStory<any> = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+  const modalFocus = React.useRef(null);
   return (
   <div className='prism'>
     <Form>
@@ -69,7 +70,7 @@ const Template: ComponentStory<any> = () => {
         </div>
       </footer>
     </Form>
-    <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)}>
+    <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)} initialFocus={modalFocus}>
       <Dialog.Title className='prism-heading-2'>
         Deactivate account
       </Dialog.Title>
@@ -81,8 +82,8 @@ const Template: ComponentStory<any> = () => {
         be permanently removed. This action cannot be undone.
       </p>
       <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button className='prism-btn' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
+        <button ref={modalFocus} className='prism-btn focus-within:ring-4' onClick={() => setIsOpen(false)}>Cancel</button>
+        <button className='prism-btn fill focus-within:ring-4' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>
   </div>
@@ -106,6 +107,7 @@ Basic.play = async ({ canvasElement }) => {
     /* type username into input */
     userEvent.clear(userInput);
     userEvent.clear(pwInput);
+    await sleep(250);
 
     for (let step = 0; step < word.length; step++) {
       await sleep(25).then(() => {
@@ -132,10 +134,9 @@ Basic.play = async ({ canvasElement }) => {
       await sleep(250);
     }
 
-    for (let p = 0; p < 4; p++) {
-      userEvent.keyboard('{Tab}');
+    for (let p = 0; p < 7; p++) {
       userEvent.tab();
-      await sleep(250);
+      await sleep(350);
     }
 
 
@@ -145,11 +146,18 @@ Basic.play = async ({ canvasElement }) => {
     await sleep(350);
 
 
-    // const cancel = await canvas.getByText(/Cancel/);
+    userEvent.tab();
+    await sleep(500);
+
+    userEvent.tab();
+    await sleep(500);
+
+    userEvent.tab();
+    await sleep(1000);
+
+    userEvent.keyboard('{Enter}');
 
 
-    userEvent.click(await canvas.getByText(/Dismiss/));
-    await sleep(350);
 
   }
 

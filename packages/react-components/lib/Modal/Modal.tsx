@@ -7,11 +7,14 @@ export interface ModalProps {
   show?: boolean;
   appear?: boolean;
   onClose?: (value:boolean) => void;
-  as?: any
+  as?: any,
+  initialFocus?: React.MutableRefObject<HTMLElement | null>
 }
-export const Modal:React.FC<ModalProps> = ({ children, onClose = () => {}, as, show }) => (
+export const Modal:React.FC<ModalProps> = ({ children, initialFocus, onClose = () => {}, as, show = false }) => {
+
+  return (
   <Transition as={as} show={show}>
-    <Dialog onClose={onClose}>
+    <Dialog onClose={onClose} open={show} initialFocus={initialFocus}>
       <div className="fixed z-10 inset-0 overflow-y-auto">
         <Transition.Child
           as={Fragment}
@@ -42,4 +45,5 @@ export const Modal:React.FC<ModalProps> = ({ children, onClose = () => {}, as, s
       </div>
     </Dialog>
   </Transition>
-);
+  );
+};
