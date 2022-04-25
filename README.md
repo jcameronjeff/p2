@@ -1,5 +1,6 @@
 # prism2
 
+![Prism2 Package Map](./media/p2-package-map.png)
 
 This project uses lerna to manage monorepo dependencies.
 
