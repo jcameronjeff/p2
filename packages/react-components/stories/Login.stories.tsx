@@ -1,44 +1,16 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Modal } from '../lib/Modal';
+import { Card, Modal } from '../lib';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { HTMLProps } from 'react';
 import { Button, Checkbox } from '../lib';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 
 export default {
-  title: 'Interaction/LoginPrompt',
+  title: 'Elements/Card',
   component: Modal,
   subcomponents: { Checkbox, Button },
 } as ComponentMeta<any>;
-
-
-
-const FormRoot:React.FC<HTMLProps<HTMLFormElement>> = ({ children, className, ...props } ) => {
-  const baseClasses = 'card w-[400px] border shadow-lg rounded-sm space-y-4';
-  const clsx = [baseClasses, className].join(' ');
-  return (
-    <form {...props} className={clsx}>
-      {children}
-    </form>
-  );
-};
-
-const FormHeader:React.FC<HTMLProps<HTMLDivElement>> = ({ children, className, ...props }) => {
-  const baseClasses = 'flex items-center justify-center p-8 py-4 border-b';
-  const clsx = [baseClasses, className].join(' ');
-  return (
-    <header className={clsx} {...props}>
-      {children}
-    </header>
-  );
-};
-
-
-const Form = Object.assign(FormRoot, {
-  Header: FormHeader,
-});
 
 
 const Template: ComponentStory<any> = () => {
@@ -46,11 +18,11 @@ const Template: ComponentStory<any> = () => {
   const modalFocus = React.useRef(null);
   return (
   <div className='prism'>
-    <Form>
-      <Form.Header>
+    <Card>
+      <Card.Header>
         <img className='h-[48px] w-[48px]' src='https://api.manheim.com/assets/images/manheimLogo.svg' />
-      </Form.Header>
-      <main className='space-y-4 p-8 py-4 '>
+      </Card.Header>
+      <Card.Content>
         <h1 className='text-center prism-heading-1'>Sign In</h1>
         <div className='space-y-2'>
           <input name='username' type='text' className='w-full focus-within:shadow-lg' placeholder="Username" />
@@ -63,15 +35,15 @@ const Template: ComponentStory<any> = () => {
         <button onClick={(e) => {
           e.preventDefault(); setIsOpen(true);
         }} className='prism-btn fill w-full center focus-within:shadow-lg focus-within:ring-1'>Login</button>
-      </main>
-      <footer className='flex justify-between items-center p-8 py-4 border-t'>
+      </Card.Content>
+      <Card.Footer>
         <div className='prism-caption'>Forgot?</div>
         <div className='text-xs prism-base flex gap-2'>
           <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Username?</button>
           <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Password?</button>
         </div>
-      </footer>
-    </Form>
+      </Card.Footer>
+    </Card>
     <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)} initialFocus={modalFocus}>
       <Dialog.Title className='prism-heading-2'>
         Deactivate account
@@ -94,9 +66,10 @@ const Template: ComponentStory<any> = () => {
 
 
 export const Basic = Template.bind({});
+export const Autoplay = Template.bind({});
 
 
-Basic.play = async ({ canvasElement }) => {
+Autoplay.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   const userInput = await canvas.getByPlaceholderText('Username');
