@@ -3,12 +3,14 @@ import { Dialog } from '@headlessui/react';
 import { Modal } from '../lib/Modal';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { HTMLProps } from 'react';
-import { Checkbox } from '../lib';
+import { Button, Checkbox } from '../lib';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 
 export default {
   title: 'Interaction/LoginPrompt',
+  component: Modal,
+  subcomponents: { Checkbox, Button },
 } as ComponentMeta<any>;
 
 
