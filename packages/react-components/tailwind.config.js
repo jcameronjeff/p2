@@ -21,6 +21,10 @@ module.exports = {
       prefix: 'prism-',
       strategy: 'class',
     }),
+    require('@prism2/tailwind-elements')({
+      prefix: '',
+      strategy: 'class',
+    }),
   ],
 };
 

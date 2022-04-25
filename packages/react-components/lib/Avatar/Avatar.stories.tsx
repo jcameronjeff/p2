@@ -40,6 +40,7 @@ const LayoutTemplate: ComponentStory<typeof Avatar> = ({ src, name, className })
     <span className='prism-heading-4'>{name}</span>
   </div>
 );
+
 export const WithName = LayoutTemplate.bind({});
 WithName.args = {
   className: 'w-24 h-24',

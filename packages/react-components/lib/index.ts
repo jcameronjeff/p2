@@ -1,6 +1,7 @@
+export * from './Avatar';
 export * from './Button';
 export * from './Input';
-export * from './Avatar';
+export * from './Modal';
 
 export * from '@headlessui/react';
 

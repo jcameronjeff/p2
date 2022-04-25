@@ -3,6 +3,8 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tab } from '@headlessui/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
+import { Basic } from './Login.stories';
+import { BasicUsage as ComboboxExample } from '../lib/Input/Combobox.stories';
 
 export default {
   title: 'Interaction/Tabs',
@@ -46,10 +48,10 @@ const Template: ComponentStory<any> = () => (
         </Tab.List>
         <Tab.Panels className="m-4">
           {[
-            <h1>Heading One</h1>,
-            <h2>Heading 3</h2>,
-            <h1>Heading One</h1>,
-            <h2>Heading 3</h2>,
+            <Basic />,
+            <ComboboxExample />,
+            <Basic />,
+            <ComboboxExample />,
             <h1>Heading One</h1>,
             <h2>Heading 3</h2>,
           ].map(panel => (
