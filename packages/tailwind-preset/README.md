@@ -3,21 +3,38 @@
 This package provides a [preset for TailwindCSS](https://tailwindcss.com/docs/presets) that applies PRISM design standards to your Tailwind projects. See an [example app in prism2-proto](../prism2-proto)
 
 
-### Installation
+# Getting Started
 
-```cli
-yarn add @prism2/tailwind-preset
+> See [Tailwind CSS Instllation Docs](https://tailwindcss.com/docs/installation) for more information.
+
+## Install TailwindCSS
+
+Install tailwindcss via npm, and create your tailwind.config.js file.
+
+```
+npm install -D tailwindcss @prism2/tailwind-preset
+npx tailwindcss init
 ```
 
-Simply add the preset to you `tailwind.config.js` file.
+## Configure your template paths
+
+Add the paths to all of your template files in your tailwind.config.js file. Adding the preset will:
+
+  - Extends the theme with `@prism2/tailwind-theme`
+  - Loads the `@tailwindcss/typography` plugin.
+  - Loads the `@prism2/tailwind-elements` plugin with suggested settings.
+  - Watches the `src` directory for changes on matching file extensions.
 
 ```js
+// tailwind.config.js
 module.exports = {
+  content: ["./src/**/*.{html,jsx,tsx,vue,mdx}"],
   presets: [
     require('@prism2/tailwind-preset')
-  ],
+  ]
 }
 ```
+
 
 ### What's included?
 

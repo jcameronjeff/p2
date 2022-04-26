@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useRef } from 'react';
+import { fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 
 
 
@@ -11,6 +12,11 @@ export interface ModalProps {
    */
   show?: boolean;
   /**
+   * Optionally use a custom element, default: Fragment.
+   * @default Fragment
+   */
+  as?: React.ElementType<any> | undefined,
+  /**
    * If true, element will transition on initial render. Useful for
    * conditional rendering or animating initial page load.
    * @default false
@@ -20,11 +26,7 @@ export interface ModalProps {
    * Callback to fire when modal is dismissed
    */
   onClose?: () => void;
-  /**
-   * Optionally use a custom element, default: Fragment.
-   * @default Fragment
-   */
-  as?: React.ElementType<any> | undefined,
+
   /**
    * If you'd like something other than the first focusable element
    * to receive initial focus when your dialog is initially rendered,
@@ -40,52 +42,48 @@ export interface ModalProps {
    */
   description?: string;
   footer?: React.ReactNode;
+  /**
+   * Optionally override backdrop animation. Object will be merged with defaults.
+   */
+  outerTransition?: Partial<TransitionPropPreset>,
+  /**
+   * Optionally override container animation. Object will be merged with defaults.
+   */
+  innerTransition?: Partial<TransitionPropPreset>
 }
 
 
-type TransitionPropPreset = {
-  enter: string,
-  enterFrom: string,
-  enterTo: string,
-  leave: string,
-  leaveFrom: string,
-  leaveTo: string,
-};
-const transitions:TransitionPropPreset[] = [{
-  enter: 'ease-out duration-100',
-  enterFrom: 'opacity-0',
-  enterTo: 'opacity-100',
-  leave: 'ease-in duration-200 delay-100',
-  leaveFrom: 'opacity-100',
-  leaveTo: 'opacity-0',
-}, {
-  enter: 'ease-in-out duration-100 delay-100',
-  enterFrom: 'opacity-0 scale-95 translate-y-8',
-  enterTo: 'opacity-100 scale-100',
-  leave: 'ease-in duration-100',
-  leaveFrom: 'opacity-100 scale-100',
-  leaveTo: 'opacity-0 scale-95 translate-y-8',
-}];
 
 
-export const Modal:React.FC<ModalProps> = ({ children, description, footer, title, initialFocus = undefined, onClose = () => {}, as = Fragment, show = false }) => {
+export const Modal:React.FC<ModalProps> = ({
+  children, description, footer, title, initialFocus = undefined,
+  outerTransition = { ...fadeInOut }, innerTransition = { ...slideUpDown },
+  onClose = () => {}, as = Fragment, show = false,
+}) => {
 
   const boxClass = 'relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12';
   const bgClass = 'flex items-center justify-center min-h-screen backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale';
   const closeRef = useRef(null);
   const focus = initialFocus || closeRef;
+
+  const outerAnimate = { ...fadeInOut, ...outerTransition };
+  const innerAnimate = { ...slideUpDown, ...innerTransition };
+
   return (
   <Transition as={as} show={show}>
     <Dialog onClose={onClose} open={show} initialFocus={focus}>
       <div className="fixed z-10 inset-0 overflow-y-auto">
-        <Transition.Child as={Fragment} {...transitions[0]}>
+        <Transition.Child as={Fragment} {...outerAnimate}>
           <div className={bgClass}>
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
-            <Transition.Child
-              as={Fragment} {...transitions[1]}>
+            <Transition.Child as={Fragment} {...innerAnimate}>
               <div className={boxClass}>
-                {title ? <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title> : null}
-                {description ? <Dialog.Description className='prism-heading-3'>{description}</Dialog.Description> : null}
+                {title ? (
+                  <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title>
+                ) : null}
+                {description ? (
+                  <Dialog.Description className='prism-heading-3'>{description}</Dialog.Description>
+                ) : null}
                 {children}
                 {footer ? footer : (
                   <div className='pt-4 grid grid-cols-2 gap-4'>
