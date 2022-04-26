@@ -1,4 +1,4 @@
-import { Fragment, useRef, useState } from 'react';
+import { createRef, Fragment, useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Modal } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -33,7 +33,12 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   return (
     <div>
     <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)} initialFocus={okRef} as={Fragment}>
+    <Modal
+      show={isOpen}
+      onClose={() => setIsOpen(false)}
+      initialFocus={okRef}
+      as={Fragment}
+    >
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -42,10 +47,6 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         Are you sure you want to deactivate your account? All of your data will
         be permanently removed. This action cannot be undone.
       </p>
-      <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button className='prism-btn focus-within:shadow-sm' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill focus-within:shadow-sm' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
-      </div>
     </Modal>
     </div>
   );
@@ -58,22 +59,33 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const okRef = useRef(null);
   return (
     <div>
-    <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal
-      as={Fragment}
-      show={isOpen}
-      onClose={() => setIsOpen(false)}
-      initialFocus={okRef}
-      {...args}
-    >
-      <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button className='prism-btn focus-within:shadow-sm' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill focus-within:shadow-sm' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
-      </div>
-    </Modal>
+      <button className='prism-btn fill ' type='submit' onClick={() => setIsOpen(true)}>
+        Toggle Modal
+      </button>
+      <Modal
+        show={isOpen}
+        onClose={() => setIsOpen(false)}
+        initialFocus={okRef}
+        title={args.title}
+        description={args.description}
+        footer={(
+          <div className='pt-4 flex gap-2 justify-center'>
+            <button className='prism-btn w-full block fill focus-within:shadow-lg' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
+          </div>
+        )}
+      >
+        <p>
+          Are you sure you want to deactivate your account? All of your data will
+          be permanently removed. This action cannot be undone.
+        </p>
+      </Modal>
     </div>
   );
 };
 
-export const Shorthand = ShorthandTemplate.bind({});
+export const ShorthandWithCustomFooter = ShorthandTemplate.bind({});
+ShorthandWithCustomFooter.args = {
+  title: 'My Props Title',
+  description: 'My Props Description',
+};
 
