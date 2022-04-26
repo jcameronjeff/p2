@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react';
+import { Fragment, useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Modal } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -11,10 +11,17 @@ export default {
 
 export const Template: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
+  const okRef = useRef(null);
   return (
     <div>
     <button className='prism-btn outline' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal as={Fragment} show={isOpen} onClose={() => setIsOpen(false)} {...args}>
+    <Modal
+      as={Fragment}
+      show={isOpen}
+      onClose={() => setIsOpen(false)}
+      initialFocus={okRef}
+      {...args}
+    >
       <Dialog.Title className='prism-heading-2'>
         Deactivate account
       </Dialog.Title>

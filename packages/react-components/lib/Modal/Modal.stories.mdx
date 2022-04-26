@@ -7,10 +7,11 @@ import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
 
 # Modal
 
-A fully-managed, renderless dialog component jam-packed with accessibility and keyboard features, perfect for building completely custom modal and dialog windows for your next application.
+Modals are child windows which appear in front of the main window to provide urgent information, or ask for information, or ask for a decision while keeping the user's current context. Modals demand a user's attention and must be acted upon or dismissed before a user can continue working in the main window.
 
-Modals are built on top of HeadlessUI's `[Dialog](https://headlessui.dev/react/dialog)`, `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
+Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
 
+Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
 
 ## Basic Example
 
@@ -27,6 +28,25 @@ For accessibility reasons, your modal should contain at least one focusable elem
 Focus is trapped within the modal as long as it is rendered, so tabbing to the end will start cycling back through the beginning again. All other application elements outside of the modal will be marked as inert and thus not focusable.
 
 If you'd like something other than the first focusable element to receive initial focus when your modal is initially rendered, you can use the initialFocus ref:
+
+```jsx
+function MyComponent() {
+  const firstFocusRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+    <button onClick={() => setIsOpen(true)}>Open Modal</button>
+    <Modal initialFocus={firstFocusRef} {...props}>
+      <Dialog.Title>My Modal Title</Dialog.Title>
+      <p>
+        The OK button is focused. You can close this dialog by hitting enter.
+      </p>
+      <button ref={firstFocusRef} onClick={() => setIsOpen(false)}>Ok!</button>
+    </Modal>
+    </>
+  )
+}
+```
 
 ## Using the Title and Description components
 
