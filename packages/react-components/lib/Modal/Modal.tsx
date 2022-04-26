@@ -19,7 +19,7 @@ export interface ModalProps {
   /**
    * Callback to fire when modal is dismissed
    */
-  onClose?: (value:boolean) => void;
+  onClose?: () => void;
   /**
    * Optionally use a custom element, default: Fragment.
    * @default Fragment
@@ -42,14 +42,25 @@ export interface ModalProps {
   /**
    * Shorthand for providing body content via prop.
    */
-  content?: React.ReactNode | string;
+  content?: (() => React.ReactNode) | string | React.ReactNode;
+  /**
+   * Shorthand for providing footer controls via prop.
+   */
+  footer?: (() => React.ReactNode) | string | React.ReactNode;
 }
 
 
 export const Modal:React.FC<ModalProps> = ({
-  title, content, description, children, initialFocus,
+  title, footer, content, description, children, initialFocus,
   onClose = () => {}, as = Fragment, show = false,
 }) => {
+
+  function isomorphicRender(node: (() => React.ReactNode) | string | React.ReactNode) {
+    if (typeof node === 'string') return <p>{node}</p>;
+    if (typeof node === 'object') return node;
+    if (typeof node === 'function') return () => node;
+    return null;
+  }
 
   return (
   <Transition as={as} show={show}>
@@ -78,10 +89,9 @@ export const Modal:React.FC<ModalProps> = ({
           <div className="relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12">
             {title ? <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title> : null}
             {description ? <Dialog.Description className='prism-heading-4'>{description}</Dialog.Description> : null}
-
-            {typeof content === 'string' ? <p>{content}</p> : null}
-            {typeof content === 'object' ? content : null}
+            {isomorphicRender(content)}
             {children}
+            {isomorphicRender(footer)}
           </div>
           </Transition.Child>
         </div>

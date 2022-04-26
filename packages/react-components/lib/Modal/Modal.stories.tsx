@@ -10,20 +10,28 @@ export default {
     title: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-        initialValue: 'My Modal Title',
       },
     },
     description: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-        value: 'My Modal Description',
       },
     },
     content: {
       control: {
-        type: 'object', // Type 'select' is automatically inferred when 'options' is defined
+        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
       },
     },
+    footer: {
+      control: {
+        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
+      },
+    },
+    show: { table: { disable: true } },
+    appear: { table: { disable: true } },
+    as: { table: { disable: true } },
+    initialFocus: { table: { disable: true } },
+    onClose: { table: { disable: true } },
   },
 } as ComponentMeta<typeof Modal>;
 
@@ -88,4 +96,5 @@ Shorthand.args = {
   title: 'My Props Modal Title',
   description: 'This is a props modal description',
   content: 'This text comes from the content prop',
+  footer: 'This text comes from the content prop',
 };
