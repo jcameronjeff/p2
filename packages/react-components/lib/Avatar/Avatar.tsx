@@ -1,6 +1,6 @@
-import React from 'react';
+import { useState, HTMLProps } from 'react';
 
-interface Props extends React.HTMLProps<HTMLDivElement> {
+interface Props extends HTMLProps<HTMLDivElement> {
   /**
    * Username to be displayed. Will return up to 3 initials..
    */
@@ -20,7 +20,7 @@ interface Props extends React.HTMLProps<HTMLDivElement> {
 }
 
 export function Avatar({ alt = 'Image', src, name, className, ...args }: Props) {
-  const [hasImage, setHasImage] = React.useState(true);
+  const [hasImage, setHasImage] = useState(true);
   const clsx = ['rounded-full flex border-4 items-center justify-center border-gold-dark w-12 h-12 overflow-hidden',  className].join(' ');
 
   function getInitials(str: string) {

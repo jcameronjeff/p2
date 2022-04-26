@@ -1,4 +1,4 @@
-import React from 'react';
+import { HTMLProps, ReactElement } from 'react';
 
 /**
  * @remark - Define types inline at the top of the file
@@ -11,7 +11,7 @@ type VariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends React.HTMLProps<HTMLButtonElement> {
+interface Props extends HTMLProps<HTMLButtonElement> {
   /**
    * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
    */
@@ -34,7 +34,7 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'base', label = 'OK', ...args }: Props):React.ReactElement {
+export function Button({ variant = 'base', label = 'OK', ...args }: Props):ReactElement {
   const { children, className } = args;
 
   const vars:Variant = {
