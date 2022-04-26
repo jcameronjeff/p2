@@ -43,9 +43,12 @@ export interface ModalProps {
   description?: string;
   footer?: React.ReactNode;
   /**
-   * Optionally override
+   * Optionally override backdrop animation. Object will be merged with defaults.
    */
   outerTransition?: Partial<TransitionPropPreset>,
+  /**
+   * Optionally override container animation. Object will be merged with defaults.
+   */
   innerTransition?: Partial<TransitionPropPreset>
 }
 
@@ -54,7 +57,7 @@ export interface ModalProps {
 
 export const Modal:React.FC<ModalProps> = ({
   children, description, footer, title, initialFocus = undefined,
-  outerTransition = fadeInOut, innerTransition = slideUpDown,
+  outerTransition = { ...fadeInOut }, innerTransition = { ...slideUpDown },
   onClose = () => {}, as = Fragment, show = false,
 }) => {
 
@@ -75,8 +78,12 @@ export const Modal:React.FC<ModalProps> = ({
             <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
             <Transition.Child as={Fragment} {...innerAnimate}>
               <div className={boxClass}>
-                {title ? <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title> : null}
-                {description ? <Dialog.Description className='prism-heading-3'>{description}</Dialog.Description> : null}
+                {title ? (
+                  <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title>
+                ) : null}
+                {description ? (
+                  <Dialog.Description className='prism-heading-3'>{description}</Dialog.Description>
+                ) : null}
                 {children}
                 {footer ? footer : (
                   <div className='pt-4 grid grid-cols-2 gap-4'>

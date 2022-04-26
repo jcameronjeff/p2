@@ -10,18 +10,11 @@ export default {
     title: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-        initialValue: 'My Modal Title',
       },
     },
     description: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-        value: 'My Modal Description',
-      },
-    },
-    content: {
-      control: {
-        type: 'object', // Type 'select' is automatically inferred when 'options' is defined
       },
     },
   },
