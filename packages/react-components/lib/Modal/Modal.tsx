@@ -2,6 +2,29 @@ import { Dialog, Transition } from '@headlessui/react';
 import React, { Fragment, useRef } from 'react';
 
 
+type TransitionPropPreset = {
+  enter: string,
+  enterFrom: string,
+  enterTo: string,
+  leave: string,
+  leaveFrom: string,
+  leaveTo: string,
+};
+const transitions:TransitionPropPreset[] = [{
+  enter: 'ease-out duration-100',
+  enterFrom: 'opacity-0',
+  enterTo: 'opacity-100',
+  leave: 'ease-in duration-200 delay-100',
+  leaveFrom: 'opacity-100',
+  leaveTo: 'opacity-0',
+}, {
+  enter: 'ease-in-out duration-100 delay-100',
+  enterFrom: 'opacity-0 scale-95 translate-y-8',
+  enterTo: 'opacity-100 scale-100',
+  leave: 'ease-in duration-100',
+  leaveFrom: 'opacity-100 scale-100',
+  leaveTo: 'opacity-0 scale-95 translate-y-8',
+}];
 
 export interface ModalProps {
   /**
@@ -43,32 +66,12 @@ export interface ModalProps {
 }
 
 
-type TransitionPropPreset = {
-  enter: string,
-  enterFrom: string,
-  enterTo: string,
-  leave: string,
-  leaveFrom: string,
-  leaveTo: string,
-};
-const transitions:TransitionPropPreset[] = [{
-  enter: 'ease-out duration-100',
-  enterFrom: 'opacity-0',
-  enterTo: 'opacity-100',
-  leave: 'ease-in duration-200 delay-100',
-  leaveFrom: 'opacity-100',
-  leaveTo: 'opacity-0',
-}, {
-  enter: 'ease-in-out duration-100 delay-100',
-  enterFrom: 'opacity-0 scale-95 translate-y-8',
-  enterTo: 'opacity-100 scale-100',
-  leave: 'ease-in duration-100',
-  leaveFrom: 'opacity-100 scale-100',
-  leaveTo: 'opacity-0 scale-95 translate-y-8',
-}];
 
 
-export const Modal:React.FC<ModalProps> = ({ children, description, footer, title, initialFocus = undefined, onClose = () => {}, as = Fragment, show = false }) => {
+export const Modal:React.FC<ModalProps> = ({
+  children, description, footer, title, initialFocus = undefined,
+  onClose = () => {}, as = Fragment, show = false,
+}) => {
 
   const boxClass = 'relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12';
   const bgClass = 'flex items-center justify-center min-h-screen backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale';
