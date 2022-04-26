@@ -30,11 +30,26 @@ export interface ModalProps {
    * to receive initial focus when your dialog is initially rendered,
    * you can use the initialFocus ref:
    */
-  initialFocus?: React.MutableRefObject<HTMLElement | null>
+  initialFocus?: React.MutableRefObject<HTMLElement | null>,
+  /**
+   * Shorthand for providing a title via prop.
+   */
+  title?: string,
+  /**
+   * Shorthand for providing description text via prop.
+   */
+  description?: string,
+  /**
+   * Shorthand for providing body content via prop.
+   */
+  content?: React.ReactNode | string;
 }
 
 
-export const Modal:React.FC<ModalProps> = ({ children, initialFocus, onClose = () => {}, as = Fragment, show = false }) => {
+export const Modal:React.FC<ModalProps> = ({
+  title, content, description, children, initialFocus,
+  onClose = () => {}, as = Fragment, show = false,
+}) => {
 
   return (
   <Transition as={as} show={show}>
@@ -61,6 +76,11 @@ export const Modal:React.FC<ModalProps> = ({ children, initialFocus, onClose = (
             leaveTo="opacity-0 scale-95 translate-y-8"
           >
           <div className="relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12">
+            {title ? <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title> : null}
+            {description ? <Dialog.Description className='prism-heading-4'>{description}</Dialog.Description> : null}
+
+            {typeof content === 'string' ? <p>{content}</p> : null}
+            {typeof content === 'object' ? content : null}
             {children}
           </div>
           </Transition.Child>

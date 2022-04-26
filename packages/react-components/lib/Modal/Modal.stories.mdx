@@ -1,6 +1,5 @@
 import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
 import { Modal, Button, Combobox } from '..';
-import { Template as ModalTemplate } from './Modal.stories';
 import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
 
 <Meta title="Interaction/Modal/Overview" component={Modal} />
@@ -12,6 +11,12 @@ Modals are child windows which appear in front of the main window to provide urg
 Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
 
 Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
+
+## Usage Guidelines
+
+Modals are disruptors which are known to annoy users in many cases, so use them sparingly. Only use modals for brief processes when maintaining the user's current context is important. For long processes with multiple steps or options, consider a new page or full-page overlay.The optimal use cases for modals are:
+
+Modals should only include one or two actions. If one, it must be an acknowledgement action (e.g. “OK”). If two, one must be a confirming action, and the other a dismissing action. (e.g. “SUBMIT” and “CANCEL”).
 
 ## Basic Example
 
@@ -51,6 +56,10 @@ function MyComponent() {
 ## Using the Title and Description components
 
 For accessibility reasons, you should use the `Dialog.Title` and `Dialog.Description` components when rendering content that labels and describes your dialog contents. They will be automatically linked to the root `Modal` component via the `aria-labelledby` and `aria-describedby` attributes, and their contents will be announced to users using screenreaders.
+
+<Canvas>
+  <Story name='1. Modal' id='interaction-modal--shorthand' />
+</Canvas>
 
 ## Props
 
