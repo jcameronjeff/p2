@@ -15,6 +15,10 @@ module.exports = {
       parent: '.prism-base',
       strategy: 'base',
     }),
+    require('@prism2/tailwind-elements')({
+      parent: '',
+      strategy: 'class',
+    }),
     // allows ex: .prism-heading-2
     require('@prism2/tailwind-elements')({
       prefix: 'prism-',
