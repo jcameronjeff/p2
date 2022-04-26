@@ -10,28 +10,20 @@ export default {
     title: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
+        initialValue: 'My Modal Title',
       },
     },
     description: {
       control: {
         type: 'text', // Type 'select' is automatically inferred when 'options' is defined
+        value: 'My Modal Description',
       },
     },
     content: {
       control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
+        type: 'object', // Type 'select' is automatically inferred when 'options' is defined
       },
     },
-    footer: {
-      control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-      },
-    },
-    show: { table: { disable: true } },
-    appear: { table: { disable: true } },
-    as: { table: { disable: true } },
-    initialFocus: { table: { disable: true } },
-    onClose: { table: { disable: true } },
   },
 } as ComponentMeta<typeof Modal>;
 
@@ -41,17 +33,9 @@ const Template: ComponentStory<typeof Modal> = (args) => {
   return (
     <div>
     <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal
-      as={Fragment}
-      show={isOpen}
-      onClose={() => setIsOpen(false)}
-      initialFocus={okRef}
-      {...args}
-    >
-      <Dialog.Title className='prism-heading-2'>
-        Deactivate account
-      </Dialog.Title>
-      <Dialog.Description className='prism-heading-4'>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} initialFocus={okRef} as={Fragment}>
+      <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
+      <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
       </Dialog.Description>
       <p>
@@ -59,8 +43,8 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         be permanently removed. This action cannot be undone.
       </p>
       <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button className='prism-btn' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
+        <button className='prism-btn focus-within:shadow-sm' onClick={() => setIsOpen(false)}>Cancel</button>
+        <button className='prism-btn fill focus-within:shadow-sm' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>
     </div>
@@ -83,8 +67,8 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
       {...args}
     >
       <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button className='prism-btn' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
+        <button className='prism-btn focus-within:shadow-sm' onClick={() => setIsOpen(false)}>Cancel</button>
+        <button className='prism-btn fill focus-within:shadow-sm' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>
     </div>
@@ -92,9 +76,4 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
 };
 
 export const Shorthand = ShorthandTemplate.bind({});
-Shorthand.args = {
-  title: 'My Props Modal Title',
-  description: 'This is a props modal description',
-  content: 'This text comes from the content prop',
-  footer: 'This text comes from the content prop',
-};
+

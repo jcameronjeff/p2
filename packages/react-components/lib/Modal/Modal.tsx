@@ -19,7 +19,7 @@ export interface ModalProps {
   /**
    * Callback to fire when modal is dismissed
    */
-  onClose?: () => void;
+  onClose?: (value:boolean) => void;
   /**
    * Optionally use a custom element, default: Fragment.
    * @default Fragment
@@ -30,71 +30,53 @@ export interface ModalProps {
    * to receive initial focus when your dialog is initially rendered,
    * you can use the initialFocus ref:
    */
-  initialFocus?: React.MutableRefObject<HTMLElement | null>,
-  /**
-   * Shorthand for providing a title via prop.
-   */
-  title?: string,
-  /**
-   * Shorthand for providing description text via prop.
-   */
-  description?: string,
-  /**
-   * Shorthand for providing body content via prop.
-   */
-  content?: (() => React.ReactNode) | string | React.ReactNode;
-  /**
-   * Shorthand for providing footer controls via prop.
-   */
-  footer?: (() => React.ReactNode) | string | React.ReactNode;
+  initialFocus?: React.MutableRefObject<HTMLElement | null>
 }
 
 
-export const Modal:React.FC<ModalProps> = ({
-  title, footer, content, description, children, initialFocus,
-  onClose = () => {}, as = Fragment, show = false,
-}) => {
+type TransitionPropPreset = {
+  enter: string,
+  enterFrom: string,
+  enterTo: string,
+  leave: string,
+  leaveFrom: string,
+  leaveTo: string,
+};
+const transitions:TransitionPropPreset[] = [{
+  enter: 'ease-out duration-50',
+  enterFrom: 'opacity-0',
+  enterTo: 'opacity-100',
+  leave: 'ease-in duration-200 delay-100',
+  leaveFrom: 'opacity-100',
+  leaveTo: 'opacity-0',
+}, {
+  enter: 'ease-in-out duration-100 delay-100',
+  enterFrom: 'opacity-0 scale-95 translate-y-8',
+  enterTo: 'opacity-100 scale-100',
+  leave: 'ease-in duration-100',
+  leaveFrom: 'opacity-100 scale-100',
+  leaveTo: 'opacity-0 scale-95 translate-y-8',
+}];
 
-  function isomorphicRender(node: (() => React.ReactNode) | string | React.ReactNode) {
-    if (typeof node === 'string') return <p>{node}</p>;
-    if (typeof node === 'object') return node;
-    if (typeof node === 'function') return () => node;
-    return null;
-  }
+
+export const Modal:React.FC<ModalProps> = ({ children, initialFocus = undefined, onClose = () => {}, as = Fragment, show = false }) => {
 
   return (
   <Transition as={as} show={show}>
-    <Dialog onClose={onClose} open={show} initialFocus={initialFocus}>
+    <Dialog onClose={() => onClose(!show)} open={show} initialFocus={initialFocus}>
       <div className="fixed z-10 inset-0 overflow-y-auto">
-        <Transition.Child
-          as={Fragment}
-          enter="ease-out duration-50"
-          enterFrom="opacity-0"
-          enterTo="opacity-100"
-          leave="ease-in duration-200 delay-100"
-          leaveFrom="opacity-100"
-          leaveTo="opacity-0"
-        >
+        <Transition.Child as={Fragment} {...transitions[0]}>
           <div className="flex items-center justify-center min-h-screen backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale">
-          <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
-          <Transition.Child
-            as={Fragment}
-            enter="ease-in-out duration-100 delay-100"
-            enterFrom="opacity-0 scale-95 translate-y-8"
-            enterTo="opacity-100 scale-100"
-            leave="ease-in duration-100"
-            leaveFrom="opacity-100 scale-100"
-            leaveTo="opacity-0 scale-95 translate-y-8"
-          >
-          <div className="relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12">
-            {title ? <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title> : null}
-            {description ? <Dialog.Description className='prism-heading-4'>{description}</Dialog.Description> : null}
-            {isomorphicRender(content)}
-            {children}
-            {isomorphicRender(footer)}
+            <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
+            <Transition.Child
+              as={Fragment}
+              {...transitions[1]}
+            >
+              <div className="relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12">
+                {children}
+              </div>
+            </Transition.Child>
           </div>
-          </Transition.Child>
-        </div>
         </Transition.Child>
       </div>
     </Dialog>
