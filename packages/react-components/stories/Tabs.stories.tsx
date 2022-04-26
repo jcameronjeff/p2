@@ -3,14 +3,18 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tab } from '@headlessui/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
-import { Basic } from './Login.stories';
+import { Basic as BasicCard } from './Login.stories';
 import { BasicUsage as ComboboxExample } from '../lib/Input/Combobox.stories';
 
 export default {
   title: 'Interaction/Tabs',
   component: Tab,
   argTypes: {
-    enablePrism: { control: 'boolean' },
+    defaultIndex: {
+      control: 'select',
+      options: [0, 1, 2, 3, 4],
+      defaultValue: 2,
+    },
     textSize: {
       control: { type: 'select' },
       options: ['text-sm', 'text-base', 'text-xl', 'text-xs'],
@@ -22,10 +26,10 @@ export default {
   },
 } as ComponentMeta<typeof Tab>;
 
-const Template: ComponentStory<any> = () => (
+const Template: ComponentStory<any> = ({ defaultIndex }) => (
   <div>
   <div className='space-y-8 border p-8 prism'>
-     <Tab.Group defaultIndex={3}>
+     <Tab.Group defaultIndex={defaultIndex}>
         <Tab.List className="flex gap-2 px-4 text-xs border-b-4 pb-4">
           <Tab as={Fragment}>
             {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Prose</button>)}
@@ -48,9 +52,9 @@ const Template: ComponentStory<any> = () => (
         </Tab.List>
         <Tab.Panels className="m-4">
           {[
-            <Basic />,
+            <BasicCard />,
             <ComboboxExample />,
-            <Basic />,
+            <BasicCard />,
             <ComboboxExample />,
             <h1>Heading One</h1>,
             <h2>Heading 3</h2>,
@@ -63,8 +67,10 @@ const Template: ComponentStory<any> = () => (
   </div>
 );
 
-export const BasicUsage = Template.bind({});
-BasicUsage.play = async ({ canvasElement }) => {
+export const Basic = Template.bind({});
+export const Autoplay = Template.bind({});
+
+Autoplay.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
   const tab1 = await canvas.getByText('Prose');
   const tab2 = await canvas.getByText('Kitchen Sink');

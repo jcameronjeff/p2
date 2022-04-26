@@ -1,10 +1,10 @@
 import React, { Fragment, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Card, Modal } from '../lib';
+import { Card, Modal } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Button, Checkbox } from '../lib';
+import { Button, Checkbox } from '..';
 import { userEvent, within } from '@storybook/testing-library';
-import { sleep } from '../lib/utils';
+import { sleep } from '../utils';
 
 export default {
   title: 'Elements/Card',

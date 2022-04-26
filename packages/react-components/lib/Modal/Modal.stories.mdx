@@ -1,0 +1,66 @@
+import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Modal, Button, Combobox } from '..';
+import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
+
+<Meta title="Interaction/Modal/Overview" component={Modal} />
+
+# Modal
+
+Modals are child windows which appear in front of the main window to provide urgent information, or ask for information, or ask for a decision while keeping the user's current context. Modals demand a user's attention and must be acted upon or dismissed before a user can continue working in the main window.
+
+Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
+
+Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
+
+## Usage Guidelines
+
+Modals are disruptors which are known to annoy users in many cases, so use them sparingly. Only use modals for brief processes when maintaining the user's current context is important. For long processes with multiple steps or options, consider a new page or full-page overlay.The optimal use cases for modals are:
+
+Modals should only include one or two actions. If one, it must be an acknowledgement action (e.g. “OK”). If two, one must be a confirming action, and the other a dismissing action. (e.g. “SUBMIT” and “CANCEL”).
+
+## Basic Example
+
+When the dialog's `open` prop is `true`, the contents of the dialog will render. Focus will be moved inside the dialog and trapped there as the user cycles through the focusable elements. Scroll is locked, the rest of your application UI is hidden from screen readers, and clicking outside the dialog or pressing the Escape key will call the `onClose` function and close the dialog.
+
+<Canvas>
+  <Story name='1. Modal' id='interaction-modal--basic' />
+</Canvas>
+
+## Managing Focus
+
+For accessibility reasons, your modal should contain at least one focusable element. By default, the `Modal` component will focus the first focusable element (by DOM order) once it is rendered, and pressing the Tab key will cycle through all additional focusable elements within the contents.
+
+Focus is trapped within the modal as long as it is rendered, so tabbing to the end will start cycling back through the beginning again. All other application elements outside of the modal will be marked as inert and thus not focusable.
+
+If you'd like something other than the first focusable element to receive initial focus when your modal is initially rendered, you can use the initialFocus ref:
+
+```jsx
+function MyComponent() {
+  const firstFocusRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <>
+    <button onClick={() => setIsOpen(true)}>Open Modal</button>
+    <Modal initialFocus={firstFocusRef} {...props}>
+      <Dialog.Title>My Modal Title</Dialog.Title>
+      <p>
+        The OK button is focused. You can close this dialog by hitting enter.
+      </p>
+      <button ref={firstFocusRef} onClick={() => setIsOpen(false)}>Ok!</button>
+    </Modal>
+    </>
+  )
+}
+```
+
+## Using the Title and Description components
+
+For accessibility reasons, you should use the `Dialog.Title` and `Dialog.Description` components when rendering content that labels and describes your dialog contents. They will be automatically linked to the root `Modal` component via the `aria-labelledby` and `aria-describedby` attributes, and their contents will be announced to users using screenreaders.
+
+<Canvas>
+  <Story name='1. Modal' id='interaction-modal--shorthand' />
+</Canvas>
+
+## Props
+
+<ArgsTable tabs={Modal, Combobox} />
