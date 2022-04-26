@@ -1,10 +1,11 @@
-import { useState, useRef } from 'react'
+import { Fragment, useState, useRef } from 'react'
 import logo from './logo.svg'
 import './App.css'
 import '../node_modules/@prism2/react-components/dist/style.css'
 import '../node_modules/@prism2/react-components/dist/style/components.css'
-import { Modal, Dialog, Transition } from '@prism2/react-components'
 
+import { Dialog, Transition } from '@headlessui/react';
+import { fadeInOut, slideUpDown } from '@prism2/react-components'
 function App() {
   const [count, setCount] = useState(0)
   const [isOpen, setIsOpen] = useState(false);
@@ -34,26 +35,29 @@ function App() {
               Submit
             </button>
           </div>
-          <Dialog onClose={() => setIsOpen(false)} open={isOpen} initialFocus={okRef}>
-            <div className="dialog-frame">
-              <div className='flex items-center justify-center min-h-screen backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
-                <Dialog.Overlay className="dialog-overlay" />
-                <div className='dialog-box'>
-                  <Dialog.Title className='prism-heading-2'>My Modal</Dialog.Title>
-                  <div className='pt-4 grid grid-cols-2 gap-4'>
-                    <button className='prism-btn focus-within:shadow-lg' onClick={() => setIsOpen(false)}>
-                      Cancel
-                    </button>
-                    <button className='prism-btn fill focus-within:shadow-lg' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>
-                      Dismiss
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </Dialog>
         </div>
       </main>
+
+      <Transition show={isOpen}>
+        <Dialog onClose={() => setIsOpen(false)} open={isOpen} initialFocus={okRef}>
+          <div className="dialog-frame">
+            <Transition.Child as={Fragment} {...fadeInOut}>
+              <div className='dialog-backdrop'>
+                <Dialog.Overlay className="dialog-overlay" />
+                <Transition.Child as={Fragment} {...slideUpDown}>
+                  <div className='dialog-box'>
+                    <p>
+                      Are you sure you want to deactivate your account? All of your data will
+                      be permanently removed. This action cannot be undone.
+                    </p>
+
+                  </div>
+                </Transition.Child>
+              </div>
+            </Transition.Child>
+          </div>
+        </Dialog>
+      </Transition>
     </div>
   )
 }

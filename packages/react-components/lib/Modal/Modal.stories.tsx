@@ -29,7 +29,7 @@ const Template: ComponentStory<typeof Modal> = (args) => {
     <Modal
       show={isOpen}
       onClose={() => setIsOpen(false)}
-      initialFocus={okRef}
+      // initialFocus={okRef}
       as={Fragment}
     >
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
@@ -40,6 +40,12 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         Are you sure you want to deactivate your account? All of your data will
         be permanently removed. This action cannot be undone.
       </p>
+      <button
+        className='prism-btn fill w-full'
+        ref={okRef}
+        onClick={() => setIsOpen(false)}>
+        Ok
+      </button>
     </Modal>
     </div>
   );
@@ -49,25 +55,12 @@ export const Basic = Template.bind({});
 
 const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
-  const okRef = useRef(null);
   return (
     <div>
       <button className='prism-btn fill ' type='submit' onClick={() => setIsOpen(true)}>
         Toggle Modal
       </button>
-      <Modal
-        show={isOpen}
-        onClose={() => setIsOpen(false)}
-        initialFocus={okRef}
-        title={args.title}
-        description={args.description}
-        footer={(
-          <div className='pt-4 flex gap-2 justify-center'>
-            <button className='prism-btn w-full block fill focus-within:shadow-lg' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
-          </div>
-        )}
-        {...args}
-      >
+      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)}>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.

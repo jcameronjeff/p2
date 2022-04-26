@@ -8,10 +8,11 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@headlessui/react": "^1.6.0",
+    "@prism2/react-components": "file:../react-components",
+    "@prism2/tailwind-elements": "file:../tailwind-plugin-elements",
     "@prism2/tailwind-preset": "file:../tailwind-preset",
     "@prism2/tailwind-theme": "file:../tailwind-theme-prism",
-    "@prism2/tailwind-elements": "file:../tailwind-plugin-elements",
-    "@prism2/react-components": "file:../react-components",
     "react": "^18.0.0",
     "react-dom": "^18.0.0",
     "tailwindcss": "^3.0.24"

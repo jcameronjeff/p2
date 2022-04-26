@@ -10,6 +10,15 @@
     @apply inset-0;
     @apply overflow-y-auto;
   }
+  .dialog-backdrop {
+    @apply flex;
+    @apply items-center;
+    @apply justify-center;
+    @apply min-h-screen;
+    @apply backdrop-blur-sm;
+    @apply backdrop-opacity-95;
+    @apply backdrop-grayscale;
+  }
   .dialog-overlay {
     @apply fixed;
     @apply inset-0;

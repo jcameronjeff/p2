@@ -29,3 +29,6 @@ export const transitions:TransitionPropPreset[] = [{
 
 export const fadeInOut = transitions[0];
 export const slideUpDown = transitions[1];
+
+
+export default { fadeInOut, slideUpDown, sleep };
