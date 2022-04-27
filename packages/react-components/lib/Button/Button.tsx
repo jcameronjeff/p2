@@ -23,7 +23,11 @@ interface Props extends HTMLProps<HTMLButtonElement> {
   /**
    * Optional text to display on button, otherwise use children.
    */
-  label?: string
+  label?: string,
+  /**
+   * If true, button will span container
+   */
+  block?: boolean
 }
 
 /**
@@ -34,9 +38,10 @@ interface Props extends HTMLProps<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'base', label = 'OK', ...args }: Props):ReactElement {
+export function Button({ variant = 'base', label = 'OK', block = false, ...args }: Props):ReactElement {
   const { children, className } = args;
 
+  const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
   const vars:Variant = {
     outline: 'bg-transparent border border-blue-300 ring-0',
     text: 'border-0',
@@ -45,7 +50,12 @@ export function Button({ variant = 'base', label = 'OK', ...args }: Props):React
     base: 'prism-btn fill',
   };
 
-  const clsx = [vars[variant], className].join(' ');
+  const clsx = [
+    baseClass,
+    vars[variant],
+    (block && 'w-full'),
+    className,
+  ].join(' ');
 
   return (
     <button {...args} className={clsx}>{children || label}</button>

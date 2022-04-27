@@ -1,4 +1,4 @@
-import { createRef, Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
 import { Button, Modal } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
@@ -20,14 +20,14 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => {
+const Template: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
-    <button className='prism-btn outline w-full' onClick={() => setIsOpen(true)}>
+    <Button variant="base" block onClick={() => setIsOpen(true)}>
       Toggle Modal
-    </button>
+    </Button>
     <Modal show={isOpen} onClose={() => setIsOpen(false)}>
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
@@ -37,9 +37,9 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         Are you sure you want to deactivate your account? All of your data will
         be permanently removed. This action cannot be undone.
       </p>
-      <button className='prism-btn fill w-full' ref={okRef} onClick={() => setIsOpen(false)}>
-        Ok
-      </button>
+      <Button variant="base" ref={okRef} block onClick={() => setIsOpen(false)}>
+        Toggle Modal
+      </Button>
     </Modal>
     </>
   );
@@ -51,14 +51,17 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <button className='prism-btn fill ' type='submit' onClick={() => setIsOpen(true)}>
+      <Button variant="base" block onClick={() => setIsOpen(true)}>
         Toggle Modal
-      </button>
+      </Button>
       <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)}>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.
         </p>
+        <Button variant="base" block onClick={() => setIsOpen(false)}>
+          Toggle Modal
+        </Button>
       </Modal>
     </div>
   );
@@ -68,9 +71,9 @@ const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
-      <button className='prism-btn fill text-xs w-full' onClick={() => setIsOpen(true)}>
+      <Button variant="base" type='submit' block onClick={() => setIsOpen(true)}>
         Toggle Modal
-      </button>
+      </Button>
       <Modal {...{
         title: 'Modal Title',
         description: 'My description text',
@@ -82,6 +85,7 @@ const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
             Ok
           </button>
         ),
+        ...args,
       }}/>
     </div>
   );
