@@ -4,9 +4,9 @@ import './App.css'
 import { Modal, Button } from '@prism2/react-components'
 
 function App() {
-  const [count, setCount] = useState(0)
+
   const [isOpen, setIsOpen] = useState(false);
-  const okRef = useRef(null);
+
   return (
     <div id="myApp" className='font-sans'>
       <header className='bg-primary-dark text-white p-2 px-8 flex items-center'>
@@ -27,9 +27,9 @@ function App() {
             <label className='prism-label'>{isOpen ? 'Open' : 'Closed'}</label>
             <div className='flex gap-1'>
               <input className='prism-input w-72' type='text' />
-              <Button variant='base' onClick={() => setIsOpen(!isOpen)}>
+              <button className='prism-btn' onClick={() => setIsOpen(!isOpen)}>
                 Submit
-              </Button>
+              </button>
             </div>
           </div>
         </div>
@@ -38,11 +38,11 @@ function App() {
         title='Prism2 Modals'
         description='Easy, Accessible'
         show={isOpen}
-        initialFocus={okRef}
         onClose={() => setIsOpen(false)}
-        content={(<p>Modals provide simpler implementation patterns with A11Y baked in.</p>)}
-        footer={(<Button ref={okRef} variant="base" block onClick={() => setIsOpen(false)}>Ok</Button>)}
-      />
+        footer={(<Button key='b' variant="base" block onClick={() => setIsOpen(false)}>Ok</Button>)}
+      >
+        <p>Modals provide simpler implementation patterns with A11Y baked in.</p>
+      </Modal>
     </div>
   )
 }

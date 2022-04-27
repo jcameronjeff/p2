@@ -87,9 +87,9 @@ export const Modal:React.FC<ModalProps> = ({
                     {description}
                   </Dialog.Description>
                 ) : null}
-                {content ? content : null}
-                {children}
-                {footer ? footer : null}
+                {content ? <>{content}</> : null}
+                {children ? <>{children}</> : null}
+                {footer ? <>{footer}</> : null}
               </div>
             </Transition.Child>
           </div>
