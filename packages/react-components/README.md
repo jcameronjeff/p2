@@ -28,15 +28,11 @@ This package provides an *unstyled* React component library with:
 
 ### Local Development
 
-- `yarn run storybook` will start an instance at localhost:6006 (default).
-- `yarn dev` will start a Vite SPA instance at localhost:3000 using the contents of `/site`
-- `yarn build` will prepare our package and output to `/dist`
-- `yarn preview` will use an alternate Vite config to run a local SPA (rather than compile our library).
-- `yarn build:css` will compile any CSS files in `lib/styles` to their dist target. (Debugging only)
-
-
-
-
+- `npm run storybook` will start an instance at localhost:6006 (default).
+- `npm dev` will start a Vite SPA instance at localhost:3000 using the contents of `/site`
+- `npm build` will prepare our package and output to `/dist`
+- `npm preview` will use an alternate Vite config to run a local SPA (rather than compile our library).
+- `npm build:css` will compile any CSS files in `lib/styles` to their dist target. (Debugging only)
 
 ### Importing stylesheets
 
@@ -44,11 +40,11 @@ PRISM ships standard CSS files to use in your project. There are several options
 
 ```js
 // load ONLY global defaults and resets, excludes fonts and component styles.
-import '@prism2/react-components/dist/style/base.css'
-import '@prism2/react-components/dist/style/fonts.css'
-import '@prism2/react-components/dist/style/components.css'
+import '../node_modules/@prism2/react-components/dist/style/base.css'
+import '../node_modules/@prism2/react-components/dist/style/fonts.css'
+import '../node_modules/@prism2/react-components/dist/style/components.css'
 // or load it all at once
-import '@prism2/react-components/dist/style.css'
+import '../node_modules/@prism2/react-components/dist/style.css'
 ```
 
 ### From PRISM

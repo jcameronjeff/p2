@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "vite --config vite.web.config.js",
     "build": "tsc && vite build && yarn build:css",
-    "build:css": "postcss lib/styles/*.css --dir dist/style",
+    "build:css": "postcss lib/**/*.css --dir dist/style",
     "build:web": "vite build --config vite.web.config.js",
     "preview": "yarn build:web && vite preview",
     "storybook": "start-storybook -p 6006",
