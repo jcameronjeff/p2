@@ -1,4 +1,4 @@
-import React, { HTMLProps } from 'react';
+import { useRef, useState, HTMLProps } from 'react';
 
 export interface IProps extends HTMLProps<HTMLInputElement> {
   /**
@@ -19,8 +19,8 @@ export const Checkbox:React.FC<IProps>  = ({
   onToggle = () => {},
   ...props
 }) => {
-  const cbRef = React.useRef<HTMLInputElement>(null);
-  const [isChecked, setChecked] = React.useState(checked);
+  const cbRef = useRef<HTMLInputElement>(null);
+  const [isChecked, setChecked] = useState(checked);
   const baseClasses = 'group flex gap-2 items-center cursor-pointer ';
   const clsx = [baseClasses, className].join(' ');
 

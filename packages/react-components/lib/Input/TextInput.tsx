@@ -1,4 +1,4 @@
-import React from 'react';
+import { HTMLProps } from 'react';
 
 /**
  *
@@ -21,7 +21,7 @@ import React from 'react';
  * @returns HTML <label><input /><label /> elements.
  */
 
-type Props = React.HTMLProps<HTMLInputElement> & {
+type Props = HTMLProps<HTMLInputElement> & {
   /**
    * Label text to be displayed above input.
    */

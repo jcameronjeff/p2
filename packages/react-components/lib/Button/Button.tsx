@@ -1,4 +1,4 @@
-import React from 'react';
+import { HTMLProps, ReactElement } from 'react';
 
 /**
  * @remark - Define types inline at the top of the file
@@ -11,7 +11,7 @@ type VariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
 type Variant = Record<VariantName, string>;
 type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends React.HTMLProps<HTMLButtonElement> {
+interface Props extends HTMLProps<HTMLButtonElement> {
   /**
    * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
    */
@@ -23,7 +23,11 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
   /**
    * Optional text to display on button, otherwise use children.
    */
-  label?: string
+  label?: string,
+  /**
+   * If true, button will span container
+   */
+  block?: boolean
 }
 
 /**
@@ -34,18 +38,24 @@ interface Props extends React.HTMLProps<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'base', label = 'OK', ...args }: Props):React.ReactElement {
+export function Button({ variant = 'base', label = 'OK', block = false, ...args }: Props):ReactElement {
   const { children, className } = args;
 
+  const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
   const vars:Variant = {
     outline: 'bg-transparent border border-blue-300 ring-0',
     text: 'border-0',
     auxiliary: 'text-sm uppercase font-alt border-8',
     link: 'border-0 font-regular uppercase',
-    base: 'border',
+    base: 'prism-btn fill',
   };
 
-  const clsx = [vars[variant], className].join(' ');
+  const clsx = [
+    baseClass,
+    vars[variant],
+    (block && 'w-full'),
+    className,
+  ].join(' ');
 
   return (
     <button {...args} className={clsx}>{children || label}</button>

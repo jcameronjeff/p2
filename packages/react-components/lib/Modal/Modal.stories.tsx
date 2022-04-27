@@ -1,6 +1,6 @@
-import { createRef, Fragment, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Modal } from '..';
+import { Button, Modal } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
@@ -20,18 +20,15 @@ export default {
   },
 } as ComponentMeta<typeof Modal>;
 
-const Template: ComponentStory<typeof Modal> = (args) => {
+const Template: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
-    <div>
-    <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(true)}>Toggle Modal</button>
-    <Modal
-      show={isOpen}
-      onClose={() => setIsOpen(false)}
-      initialFocus={okRef}
-      as={Fragment}
-    >
+    <>
+    <Button variant="base" block onClick={() => setIsOpen(true)}>
+      Toggle Modal
+    </Button>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)}>
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -40,8 +37,11 @@ const Template: ComponentStory<typeof Modal> = (args) => {
         Are you sure you want to deactivate your account? All of your data will
         be permanently removed. This action cannot be undone.
       </p>
+      <Button variant="base" ref={okRef} block onClick={() => setIsOpen(false)}>
+        Toggle Modal
+      </Button>
     </Modal>
-    </div>
+    </>
   );
 };
 
@@ -49,32 +49,53 @@ export const Basic = Template.bind({});
 
 const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
-  const okRef = useRef(null);
   return (
     <div>
-      <button className='prism-btn fill ' type='submit' onClick={() => setIsOpen(true)}>
+      <Button variant="base" block onClick={() => setIsOpen(true)}>
         Toggle Modal
-      </button>
-      <Modal
-        show={isOpen}
-        onClose={() => setIsOpen(false)}
-        initialFocus={okRef}
-        title={args.title}
-        description={args.description}
-        footer={(
-          <div className='pt-4 flex gap-2 justify-center'>
-            <button className='prism-btn w-full block fill focus-within:shadow-lg' type='submit' ref={okRef} onClick={() => setIsOpen(false)}>Dismiss</button>
-          </div>
-        )}
-        {...args}
-      >
+      </Button>
+      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)}>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.
         </p>
+        <Button variant="base" block onClick={() => setIsOpen(false)}>
+          Toggle Modal
+        </Button>
       </Modal>
     </div>
   );
+};
+
+const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div>
+      <Button variant="base" type='submit' block onClick={() => setIsOpen(true)}>
+        Toggle Modal
+      </Button>
+      <Modal {...{
+        title: 'Modal Title',
+        description: 'My description text',
+        content: <p>This is the content of my modal</p>,
+        show: isOpen,
+        onClose: () => setIsOpen(false),
+        footer: (
+          <button className='prism-btn fill' onClick={() => setIsOpen(false)}>
+            Ok
+          </button>
+        ),
+        ...args,
+      }}/>
+    </div>
+  );
+};
+
+export const CompactWithCustomFooter = CompactTemplate.bind({});
+CompactWithCustomFooter.args = {
+  title: 'Modal Title',
+  description: 'My description text',
+  content: <p>This is the content of my modal</p>,
 };
 
 export const ShorthandWithCustomFooter = ShorthandTemplate.bind({});

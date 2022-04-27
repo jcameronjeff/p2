@@ -9,24 +9,11 @@ module.exports = {
     extend: require('@prism2/tailwind-theme')
   },
   plugins: [
-    require('@tailwindcss/typography'),
-    // allows ex: .prism-base h2
     require('@prism2/tailwind-elements')({
-      parent: '.prism-base',
-      strategy: 'base',
-    }),
-    // allows ex: .prism-heading-2
-    require('@prism2/tailwind-elements')({
-      prefix: 'prism-',
+      parent: '',
       strategy: 'class',
     }),
-    // allows ex: .prism-enabled .prism-heading-2
-    require('@prism2/tailwind-elements')({
-      parent: '.prism-enabled',
-      prefix: 'my-component-',
-      strategy: 'class'
-    })
-  ],
+  ]
 }
 
 

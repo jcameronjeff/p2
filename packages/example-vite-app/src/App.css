@@ -1,0 +1,4 @@
+@import '../node_modules/@prism2/react-components/dist/style.css';
+@import 'tailwindcss/base';
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/components';
