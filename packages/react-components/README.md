@@ -7,11 +7,9 @@ This package provides an *unstyled* React component library with:
 - The full [HeadlessUI React library](https://headlessui.dev/)
 - Code splitting, low-weight imports.
 
-
 ## Project Overview
 
 ### Configs
-
 
 - TypeScript is configured to generate declarations on demand.
 - Vite is configured in library mode by default, see `vite.config.js` for details.
@@ -24,7 +22,6 @@ This package provides an *unstyled* React component library with:
 - `/lib` contains source for our published modules, including raw PostCSS.
 - `/site` contains an example Vite SPA to be used as a dev scratchpad.
 - `/stories` contains everything for Storybook.
-
 
 ### Local Development
 
@@ -42,7 +39,6 @@ PRISM ships standard CSS files to use in your project. There are several options
 // load ONLY global defaults and resets, excludes fonts and component styles.
 import '../node_modules/@prism2/react-components/dist/style/base.css'
 import '../node_modules/@prism2/react-components/dist/style/fonts.css'
-import '../node_modules/@prism2/react-components/dist/style/components.css'
 // or load it all at once
 import '../node_modules/@prism2/react-components/dist/style.css'
 ```

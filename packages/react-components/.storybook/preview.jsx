@@ -1,8 +1,6 @@
-// import '../lib/styles/base.css';
-// import '../lib/styles/fonts.css';
-// import '../lib/styles/components.css';
+
 import React from 'react';
-import { Button } from '../lib'
+
 export const parameters = {
 
   layout: 'centered',

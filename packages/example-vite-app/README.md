@@ -55,5 +55,4 @@ Or each layer independently.
 ```pcss
 @import '../node_modules/@prism2/react-components/dist/style/base.css';
 @import '../node_modules/@prism2/react-components/dist/style/fonts.css';
-@import '../node_modules/@prism2/react-components/dist/style/components.css';
 ```
