@@ -4,7 +4,7 @@ import { fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 
 
 
-export interface ModalProps {
+export interface ModalProps  {
   /**
    *  Use the show prop to control whether the content should be
    *  visible or hidden.
@@ -44,6 +44,10 @@ export interface ModalProps {
   content?: React.ReactNode;
   footer?: React.ReactNode;
   /**
+   * Optionally apply TW classes to the container.
+   */
+  className?: string,
+  /**
    * Optionally override backdrop animation. Object will be merged with defaults.
    */
   outerTransition?: Partial<TransitionPropPreset>,
@@ -57,14 +61,14 @@ export interface ModalProps {
 
 
 export const Modal:React.FC<ModalProps> = ({
-  children, description, content, footer, title, initialFocus = undefined,
+  children, className = '', description, content, footer, title, initialFocus = undefined,
   outerTransition = { ...fadeInOut }, innerTransition = { ...slideUpDown },
   onClose = () => {}, as = Fragment, show = false,
 }) => {
 
   const closeRef = useRef(null);
   const focus = initialFocus || closeRef;
-
+  const clsx = ['prism-dialog-box space-y-4', className].join(' ');
   const outerAnimate = { ...fadeInOut, ...outerTransition };
   const innerAnimate = { ...slideUpDown, ...innerTransition };
 
@@ -73,10 +77,10 @@ export const Modal:React.FC<ModalProps> = ({
     <Dialog onClose={() => onClose()} open={show} initialFocus={focus}>
       <div className="prism-dialog-frame">
         <Transition.Child as={Fragment} {...outerAnimate}>
-          <div className='prism-dialog-backdrop'>
+          <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
             <Dialog.Overlay className="prism-dialog-overlay" />
             <Transition.Child as={Fragment} {...innerAnimate}>
-              <div ref={closeRef} className='prism-dialog-box'>
+              <div ref={closeRef} className={clsx}>
                 {title ? (
                   <Dialog.Title className='prism-heading-2'>
                     {title}
