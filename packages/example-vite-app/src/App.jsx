@@ -9,9 +9,8 @@ function App() {
 
   return (
     <Tab.Group defaultIndex={0}>
-    <div id="myApp" className='font-sans'>
-      <header className='bg-primary-dark text-white p-2 px-8 flex items-center'>
-        <img src={logo} className="w-8 h-8" alt="logo" />
+    <div id="myApp" className='p-8 m-auto container font-sans'>
+      <header className='gap-4 pb-4 mb-4 flex items-center'>
         <span className='prism-heading-3 text-white'>Prism2 Sample App</span>
         <Tab.List className='flex gap-2 ml-8 pl-8 border-l border-l-blue-600'>
           <Tab as={Fragment}>
@@ -22,7 +21,8 @@ function App() {
           </Tab>
         </Tab.List>
       </header>
-      <main className='p-8 m-auto container'>
+      <hr />
+      <main>
         <Tab.Panels className="m-4">
           <Tab.Panel>
             <div className='prism-prose'>
@@ -32,9 +32,9 @@ function App() {
               <p>This example can be used to bootstrap a new app.</p>
               <div className='space-y-1  text-xs'>
                 <label className='prism-label'>{isOpen ? 'Open' : 'Closed'}</label>
-                <div className='flex gap-1'>
+                <div className='flex gap-2'>
                   <input className='prism-input w-72' type='text' />
-                  <button className='prism-btn' onClick={() => setIsOpen(!isOpen)}>
+                  <button className='prism-btn fill' onClick={() => setIsOpen(!isOpen)}>
                     Submit
                   </button>
                 </div>
