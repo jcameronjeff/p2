@@ -1,18 +1,7 @@
+
 @import 'tailwindcss/base';
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/components';
 
-
-
-
-/* Import all styles in one file (recommended) */
-@import '../node_modules/@prism2/react-components/dist/style.css';
-
-
-
-/**
-  // Import layers separately (bundle size concerns)
-  @import '../node_modules/@prism2/react-components/dist/style/base.css';
-  @import '../node_modules/@prism2/react-components/dist/style/fonts.css';
-  @import '../node_modules/@prism2/react-components/dist/style/components.css';
-*/
+@import '../node_modules/@prism2/react-components/dist/style/base.css';
+@import '../node_modules/@prism2/react-components/dist/style/fonts.css';

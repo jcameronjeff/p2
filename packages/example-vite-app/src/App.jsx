@@ -66,6 +66,7 @@ function App() {
       <Modal
         title='Prism2 Modals'
         description='Easy, Accessible'
+        className="space-y-4"
         show={isOpen}
         onClose={() => setIsOpen(false)}
         footer={(<Button key='b' variant="base" block onClick={() => setIsOpen(false)}>Ok</Button>)}
