@@ -42,7 +42,7 @@ export function Button({ variant = 'base', label = 'OK', ...args }: Props):React
     text: 'border-0',
     auxiliary: 'text-sm uppercase font-alt border-8',
     link: 'border-0 font-regular uppercase',
-    base: 'border',
+    base: 'prism-btn fill',
   };
 
   const clsx = [vars[variant], className].join(' ');

@@ -41,6 +41,7 @@ export interface ModalProps {
    * Optionally provide a description via props.
    */
   description?: string;
+  content?: React.ReactNode;
   footer?: React.ReactNode;
   /**
    * Optionally override backdrop animation. Object will be merged with defaults.
@@ -56,7 +57,7 @@ export interface ModalProps {
 
 
 export const Modal:React.FC<ModalProps> = ({
-  children, description, footer, title, initialFocus = undefined,
+  children, description, content, footer, title, initialFocus = undefined,
   outerTransition = { ...fadeInOut }, innerTransition = { ...slideUpDown },
   onClose = () => {}, as = Fragment, show = false,
 }) => {
@@ -77,11 +78,16 @@ export const Modal:React.FC<ModalProps> = ({
             <Transition.Child as={Fragment} {...innerAnimate}>
               <div ref={closeRef} className='relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12'>
                 {title ? (
-                  <Dialog.Title className='prism-heading-2'>{title}</Dialog.Title>
+                  <Dialog.Title className='prism-heading-2'>
+                    {title}
+                  </Dialog.Title>
                 ) : null}
                 {description ? (
-                  <Dialog.Description className='prism-heading-3'>{description}</Dialog.Description>
+                  <Dialog.Description className='prism-heading-3'>
+                    {description}
+                  </Dialog.Description>
                 ) : null}
+                {content ? content : null}
                 {children}
                 {footer ? footer : null}
               </div>
@@ -93,3 +99,4 @@ export const Modal:React.FC<ModalProps> = ({
   </Transition>
   );
 };
+

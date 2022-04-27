@@ -1,6 +1,7 @@
 import { Fragment, useState, useRef } from 'react'
 import logo from './logo.svg'
 import './App.css'
+import { Modal } from '@prism2/react-components'
 import '../node_modules/@prism2/react-components/dist/style.css'
 import '../node_modules/@prism2/react-components/dist/style/components.css'
 
@@ -37,27 +38,21 @@ function App() {
           </div>
         </div>
       </main>
-
-      <Transition show={isOpen}>
-        <Dialog onClose={() => setIsOpen(false)} open={isOpen} initialFocus={okRef}>
-          <div className="dialog-frame">
-            <Transition.Child as={Fragment} {...fadeInOut}>
-              <div className='dialog-backdrop'>
-                <Dialog.Overlay className="dialog-overlay" />
-                <Transition.Child as={Fragment} {...slideUpDown}>
-                  <div className='dialog-box'>
-                    <p>
-                      Are you sure you want to deactivate your account? All of your data will
-                      be permanently removed. This action cannot be undone.
-                    </p>
-
-                  </div>
-                </Transition.Child>
-              </div>
-            </Transition.Child>
-          </div>
-        </Dialog>
-      </Transition>
+      <Modal
+        title='Yes'
+        description='Ha'
+        show={isOpen}
+        onClose={() => setIsOpen(false)}
+        content={(<p>
+          Are you sure you want to deactivate your account? All of your data will
+          be permanently removed. This action cannot be undone.
+        </p>)}
+        footer={(
+          <button className='prism-btn fill w-full' onClick={() => setIsOpen(false)}>
+            Ok
+          </button>
+        )}
+      />
     </div>
   )
 }

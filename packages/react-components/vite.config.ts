@@ -26,7 +26,7 @@ export default defineConfig({
      * @remark Dependencies will be included in bundle if not listed below!
      */
     rollupOptions: {
-      external: ['react', 'react-dom'],
+      external: ['react', 'react-dom', '@headlessui/react'],
       output: {
         // compact: true,
         // Provide global variables to use in the UMD build
@@ -34,6 +34,7 @@ export default defineConfig({
         globals: {
           react: 'React',
           'react-dom': 'ReactDOM',
+          '@headlessui/react': 'HeadlessUI',
         },
         // Rename default stylesheet to follow JS filename convention.
         // Uncomment this for a semver filename instead of 'style.css'
