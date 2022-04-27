@@ -1,7 +1,7 @@
 import { Fragment, useState } from 'react'
 import './App.css'
-import { Modal, Button, Tab } from '@prism2/react-components'
 
+import { Modal, Button, Tab } from '@prism2/react-components'
 function App() {
 
   const [isOpen, setIsOpen] = useState(false);

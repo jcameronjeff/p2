@@ -25,3 +25,29 @@ This folder provides an out-of-the-box configuration of the Prism2 styling engin
   - Prism2 Tailwind Theme (via preset)
   - PostCSS configuration
 
+## Using Themed Tailwind classes
+
+In order to generate styles for classnames in your code, you must import Tailwind into your CSS files.
+
+```pcss
+// App.css
+@import 'tailwindcss/base';
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/components';
+```
+
+## Using provided styles
+
+Some of our React components ship with dedicated styles. You can import these into your project in a single file:
+
+```pcss
+@import '../node_modules/@prism2/react-components/dist/style.css';
+```
+
+Or each layer independently.
+
+```pcss
+@import '../node_modules/@prism2/react-components/dist/style/base.css';
+@import '../node_modules/@prism2/react-components/dist/style/fonts.css';
+@import '../node_modules/@prism2/react-components/dist/style/components.css';
+```

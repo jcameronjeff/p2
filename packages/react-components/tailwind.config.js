@@ -3,6 +3,7 @@ module.exports = {
   content: [
     './index.html',
     './lib/**/*.{vue,js,ts,jsx,tsx}',
+    './site/*.{vue,js,ts,jsx,tsx}',
     './site/**/*.{vue,js,ts,jsx,tsx}',
     './stories/**/*.{tsx,css,mdx,jsx}',
     './stories/*.{tsx,css,mdx,jsx}',
