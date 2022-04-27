@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Tab } from '@headlessui/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
-import { Basic as BasicCard } from './Login.stories';
+import { Basic as BasicCard } from '../lib/Card/Card.stories';
 import { BasicUsage as ComboboxExample } from '../lib/Input/Combobox.stories';
 
 export default {

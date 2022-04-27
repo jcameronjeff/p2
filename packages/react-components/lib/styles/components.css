@@ -1,43 +1,39 @@
 @import 'tailwindcss/components';
 
-
-
-
-
-  .dialog-frame {
-    @apply fixed;
-    @apply z-10;
-    @apply inset-0;
-    @apply overflow-y-auto;
-  }
-  .dialog-backdrop {
-    @apply flex;
-    @apply items-center;
-    @apply justify-center;
-    @apply min-h-screen;
-    @apply backdrop-blur-sm;
-    @apply backdrop-opacity-95;
-    @apply backdrop-grayscale;
-  }
-  .dialog-overlay {
-    @apply fixed;
-    @apply inset-0;
-    @apply bg-black;
-    @apply opacity-25;
-  }
-  .dialog-box {
-    @apply relative;
-    @apply ring-1;
-    @apply ring-black/10;
-    @apply bg-white;
-    @apply rounded-lg;
-    @apply max-w-sm;
-    @apply mx-auto;
-    @apply shadow-xl;
-    @apply w-[480px];
-    @apply border;
-    @apply space-y-4;
-    @apply p-8;
-    @apply px-12;
-  }
+.prism-dialog-frame {
+  @apply fixed;
+  @apply z-10;
+  @apply inset-0;
+  @apply overflow-y-auto;
+}
+.prism-dialog-backdrop {
+  @apply flex;
+  @apply items-center;
+  @apply justify-center;
+  @apply min-h-screen;
+  @apply backdrop-blur-sm;
+  @apply backdrop-opacity-95;
+  @apply backdrop-grayscale;
+}
+.prism-dialog-overlay {
+  @apply fixed;
+  @apply inset-0;
+  @apply bg-black;
+  @apply opacity-25;
+}
+.prism-dialog-box {
+  @apply relative;
+  @apply ring-1;
+  @apply ring-black/10;
+  @apply bg-white;
+  @apply rounded-lg;
+  @apply max-w-sm;
+  @apply mx-auto;
+  @apply shadow-xl;
+  @apply w-[480px];
+  @apply border;
+  @apply space-y-4;
+  @apply p-8;
+  @apply px-12;
+}
 

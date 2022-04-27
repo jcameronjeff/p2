@@ -71,12 +71,12 @@ export const Modal:React.FC<ModalProps> = ({
   return (
   <Transition as={as} show={show}>
     <Dialog onClose={() => onClose()} open={show} initialFocus={focus}>
-      <div className="fixed z-10 inset-0 overflow-y-auto">
+      <div className="prism-dialog-frame">
         <Transition.Child as={Fragment} {...outerAnimate}>
-          <div className='flex items-center justify-center min-h-screen backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
-            <Dialog.Overlay className="fixed inset-0 bg-black opacity-25" />
+          <div className='prism-dialog-backdrop'>
+            <Dialog.Overlay className="prism-dialog-overlay" />
             <Transition.Child as={Fragment} {...innerAnimate}>
-              <div ref={closeRef} className='relative ring-1 ring-black/10 bg-white rounded-lg max-w-sm mx-auto card shadow-xl w-[480px] border space-y-4 p-8 px-12'>
+              <div ref={closeRef} className='prism-dialog-box'>
                 {title ? (
                   <Dialog.Title className='prism-heading-2'>
                     {title}
