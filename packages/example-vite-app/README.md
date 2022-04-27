@@ -25,6 +25,12 @@ This folder provides an out-of-the-box configuration of the Prism2 styling engin
   - Prism2 Tailwind Theme (via preset)
   - PostCSS configuration
 
+## Recommended Extensions
+
+We strongly recommend using the [Tailwind Intellisense Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for VSCode. It will provide autocompletion for all class names and lint for conflicting/redundant classes.
+
+![Using Tailwind Intellisense Extension](../../media/class-intellisense.gif)
+
 ## Using Themed Tailwind classes
 
 In order to generate styles for classnames in your code, you must import Tailwind into your CSS files.
