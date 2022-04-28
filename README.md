@@ -9,18 +9,21 @@
 This project uses lerna to manage monorepo dependencies.
 
 ```
+// anywhere locally
 npm install -g lerna
 ```
 
 Use the built-in lerna commands to install dependencies across packages.
 
 ```
+// from anywhere in the repo
 lerna bootstrap
 ```
 
 Start a Storybook dev session using the contents of `packages/react-components/stories`
 
 ```
+// from anywhere in the repo
 lerna run storybook --stream
 ```
 
