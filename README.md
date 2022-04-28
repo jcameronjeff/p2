@@ -27,6 +27,30 @@ Start a Storybook dev session using the contents of `packages/react-components/s
 lerna run storybook --stream
 ```
 
+## Starting a new project
+
+```sh
+// from ./packages directory
+npm create vite@latest my-new-app --template react-ts
+cd my-new-app
+npm install
+npm install -D tailwindcss @prism2/tailwind-preset @prism2/tailwind-theme @prism2/tailwind-elements postcss
+npx tailwindcss init
+```
+
+Finally, create a `postcss.config.js` file in the root of your new project and add this:
+
+```js
+module.exports = require('@prism2/tailwind-preset/postcss.config')
+```
+
+Start your app and enjoy Prism2 flavored Tailwind3  :
+
+```js
+lerna run dev --scope=my-new-app
+```
+
+
 ## Editor Configs
 
 Prism2 includes autocompletion support via Typescript type declarations as well as through Tailwind Intellisense.
