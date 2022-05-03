@@ -1,4 +1,4 @@
-import Color from 'color';
+const Color = require('color');
 
 // luminosity of grays
 function getClosest(goal, counts) {
@@ -51,12 +51,28 @@ function makeScale(hex) {
 
 
 const colors = {
-  primary: makeScale('#005ba8'),
-  cerulean: makeScale('#2c90cc'),
-  ceruleanDark: makeScale('#2372a2'),
+  blue: makeScale('#005ba8'),
+  sky: makeScale('#2c90cc'),
   navy: makeScale('#003468'),
-  gold: makeScale('#ffc20e'),
-  saffron: makeScale('#EB9114'),
-  red: makeScale('#c33a00')
-} //?
+  yellow: makeScale('#ffc20e'),
+  amber: makeScale('#EB9114'),
+  red: makeScale('#c33a00'),
+  green: makeScale('#e3fad1'),
+  emerald: makeScale('#0d8240'),
+  teal: makeScale('#00aaa8'),
+  fuschia: makeScale('#8c1d58')
+}
 
+const extendedColors = {
+  ...colors,
+  cerulean: colors.sky,
+  saffron: colors.amber,
+  gold: colors.yellow,
+  meadow: colors.green,
+  jungle: colors.emerald,
+  ocean: colors.teal
+}
+
+module.exports = {
+  colors, extendedColors
+}
