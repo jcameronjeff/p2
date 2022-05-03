@@ -63,6 +63,7 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
       <div className='w-12 h-12 rounded-sm shadow-inner bg-[#005094]'></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-[#003766]'></div>
     </div>
+
     <div className='flex gap-2 items-center'>
       <div className='w-36'><span className='prism-label'>Blue</span></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-blue-50'></div>
@@ -171,6 +172,19 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
       <div className='w-12 h-12 rounded-sm shadow-inner bg-red-900'></div>
     </div>
     <div className='flex gap-2 items-center'>
+      <div className='w-36'><span className='prism-label'>Fuchsia</span></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-50'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-100'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-200'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-300'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-400'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-500'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-600'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-700'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-800'></div>
+      <div className='w-12 h-12 rounded-sm shadow-inner bg-fuchsia-900'></div>
+    </div>
+    <div className='flex gap-2 items-center'>
       <div className='w-36'><span className='prism-label'>Green</span></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-green-50'></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-green-100'></div>
@@ -209,6 +223,7 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
       <div className='w-12 h-12 rounded-sm shadow-inner bg-teal-800'></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-teal-900'></div>
     </div>
+
     {Keynames.map(kname => (
       <div>
       <h2 className='prism-heading-3 mb-4'>{kname}</h2>
