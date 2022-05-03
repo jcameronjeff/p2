@@ -23,7 +23,7 @@ export const parameters = {
 export const decorators = [
   (Canvas) => (
     <div className='
-      flex flex-col bg-blue-300
+      flex flex-col
       items-center w-full justify-center
     '>
       <Canvas />
