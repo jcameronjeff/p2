@@ -246,7 +246,7 @@ module.exports = plugin.withOptions(function (options = {
 
       [`.${prefix}table, .prism table`]: {
         ['tr,td,thead,th']: {
-          borderColor: theme('colors.gray.350'),
+          borderColor: theme('colors.gray.300'),
           borderWidth: '1px',
           borderStyle: 'solid',
           padding: theme('spacing.3'),
@@ -289,7 +289,7 @@ module.exports = plugin.withOptions(function (options = {
           outlineWidth: '1px',
         },
         '&.fill': {
-          backgroundColor: theme('colors.navy'),
+          backgroundColor: theme('colors.navy.900'),
           color: theme('colors.white'),
         },
         '&:hover:not(:disabled):not([type="submit"]), &.active': {
@@ -302,10 +302,10 @@ module.exports = plugin.withOptions(function (options = {
           color: theme('colors.white'),
         },
         '&[type="submit"]': {
-          backgroundColor: theme('colors.gold'),
+          backgroundColor: theme('colors.gold.600'),
           color: theme('colors.gray.900'),
           '&:hover': {
-            backgroundColor: theme('colors.gold-dark'),
+            backgroundColor: theme('colors.gold.700'),
           },
         },
       },
@@ -325,7 +325,7 @@ module.exports = plugin.withOptions(function (options = {
       },
       // Input Box ---------------------------------
       [`.${prefix}select`]: {
-        borderColor: theme('colors.gray.350'),
+        borderColor: theme('colors.gray.300'),
         borderWidth: '1px',
         borderStyle: 'solid',
         borderRadius: theme('borderRadius.xs'),
@@ -335,7 +335,7 @@ module.exports = plugin.withOptions(function (options = {
         backgroundPositionY: '-40px',
       },
       [`.${prefix}input, ${prefix}select, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
-        borderColor: theme('colors.gray.350'),
+        borderColor: theme('colors.gray.300'),
         borderWidth: '1px',
         borderStyle: 'solid',
         borderRadius: theme('borderRadius.xs'),

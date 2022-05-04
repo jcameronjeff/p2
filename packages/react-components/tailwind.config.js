@@ -9,23 +9,22 @@ module.exports = {
     './stories/*.{tsx,css,mdx,jsx}',
     './tw/*.{js,ts,jsx,tsx}',
   ],
-  theme: {
-    extend: require('@prism2/tailwind-theme'),
-  },
-  plugins: [
-    require('@tailwindcss/typography'),
-    require('@prism2/tailwind-elements')({
-      parent: '.prism-base',
-      strategy: 'base',
-    }),
-    require('@prism2/tailwind-elements')({
-      prefix: 'prism-',
-      strategy: 'class',
-    }),
-    require('@prism2/tailwind-elements')({
-      prefix: '',
-      strategy: 'class',
-    }),
+  presets: [
+    require('@prism2/tailwind-preset')
   ],
-};
-
+  // theme: {
+  //   extend: {
+  //     fontFamily: {
+  //       sans: 'Verdana',
+  //       alt: 'Georgia'
+  //     },
+  //     colors: ({ theme }) => ({
+  //       'headings': '#f00',
+  //       'muted': '#ffcc00'
+  //     }),
+  //     borderColor: {
+  //       DEFAULT: '#f00'
+  //     }
+  //   }
+  // }
+}
