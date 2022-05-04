@@ -1,5 +1,5 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const extendedColors = require('./colors').extendedColors;
+const colors = require('./colors').colors;
 
 module.exports = {
   screens: {
@@ -64,8 +64,14 @@ module.exports = {
     'gold': '#ffc20e',
     'gold-dark': '#ebb000',
     'meadow-light': '#e3fad1',
-    ...extendedColors,
-    headings: '#003468',
+    ...colors,
+    cerulean: colors.sky,
+    saffron: colors.amber,
+    gold: colors.yellow,
+    meadow: colors.green,
+    jungle: colors.emerald,
+    ocean: colors.teal,
+    headings: colors.navy['800'],
     links: theme.colors.sky['700'],
     body: theme.colors.gray['800'],
     muted: theme.colors.gray['400'],

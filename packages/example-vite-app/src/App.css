@@ -3,5 +3,4 @@
 @import 'tailwindcss/utilities';
 @import 'tailwindcss/components';
 
-@import '../node_modules/@prism2/react-components/dist/style/base.css';
-@import '../node_modules/@prism2/react-components/dist/style/fonts.css';
+@import '../node_modules/@prism2/react-components/dist/style.css';
