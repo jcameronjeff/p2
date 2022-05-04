@@ -4,8 +4,13 @@ Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 
 `@prism2/tailwind-elements` provides a flexible way to generate styles for your app or component.
 In some cases, you may want to apply design guidelines directly to HTML5 elements.
 
+![](../../media/autocomplete-plugin.gif)
 
 ## Quickstart
+
+> **Prerequisite**: This guide expects Tailwind to already be configured. Follow the [instructions to initialize Tailwind](https://tailwindcss.com/docs/installation) in your project if you haven't already.
+
+> **Notice**: In most cases, you can use the `@prism2/tailwind-preset` which provides configuration for this plugin and our theme. This guide is intended for custom use cases where the preset is insufficient.
 
 ```sh
 npm install @prism2/tailwind-elements
@@ -13,9 +18,6 @@ npm install @prism2/tailwind-elements
 
 ```js
 // tailwind.config.js
-theme: {
-  extend: require('@prism2/tailwind-theme')
-},
 plugins: [
   require("@prism2/tailwind-elements")({
     parent: '.prism', // scope rules to children of this CSS selector.
