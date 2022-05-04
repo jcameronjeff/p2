@@ -126,7 +126,7 @@ module.exports = plugin.withOptions(function (options = {
         backgroundColor: theme('colors.white'),
       },
       [`*[class^=${prefix}caption]`]: {
-        color: theme('colors.gray.400'),
+        color: theme('colors.muted'),
       },
       [`.${prefix}caption, .${prefix}caption-sm`]: {
         fontSize: theme('fontSize.sm'),
@@ -164,7 +164,7 @@ module.exports = plugin.withOptions(function (options = {
         lineHeight: theme('fontSize.md'),
       },
       [`*[class^=${prefix}link]`]: {
-        color: theme('colors.cerulean-dark'),
+        color: theme('colors.links'),
       },
       [`.${prefix}link`]: {
         fontSize: theme('fontSize.base'),
@@ -181,7 +181,7 @@ module.exports = plugin.withOptions(function (options = {
       },
       [`.${prefix}link-xxs`]: {
         fontSize: theme('fontSize.xxs'),
-        color: theme('colors.gray.400'),
+        color: theme('colors.muted'),
         textDecoration: 'underline',
       },
       [`*[class^=${prefix}list]`]: {
@@ -233,9 +233,9 @@ module.exports = plugin.withOptions(function (options = {
         justifyContent: 'space-between',
         gap: theme('spacing.2'),
         backgroundColor: theme('colors.white'),
-        color: theme('colors.gray.700'),
+        color: theme('colors.body'),
         '&.active, &:hover': {
-          backgroundColor: theme('colors.navy'),
+          backgroundColor: theme('colors.blue.800'),
           color: theme('colors.white'),
         },
         '&.selected': {
@@ -252,8 +252,8 @@ module.exports = plugin.withOptions(function (options = {
           padding: theme('spacing.3'),
         },
         'th': {
-          backgroundColor: theme('colors.navy'),
-          borderColor: theme('colors.navy'),
+          backgroundColor: theme('colors.blue.800'),
+          borderColor: theme('colors.blue.800'),
           color: theme('colors.white'),
           borderWidth: '1px',
           borderStyle: 'solid',
@@ -261,7 +261,7 @@ module.exports = plugin.withOptions(function (options = {
         'caption,tfoot': {
           fontStyle: 'italic',
           padding: theme('spacing.2'),
-          color: theme('colors.gray.500'),
+          color: theme('colors.muted'),
           fontSize: theme('fontSize.sm'),
         },
       },
@@ -275,7 +275,7 @@ module.exports = plugin.withOptions(function (options = {
         paddingLeft: theme('spacing.4'),
         paddingRight: theme('spacing.4'),
         backgroundColor: 'transparent',
-        color: theme('colors.cerulean-dark'),
+        color: theme('colors.sky.600'),
         outline: 'none',
         border: 'none',
         borderColor: 'transparent',
@@ -285,7 +285,7 @@ module.exports = plugin.withOptions(function (options = {
         cursor: 'pointer',
 
         '&.outline': {
-          borderColor: theme('colors.cerulean-dark'),
+          borderColor: theme('colors.sky.600'),
           outlineWidth: '1px',
         },
         '&.fill': {
@@ -294,7 +294,7 @@ module.exports = plugin.withOptions(function (options = {
         },
         '&:hover:not(:disabled):not([type="submit"]), &.active': {
           backgroundColor: theme('colors.cerulean-light'),
-          color: theme('colors.cerulean-dark'),
+          color: theme('colors.sky.600'),
         },
         '&:disabled': {
           cursor: 'not-allowed',
