@@ -13,6 +13,9 @@ Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 
 > **Prerequisite**: This guide expects Tailwind to already be configured. Follow the [instructions to initialize Tailwind](https://tailwindcss.com/docs/installation) in your project if you haven't already.
 
 1. Install as a dependency `npm install @prism2/tailwind-elements`
+
+> **Maintainer Note**: This package is not yet published, you will need to link the dependency locally in order to install.
+>
 2. Add plugin to your Tailwind configuration file.
 
   ```js
@@ -21,6 +24,10 @@ Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 
     require("@prism2/tailwind-elements")
   ],
 ```
+
+## Example Project
+
+A template of our recommended project configuration can be [found in our example app](../example-vite-app/).
 
 ## Plugin Configuration
 
