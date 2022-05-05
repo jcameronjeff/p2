@@ -1,7 +1,9 @@
-import { useRef, useState } from 'react';
+import { FC, useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal } from '..';
+import { Button, Modal, ModalBaseProps, ModalRoot } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+
+type FCModal = React.FC<ModalBaseProps<any>>;
 
 export default {
   title: 'Interaction/Modal',
@@ -18,9 +20,10 @@ export default {
       },
     },
   },
-} as ComponentMeta<typeof Modal>;
+} as ComponentMeta<FCModal>;
 
-const Template: ComponentStory<typeof Modal> = () => {
+
+const Template: ComponentStory<FCModal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
@@ -47,7 +50,7 @@ const Template: ComponentStory<typeof Modal> = () => {
 
 export const Basic = Template.bind({});
 
-const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
+const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -63,11 +66,12 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
           Toggle Modal
         </Button>
       </Modal>
+      <Modal onClose={() => {}}  />
     </div>
   );
 };
 
-const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
+const CompactTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div>
@@ -75,6 +79,7 @@ const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
         Toggle Modal
       </Button>
       <Modal {...{
+        ...args,
         title: 'Modal Title',
         description: 'My description text',
         content: <p>This is the content of my modal</p>,
@@ -85,7 +90,6 @@ const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
             Ok
           </button>
         ),
-        ...args,
       }}/>
     </div>
   );

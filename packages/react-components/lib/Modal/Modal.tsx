@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
+import React, { ElementType, Fragment, JSXElementConstructor, MutableRefObject, ReactElement, ReactNode, Ref, useRef } from 'react';
 import { forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
@@ -60,9 +60,10 @@ export interface ModalProps {
 
 let DEFAULT_DIALOG_TAG = 'div' as const;
 let DialogRenderFeatures = Features.RenderStrategy | Features.Static;
-type ModalBaseProps<T> = Props<T, { open: boolean }, 'dialog'> & PropsForFeatures<typeof DialogRenderFeatures> & ModalProps;
+export type ModalBaseProps<T> = Props<T, { open: boolean }, 'dialog'> & PropsForFeatures<typeof DialogRenderFeatures> & ModalProps;
 
-export const Modal = forwardRefWithAs(function Modal<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
+
+export function ModalRoot<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
   props: ModalBaseProps<TTag>,
   ref: Ref<HTMLHeadingElement>,
 ) {
@@ -86,34 +87,57 @@ export const Modal = forwardRefWithAs(function Modal<TTag extends ElementType = 
   const outerAnimate = { ...fadeInOut, ...outerTransition };
   const innerAnimate = { ...slideUpDown, ...innerTransition };
 
+  // Validations
+  let hasShow = props.hasOwnProperty('show');
+  let hasOnClose = props.hasOwnProperty('onClose');
+
+  if (!hasShow) {
+    throw new Error(
+      'You forgot to provide a `show` prop to the `Modal`.',
+    );
+  }
+
+  if (!hasOnClose) {
+    throw new Error(
+      'You forgot to provide an `onClose` prop to the `Modal`.',
+    );
+  }
+
+  if (typeof onClose !== 'function') {
+    throw new Error(
+      `You provided an \`onClose\` prop to the \`Modal\`, but the value is not a function. Received: ${onClose}`,
+    );
+  }
+
   return (
-  <Transition show={show} ref={ref}>
-    <Dialog onClose={onClose} open={show} initialFocus={focus}>
-      <div className="prism-dialog-frame">
-        <Transition.Child as={Fragment} {...outerAnimate}>
-          <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
-            <Dialog.Overlay className="prism-dialog-overlay" />
-            <Transition.Child as={Fragment} {...innerAnimate}>
-              <div ref={closeRef} className={clsx}>
-                {title ? (
-                  <Dialog.Title className='prism-heading-2'>
-                    {title}
-                  </Dialog.Title>
-                ) : null}
-                {description ? (
-                  <Dialog.Description className='prism-heading-3'>
-                    {description}
-                  </Dialog.Description>
-                ) : null}
-                {content ? <>{content}</> : null}
-                {children ? <>{children}</> : null}
-                {footer ? <>{footer}</> : null}
-              </div>
-            </Transition.Child>
-          </div>
-        </Transition.Child>
-      </div>
-    </Dialog>
-  </Transition>
+    <Transition show={show} ref={ref}>
+      <Dialog onClose={onClose} open={show} initialFocus={focus}>
+        <div className="prism-dialog-frame">
+          <Transition.Child as={Fragment} {...outerAnimate}>
+            <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
+              <Dialog.Overlay className="prism-dialog-overlay" />
+              <Transition.Child as={Fragment} {...innerAnimate}>
+                <div ref={closeRef} className={clsx}>
+                  {title ? (
+                    <Dialog.Title className='prism-heading-2'>
+                      {title}
+                    </Dialog.Title>
+                  ) : null}
+                  {description ? (
+                    <Dialog.Description className='prism-heading-3'>
+                      {description}
+                    </Dialog.Description>
+                  ) : null}
+                  {content ? <>{content}</> : null}
+                  {children ? <>{children}</> : null}
+                  {footer ? <>{footer}</> : null}
+                </div>
+              </Transition.Child>
+            </div>
+          </Transition.Child>
+        </div>
+      </Dialog>
+    </Transition>
   );
-});
+}
+export const Modal = forwardRefWithAs(ModalRoot);
