@@ -1,8 +1,7 @@
 import { Dialog, Transition } from '@headlessui/react';
 import { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
-import {  forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
+import { forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
-// import { Features, PropsForFeatures } from '@headlessui/react/dist/utils/render';
 
 
 export interface ModalProps {
@@ -60,24 +59,13 @@ export interface ModalProps {
 }
 
 let DEFAULT_DIALOG_TAG = 'div' as const;
-
-interface DialogRenderPropArg {
-  open: boolean
-}
-
-type DialogPropsWeControl =
-  | 'children';
-
 let DialogRenderFeatures = Features.RenderStrategy | Features.Static;
+type ModalBaseProps<T> = Props<T, { open: boolean }, 'dialog'> & PropsForFeatures<typeof DialogRenderFeatures> & ModalProps;
 
-export const Modal = forwardRefWithAs(function Modal<
-  TTag extends ElementType = typeof DEFAULT_DIALOG_TAG,
->(
-  props: Props<TTag, DialogRenderPropArg, DialogPropsWeControl> &
-  PropsForFeatures<typeof DialogRenderFeatures> & ModalProps,
+export const Modal = forwardRefWithAs(function Modal<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
+  props: ModalBaseProps<TTag>,
   ref: Ref<HTMLHeadingElement>,
 ) {
-
   const {
     initialFocus,
     className,
@@ -91,7 +79,6 @@ export const Modal = forwardRefWithAs(function Modal<
     children,
     content,
   } = props;
-
 
   const closeRef = useRef(null);
   const focus = initialFocus || useRef(null);

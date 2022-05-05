@@ -67,9 +67,6 @@ const Template: ComponentStory<any> = () => {
     <Modal onClose={() => setOtherOpen(false)} show={isOtherOpen} title="My title">
       Hi there
     </Modal>
-    <Modal as="div" onClose={() => {}} show={true} title="This">
-      Ok
-    </Modal>
   </div>
   );
 };
