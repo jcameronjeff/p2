@@ -70,7 +70,6 @@ let DEFAULT_DIALOG_TAG = 'div' as const;
 let DialogRenderFeatures = Features.RenderStrategy | Features.Static;
 export type ModalBaseProps<T> = Props<T, { open: boolean }, 'dialog'> & PropsForFeatures<typeof DialogRenderFeatures> & ModalProps;
 
-
 export function ModalRoot<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
   props: ModalBaseProps<TTag>,
   ref: Ref<HTMLHeadingElement>,

@@ -10,21 +10,6 @@ module.exports = {
     './tw/*.{js,ts,jsx,tsx}',
   ],
   presets: [
-    require('@prism2/tailwind-preset')
+    require('@prism2/tailwind-preset'),
   ],
-  // theme: {
-  //   extend: {
-  //     fontFamily: {
-  //       sans: 'Verdana',
-  //       alt: 'Georgia'
-  //     },
-  //     colors: ({ theme }) => ({
-  //       'headings': '#f00',
-  //       'muted': '#ffcc00'
-  //     }),
-  //     borderColor: {
-  //       DEFAULT: '#f00'
-  //     }
-  //   }
-  // }
-}
+};

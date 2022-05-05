@@ -1,6 +1,6 @@
-import { FC, useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal, ModalBaseProps, ModalRoot } from '..';
+import { Button, Modal, ModalBaseProps } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 type FCModal = React.FC<ModalBaseProps<any>>;
