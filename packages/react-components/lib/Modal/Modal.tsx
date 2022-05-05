@@ -3,6 +3,13 @@ import React, { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'rea
 import { forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
+/**
+ * @TODO OVERVIEW TOPIC - DOCGEN COMMENTS
+ * --------------------------------------------------
+ * @remark The comment format below is used to support various static analysis
+ * tools that insert the content into VSCode autocompletion, Storybook, TypeDoc
+ * and similar.
+ */
 
 export interface ModalProps {
   /**
@@ -131,13 +138,13 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
     }
 
     /**
-   * @TODO OVERVIEW TOPIC - DEBUG FEATURE FLAG
-   * --------------------------------------------------
-   * @example We provide a `__debug` flag to enable extra logging on a
-   * per-component basis. This ought to be standardized like with `as`.
-   *
-   * @remark Generally this ought to be hidden behind a feature flag
-   */
+     * @TODO OVERVIEW TOPIC - DEBUG FEATURE FLAG
+     * --------------------------------------------------
+     * @example We provide a `__debug` flag to enable extra logging on a
+     * per-component basis. This ought to be standardized like with `as`.
+     *
+     * @remark Generally this ought to be hidden behind a feature flag
+     */
 
     if (isDebug) {
       console.warn('You are viewing the `Modal` component in demo mode');

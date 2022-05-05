@@ -1,5 +1,9 @@
 import { ReactNode, ReactElement } from 'react';
 
+/**
+ * @see https://github.com/tailwindlabs/headlessui/blob/main/packages/%40headlessui-react/src/types.ts
+ */
+
 // A unique placeholder we can use as a default. This is nice because we can use this instead of
 // defaulting to null / never / ... and possibly collide with actual data.
 // Ideally we use a unique symbol here.
