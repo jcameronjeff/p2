@@ -71,7 +71,7 @@ module.exports = {
     meadow: colors.green,
     jungle: colors.emerald,
     ocean: colors.teal,
-    headings: colors.navy['800'],
+    headings: colors.blue['800'],
     links: theme.colors.sky['700'],
     body: theme.colors.gray['800'],
     muted: theme.colors.gray['400'],
@@ -80,7 +80,7 @@ module.exports = {
   borderColor: ({ theme }) => ({
     ...theme('colors'),
     // #babcbe
-    DEFAULT: theme('colors.gray.350', 'currentColor'),
+    DEFAULT: theme('colors.gray.300', 'currentColor'),
   }),
   borderOpacity: ({ theme }) => theme('opacity'),
   borderRadius: {

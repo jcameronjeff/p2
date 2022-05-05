@@ -5,7 +5,7 @@ This package provides a [preset for TailwindCSS](https://tailwindcss.com/docs/pr
 
 # Getting Started
 
-> See [Tailwind CSS Instllation Docs](https://tailwindcss.com/docs/installation) for more information.
+> **Prerequisite** - See [Tailwind CSS Instllation Docs](https://tailwindcss.com/docs/installation) for more information.
 
 ## Install TailwindCSS
 
@@ -16,14 +16,14 @@ npm install -D tailwindcss @prism2/tailwind-preset
 npx tailwindcss init
 ```
 
-## Configure your template paths
+## Initialize with the preset
 
 Add the paths to all of your template files in your tailwind.config.js file. Adding the preset will:
 
-  - Extends the theme with `@prism2/tailwind-theme`
-  - Loads the `@tailwindcss/typography` plugin.
-  - Loads the `@prism2/tailwind-elements` plugin with suggested settings.
-  - Watches the `src` directory for changes on matching file extensions.
+- Extends the theme with `@prism2/tailwind-theme`
+- Loads the `@tailwindcss/typography` plugin.
+- Loads the `@prism2/tailwind-elements` plugin with suggested settings.
+- Watches the `src` directory for changes on matching file extensions.
 
 ```js
 // tailwind.config.js
@@ -35,44 +35,37 @@ module.exports = {
 }
 ```
 
+## Extending the theme
 
-### What's included?
+You may want to use the design system but need to diverge from the core theme. You can extend the included base theme like any other theme.
 
-This preset will apply the PRISM design standards for:
+```js
+//tailwind.config.js
+modules.exports = {
+  content: ["./src/**/*.{html,jsx,tsx,vue,mdx}"],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ],
+  theme: {
+    extend: {
+      fontFamily: {
+        sans: 'Verdana',
+        alt: 'Georgia'
+      },
+      colors: ({ theme }) => ({
+        'headings': '#f00',
+        'muted': '#ffcc00'
+      }),
+      borderColor: {
+        DEFAULT: '#f00'
+      }
+    }
+  }
+}
+```
 
-| Theme | Values | TW Class examples |
-| ---------- | ------------ | ---- |
-| **Fonts** | --- | -- |
-| `sans` | Roboto, etc. | `.font-sans` |
-| `alt` | Roboto Condensed, etc | `.font-alt` |
-| **Color Utility** | --- | -- |
-| accent | '#ff5ba8' | `.bg-accent` |
-| 'navy' | '#003468' | `.bg-navy` |
-| 'navy-dark' | '#001b35' | `.bg-navy-dark` |
-| 'primary' | '#005ba8' | `.bg-primary` |
-| 'primary-dark' | '#004986' | `.bg-primary-dark` |
-| 'cerulean-light' | '#c1dff2' | `.bg-cerulean-light` |
-| 'cerulean' | '#2c90cc' | `.bg-cerulean` |
-| 'cerulean-dark' | '#2372a2' | `.bg-cerulean-dark` |
-| 'gold-light' | '#fff0c3' | `.bg-gold-light` |
-| 'gold' | '#ffc20e' | `.bg-gold` |
-| 'gold-dark' | '#ebb000' | `.bg-gold-dark` |
-| 'meadow-light' | '#e3fad1' | `.bg-meadow-light` |
-| 'scarlet-light' | '#fcccc0' | `.bg-scarlet-light` |
-| **Font Sizes** | --- | -- |
-| 3xl | '26px' | `.text-3xl` |
-| 2xl | "22px" | `.text-2xl` |
-| xl | "20px" | `.text-xl` |
-| lg | "18px" | `.text-lg` |
-| base | "16px" | `.text-base` |
-| sm | "14px" | `.text-sm` |
-| xs | "12px | `.text-xs` |
-| **Radius** | --- | -- |
-| 'lg' | 7px | `.rounded-lg` |
-| 'md' | 4px | `.rounded-md` |
-| 'sm' | 7px | `.rounded-sm` |
+Which would result in...
 
-## Plugins
-
-- @tailwindcss/typography
-- @tailwindcss/forms
+| Before | After |
+| ------ | ------ |
+| ![](../../media/base-theme.png) | ![](../../media/customize-theme.png) |
