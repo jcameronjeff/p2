@@ -1,5 +1,5 @@
 import { Dialog, Transition } from '@headlessui/react';
-import React, { ElementType, Fragment, JSXElementConstructor, MutableRefObject, ReactElement, ReactNode, Ref, useRef } from 'react';
+import React, { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
 import { forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
@@ -55,6 +55,7 @@ export interface ModalProps {
    * Optionally override container animation. Object will be merged with defaults.
    */
   innerTransition?: Partial<TransitionPropPreset>,
+  __debug?: boolean
 
 }
 
@@ -82,32 +83,80 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_DIALOG_TAG>(
   } = props;
 
   const closeRef = useRef(null);
+
   const focus = initialFocus || useRef(null);
   const clsx = ['prism-dialog-box space-y-4', className].join(' ');
   const outerAnimate = { ...fadeInOut, ...outerTransition };
   const innerAnimate = { ...slideUpDown, ...innerTransition };
 
-  // Validations
-  let hasShow = props.hasOwnProperty('show');
-  let hasOnClose = props.hasOwnProperty('onClose');
 
-  if (!hasShow) {
-    throw new Error(
-      'You forgot to provide a `show` prop to the `Modal`.',
-    );
-  }
 
-  if (!hasOnClose) {
-    throw new Error(
-      'You forgot to provide an `onClose` prop to the `Modal`.',
-    );
-  }
+  /**
+   * @TODO OVERVIEW TOPIC - THROW DESCRIPTIVE ERRORS
+   * --------------------------------------------------
+   * @example Provide useful feedback to developers by throwing descriptive
+   * errors for predictable mistakes. This can mimic feedback already provided
+   * by Typescript.
+   */
+  (function validations(componentProps: any) {
+    let hasShow = componentProps.hasOwnProperty('show');
+    let hasOnClose = componentProps.hasOwnProperty('onClose');
+    let hasInitialFocus = componentProps.hasOwnProperty('initialFocus');
+    let isDebug = componentProps.hasOwnProperty('__debug') && componentProps.__debug === true;
 
-  if (typeof onClose !== 'function') {
-    throw new Error(
-      `You provided an \`onClose\` prop to the \`Modal\`, but the value is not a function. Received: ${onClose}`,
-    );
-  }
+    if (!isDebug) return;
+
+    if (!hasShow) {
+      throw new Error(
+        'You forgot to provide a `show` prop to the `Modal`.',
+      );
+    }
+
+    if (!hasOnClose) {
+      throw new Error(
+        'You forgot to provide an `onClose` prop to the `Modal`.',
+      );
+    }
+
+    if (typeof onClose !== 'function') {
+      throw new Error(
+        `You provided an \`onClose\` prop to the \`Modal\`, but the value is not a function. Received: ${onClose}`,
+      );
+    }
+
+    if (hasInitialFocus && typeof initialFocus !== 'object') {
+      throw new Error(
+        'You provided an `initialFocus` prop, but the value is not a ref.',
+      );
+    }
+
+    /**
+   * @TODO OVERVIEW TOPIC - DEBUG FEATURE FLAG
+   * --------------------------------------------------
+   * @example We provide a `__debug` flag to enable extra logging on a
+   * per-component basis. This ought to be standardized like with `as`.
+   *
+   * @remark Generally this ought to be hidden behind a feature flag
+   */
+
+    if (isDebug) {
+      console.warn('You are viewing the `Modal` component in demo mode');
+      console.group(`PRISM <Modal/> Debug for "${componentProps.title}"\n`);
+      console.log('Props', { ...componentProps, innerAnimate, outerAnimate });
+      console.table({
+        title: componentProps.title,
+        description: componentProps.description,
+        className: componentProps.className,
+        hasShow,
+        hasOnClose,
+        hasInitialFocus,
+        isShowing: componentProps.show,
+      });
+      console.groupEnd();
+    }
+
+  }(props));
+
 
   return (
     <Transition show={show} ref={ref}>

@@ -31,7 +31,7 @@ const Template: ComponentStory<FCModal> = () => {
     <Button variant="base" block onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)}>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug>
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -57,7 +57,7 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
       <Button variant="base" block onClick={() => setIsOpen(true)}>
         Toggle Modal
       </Button>
-      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)}>
+      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)} __debug>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.
@@ -66,7 +66,6 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
           Toggle Modal
         </Button>
       </Modal>
-      <Modal onClose={() => {}}  />
     </div>
   );
 };
@@ -85,6 +84,7 @@ const CompactTemplate: ComponentStory<FCModal> = (args) => {
         content: <p>This is the content of my modal</p>,
         show: isOpen,
         onClose: () => setIsOpen(false),
+        __debug: true,
         footer: (
           <button className='prism-btn fill' onClick={() => setIsOpen(false)}>
             Ok
