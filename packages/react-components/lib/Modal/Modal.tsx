@@ -1,21 +1,18 @@
 import { Dialog, Transition } from '@headlessui/react';
-import { Fragment, useRef } from 'react';
-import { fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
+import { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
+import {  forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
+import { Features, PropsForFeatures, Props } from '../types';
+// import { Features, PropsForFeatures } from '@headlessui/react/dist/utils/render';
 
 
-
-export interface ModalProps  {
+export interface ModalProps {
   /**
    *  Use the show prop to control whether the content should be
    *  visible or hidden.
    *  @default false
    */
-  show?: boolean;
-  /**
-   * Optionally use a custom element, default: Fragment.
-   * @default Fragment
-   */
-  as?: React.ElementType<any> | undefined,
+  show: boolean;
+
   /**
    * If true, element will transition on initial render. Useful for
    * conditional rendering or animating initial page load.
@@ -25,16 +22,19 @@ export interface ModalProps  {
   /**
    * Callback to fire when modal is dismissed
    */
-  onClose?: () => void;
+  onClose(value: boolean): void
 
   /**
    * If you'd like something other than the first focusable element
    * to receive initial focus when your dialog is initially rendered,
-   * you can use the initialFocus ref:
+   * you can use the initialFocus ref.
+   *
+   * @see https://headlessui.dev/react/dialog#managing-initial-focus
    */
-  initialFocus?: React.MutableRefObject<HTMLElement | null>
+  initialFocus?: MutableRefObject<HTMLElement | null>
   /**
-   * Optionally provide a title via props.
+   * Optionally provide a title via props instead of with a <Dialog.Title /> tag.
+   * @see https://headlessui.dev/react/dialog#dialog-title
    */
   title?: string;
   /**
@@ -42,6 +42,7 @@ export interface ModalProps  {
    */
   description?: string;
   content?: React.ReactNode;
+  children?: React.ReactNode;
   footer?: React.ReactNode;
   /**
    * Optionally apply TW classes to the container.
@@ -54,27 +55,53 @@ export interface ModalProps  {
   /**
    * Optionally override container animation. Object will be merged with defaults.
    */
-  innerTransition?: Partial<TransitionPropPreset>
+  innerTransition?: Partial<TransitionPropPreset>,
+
 }
 
+let DEFAULT_DIALOG_TAG = 'div' as const;
 
+interface DialogRenderPropArg {
+  open: boolean
+}
 
+type DialogPropsWeControl =
+  | 'children';
 
-export const Modal:React.FC<ModalProps> = ({
-  children, className = '', description, content, footer, title, initialFocus = undefined,
-  outerTransition = { ...fadeInOut }, innerTransition = { ...slideUpDown },
-  onClose = () => {}, as = Fragment, show = false,
-}) => {
+let DialogRenderFeatures = Features.RenderStrategy | Features.Static;
+
+export const Modal = forwardRefWithAs(function Modal<
+  TTag extends ElementType = typeof DEFAULT_DIALOG_TAG,
+>(
+  props: Props<TTag, DialogRenderPropArg, DialogPropsWeControl> &
+  PropsForFeatures<typeof DialogRenderFeatures> & ModalProps,
+  ref: Ref<HTMLHeadingElement>,
+) {
+
+  const {
+    initialFocus,
+    className,
+    outerTransition,
+    innerTransition,
+    show,
+    onClose,
+    title,
+    description,
+    footer,
+    children,
+    content,
+  } = props;
+
 
   const closeRef = useRef(null);
-  const focus = initialFocus || closeRef;
+  const focus = initialFocus || useRef(null);
   const clsx = ['prism-dialog-box space-y-4', className].join(' ');
   const outerAnimate = { ...fadeInOut, ...outerTransition };
   const innerAnimate = { ...slideUpDown, ...innerTransition };
 
   return (
-  <Transition as={as} show={show}>
-    <Dialog onClose={() => onClose()} open={show} initialFocus={focus}>
+  <Transition show={show} ref={ref}>
+    <Dialog onClose={onClose} open={show} initialFocus={focus}>
       <div className="prism-dialog-frame">
         <Transition.Child as={Fragment} {...outerAnimate}>
           <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
@@ -102,5 +129,4 @@ export const Modal:React.FC<ModalProps> = ({
     </Dialog>
   </Transition>
   );
-};
-
+});

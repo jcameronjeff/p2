@@ -15,6 +15,7 @@ export default {
 
 const Template: ComponentStory<any> = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOtherOpen, setOtherOpen] = useState(true);
   const modalFocus = React.useRef(null);
   return (
   <div className='prism'>
@@ -59,6 +60,15 @@ const Template: ComponentStory<any> = () => {
         <button ref={modalFocus} className='prism-btn focus-within:ring-4' onClick={() => setIsOpen(false)}>Cancel</button>
         <button className='prism-btn fill focus-within:ring-4' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
+    </Modal>
+    <button onClick={(e) => {
+      e.preventDefault(); setOtherOpen(!isOtherOpen);
+    }} className='prism-btn fill w-full center focus-within:shadow-lg focus-within:ring-1'>Login</button>
+    <Modal onClose={() => setOtherOpen(false)} show={isOtherOpen} title="My title">
+      Hi there
+    </Modal>
+    <Modal as="div" onClose={() => {}} show={true} title="This">
+      Ok
     </Modal>
   </div>
   );
