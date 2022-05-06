@@ -1,8 +1,10 @@
-import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Modal, Button, Combobox } from '..';
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { Modal, Button, Combobox, Card } from '..';
 import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
+import { Transition, Dialog } from '@headlessui/react';
 
-<Meta title="Interaction/Modal/Overview" component={Modal} />
+
+<Meta title="Modals" component={Modal} />
 
 # Modal
 
@@ -12,7 +14,14 @@ Modals are child windows which appear in front of the main window to provide urg
 
 Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
 
+## Basic Example
+
+<Canvas>
+  <Story name='1. Modal' id='elements-modal--basic' />
+</Canvas>
+
 Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
+
 
 ## Usage Guidelines
 
@@ -22,24 +31,19 @@ Modals should only include one or two actions. If one, it must be an acknowledge
 
 ## Showing and hiding your modal
 
+When the dialog's `open` prop is `true`, the contents of the dialog will render. Focus will be moved inside the dialog and trapped there as the user cycles through the focusable elements. Scroll is locked, the rest of your application UI is hidden from screen readers, and clicking outside the dialog or pressing the Escape key will call the `onClose` function and close the dialog.
+
 Modals have no automatic management of their open/closed state. To show and hide your dialog, pass React state into the `open` prop. When `open` is true the dialog will render, and when it's false the dialog will unmount.
 
 The `onClose` callback fires when an open dialog is dismissed, which happens when the user clicks outside the your `Dialog.Panel` or presses the Escape key. You can use this callback to set open back to false and close your dialog.
 
-## Basic Example
 
-Modals are built on top of HeadlessUI's Dialog and is built using the Dialog.Panel, Dialog.Title and Dialog.Description components.
 
-When the dialog's `open` prop is `true`, the contents of the dialog will render. Focus will be moved inside the dialog and trapped there as the user cycles through the focusable elements. Scroll is locked, the rest of your application UI is hidden from screen readers, and clicking outside the dialog or pressing the Escape key will call the `onClose` function and close the dialog.
-
-<Canvas>
-  <Story name='1. Modal' id='interaction-modal--basic' />
-</Canvas>
 
 ## Compact Example
 
 <Canvas>
-  <Story name="1. Succinct" id="interaction-modal--compact-example" />
+  <Story name="1. Succinct" id="elements-modal--compact-example" />
 </Canvas>
 
 ## Managing Focus

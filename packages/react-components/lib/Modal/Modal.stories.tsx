@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 type FCModal = React.FC<ModalProps<any>>;
 
 export default {
-  title: 'Interaction/Modal',
+  title: 'Elements/Modal',
   component: Modal,
   subcomponents: { Button, Card },
 } as ComponentMeta<FCModal>;

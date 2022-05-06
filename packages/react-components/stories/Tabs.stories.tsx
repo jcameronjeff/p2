@@ -7,7 +7,7 @@ import { Basic as BasicCard } from '../lib/Card/Card.stories';
 import { BasicUsage as ComboboxExample } from '../lib/Input/Combobox.stories';
 
 export default {
-  title: 'Interaction/Tabs',
+  title: 'Elements/Tabs',
   component: Tab,
   argTypes: {
     defaultIndex: {
