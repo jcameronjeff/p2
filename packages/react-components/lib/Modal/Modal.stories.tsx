@@ -1,9 +1,9 @@
 import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal, ModalBaseProps } from '..';
+import { Button, Modal, ModalProps } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-type FCModal = React.FC<ModalBaseProps<any>>;
+type FCModal = React.FC<ModalProps<any>>;
 
 export default {
   title: 'Interaction/Modal',
