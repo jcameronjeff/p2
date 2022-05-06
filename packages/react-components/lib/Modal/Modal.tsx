@@ -12,9 +12,25 @@ import { Features, PropsForFeatures, Props } from '../types';
  */
 let DEFAULT_MODAL_TAG = 'div' as const;
 let ModalRenderFeatures = Features.RenderStrategy | Features.Static;
+
+/**
+ * These are to be provided as render props to the final output.
+ */
 interface ModalRenderPropArg {
   open: boolean
 }
+
+/**
+ * For any HTML attributes that will be handled by our final React component.
+ * Enumerating them here prevents passed props from getting mixed up with our
+ * computed output.
+ *
+ * Translation - since our component handles the children, we should list it
+ * here to protect against conflicts.
+ *
+ * See `type Props` in /lib/types.ts for more.
+ *
+ */
 type ModalPropsWeControl =
   | 'id'
   | 'role'
@@ -26,10 +42,18 @@ type ModalPropsWeControl =
 
 /**
  * Use our utility types to inject typings for props:
+ *
  * 1. HTML attributes for the element corresponding "as" (default: div)
- * 2. Static, unmount, UID namespace, "as" prop
+ * 2. Provice `static`, `unmount`, and "as" props determinsitcally.
+ * 3. Remove their passed props that we will control.
  */
 type ModalPropBase<T> = Props<T, ModalRenderPropArg, ModalPropsWeControl> & PropsForFeatures<typeof ModalRenderFeatures>;
+
+/**
+ * Merge ModalPropBase with our component API to get
+ * a full set of prop types. The generic <T> is used to inherit typings
+ * based on the element indicated in the "as" argument.
+ */
 export type ModalProps<T> = ModalPropBase<T> & {
   /**
      *  Use the show prop to control whether the content should be
@@ -84,7 +108,6 @@ export type ModalProps<T> = ModalPropBase<T> & {
   __debug?: boolean
 
 };
-
 
 export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   props: ModalProps<TTag>,
