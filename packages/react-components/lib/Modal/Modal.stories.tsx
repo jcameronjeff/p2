@@ -52,46 +52,41 @@ export const Basic = Template.bind({});
 
 const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [count, setCount] = useState(0);
   return (
     <div>
-      <Button variant="base" block onClick={() => setIsOpen(true)}>
-        Toggle Modal
-      </Button>
+      <div className='flex gap-2'>
+        <Button onClick={() => setIsOpen(true)} label="toggle" />
+        <Button onClick={() => setCount(count + 1)} label={`increment ${count}`} />
+      </div>
       <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)} __debug>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.
         </p>
-        <Button variant="base" block onClick={() => setIsOpen(false)}>
-          Toggle Modal
-        </Button>
+        <div className='flex gap-2'>
+          <Button onClick={() => setIsOpen(false)} label={'OK'} />
+          <Button onClick={() => setCount(count + 1)} label={`increment ${count}`} />
+        </div>
       </Modal>
     </div>
   );
 };
 
-const CompactTemplate: ComponentStory<FCModal> = (args) => {
+const CompactTemplate: ComponentStory<FCModal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div>
-      <Button variant="base" type='submit' block onClick={() => setIsOpen(true)}>
-        Toggle Modal
-      </Button>
-      <Modal {...{
-        ...args,
-        title: 'Modal Title',
-        description: 'My description text',
-        content: <p>This is the content of my modal</p>,
-        show: isOpen,
-        onClose: () => setIsOpen(false),
-        __debug: true,
-        footer: (
-          <button className='prism-btn fill' onClick={() => setIsOpen(false)}>
-            Ok
-          </button>
-        ),
-      }}/>
-    </div>
+    <>
+      <Button onClick={() => setIsOpen(true)} label="Toggle" />
+      <Modal
+        title='Modal Title'
+        description='My description text'
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
+        show={isOpen}
+        onClose={() => setIsOpen(false)}
+        __debug />
+    </>
   );
 };
 

@@ -26,6 +26,12 @@ When the dialog's `open` prop is `true`, the contents of the dialog will render.
   <Story name='1. Modal' id='interaction-modal--basic' />
 </Canvas>
 
+## Compact Example
+
+<Canvas>
+  <Story name="1. Succinct" id="interaction-modal--compact-with-custom-footer" />
+</Canvas>
+
 ## Managing Focus
 
 For accessibility reasons, your modal should contain at least one focusable element. By default, the `Modal` component will focus the first focusable element (by DOM order) once it is rendered, and pressing the Tab key will cycle through all additional focusable elements within the contents.
@@ -58,7 +64,7 @@ function MyComponent() {
 For accessibility reasons, you should use the `Dialog.Title` and `Dialog.Description` components when rendering content that labels and describes your dialog contents. They will be automatically linked to the root `Modal` component via the `aria-labelledby` and `aria-describedby` attributes, and their contents will be announced to users using screenreaders.
 
 <Canvas>
-  <Story name='1. Modal' id='interaction-modal--shorthand' />
+  <Story name='1. Modal' id='interaction-modal--basic' />
 </Canvas>
 
 ## Props
