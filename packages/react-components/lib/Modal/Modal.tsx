@@ -170,6 +170,7 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   return (
     <Transition show={show} ref={ref}>
       <Dialog onClose={onClose} open={show} initialFocus={focus}>
+        <Dialog.Panel>
         <div className="prism-dialog-frame">
           <Transition.Child as={Fragment} {...outerAnimate}>
             <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
@@ -194,6 +195,7 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
             </div>
           </Transition.Child>
         </div>
+        </Dialog.Panel>
       </Dialog>
     </Transition>
   );

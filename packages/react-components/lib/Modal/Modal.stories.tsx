@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal, ModalProps } from '..';
+import { Button, Modal, Card, ModalProps } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 type FCModal = React.FC<ModalProps<any>>;
@@ -8,18 +8,7 @@ type FCModal = React.FC<ModalProps<any>>;
 export default {
   title: 'Interaction/Modal',
   component: Modal,
-  argTypes: {
-    title: {
-      control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-      },
-    },
-    description: {
-      control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-      },
-    },
-  },
+  subcomponents: { Button, Card },
 } as ComponentMeta<FCModal>;
 
 
@@ -90,8 +79,8 @@ const CompactTemplate: ComponentStory<FCModal> = () => {
   );
 };
 
-export const CompactWithCustomFooter = CompactTemplate.bind({});
-CompactWithCustomFooter.args = {
+export const CompactExample = CompactTemplate.bind({});
+CompactExample.args = {
   title: 'Modal Title',
   description: 'My description text',
   content: <p>This is the content of my modal</p>,
