@@ -269,6 +269,9 @@ module.exports = plugin.withOptions(function (options = {
         fontWeight: theme('fontWeight.bold'),
         textTransform: 'uppercase',
         borderRadius: theme('borderRadius.sm'),
+        '&:focus-within': {
+          boxShadow: theme('boxShadow.lg'),
+        },
       },
       [`.${prefix}btn`]: {
         padding: theme('spacing[2.5]'),
@@ -302,10 +305,10 @@ module.exports = plugin.withOptions(function (options = {
           color: theme('colors.white'),
         },
         '&[type="submit"]': {
-          backgroundColor: theme('colors.gold.600'),
+          backgroundColor: theme('colors.gold.500'),
           color: theme('colors.gray.900'),
           '&:hover': {
-            backgroundColor: theme('colors.gold.700'),
+            backgroundColor: theme('colors.gold.600'),
           },
         },
       },
@@ -348,6 +351,10 @@ module.exports = plugin.withOptions(function (options = {
         },
         '&:focus': {
           boxShadow: theme('boxShadow.sm'),
+          outline: 'none',
+        },
+        '&:focus-within': {
+          boxShadow: theme('boxShadow.lg'),
           outline: 'none',
         },
       },
