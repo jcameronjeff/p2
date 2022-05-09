@@ -90,8 +90,14 @@ export type ModalProps<T> = ModalPropBase<T> & {
      * Optionally provide a description via props.
      */
   description?: string;
+  /**
+   * Optionally provide children via a content prop.
+   */
   content?: React.ReactNode;
   children?: React.ReactNode;
+  /**
+   * Optionally provide a footer to be appended after children/content.
+   */
   footer?: React.ReactNode;
   /**
      * Optionally apply TW classes to the container.
@@ -105,6 +111,9 @@ export type ModalProps<T> = ModalPropBase<T> & {
      * Optionally override container animation. Object will be merged with defaults.
      */
   innerTransition?: Partial<TransitionPropPreset>,
+  /**
+   * If true, output logging info about the component in the console.
+   */
   __debug?: boolean
 
 };
