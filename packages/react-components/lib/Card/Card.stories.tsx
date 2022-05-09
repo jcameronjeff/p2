@@ -7,13 +7,13 @@ import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 
 export default {
-  title: 'Elements/Card',
-  component: Modal,
-  subcomponents: { Checkbox, Button, Modal },
+  title: 'Patterns/LoginWindow',
+  component: Card,
+  subcomponents: { Checkbox, Button, Modal, Dialog },
 } as ComponentMeta<any>;
 
 
-const Template: ComponentStory<any> = () => {
+const LoginPrompt: ComponentStory<any> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const modalFocus = React.useRef(null);
   return (
@@ -65,11 +65,18 @@ const Template: ComponentStory<any> = () => {
 };
 
 
-export const Basic = Template.bind({});
-export const Autoplay = Template.bind({});
+export const Basic = LoginPrompt.bind({});
+export const LoginFlow = LoginPrompt.bind({});
 
-
-Autoplay.play = async ({ canvasElement }) => {
+/**
+ * @remark
+ *
+ * Ideally, speciments will include a `play` method which provides an
+ * automated interaction preview for the given story. Below, we script
+ * the login prompt form filling process, tabbing, submitting and
+ * finally confirming a popup dialog. This will loop twice.
+ */
+LoginFlow.play = async ({ canvasElement }) => {
   const canvas = within(canvasElement);
 
   const userInput = await canvas.getByPlaceholderText('Username');
