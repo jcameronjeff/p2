@@ -25,8 +25,8 @@ const LoginPrompt: ComponentStory<any> = () => {
       <Card.Content>
         <h1 className='text-center prism-heading-1'>Sign In</h1>
         <div className='space-y-2'>
-          <input name='username' type='text' className='w-full focus-within:shadow-lg' placeholder="Username" />
-          <input name='password' type='password' className='w-full focus-within:shadow-lg' placeholder="Password" />
+          <input name='username' type='text' className='w-full' placeholder="Username" />
+          <input name='password' type='password' className='w-full' placeholder="Password" />
         </div>
         <div className='space-y-1'>
           <Checkbox checked={false} label="Remember my password" onToggle={console.log} />
@@ -34,13 +34,13 @@ const LoginPrompt: ComponentStory<any> = () => {
         </div>
         <button onClick={(e) => {
           e.preventDefault(); setIsOpen(true);
-        }} className='prism-btn fill w-full center focus-within:shadow-lg focus-within:ring-1'>Login</button>
+        }} className='prism-btn fill w-full center  '>Login</button>
       </Card.Content>
       <Card.Footer>
         <div className='prism-caption'>Forgot?</div>
         <div className='text-xs prism-base flex gap-2'>
-          <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Username?</button>
-          <button className='prism-btn focus-within:shadow-lg focus-within:ring-1 p-2'>Password?</button>
+          <button className='prism-btn'>Username?</button>
+          <button className='prism-btn'>Password?</button>
         </div>
       </Card.Footer>
     </Card>
@@ -56,8 +56,8 @@ const LoginPrompt: ComponentStory<any> = () => {
         be permanently removed. This action cannot be undone.
       </p>
       <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button ref={modalFocus} className='prism-btn focus-within:ring-4' onClick={() => setIsOpen(false)}>Cancel</button>
-        <button className='prism-btn fill focus-within:ring-4' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
+        <button className='prism-btn' ref={modalFocus}  onClick={() => setIsOpen(false)}>Cancel</button>
+        <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>
   </div>
