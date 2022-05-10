@@ -56,7 +56,7 @@ const LoginPrompt: ComponentStory<any> = () => {
         be permanently removed. This action cannot be undone.
       </p>
       <div className='pt-4 grid grid-cols-2 gap-4'>
-        <button ref={modalFocus} className='prism-btn' onClick={() => setIsOpen(false)}>Cancel</button>
+        <button className='prism-btn' ref={modalFocus}  onClick={() => setIsOpen(false)}>Cancel</button>
         <button className='prism-btn fill' type='submit' onClick={() => setIsOpen(false)}>Dismiss</button>
       </div>
     </Modal>

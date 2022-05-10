@@ -13,12 +13,12 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 <Story name="Headings">
   <div className='space-y-8 prism-base'>
       <hgroup className='space-y-4'>
-        <h1>h1 - Heading One</h1>
-        <h2>h2 - Heading Two</h2>
-        <h3>h3 - Heading 3</h3>
-        <h4>h4 - Heading 4</h4>
-        <h5>h5 - Heading 5</h5>
-        <h6>h6 - Heading 6</h6>
+        <div className='prism-heading-1'>h1 - Heading One</div>
+        <div className='prism-heading-2'>h2 - Heading Two</div>
+        <div className='prism-heading-3'>h3 - Heading 3</div>
+        <div className='prism-heading-4'>h4 - Heading 4</div>
+        <div className='prism-heading-5'>h5 - Heading 5</div>
+        <div className='prism-heading-6'>h6 - Heading 6</div>
       </hgroup>
   </div>
 </Story>
@@ -93,7 +93,9 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 
 ## Tables
 
-### Styled Table
+Table styles will be applied to `.prism-table` presuming a standard DOM structure.
+
+
 
 <Canvas>
   <Story name='Tables'>
@@ -150,6 +152,8 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 
 
 ### Definitions
+
+We include basic styling for definition lists with `<dl />`, `<dt />` and `<dd/>` tags. This is useful for keyed datasets such a vehicle specifactions.
 
 <Canvas>
   <Story name='Definitions'>
