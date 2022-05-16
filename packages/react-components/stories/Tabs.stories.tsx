@@ -30,24 +30,24 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
   <div>
   <div className='space-y-8 border p-8 prism'>
      <Tab.Group defaultIndex={defaultIndex}>
-        <Tab.List className="flex gap-2 px-4 text-xs border-b-4 pb-4">
-          <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Prose</button>)}
+        <Tab.List className="flex gap-1 px-4 border-b-4 pb-4">
+          <Tab as={Fragment} >
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>Prose</button>)}
           </Tab>
           <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Kitchen Sink</button>)}
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>Kitchen Sink</button>)}
           </Tab>
           <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>KS 2</button>)}
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>KS 2</button>)}
           </Tab>
           <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Modals</button>)}
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>Modals</button>)}
           </Tab>
           <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>Saving & Editing</button>)}
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>Saving & Editing</button>)}
           </Tab>
           <Tab as={Fragment}>
-            {({ selected }) => (<button className={`prism-btn ${selected && 'active'}`}>VLP</button>)}
+            {({ selected }) => (<button className={`prism-tab ${selected && 'active'}`}>VLP</button>)}
           </Tab>
         </Tab.List>
         <Tab.Panels className="m-4">

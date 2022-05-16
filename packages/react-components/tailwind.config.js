@@ -9,7 +9,13 @@ module.exports = {
     './stories/*.{tsx,css,mdx,jsx}',
     './tw/*.{js,ts,jsx,tsx}',
   ],
-  presets: [
-    require('@prism2/tailwind-preset'),
+  theme: {
+    extend: require('./tw/theme'),
+  },
+  plugins: [
+    require('./tw/plugin')({
+      parent: '',
+      strategy: 'class',
+    }),
   ],
 };

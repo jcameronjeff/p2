@@ -17,6 +17,6 @@
     "outDir": "dist",
     "declaration": true
   },
-  "include": ["lib", "./node_modules/@headlessui"],
+  "include": ["lib", "./node_modules/@headlessui", "tw"],
   "exclude": ["./node_modules", "./test"],
 }

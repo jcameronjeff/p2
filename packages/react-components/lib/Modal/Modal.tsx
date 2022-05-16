@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
-import { forwardRefWithAs, fadeInOut, slideUpDown, TransitionPropPreset } from '../utils';
+import { forwardRefWithAs, fadeInOut, slideUpDown, slideInRight, TransitionPropPreset } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
 /**
@@ -115,7 +115,10 @@ export type ModalProps<T> = ModalPropBase<T> & {
    * If true, output logging info about the component in the console.
    */
   __debug?: boolean
-
+  /**
+   * Optionally select an alternate preconfigured layout/behavior
+   */
+  variant?: 'modal' | 'slideout-left' | 'slideout'
 };
 
 export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
@@ -192,22 +195,49 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   const {
     outerTransition, innerTransition, initialFocus, className,
     show, onClose, title, description, footer, children, content,
+    variant,
   } = props;
   const closeRef = useRef(null);
   const focus = initialFocus || useRef(null);
-  const clsx = ['prism-dialog-box space-y-4', className].join(' ');
-  const outerAnimate = { ...fadeInOut, ...outerTransition };
-  const innerAnimate = { ...slideUpDown, ...innerTransition };
+
+  function baseClass() {
+    let classname, outerAnimate, innerAnimate;
+    switch (variant) {
+      case 'modal':
+        classname = 'prism-dialog-box';
+        outerAnimate = { ...fadeInOut, ...outerTransition };
+        innerAnimate = { ...slideUpDown, ...innerTransition };
+        break;
+      case 'slideout':
+        classname = 'prism-slideout-box';
+        outerAnimate = { ...fadeInOut, ...outerTransition };
+        innerAnimate = { ...slideInRight, ...innerTransition };
+        break;
+      default:
+        classname = 'prism-dialog-box';
+        outerAnimate = { ...fadeInOut, ...outerTransition };
+        innerAnimate = { ...slideUpDown, ...innerTransition };
+        break;
+    }
+
+    return { classname, outerAnimate, innerAnimate };
+  }
+
+
+
+  const clsx = [baseClass().classname, 'space-y-4', className].join(' ');
+  const outerAnimate = baseClass().outerAnimate;
+  const innerAnimate = baseClass().innerAnimate;
 
   return (
-    <Transition show={show} ref={ref}>
-      <Dialog onClose={onClose} open={show} initialFocus={focus}>
+    <Transition show={show} ref={ref} appear={true}>
+      <Dialog onClose={onClose} initialFocus={focus}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
-          <Transition.Child as={Fragment} {...outerAnimate}>
+          <Transition.Child as={Fragment} {...outerAnimate} appear={true}>
             <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
               <Dialog.Overlay className="prism-dialog-overlay" />
-              <Transition.Child as={Fragment} {...innerAnimate}>
+              <Transition.Child as={Fragment} {...innerAnimate} appear={true}>
                 <div ref={closeRef} className={clsx}>
                   {title ? (
                     <Dialog.Title className='prism-heading-2'>
