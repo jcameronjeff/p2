@@ -6,7 +6,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 type FCModal = React.FC<ModalProps<any>>;
 
 export default {
-  title: 'Elements/Modal',
+  title: 'Components/Modal',
   component: Modal,
   subcomponents: { Button, Card },
 } as ComponentMeta<FCModal>;
@@ -37,7 +37,7 @@ const Template: ComponentStory<FCModal> = () => {
   );
 };
 
-export const Basic = Template.bind({});
+export const BasicExample = Template.bind({});
 
 const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -88,15 +88,15 @@ SlideoutVariant.args = {
   content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
 };
 
-export const ShorthandWithCustomFooter = ShorthandTemplate.bind({});
-ShorthandWithCustomFooter.args = {
+export const ShorthandExample = ShorthandTemplate.bind({});
+ShorthandExample.args = {
   title: 'My Props Title',
   description: 'My Props Description',
 };
 
 
-export const WithCustomTransition = ShorthandTemplate.bind({});
-WithCustomTransition.args = {
+export const CustomTransitions = ShorthandTemplate.bind({});
+CustomTransitions.args = {
   outerTransition: {
     enter: 'ease-in-out duration-1000 delay-100',
     enterFrom: 'opacity-0 scale-95 translate-y-8',

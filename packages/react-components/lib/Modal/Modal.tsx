@@ -112,22 +112,21 @@ export type ModalProps<T> = ModalPropBase<T> & {
      */
   innerTransition?: Partial<TransitionPropPreset>,
   /**
-   * If true, output logging info about the component in the console.
-   */
-  __debug?: boolean
-  /**
    * Optionally select an alternate preconfigured layout/behavior
    */
   variant?: 'modal' | 'slideout-left' | 'slideout'
+  /**
+   * If true, output logging info about the component in the console.
+   */
+  __debug?: boolean
+
 };
 
+
 /**
- * @TODO OVERVIEW TOPIC - THROW DESCRIPTIVE ERRORS
- * --------------------------------------------------
- * @example Provide useful feedback to developers by throwing descriptive
+ * Provide useful feedback to developers by throwing descriptive
  * errors for predictable mistakes. This can mimic feedback already provided
  * by Typescript.
- * @remark Should this be a self-invoked function?
  */
 function modalValidations(componentProps: any) {
   let isDebug = componentProps.hasOwnProperty('__debug') && componentProps.__debug === true;
@@ -215,29 +214,16 @@ function modalValidations(componentProps: any) {
 
 }
 
+
+
 export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   props: ModalProps<TTag>,
   ref: Ref<HTMLHeadingElement>,
 ) {
 
-  React.useEffect(() => modalValidations(props), []);
-
-  const {
-    outerTransition, innerTransition, initialFocus, className,
-    show, onClose, title, description, footer, children, content,
-    variant,
-  } = props;
-
-  const closeRef = useRef(null);
-  const focus = initialFocus || useRef(null);
-
-
-  /**
-   * Encapsulate attribute computation in a single function
-   **/
   function getAttributesFromVariant() {
     let clsx, outerAnimate, innerAnimate;
-    switch (variant) {
+    switch (props.variant) {
       case 'modal':
         clsx = 'prism-dialog-box';
         outerAnimate = fadeInOut;
@@ -256,37 +242,41 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
     }
 
     return {
-      clsx: [clsx, 'space-y-4', className].join(' '),
-      outerAnimate: { ...outerAnimate, ...outerTransition },
-      innerAnimate: { ...innerAnimate, ...innerTransition },
+      clsx: [clsx, 'space-y-4', props.className].join(' '),
+      outerAnimate: { ...outerAnimate, ...props.outerTransition },
+      innerAnimate: { ...innerAnimate, ...props.innerTransition },
     };
   }
 
+  const closeRef = useRef(null);
+  const focus = props.initialFocus || useRef(null);
   const { outerAnimate, innerAnimate, clsx } = getAttributesFromVariant();
 
+  React.useEffect(() => modalValidations(props), []);
+
   return (
-    <Transition show={show} ref={ref} appear={true}>
-      <Dialog onClose={onClose} initialFocus={focus}>
+    <Transition show={props.show} ref={ref} appear={true}>
+      <Dialog onClose={props.onClose} initialFocus={focus}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
           <Transition.Child as={Fragment} {...outerAnimate} appear={true}>
-            <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
+            <div className='prism-dialog-backdrop'>
               <Dialog.Overlay className="prism-dialog-overlay" />
               <Transition.Child as={Fragment} {...innerAnimate} appear={true}>
                 <div ref={closeRef} className={clsx}>
-                  {title ? (
+                  {props.title ? (
                     <Dialog.Title className='prism-heading-2'>
-                      {title}
+                      {props.title}
                     </Dialog.Title>
                   ) : null}
-                  {description ? (
+                  {props.description ? (
                     <Dialog.Description className='prism-heading-3'>
-                      {description}
+                      {props.description}
                     </Dialog.Description>
                   ) : null}
-                  {content ? <>{content}</> : null}
-                  {children ? <>{children}</> : null}
-                  {footer ? <>{footer}</> : null}
+                  {props.content ? <>{props.content}</> : null}
+                  {props.children ? <>{props.children}</> : null}
+                  {props.footer ? <>{props.footer}</> : null}
                 </div>
               </Transition.Child>
             </div>
@@ -297,4 +287,6 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
     </Transition>
   );
 }
+
 export const Modal = forwardRefWithAs(ModalRoot);
+

@@ -4,7 +4,7 @@ import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
 import { Transition, Dialog } from '@headlessui/react';
 
 
-<Meta title="Modals" component={Modal} />
+<Meta title="Components/Modal/Overview" component={Modal} />
 
 # Modal
 
@@ -17,7 +17,7 @@ Modals are disruptive and can annoy users. Therefore, they should be used sparin
 ## Basic Example
 
 <Canvas>
-  <Story name='1. Modal' id='elements-modal--basic' />
+  <Story id='components-modal--basic-example' />
 </Canvas>
 
 Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
@@ -25,8 +25,10 @@ Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/
 
 ## Slideout Variant
 
+The `<SlideOut />` component has been deprecated in favor of `<Modal variant='slideout' {...etc} />`. This allows us to keep a minimal API surface area while allowing apps to freely transition between experiences.
+
 <Canvas>
-  <Story name="1. Succinct" id="elements-modal--slideout-variant" />
+  <Story id="components-modal--slideout-variant" />
 </Canvas>
 
 
