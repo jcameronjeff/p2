@@ -13,11 +13,11 @@ export default {
 
 
 const Template: ComponentStory<FCModal> = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
-    <Button variant="base" block onClick={() => setIsOpen(true)}>
+    <Button variant="base" onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
     <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug>
@@ -62,13 +62,15 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   );
 };
 
-const CompactTemplate: ComponentStory<FCModal> = (args) => {
-  const [isOpen, setIsOpen] = useState(true);
+const CompactTemplate: ComponentStory<FCModal> = () => {
+  const [isOpen, setIsOpen] = useState(false);
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} label="Toggle" />
+      <Button onClick={() => setIsOpen(true)} label="Toggle Slideout" />
       <Modal
-        {...args}
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="slideout"
         content={<p>This is the content of my modal</p>}
         footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
         show={isOpen}

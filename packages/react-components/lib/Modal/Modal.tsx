@@ -231,7 +231,7 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
 
   return (
     <Transition show={show} ref={ref} appear={true}>
-      <Dialog onClose={onClose} initialFocus={focus}>
+      <Dialog onClose={onClose} initialFocus={focus} open={show}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
           <Transition.Child as={Fragment} {...outerAnimate} appear={true}>
