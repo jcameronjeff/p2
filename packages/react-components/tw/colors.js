@@ -69,6 +69,18 @@ function makeScale(hex) {
  * Create an object with contrast ranges of our base colors.
  */
 const colors = {
+  gray: {
+    50: '#f6f6f6',
+    100: '#eeeeee',
+    200: '#dfe0e0',
+    300: '#babcbe',
+    400: '#98999b',
+    500: '#808080',
+    600: '#6a6a6a',
+    700: '#5b5b5b',
+    800: '#4a4a4a',
+    900: '#333333',
+  },
   blue: makeScale('#005ba8'),
   sky: makeScale('#2c90cc'),
   navy: makeScale('#003468'),

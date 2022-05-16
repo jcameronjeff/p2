@@ -1,7 +1,8 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+const defaultTheme = require('tailwindcss/defaultTheme');
 const colors = require('./colors').colors;
 
 module.exports = {
+  // https://www.figma.com/file/s6JUhCoI4VK6RGNyDFWc2z/%F0%9F%A7%B0-PRISM-Component-Library
   screens: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
     xs: '480px',
@@ -9,7 +10,7 @@ module.exports = {
     md: '960px',
     lg: '1168px',
     xl: '1360px',
-    '2xl': '1460px'
+    '2xl': '1460px',
   },
   maxWidth: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
@@ -18,7 +19,7 @@ module.exports = {
     'md': '49rem', // 784px
     'lg': '61rem', // 976px
     'xl': '73rem', // 1168px
-    '2xl': '85rem' // 1360px
+    '2xl': '85rem', // 1360px
   },
   spacing: {
     px: '1px',
@@ -31,7 +32,7 @@ module.exports = {
     3: '0.75rem',
     3.5: '0.875rem',
     4: '1rem',
-    5: '1.5rem'
+    5: '1.5rem',
   },
   boxShadow: {
     sm: '0 1px 2px 0 rgb(0 0 0 / 0.05)',
@@ -86,19 +87,19 @@ module.exports = {
   borderRadius: {
     'lg': '7px',
     'sm': '4px',
-    'xs': '2px'
+    'xs': '2px',
   },
   fontSize: {
     // source: https://prism.coxautoinc.com/foundation/typography/typography--usage
-    "xxs": "10px",
-    "xs": "12px",
-    "sm": "14px",
-    base: "16px",
-    "lg": "18px",
-    "xl": "20px",
-    "2xl": "22px",
-    "3xl": '26px',
-    xxs: ['10px', { lineHeight: '13px'}],
+    'xxs': '10px',
+    'xs': '12px',
+    'sm': '14px',
+    base: '16px',
+    'lg': '18px',
+    'xl': '20px',
+    '2xl': '22px',
+    '3xl': '26px',
+    xxs: ['10px', { lineHeight: '13px' }],
     xs: ['12px', { lineHeight: '15px' }],
     sm: ['14px', { lineHeight: '18px' }],
     base: ['16px', { lineHeight: '20px' }],
@@ -124,4 +125,4 @@ module.exports = {
     extrabold: '800',
     black: '900',
   },
-}
+};

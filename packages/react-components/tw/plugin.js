@@ -15,6 +15,7 @@ module.exports = plugin.withOptions(function (options = {
       return classArr.map(cls => `${parent}.${prefix}${cls}`);
     }
 
+
     const rules = [{
       base: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       class: [`${parent}*[class*=heading-]`],
@@ -66,6 +67,53 @@ module.exports = plugin.withOptions(function (options = {
         textTransform: 'uppercase',
         fontWeight: theme('fontWeight.semibold'),
       },
+    }, {
+      base: ['button', 'input[type="button"]'],
+      class: [`*[class^=${prefix}btn]`, `.${prefix}btn`],
+      styles: {
+        // fontWeight: theme('fontWeight.bold'),
+        // textTransform: 'uppercase',
+        // borderRadius: theme('borderRadius.sm'),
+        // padding: theme('spacing.2'),
+        // paddingLeft: theme('spacing.4'),
+        // paddingRight: theme('spacing.4'),
+        // backgroundColor: 'transparent',
+        // color: theme('colors.sky.600'),
+        // outline: 'none',
+        // border: 'none',
+        // borderColor: 'transparent',
+        // whiteSpace: 'nowrap',
+        // textOverflow: 'ellipses',
+        // overflow: 'hidden',
+        // cursor: 'pointer',
+        // '&:focus-within': {
+        //   boxShadow: theme('boxShadow.lg'),
+        // },
+        // '&.outline': {
+        //   borderColor: theme('colors.sky.600'),
+        //   outlineWidth: '1px',
+        // },
+        // '&.fill': {
+        //   backgroundColor: theme('colors.navy.900'),
+        //   color: theme('colors.white'),
+        // },
+        // '&:hover:not(:disabled):not([type="submit"]), &.active': {
+        //   backgroundColor: theme('colors.cerulean-light'),
+        //   color: theme('colors.sky.600'),
+        // },
+        // '&:disabled': {
+        //   cursor: 'not-allowed',
+        //   backgroundColor: theme('colors.gray.700'),
+        //   color: theme('colors.white'),
+        // },
+        // '&[type="submit"]': {
+        //   backgroundColor: theme('colors.gold.500'),
+        //   color: theme('colors.gray.900'),
+        //   '&:hover': {
+        //     backgroundColor: theme('colors.gold.600'),
+        //   },
+        // },
+      },
     },
     ].map(rule => ({
       ...rule,
@@ -86,6 +134,13 @@ module.exports = plugin.withOptions(function (options = {
     if (strategy.includes('class')) {
       addComponents(getStrategyRules('class'));
     }
+
+    addBase({
+      [':root']: {
+        '--tw-border': `1px solid ${theme('borderColor.DEFAULT')}`,
+      },
+    });
+
 
     addComponents({ // Headings -------------------------
       [`.${prefix}dialog-frame`]: {
@@ -265,53 +320,7 @@ module.exports = plugin.withOptions(function (options = {
           fontSize: theme('fontSize.sm'),
         },
       },
-      [`*[class^=${prefix}btn]`]: {
-        fontWeight: theme('fontWeight.bold'),
-        textTransform: 'uppercase',
-        borderRadius: theme('borderRadius.sm'),
-        '&:focus-within': {
-          boxShadow: theme('boxShadow.lg'),
-        },
-      },
-      [`.${prefix}btn`]: {
-        padding: theme('spacing[2.5]'),
-        paddingLeft: theme('spacing.4'),
-        paddingRight: theme('spacing.4'),
-        backgroundColor: 'transparent',
-        color: theme('colors.sky.600'),
-        outline: 'none',
-        border: 'none',
-        borderColor: 'transparent',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipses',
-        overflow: 'hidden',
-        cursor: 'pointer',
 
-        '&.outline': {
-          borderColor: theme('colors.sky.600'),
-          outlineWidth: '1px',
-        },
-        '&.fill': {
-          backgroundColor: theme('colors.navy.900'),
-          color: theme('colors.white'),
-        },
-        '&:hover:not(:disabled):not([type="submit"]), &.active': {
-          backgroundColor: theme('colors.cerulean-light'),
-          color: theme('colors.sky.600'),
-        },
-        '&:disabled': {
-          cursor: 'not-allowed',
-          backgroundColor: theme('colors.gray.700'),
-          color: theme('colors.white'),
-        },
-        '&[type="submit"]': {
-          backgroundColor: theme('colors.gold.500'),
-          color: theme('colors.gray.900'),
-          '&:hover': {
-            backgroundColor: theme('colors.gold.600'),
-          },
-        },
-      },
       [`.${prefix}label, .${prefix}form-control`]: {
         fontSize: theme('fontSize.sm'),
         color: theme('colors.gray.400'),
