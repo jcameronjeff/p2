@@ -121,51 +121,74 @@ export type ModalProps<T> = ModalPropBase<T> & {
   variant?: 'modal' | 'slideout-left' | 'slideout'
 };
 
-export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
-  props: ModalProps<TTag>,
-  ref: Ref<HTMLHeadingElement>,
-) {
+/**
+ * @TODO OVERVIEW TOPIC - THROW DESCRIPTIVE ERRORS
+ * --------------------------------------------------
+ * @example Provide useful feedback to developers by throwing descriptive
+ * errors for predictable mistakes. This can mimic feedback already provided
+ * by Typescript.
+ * @remark Should this be a self-invoked function?
+ */
+function modalValidations(componentProps: any) {
+  let isDebug = componentProps.hasOwnProperty('__debug') && componentProps.__debug === true;
+  if (!isDebug) return;
+  let hasShow = componentProps.hasOwnProperty('show');
+  let hasOnClose = componentProps.hasOwnProperty('onClose');
+  let hasInitialFocus = componentProps.hasOwnProperty('initialFocus');
+  let hasInnerTransition = componentProps.hasOwnProperty('innerTransition');
+  let hasOuterTransition = componentProps.hasOwnProperty('outerTransition');
+
+
+
+  if (!hasShow) {
+    throw new Error(
+      'You forgot to provide a `show` prop to the `Modal`.',
+    );
+  }
+
+  if (!hasOnClose) {
+    throw new Error(
+      'You forgot to provide an `onClose` prop to the `Modal`.',
+    );
+  }
+
+  if (hasInnerTransition || hasOuterTransition) {
+    let t = componentProps.innerTransition;
+    let o = componentProps.outerTransition;
+    if (typeof t !== 'object') {
+      throw new Error(
+        'Your provided an innerTransition prop but it is not an object.',
+      );
+    }
+    if (typeof o !== 'object') {
+      throw new Error(
+        'Your provided an outerTransition prop but it is not an object.',
+      );
+    }
+    let validKeys = ['enter', 'enterFrom', 'enterTo', 'leave', 'leaveFrom', 'leaveTo'];
+    let tk = Object.keys(t).every(k => validKeys.includes(k));
+    let ok = Object.keys(o).every(k => validKeys.includes(k));
+
+    if (!tk || !ok) {
+      throw new Error(
+        `Check your transition props. Invalid key detected. Accepted values are ${JSON.stringify(validKeys)}`,
+      );
+    }
+  }
+
+  if (typeof componentProps.onClose !== 'function') {
+    throw new Error(
+      `You provided an \`onClose\` prop to the \`Modal\`, but the value is not a function. Received: ${componentProps.onClose}`,
+    );
+  }
+
+  if (hasInitialFocus && typeof componentProps.initialFocus !== 'object') {
+    throw new Error(
+      'You provided an `initialFocus` prop, but the value is not a ref.',
+    );
+  }
+
   /**
-   * @TODO OVERVIEW TOPIC - THROW DESCRIPTIVE ERRORS
-   * --------------------------------------------------
-   * @example Provide useful feedback to developers by throwing descriptive
-   * errors for predictable mistakes. This can mimic feedback already provided
-   * by Typescript.
-   * @remark Should this be a self-invoked function?
-   */
-  (function validations(componentProps: any) {
-    let hasShow = componentProps.hasOwnProperty('show');
-    let hasOnClose = componentProps.hasOwnProperty('onClose');
-    let hasInitialFocus = componentProps.hasOwnProperty('initialFocus');
-    let isDebug = componentProps.hasOwnProperty('__debug') && componentProps.__debug === true;
-
-    if (!isDebug) return;
-
-    if (!hasShow) {
-      throw new Error(
-        'You forgot to provide a `show` prop to the `Modal`.',
-      );
-    }
-
-    if (!hasOnClose) {
-      throw new Error(
-        'You forgot to provide an `onClose` prop to the `Modal`.',
-      );
-    }
-
-    if (typeof componentProps.onClose !== 'function') {
-      throw new Error(
-        `You provided an \`onClose\` prop to the \`Modal\`, but the value is not a function. Received: ${componentProps.onClose}`,
-      );
-    }
-
-    if (hasInitialFocus && typeof componentProps.initialFocus !== 'object') {
-      throw new Error(
-        'You provided an `initialFocus` prop, but the value is not a ref.',
-      );
-    }
-
-    /**
      * @TODO OVERVIEW TOPIC - DEBUG FEATURE FLAG
      * --------------------------------------------------
      * @example We provide a `__debug` flag to enable extra logging on a
@@ -174,64 +197,76 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
      * @remark Generally this ought to be hidden behind a feature flag
      */
 
-    if (isDebug) {
-      console.warn('You are viewing the `Modal` component in demo mode');
-      console.group(`PRISM <Modal/> Debug for "${componentProps.title}"\n`);
-      console.log('Props', { ...componentProps });
-      console.table({
-        title: componentProps.title,
-        description: componentProps.description,
-        className: componentProps.className,
-        hasShow,
-        hasOnClose,
-        hasInitialFocus,
-        isShowing: componentProps.show,
-      });
-      console.groupEnd();
-    }
+  if (isDebug) {
+    console.warn('You are viewing the `Modal` component in demo mode');
+    console.group(`PRISM <Modal/> Debug for "${componentProps.title}"\n`);
+    console.log('Props', { ...componentProps });
+    console.table({
+      title: componentProps.title,
+      description: componentProps.description,
+      className: componentProps.className,
+      hasShow,
+      hasOnClose,
+      hasInitialFocus,
+      isShowing: componentProps.show,
+    });
+    console.groupEnd();
+  }
 
-  }(props));
+}
+
+export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
+  props: ModalProps<TTag>,
+  ref: Ref<HTMLHeadingElement>,
+) {
+
+  React.useEffect(() => modalValidations(props), []);
 
   const {
     outerTransition, innerTransition, initialFocus, className,
     show, onClose, title, description, footer, children, content,
     variant,
   } = props;
+
   const closeRef = useRef(null);
   const focus = initialFocus || useRef(null);
 
-  function baseClass() {
-    let classname, outerAnimate, innerAnimate;
+
+  /**
+   * Encapsulate attribute computation in a single function
+   **/
+  function getAttributesFromVariant() {
+    let clsx, outerAnimate, innerAnimate;
     switch (variant) {
       case 'modal':
-        classname = 'prism-dialog-box';
-        outerAnimate = { ...fadeInOut, ...outerTransition };
-        innerAnimate = { ...slideUpDown, ...innerTransition };
+        clsx = 'prism-dialog-box';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideUpDown;
         break;
       case 'slideout':
-        classname = 'prism-slideout-box';
-        outerAnimate = { ...fadeInOut, ...outerTransition };
-        innerAnimate = { ...slideInRight, ...innerTransition };
+        clsx = 'prism-slideout-box';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideInRight;
         break;
       default:
-        classname = 'prism-dialog-box';
-        outerAnimate = { ...fadeInOut, ...outerTransition };
-        innerAnimate = { ...slideUpDown, ...innerTransition };
+        clsx = 'prism-dialog-box';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideUpDown;
         break;
     }
 
-    return { classname, outerAnimate, innerAnimate };
+    return {
+      clsx: [clsx, 'space-y-4', className].join(' '),
+      outerAnimate: { ...outerAnimate, ...outerTransition },
+      innerAnimate: { ...innerAnimate, ...innerTransition },
+    };
   }
 
-
-
-  const clsx = [baseClass().classname, 'space-y-4', className].join(' ');
-  const outerAnimate = baseClass().outerAnimate;
-  const innerAnimate = baseClass().innerAnimate;
+  const { outerAnimate, innerAnimate, clsx } = getAttributesFromVariant();
 
   return (
     <Transition show={show} ref={ref} appear={true}>
-      <Dialog onClose={onClose} initialFocus={focus} open={show}>
+      <Dialog onClose={onClose} initialFocus={focus}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
           <Transition.Child as={Fragment} {...outerAnimate} appear={true}>

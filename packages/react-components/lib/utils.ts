@@ -13,55 +13,40 @@ export type TransitionPropPreset = {
   leaveTo: string,
 };
 
-export const transitions:TransitionPropPreset[] = [{
-  enter: 'ease-out duration-100',
-  enterFrom: 'opacity-0',
-  enterTo: 'opacity-100',
-  leave: 'ease-in duration-1000',
-  leaveFrom: 'opacity-100',
-  leaveTo: 'opacity-0',
-}, {
-  enter: 'ease-in-out duration-200',
-  enterFrom: 'opacity-0 scale-95 translate-y-8',
-  enterTo: 'opacity-100 scale-100',
-  leave: 'ease-in duration-200',
-  leaveFrom: 'opacity-100 scale-100',
-  leaveTo: 'opacity-0 scale-95 translate-y-8',
-}, {
-  enter: 'ease-in-out duration-1000 ',
-  enterFrom: 'opacity-100 translate-x-[500px]',
-  enterTo: 'opacity-100 translate-x-0',
-  leave: 'ease-in duration-1000 ',
-  leaveFrom: 'opacity-100 translate-x-0',
-  leaveTo: 'opacity-100 translate-x-[500px]',
-}, {
-  enter: 'transition ease-in-out duration-200 transform',
-  enterFrom: 'translate-x-full',
-  enterTo: 'translate-x-0',
-  leave: 'transition ease-in-out duration-200 transform',
-  leaveFrom: 'translate-x-0',
-  leaveTo: 'translate-x-full',
-}, {
+export const fadeInOut:TransitionPropPreset = {
   enter: 'transition-opacity ease-linear duration-200',
   enterFrom: 'opacity-0',
   enterTo: 'opacity-100',
   leave: 'transition-opacity ease-linear duration-200',
   leaveFrom: 'opacity-100',
   leaveTo: 'opacity-0',
-}, {
+};
+export const slideUpDown:TransitionPropPreset = {
+  // slideUpDown
+  enter: 'ease-in-out duration-200',
+  enterFrom: 'opacity-0 scale-95 translate-y-8',
+  enterTo: 'opacity-100 scale-100',
+  leave: 'ease-in duration-200',
+  leaveFrom: 'opacity-100 scale-100',
+  leaveTo: 'opacity-0 scale-95 translate-y-8',
+};
+
+
+export const slideInRight:TransitionPropPreset = {
   enter: 'transition ease-in-out duration-200 transform',
   enterFrom: 'translate-x-[400px] opacity-0',
   enterTo: 'translate-x-0 opacity-100',
   leave: 'transition ease-in-out duration-200 transform',
   leaveFrom: 'translate-x-0 opacity-100',
   leaveTo: 'translate-x-[400px] opacity-0',
-}];
-
-export const fadeInOut = transitions[4];
-export const slideUpDown = transitions[1];
+};
 
 
-export const slideInRight = transitions[5];
+export const transitions:TransitionPropPreset[] = [
+  slideUpDown,
+  fadeInOut,
+  slideInRight,
+];
 
 /**
  * This is a hack, but basically we want to keep the full 'API' of the component, but we do want to

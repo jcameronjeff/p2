@@ -20,7 +20,7 @@ const Template: ComponentStory<FCModal> = () => {
     <Button variant="base" onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug >
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
