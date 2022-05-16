@@ -13,7 +13,7 @@ export default {
 
 
 const Template: ComponentStory<FCModal> = () => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState(true);
   const okRef = useRef(null);
   return (
     <>
@@ -62,14 +62,15 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   );
 };
 
-const CompactTemplate: ComponentStory<FCModal> = () => {
-  const [isOpen, setIsOpen] = useState(false);
+const CompactTemplate: ComponentStory<FCModal> = (args) => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
     <>
       <Button onClick={() => setIsOpen(true)} label="Toggle" />
       <Modal
         title='Modal Title'
         description='My description text'
+        variant={args.variant}
         content={<p>This is the content of my modal</p>}
         footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
         show={isOpen}
@@ -83,6 +84,7 @@ export const CompactExample = CompactTemplate.bind({});
 CompactExample.args = {
   title: 'Modal Title',
   description: 'My description text',
+  variant: 'slideout',
   content: <p>This is the content of my modal</p>,
 };
 

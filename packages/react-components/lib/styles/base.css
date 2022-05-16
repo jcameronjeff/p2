@@ -1,5 +1,6 @@
 @import 'tailwindcss/base';
-
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/components';
 
 @layer base {
   :root {}
