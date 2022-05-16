@@ -266,7 +266,7 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
 
   const closeRef = useRef(null);
   const focus = props.initialFocus || useRef(null);
-  const { outerAnimate, innerAnimate, clsx } = getAttributesFromVariant();
+  const { outerAnimate, innerAnimate, clsx } = React.useMemo(() => getAttributesFromVariant(), [props]);
 
   React.useEffect(() => modalValidations(props), []);
 
