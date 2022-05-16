@@ -1,34 +1,26 @@
 import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal } from '..';
+import { Button, Modal, Card, ModalProps } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-export default {
-  title: 'Interaction/Modal',
-  component: Modal,
-  argTypes: {
-    title: {
-      control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-      },
-    },
-    description: {
-      control: {
-        type: 'text', // Type 'select' is automatically inferred when 'options' is defined
-      },
-    },
-  },
-} as ComponentMeta<typeof Modal>;
+type FCModal = React.FC<ModalProps<any>>;
 
-const Template: ComponentStory<typeof Modal> = () => {
-  const [isOpen, setIsOpen] = useState(false);
+export default {
+  title: 'Elements/Modal',
+  component: Modal,
+  subcomponents: { Button, Card },
+} as ComponentMeta<FCModal>;
+
+
+const Template: ComponentStory<FCModal> = () => {
+  const [isOpen, setIsOpen] = useState(true);
   const okRef = useRef(null);
   return (
     <>
     <Button variant="base" block onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)}>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug>
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -47,54 +39,52 @@ const Template: ComponentStory<typeof Modal> = () => {
 
 export const Basic = Template.bind({});
 
-const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
+const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
+  const [count, setCount] = useState(0);
   return (
     <div>
-      <Button variant="base" block onClick={() => setIsOpen(true)}>
-        Toggle Modal
-      </Button>
-      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)}>
+      <div className='flex gap-2'>
+        <Button onClick={() => setIsOpen(true)} label="toggle" />
+        <Button onClick={() => setCount(count + 1)} label={`increment ${count}`} />
+      </div>
+      <Modal {...args} show={isOpen} onClose={() => setIsOpen(false)} __debug>
         <p>
           Are you sure you want to deactivate your account? All of your data will
           be permanently removed. This action cannot be undone.
         </p>
-        <Button variant="base" block onClick={() => setIsOpen(false)}>
-          Toggle Modal
-        </Button>
+        <div className='flex gap-2'>
+          <Button onClick={() => setIsOpen(false)} label={'OK'} />
+          <Button onClick={() => setCount(count + 1)} label={`increment ${count}`} />
+        </div>
       </Modal>
     </div>
   );
 };
 
-const CompactTemplate: ComponentStory<typeof Modal> = (args) => {
-  const [isOpen, setIsOpen] = useState(false);
+const CompactTemplate: ComponentStory<FCModal> = (args) => {
+  const [isOpen, setIsOpen] = useState(true);
   return (
-    <div>
-      <Button variant="base" type='submit' block onClick={() => setIsOpen(true)}>
-        Toggle Modal
-      </Button>
-      <Modal {...{
-        title: 'Modal Title',
-        description: 'My description text',
-        content: <p>This is the content of my modal</p>,
-        show: isOpen,
-        onClose: () => setIsOpen(false),
-        footer: (
-          <button className='prism-btn fill' onClick={() => setIsOpen(false)}>
-            Ok
-          </button>
-        ),
-        ...args,
-      }}/>
-    </div>
+    <>
+      <Button onClick={() => setIsOpen(true)} label="Toggle" />
+      <Modal
+        title='Modal Title'
+        description='My description text'
+        variant={args.variant}
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
+        show={isOpen}
+        onClose={() => setIsOpen(false)}
+        __debug />
+    </>
   );
 };
 
-export const CompactWithCustomFooter = CompactTemplate.bind({});
-CompactWithCustomFooter.args = {
+export const CompactExample = CompactTemplate.bind({});
+CompactExample.args = {
   title: 'Modal Title',
   description: 'My description text',
+  variant: 'slideout',
   content: <p>This is the content of my modal</p>,
 };
 

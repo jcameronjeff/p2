@@ -6,7 +6,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 
 export default {
-  title: 'Interaction/Combobox',
+  title: 'Elements/Combobox',
   component: Combobox,
 } as ComponentMeta<any>;
 

@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Avatar, Button } from '../lib';
+
+<Meta title="Scratchpad" component={Button} />
+
+# Scratch
+
+
+<Canvas>
+  <Story name='scratch'>
+    <div className='w-full absolute top-0 p-4 border-b bg-red-500 '>
+      <nav className='container m-auto flex items-center  justify-between gap-4'>
+        <h2 className='prism-heading-2 text-white'>Site Title</h2>
+        <ul className='flex gap-1' role="menu">
+          <li><button className='prism-btn text text-white' role="tab">Item One</button></li>
+          <li><button className='prism-btn text text-white' role="tab">Item Two</button></li>
+          <li><button disabled className='prism-btn text text-white' >Item Three</button></li>
+        </ul>
+      </nav>
+    </div>
+  </Story>
+</Canvas>
+
+
+<Canvas>
+  <Story name='login another'>
+    <div className='w-full absolute top-0 p-4 border-b'>
+      <nav className='container m-auto flex items-center justify-between gap-4'>
+        <h2 className='prism-heading-2'>Site Title</h2>
+        <ul className='flex' role="menu">
+          <li><button className='prism-tab active' role="tab">Selected</button></li>
+          <li><button className='prism-tab' role="tab">Disabled</button></li>
+          <li><button disabled className='prism-tab' >Two</button></li>
+          <li><button disabled className='prism-tab' >Three</button></li>
+          <li><button disabled className='prism-tab' >Tab</button></li>
+          <li><button disabled className='prism-tab' >Five</button></li>
+          <li><button disabled className='prism-tab' >Six</button></li>
+          <li><button disabled className='prism-tab' >Seven</button></li>
+        </ul>
+      </nav>
+    </div>
+  </Story>
+</Canvas>

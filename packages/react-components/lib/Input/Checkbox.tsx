@@ -1,14 +1,10 @@
-import { useRef, useState, HTMLProps } from 'react';
+import { useRef, useState, HTMLProps, ReactNode } from 'react';
 
 export interface IProps extends HTMLProps<HTMLInputElement> {
   /**
    * Callback function that accepts `label` and `checked` arguments.
    */
   onToggle?: (arg0: [string, boolean]) => unknown
-  /**
-   * Required: Label text to apply with checkbox
-   */
-  label: string
 }
 
 export const Checkbox:React.FC<IProps>  = ({

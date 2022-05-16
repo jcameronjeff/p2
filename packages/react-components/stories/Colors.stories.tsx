@@ -2,15 +2,16 @@ import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
 
-
 export default {
   title: 'Tokens/Colors',
 } as ComponentMeta<any>;
 
-const Keynames = Object.keys(theme)
+const Keynames = Object.keys(theme);
 
 const Template: ComponentStory<any> = ({ defaultIndex }) => (
   <div className='space-y-4 border p-8 prism'>
+
+
     <div className='flex gap-2 items-center'>
       <div className='w-36'><span className='prism-label'>Gray</span></div>
       <div className='w-12 h-12 rounded-sm shadow-inner bg-gray-50'></div>
@@ -224,6 +225,8 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
       <div className='w-12 h-12 rounded-sm shadow-inner bg-teal-900'></div>
     </div>
 
+
+
     {Keynames.map(kname => (
       <div>
       <h2 className='prism-heading-3 mb-4'>{kname}</h2>
@@ -237,6 +240,7 @@ const Template: ComponentStory<any> = ({ defaultIndex }) => (
     ))}
   </div>
 );
+
 
 const Template2: ComponentStory<any> = ({ defaultIndex }) => (
   <div className='space-y-8 border p-8 prism'>
