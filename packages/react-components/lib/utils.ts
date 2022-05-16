@@ -41,11 +41,20 @@ export const slideInRight:TransitionPropPreset = {
   leaveTo: 'translate-x-[400px] opacity-0',
 };
 
+export const slideInLeft:TransitionPropPreset = {
+  enter: 'transition ease-in-out duration-200 transform',
+  enterFrom: '-translate-x-[400px] opacity-0',
+  enterTo: 'translate-x-0 opacity-100',
+  leave: 'transition ease-in-out duration-200 transform',
+  leaveFrom: 'translate-x-0 opacity-100',
+  leaveTo: '-translate-x-[400px] opacity-0',
+};
 
 export const transitions:TransitionPropPreset[] = [
   slideUpDown,
   fadeInOut,
   slideInRight,
+  slideInLeft,
 ];
 
 /**

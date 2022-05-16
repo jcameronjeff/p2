@@ -180,6 +180,10 @@ module.exports = plugin.withOptions(function (options = {
         padding: theme('spacing.8'),
         maxWidth: '90%',
         width: theme('columns.xl'),
+        '&.from-left': {
+          'margin-left': 0,
+          'margin-right': 'auto',
+        },
       },
       [`.${prefix}dialog-box`]: {
         'margin-left': 'auto',

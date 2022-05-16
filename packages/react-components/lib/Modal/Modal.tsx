@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
-import { forwardRefWithAs, fadeInOut, slideUpDown, slideInRight, TransitionPropPreset } from '../utils';
+import { forwardRefWithAs, fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
 /**
@@ -113,8 +113,9 @@ export type ModalProps<T> = ModalPropBase<T> & {
   innerTransition?: Partial<TransitionPropPreset>,
   /**
    * Optionally select an alternate preconfigured layout/behavior
+   * @default "modal"
    */
-  variant?: 'modal' | 'slideout-left' | 'slideout'
+  variant?: 'modal' | 'slideout-left' | 'slideout' | 'fullscreen' | 'panel'
   /**
    * If true, output logging info about the component in the console.
    */
@@ -233,6 +234,21 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
         clsx = 'prism-slideout-box';
         outerAnimate = fadeInOut;
         innerAnimate = slideInRight;
+        break;
+      case 'slideout-left':
+        clsx = 'prism-slideout-box from-left';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideInLeft;
+        break;
+      case 'fullscreen':
+        clsx = 'prism-dialog-box w-full h-full top-0 bottom-0 left-0 right-0 fixed max-w-full';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideUpDown;
+        break;
+      case 'panel':
+        clsx = 'prism-dialog-box w-auto h-auto top-4 bottom-4 left-4 right-4 fixed max-w-full shadow-xl';
+        outerAnimate = fadeInOut;
+        innerAnimate = slideUpDown;
         break;
       default:
         clsx = 'prism-dialog-box';

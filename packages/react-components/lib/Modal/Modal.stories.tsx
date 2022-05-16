@@ -20,7 +20,7 @@ const Template: ComponentStory<FCModal> = () => {
     <Button variant="base" onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug >
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug variant='slideout-left'>
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -64,9 +64,19 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
 
 const CompactTemplate: ComponentStory<FCModal> = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpen4, setIsOpen4] = useState(false);
+  const [isOpen5, setIsOpen5] = useState(false);
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} label="Toggle Slideout" />
+      <div className="flex gap-2">
+        <Button onClick={() => setIsOpen2(!isOpen2)} label="Toggle Left" />
+        <Button onClick={() => setIsOpen4(!isOpen4)} label="Toggle Modal" />
+        <Button onClick={() => setIsOpen5(!isOpen5)} label="Toggle Panel" />
+        <Button onClick={() => setIsOpen3(!isOpen3)} label="Toggle Fullscreen" />
+        <Button onClick={() => setIsOpen(!isOpen)} label="Toggle Right" />
+      </div>
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
@@ -76,6 +86,42 @@ const CompactTemplate: ComponentStory<FCModal> = () => {
         show={isOpen}
         onClose={() => setIsOpen(false)}
         __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="panel"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen5(false)}>Ok</button>)}
+        show={isOpen5}
+        onClose={() => setIsOpen5(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="modal"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen4(false)}>Ok</button>)}
+        show={isOpen4}
+        onClose={() => setIsOpen4(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="fullscreen"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen3(false)}>Ok</button>)}
+        show={isOpen3}
+        onClose={() => setIsOpen3(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="slideout-left"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
+        show={isOpen2}
+        onClose={() => setIsOpen2(false)}
+        __debug />
     </>
   );
 };
@@ -84,7 +130,7 @@ export const SlideoutVariant = CompactTemplate.bind({});
 SlideoutVariant.args = {
   title: 'My SlideOut',
   description: 'Alternate modal behavior',
-  variant: 'slideout',
+  variant: 'slideout-left',
   content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
 };
 
