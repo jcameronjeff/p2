@@ -68,9 +68,7 @@ const CompactTemplate: ComponentStory<FCModal> = (args) => {
     <>
       <Button onClick={() => setIsOpen(true)} label="Toggle" />
       <Modal
-        title='Modal Title'
-        description='My description text'
-        variant={args.variant}
+        {...args}
         content={<p>This is the content of my modal</p>}
         footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
         show={isOpen}
@@ -80,12 +78,12 @@ const CompactTemplate: ComponentStory<FCModal> = (args) => {
   );
 };
 
-export const CompactExample = CompactTemplate.bind({});
-CompactExample.args = {
-  title: 'Modal Title',
-  description: 'My description text',
+export const SlideoutVariant = CompactTemplate.bind({});
+SlideoutVariant.args = {
+  title: 'My SlideOut',
+  description: 'Alternate modal behavior',
   variant: 'slideout',
-  content: <p>This is the content of my modal</p>,
+  content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
 };
 
 export const ShorthandWithCustomFooter = ShorthandTemplate.bind({});
