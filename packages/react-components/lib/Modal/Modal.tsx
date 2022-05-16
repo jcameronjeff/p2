@@ -100,15 +100,15 @@ export type ModalProps<T> = ModalPropBase<T> & {
    */
   footer?: React.ReactNode;
   /**
-     * Optionally apply TW classes to the container.
+     * Escape hatch to optionally apply TW classes to the container.
      */
   className?: string,
   /**
-     * Optionally override backdrop animation. Object will be merged with defaults.
+     * Optionally override backdrop animation. Object will be merged with defaults so only *modified* keys need to be included.
      */
   outerTransition?: Partial<TransitionPropPreset>,
   /**
-     * Optionally override container animation. Object will be merged with defaults.
+     * Optionally override container animation. Object will be merged with defaults so only *modified* keys need to be included.
      */
   innerTransition?: Partial<TransitionPropPreset>,
   /**

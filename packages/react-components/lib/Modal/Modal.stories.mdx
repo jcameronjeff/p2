@@ -97,21 +97,17 @@ Because of these accessibility concerns, Headless UI's `Dialog` component actual
 
 Modal is pre-configured with our recommended transition animations. These can be customized or replaced with the `outerTransition` and `innerTransition` props. These are objects that accept all of the same arguments as `Transition` [See more](https://headlessui.dev/react/dialog#transitions)
 
-## Using our Tailwind Preset
+## HTML-only using classnames
 
 You may want to use the unmodified `Dialog` component for maximum customization. However, this means you will need to apply styling with classnames manually. Below is the barebones structure to target.
 
 ```jsx
 <div className="prism-dialog-frame">
-  <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
+  <div className='prism-dialog-backdrop'>
     <div className="prism-dialog-overlay" />
-    <div className='prism-heading-2'>
-      {title}
+    <div className='prism-dialog-box'>
+      {/* children */}
     </div>
-    <div className='prism-heading-3'>
-      {description}
-    </div>
-    <p>My dialog body content</p>
   </div>
 </div>
 ```
