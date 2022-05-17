@@ -4,7 +4,7 @@ import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
 import { Transition, Dialog } from '@headlessui/react';
 
 
-<Meta title="Modals" component={Modal} />
+<Meta title="Components/Modal/Overview" component={Modal} />
 
 # Modal
 
@@ -17,10 +17,19 @@ Modals are disruptive and can annoy users. Therefore, they should be used sparin
 ## Basic Example
 
 <Canvas>
-  <Story name='1. Modal' id='elements-modal--basic' />
+  <Story id='components-modal--basic-example' />
 </Canvas>
 
 Modals are built on top of [HeadlessUI's `Dialog`](https://headlessui.dev/react/dialog), `Dialog.Overlay`, `Dialog.Title` and `Dialog.Description` components.
+
+
+## Slideout Variant
+
+The `<SlideOut />` component has been deprecated in favor of `<Modal variant='slideout' {...etc} />`. This allows us to keep a minimal API surface area while allowing apps to freely transition between experiences.
+
+<Canvas>
+  <Story id="components-modal--slideout-variant" />
+</Canvas>
 
 
 ## Usage Guidelines
@@ -39,12 +48,6 @@ The `onClose` callback fires when an open dialog is dismissed, which happens whe
 
 
 
-
-## Compact Example
-
-<Canvas>
-  <Story name="1. Succinct" id="elements-modal--compact-example" />
-</Canvas>
 
 ## Managing Focus
 
@@ -94,21 +97,17 @@ Because of these accessibility concerns, Headless UI's `Dialog` component actual
 
 Modal is pre-configured with our recommended transition animations. These can be customized or replaced with the `outerTransition` and `innerTransition` props. These are objects that accept all of the same arguments as `Transition` [See more](https://headlessui.dev/react/dialog#transitions)
 
-## Using our Tailwind Preset
+## HTML-only using classnames
 
 You may want to use the unmodified `Dialog` component for maximum customization. However, this means you will need to apply styling with classnames manually. Below is the barebones structure to target.
 
 ```jsx
 <div className="prism-dialog-frame">
-  <div className='prism-dialog-backdrop backdrop-blur-sm backdrop-opacity-95 backdrop-grayscale'>
+  <div className='prism-dialog-backdrop'>
     <div className="prism-dialog-overlay" />
-    <div className='prism-heading-2'>
-      {title}
+    <div className='prism-dialog-box'>
+      {/* children */}
     </div>
-    <div className='prism-heading-3'>
-      {description}
-    </div>
-    <p>My dialog body content</p>
   </div>
 </div>
 ```

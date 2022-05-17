@@ -6,21 +6,21 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 type FCModal = React.FC<ModalProps<any>>;
 
 export default {
-  title: 'Elements/Modal',
+  title: 'Components/Modal',
   component: Modal,
   subcomponents: { Button, Card },
 } as ComponentMeta<FCModal>;
 
 
 const Template: ComponentStory<FCModal> = () => {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
-    <Button variant="base" block onClick={() => setIsOpen(true)}>
+    <Button variant="base" onClick={() => setIsOpen(true)}>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug>
+    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug >
       <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
       <Dialog.Description className='prism-heading-3'>
         This will permanently deactivate your account
@@ -37,7 +37,7 @@ const Template: ComponentStory<FCModal> = () => {
   );
 };
 
-export const Basic = Template.bind({});
+export const BasicExample = Template.bind({});
 
 const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -62,41 +62,87 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   );
 };
 
-const CompactTemplate: ComponentStory<FCModal> = (args) => {
-  const [isOpen, setIsOpen] = useState(true);
+const CompactTemplate: ComponentStory<FCModal> = () => {
+  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen2, setIsOpen2] = useState(false);
+  const [isOpen3, setIsOpen3] = useState(false);
+  const [isOpen4, setIsOpen4] = useState(false);
+  const [isOpen5, setIsOpen5] = useState(false);
   return (
     <>
-      <Button onClick={() => setIsOpen(true)} label="Toggle" />
+      <div className="flex gap-2">
+        <Button onClick={() => setIsOpen2(!isOpen2)} label="Toggle Left" />
+        <Button onClick={() => setIsOpen4(!isOpen4)} label="Toggle Modal" />
+        <Button onClick={() => setIsOpen5(!isOpen5)} label="Toggle Panel" />
+        <Button onClick={() => setIsOpen3(!isOpen3)} label="Toggle Fullscreen" />
+        <Button onClick={() => setIsOpen(!isOpen)} label="Toggle Right" />
+      </div>
       <Modal
-        title='Modal Title'
-        description='My description text'
-        variant={args.variant}
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="slideout"
         content={<p>This is the content of my modal</p>}
         footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
         show={isOpen}
         onClose={() => setIsOpen(false)}
         __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="panel"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen5(false)}>Ok</button>)}
+        show={isOpen5}
+        onClose={() => setIsOpen5(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="modal"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen4(false)}>Ok</button>)}
+        show={isOpen4}
+        onClose={() => setIsOpen4(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="fullscreen"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen3(false)}>Ok</button>)}
+        show={isOpen3}
+        onClose={() => setIsOpen3(false)}
+        __debug />
+      <Modal
+        title='My SlideOut'
+        description='Alternate modal behavior'
+        variant="slideout-left"
+        content={<p>This is the content of my modal</p>}
+        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
+        show={isOpen2}
+        onClose={() => setIsOpen2(false)}
+        __debug />
     </>
   );
 };
 
-export const CompactExample = CompactTemplate.bind({});
-CompactExample.args = {
-  title: 'Modal Title',
-  description: 'My description text',
-  variant: 'slideout',
-  content: <p>This is the content of my modal</p>,
+export const SlideoutVariant = CompactTemplate.bind({});
+SlideoutVariant.args = {
+  title: 'My SlideOut',
+  description: 'Alternate modal behavior',
+  variant: 'slideout-left',
+  content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
 };
 
-export const ShorthandWithCustomFooter = ShorthandTemplate.bind({});
-ShorthandWithCustomFooter.args = {
+export const ShorthandExample = ShorthandTemplate.bind({});
+ShorthandExample.args = {
   title: 'My Props Title',
   description: 'My Props Description',
 };
 
 
-export const WithCustomTransition = ShorthandTemplate.bind({});
-WithCustomTransition.args = {
+export const CustomTransitions = ShorthandTemplate.bind({});
+CustomTransitions.args = {
   outerTransition: {
     enter: 'ease-in-out duration-1000 delay-100',
     enterFrom: 'opacity-0 scale-95 translate-y-8',

@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
 
 export default {
-  title: 'Tokens/Colors',
+  title: 'Patterns/Colors',
 } as ComponentMeta<any>;
 
 const Keynames = Object.keys(theme);

@@ -135,14 +135,7 @@ module.exports = plugin.withOptions(function (options = {
       addComponents(getStrategyRules('class'));
     }
 
-    addBase({
-      [':root']: {
-        '--tw-border': `1px solid ${theme('borderColor.DEFAULT')}`,
-      },
-    });
-
-
-    addComponents({ // Headings -------------------------
+    const enableModals = () => addComponents({ // modals
       [`.${prefix}dialog-frame`]: {
         position: 'fixed',
         zIndex: 10,
@@ -153,10 +146,14 @@ module.exports = plugin.withOptions(function (options = {
         overflowY: 'auto',
       },
       [`.${prefix}dialog-backdrop`]: {
+        '--tw-backdrop-blur': 'blur(4px) !important',
+        '--tw-backdrop-opacity': 'opacity(0.95) !important',
+        '--tw-backdrop-grayscale': 'grayscale(100%) !important',
         'display': 'flex',
         'justify-content': 'center',
         'min-height': '100vh',
         'align-items': 'center',
+        'backdrop-filter': 'var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important',
       },
       [`.${prefix}dialog-overlay`]: {
         '--tw-bg-opacity': '1',
@@ -183,6 +180,10 @@ module.exports = plugin.withOptions(function (options = {
         padding: theme('spacing.8'),
         maxWidth: '90%',
         width: theme('columns.xl'),
+        '&.from-left': {
+          'margin-left': 0,
+          'margin-right': 'auto',
+        },
       },
       [`.${prefix}dialog-box`]: {
         'margin-left': 'auto',
@@ -196,17 +197,9 @@ module.exports = plugin.withOptions(function (options = {
         borderWidth: theme('borderWidth.DEFAULT'),
         backgroundColor: theme('colors.white'),
       },
-      [`*[class^=${prefix}caption]`]: {
-        color: theme('colors.muted'),
-      },
-      [`.${prefix}caption, .${prefix}caption-sm`]: {
-        fontSize: theme('fontSize.sm'),
-        lineHeight: theme('fontSize.lg'),
-      },
-      [`.${prefix}caption-xs`]: {
-        fontSize: theme('fontSize.xs'),
-        lineHeight: theme('fontSize.base'),
-      },
+    });
+
+    const enableProse = () => addComponents({ // prose
       [`*[class^=${prefix}prose]`]: {
         color: theme('colors.body'),
         '--tw-space-y-reverse': '0!important',
@@ -234,6 +227,21 @@ module.exports = plugin.withOptions(function (options = {
         fontSize: theme('fontSize.xxs'),
         lineHeight: theme('fontSize.md'),
       },
+    });
+
+    const enableTypography = () => addComponents({
+      [`*[class^=${prefix}caption]`]: {
+        color: theme('colors.muted'),
+      },
+      [`.${prefix}caption, .${prefix}caption-sm`]: {
+        fontSize: theme('fontSize.sm'),
+        lineHeight: theme('fontSize.lg'),
+      },
+      [`.${prefix}caption-xs`]: {
+        fontSize: theme('fontSize.xs'),
+        lineHeight: theme('fontSize.base'),
+      },
+
       [`*[class^=${prefix}link]`]: {
         color: theme('colors.links'),
       },
@@ -255,28 +263,10 @@ module.exports = plugin.withOptions(function (options = {
         color: theme('colors.muted'),
         textDecoration: 'underline',
       },
-      [`*[class^=${prefix}list]`]: {
-        listStyle: 'disc',
-        listStylePosition: 'inside',
-        paddingLeft: theme('spacing.4'),
-        'li > ul, li > ol': {
-          paddingTop: theme('spacing[0.5]'),
-        },
-      },
-      [`.${prefix}def`]: {
-        'dt' : {
-          fontSize: theme('fontSize.xs'),
-          color: theme('colors.muted'),
-        },
-        'dd' : {
-          fontSize: theme('fontSize.base'),
-          lineHeight: theme('fontSize.lg'),
-        },
-        'dd + dt': {
-          marginTop: theme('spacing.2'),
-        },
-      },
+    });
 
+
+    const enableForms = () => addComponents({
       [`.${prefix}combobox`]: {
         borderRadius: theme('borderRadius.xs'),
         position: 'relative',
@@ -314,29 +304,6 @@ module.exports = plugin.withOptions(function (options = {
           color: theme('colors.black'),
         },
       },
-
-      [`.${prefix}table, .prism table`]: {
-        ['tr,td,thead,th']: {
-          borderColor: theme('colors.gray.300'),
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          padding: theme('spacing.3'),
-        },
-        'th': {
-          backgroundColor: theme('colors.blue.800'),
-          borderColor: theme('colors.blue.800'),
-          color: theme('colors.white'),
-          borderWidth: '1px',
-          borderStyle: 'solid',
-        },
-        'caption,tfoot': {
-          fontStyle: 'italic',
-          padding: theme('spacing.2'),
-          color: theme('colors.muted'),
-          fontSize: theme('fontSize.sm'),
-        },
-      },
-
       [`.${prefix}label, .${prefix}form-control`]: {
         fontSize: theme('fontSize.sm'),
         color: theme('colors.gray.400'),
@@ -384,5 +351,66 @@ module.exports = plugin.withOptions(function (options = {
         },
       },
     });
+
+    const enableDataViews = () => addComponents({ // Headings -------------------------
+
+      [`*[class^=${prefix}list]`]: {
+        listStyle: 'disc',
+        listStylePosition: 'inside',
+        paddingLeft: theme('spacing.4'),
+        'li > ul, li > ol': {
+          paddingTop: theme('spacing[0.5]'),
+        },
+      },
+      [`.${prefix}def`]: {
+        'dt' : {
+          fontSize: theme('fontSize.xs'),
+          color: theme('colors.muted'),
+        },
+        'dd' : {
+          fontSize: theme('fontSize.base'),
+          lineHeight: theme('fontSize.lg'),
+        },
+        'dd + dt': {
+          marginTop: theme('spacing.2'),
+        },
+      },
+
+
+
+      [`.${prefix}table, .prism table`]: {
+        ['tr,td,thead,th']: {
+          borderColor: theme('colors.gray.300'),
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          padding: theme('spacing.3'),
+        },
+        'th': {
+          backgroundColor: theme('colors.blue.800'),
+          borderColor: theme('colors.blue.800'),
+          color: theme('colors.white'),
+          borderWidth: '1px',
+          borderStyle: 'solid',
+        },
+        'caption,tfoot': {
+          fontStyle: 'italic',
+          padding: theme('spacing.2'),
+          color: theme('colors.muted'),
+          fontSize: theme('fontSize.sm'),
+        },
+      },
+
+
+    });
+
+
+
+    enableModals();
+    enableProse();
+    enableTypography();
+    enableForms();
+    enableDataViews();
+
+
   };
 });
