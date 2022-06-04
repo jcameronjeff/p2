@@ -1,0 +1,32 @@
+{
+  "$schema": "https://turborepo.org/schema.json",
+  "baseBranch": "origin/main",
+  "pipeline": {
+    "build_css": {
+      "inputs": ["lib/**/*.css"],
+      "outputs": ["dist/style/**", "dist/style.css"]
+    },
+    "build": {
+      "dependsOn": ["^build", "^build_css"],
+      "inputs": ["lib/**/*.tsx", "lib/**/*.ts", "lib/**/*.ts", "lib/**/*.css","src/**/*.jsx"],
+      "outputs": ["dist/**"]
+    },
+    "dev": {
+      "dependsOn": ["build"]
+    },
+    "preview": {
+      "dependsOn": ["build"]
+    },
+    "storybook": {
+      "dependsOn": ["build","build_css"],
+      "cache": false
+    },
+    "test": {
+      "outputs": ["build"]
+    },
+    "deploy": {
+      "dependsOn": ["build", "test"],
+      "outputs": []
+    }
+  }
+}

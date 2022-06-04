@@ -36,3 +36,9 @@
 ehthumbs.db
 Thumbs.db
 node_modules
+
+
+# Keep Turbo caches for GHES #
+##############################
+
+.turbo

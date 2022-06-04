@@ -1,30 +1,30 @@
-# prism2
+# @prism
 
 ![Prism2 Package Map](./media/p2-package-map.png)
 
 
+## Quickstart
 
-
-
-This project uses lerna to manage monorepo dependencies.
-
-```
-// anywhere locally
-npm install -g lerna
-```
-
-Use the built-in lerna commands to install dependencies across packages.
+This project uses npm and turborepo to manage dependencies.
 
 ```
-// from anywhere in the repo
-lerna bootstrap
+npm install
+npm run storybook
 ```
 
 Start a Storybook dev session using the contents of `packages/react-components/stories`
 
+## Note on Commit Messages
+
+We have implemented a requirement that all commit messages follow our conventions as [specified by Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Commits are cancelled if your message has any issues - actionable feedback will be provided with an error message.
+
 ```
-// from anywhere in the repo
-lerna run storybook --stream
+git commit -m "chore: README updates for Turborepo"
+⧗   input: chore: README updates for Turborepo
+✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]
+
+✖   found 1 problems, 0 warnings
+ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 ```
 
 ## Starting a new project
