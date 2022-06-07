@@ -8,65 +8,38 @@ module.exports = {
     "../lib/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [
-    {
-      name: '@storybook/addon-docs',
-      options: {
-        configureJSX: true,
-        babelOptions: {},
-        sourceLoaderOptions: null,
-        transcludeMarkdown: true,
-      },
-    },
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions",
-    "@storybook/addon-storysource",
+    "@storybook/addon-interactions"
   ],
-  async viteFinal(config, { configType }) {
-    // return the customized config
-    return mergeConfig(config, {
-      // customize the Vite config here
-      resolve: {
-        alias: { foo: 'bar' },
-      },
-    });
-  },
-  typescript: {
-    check: false,
-    checkOptions: {},
-    reactDocgen: 'react-docgen-typescript',
-    reactDocgenTypescriptOptions: {
-      shouldExtractLiteralValuesFromEnum: true,
-      propFilter: (prop) => (prop.parent ? !/node_modules/.test(prop.parent.fileName) : true),
-    },
-  },
-  webpackFinal: async (config) => {
-    config.module.rules.push({
-      test: /\.css$/,
-      use: [
-        {
-          loader: 'postcss-loader',
-          options: {
-            ident: 'postcss',
-            plugins: [
-              require('postcss-import'),
-              require('tailwindcss/nesting'),
-              require('tailwindcss'),
-              require('autoprefixer'),
-              require('postcss-extend'),
-              require('postcss-apply'),
-              require('postcss-minify'),
-              require('cssnano')
-            ],
-          },
-        },
-      ],
-      include: path.resolve(__dirname, '../'),
-    })
-    return config
-  },
   "framework": "@storybook/react",
   "core": {
     "builder": "@storybook/builder-vite"
+  },
+  "features": {
+    "storyStoreV7": true
+  },
+  async viteFinal(config, { configType }) {
+    let options = {}
+    if (configType === 'DEVELOPMENT') {
+      // Your development configuration goes here
+    }
+    if (configType === 'PRODUCTION') {
+      // Your production configuration goes here.
+      Object.assign(options, {
+        // Use the same "resolve" configuration as your app
+        resolve: (await import('../vite.web.config.js')).default.resolve,
+        // Use the base needed for our URL pattern in production
+        base: (await import('../vite.web.config.js')).default.base,
+        // Add dependencies to pre-optimization
+        optimizeDeps: {
+          include: ['storybook-dark-mode'],
+        },
+      })
+    }
+    return mergeConfig(config, {
+      // Your environment configuration here
+      ...options
+    });
   }
 }

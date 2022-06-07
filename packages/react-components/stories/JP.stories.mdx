@@ -1,0 +1,40 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs';
+import { Avatar, Button } from '../lib';
+
+<Meta title="JPs Demo"  />
+
+# JPs Demo
+
+
+<Canvas>
+  <Story name='scratch'>
+    <h1 className='prism-heading-1'>Heading</h1>
+    <div className='flex gap-2'>
+      <button className='prism-btn'>my button</button>
+      <button className='prism-btn fill'>my button</button>
+      <button className='prism-btn outline'>my button</button>
+      <button disabled className='prism-btn fill'>my button</button>
+      <button disabled className='prism-btn outline'>my button</button>
+      <button className='prism-btn text-2xl' type='submit'>Ok</button>
+      <Button>My button</Button>
+    </div>
+    <div className='flex gap-2'>
+      <button >my button</button>
+      <button >my button</button>
+      <button >my button</button>
+      <button disabled >my button</button>
+      <button disabled >my button</button>
+      <button type='submit'>Ok</button>
+      <Button>My button</Button>
+    </div>
+    <div className='flex gap-2 prism-ctx'>
+      <button >my button</button>
+      <button >my button</button>
+      <button >my button</button>
+      <button disabled >my button</button>
+      <button disabled >my button</button>
+      <button type='submit'>Ok</button>
+      <Button>My button</Button>
+    </div>
+  </Story>
+</Canvas>

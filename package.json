@@ -4,16 +4,21 @@
   "workspaces": [
     "packages/*"
   ],
+  "homepage": "https://ghe.coxautoinc.com/Prism/prism2",
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "deploy": "turbo run deploy",
+    "dev": "turbo run dev",
     "storybook": "turbo run storybook --scope=@prism2/react-components",
+    "build-storybook": "turbo run build-storybook",
     "appdev": "turbo run dev --scope=example-vite-app",
     "libdev": "turbo run dev --scope=@prism2/react-components"
   },
   "devDependencies": {
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
+    "gh-pages": "^4.0.0",
     "husky": "^8.0.1",
     "turbo": "1.2.5"
   }
