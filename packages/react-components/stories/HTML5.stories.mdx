@@ -308,7 +308,7 @@ We include basic styling for definition lists with `<dl />`, `<dt />` and `<dd/>
     </p>
     <fieldset>
       <legend>I am legend</legend>
-      <div>
+      {/* <div>
         <label>
           <input type="radio" name="options-radios" id="optionsR-radios1" value="option1" checked /> Option one is this and that&mdash;be sure to include why it's great
         </label>
@@ -322,17 +322,38 @@ We include basic styling for definition lists with `<dl />`, `<dt />` and `<dd/>
         <label>
           <input type="radio" name="optionsRadios" id="options-radios3" value="option3" disabled /> Option three is disabled
         </label>
+      </div> */}
+      <div className="flex">
+        <div>
+          <div className="prism prism-form-check">
+            <input className="prism prism-form-check-input prism-form-radio appearance-none  bg-white  transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault1" />
+            <label className="prism prism-label prism-form-check-label inline-block" for="flexRadioDefault1">
+              Default radio
+            </label>
+          </div>
+          <div className="prism-form-check">
+            <input className="prism-form-check-input prism-form-radio  bg-white transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked />
+            <label className=" prism-label prism-form-check-label inline-block" for="flexRadioDefault2">
+              Default checked radio
+            </label>
+          </div>
+           <div className="prism-form-check">
+            <input  type="checkbox" className="prism  prism-form-check-input prism-form-checkbox appearance-none  transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer" name="flexRadioDefault" id="flexRadioDefault2"  />
+            <label className="prism-label prism-form-check-label inline-block" for="flexRadioDefault2">
+              Default Checkbox
+            </label>
+          </div>
+           <div className="prism-form-check">
+            <input type="checkbox" className="prism prism-form-check-input prism-form-checkbox appearance-none    transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer"  name="flexRadioDefault" id="flexRadioDefault2" checked />
+            <label  className=" prism-label prism-form-check-label inline-block" for="flexRadioDefault2">
+            Default Checkbox
+            </label>
+          </div>
+        </div>
       </div>
+    
     </fieldset>
-    <fieldset>
-      <legend>I am also legend</legend>
-      <input type="checkbox" /> Check me out
-      <input type="checkbox" /> Or check me out
-    </fieldset>
-    <div className='flex gap-2'>
-      <input className='prism-btn flex-grow' type="button" name="input" value="More Info" />
-      <input className='prism-btn flex-grow fill' type="submit" name="input" value="Submit" />
-    </div>
+       
   </form>
   </Story>
 </Canvas>

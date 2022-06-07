@@ -329,7 +329,7 @@ module.exports = plugin.withOptions(function (options = {
         padding: theme('spacing[2.5]'),
         backgroundPositionY: '-40px',
       },
-      [`.${prefix}input, ${prefix}select, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
+      [`.${prefix}input, ${prefix}select, .prism input:not([type='button'])input:not([type='radio']):not([type='submit']):not([type='reset'])`]: {
         borderColor: theme('colors.gray.300'),
         borderWidth: '1px',
         borderStyle: 'solid',
@@ -403,8 +403,62 @@ module.exports = plugin.withOptions(function (options = {
 
     });
 
+    const enableCheckboxes = () => addComponents({//Checkboxes -------------------------
+      [`.${prefix}radio-option`]: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme('spacing.2'),
+      },
+      [`input[type='radio'], input[type='checkbox'], .${prefix}form-checkbox, .${prefix}form-radio`]: {
+        [`&.${prefix}form-checkbox, &.${prefix}form-radio`] :  {
+          border: `1px solid ${theme('colors.gray.300')}`,
+          backgroundColor: theme('colors.white'),
+          '&:focus': {
+            outline: 'none',
+          '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
+          '--tw-ring-offset-width': '0px !important',
+          'outline-offset': '0px',
+          '--tw-ring-offset-color': 'transparent',
+          '--tw-ring-color': 'transparent',
+          '--tw-ring-offset-shadow': 'none',
+          '--tw-ring-shadow': 'none',
+          'box-shadow': 'var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow),',
+           },
+          '&:hover': {
+          '&:not(disabled)': {
+              border: `2px solid ${theme('colors.blue.800')}`
+            },
+           '&:not(checked)': {
+            backgroundColor: theme('colors.white'),
+           }
+          },
+          '&:checked': {
+            border: `2px solid ${theme('colors.blue.800')}`,
+            backgroundColor: theme('colors.blue.800'),
+            '&:hover, &:focus' : {
+              backgroundColor: theme('colors.blue.800'),
+            },
+           },
+        }
+
+      },
+      [`input[type='checkbox'].${prefix}form-checkbox`]: {
+        outline: '0px solid transparent',
+      },
+      [`input[type='radio'].${prefix}form-radio`]: {
+       outline: `1px solid transparent`,
+        '&:checked, &:hover, &:focus': {
+          '&:not(disabled)' : { outline: `1px solid ${theme('colors.blue.800')}`,
+          border: `1px solid ${theme('colors.blue.800')}`,}
+        },
+        '&:checked, &:hover, &:focus': {
+        backgroundImage: `url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D.cls-2%7Bfill:%23005ba8;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3EradioBtnCircle%3C/title%3E%3Ccircle class='cls-1' cx='8' cy='8' r='7.5'/%3E%3Cpath class='cls-2' d='M8,1A7,7,0,1,1,1,8,7,7,0,0,1,8,1M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Z'/%3E%3Ccircle class='cls-2' cx='8' cy='8' r='4.5'/%3E%3C/svg%3E") !important`,
+      },
+      }
+    });
 
 
+    enableCheckboxes();
     enableModals();
     enableProse();
     enableTypography();

@@ -7,22 +7,21 @@ export interface IProps extends HTMLProps<HTMLInputElement> {
   onToggle?: (arg0: [string, boolean]) => unknown
 }
 
-export const Checkbox:React.FC<IProps>  = ({
+export const Radio:React.FC<IProps>  = ({
   className = '',
   ...props
 }) => {
-  const cbRef = useRef<HTMLInputElement>(null);
-    const baseClasses = 'prism prism-form-check-input prism-form-checkbox appearance-none  transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer';
+  const radioRef = useRef<HTMLInputElement>(null);
+  const baseClasses = 'prism-form-check-input prism-form-radio  bg-white transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer';
   const clsx = [baseClasses, className].join(' ');
 
   return (
       <input
-        ref={cbRef}
-        type='checkbox'
+        ref={radioRef}
+        type='radio'
         className={clsx}
-        {...props}
-       />
+        {...props}/>
   );
 };
 
-export default Checkbox;
+export default Radio;

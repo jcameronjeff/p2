@@ -13,9 +13,14 @@ module.exports = {
     extend: require('./tw/theme'),
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('./tw/plugin')({
       parent: '',
       strategy: 'class',
+    }),
+    require('./tw/plugin')({
+      parent: '',
+      strategy: 'base',
     }),
   ],
 };
