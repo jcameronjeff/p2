@@ -1,14 +1,12 @@
-name: Smoketest
+name: Deployer
 
 on:
   push:
-    branches: ["main","next"]
-  pull_request:
-    types: [opened, synchronize]
+    branches: ["next"]
 
 jobs:
   build:
-      name: Build and Test Packages
+      name: Build and Deploy Storybook
       timeout-minutes: 15
       runs-on:  [self-hosted, Linux, CAI-Enterprise]
       # To use Remote Caching, uncomment the next lines and follow the steps below.
@@ -32,12 +30,10 @@ jobs:
         - name: Install dependencies
           run: npm install
 
-        - name: Build
-          run: npm run build
-
-        - name: Build Storybook
-          run: npm run build-storybook
-
-        - name: Test
-          run: npm run test
+        - name: Deploy Storybook
+          run: |
+            git remote set-url origin https://git:${GITHUB_TOKEN}@ghe.coxautoinc.com/${GITHUB_REPOSITORY}.git
+            npm run deploy
+          env:
+            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
