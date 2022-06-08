@@ -27,13 +27,16 @@ jobs:
           with:
             node-version: 16
 
+        - name: Install pnpm
+          run: npm install -g pnpm
+
         - name: Install dependencies
-          run: npm install
+          run: pnpm install
 
         - name: Deploy Storybook
           run: |
             git remote set-url origin https://git:${GITHUB_TOKEN}@ghe.coxautoinc.com/${GITHUB_REPOSITORY}.git
-            npm run deploy
+            pnpm run deploy
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
