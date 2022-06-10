@@ -44,11 +44,6 @@ module.exports = {
         optimizeDeps: {
           include: ['storybook-dark-mode'],
         },
-        build: {
-          rollupOptions: {
-            external: ['@mdx-js/react']
-          },
-        }
       })
     }
     return mergeConfig(config, {
