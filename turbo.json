@@ -23,7 +23,7 @@
       "cache": false
     },
     "build-storybook": {
-      "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)"],
+      "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)","stories/*",".storybook"],
       "dependsOn": [],
       "outputs": ["docs/**"]
     },

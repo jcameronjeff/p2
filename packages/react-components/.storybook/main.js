@@ -12,17 +12,26 @@ module.exports = {
     "@storybook/addon-essentials",
     "@storybook/addon-interactions"
   ],
+  "staticDirs": [{ from: '../../../media', to: '/media' }],
   "framework": "@storybook/react",
   "core": {
     "builder": "@storybook/builder-vite"
   },
   "features": {
-    "storyStoreV7": true
+    "storyStoreV7": true,
+    "previewMdx2": true
   },
   async viteFinal(config, { configType }) {
     let options = {}
     if (configType === 'DEVELOPMENT') {
       // Your development configuration goes here
+      Object.assign(options, {
+        build: {
+          rollupOptions: {
+            external: ['@mdx-js/react']
+          },
+        }
+      })
     }
     if (configType === 'PRODUCTION') {
       // Your production configuration goes here.
@@ -35,6 +44,11 @@ module.exports = {
         optimizeDeps: {
           include: ['storybook-dark-mode'],
         },
+        build: {
+          rollupOptions: {
+            external: ['@mdx-js/react']
+          },
+        }
       })
     }
     return mergeConfig(config, {

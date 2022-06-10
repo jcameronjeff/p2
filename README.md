@@ -2,23 +2,73 @@
 
 ![Prism2 Package Map](./media/p2-package-map.png)
 
-
 ## Quickstart
 
 This project uses npm and turborepo to manage dependencies.
 
-```
-npm install
-npm run storybook
+```sh
+git clone git@ghe.coxautoinc.com:Prism/prism2.git && cd prism2
+pnpm install
+pnpm storybook
 ```
 
-Start a Storybook dev session using the contents of `packages/react-components/stories`
+## Toolchain
 
-## Note on Commit Messages
+### Stack
+
+#### [turborepo](https://turborepo.org/)
+
+Turborepo provides a ton of improvements when working with monorepos including: script orchestration, build output caching, task pipelines, parallel execution, incremental builds and more.
+
+#### [pnpm](https://pnpm.io/)
+
+When using npm or Yarn, if you have 100 projects using a dependency, you will have 100 copies of that dependency saved on disk. With pnpm, the dependency will be stored in a content-addressable store. (No more dependency conflict hell.)
+
+#### [vite](https://vitejs.dev/)
+
+A build tool that aims to provide a faster and leaner development experience for modern web projects. It provides a lightning fast dev server and highly optimized build commands. (Hot-reloading is pretty much instant.)
+
+#### [esbuild](https://esbuild.github.io/)
+
+Javascript bundler 10-100x faster than Parcel, Rollup or Webpack.  (Build times are seconds rather than minutes.)
+
+#### [tailwindcss](https://tailwindcss.com/)
+
+A utility-first CSS framework packed with classes like flex, pt-4, text-center and rotate-90 that can be composed to build any design, directly in your markup. (Clean and consistent APIs for building any type of interface in CSS.)
+
+#### [postcss](https://postcss.org/)
+
+PostCSS is a tool for transforming styles with JS plugins. These plugins can lint your CSS, support variables and mixins, transpile future CSS syntax, inline images, and more. (JS-powered stylesheet processing provides easier integration and better support for developing native mobile applications.)
+
+#### [typescript](https://www.typescriptlang.org/)
+
+TypeScript is a strongly typed programming language that builds on JavaScript, giving you better tooling at any scale.
+
+#### [docgen](https://github.com/reactjs/react-docgen)
+
+All exported modules include extensive Docgen comments. This allows for Intellisense, autocompletion, inline-documentation, linting and validation right in your editor (VSCode). We can also generate documentation to be injected into tools such as Storybook. This means documentation is always up to date and does not need to be maintained separately. ([Example commented code](https://ghe.coxautoinc.com/Prism/prism2/blob/a311f206fa4bef3f8cb92efb70a9d1c87c4a0601/packages/react-components/lib/Modal/Modal.tsx).)
+
+#### [storybook](https://storybook.js.org/)
+
+A tool for building UI components and pages in isolation. It streamlines UI development, testing, and documentation.
+
+#### [husky](https://typicode.github.io/husky/#/)
+
+Zero-dependency tool for managing Git hooks. Initially, we use [commitlint](https://commitlint.js.org/#/) to enforce the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification for commit messages.
+
+#### [headlessui](https://headlessui.dev/)
+
+Completely unstyled, fully accessible UI components, designed to integrate beautifully with Tailwind CSS. HeadlessUI will be our default for many common use-cases in React.
+
+#### [github actions](https://github.com/features/actions)
+
+GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub.
+
+### Note on Commit Messages
 
 We have implemented a requirement that all commit messages follow our conventions as [specified by Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Commits are cancelled if your message has any issues - actionable feedback will be provided with an error message.
 
-```
+```sh
 git commit -m "chore: README updates for Turborepo"
 ⧗   input: chore: README updates for Turborepo
 ✖   subject must not be sentence-case, start-case, pascal-case, upper-case [subject-case]
@@ -29,27 +79,21 @@ git commit -m "chore: README updates for Turborepo"
 
 ## Starting a new project
 
+### Scaffolding
+
 ```sh
-// from ./packages directory
-npm create vite@latest my-new-app --template react-ts
-cd my-new-app
-npm install
-npm install -D tailwindcss @prism2/tailwind-preset @prism2/tailwind-theme @prism2/tailwind-elements postcss
-npx tailwindcss init
+pnpm create vite@latest my-new-app && cd my-new-app
+pnpm install -D tailwindcss @prism2/tailwind-preset
+pnpx tailwindcss init
 ```
 
-Finally, create a `postcss.config.js` file in the root of your new project and add this:
+### Configure PostCSS
 
-```js
-module.exports = require('@prism2/tailwind-preset/postcss.config')
+Finally, create a postcss config that uses our preset.
+
+```sh
+echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" > postcss.config.js
 ```
-
-Start your app and enjoy Prism2 flavored Tailwind3  :
-
-```js
-lerna run dev --scope=my-new-app
-```
-
 
 ## Editor Configs
 

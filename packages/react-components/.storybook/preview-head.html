@@ -1,3 +1,25 @@
 <script>
   window.global = window;
 </script>
+<style>
+  :root {
+    --sb-content-inner: 720px;
+    --sb-content-full: 900px;
+  }
+  .sbdocs.sbdocs-content > [class^="sbdocs"] {
+    max-width: var(--sb-content-inner);
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sbdocs.sbdocs-content > .sbdocs.sbdocs-pre {
+    max-width: 100% !important;
+    width: var(--sb-content-full) !important;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h1 { font-weight: 700; font-size: 40px; }
+  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h2 { font-weight: 700; font-size: 32px; }
+  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h3 { font-weight: 700; font-size: 24px; }
+  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h4 { font-weight: 700; font-size: 18px; }
+
+</style>
