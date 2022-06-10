@@ -2,7 +2,8 @@ name: Deployer
 
 on:
   push:
-    branches: ["next"]
+    branches:
+      - next
 
 jobs:
   build:
@@ -38,5 +39,5 @@ jobs:
             git remote set-url origin https://git:${GITHUB_TOKEN}@ghe.coxautoinc.com/${GITHUB_REPOSITORY}.git
             pnpm run deploy
           env:
-            GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
 
