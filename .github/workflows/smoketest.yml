@@ -35,11 +35,11 @@ jobs:
         - name: Install dependencies
           run: pnpm install
 
-        - name: Build
-          run: pnpm run build
-
         - name: Build Storybook
           run: pnpm run build-storybook
+
+        - name: Build
+          run: pnpm run build
 
         - name: Test
           run: pnpm run test

@@ -18,8 +18,8 @@ module.exports = {
     "builder": "@storybook/builder-vite"
   },
   "features": {
-    "storyStoreV7": true,
-    "previewMdx2": true
+    "storyStoreV7": false,
+    "previewMdx2": false
   },
   async viteFinal(config, { configType }) {
     let options = {}

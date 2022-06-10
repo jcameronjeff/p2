@@ -12,14 +12,18 @@ importers:
     specifiers:
       '@commitlint/cli': ^17.0.2
       '@commitlint/config-conventional': ^17.0.2
+      '@mdx-js/react': '1'
       gh-pages: ^4.0.0
       husky: ^8.0.1
+      react: ^17
       turbo: 1.2.5
     devDependencies:
       '@commitlint/cli': 17.0.2
       '@commitlint/config-conventional': 17.0.2
+      '@mdx-js/react': 1.6.22_react@17.0.2
       gh-pages: 4.0.0
       husky: 8.0.1
+      react: 17.0.2
       turbo: 1.2.5
 
   packages/example-vite-app:
@@ -67,6 +71,7 @@ importers:
       '@storybook/channel-postmessage': ^6.5.7
       '@storybook/channel-websocket': ^6.5.7
       '@storybook/client-api': ^6.5.7
+      '@storybook/client-logger': ^6.5.8
       '@storybook/core-common': '>=6.4.3 || >=6.5.0-alpha.0'
       '@storybook/node-logger': '>=6.4.3 || >=6.5.0-alpha.0'
       '@storybook/preview-web': ^6.5.7
@@ -135,6 +140,7 @@ importers:
       '@storybook/channel-postmessage': 6.5.7
       '@storybook/channel-websocket': 6.5.7
       '@storybook/client-api': 6.5.7_sfoxds7t5ydpegc3knd667wn6m
+      '@storybook/client-logger': 6.5.8
       '@storybook/core-common': 6.5.7_g7pwd4svbmf37pkrcole3potlu
       '@storybook/node-logger': 6.5.7
       '@storybook/preview-web': 6.5.7_sfoxds7t5ydpegc3knd667wn6m
@@ -2967,6 +2973,13 @@ packages:
       global: 4.4.0
     dev: true
 
+  /@storybook/client-logger/6.5.8:
+    resolution: {integrity: sha512-dH6HSaVuOIMHy1+rpsqcD3SJxVZEEbuEtsNpdUGwLJaIuduhUJJpM2xQfUW0siZDyrgwoa+znll+G0YNUbv7sg==}
+    dependencies:
+      core-js: 3.22.8
+      global: 4.4.0
+    dev: true
+
   /@storybook/components/6.5.7_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-xSOaOK8q6bXYkmN4LZKucvXU2HRHqKwwTafFDh5yzsCSEB2VQIJlyo4ePVyv/GJgBUX6+WdSA7c5r5ePXK6IYQ==}
     peerDependencies:
@@ -3647,7 +3660,7 @@ packages:
   /@storybook/testing-library/0.0.11_sfoxds7t5ydpegc3knd667wn6m:
     resolution: {integrity: sha512-8KbKx3s1e+uF3oWlPdyXRpZa6xtCsCHtXh1nCTisMA6P5YcSDaCg59NXIOVIQCAwKvjRomlqMJH8JL1WyOzeVg==}
     dependencies:
-      '@storybook/client-logger': 6.5.7
+      '@storybook/client-logger': 6.5.8
       '@storybook/instrumenter': 6.5.7_sfoxds7t5ydpegc3knd667wn6m
       '@testing-library/dom': 8.13.0
       '@testing-library/user-event': 13.5.0_tlwynutqiyp5mns3woioasuxnq
@@ -3698,7 +3711,7 @@ packages:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.0.24
+      tailwindcss: 3.0.24_ts-node@10.8.1
     dev: false
 
   /@tailwindcss/typography/0.5.2_tailwindcss@3.0.24:
@@ -3709,7 +3722,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.0.24
+      tailwindcss: 3.0.24_ts-node@10.8.1
 
   /@testing-library/dom/8.13.0:
     resolution: {integrity: sha512-9VHgfIatKNXQNaZTtLnalIy0jNZzY35a4S3oi08YAt9Hv1VsfZ/DfA45lM8D/UhtHBGJ4/lGwp0PZkVndRkoOQ==}
@@ -5291,7 +5304,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -10692,6 +10705,7 @@ packages:
       lilconfig: 2.0.5
       postcss: 8.4.14
       yaml: 1.10.2
+    dev: false
 
   /postcss-loader/4.3.0_gzaxsinx64nntyd3vmdqwl7coe:
     resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
@@ -11099,6 +11113,17 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
+    dev: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
     dev: true
 
   /promise.allsettled/1.0.5:
@@ -12550,6 +12575,7 @@ packages:
       resolve: 1.22.0
     transitivePeerDependencies:
       - ts-node
+    dev: false
 
   /tailwindcss/3.0.24_ts-node@10.8.1:
     resolution: {integrity: sha512-H3uMmZNWzG6aqmg9q07ZIRNIawoiEcNFKDfL+YzOPuPsXuDXxJxB9icqzLgdzKNwjG3SAro2h9SYav8ewXNgig==}
@@ -12579,7 +12605,6 @@ packages:
       resolve: 1.22.0
     transitivePeerDependencies:
       - ts-node
-    dev: false
 
   /tapable/1.1.3:
     resolution: {integrity: sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==}
