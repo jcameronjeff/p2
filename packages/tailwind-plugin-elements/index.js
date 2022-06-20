@@ -15,6 +15,7 @@ module.exports = plugin.withOptions(function (options = {
       return classArr.map(cls => `${parent}.${prefix}${cls}`);
     }
 
+
     const rules = [{
       base: ['h1', 'h2', 'h3', 'h4', 'h5', 'h6'],
       class: [`${parent}*[class*=heading-]`],
@@ -66,6 +67,53 @@ module.exports = plugin.withOptions(function (options = {
         textTransform: 'uppercase',
         fontWeight: theme('fontWeight.semibold'),
       },
+    }, {
+      base: ['button', 'input[type="button"]'],
+      class: [`*[class^=${prefix}btn]`, `.${prefix}btn`],
+      styles: {
+        fontWeight: theme('fontWeight.bold'),
+        textTransform: 'uppercase',
+        borderRadius: theme('borderRadius.sm'),
+        padding: theme('spacing.2'),
+        paddingLeft: theme('spacing.4'),
+        paddingRight: theme('spacing.4'),
+        backgroundColor: 'transparent',
+        color: theme('colors.sky.600'),
+        outline: 'none',
+        border: 'none',
+        borderColor: 'transparent',
+        whiteSpace: 'nowrap',
+        textOverflow: 'ellipses',
+        overflow: 'hidden',
+        cursor: 'pointer',
+        '&:focus-within': {
+          boxShadow: theme('boxShadow.lg'),
+        },
+        '&.outline': {
+          borderColor: theme('colors.sky.600'),
+          outlineWidth: '1px',
+        },
+        '&.fill': {
+          backgroundColor: theme('colors.navy.900'),
+          color: theme('colors.white'),
+        },
+        '&:hover:not(:disabled):not([type="submit"]), &.active': {
+          backgroundColor: theme('colors.cerulean-light'),
+          color: theme('colors.sky.600'),
+        },
+        '&:disabled': {
+          cursor: 'not-allowed',
+          backgroundColor: theme('colors.gray.700'),
+          color: theme('colors.white'),
+        },
+        '&[type="submit"]': {
+          backgroundColor: theme('colors.gold.500'),
+          color: theme('colors.gray.900'),
+          '&:hover': {
+            backgroundColor: theme('colors.gold.600'),
+          },
+        },
+      },
     },
     ].map(rule => ({
       ...rule,
@@ -87,7 +135,7 @@ module.exports = plugin.withOptions(function (options = {
       addComponents(getStrategyRules('class'));
     }
 
-    addComponents({ // Headings -------------------------
+    const enableModals = () => addComponents({ // modals
       [`.${prefix}dialog-frame`]: {
         position: 'fixed',
         zIndex: 10,
@@ -98,10 +146,14 @@ module.exports = plugin.withOptions(function (options = {
         overflowY: 'auto',
       },
       [`.${prefix}dialog-backdrop`]: {
+        '--tw-backdrop-blur': 'blur(4px) !important',
+        '--tw-backdrop-opacity': 'opacity(0.95) !important',
+        '--tw-backdrop-grayscale': 'grayscale(100%) !important',
         'display': 'flex',
         'justify-content': 'center',
         'min-height': '100vh',
         'align-items': 'center',
+        'backdrop-filter': 'var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia) !important',
       },
       [`.${prefix}dialog-overlay`]: {
         '--tw-bg-opacity': '1',
@@ -109,9 +161,29 @@ module.exports = plugin.withOptions(function (options = {
         'left': '0',
         'opacity': '.25',
         'position': 'fixed',
+        'overflow': 'hidden',
+        'maxHeight': '100vh',
+        'maxWidth': '100vw',
         'right': '0',
         'top': '0',
         'background-color': 'rgb(0 0 0/var(--tw-bg-opacity))',
+      },
+      [`.${prefix}slideout-box`]: {
+        'margin-left': 'auto',
+        'margin-right': '0',
+        'margin-top': 0,
+        position: 'relative',
+        height: '100vh',
+        boxShadow: theme('boxShadow.sm'),
+        borderWidth: theme('borderWidth.DEFAULT'),
+        backgroundColor: theme('colors.white'),
+        padding: theme('spacing.8'),
+        maxWidth: '90%',
+        width: theme('columns.xl'),
+        '&.from-left': {
+          'margin-left': 0,
+          'margin-right': 'auto',
+        },
       },
       [`.${prefix}dialog-box`]: {
         'margin-left': 'auto',
@@ -125,17 +197,9 @@ module.exports = plugin.withOptions(function (options = {
         borderWidth: theme('borderWidth.DEFAULT'),
         backgroundColor: theme('colors.white'),
       },
-      [`*[class^=${prefix}caption]`]: {
-        color: theme('colors.muted'),
-      },
-      [`.${prefix}caption, .${prefix}caption-sm`]: {
-        fontSize: theme('fontSize.sm'),
-        lineHeight: theme('fontSize.lg'),
-      },
-      [`.${prefix}caption-xs`]: {
-        fontSize: theme('fontSize.xs'),
-        lineHeight: theme('fontSize.base'),
-      },
+    });
+
+    const enableProse = () => addComponents({ // prose
       [`*[class^=${prefix}prose]`]: {
         color: theme('colors.body'),
         '--tw-space-y-reverse': '0!important',
@@ -163,6 +227,21 @@ module.exports = plugin.withOptions(function (options = {
         fontSize: theme('fontSize.xxs'),
         lineHeight: theme('fontSize.md'),
       },
+    });
+
+    const enableTypography = () => addComponents({
+      [`*[class^=${prefix}caption]`]: {
+        color: theme('colors.muted'),
+      },
+      [`.${prefix}caption, .${prefix}caption-sm`]: {
+        fontSize: theme('fontSize.sm'),
+        lineHeight: theme('fontSize.lg'),
+      },
+      [`.${prefix}caption-xs`]: {
+        fontSize: theme('fontSize.xs'),
+        lineHeight: theme('fontSize.base'),
+      },
+
       [`*[class^=${prefix}link]`]: {
         color: theme('colors.links'),
       },
@@ -184,28 +263,10 @@ module.exports = plugin.withOptions(function (options = {
         color: theme('colors.muted'),
         textDecoration: 'underline',
       },
-      [`*[class^=${prefix}list]`]: {
-        listStyle: 'disc',
-        listStylePosition: 'inside',
-        paddingLeft: theme('spacing.4'),
-        'li > ul, li > ol': {
-          paddingTop: theme('spacing[0.5]'),
-        },
-      },
-      [`.${prefix}def`]: {
-        'dt' : {
-          fontSize: theme('fontSize.xs'),
-          color: theme('colors.muted'),
-        },
-        'dd' : {
-          fontSize: theme('fontSize.base'),
-          lineHeight: theme('fontSize.lg'),
-        },
-        'dd + dt': {
-          marginTop: theme('spacing.2'),
-        },
-      },
+    });
 
+
+    const enableForms = () => addComponents({
       [`.${prefix}combobox`]: {
         borderRadius: theme('borderRadius.xs'),
         position: 'relative',
@@ -243,75 +304,6 @@ module.exports = plugin.withOptions(function (options = {
           color: theme('colors.black'),
         },
       },
-
-      [`.${prefix}table, .prism table`]: {
-        ['tr,td,thead,th']: {
-          borderColor: theme('colors.gray.300'),
-          borderWidth: '1px',
-          borderStyle: 'solid',
-          padding: theme('spacing.3'),
-        },
-        'th': {
-          backgroundColor: theme('colors.blue.800'),
-          borderColor: theme('colors.blue.800'),
-          color: theme('colors.white'),
-          borderWidth: '1px',
-          borderStyle: 'solid',
-        },
-        'caption,tfoot': {
-          fontStyle: 'italic',
-          padding: theme('spacing.2'),
-          color: theme('colors.muted'),
-          fontSize: theme('fontSize.sm'),
-        },
-      },
-      [`*[class^=${prefix}btn]`]: {
-        fontWeight: theme('fontWeight.bold'),
-        textTransform: 'uppercase',
-        borderRadius: theme('borderRadius.sm'),
-        '&:focus-within': {
-          boxShadow: theme('boxShadow.lg'),
-        },
-      },
-      [`.${prefix}btn`]: {
-        padding: theme('spacing[2.5]'),
-        paddingLeft: theme('spacing.4'),
-        paddingRight: theme('spacing.4'),
-        backgroundColor: 'transparent',
-        color: theme('colors.sky.600'),
-        outline: 'none',
-        border: 'none',
-        borderColor: 'transparent',
-        whiteSpace: 'nowrap',
-        textOverflow: 'ellipses',
-        overflow: 'hidden',
-        cursor: 'pointer',
-
-        '&.outline': {
-          borderColor: theme('colors.sky.600'),
-          outlineWidth: '1px',
-        },
-        '&.fill': {
-          backgroundColor: theme('colors.navy.900'),
-          color: theme('colors.white'),
-        },
-        '&:hover:not(:disabled):not([type="submit"]), &.active': {
-          backgroundColor: theme('colors.cerulean-light'),
-          color: theme('colors.sky.600'),
-        },
-        '&:disabled': {
-          cursor: 'not-allowed',
-          backgroundColor: theme('colors.gray.700'),
-          color: theme('colors.white'),
-        },
-        '&[type="submit"]': {
-          backgroundColor: theme('colors.gold.500'),
-          color: theme('colors.gray.900'),
-          '&:hover': {
-            backgroundColor: theme('colors.gold.600'),
-          },
-        },
-      },
       [`.${prefix}label, .${prefix}form-control`]: {
         fontSize: theme('fontSize.sm'),
         color: theme('colors.gray.400'),
@@ -337,7 +329,7 @@ module.exports = plugin.withOptions(function (options = {
         padding: theme('spacing[2.5]'),
         backgroundPositionY: '-40px',
       },
-      [`.${prefix}input, ${prefix}select, .prism input:not([type='button']):not([type='submit']):not([type='reset'])`]: {
+      [`.${prefix}input, ${prefix}select, .prism input:not([type='button'])input:not([type='radio']):not([type='submit']):not([type='reset'])`]: {
         borderColor: theme('colors.gray.300'),
         borderWidth: '1px',
         borderStyle: 'solid',
@@ -359,5 +351,120 @@ module.exports = plugin.withOptions(function (options = {
         },
       },
     });
+
+    const enableDataViews = () => addComponents({ // Headings -------------------------
+
+      [`*[class^=${prefix}list]`]: {
+        listStyle: 'disc',
+        listStylePosition: 'inside',
+        paddingLeft: theme('spacing.4'),
+        'li > ul, li > ol': {
+          paddingTop: theme('spacing[0.5]'),
+        },
+      },
+      [`.${prefix}def`]: {
+        'dt' : {
+          fontSize: theme('fontSize.xs'),
+          color: theme('colors.muted'),
+        },
+        'dd' : {
+          fontSize: theme('fontSize.base'),
+          lineHeight: theme('fontSize.lg'),
+        },
+        'dd + dt': {
+          marginTop: theme('spacing.2'),
+        },
+      },
+
+
+
+      [`.${prefix}table, .prism table`]: {
+        ['tr,td,thead,th']: {
+          borderColor: theme('colors.gray.300'),
+          borderWidth: '1px',
+          borderStyle: 'solid',
+          padding: theme('spacing.3'),
+        },
+        'th': {
+          backgroundColor: theme('colors.blue.800'),
+          borderColor: theme('colors.blue.800'),
+          color: theme('colors.white'),
+          borderWidth: '1px',
+          borderStyle: 'solid',
+        },
+        'caption,tfoot': {
+          fontStyle: 'italic',
+          padding: theme('spacing.2'),
+          color: theme('colors.muted'),
+          fontSize: theme('fontSize.sm'),
+        },
+      },
+
+
+    });
+
+    const enableCheckboxes = () => addComponents({//Checkboxes -------------------------
+      [`.${prefix}radio-option`]: {
+        display: 'flex',
+        alignItems: 'center',
+        gap: theme('spacing.2'),
+      },
+      [`input[type='radio'], input[type='checkbox'], .${prefix}form-checkbox, .${prefix}form-radio`]: {
+        [`&.${prefix}form-checkbox, &.${prefix}form-radio`] :  {
+          border: `1px solid ${theme('colors.gray.300')}`,
+          backgroundColor: theme('colors.white'),
+          '&:focus': {
+            outline: 'none',
+          '--tw-ring-inset': 'var(--tw-empty,/*!*/ /*!*/)',
+          '--tw-ring-offset-width': '0px !important',
+          'outline-offset': '0px',
+          '--tw-ring-offset-color': 'transparent',
+          '--tw-ring-color': 'transparent',
+          '--tw-ring-offset-shadow': 'none',
+          '--tw-ring-shadow': 'none',
+          'box-shadow': 'var(--tw-ring-offset-shadow), var(--tw-ring-shadow), var(--tw-shadow),',
+           },
+          '&:hover': {
+          '&:not(disabled)': {
+              border: `2px solid ${theme('colors.blue.800')}`
+            },
+           '&:not(checked)': {
+            backgroundColor: theme('colors.white'),
+           }
+          },
+          '&:checked': {
+            border: `2px solid ${theme('colors.blue.800')}`,
+            backgroundColor: theme('colors.blue.800'),
+            '&:hover, &:focus' : {
+              backgroundColor: theme('colors.blue.800'),
+            },
+           },
+        }
+
+      },
+      [`input[type='checkbox'].${prefix}form-checkbox`]: {
+        outline: '0px solid transparent',
+      },
+      [`input[type='radio'].${prefix}form-radio`]: {
+       outline: `1px solid transparent`,
+        '&:checked, &:hover, &:focus': {
+          '&:not(disabled)' : { outline: `1px solid ${theme('colors.blue.800')}`,
+          border: `1px solid ${theme('colors.blue.800')}`,}
+        },
+        '&:checked, &:hover, &:focus': {
+        backgroundImage: `url("data:image/svg+xml,%3Csvg id='Layer_1' data-name='Layer 1' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cdefs%3E%3Cstyle%3E.cls-1%7Bfill:%23fff;%7D.cls-2%7Bfill:%23005ba8;%7D%3C/style%3E%3C/defs%3E%3Ctitle%3EradioBtnCircle%3C/title%3E%3Ccircle class='cls-1' cx='8' cy='8' r='7.5'/%3E%3Cpath class='cls-2' d='M8,1A7,7,0,1,1,1,8,7,7,0,0,1,8,1M8,0a8,8,0,1,0,8,8A8,8,0,0,0,8,0Z'/%3E%3Ccircle class='cls-2' cx='8' cy='8' r='4.5'/%3E%3C/svg%3E") !important`,
+      },
+      }
+    });
+
+
+    enableCheckboxes();
+    enableModals();
+    enableProse();
+    enableTypography();
+    enableForms();
+    enableDataViews();
+
+
   };
 });

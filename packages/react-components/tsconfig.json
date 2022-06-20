@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["lib", "./node_modules/@headlessui", "tw"],
+  "include": ["lib", "./node_modules/@headlessui", "tw","../tailwind-plugin-elements", "../tailwind-theme-prism", "../tailwind-preset"],
   "exclude": ["./node_modules", "./test"],
 }

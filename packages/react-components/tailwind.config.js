@@ -9,16 +9,19 @@ module.exports = {
     './stories/*.{tsx,css,mdx,jsx}',
     './tw/*.{js,ts,jsx,tsx}',
   ],
+  presets: [
+    require('../tailwind-preset/index'),
+  ],
   theme: {
-    extend: require('./tw/theme'),
+    extend: require('../tailwind-theme-prism'),
   },
   plugins: [
     require('@tailwindcss/forms'),
-    require('./tw/plugin')({
+    require('../tailwind-plugin-elements')({
       parent: '',
       strategy: 'class',
     }),
-    require('./tw/plugin')({
+    require('../tailwind-plugin-elements')({
       parent: '',
       strategy: 'base',
     }),
