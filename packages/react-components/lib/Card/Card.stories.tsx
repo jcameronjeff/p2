@@ -19,7 +19,7 @@ const LoginPrompt: ComponentStory<any> = () => {
   return (
   <div className='prism'>
     <Card>
-      <Card.Header>
+      <Card.Header className='gap-1'>
         <img className='h-[48px] w-[48px]' src='https://api.manheim.com/assets/images/manheimLogo.svg' />
       </Card.Header>
       <Card.Content>
