@@ -1,6 +1,6 @@
 import { useRef, useState, HTMLProps, ReactNode } from 'react';
 
-export interface IProps extends HTMLProps<HTMLInputElement> {
+interface IProps extends HTMLProps<HTMLInputElement> {
   /**
    * Callback function that accepts `label` and `checked` arguments.
    */
@@ -12,7 +12,7 @@ export const Checkbox:React.FC<IProps>  = ({
   ...props
 }) => {
   const cbRef = useRef<HTMLInputElement>(null);
-    const baseClasses = 'prism prism-form-check-input prism-form-checkbox appearance-none  transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer';
+  const baseClasses = 'prism prism-form-check-input prism-form-checkbox appearance-none  transition duration-200 mt-1 align-top bg-no-repeat bg-center bg-contain float-left mr-2 cursor-pointer';
   const clsx = [baseClasses, className].join(' ');
 
   return (

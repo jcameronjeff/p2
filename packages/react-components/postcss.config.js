@@ -6,8 +6,8 @@ module.exports = {
     require('autoprefixer'),
     require('postcss-extend'),
     require('postcss-apply'),
-    // require('postcss-minify'),
-    // require('cssnano'),
+    require('postcss-minify'),
+    require('cssnano'),
   ],
 };
 

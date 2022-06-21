@@ -4,7 +4,7 @@ export * from './Button';
 export * from './Card';
 export * from './Input';
 export * from './Modal';
-
+export * from './Input';
 export * from './utils';
 export * from '@headlessui/react';
 
