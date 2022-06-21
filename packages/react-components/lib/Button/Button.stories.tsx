@@ -21,6 +21,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
   const variants = ['default', 'aux', 'outlined', 'contained', 'simulcast', 'text'];
 
   return (
+    <div>
     <div className='flex gap-2 flex-wrap justify-center items-center'>
     <h3 className='prism-label mr-8 flex-grow'>normal</h3>
     <button className='prism-btn'>Default</button>
@@ -116,6 +117,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
 
     <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count + 1)}/>
     {count > 4 && <h3>Automation Completed!</h3>}
+  </div>
   </div>
   );
 };

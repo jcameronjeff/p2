@@ -30,8 +30,8 @@ const Chips: ComponentStory<any> = () => (
 const WithIcons: ComponentStory<any> = () => (
   <div className='flex gap-2'>
     <Chip append={icon} variant="light">Default Light</Chip>
-    <Chip append={icon} >Default</Chip>
-    <Chip append={icon} variant="dark">Default Dark</Chip>
+    <Chip prepend={icon} >Default</Chip>
+    <Chip append={icon} prepend={icon} variant="dark">Default Dark</Chip>
   </div>
 );
 
