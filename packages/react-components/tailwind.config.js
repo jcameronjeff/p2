@@ -9,9 +9,9 @@ module.exports = {
     './stories/*.{tsx,css,mdx,jsx}',
     './tw/*.{js,ts,jsx,tsx}',
   ],
-  presets: [
-    require('../tailwind-preset/index'),
-  ],
+  // presets: [
+  //   require('../tailwind-preset/index'),
+  // ],
   theme: {
     extend: require('../tailwind-theme-prism'),
   },
@@ -21,9 +21,9 @@ module.exports = {
       parent: '',
       strategy: 'class',
     }),
-    require('../tailwind-plugin-elements')({
-      parent: '',
-      strategy: 'base',
-    }),
+    // require('../tailwind-plugin-elements')({
+    //   parent: '.prism-base',
+    //   strategy: 'base',
+    // }),
   ],
 };

@@ -103,8 +103,9 @@ module.exports = plugin.withOptions(function (options = {
         },
         '&:disabled': {
           cursor: 'not-allowed',
-          backgroundColor: theme('colors.gray.700'),
-          color: theme('colors.white'),
+          opacity: '50%',
+          // backgroundColor: theme('colors.gray.700'),
+          // color: theme('colors.white'),
         },
         '&[type="submit"]': {
           backgroundColor: theme('colors.gold.500'),

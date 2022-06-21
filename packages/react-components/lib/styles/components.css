@@ -34,73 +34,14 @@
 
   }
   .prism-btn {
-    @apply token_style_1;
-    @apply px-[0.75em];
-    @apply text-blue-700;
-    @apply font-medium;
-    @apply border border-blue-700;
-    @apply gap-1;
-    @apply items-center;
-    @apply overflow-hidden;
-    @apply inline-flex;
-    @apply justify-center;
-    @apply h-[2.5em];
-    @apply cursor-pointer;
-    span {
-      @apply overflow-hidden;
-      @apply text-ellipsis;
-    }
-    svg {
-      flex-shrink: 0;
-      @apply h-[1.25rem];
-    }
-    &.hover, &:hover {
-      @apply bg-sky-200;
-    }
-    &.focus,
-    &:focus, &:focus-within {
+    .disabled {}
+  }
 
-      @apply shadow-md;
-    }
-    &.text {
-      @apply border-transparent;
-    }
-    &.fill {
-      @apply bg-blue-900;
-      @apply text-white;
-    }
-    &.aux {
-      @apply font-medium;
-      @apply bg-transparent;
-      @apply border-transparent;
-      @apply text-gray-800;
-      @apply text-xs;
-    }
-    &.simulcast {
-      @apply bg-green-600;
-      @apply border-green-600;
-      @apply text-black;
-      &.hover, &:hover {
-        @apply bg-green-700;
-        @apply border-green-700;
-      }
-    }
-    &.contained,
-    &[type='submit'] {
-      @apply bg-yellow-500;
-      @apply border-yellow-500;
-      @apply text-black;
-      &.hover, &:hover {
-        @apply bg-yellow-600;
-        @apply border-yellow-600;
-      }
-    }
-    .disabled,
-    &:disabled {
-      @apply grayscale;
-      @apply cursor-default;
-      @apply opacity-50;
-      @apply cursor-not-allowed;
-    }
+  .prism-chip, a.prism-chip, button.prism-chip {
+    @apply p-1 px-2 gap-1 whitespace-nowrap flex items-center  rounded-full;
+    @apply bg-gray-100 ring-1 ring-gray-200;
+    @apply text-gray-700 uppercase leading-4 text-xs font-semibold;
+    @apply focus:ring-offset-2 focus:ring-1 focus:ring-gray-300 focus:shadow-md;
+    @apply focus-within:ring-gray-300;
   }
 }
