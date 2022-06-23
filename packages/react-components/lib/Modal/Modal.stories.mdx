@@ -46,9 +46,6 @@ Modals have no automatic management of their open/closed state. To show and hide
 
 The `onClose` callback fires when an open dialog is dismissed, which happens when the user clicks outside the your `Dialog.Panel` or presses the Escape key. You can use this callback to set open back to false and close your dialog.
 
-
-
-
 ## Managing Focus
 
 For accessibility reasons, your modal should contain at least one focusable element. By default, the `Modal` component will focus the first focusable element (by DOM order) once it is rendered, and pressing the Tab key will cycle through all additional focusable elements within the contents.
@@ -96,6 +93,40 @@ Because of these accessibility concerns, Headless UI's `Dialog` component actual
 ## Transitions
 
 Modal is pre-configured with our recommended transition animations. These can be customized or replaced with the `outerTransition` and `innerTransition` props. These are objects that accept all of the same arguments as `Transition` [See more](https://headlessui.dev/react/dialog#transitions)
+
+### Named Transition Presets
+
+> This is a draft proposal specification.
+
+| Transition | Description | Duration | Easing |
+| ---------- | ----------- | --------- | ----- |
+| **fadeInOut** | Basic fade-in and fade-out transitions, opacity only. | 200ms | linear |
+| **slideUpDown** | Children appear from the bottom with a slight scaling effect | 200ms | ease-in-out |
+| **slideInRight** | Children slide in from the right edge of the viewport | 200ms | ease-in-out |
+| **slideInLeft** | Children slide in from the left edge of the viewport | 200ms | ease-in-out |
+
+### Transition arguments
+
+- **enter**: Applied the entire time an element is entering. Usually you define your duration and what properties you want to transition here, for example transition-opacity duration-75.
+- **enterFrom**: The starting point to enter from, for example opacity-0 if something should fade in.
+- **enterTo**: The ending point to enter to, for example opacity-100 after fading in.
+- **leave**: Applied the entire time an element is leaving. Usually you define your duration and what properties you want to transition here, for example transition-opacity duration-75.
+- **leaveFrom**: The starting point to leave from, for example opacity-100 if something should fade out.
+- **leaveTo**: The ending point to leave to, for example opacity-0 after fading out.
+
+### Composing Transitions
+
+You can customize the behavior of a transition preset by merging it with your own arguments.
+
+```jsx
+let myTransition = {
+  // apply the `slideUpDown` preset
+  ...slideUpDown,
+  // inject our own `enter` argument
+  enter: 'transition ease-linear duration-100'
+}
+return <Transition outerTransition={myTransition}>{/* ... */}</Transition>
+```
 
 ## HTML-only using classnames
 
