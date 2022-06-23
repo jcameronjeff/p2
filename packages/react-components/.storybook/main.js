@@ -5,6 +5,7 @@ module.exports = {
     "../stories/**/*.stories.mdx",
     "../stories/**/*.stories.@(js|jsx|ts|tsx)",
     "../lib/**/*.stories.mdx",
+    "../lib/**/*.docs.mdx",
     "../lib/**/*.stories.@(js|jsx|ts|tsx)"
   ],
   "addons": [

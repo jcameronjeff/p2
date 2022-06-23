@@ -1,42 +1,39 @@
-
-import { Prism } from '../types';
+import { useCallback, useState } from 'react';
+import { Switch } from '@headlessui/react';
+import { Box } from './Box';
+import { AppendPrependArgs, HTMLComponent } from '../types';
 import clsx from 'clsx';
 
 type ColorVariant = 'light' | 'base' | 'dark';
 
-export interface Props extends Prism.AppendPrependArgs {
+export interface Props extends AppendPrependArgs {
   /**
    * Color variation
    */
   variant?: ColorVariant
 }
 
-export const Chip:Prism.HTMLComponent<Props> = ({ as = 'div', variant = 'base', children, append, prepend, ...props }) => {
-  const Component = as || 'div';
+export const Chip:HTMLComponent<Props> = ({ as = 'div', variant = 'base', ...props }) => {
+  const children = [props.prepend, props.children, props.append];
   let cx = clsx([
     'prism-chip',
     as === 'a' && 'bg-white text-blue-700 visited:text-red-800 hover:bg-sky-200',
     variant === 'light' && 'bg-white text-gray-700 ring-white',
     variant === 'dark' && 'bg-gray-700 text-white',
-    // variant === 'base' && 'bg-gray-300 text-gray-700',
+    props.className,
   ]);
 
-  return <Component className={cx} {...props}>
-    {prepend}
-    {children}
-    {append}
-  </Component>;
+  return <Box {...props} className={cx}>{children}</Box>;
 };
 
 
-import { useCallback, useState } from 'react';
-import { Switch } from '@headlessui/react';
+
 
 interface ToggleProps extends React.HTMLAttributes<'button'> {
   onToggle?: (arg0:boolean) => void
 }
 
-export function Toggle({ children, onToggle = () => {} }:ToggleProps) {
+export const Toggle = ({ children, onToggle = () => {} }:ToggleProps) => {
   const [enabled, setEnabled] = useState(false);
   const text = enabled ? children || 'On' : children || 'Off';
 
@@ -57,4 +54,4 @@ export function Toggle({ children, onToggle = () => {} }:ToggleProps) {
       {text}
     </Switch>
   );
-}
+};

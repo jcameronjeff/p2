@@ -1,4 +1,3 @@
-import React, { Fragment, HTMLAttributes } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Chip, Toggle } from '..';
 
@@ -21,7 +20,7 @@ const Chips: ComponentStory<any> = () => (
   <div className='space-y-8'>
     <div className='flex gap-2'>
       <Chip variant="light">Default Light</Chip>
-      <Chip>Default</Chip>
+      <Chip as="button" onClick={() => window.alert('yay')}>Default</Chip>
       <Chip variant="dark">Default Dark</Chip>
     </div>
   </div>

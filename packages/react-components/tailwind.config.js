@@ -13,11 +13,11 @@ module.exports = {
   //   require('../tailwind-preset/index'),
   // ],
   theme: {
-    extend: require('../tailwind-theme-prism'),
+    extend: require('@prism2/tailwind-theme'),
   },
   plugins: [
     require('@tailwindcss/forms'),
-    require('../tailwind-plugin-elements')({
+    require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',
     }),

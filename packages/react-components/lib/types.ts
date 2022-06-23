@@ -1,4 +1,4 @@
-import { ReactNode, ReactElement } from 'react';
+import React, { ReactNode, ReactElement } from 'react';
 
 /**
  * A unique placeholder we can use as a default. This is nice because we can use this instead of
@@ -92,69 +92,75 @@ PropsForFeature<T, Features.Static, { static?: boolean }>,
 PropsForFeature<T, Features.RenderStrategy, { unmount?: boolean }>
 >;
 
-export declare module Prism {
-  // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
-  // A more precise version of just React.ComponentPropsWithoutRef on its own
-  export type PropsOfElem<
-    C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
-  > = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
 
-  type AsProp<C extends React.ElementType> = {
-    /**
-     * An override of the default HTML tag.
-     * Can also be another React component.
-     */
-    as?: C
-  };
+// Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
+// A more precise version of just React.ComponentPropsWithoutRef on its own
+export type PropsOfElem<
+  C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
+> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
+
+type AsProp<C extends React.ElementType> = {
   /**
-   * Allows for extending a set of props (`ExtendedProps`) by an overriding set of props
-   * (`OverrideProps`), ensuring that any duplicates are overridden by the overriding
-   * set of props.
+   * An override of the default HTML tag.
+   * Can also be another React component.
    */
-  export type ExtendableProps<
-    ExtendedProps = {},
-    OverrideProps = {},
-  > = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
+  as?: C,
+  ref?: PolymorphicRef<any>
+};
+/**
+ * Allows for extending a set of props (`ExtendedProps`) by an overriding set of props
+ * (`OverrideProps`), ensuring that any duplicates are overridden by the overriding
+ * set of props.
+ */
+export type ExtendableProps<
+  ExtendedProps = {},
+  OverrideProps = {},
+> = OverrideProps & Omit<ExtendedProps, keyof OverrideProps>;
+/**
+ * Allows for inheriting the props from the specified element type so that
+ * props like children, className & style work, as well as element-specific
+ * attributes like aria roles. The component (`C`) must be passed in.
+ */
+export type InheritableElementProps<
+  C extends React.ElementType,
+  P = {},
+> = ExtendableProps<PropsOfElem<C>, P>;
+/**
+ * A more sophisticated version of `InheritableElementProps` where
+ * the passed in `as` prop will determine which props can be included
+ */
+export type PolymorphicComponentProps<
+  C extends React.ElementType,
+  P = {},
+> = InheritableElementProps<C, P & AsProp<C>>;
+
+export type PolymorphicRef<
+  C extends React.ElementType,
+> = React.ComponentPropsWithRef<C>['ref'];
+/**
+ * Overloadable polymorphic props
+ */
+
+export type HTMLProps<P, C extends React.ElementType = 'span'> = PolymorphicComponentProps<C, P>;
+export type PrismFC<P = {}> = React.FC<HTMLProps<P>>;
+
+export type HTMLComponent<P = {}> = <C extends React.ElementType = 'span'>(
+  props: HTMLProps<P, C>
+) => React.ReactElement | null;
+
+export type ForwardRef<P = {}> = <C extends React.ElementType = 'span'>(props: HTMLProps<P, C>, ref?: PolymorphicRef<C>) => React.ReactElement | null;
+
+export interface AppendPrependArgs {
   /**
-   * Allows for inheriting the props from the specified element type so that
-   * props like children, className & style work, as well as element-specific
-   * attributes like aria roles. The component (`C`) must be passed in.
+   * Optionally provide a node to prepend to our component.
    */
-  export type InheritableElementProps<
-    C extends React.ElementType,
-    P = {},
-  > = ExtendableProps<PropsOfElem<C>, P>;
+  prepend?: ReactNode | ReactElement;
   /**
-   * A more sophisticated version of `InheritableElementProps` where
-   * the passed in `as` prop will determine which props can be included
+   * Optionally provide a node to append to our component.
    */
-  type PolymorphicComponentProps<
-    C extends React.ElementType,
-    P = {},
-  > = InheritableElementProps<C, P & AsProp<C>>;
-
-  export type PolymorphicRef<
-    C extends React.ElementType,
-  > = React.ComponentPropsWithRef<C>['ref'];
-  /**
-   * Overloadable polymorphic props
-   */
-
-  type HTMLProps<C extends React.ElementType = 'span', P = {}> = PolymorphicComponentProps<C, P>;
-  type HTMLComponent<P = {}> = <C extends React.ElementType = 'span'>(props: HTMLProps<C, P>) => React.ReactElement | null;
-  type ForwardRef<P = {}> = <C extends React.ElementType = 'span'>(props: HTMLProps<C, P>, ref?: PolymorphicRef<C>) => React.ReactElement | null;
-
-  export interface AppendPrependArgs {
-    /**
-     * Optionally provide a node to prepend to our component.
-     */
-    prepend?: ReactNode | ReactElement;
-    /**
-     * Optionally provide a node to append to our component.
-     */
-    append?: ReactNode | ReactElement;
-  }
-
+  append?: ReactNode | ReactElement;
 }
+
+
 
 
