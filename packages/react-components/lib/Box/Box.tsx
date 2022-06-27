@@ -1,8 +1,9 @@
 import React from 'react';
-import { PrismFC } from '../types';
+import { HTMLComponent } from '../types';
 
 
-export const Box:PrismFC = ({ as, ...props }) => {
+export const Box:HTMLComponent = ({ as, ...props }) => {
   const Component = as || 'span';
   return <Component {...props} />;
 };
+

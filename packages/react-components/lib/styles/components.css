@@ -11,6 +11,44 @@
 
 @layer components {
 
+  .tt {
+    position: relative;
+    display: inline-block;
+    @apply cursor-help;
+    @apply justify-center;
+    @apply inline-flex;
+  }
+
+  .tt[aria-label]:hover::after {
+    visibility: visible;
+    @apply opacity-100;
+    @apply scale-100;
+  }
+  .tt.below[aria-label]::after {
+    top: auto;
+    bottom: -100%;
+    z-index: 900;
+  }
+  .tt[aria-label]::after {
+    content: attr(aria-label);
+    position: absolute;
+    top: -100%;
+    visibility:hidden;
+    z-index: 900;
+    @apply opacity-0;
+    @apply scale-0;
+    @apply transition-all;
+    @apply ease-in-out;
+    @apply delay-100;
+    @apply text-xs;
+    @apply whitespace-nowrap;
+    @apply p-1;
+    @apply px-4;
+    @apply rounded-sm;
+    @apply bg-slate-800/70;
+    @apply text-white;
+  }
+
   .prism-tab {
     @apply p-2 py-1;
     @apply uppercase;

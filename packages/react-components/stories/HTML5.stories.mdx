@@ -1,5 +1,5 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { Avatar, Button } from '../lib';
+import { Avatar, Button, Tooltip } from '../lib';
 
 <Meta title="Elements/HTML5" component={Avatar} />
 
@@ -13,7 +13,7 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 <Story name="Headings">
   <div className='space-y-8 prism-base'>
       <hgroup className='space-y-4'>
-        <div className='prism-heading-1'>h1 - Heading One</div>
+        <Tooltip content="welcome to prism" className='prism-heading-1'>h1 - Heading One</Tooltip>
         <div className='prism-heading-2'>h2 - Heading Two</div>
         <div className='prism-heading-3'>h3 - Heading 3</div>
         <div className='prism-heading-4'>h4 - Heading 4</div>
@@ -99,6 +99,42 @@ Table styles will be applied to `.prism-table` presuming a standard DOM structur
 
 <Canvas>
   <Story name='Tables'>
+    <table class="border-separate border-spacing-0">
+    <thead class="bg-gray-50">
+      <tr>
+        <th class="p-2 sticky top-0 z-10 border-b border-gray-300 ...">Name</th>
+        <th class="p-2 sticky top-0 z-10 border-b border-gray-300 ...">Email</th>
+        <th class="p-2 sticky top-0 z-10 border-b border-gray-300 ...">Role</th>
+      </tr>
+    </thead>
+    <tbody class="bg-white">
+      <tr>
+        <td class="p-2 border-b border-gray-200 ...">Courtney Henry</td>
+        <td class="p-2 border-b border-gray-200 ...">courtney.henry@example.com</td>
+        <td class="p-2 border-b border-gray-200 ...">Admin</td>
+      </tr>
+      <tr>
+        <td class="p-2 border-b border-gray-200 ...">Someone Lastname</td>
+        <td class="p-2 border-b border-gray-200 ...">courtney.henry@example.com</td>
+        <td class="p-2 border-b border-gray-200 ...">Nullam quis risus eget urna mollis ornare vel eu leo.</td>
+      </tr>
+      <tr>
+        <td class="p-2 border-b border-gray-200 ..."><a href="#">Person Name</a></td>
+        <td class="p-2 border-b border-gray-200 ...">courtney.henry@example.com</td>
+        <td class="p-2 border-b border-gray-200 ...">Vestibulum id ligula porta felis euismod semper. Donec ullamcorper nulla non metus auctor fringilla.</td>
+      </tr>
+      <tr>
+        <td class="p-2 border-b border-gray-200 ...">Another Person</td>
+        <td class="p-2 border-b border-gray-200 ...">courtney.henry@example.com</td>
+        <td class="p-2 border-b border-gray-200 ...">Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Nullam id dolor id nibh ultricies vehicula ut id elit.</td>
+      </tr>
+      <tr>
+        <td class="p-2 border-b border-gray-200 ...">Last One</td>
+        <td class="p-2 border-b border-gray-200 ...">courtney.henry@example.com</td>
+        <td class="p-2 border-b border-gray-200 ...">Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Cras mattis consectetur purus sit amet fermentum.</td>
+      </tr>
+    </tbody>
+  </table>
     <table className="prism-table">
     <caption>Tables can have captions now.</caption>
     <tbody>
@@ -351,9 +387,7 @@ We include basic styling for definition lists with `<dl />`, `<dt />` and `<dd/>
           </div>
         </div>
       </div>
-    
     </fieldset>
-       
   </form>
   </Story>
 </Canvas>

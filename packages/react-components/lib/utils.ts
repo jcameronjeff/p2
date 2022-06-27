@@ -30,6 +30,15 @@ export const slideUpDown:TransitionPropPreset = {
   leaveFrom: 'opacity-100 scale-100',
   leaveTo: 'opacity-0 scale-95 translate-y-8',
 };
+export const slideUpDownAlt:TransitionPropPreset = {
+  // slideUpDown
+  enter: 'ease-in-out duration-200 delay-500',
+  enterFrom: 'opacity-0 scale-95 translate-y-1',
+  enterTo: 'opacity-100 scale-100 ',
+  leave: 'ease-in duration-200 delay-200',
+  leaveFrom: 'opacity-100 scale-100',
+  leaveTo: 'opacity-0 scale-95 translate-y-1',
+};
 
 
 export const slideInRight:TransitionPropPreset = {

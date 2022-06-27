@@ -29,8 +29,8 @@ const LoginPrompt: ComponentStory<any> = () => {
           <input name='password' type='password' className='w-full' placeholder="Password" />
         </div>
         <div className='space-y-1'>
-          <Checkbox checked={false} label="Remember my password" onToggle={console.log} />
-          <Checkbox checked={false} label="Remember my username" onChange={console.log} onToggle={console.log} />
+          <Checkbox defaultChecked={false} label="Remember my password" onChange={console.log} />
+          <Checkbox defaultChecked={false} label="Remember my username" onChange={console.log} />
         </div>
         <button onClick={(e) => {
           e.preventDefault(); setIsOpen(true);
