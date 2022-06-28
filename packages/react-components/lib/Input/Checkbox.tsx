@@ -1,22 +1,26 @@
 import { Box } from '../Box';
-import { HTMLComponent } from '../types';
+import { AppendPrependArgs, HTMLProps } from '../types';
 
-interface IProps {
+interface IProps extends AppendPrependArgs {
   /**
    * Callback function that accepts `label` and `checked` arguments.
    */
   onToggle?: (arg0: [string, boolean]) => unknown,
   label: string,
+  variant?: 'chip' | 'default'
 }
 
-export const Checkbox:HTMLComponent<IProps>  = ({ className, label, ...props }) => {
-  const baseClasses = 'flex gap-2 items-center text-sm';
-  const clsx = [baseClasses, className].join(' ');
+export const Checkbox:React.FC<HTMLProps<IProps, 'input'>>  = ({ as, append, prepend, className, variant, label, ...props }) => {
+  const baseClasses = 'flex gap-2 items-center cursor-pointer';
 
+  const isChip = variant === 'chip';
+  const inputClass = `prism-form-checkbox transition duration-200 ${isChip && 'peer hidden'}`;
+  const spanClass = isChip ? 'prism-chip transition duration-200 peer-checked:bg-blue-500 peer-checked:text-white flex gap-1' : 'flex gap-1';
+  const clsx = [spanClass, className].join(' ');
   return (
-      <Box as='label' className={clsx}>
-        <Box as='input' type='checkbox' {...props} className='prism-form-checkbox transition duration-200' />
-        <Box as='span'>{label}</Box>
+      <Box as='label' className={baseClasses}>
+        <Box as='input' type='checkbox' {...props} className={inputClass} />
+        <Box as='span' className={clsx}>{prepend}{label}{append}</Box>
       </Box>
   );
 };

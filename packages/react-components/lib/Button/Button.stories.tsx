@@ -34,7 +34,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>with icon</h3>
     {variants.map(variant => (
       <button className={`prism-btn ${variant}`}>
-        <BeakerIcon className=""/>
+        <BeakerIcon className="w-4 h-4"/>
         <span>{variant}</span>
       </button>
     ))}
@@ -42,7 +42,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>small</h3>
     {variants.map(variant => (
       <button className={`prism-btn text-xs ${variant}`}>
-        <BeakerIcon className=""/>
+        <BeakerIcon className="w-4 h-4"/>
         <span>{variant}</span>
       </button>
     ))}
@@ -50,7 +50,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>hover</h3>
     {variants.map(variant => (
       <button className={`prism-btn hover ${variant}`}>
-        <BeakerIcon className=""/>
+        <BeakerIcon className="w-4 h-4"/>
         <span>{variant}</span>
       </button>
     ))}
@@ -58,7 +58,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>focus</h3>
     {variants.map(variant => (
       <button className={`prism-btn focus ${variant}`}>
-        <BeakerIcon className=""/>
+        <BeakerIcon className="w-4 h-4"/>
         <span>{variant}</span>
       </button>
     ))}
@@ -66,19 +66,19 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>disabled</h3>
     {variants.map(variant => (
       <button disabled className={`prism-btn ${variant}`}>
-        <BeakerIcon className=""/>
+        <BeakerIcon className="w-4 h-4"/>
         <span>{variant}</span>
       </button>
     ))}
     <hr className='w-full my-4' />
     <h3 className='prism-label mr-8 flex-grow'>overflowing</h3>
     <button className='prism-btn outlined w-48'>
-      <BeakerIcon />
+      <BeakerIcon className='w-4 h-4' />
       <span>Buttons allow a user to submit or request information</span>
     </button>
     <button className='prism-btn outlined w-48'>
       <span>Buttons allow a user to submit or request information</span>
-      <BeakerIcon />
+      <BeakerIcon className='w-4 h-4' />
     </button>
     <button className='prism-btn outlined w-48'>
       <span>Buttons allow a user to submit or request information</span>
@@ -87,10 +87,10 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-label mr-8 flex-grow'>submit</h3>
     <button className='prism-btn' type='submit'>Submit</button>
     <button className='prism-btn outlinedd'>
-      <BeakerIcon />
+      <BeakerIcon className='w-4 h-4' />
     </button>
     <button className='prism-btn contained'>
-      <BeakerIcon />
+      <BeakerIcon className='w-4 h-4' />
     </button>
 
 
@@ -105,12 +105,12 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <input disabled className='prism-btn'  type="submit" name="submit" value="Disabled Submit Button" />
     <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
      <button className='prism-btn hover w-64'>
-      <BeakerIcon className=""/>
+      <BeakerIcon className="w-4 h-4"/>
       <span>Buttons allow a user to submit or request information</span>
     </button>
     <button className='prism-btn hover w-64'>
       <span>flex gap-2 flex-wrap justify-center flex gap-2 flex-wrap justify-center Default</span>
-      <BeakerIcon className=""/>
+      <BeakerIcon className="w-4 h-4"/>
     </button>
     <input className='prism-btn fill text-xs' type="reset" name="reset" disabled value="Reset Button" />
     <input className='prism-btn text-sm capitalize font-medium text-gray-600 rounded-full ring-2 ring-gray-300' type="reset" name="reset" value="Reset Button" />

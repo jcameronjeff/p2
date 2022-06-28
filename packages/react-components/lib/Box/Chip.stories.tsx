@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Chip, Toggle } from '..';
+import { Checkbox, Chip, Toggle } from '..';
 
 
 export default {
@@ -10,7 +10,7 @@ export default {
 
 
 let icon = (
-    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+    <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4" />
     </svg>
 );
@@ -48,17 +48,17 @@ const AsLinks: ComponentStory<any> = () => (
       <Chip as="a" href='#'>Link</Chip>
     </div>
 );
-const AsToggle: ComponentStory<any> = () => (
-   <div className='flex gap-2'>
-      <Toggle onToggle={console.log}>Selection One</Toggle>
-      <Toggle onToggle={console.log}>Selection Two</Toggle>
-      <Toggle onToggle={console.log}>Selection Three</Toggle>
-      <Toggle onToggle={console.log}>Selection Four</Toggle>
-    </div>
+const AsCheckbox: ComponentStory<any> = () => (
+   <div className='flex gap-2 text-xs'>
+    <Checkbox variant="chip" label="Selection One" append={icon} onToggle={console.log}/>
+    <Checkbox variant='chip' label="Selection Two" append={icon} onToggle={console.log} />
+    <Checkbox variant='chip' label="Selection Three" onToggle={console.log} />
+    <Checkbox variant='chip' label="Selection Four" onToggle={console.log} />
+  </div>
 );
 
 export const Basic = Chips.bind({});
 export const ButtonChips = AsButtons.bind({});
 export const LinkChips = AsLinks.bind({});
-export const ToggleChips = AsToggle.bind({});
+export const ToggleChips = AsCheckbox.bind({});
 export const IconChips = WithIcons.bind({});

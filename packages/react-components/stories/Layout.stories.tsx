@@ -3,7 +3,7 @@ import React from 'react';
 import { Chip, Button, Box, Toggle } from '../lib';
 
 export default {
-  title: 'Elements/Layout',
+  title: 'Patterns/Layout',
   component: Chip,
   subcomponents: { Chip, Button, Box, Toggle },
 } as ComponentMeta<any>;
@@ -35,26 +35,44 @@ const LayoutTemplate: ComponentStory<any> = () => {
     // list dependencies of header such as user, session info or view context.
   ]);
 
-  let Content = () => (
-    <main className='container m-auto space-y-4 p-4'>
+  let Content = (props) => (
+    <main className={['space-y-4 p-4', props.className].join(' ')}>
       <article className='prism-prose'>
-        <p>Basic longform text</p>
+        {props.children}
       </article>
     </main>
   );
 
-  let Footer = () => React.useMemo(() => (
-    <footer className='prism-caption'>
+  let Footer = (props) => React.useMemo(() => (
+    <footer className={['prism-caption', props.className].join(' ')}>
       <p>My footer content</p>
     </footer>
   ), []);
 
+  let Aside = (props) => (
+    <aside className={['p-4 bg-gray-50 rounded-sm border border-gray-100', props.className].join(' ')}>
+      <div className='prism-link-sm p-1'>
+        Option One
+      </div>
+      <div className='prism-link-sm p-1'>
+        Option One
+      </div>
+      <div className='prism-link-sm p-1'>
+        Option One
+      </div>
+    </aside>
+  );
   return (
-    <div className='w-screen items-center'>
+    <Box as='div' className='w-screen items-center'>
       <Header />
-      <Content />
+      <Box as='div' className='container m-auto flex my-8 gap-8'>
+        <Aside className='w-[200px] divide-y' />
+        <Content>
+          <Box as='h1' className='prism-heading-1'>Templates</Box>
+        </Content>
+      </Box>
       <Footer />
-    </div>
+    </Box>
   );
 };
 

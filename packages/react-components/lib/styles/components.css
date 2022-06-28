@@ -72,6 +72,10 @@
 
   }
   .prism-btn {
+    @apply flex;
+    @apply whitespace-nowrap;
+    @apply items-center;
+    @apply gap-2;
     .disabled {
       @apply shadow-md;
       @apply ring-gray-300;
