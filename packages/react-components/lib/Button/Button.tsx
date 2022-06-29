@@ -7,9 +7,9 @@ import { HTMLProps, ReactElement } from 'react';
  * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
  * @remark - Alternately: define components in TW3 and reference as variants.
  */
-type VariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
-type Variant = Record<VariantName, string>;
-type ButtonType = 'button' | 'submit' | 'reset';
+export type VariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
+export type Variant = Record<VariantName, string>;
+export type ButtonType = 'button' | 'submit' | 'reset';
 
 interface Props extends HTMLProps<HTMLButtonElement> {
   /**
@@ -32,7 +32,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
 
 /**
  *
- * @todo Generate a singular Button component that:
+ * - @todo Generate a singular Button component that:
  * - includes styles for everything with small footprint.
  * - styles do not pollute other elements.
  * - minimal API surface area (variant + tailwind)

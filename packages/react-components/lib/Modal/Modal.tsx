@@ -16,7 +16,7 @@ let ModalRenderFeatures = Features.RenderStrategy | Features.Static;
 /**
  * These are to be provided as render props to the final output.
  */
-interface ModalRenderPropArg {
+export interface ModalRenderPropArg {
   open: boolean
 }
 
@@ -29,9 +29,9 @@ interface ModalRenderPropArg {
  * here to protect against conflicts.
  *
  * See `type Props` in /lib/types.ts for more.
- *
+ * {@link Modal}
  */
-type ModalPropsWeControl =
+export type ModalPropsWeControl =
   | 'id'
   | 'role'
   | 'aria-modal'
@@ -47,7 +47,7 @@ type ModalPropsWeControl =
  * 2. Provice `static`, `unmount`, and "as" props determinsitcally.
  * 3. Remove their passed props that we will control.
  */
-type ModalPropBase<T> = Props<T, ModalRenderPropArg, ModalPropsWeControl> & PropsForFeatures<typeof ModalRenderFeatures>;
+export type ModalPropBase<T> = Props<T, ModalRenderPropArg, ModalPropsWeControl> & PropsForFeatures<typeof ModalRenderFeatures>;
 
 /**
  * Merge ModalPropBase with our component API to get
@@ -216,7 +216,14 @@ function modalValidations(componentProps: any) {
 }
 
 
-
+/**
+ *
+ * @param props
+ * @param ref
+ * {@link ModalPropBase}
+ * {@link ModalProps}
+ * {@link ModalPropsWeControl}
+ */
 export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   props: ModalProps<TTag>,
   ref: Ref<HTMLHeadingElement>,

@@ -99,7 +99,12 @@ export type PropsOfElem<
   C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
 > = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
 
-type AsProp<C extends React.ElementType> = {
+/**
+ * @name AsProps
+ * @abstract Passthrough for inheriting attributes from HTML elements.
+ * @typeParam C - HTML element name, e.g. 'span'
+ */
+export type AsProp<C extends React.ElementType> = {
   /**
    * An override of the default HTML tag.
    * Can also be another React component.
@@ -125,8 +130,11 @@ export type InheritableElementProps<
   C extends React.ElementType,
   P = {},
 > = ExtendableProps<PropsOfElem<C>, P>;
+
 /**
- * A more sophisticated version of `InheritableElementProps` where
+ * @name PolymorphicComponentProps
+ * @abstract Props which extends their HTML counterparts
+ * @description A more sophisticated version of `InheritableElementProps` where
  * the passed in `as` prop will determine which props can be included
  */
 export type PolymorphicComponentProps<
@@ -134,22 +142,56 @@ export type PolymorphicComponentProps<
   P = {},
 > = InheritableElementProps<C, P & AsProp<C>>;
 
+/**
+ * @name PolymorphicRef
+ * @abstract Overloadable polymorphic ref
+ * @description This type allows you overload refs with HTML element props.
+ */
 export type PolymorphicRef<
   C extends React.ElementType,
 > = React.ComponentPropsWithRef<C>['ref'];
-/**
- * Overloadable polymorphic props
- */
 
+/**
+ * @name HTMLProps
+ * @category Typings
+ * @abstract Overloadable polymorphic props
+ * @description This type allows you overload custom props with HTML element props.
+ */
 export type HTMLProps<P, C extends React.ElementType = 'span'> = PolymorphicComponentProps<C, P>;
 export type PrismFC<P = {}> = React.FC<HTMLProps<P>>;
 
+/**
+ * @remarks Very special polymorphic typing, allows props to change based on the
+ * value of the "as" prop.
+ * @category Typings
+ * @example
+ * We define the Props for our component and then overload the
+ * HTMLComponent type with it. This gives us access to the "as"
+ * prop and the HTML attributes it inherits.
+ *
+ * ```jsx
+ * interface Props { arg0: string }
+ * const MyComp:HTMLComponent<Props> = ({arg0, as = "span", ...htmlProps}) => {
+ *    const Component = as;
+ *    return <Component {...htmlProps} />
+ * }
+ *
+ * let Valid = () => <MyComp as="input" type="button">OK</MyComp>
+ * // works, same as <input type="button">OK</input>
+ *
+ * let Invalid = () => <MyComp as="li" type="button">My li</MyComp>
+ * // error: Property 'type' does not exist on type HTMLLiElement
+ * ```
+ */
 export type HTMLComponent<P = {}> = <C extends React.ElementType = 'span'>(
   props: HTMLProps<P, C>
 ) => React.ReactElement | null;
 
-export type ForwardRef<P = {}> = <C extends React.ElementType = 'span'>(props: HTMLProps<P, C>, ref?: PolymorphicRef<C>) => React.ReactElement | null;
-
+/**
+ * @name AppendPrependArgs
+ * @category Typings
+ * @remark Default interface to add content before/after a component.
+ */
 export interface AppendPrependArgs {
   /**
    * Optionally provide a node to prepend to our component.
