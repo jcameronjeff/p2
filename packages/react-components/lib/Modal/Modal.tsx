@@ -276,15 +276,15 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   const { outerAnimate, innerAnimate, clsx } = React.useMemo(() => getAttributesFromVariant(), [props]);
 
   React.useEffect(() => modalValidations(props), []);
-
+  const as = props.as || Fragment;
   return (
     <Transition show={props.show} ref={ref} appear={true}>
-      <Dialog onClose={props.onClose} initialFocus={focus}>
+      <Dialog static onClose={props.onClose} initialFocus={focus} as={as || Fragment}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
-          <Transition.Child as={Fragment} {...outerAnimate} appear={true}>
+          <Transition.Child {...outerAnimate} appear={true}>
             <div className='prism-dialog-backdrop'>
-              <Dialog.Overlay className="prism-dialog-overlay" />
+              <Dialog.Overlay className="prism-dialog-overlay"  />
               <Transition.Child as={Fragment} {...innerAnimate} appear={true}>
                 <div ref={closeRef} className={clsx}>
                   {props.title ? (

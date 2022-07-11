@@ -1,3 +1,4 @@
+/// <reference types="vitest" />
 import { name } from './package.json';
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
@@ -7,6 +8,11 @@ import dts from 'vite-plugin-dts';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), dts()],
+  test: {
+    environment: 'jsdom', // or 'jsdom', 'node'
+    globals: true,
+    setupFiles: 'lib/setup.ts',
+  },
   build: {
     /**
      * Create a single bundle consisting of all imports to the `entry` file.

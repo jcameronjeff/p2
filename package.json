@@ -8,6 +8,7 @@
   "scripts": {
     "build": "turbo run build",
     "test": "turbo run test",
+    "test_ui": "turbo run test_ui",
     "deploy": "turbo run deploy",
     "dev": "turbo run dev",
     "storybook": "turbo run storybook --scope=@prism2/react-components",

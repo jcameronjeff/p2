@@ -1,5 +1,5 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Checkbox, Chip, Toggle } from '..';
+import { Checkbox, Chip } from '..';
 
 
 export default {

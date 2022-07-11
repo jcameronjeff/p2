@@ -12,17 +12,31 @@ export default {
 } as ComponentMeta<FCModal>;
 
 
-const Template: ComponentStory<FCModal> = () => {
+export const Default: ComponentStory<FCModal> = (args) => (
+  <Modal show={true} onClose={() => {}}>
+    <div data-testid={args['data-testid']}>
+      <Dialog.Title className='prism-heading-2' role='heading'>{args.title}</Dialog.Title>
+      <Dialog.Description className='prism-heading-3' role='contentinfo'>
+        {args.description}
+      </Dialog.Description>
+      {args.content}
+    </div>
+  </Modal>
+);
+
+export const TestTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
-    <Button variant="base" onClick={() => setIsOpen(true)}>
+    <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
       Toggle Modal
     </Button>
-    <Modal show={isOpen} onClose={() => setIsOpen(false)} __debug >
-      <Dialog.Title className='prism-heading-2'>Deactivate account</Dialog.Title>
-      <Dialog.Description className='prism-heading-3'>
+    <button data-testid='exterior'>Other</button>
+    <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug>
+      <div data-testid='modal-inner'>
+      <Dialog.Title className='prism-heading-2' role="heading">Deactivate account</Dialog.Title>
+      <Dialog.Description className='prism-heading-3' role="contentinfo">
         This will permanently deactivate your account
       </Dialog.Description>
       <p>
@@ -30,14 +44,16 @@ const Template: ComponentStory<FCModal> = () => {
         be permanently removed. This action cannot be undone.
       </p>
       <Button variant="base" ref={okRef} block onClick={() => setIsOpen(false)}>
-        Toggle Modal
+        Confirm
       </Button>
+      </div>
     </Modal>
     </>
   );
 };
 
-export const BasicExample = Template.bind({});
+export const BasicExample = TestTemplate.bind({});
+BasicExample.args = { 'data-testid': 'mx' };
 
 const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
