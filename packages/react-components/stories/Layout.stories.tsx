@@ -21,7 +21,7 @@ const LayoutTemplate: ComponentStory<any> = () => {
    * @returns Static HTML Header + Navigation
    */
   let Header = () => React.useMemo(() => (
-    <header role='banner' className='sticky bg-primary-dark w-full text-white border-t-4 border-gold-500'>
+    <header role='banner' className='sticky bg-primary-dark w-full text-white border-t-4 border-yellow-500'>
       <Box as='div' className='flex justify-between container p-4 m-auto items-center'>
         <h1 className='prism-heading-1 text-white'>Manheim</h1>
         <Box as='ul' className='flex gap-2'>
@@ -69,6 +69,70 @@ const LayoutTemplate: ComponentStory<any> = () => {
         <Aside className='w-[200px] divide-y' />
         <Content>
           <Box as='h1' className='prism-heading-1'>Templates</Box>
+          <div className='grid grid-cols-2 gap-4'>
+          <Box as='div' className='p-4 border border-blue-100 rounded-lg w-64 space-y-1'>
+            <h3 className='text-sm font-bold'>
+              Text Black
+            </h3>
+            <p className='text-sm'>This is a normal paragraph</p>
+            <p className='text-xs text-gray-400'>And this is a caption</p>
+          </Box>
+          <Box as='div' className='p-4 border border-black bg-blue-1000 text-gray-200 rounded-lg w-64 space-y-1'>
+            <h3 className='text-sm font-bold text-white'>
+              bg-blue-1000, text-white
+            </h3>
+            <p className='text-sm'>This is a normal paragraph, gray-200</p>
+            <p className='text-xs text-gray-400'>And this is a caption, gray-400</p>
+          </Box>
+          <Box as='div' className='p-4 border bg-blue-50 border-blue-100 rounded-lg w-64 space-y-1 text-blue-800'>
+            <h3 className='text-sm text-black font-bold'>
+              bg-blue-50, text-black
+            </h3>
+            <p className='text-sm'>text-blue-800 This is a normal paragraph slightly tinted to bg</p>
+            <p className='text-xs text-blue-400'>And this is a caption, tinted</p>
+          </Box>
+          <Box as='div' className='p-4 border bg-blue-800 border-blue-900 rounded-lg w-64 space-y-1 text-blue-200'>
+            <h3 className='text-sm text-white font-bold'>
+              bg-blue-800, text-white
+            </h3>
+            <p className='text-sm'>text-blue-200, This is a normal paragraph slightly tinted to bg</p>
+            <p className='text-xs text-blue-400'>And this is a caption, blue-400</p>
+          </Box>
+
+          <Box as='div' className='p-4 border bg-sky-50 border-sky-100 rounded-lg w-64 space-y-1 text-sky-800'>
+            <h3 className='text-sm text-black font-bold'>
+              bg-sky-50, text-black
+            </h3>
+            <p className='text-sm'>text-sky-800, This is a normal paragraph slightly tinted to bg</p>
+            <p className='text-xs text-sky-400'>sky-400, And this is a caption, tinted</p>
+          </Box>
+          <Box as='div' className='p-4 border bg-sky-800 border-sky-900 rounded-lg w-64 space-y-1 text-sky-200'>
+            <h3 className='text-sm text-white font-bold'>
+              bg-sky-800, text-white
+            </h3>
+            <p className='text-sm'>sky-200, This is a normal paragraph slightly tinted to bg</p>
+            <p className='text-xs text-sky-400'>sky-400, And this is a caption, sky-400</p>
+          </Box>
+
+          <Box as='div' className='p-4 border bg-yellow-50 border-yellow-100 rounded-lg w-64 space-y-1 text-yellow-800'>
+            <h3 className='text-sm text-black font-bold'>
+              bg-yellow-50, text-black
+            </h3>
+            <p className='text-sm'>yellow-800, This is a normal paragraph slightly tinted to yellow-800</p>
+            <p className='text-xs text-yellow-400'>And this is a caption, tinted yellow-400</p>
+          </Box>
+          <Box as='div' className='p-4 border bg-yellow-800 border-yellow-900 rounded-lg w-64 space-y-1 text-yellow-200'>
+            <h3 className='text-sm text-white font-bold'>
+              bg-yellow-800, text-white
+            </h3>
+            <p className='text-sm'>text-yellow-200, This is a normal paragraph slightly tinted to yellow-200</p>
+            <p className='text-xs text-yellow-400'>yellow-400 And this is a caption</p>
+          </Box>
+
+
+
+
+          </div>
         </Content>
       </Box>
       <Footer />

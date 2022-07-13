@@ -2,6 +2,7 @@ const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('./colors').colors;
 
 module.exports = {
+  baseColor: colors,
   screens: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
     xs: '480px',
@@ -52,18 +53,16 @@ module.exports = {
   },
   colors: ({ theme }) => ({
     // source: https://prism.coxautoinc.com/foundation/colors/colors
-    'accent': '#ff5ba8',
-    'navy': '#003468',
-    'navy-dark': '#001b35',
-    'primary': '#005ba8',
-    'primary-dark': '#004986',
-    'cerulean-light': '#c1dff2',
-    'cerulean': '#2c90cc',
-    'cerulean-dark': '#2372a2',
-    'gold-light': '#fff0c3',
-    'gold': '#ffc20e',
-    'gold-dark': '#ebb000',
-    'meadow-light': '#e3fad1',
+    // map our palette to existing named colors.
+    'primary': theme.colors.blue['700'],
+    'primary-dark': theme.colors.blue['800'],
+    'navy': theme.colors.blue['900'],
+    'navy-dark': theme.colors.blue['1000'],
+    'cerulean-light': theme.colors.sky['100'],
+    'cerulean': theme.colors.sky['500'],
+    'cerulean-dark': theme.colors.sky['600'],
+    'gold': theme.colors.yellow['500'],
+    'gold-dark': theme.colors.yellow['600'],
     ...colors,
     cerulean: colors.sky,
     saffron: colors.amber,
@@ -74,7 +73,10 @@ module.exports = {
     headings: colors.blue['800'],
     links: theme.colors.sky['700'],
     body: theme.colors.gray['800'],
-    muted: theme.colors.gray['400'],
+    muted: theme.colors.gray['500'],
+    caption: theme.colors.gray['400'],
+    ghost: theme.colors.gray['300'],
+    surface: theme.colors.gray['100'],
   }),
   // This will set the color for `.border` out of the box.
   borderColor: ({ theme }) => ({
