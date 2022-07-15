@@ -120,6 +120,7 @@ const colors = {
     800: '#244D6B',
     900: '#1E3649'
   },
+  gray,
   navy: makeScale('#013468'),
   yellow: {
     ...makeScale('#ffc20e'),
@@ -155,8 +156,7 @@ const extendedColors = {
   gold: colors.yellow,
   meadow: colors.green,
   jungle: colors.emerald,
-  ocean: colors.teal,
-  gray
+  ocean: colors.teal
 }
 
 module.exports = {

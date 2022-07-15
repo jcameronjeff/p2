@@ -8,9 +8,9 @@ export default {
   title: 'Patterns/Colors',
 } as ComponentMeta<any>;
 
-const Keynames = typeof theme === 'object' ? Object.keys(theme) : [];
 
-const bgs = {
+
+const bgs:Partial<{ [key in keyof Pick<typeof colors, 'gray' | 'blue' | 'sky' | 'yellow' | 'red' | 'amber'>]: string[] }> = {
   gray: [
     'bg-gray-50', 'bg-gray-100', 'bg-gray-200', 'bg-gray-300',
     'bg-gray-400', 'bg-gray-500', 'bg-gray-600', 'bg-gray-700',
@@ -26,10 +26,10 @@ const bgs = {
     'bg-sky-400', 'bg-sky-500', 'bg-sky-600', 'bg-sky-700',
     'bg-sky-800', 'bg-sky-900',
   ],
-  gold: [
-    'bg-gold-50', 'bg-gold-100', 'bg-gold-200', 'bg-gold-300',
-    'bg-gold-400', 'bg-gold-500', 'bg-gold-600', 'bg-gold-700',
-    'bg-gold-800', 'bg-gold-900',
+  yellow: [
+    'bg-yellow-50', 'bg-yellow-100', 'bg-yellow-200', 'bg-yellow-300',
+    'bg-yellow-400', 'bg-yellow-500', 'bg-yellow-600', 'bg-yellow-700',
+    'bg-yellow-800', 'bg-yellow-900',
   ],
   red: [
     'bg-red-50', 'bg-red-100', 'bg-red-200', 'bg-red-300',
@@ -44,8 +44,8 @@ const bgs = {
 };
 
 let cx = [
-  ['text-gold-500', 'Prism Gold', 'bg-gold-500 border-gold-600', 'gold', colors.yellow['500'], 'border-gold-500'],
-  ['text-gold-600', 'Prism Gold Dark', 'bg-gold-600 border-gold-700', 'gold-dark', colors.yellow['600'], 'border-gold-600'],
+  ['text-yellow-500', 'Prism Gold', 'bg-yellow-500 border-yellow-600', 'gold', colors.yellow['500'], 'border-yellow-500'],
+  ['text-yellow-600', 'Prism Gold Dark', 'bg-yellow-600 border-yellow-700', 'yellow-dark', colors.yellow['600'], 'border-yellow-600'],
   ['text-sky-500', 'Prism Cerulean', 'bg-sky-500 border-sky-600', 'cerulean', colors.sky['600'], 'border-sky-500'],
   ['text-sky-600', 'Prism Cerulean Dark', 'bg-sky-600 border-sky-700', 'cerulean-dark', colors.yellow['700'], 'border-sky-600'],
   ['text-blue-600', 'Prism Primary Blue', 'bg-blue-600 border-blue-700', 'primary', colors.blue['600'], 'border-blue-600'],
@@ -61,7 +61,7 @@ let cx = [
   ['text-emerald-500', 'Prism Good / 4', 'bg-emerald-500 border-sky-200', 'good', colors.sky['600'], 'border-emerald-500'],
   ['text-green-500', 'Prism OK / 3', 'bg-green-500 border-green-500', 'ok', colors.green['600'], 'border-green-500'],
   ['text-gray-300', 'Prism Fine / -', 'bg-gray-300 border-gray-300', 'fine', colors.gray['300'], 'border-gray-300'],
-  ['text-gold-400', 'Prism Warning / 2', 'bg-gold-400 border-gold-400', 'warning', colors.blue['400'], 'border-gold-400'],
+  ['text-yellow-400', 'Prism Warning / 2', 'bg-yellow-400 border-yellow-400', 'warning', colors.blue['400'], 'border-yellow-400'],
   ['text-amber-400', 'Prism Alert / 1', 'bg-amber-400 border-amber-400', 'alert', colors.blue['400'], 'border-amber-400'],
   ['text-red-400', 'Prism Danger / 0', 'bg-red-400 border-red-200', 'danger', colors.red['400'], 'border-red-400'],
 ];
@@ -113,10 +113,10 @@ const combinations = [
   { bg: 'bg-blue-700', title: 'text-white', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-900' },
   { bg: 'bg-blue-900', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-700' },
   { bg: 'bg-blue-1000', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-800' },
-  { bg: 'bg-gold-500', title: 'text-gray-900', body: 'text-gold-900', caption: 'text-gold-700',  border: 'border-gold-700' },
+  { bg: 'bg-yellow-500', title: 'text-gray-900', body: 'text-yellow-900', caption: 'text-yellow-700',  border: 'border-yellow-700' },
   { bg: 'bg-gray-500', title: 'text-gray-50', body: 'text-gray-200', caption: 'text-gray-300',  border: 'border-gray-700' },
   { bg: 'bg-gray-200', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-400' },
-  { bg: 'bg-gold-50', title: 'text-gold-900', body: 'text-gold-800', caption: 'text-gold-500',  border: 'border-gold-100' },
+  { bg: 'bg-yellow-50', title: 'text-yellow-900', body: 'text-yellow-800', caption: 'text-yellow-500',  border: 'border-yellow-100' },
   { bg: 'bg-green-50', title: 'text-green-900', body: 'text-green-800', caption: 'text-green-600',  border: 'border-green-100' },
   { bg: 'bg-gray-50', title: 'text-green-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-green-200' },
   { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100' },
@@ -182,6 +182,8 @@ const Sizes: ComponentStory<any> = () => (
       ))}
     </div>
 
+
+
     <h1 className='pt-8 prism-heading-1 border-b'>Sizing (height / width)</h1>
     <div className='flex flex-wrap items-center gap-4'>
     {['h-0.5 w-0.5', 'h-1 w-1', 'h-1.5 w-1.5', 'h-2 w-2', 'h-2.5 w-2.5',
@@ -202,7 +204,7 @@ const Sizes: ComponentStory<any> = () => (
     <div className='flex flex-wrap items-center gap-4'>
     {['p-4 px-8', 'p-4', 'p-2 px-4', 'p-2 px-4 text-sm ', 'p-1 px-2 text-xs '].map(c => (
       <div className='flex gap-1 flex-col items-center'>
-        <div className={`bg-gold-500 rounded-sm shadow-inner text-xx font-semibold text-blue-1000 uppercase ${c}`}>
+        <div className={`bg-yellow-500 rounded-sm shadow-inner text-xx font-semibold text-blue-1000 uppercase ${c}`}>
           Button
         </div>
         <div className="text-xs text-muted">{c}</div>
@@ -235,6 +237,28 @@ const Sizes: ComponentStory<any> = () => (
         </div>
       </div>
     ))}
+
+
+
+    <div className='items-center gap-4 space-y-4'>
+      <h1 className='prism-heading-1'>Colors</h1>
+      {Object.entries(colors)
+        .filter(i => Object.keys(bgs).includes(i[0]))
+        .map(([name, values]) =>
+          <>
+          <h3 className='prism-heading-3 w-full'>{name}</h3>
+          <div className='flex gap-2'>
+          {Object.entries(values).map(([key, val], idx) => (
+            <div className='flex gap-1 flex-col items-center'>
+              <div className={`h-16 w-16 rounded-sm shadow-inner text-xxs text-white ${bgs[name][idx]}`}></div>
+              <div className="text-xs text-muted">{name}.{key}</div>
+              <div className="text-xs text-muted">{val}</div>
+            </div>
+          ))}
+          </div>
+          </>,
+        )}
+    </div>
 
   </div>
 );
@@ -292,23 +316,29 @@ BoxPrimary6.args = combinations[6];
 export const BoxPrimary7 = BoxToken.bind({});
 BoxPrimary7.args = combinations[7];
 
-const TokenTable: ComponentStory<any> = () => (
-  <div className='space-y-8 border p-8 prism'>
 
-    <table>
-    {Keynames.map(kname => (
-      <>
+function RenderKey({ data, name }:{ data: object, name: string }) {
+  if (!data) return null;
+  let list = Object.entries(data);
+  if (!list || list.length < 1) return null;
+  return <>
       <thead className='bg-blue-900 text-white'>
-        <td colSpan={2} className='font-bold text-sm border-blue-800 p-2'>{kname}</td>
+        <td colSpan={2} className='font-bold text-sm border-blue-800 p-2'>{name}</td>
       </thead>
-      {typeof theme === 'object' && Object.keys(theme[kname]).map((key, idx) => (
-        <tr>
-          <td className='p-1 px-2 text-xs'>{kname}.{key}</td>
-          <td className='p-1 px-2 text-xs'><code>{`${!!theme ? Object.keys(theme[kname])[idx] : ''}`}</code></td>
+      {list.map((i, idx) => (
+        <tr className={(idx + 1) % 2 === 0 ? 'bg-gray-100' : ''}>
+          <td className='w-24 p-1 px-2 text-xs'>{i[0]}</td>
+          <td className='p-1 px-2 text-xs'><code>{JSON.stringify(i[1])}</code></td>
         </tr>
       ))}
-      </>
-    ))}
+    </>;
+}
+const Keynames = typeof theme === 'object' ? Object.keys(theme) : [];
+const TokenTable: ComponentStory<any> = () => (
+  <div className='space-y-8 border p-8 prism'>
+    <h1 className='prism-heading-1'>Theme Token Reference</h1>
+    <table>
+      {Keynames.map(kname => <RenderKey data={theme[kname]} name={kname} />)}
     </table>
   </div>
 );
