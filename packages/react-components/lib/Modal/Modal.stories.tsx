@@ -1,18 +1,18 @@
-import { useRef, useState } from 'react';
 import { Dialog } from '@headlessui/react';
-import { Button, Modal, Card, ModalProps } from '..';
+import { useRef, useState } from 'react';
+import { Button, Modal, Card } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-type FCModal = React.FC<ModalProps<any>>;
+// type FCModal = React.FC<ModalProps<any>>;
 
 export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { Button, Card },
-} as ComponentMeta<FCModal>;
+} as ComponentMeta<typeof Modal>;
 
 
-export const Default: ComponentStory<FCModal> = (args) => (
+export const Default: ComponentStory<typeof Modal> = (args) => (
   <Modal show={true} onClose={() => {}}>
     <div data-testid={args['data-testid']}>
       <Dialog.Title className='prism-heading-2' role='heading'>{args.title}</Dialog.Title>
@@ -20,17 +20,20 @@ export const Default: ComponentStory<FCModal> = (args) => (
         {args.description}
       </Dialog.Description>
       {args.content}
+      <Button variant="base" block onClick={() => {}}>
+        Confirm
+      </Button>
     </div>
   </Modal>
 );
 
-export const TestTemplate: ComponentStory<FCModal> = (args) => {
+export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
     <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
-      Toggle Modal
+      Toggle Me
     </Button>
     <button data-testid='exterior'>Other</button>
     <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug>
@@ -43,7 +46,7 @@ export const TestTemplate: ComponentStory<FCModal> = (args) => {
         Are you sure you want to deactivate your account? All of your data will
         be permanently removed. This action cannot be undone.
       </p>
-      <Button variant="base" ref={okRef} block onClick={() => setIsOpen(false)}>
+      <Button variant="base" innerRef={okRef} block onClick={() => setIsOpen(false)}>
         Confirm
       </Button>
       </div>
@@ -55,7 +58,7 @@ export const TestTemplate: ComponentStory<FCModal> = (args) => {
 export const BasicExample = TestTemplate.bind({});
 BasicExample.args = { 'data-testid': 'mx' };
 
-const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
+const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0);
   return (
@@ -78,7 +81,7 @@ const ShorthandTemplate: ComponentStory<FCModal> = (args) => {
   );
 };
 
-const CompactTemplate: ComponentStory<FCModal> = () => {
+const CompactTemplate: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);

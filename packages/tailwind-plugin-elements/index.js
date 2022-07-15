@@ -69,7 +69,7 @@ module.exports = plugin.withOptions(function (options = {
       },
     }, {
       base: ['button', 'input[type="button"]'],
-      class: [`*[class^=${prefix}btn]`, `.${prefix}btn`],
+      class: withPrefix(['btn']),
       styles: {
         fontWeight: theme('fontWeight.bold'),
         textTransform: 'uppercase',
@@ -80,8 +80,6 @@ module.exports = plugin.withOptions(function (options = {
         backgroundColor: 'transparent',
         color: theme('colors.sky.600'),
         outline: 'none',
-        border: 'none',
-        borderColor: 'transparent',
         whiteSpace: 'nowrap',
         textOverflow: 'ellipses',
         overflow: 'hidden',
@@ -89,7 +87,7 @@ module.exports = plugin.withOptions(function (options = {
         '&:focus-within': {
           boxShadow: theme('boxShadow.lg'),
         },
-        '&.outline': {
+        '&.outlined': {
           borderColor: theme('colors.sky.600'),
           outlineWidth: '1px',
         },

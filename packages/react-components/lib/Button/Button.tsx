@@ -1,4 +1,4 @@
-import { HTMLProps, ReactElement } from 'react';
+import { HTMLProps, ReactElement, Ref } from 'react';
 
 /**
  * @remark - Define types inline at the top of the file
@@ -27,7 +27,11 @@ interface Props extends HTMLProps<HTMLButtonElement> {
   /**
    * If true, button will span container
    */
-  block?: boolean
+  block?: boolean,
+  /**
+   * Roundabout way to pass a ref directly to our element
+   */
+  innerRef?: Ref<HTMLButtonElement>
 }
 
 /**
@@ -38,8 +42,11 @@ interface Props extends HTMLProps<HTMLButtonElement> {
  * - minimal API surface area (variant + tailwind)
  *
  */
-export function Button({ variant = 'base', label = 'OK', block = false, ...args }: Props):ReactElement {
-  const { children, className } = args;
+export function Button(
+  { variant = 'base', label = 'OK', block = false, ...props }: Props,
+):ReactElement {
+
+  const { children, className, innerRef, ...attr } = props;
 
   const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
   const vars:Variant = {
@@ -58,11 +65,12 @@ export function Button({ variant = 'base', label = 'OK', block = false, ...args 
   ].join(' ');
 
   return (
-    <button {...args} className={clsx}>{children || label}</button>
+    <button {...attr} ref={props.innerRef} className={clsx}>{children || label}</button>
   );
 }
 Button.defaultProps = {
   variant: 'base',
   type: 'button',
 };
+
 export default Button;

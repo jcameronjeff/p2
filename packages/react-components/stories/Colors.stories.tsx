@@ -1,13 +1,14 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
 import { colors } from './color-export';
+import { Button } from '../lib';
 
 export default {
   title: 'Patterns/Colors',
 } as ComponentMeta<any>;
 
-const Keynames = Object.keys(theme);
+const Keynames = typeof theme === 'object' ? Object.keys(theme) : [];
 
 const bgs = {
   gray: [
@@ -112,46 +113,37 @@ const combinations = [
   { bg: 'bg-blue-700', title: 'text-white', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-900' },
   { bg: 'bg-blue-900', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-700' },
   { bg: 'bg-blue-1000', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-800' },
-  { bg: 'bg-gold-600', title: 'text-gold-50', body: 'text-gold-100', caption: 'text-gold-300',  border: 'border-gold-700' },
-  { bg: 'bg-gold-500', title: 'text-gold-900', body: 'text-gold-900', caption: 'text-gold-700',  border: 'border-gold-700' },
-  { bg: 'bg-gray-50', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-200' },
+  { bg: 'bg-gold-500', title: 'text-gray-900', body: 'text-gold-900', caption: 'text-gold-700',  border: 'border-gold-700' },
+  { bg: 'bg-gray-500', title: 'text-gray-50', body: 'text-gray-200', caption: 'text-gray-300',  border: 'border-gray-700' },
+  { bg: 'bg-gray-200', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-400' },
   { bg: 'bg-gold-50', title: 'text-gold-900', body: 'text-gold-800', caption: 'text-gold-500',  border: 'border-gold-100' },
   { bg: 'bg-green-50', title: 'text-green-900', body: 'text-green-800', caption: 'text-green-600',  border: 'border-green-100' },
+  { bg: 'bg-gray-50', title: 'text-green-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-green-200' },
   { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100' },
+  { bg: 'bg-gray-50', title: 'text-red-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-red-200' },
   { bg: 'bg-red-50', title: 'text-red-900', body: 'text-red-800', caption: 'text-red-400',  border: 'border-red-100' },
   { bg: 'bg-red-700', title: 'text-red-50', body: 'text-red-100', caption: 'text-red-400',  border: 'border-red-500' },
 ];
 
-const combo = [
-  { bg: 'bg-blue-700', title: 'text-white', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-900' },
-  { bg: 'bg-blue-900', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-700' },
-  { bg: 'bg-blue-1000', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-800' },
-  { bg: 'bg-gold-600', title: 'text-gold-50', body: 'text-gold-100', caption: 'text-gold-300',  border: 'border-gold-700' },
-  { bg: 'bg-gold-500', title: 'text-gold-900', body: 'text-gold-900', caption: 'text-gold-700',  border: 'border-gold-700' },
-  { bg: 'bg-gray-50', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-200' },
-  { bg: 'bg-gold-50', title: 'text-gold-900', body: 'text-gold-800', caption: 'text-gold-500',  border: 'border-gold-100' },
-  { bg: 'bg-green-50', title: 'text-green-900', body: 'text-green-800', caption: 'text-green-600',  border: 'border-green-100' },
-  { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100' },
-  { bg: 'bg-red-50', title: 'text-red-900', body: 'text-red-800', caption: 'text-red-400',  border: 'border-red-100' },
-  { bg: 'bg-red-700', title: 'text-red-50', body: 'text-red-100', caption: 'text-red-400',  border: 'border-red-500' },
-];
-
-let ipsum1 = 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
 let ipsum2 = 'Nullam dignissim diam vitae quam consectetur.';
 let ipsum3 = 'Curabitur sit amet ligula lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.';
+
+const Icon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
+    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+  </svg>
+);
 const Combos: ComponentStory<any> = () => (
   <div className='space-y-4 flex flex-wrap gap-2 justify-center p-8'>
     {combinations.map(i => (
       <div className='flex w-full gap-16 justify-between items-center'>
         <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${i.bg} ${i.body} border-l-4 ${i.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
           <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
-            <div className='flex items-center'>
-              <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-              </svg>
+            <div className='flex items-center animate-pulse'>
+              <Icon />
             </div>
             <div className='flex items-center'>
-              <h3 className={`font-bold text-base ${i.title}`}>Example Box Variant</h3>
+              <h3 className={`font-bold text-base ${i.title}`}>Example Box Variant XOXO</h3>
             </div>
             <div />
             <div className='col-span-1'>
@@ -177,38 +169,110 @@ const Combos: ComponentStory<any> = () => (
   </div>
 );
 
+const Sizes: ComponentStory<any> = () => (
+  <div className='space-y-8 p-4'>
 
-const BoxToken: ComponentStory<any> = (args) => (
-  <div className='w-full gap-16 space-y-4 justify-between items-center'>
-    <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${args.bg} ${args.body} border-l-4 ${args.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
-      <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
-        <div className='flex items-center'>
-          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-            <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-          </svg>
-        </div>
-        <div className='flex items-center'>
-          <h3 className={`font-bold text-base ${args.title}`}>Example Box Variant</h3>
-        </div>
-        <div />
-        <div className='col-span-1'>
-          <p className='text-xs'>{ipsum3}</p>
-        </div>
-        <div />
-        <div className='col-span-1'>
-          <p className={`text-xxs ${args.caption}`}>{ipsum2}</p>
-        </div>
-      </div>
-    </div>
-    <div className='text-xs leading-[12px]'>
-      {['bg', 'border', 'title', 'body', 'caption'].map(k => (
-        <div className='flex gap-2'>
-          <div className='text-muted w-12'>{k}</div>
-          <div className={'font-mono font-semibold w-32'}>{args[k]}</div>
-          <div className={`font-mono font-semibold w-32 ${args[k]}`}>{args[k]}</div>
+    <h1 className='prism-heading-1'>Padding</h1>
+    <div className='flex flex-wrap items-center gap-4'>
+      {['p-0.5', 'p-1', 'p-1.5', 'p-2', 'p-2.5', 'p-3', 'p-4', 'p-5', 'p-6', 'p-8', 'p-10', 'p-16', 'p-20'].map(c => (
+        <div className='flex gap-1 flex-col items-center'>
+          <div className={`bg-blue-600 rounded-sm shadow-inner text-xxs text-white ${c}`}></div>
+          <div className="text-xs text-muted">{c}</div>
         </div>
       ))}
     </div>
+
+    <h1 className='pt-8 prism-heading-1 border-b'>Sizing (height / width)</h1>
+    <div className='flex flex-wrap items-center gap-4'>
+    {['h-0.5 w-0.5', 'h-1 w-1', 'h-1.5 w-1.5', 'h-2 w-2', 'h-2.5 w-2.5',
+      'h-3 w-3', 'h-4 w-4', 'h-5 w-5', 'h-6 w-6', 'h-8 w-8', 'h-10 w-10',
+      'h-12 w-12', 'h-16 w-16', 'h-20 w-20', 'h-20 w-20', 'h-24 w-24',
+      'h-32 w-32', 'h-40 w-40',
+    ].map(c => (
+      <div className='flex gap-1 flex-col items-center'>
+        <div className={`bg-blue-600 rounded-sm border-blue-900 shadow-inner text-xxs text-white ${c}`}></div>
+        <div className="text-xs text-muted">{c}</div>
+      </div>
+    ))}
+    </div>
+
+
+
+    <h1 className='pt-8 prism-heading-1 border-b'>Button Padding</h1>
+    <div className='flex flex-wrap items-center gap-4'>
+    {['p-4 px-8', 'p-4', 'p-2 px-4', 'p-2 px-4 text-sm ', 'p-1 px-2 text-xs '].map(c => (
+      <div className='flex gap-1 flex-col items-center'>
+        <div className={`bg-gold-500 rounded-sm shadow-inner text-xx font-semibold text-blue-1000 uppercase ${c}`}>
+          Button
+        </div>
+        <div className="text-xs text-muted">{c}</div>
+      </div>
+    ))}
+    </div>
+
+
+
+    <h1 className='pt-8 prism-heading-1 border-b'>Button Spacing</h1>
+    <div className='flex gap-2 items-center'>
+      <div className='mr-8 w-12 text-xs text-muted'>
+        gap-0
+      </div>
+      <div className={'flex gap-[-1px]'}>
+        <button className='prism-btn transition-all duration-100 border border-1  border-blue-700 border-r-none rounded-r-none'>One</button>
+        <button className='prism-btn transition-all duration-100 border-y border-1 border-blue-700  rounded-none'>Two</button>
+        <button className='prism-btn transition-all duration-100 border border-1 border-blue-700  rounded-l-none'>Three</button>
+      </div>
+    </div>
+    {['gap-0.5', 'gap-1', 'gap-1.5', 'gap-2', 'gap-4', 'gap-8'].map(gap => (
+      <div className='flex gap-2 items-center'>
+        <div className='mr-8 w-12 text-xs text-muted'>
+          {gap}
+        </div>
+        <div className={`flex ${gap}`}>
+          <Button>One</Button>
+          <Button>Two</Button>
+          <Button>Three</Button>
+        </div>
+      </div>
+    ))}
+
+  </div>
+);
+export const SizeExamples = Sizes.bind({});
+
+
+
+const BoxToken: ComponentStory<any> = (args) => (
+  <div className='w-full flex flex-wrap gap-8 justify-around  items-center'>
+    {/* <div className='space-y-8'> */}
+      <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${args.bg} ${args.body} border-l-4 ${args.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
+        <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
+          <div className='flex items-center animate-pulse'>
+            <Icon />
+          </div>
+          <div className='flex items-center'>
+            <h3 className={`font-bold text-base ${args.title}`}>Example Box Variant</h3>
+          </div>
+          <div />
+          <div className='col-span-1'>
+            <p className='text-xs'>{ipsum3}</p>
+          </div>
+          <div />
+          <div className='col-span-1'>
+            <p className={`text-xxs ${args.caption}`}>{ipsum2}</p>
+          </div>
+        </div>
+      </div>
+      <div className='text-xs leading-[12px]'>
+        {['bg', 'border', 'title', 'body', 'caption'].map(k => (
+          <div className='flex gap-2'>
+            <div className='text-muted w-12'>{k}</div>
+            <div className={'font-mono font-semibold w-32'}>{args[k]}</div>
+            <div className={`font-mono font-semibold w-32 ${args[k]}`}>{args[k]}</div>
+          </div>
+        ))}
+      </div>
+    {/* </div> */}
   </div>
 );
 export const BoxPrimary0 = BoxToken.bind({});
@@ -237,10 +301,10 @@ const TokenTable: ComponentStory<any> = () => (
       <thead className='bg-blue-900 text-white'>
         <td colSpan={2} className='font-bold text-sm border-blue-800 p-2'>{kname}</td>
       </thead>
-      {Object.keys(theme[kname]).map((key, idx) => (
+      {typeof theme === 'object' && Object.keys(theme[kname]).map((key, idx) => (
         <tr>
           <td className='p-1 px-2 text-xs'>{kname}.{key}</td>
-          <td className='p-1 px-2 text-xs'><code>{`${Object.values(theme[kname])[idx]}`}</code></td>
+          <td className='p-1 px-2 text-xs'><code>{`${!!theme ? Object.keys(theme[kname])[idx] : ''}`}</code></td>
         </tr>
       ))}
       </>

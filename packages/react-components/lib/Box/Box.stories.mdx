@@ -1,0 +1,89 @@
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { Modal, Button, Combobox, Card, Box } from '..';
+import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
+import { Transition, Dialog } from '@headlessui/react';
+
+
+<Meta title="Docs/Box" component={Box} />
+
+# Box
+
+Prism uses the concept of "boxes" to define behaviorial and visual aspects of various containers in our applications. This also allows us to encapsulate other things such as analytics, debugging and various browser/device APIs into otherwise vanilla JSX.
+
+### The `as` Prop
+
+<ArgsTable tabs={Box} />
+
+Prism2 components are polymorphic - they allow you to indicate with props *which kind of* HTML element components should render as.
+
+```jsx
+<Button as='button' type='submit'>Ok</Button> // output: <button className='prism-btn'>OK</button>
+<Button as="input" type='submit'>OK</Button> // output: <input type='button' className='prism-btn'>OK</input>
+<Button as='li'>LI looks like Button</Button> // output: <li className='prism-btn'>OK</li>
+```
+
+To explain why this is useful - an example: let's say you've been asked to append a hypothetical `<EmailSignup />` component as the last item on a styled list. However, the component renders markup wrapping in a `div` rather than an `li`. Typically, this would require hacking around with the DOM hierachy and - more often than not - writing custom CSS.
+
+What's more, your code editor will validates standard HTML attributes using the "as" prop. This means you will get consistent and accurate debugging feedback as you write.
+
+```jsx
+<Box
+  as="input"
+  type="button"
+  onClick={() => console.log("All is well")}>
+  OK
+</Box>
+<Box
+  as="div"
+  type='button'
+  onClick={() => console.log("Property 'type' does not exist on type 'HTMLAttributes<HTMLDivElement>'")}>
+  OK
+</Box>
+```
+
+
+
+### Comparison to vanilla markup
+
+| Domain | Vanilla | Prism2 |
+| --- | ---- | --- |
+| markup | `<nav>` | `<Box as='nav'>` |
+| themeing | none, DIY | full support |
+| async data | none, DIY | fully managed, just pass a request URL |
+| debugging | none, DIY | extensive logging and error handling out of the box |
+| business rules | DIY | included for free and invisibly |
+| a11y | none, DIY | smart defaults |
+| responsive layout | DIY | included |
+| context apis | DIY | provides several contexts |
+
+
+
+### Choice Tokens
+
+In the example below, we see that the visual style of a box (decision token) can be described with only a handful of design tokens / choice tokens.
+
+<Canvas>
+  <Story id='patterns-colors--box-primary-0' />
+</Canvas>
+
+<Canvas>
+  <Story id='patterns-colors--box-primary-1' />
+</Canvas>
+
+<Canvas>
+  <Story id='patterns-colors--box-primary-2' />
+</Canvas>
+
+<Canvas>
+  <Story id='patterns-colors--box-primary-5' />
+</Canvas>
+
+
+
+
+
+
+### Accessibility
+
+The `Box` component will attempt to provide various accessibility features for you with zero configuration.
+

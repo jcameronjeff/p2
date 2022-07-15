@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
-import React, { ElementType, Fragment, MutableRefObject, Ref, useRef } from 'react';
-import { forwardRefWithAs, fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
+import React, { ElementType, Fragment, MutableRefObject, useRef } from 'react';
+import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
 /**
@@ -224,9 +224,8 @@ function modalValidations(componentProps: any) {
  * {@link ModalProps}
  * {@link ModalPropsWeControl}
  */
-export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
-  props: ModalProps<TTag>,
-  ref: Ref<HTMLHeadingElement>,
+export const Modal = function Modal<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
+  { __debug = false, ...props }: ModalProps<TTag>,
 ) {
 
   function getAttributesFromVariant() {
@@ -272,20 +271,25 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   }
 
   const closeRef = useRef(null);
-  const focus = props.initialFocus || useRef(null);
+  const focus = props.initialFocus || undefined;
+  const as = props.as || Fragment;
   const { outerAnimate, innerAnimate, clsx } = React.useMemo(() => getAttributesFromVariant(), [props]);
 
-  React.useEffect(() => modalValidations(props), []);
-  const as = props.as || Fragment;
+  React.useEffect(() => {
+    if (__debug && __debug === true) {
+      modalValidations(props);
+    }
+  }, []);
+
   return (
-    <Transition show={props.show} ref={ref} appear={true}>
-      <Dialog static onClose={props.onClose} initialFocus={focus} as={as || Fragment}>
+    <Transition show={props.show} >
+      <Dialog static onClose={props.onClose} as={as} focus={focus} ref={props.ref}>
         <Dialog.Panel>
         <div className="prism-dialog-frame">
-          <Transition.Child {...outerAnimate} appear={true}>
+          <Transition.Child {...outerAnimate} >
             <div className='prism-dialog-backdrop'>
               <Dialog.Overlay className="prism-dialog-overlay"  />
-              <Transition.Child as={Fragment} {...innerAnimate} appear={true}>
+              <Transition.Child as={Fragment} {...innerAnimate} >
                 <div ref={closeRef} className={clsx}>
                   {props.title ? (
                     <Dialog.Title className='prism-heading-2'>
@@ -309,7 +313,7 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
       </Dialog>
     </Transition>
   );
-}
+};
 
-export const Modal = forwardRefWithAs(ModalRoot);
+export default Modal;
 

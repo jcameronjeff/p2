@@ -19,12 +19,12 @@
       "dependsOn": ["build"]
     },
     "storybook": {
-      "dependsOn": ["test"],
+      "dependsOn": [],
       "cache": false
     },
     "build-storybook": {
       "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)","stories/*",".storybook"],
-      "dependsOn": ["test"],
+      "dependsOn": ["test","build"],
       "outputs": ["docs/**"]
     },
     "deploy": {

@@ -2,11 +2,8 @@ const { mergeConfig } = require('vite');
 
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.mdx",
-    "../stories/**/*.stories.@(js|jsx|ts|tsx)",
-    "../lib/**/*.stories.mdx",
-    "../lib/**/*.docs.mdx",
-    "../lib/**/*.stories.@(js|jsx|ts|tsx)"
+    "../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)",
+    "../lib/**/*.stories.@(js|jsx|ts|tsx|mdx)"
   ],
   "addons": [
     "@storybook/addon-links",
@@ -26,13 +23,13 @@ module.exports = {
     let options = {}
     if (configType === 'DEVELOPMENT') {
       // Your development configuration goes here
-      Object.assign(options, {
-        build: {
-          rollupOptions: {
-            external: ['@mdx-js/react']
-          },
-        }
-      })
+      // Object.assign(options, {
+      //   build: {
+      //     rollupOptions: {
+      //       external: ['@mdx-js/react']
+      //     },
+      //   }
+      // })
     }
     if (configType === 'PRODUCTION') {
       // Your production configuration goes here.

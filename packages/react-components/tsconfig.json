@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["lib", "./node_modules/@headlessui", "tw","../tailwind-plugin-elements", "../tailwind-theme-prism", "../tailwind-preset"],
+  "include": ["lib", "stories", "tw"],
   "exclude": ["./node_modules", "./test"],
   "compilerOptions": {
     "types": ["node", "vite/client", "vitest/globals"]

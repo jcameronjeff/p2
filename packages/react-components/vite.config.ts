@@ -21,11 +21,13 @@ export default defineConfig({
      */
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
-      name: name,
+      name: 'Prism2',
+      fileName: 'index',
+      // formats: ['cjs', 'umd'],
       // we can build a super complex filename
       // fileName: (format) => `${name}.${version}.${format}.js`,
       // or we can just...
-      fileName: (format) => `index.${format}.js`,
+      // fileName: (format) => `index.${format}.js`,
     },
     /**
      * Externalize our peer dependencies from the bundle explicitly.

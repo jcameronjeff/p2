@@ -162,5 +162,3 @@ const extendedColors = {
 module.exports = {
   colors, extendedColors
 }
-
-console.log({gray, ...colors})

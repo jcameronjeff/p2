@@ -121,7 +121,7 @@ importers:
       ts-node: ^10.8.2
       typedoc: ^0.23.5
       typescript: ^4.7.4
-      vite: ^2.9.13
+      vite: '3'
       vite-plugin-dts: ^1.2.1
       vitest: ^0.17.0
       webpack: ^5.73.0
@@ -142,8 +142,8 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       tailwindcss: 3.1.4_ts-node@10.8.2
-      vite: 2.9.13
-      vite-plugin-dts: 1.2.1_vite@2.9.13
+      vite: 3.0.0
+      vite-plugin-dts: 1.2.1_vite@3.0.0
       vitest: 0.17.0_5m2jhqqiupa4avm7birjsu2wtu
     devDependencies:
       '@babel/core': 7.18.6
@@ -160,7 +160,7 @@ importers:
       '@storybook/addon-measure': 6.5.9_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-outline': 6.5.9_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addons': 6.5.9_sfoxds7t5ydpegc3knd667wn6m
-      '@storybook/builder-vite': 0.1.38_qgn5yd4pcczteomnwrlavuhun4
+      '@storybook/builder-vite': 0.1.38_m55qa525peivwztu3qbhue4imu
       '@storybook/channel-postmessage': 6.5.9
       '@storybook/channel-websocket': 6.5.9
       '@storybook/client-api': 6.5.9_sfoxds7t5ydpegc3knd667wn6m
@@ -3125,7 +3125,7 @@ packages:
       chalk: 4.1.2
     dev: true
 
-  /@joshwooding/vite-plugin-react-docgen-typescript/0.0.4_hcbhbela4dsabngu7n2naeo4la:
+  /@joshwooding/vite-plugin-react-docgen-typescript/0.0.4_s6jqybt3e2hu2qr5oyd6u5xwhu:
     resolution: {integrity: sha512-ezL7SU//1OV4Oyt/zQ3CsX8uLujVEYUHuULkqgcW6wOuQfRnvgkn99HZtLWwS257GmZVwszGQzhL7VE3PbMAYw==}
     peerDependencies:
       typescript: '>= 4.3.x'
@@ -3136,7 +3136,7 @@ packages:
       magic-string: 0.26.2
       react-docgen-typescript: 2.2.2_typescript@4.7.4
       typescript: 4.7.4
-      vite: 2.9.13
+      vite: 3.0.0
     dev: true
 
   /@jridgewell/gen-mapping/0.1.1:
@@ -3851,7 +3851,7 @@ packages:
       ts-dedent: 2.2.0
       util-deprecate: 1.0.2
 
-  /@storybook/builder-vite/0.1.38_qgn5yd4pcczteomnwrlavuhun4:
+  /@storybook/builder-vite/0.1.38_m55qa525peivwztu3qbhue4imu:
     resolution: {integrity: sha512-aCBuVP3phWGpT4548dCjSWC9X4TOhzVOt+jq8BVbzZ/Cyou8UFN45Z5kMxtpVsVnJEQ0abC/BdkRuRtGEL/vJQ==}
     peerDependencies:
       '@storybook/core-common': '>=6.4.3 || >=6.5.0-alpha.0'
@@ -3862,7 +3862,7 @@ packages:
       '@storybook/mdx2-csf':
         optional: true
     dependencies:
-      '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.4_hcbhbela4dsabngu7n2naeo4la
+      '@joshwooding/vite-plugin-react-docgen-typescript': 0.0.4_s6jqybt3e2hu2qr5oyd6u5xwhu
       '@storybook/core-common': 6.5.9_xnotlrfh3iudapsau3mccryldy
       '@storybook/mdx1-csf': 0.0.4_on4pwhjuscz2cucak6hkhs726q
       '@storybook/node-logger': 6.5.9
@@ -3876,7 +3876,7 @@ packages:
       react-docgen: 6.0.0-alpha.3
       slash: 3.0.0
       sveltedoc-parser: 4.2.1
-      vite: 2.9.13
+      vite: 3.0.0
     transitivePeerDependencies:
       - '@babel/core'
       - react
@@ -4856,7 +4856,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.4
+      tailwindcss: 3.1.4_ts-node@10.8.2
 
   /@testing-library/dom/8.14.0:
     resolution: {integrity: sha512-m8FOdUo77iMTwVRCyzWcqxlEIk+GnopbrRI15a0EaLbpZSCinIVI4kSQzWhkShK83GogvEFJSsHF3Ws0z1vrqA==}
@@ -6448,7 +6448,7 @@ packages:
       mississippi: 3.0.0
       mkdirp: 0.5.6
       move-concurrently: 1.0.1
-      promise-inflight: 1.0.1
+      promise-inflight: 1.0.1_bluebird@3.7.2
       rimraf: 2.7.1
       ssri: 6.0.2
       unique-filename: 1.1.1
@@ -11777,6 +11777,7 @@ packages:
       lilconfig: 2.0.5
       postcss: 8.4.14
       yaml: 1.10.2
+    dev: false
 
   /postcss-loader/4.3.0_gzaxsinx64nntyd3vmdqwl7coe:
     resolution: {integrity: sha512-M/dSoIiNDOo8Rk0mUqoj4kpGq91gcxCfb9PoyZVdZ76/AuhxylHDYZblNE8o+EQ9AMSASeMFEKxZf5aU6wlx1Q==}
@@ -12200,6 +12201,16 @@ packages:
     peerDependenciesMeta:
       bluebird:
         optional: true
+
+  /promise-inflight/1.0.1_bluebird@3.7.2:
+    resolution: {integrity: sha512-6zWPyEOFaQBJYcGMHBKTKJ3u6TBsnMFOIZSa6ce1e/ZrrsOlnHRHbabMjLiBYKp+n44X9eUI6VUPaukCXHuG4g==}
+    peerDependencies:
+      bluebird: '*'
+    peerDependenciesMeta:
+      bluebird:
+        optional: true
+    dependencies:
+      bluebird: 3.7.2
 
   /promise.allsettled/1.0.5:
     resolution: {integrity: sha512-tVDqeZPoBC0SlzJHzWGZ2NKAguVq2oiYj7gbggbiTvH2itHohijTp7njOUA0aQ/nl+0lr/r6egmhoYu63UZ/pQ==}
@@ -13569,6 +13580,7 @@ packages:
       resolve: 1.22.1
     transitivePeerDependencies:
       - ts-node
+    dev: false
 
   /tailwindcss/3.1.4_ts-node@10.8.2:
     resolution: {integrity: sha512-NrxbFV4tYsga/hpWbRyUfIaBrNMXDxx5BsHgBS4v5tlyjf+sDsgBg5m9OxjrXIqAS/uR9kicxLKP+bEHI7BSeQ==}
@@ -13599,7 +13611,6 @@ packages:
       resolve: 1.22.1
     transitivePeerDependencies:
       - ts-node
-    dev: false
 
   /tapable/1.1.3:
     resolution: {integrity: sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==}
@@ -14438,7 +14449,7 @@ packages:
       unist-util-stringify-position: 2.0.3
       vfile-message: 2.0.4
 
-  /vite-plugin-dts/1.2.1_vite@2.9.13:
+  /vite-plugin-dts/1.2.1_vite@3.0.0:
     resolution: {integrity: sha512-V59rsKQnPI6FTGybh/ED4+dyK3UeSkvC1CJzpuDNoXb7mKNUcWmg66EM0N5Ijoc8xDAfZIXYxQjg675YHIDvFw==}
     engines: {node: '>=12.0.0'}
     peerDependencies:
@@ -14451,7 +14462,7 @@ packages:
       fast-glob: 3.2.11
       fs-extra: 10.1.0
       ts-morph: 14.0.0
-      vite: 2.9.13
+      vite: 3.0.0
     transitivePeerDependencies:
       - supports-color
     dev: false
@@ -14480,20 +14491,23 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vite/2.9.13:
-    resolution: {integrity: sha512-AsOBAaT0AD7Mhe8DuK+/kE4aWYFMx/i0ZNi98hJclxb4e0OhQcZYUrvLjIaQ8e59Ui7txcvKMiJC1yftqpQoDw==}
-    engines: {node: '>=12.2.0'}
+  /vite/3.0.0:
+    resolution: {integrity: sha512-M7phQhY3+fRZa0H+1WzI6N+/onruwPTBTMvaj7TzgZ0v2TE+N2sdLKxJOfOv9CckDWt5C4HmyQP81xB4dwRKzA==}
+    engines: {node: '>=14.18.0'}
     hasBin: true
     peerDependencies:
       less: '*'
       sass: '*'
       stylus: '*'
+      terser: ^5.4.0
     peerDependenciesMeta:
       less:
         optional: true
       sass:
         optional: true
       stylus:
+        optional: true
+      terser:
         optional: true
     dependencies:
       esbuild: 0.14.48
@@ -14535,12 +14549,13 @@ packages:
       local-pkg: 0.4.1
       tinypool: 0.2.2
       tinyspy: 0.3.3
-      vite: 2.9.13
+      vite: 3.0.0
     transitivePeerDependencies:
       - less
       - sass
       - stylus
       - supports-color
+      - terser
     dev: false
 
   /vm-browserify/1.1.2:
