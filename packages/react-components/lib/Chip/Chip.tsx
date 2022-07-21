@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { Switch } from '@headlessui/react';
-import { Box } from './Box';
+import { Box } from '../Box';
 import { AppendPrependArgs, HTMLComponent } from '../types';
 import clsx from 'clsx';
 

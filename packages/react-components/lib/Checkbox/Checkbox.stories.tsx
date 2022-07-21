@@ -3,7 +3,7 @@ import Checkbox from './Checkbox';
 import { Box } from '../Box';
 
 export default {
-  title: 'Elements/Checkboxes',
+  title: 'Components/Checkboxes',
   component: Checkbox,
   subcomponents: { Box },
 } as ComponentMeta<any>;

@@ -6,7 +6,7 @@ import { userEvent, within } from '@storybook/testing-library';
 
 
 export default {
-  title: 'Elements/Tooltip',
+  title: 'Components/Tooltip',
   component: Tooltip,
   subcomponents: { Checkbox, Button, Modal, Dialog },
 } as ComponentMeta<any>;

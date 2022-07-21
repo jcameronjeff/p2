@@ -1,44 +1,20 @@
-import React from 'react';
+import { ArrowCircleRightIcon } from '@heroicons/react/solid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import  * as theme from 'tailwindcss/defaultTheme';
-import { colors } from './color-export';
-import { Button } from '../lib';
 
 export default {
-  title: 'Demo/BoxChoiceTokens',
+  title: 'Demo/Choice Tokens',
 } as ComponentMeta<any>;
-
 
 let ipsum2 = 'Nullam dignissim diam vitae quam consectetur.';
 let ipsum3 = 'Curabitur sit amet ligula lorem. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae.';
 
-const combinations = [
-  { bg: 'bg-blue-700', title: 'text-white', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-900' },
-  { bg: 'bg-blue-900', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-700' },
-  { bg: 'bg-blue-1000', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-800' },
-  { bg: 'bg-yellow-500', title: 'text-gray-900', body: 'text-yellow-900', caption: 'text-yellow-700',  border: 'border-yellow-700' },
-  { bg: 'bg-gray-500', title: 'text-gray-50', body: 'text-gray-200', caption: 'text-gray-300',  border: 'border-gray-700' },
-  { bg: 'bg-gray-200', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-400' },
-  { bg: 'bg-yellow-50', title: 'text-yellow-900', body: 'text-yellow-800', caption: 'text-yellow-500',  border: 'border-yellow-100' },
-  { bg: 'bg-green-50', title: 'text-green-900', body: 'text-green-800', caption: 'text-green-600',  border: 'border-green-100' },
-  { bg: 'bg-gray-50', title: 'text-green-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-green-200' },
-  { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100' },
-  { bg: 'bg-gray-50', title: 'text-red-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-red-200' },
-  { bg: 'bg-red-50', title: 'text-red-900', body: 'text-red-800', caption: 'text-red-400',  border: 'border-red-100' },
-  { bg: 'bg-red-700', title: 'text-red-50', body: 'text-red-100', caption: 'text-red-400',  border: 'border-red-500' },
-];
-const Icon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
-  </svg>
-);
 const BoxToken: ComponentStory<any> = (args) => (
   <div className='w-full flex flex-wrap gap-8 justify-around  items-center'>
     {/* <div className='space-y-8'> */}
       <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${args.bg} ${args.body} border-l-4 ${args.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
         <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
           <div className='flex items-center animate-pulse'>
-            <Icon />
+            <ArrowCircleRightIcon />
           </div>
           <div className='flex items-center'>
             <h3 className={`font-bold text-base ${args.title}`}>Example Box Variant</h3>
@@ -65,22 +41,62 @@ const BoxToken: ComponentStory<any> = (args) => (
     {/* </div> */}
   </div>
 );
-export const BoxPrimary0 = BoxToken.bind({});
-BoxPrimary0.args = combinations[0];
-export const BoxPrimary1 = BoxToken.bind({});
-BoxPrimary1.args = combinations[1];
-export const BoxPrimary2 = BoxToken.bind({});
-BoxPrimary2.args = combinations[2];
-export const BoxPrimary3 = BoxToken.bind({});
-BoxPrimary3.args = combinations[3];
-export const BoxPrimary4 = BoxToken.bind({});
-BoxPrimary4.args = combinations[4];
-export const BoxPrimary5 = BoxToken.bind({});
-BoxPrimary5.args = combinations[5];
-export const BoxPrimary6 = BoxToken.bind({});
-BoxPrimary6.args = combinations[6];
-export const BoxPrimary7 = BoxToken.bind({});
-BoxPrimary7.args = combinations[7];
+
+const combinations = [
+  { bg: 'bg-blue-700', title: 'text-white', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-900',
+    label: 'Primary Blue Box' },
+  { bg: 'bg-blue-900', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-700',
+    label: 'Navy Box' },
+  { bg: 'bg-blue-1000', title: 'text-blue-50', body: 'text-blue-100', caption: 'text-blue-400',  border: 'border-blue-800',
+    label: 'Navy Dark Box' },
+  { bg: 'bg-yellow-500', title: 'text-gray-900', body: 'text-yellow-900', caption: 'text-yellow-700',  border: 'border-yellow-700',
+    label: '' },
+  { bg: 'bg-gray-500', title: 'text-gray-50', body: 'text-gray-200', caption: 'text-gray-300',  border: 'border-gray-700',
+    label: '' },
+  { bg: 'bg-gray-200', title: 'text-gray-900', body: 'text-gray-600', caption: 'text-gray-400',  border: 'border-gray-400',
+    label: '' },
+  { bg: 'bg-yellow-50', title: 'text-yellow-900', body: 'text-yellow-800', caption: 'text-yellow-500',  border: 'border-yellow-100',
+    label: '' },
+  { bg: 'bg-green-50', title: 'text-green-900', body: 'text-green-800', caption: 'text-green-600',  border: 'border-green-100',
+    label: '' },
+  { bg: 'bg-gray-50', title: 'text-green-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-green-200',
+    label: '' },
+  { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100',
+    label: '' },
+  { bg: 'bg-gray-50', title: 'text-red-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-red-200',
+    label: '' },
+  { bg: 'bg-red-50', title: 'text-red-900', body: 'text-red-800', caption: 'text-red-400',  border: 'border-red-100',
+    label: '' },
+  { bg: 'bg-red-700', title: 'text-red-50', body: 'text-red-100', caption: 'text-red-400',  border: 'border-red-500',
+    label: '' },
+];
+
+export const PrimaryBlue = BoxToken.bind({});
+PrimaryBlue.args = combinations[0];
+export const NavyBox = BoxToken.bind({});
+NavyBox.args = combinations[1];
+export const NavyDarkBox = BoxToken.bind({});
+NavyDarkBox.args = combinations[2];
+export const WarningBoxDark = BoxToken.bind({});
+WarningBoxDark.args = combinations[3];
+export const NeutralDarkBox = BoxToken.bind({});
+NeutralDarkBox.args = combinations[4];
+export const NeutralLightBox = BoxToken.bind({});
+NeutralLightBox.args = combinations[5];
+export const WarningBox = BoxToken.bind({});
+WarningBox.args = combinations[6];
+export const SuccessBox = BoxToken.bind({});
+SuccessBox.args = combinations[7];
+export const SuccessBoxAlternate = BoxToken.bind({});
+SuccessBoxAlternate.args = combinations[8];
+export const InfoBox = BoxToken.bind({});
+InfoBox.args = combinations[9];
+export const DangerBoxAlternate = BoxToken.bind({});
+DangerBoxAlternate.args = combinations[10];
+export const DangerBoxLight = BoxToken.bind({});
+DangerBoxLight.args = combinations[11];
+export const DangerBoxDark = BoxToken.bind({});
+DangerBoxDark.args = combinations[12];
 
 const Combos: ComponentStory<any> = () => (
   <div className='space-y-4 flex flex-wrap gap-2 justify-center p-8'>
@@ -89,7 +105,7 @@ const Combos: ComponentStory<any> = () => (
         <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${i.bg} ${i.body} border-l-4 ${i.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
           <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
             <div className='flex items-center animate-pulse'>
-              <Icon />
+              <ArrowCircleRightIcon />
             </div>
             <div className='flex items-center'>
               <h3 className={`font-bold text-base ${i.title}`}>Example Box Variant XOXO</h3>

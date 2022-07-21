@@ -2,11 +2,17 @@ import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import Radio, { RadioSet, Radios } from './Radio';
 import { Box } from '../Box';
+import mdx from './README.mdx';
 
 export default {
-  title: 'Elements/Radios',
+  title: 'Components/Radios',
   component: Radio,
   subcomponents: { Radios },
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
 } as ComponentMeta<any>;
 
 export const Basic: ComponentStory<any> = () => {

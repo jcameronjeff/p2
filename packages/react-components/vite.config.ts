@@ -8,6 +8,7 @@ import dts from 'vite-plugin-dts';
 // https://vitejs.dev/config/
 export default defineConfig({
   plugins: [react(), dts()],
+  assetsInclude: ['**/*.mdx'],
   test: {
     environment: 'jsdom', // or 'jsdom', 'node'
     globals: true,

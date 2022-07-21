@@ -1,5 +1,21 @@
-import React from 'react';
-import { PrismFC } from '../types';
+import { forwardRefWithAs } from '../utils';
+import { ElementType } from 'react';
+import { Props } from '../types';
+
+let DEFAULT_COMPONENT_TAG = 'div' as const;
+type DTag = typeof DEFAULT_COMPONENT_TAG;
+export interface RenderPropArg {
+  open: boolean
+}
+export type CompPropsWeControl =
+  | 'id'
+  | 'role'
+  | 'aria-describedby'
+  | 'aria-labelledby';
+export type MyCompPropsBase<T> = Props<T, RenderPropArg, CompPropsWeControl>;
+export type CompProps<T> = MyCompPropsBase<T> & {
+  arg0?: boolean
+};
 
 /**
  * @package Blank Component Template
@@ -18,26 +34,21 @@ import { PrismFC } from '../types';
  */
 
 
-interface Props {
-  /**
-   * Description of argument purpose
-   */
-  arg0?: boolean,
+export function MyComponentRoot<TTag extends ElementType = DTag>(props: CompProps<TTag>) {
+  const { as, children, ...attr } = props;
+  const Component = as || 'span';
+  // if (children) {
+  //   return <Component {...attr}>{children}</Component>;
+  // }
+  return <Component {...attr}>{children}</Component>;
 }
 
-// export function MyComponent({ arg0, ...props }: Props):React.ReactElement {
-export const MyComponent:PrismFC<Props> = ({ as, arg0, ...props }) => {
-  const { children, className } = props;
-  const baseClass = 'bg-transparent border border-blue-300 ring-0';
-  const clsx = [baseClass, className].join(' ');
-  const Component = as || 'span';
-  return (
-    <Component {...props} className={clsx}>{children}</Component>
-  );
-};
-
-MyComponent.defaultProps = {
+// Example of how to assign default props in this pattern.
+MyComponentRoot.defaultProps = {
   arg0: true,
 };
 
-export default MyComponent;
+// this allows us to include a `ref` that is typed appropriated
+// based on the "as" prop.
+// Example: when as="div", ref will be of type Ref<HTMLDivElement>
+export const MyComponent = forwardRefWithAs(MyComponentRoot);

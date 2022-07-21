@@ -21,6 +21,16 @@ export const fadeInOut:TransitionPropPreset = {
   leaveFrom: 'opacity-100',
   leaveTo: 'opacity-0',
 };
+
+export const fadeInDownOutUp:TransitionPropPreset = {
+  enter: 'transition-all ease-linear duration-200',
+  enterFrom: 'opacity-0 -translate-y-2 scale-y-90',
+  enterTo: 'opacity-100 translate-y-0 scale-y-100',
+  leave: 'transition-all ease-linear duration-200',
+  leaveFrom: 'opacity-100 translate-y-0 scale-y-100',
+  leaveTo: 'opacity-0 -translate-y-2 scale-y-90',
+};
+
 export const slideUpDown:TransitionPropPreset = {
   // slideUpDown
   enter: 'ease-in-out duration-200',

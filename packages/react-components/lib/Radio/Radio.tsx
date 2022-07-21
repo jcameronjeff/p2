@@ -18,13 +18,13 @@ export const Radio:HTMLComponent<IProps>  = ({
   value,
   ...props
 }) => {
-  const baseClasses = 'prism-form-check-input prism-form-radio cursor-pointer';
+  const baseClasses = 'cursor-pointer capitalize';
   const clsx = [baseClasses, className].join(' ');
 
   return (
-      <Box as='label' className='flex gap-1 item-center text-sm cursor-pointer'>
-        <Box as='input' value={value} type='radio' {...props} className={clsx} />
-        <Box as='span' className='capitalize'>{label || value}</Box>
+      <Box as='label' className='flex gap-2 items-center cursor-pointer'>
+        <Box as='input' value={value} type='radio' {...props}  />
+        <Box as='div' className={clsx}>{label || value}</Box>
       </Box>
   );
 };
@@ -71,7 +71,7 @@ export const RadioSet:React.FC<Props> = ({ values, name, onChange = () => {}, on
   return (
     <RadioGroup value={selection} onChange={handleChange} as="fieldset">
       {name && <RadioGroup.Label className='prism-label' as="legend">{name}</RadioGroup.Label>}
-      <div className={inline ? 'flex gap-4' : ''}>
+      <div className={inline ? 'flex gap-4 items-center' : ''}>
       {values.map((item, key) => (
         <RadioGroup.Option value={item} key={`item-${key}`}>
           {({ checked }) => (
@@ -100,7 +100,7 @@ export const Radios:React.FC<Props> = ({
   }, []);
 
   return (
-    <div className={inline ? 'flex gap-4' : ''}>
+    <div className={inline ? 'flex gap-4 items-center' : ''}>
       {values.map((val, k) =>
         <Radio
           key={`item-${k}`}

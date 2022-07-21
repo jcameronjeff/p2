@@ -4,7 +4,8 @@ import { Tab } from '@headlessui/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 import { Basic as BasicCard } from '../lib/Card/Card.stories';
-import { BasicUsage as ComboboxExample } from '../lib/Input/Combobox.stories';
+import { BasicUsage as ComboboxExample } from '../stories/Combobox.stories';
+import { MyComponent } from '../lib/__blank_component';
 
 export default {
   title: 'Components/Tabs',

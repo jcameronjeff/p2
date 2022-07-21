@@ -1,6 +1,6 @@
 import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
 import { Modal, Button, Combobox, Card, Chip } from '..';
-import { Template as ComboboxTemplate } from '../Input/Combobox.stories';
+import { Template as ComboboxTemplate } from '../../stories/Combobox.stories';
 import { Transition, Dialog } from '@headlessui/react';
 
 <Meta title="Docs/Chips" component={Chip} />
@@ -19,7 +19,7 @@ Chips labels may be bold ALL-CAPS, or regular sentence case. Maintain a minimum 
 ### Default
 
 <Canvas>
-  <Story id='elements-chips--basic' />
+  <Story id='components-chips--basic' />
 </Canvas>
 
 ### With Icons
@@ -27,17 +27,17 @@ Chips labels may be bold ALL-CAPS, or regular sentence case. Maintain a minimum 
 `Chip` makes use of our standardized `append` and `prepend` props to render iconography and the like.
 
 <Canvas>
-  <Story id='elements-chips--icon-chips' />
+  <Story id='components-chips--icon-chips' />
 </Canvas>
 
 ### As Buttons
 <Canvas>
-  <Story id='elements-chips--button-chips' />
+  <Story id='components-chips--button-chips' />
 </Canvas>
 
 ### As Links
 <Canvas>
-  <Story id='elements-chips--link-chips' />
+  <Story id='components-chips--link-chips' />
 </Canvas>
 
 ### As Toggle
@@ -45,7 +45,7 @@ Chips labels may be bold ALL-CAPS, or regular sentence case. Maintain a minimum 
 We make use of a dedicated `Toggle` component styled to appear like a `Chip`
 
 <Canvas>
-  <Story id='elements-chips--toggle-chips' />
+  <Story id='components-chips--toggle-chips' />
 </Canvas>
 
 

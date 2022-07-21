@@ -48,7 +48,7 @@ export function Button(
 
   const { children, className, innerRef, ...attr } = props;
 
-  const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
+  const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1 justify-center';
   const vars:Variant = {
     outline: 'bg-transparent border border-blue-300 ring-0',
     text: 'border-0',
@@ -60,7 +60,7 @@ export function Button(
   const clsx = [
     baseClass,
     vars[variant],
-    (block && 'w-full'),
+    (block && 'w-full text-center'),
     className,
   ].join(' ');
 

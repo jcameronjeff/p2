@@ -1,12 +1,16 @@
+export * from './Accordion';
 export * from './Avatar';
 export * from './Box';
 export * from './Button';
+export * from './Checkbox';
+export * from './Chip';
 export * from './Card';
+export * from './Dropdown';
 export * from './Input';
 export * from './Modal';
 export * from './Input';
+export * from './Radio';
 export * from './Tooltip';
-
 export * from './utils';
 export * from '@headlessui/react';
 

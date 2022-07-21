@@ -5,14 +5,20 @@ import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button } from '../Button';
 import { BeakerIcon } from '@heroicons/react/solid';
+import mdx from './README.mdx';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
-  title: 'Elements/Button',
+  title: 'Components/Button',
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
     backgroundColor: { control: 'color' },
+  },
+  parameters: {
+    docs: {
+      page: mdx,
+    },
   },
 } as ComponentMeta<typeof Button>;
 

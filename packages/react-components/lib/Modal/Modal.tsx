@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { ElementType, Fragment, MutableRefObject, useRef } from 'react';
-import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
+import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft, forwardRefWithAs } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
 /**
@@ -224,7 +224,7 @@ function modalValidations(componentProps: any) {
  * {@link ModalProps}
  * {@link ModalPropsWeControl}
  */
-export const Modal = function Modal<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
+export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   { __debug = false, ...props }: ModalProps<TTag>,
 ) {
 
@@ -313,7 +313,7 @@ export const Modal = function Modal<TTag extends ElementType = typeof DEFAULT_MO
       </Dialog>
     </Transition>
   );
-};
+}
 
-export default Modal;
+export const Modal = forwardRefWithAs(ModalRoot);
 

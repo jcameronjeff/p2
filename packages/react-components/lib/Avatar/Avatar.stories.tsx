@@ -1,10 +1,11 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Avatar } from '..';
+import mdx from './README.mdx';
 
 const imgUrls = ['//www.fillmurray.com/128/128', '//brok.en/i.png', 'https://media-exp1.licdn.com/dms/image/C5603AQEy9ikDqCx6jQ/profile-displayphoto-shrink_200_200/0/1645806136918?e=1655942400&v=beta&t=yZE1W30TXps7n9EdGwbpR0NYSl1sBdrQ1WJjel9NCZk'];
 
 export default {
-  title: 'Elements/Avatar',
+  title: 'Components/Avatar',
   description: 'Another component',
   component: Avatar,
   argTypes: {
@@ -29,6 +30,11 @@ export default {
         type: 'select', // Type 'select' is automatically inferred when 'options' is defined
         options: ['Darin Cassler', 'Darin', 'DC', 'Darin Singer Cassler', 'DSC'],
       },
+    },
+  },
+  parameters: {
+    docs: {
+      page: mdx,
     },
   },
 } as ComponentMeta<typeof Avatar>;

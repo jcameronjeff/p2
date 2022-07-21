@@ -3,7 +3,7 @@ import React from 'react';
 import { Chip, Button, Box, Toggle } from '../lib';
 
 export default {
-  title: 'Patterns/Layout',
+  title: 'Demo/Layout',
   component: Chip,
   subcomponents: { Chip, Button, Box, Toggle },
 } as ComponentMeta<any>;

@@ -2,53 +2,47 @@ import { Dialog } from '@headlessui/react';
 import { useRef, useState } from 'react';
 import { Button, Modal, Card } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
+import mdx from './README.mdx';
 // type FCModal = React.FC<ModalProps<any>>;
 
 export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { Button, Card },
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
 } as ComponentMeta<typeof Modal>;
 
-
-export const Default: ComponentStory<typeof Modal> = (args) => (
-  <Modal show={true} onClose={() => {}}>
-    <div data-testid={args['data-testid']}>
-      <Dialog.Title className='prism-heading-2' role='heading'>{args.title}</Dialog.Title>
-      <Dialog.Description className='prism-heading-3' role='contentinfo'>
-        {args.description}
-      </Dialog.Description>
-      {args.content}
-      <Button variant="base" block onClick={() => {}}>
-        Confirm
-      </Button>
-    </div>
-  </Modal>
-);
 
 export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
   return (
     <>
-    <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
-      Toggle Me
-    </Button>
-    <button data-testid='exterior'>Other</button>
-    <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug>
-      <div data-testid='modal-inner'>
-      <Dialog.Title className='prism-heading-2' role="heading">Deactivate account</Dialog.Title>
-      <Dialog.Description className='prism-heading-3' role="contentinfo">
-        This will permanently deactivate your account
-      </Dialog.Description>
-      <p>
-        Are you sure you want to deactivate your account? All of your data will
-        be permanently removed. This action cannot be undone.
-      </p>
-      <Button variant="base" innerRef={okRef} block onClick={() => setIsOpen(false)}>
-        Confirm
+    <div className='flex gap-2'>
+      <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
+        Toggle Me
       </Button>
+      <Button variant="outline" data-testid='exterior'>
+        Other
+      </Button>
+    </div>
+    <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug>
+      <div data-testid='modal-inner' className='space-y-2'>
+        <Dialog.Title className='prism-heading-2' role="heading">Deactivate account</Dialog.Title>
+        <Dialog.Description className='prism-heading-3' role="contentinfo">
+          This will permanently deactivate your account
+        </Dialog.Description>
+        <p>
+          Are you sure you want to deactivate your account? All of your data will
+          be permanently removed. This action cannot be undone.
+        </p>
+        <Button variant="base" innerRef={okRef} block onClick={() => setIsOpen(false)}>
+          Confirm
+        </Button>
       </div>
     </Modal>
     </>
@@ -178,4 +172,34 @@ CustomTransitions.args = {
     leaveFrom: 'opacity-100 scale-100',
     leaveTo: 'opacity-0 scale-95 translate-y-8',
   },
+};
+
+
+export const Default: ComponentStory<typeof Modal> = (args) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+  <>
+  <div className='flex gap-2'>
+    <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
+      Toggle Me
+    </Button>
+    <Button variant="outline" data-testid='exterior'>
+      Other
+    </Button>
+  </div>
+  <Modal show={true} onClose={() => {}}>
+    <div data-testid={args['data-testid']}>
+      <Dialog.Title className='prism-heading-2' role='heading'>{args.title}</Dialog.Title>
+      <Dialog.Description className='prism-heading-3' role='contentinfo'>
+        {args.description}
+      </Dialog.Description>
+      {args.content}
+      <Button variant="base" block onClick={() => {}}>
+        Confirm
+      </Button>
+    </div>
+  </Modal>
+  </>
+  );
 };

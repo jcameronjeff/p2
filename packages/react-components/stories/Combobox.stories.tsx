@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Combobox } from '@headlessui/react';
 import { CheckIcon } from '@heroicons/react/solid';
 import { userEvent, within } from '@storybook/testing-library';
-import { sleep } from '../utils';
+import { sleep } from '../lib/utils';
 
 export default {
   title: 'Components/Combobox',

@@ -9,6 +9,7 @@ module.exports = {
     extend: require('@prism2/tailwind-theme')
   },
   plugins: [
+    require('@tailwindcss/forms'),
     require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',

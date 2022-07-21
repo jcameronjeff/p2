@@ -2,6 +2,7 @@ module.exports = {
   important: true,
   content: [
     './index.html',
+    './lib/*.{vue,js,ts,jsx,tsx}',
     './lib/**/*.{vue,js,ts,jsx,tsx}',
     './site/*.{vue,js,ts,jsx,tsx}',
     './site/**/*.{vue,js,ts,jsx,tsx}',
@@ -16,7 +17,7 @@ module.exports = {
     extend: require('@prism2/tailwind-theme'),
   },
   plugins: [
-    // require('@tailwindcss/forms'),
+    require('@tailwindcss/forms'),
     require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',

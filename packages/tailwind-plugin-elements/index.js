@@ -26,7 +26,7 @@ module.exports = plugin.withOptions(function (options = {
       base: ['h1'],
       class: withPrefix(['heading-1']),
       styles: {
-        fontFamily: theme('fontFamily.alt'),
+        fontFamily: theme('fontFamily.sans'),
         fontSize: theme('fontSize.3xl'),
         fontWeight: theme('fontWeight.bold'),
         textTransform: 'uppercase',
