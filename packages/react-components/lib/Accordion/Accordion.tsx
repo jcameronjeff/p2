@@ -59,7 +59,7 @@ export function AccordionItem({ label, content, className, variant, defaultOpen,
         <ChevronRightIcon className={`w-[1.5em] h-[1.5em] transition-all duration-200 ${enabled ? 'transform rotate-90' : ''}`}/>
         {variant === 'filter' && <h4>{label}</h4>}
       </Box>
-      <Transition appear show={enabled} {...fadeInDownOutUp}>
+      <Transition unmount={false} appear={true} show={enabled} {...fadeInDownOutUp}>
         {typeof content === 'string' ? <div className='py-1 mb-1'>{content}</div> : content}
       </Transition>
     </div>

@@ -22,7 +22,7 @@ export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
   const okRef = useRef(null);
   return (
     <>
-    <div className='flex gap-2'>
+    <div className='flex gap-2 justify-center w-full'>
       <Button variant="base" onClick={() => setIsOpen(!isOpen)} data-testid='modal-trigger'>
         Toggle Me
       </Button>
@@ -30,7 +30,7 @@ export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
         Other
       </Button>
     </div>
-    <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug>
+    <Modal as={args.as} show={isOpen} onClose={() => setIsOpen(false)} __debug variant={args.variant}>
       <div data-testid='modal-inner' className='space-y-2'>
         <Dialog.Title className='prism-heading-2' role="heading">Deactivate account</Dialog.Title>
         <Dialog.Description className='prism-heading-3' role="contentinfo">
@@ -49,15 +49,43 @@ export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
   );
 };
 
+
 export const BasicExample = TestTemplate.bind({});
-BasicExample.args = { 'data-testid': 'mx' };
+BasicExample.args = { 'data-testid': 'mx', variant: 'modal' };
+export const SlideoutLeftVariant = TestTemplate.bind({});
+SlideoutLeftVariant.args = { 'data-testid': 'mx', variant: 'slideout-left' };
+
+export const SlideoutVariant = TestTemplate.bind({});
+SlideoutVariant.args = {
+  title: 'My SlideOut',
+  description: 'Alternate modal behavior',
+  variant: 'slideout',
+  content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
+};
+
+export const FullscreenVariant = TestTemplate.bind({});
+FullscreenVariant.args = {
+  title: 'My SlideOut',
+  description: 'Alternate modal behavior',
+  variant: 'fullscreen',
+  content: <p>This is achieved with <pre>variant='fullscreen'</pre></p>,
+};
+
+export const PanelVariant = TestTemplate.bind({});
+PanelVariant.args = {
+  title: 'My SlideOut',
+  description: 'Alternate modal behavior',
+  variant: 'panel',
+  content: <p>This is achieved with <pre>variant='panel'</pre></p>,
+};
+
 
 const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0);
   return (
     <div>
-      <div className='flex gap-2'>
+      <div className='flex gap-2 justify-center w-full'>
         <Button onClick={() => setIsOpen(true)} label="toggle" />
         <Button onClick={() => setCount(count + 1)} label={`increment ${count}`} />
       </div>
@@ -75,7 +103,7 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
   );
 };
 
-const CompactTemplate: ComponentStory<typeof Modal> = () => {
+export const VariantBehavior: ComponentStory<typeof Modal> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isOpen2, setIsOpen2] = useState(false);
   const [isOpen3, setIsOpen3] = useState(false);
@@ -139,13 +167,7 @@ const CompactTemplate: ComponentStory<typeof Modal> = () => {
   );
 };
 
-export const SlideoutVariant = CompactTemplate.bind({});
-SlideoutVariant.args = {
-  title: 'My SlideOut',
-  description: 'Alternate modal behavior',
-  variant: 'slideout-left',
-  content: <p>This is achieved with <pre>variant='slideout'</pre></p>,
-};
+
 
 export const ShorthandExample = ShorthandTemplate.bind({});
 ShorthandExample.args = {

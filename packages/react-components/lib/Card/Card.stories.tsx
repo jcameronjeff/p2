@@ -24,7 +24,7 @@ const LoginPrompt: ComponentStory<any> = () => {
   const modalFocus = React.useRef(null);
   return (
   <div className='prism'>
-    <Card>
+    <Card className='m-auto'>
       <Card.Header className='gap-1'>
         <img className='h-[48px] w-[48px]' src='https://api.manheim.com/assets/images/manheimLogo.svg' />
       </Card.Header>
