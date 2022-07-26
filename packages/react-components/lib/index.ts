@@ -8,6 +8,7 @@ export * from './Card';
 export * from './Dropdown';
 export * from './Input';
 export * from './Modal';
+export * from './Message';
 export * from './Input';
 export * from './Radio';
 export * from './Tooltip';

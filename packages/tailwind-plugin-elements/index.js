@@ -456,6 +456,56 @@ module.exports = plugin.withOptions(function (options = {
       }
     });
 
+    const enableMessage = () =>
+      addComponents({
+        // Message(s)
+        [`.${prefix}message`]: {
+          display: "flex",
+          borderRadius: theme("borderRadius.lg"),
+          padding: theme("spacing.4"),
+          width: theme("w.full"),
+          [`&.info`]: {
+            backgroundColor: theme("colors.blue.200"),
+          },
+          [`&.error`]: {
+            backgroundColor: theme("colors.red.200"),
+            [`.${prefix}message-container`]: {
+              color: theme("colors.red.900"),
+            },
+            [`.${prefix}message-icon`]: {
+              fill: theme("fill.red.900"),
+            },
+          },
+          [`&.alert`]: {
+            backgroundColor: theme("colors.yellow.200"),
+            [`.${prefix}message-container`]: {
+              color: theme("colors.yellow.900"),
+            },
+            [`.${prefix}message-icon`]: {
+              fill: theme("fill.yellow.900"),
+            },
+          },
+          [`&.success`]: {
+            backgroundColor: theme("colors.green.200"),
+            [`.${prefix}message-container`]: {
+              color: theme("colors.green.900"),
+            },
+            [`.${prefix}message-icon`]: {
+              fill: theme("fill.green.900"),
+            },
+          },
+          [`.${prefix}message-icon`]: {
+            fill: theme("fill.blue.900"),
+            fontSize: theme("text.sm"),
+          },
+          [`.${prefix}message-container`]: {
+            color: theme("colors.blue.900"),
+            a: {
+              fontWeight: theme("fontWeight.bold"),
+            },
+          },
+        },
+      });
 
     enableCheckboxes();
     enableModals();
@@ -463,6 +513,7 @@ module.exports = plugin.withOptions(function (options = {
     enableTypography();
     enableForms();
     enableDataViews();
+    enableMessage();
 
 
   };
