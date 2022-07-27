@@ -34,10 +34,13 @@ The `<SlideOut />` component has been deprecated in favor of `<Modal variant='sl
 
 ## Usage Guidelines
 
-Modals are disruptors which are known to annoy users in many cases, so use them sparingly. Only use modals for brief processes when maintaining the user's current context is important. For long processes with multiple steps or options, consider a new page or full-page overlay.The optimal use cases for modals are:
+Use a modal when you need to maintain the user’s current context while focusing the user on related content or a related task. You should choose the modal variant that is most appropriate to the content you need to display.
 
-Modals should only include one or two actions. If one, it must be an acknowledgement action (e.g. “OK”). If two, one must be a confirming action, and the other a dismissing action. (e.g. “SUBMIT” and “CANCEL”).
+The Modal variant should only be used to display brief content and simple interactions such as an acknowledgement (e.g. “Okay”) or confirmation (e.g. “Submit” vs “Cancel”).
 
+Use the Modal variant to display slightly longer content or short forms such as an address entry form.
+
+Use a Slideout variant for the most complex content and interactions. Slidouts can vary in width to accomodate a variety of content layouts.
 ## Showing and hiding your modal
 
 When the dialog's `open` prop is `true`, the contents of the dialog will render. Focus will be moved inside the dialog and trapped there as the user cycles through the focusable elements. Scroll is locked, the rest of your application UI is hidden from screen readers, and clicking outside the dialog or pressing the Escape key will call the `onClose` function and close the dialog.
