@@ -10,9 +10,7 @@ import { Transition, Dialog } from '@headlessui/react';
 
 > A fully-managed dialog component jam-packed with accessibility and keyboard features, perfect for building completely custom modal and dialog windows or using as a preset.
 
-Modals are child windows which appear in front of the main window to provide urgent information, or ask for information, or ask for a decision while keeping the user's current context. Modals demand a user's attention and must be acted upon or dismissed before a user can continue working in the main window.
-
-Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
+Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept as brief as possible. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
 
 ## Basic Example
 
@@ -36,11 +34,12 @@ The `<SlideOut />` component has been deprecated in favor of `<Modal variant='sl
 
 Use a modal when you need to maintain the user’s current context while focusing the user on related content or a related task. You should choose the modal variant that is most appropriate to the content you need to display.
 
-The Modal variant should only be used to display brief content and simple interactions such as an acknowledgement (e.g. “Okay”) or confirmation (e.g. “Submit” vs “Cancel”).
+The Small Modal variant should only be used to display brief content and simple interactions such as an acknowledgement (e.g. “Okay”) or confirmation (e.g. “Submit” vs “Cancel”).
 
-Use the Modal variant to display slightly longer content or short forms such as an address entry form.
+Use the Large Modal variant to display slightly longer content or short forms such as an address entry form.
 
-Use a Slideout variant for the most complex content and interactions. Slidouts can vary in width to accomodate a variety of content layouts.
+Use a Slideout variant for the most complex content and interactions including multi-step processes. Slidouts can vary in width to accomodate a variety of content layouts.
+
 ## Showing and hiding your modal
 
 When the dialog's `open` prop is `true`, the contents of the dialog will render. Focus will be moved inside the dialog and trapped there as the user cycles through the focusable elements. Scroll is locked, the rest of your application UI is hidden from screen readers, and clicking outside the dialog or pressing the Escape key will call the `onClose` function and close the dialog.
