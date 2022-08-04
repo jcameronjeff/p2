@@ -22,7 +22,6 @@ export default {
       },
     },
     className: {
-      defaultValue: '',
       control: { type: 'text' },
     },
     alt: {

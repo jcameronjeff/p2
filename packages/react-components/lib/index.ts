@@ -2,18 +2,17 @@ export * from './Accordion';
 export * from './Avatar';
 export * from './Box';
 export * from './Button';
+export * from './Card';
 export * from './Checkbox';
 export * from './Chip';
-export * from './Card';
 export * from './Dropdown';
 export * from './Input';
-export * from './Modal';
 export * from './Message';
-export * from './Input';
+export * from './Modal';
 export * from './Radio';
+export * from './Tabs';
 export * from './Tooltip';
 export * from './utils';
-export * from '@headlessui/react';
 
 // this will generate a style.css file in the dist folder
 // that contains all of our rules.

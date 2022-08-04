@@ -29,7 +29,7 @@
     "build_web": "vite build --config vite.web.config.js",
     "preview": "npm run build_web && vite preview",
     "docgen": "typedoc --out docs lib/index.ts lib/types.ts",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --ci",
     "deploy": "gh-pages -d ../../docs -u \"github-actions-bot <support+actions@github.com>\"",
     "build-storybook": "build-storybook -o ../../docs"
   },

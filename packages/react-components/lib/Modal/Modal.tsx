@@ -315,5 +315,5 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   );
 }
 
-export const Modal = forwardRefWithAs(ModalRoot);
+export const Modal = ModalRoot;
 

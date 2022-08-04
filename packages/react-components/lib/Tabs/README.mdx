@@ -1,0 +1,114 @@
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+
+
+<Meta title="Docs/Tabs" component={Tab} />
+
+# Tabs
+
+> Easily create accessible, fully customizable tab interfaces, with robust focus management and keyboard navigation support. (Functionality is provided by [@headlessui/react](https://headlessui.com/react/tabs))
+
+```tsx
+import { Tab } from '@prism2/react-components'
+
+function MyComponent() {
+  <Tab.Group>
+    <Tab.List>
+      <Tab>Home</Tab>
+      <Tab>Settings</Tab>
+    </Tab.List>
+    <Tab.Panels>
+      <Tab.Panel>Welcome home</Tab.Panel>
+      <Tab.Panel>Settings page</Tab.Panel>
+    </Tab.Panels>
+  </Tab.Group>
+}
+```
+
+## Basic example
+
+Tabs are built using the `Tab.Group`, `Tab.List`, `Tab`, `Tab.Panels`, and `Tab.Panel` components. By default the first tab is selected, and clicking on any tab or selecting it with the keyboard will activate the corresponding panel.
+<Canvas>
+  <Story id='components-tabs--simple' />
+</Canvas>
+
+## Styling the selected tab
+This is a headless component so there are no styles included by default. Instead, the components expose useful information via [render props](https://reactjs.org/docs/render-props.html) you can use to apply styles yourself.
+
+To style the selected Tab, use the selected render prop, which tells you whether or not that tab is currently selected.
+
+<Canvas>
+  <Story id='components-tabs--controlled' />
+</Canvas>
+
+You can also access `selected` as an argument to a function passed to `className` if you only need to change the classes on the button:
+
+## Display tabs vertically
+
+<Canvas>
+  <Story id='components-tabs--vertical-tabs' />
+</Canvas>
+
+## Disable styling entirely
+To remove custom styling, simply pass the `unstyle` argument to `Tab.Group`:
+
+```jsx
+<Tab.Group unstyle>
+  <Tab.List>
+    <Tab>No styles</Tab>
+  </Tab.List>
+</Tab.Group>
+```
+
+<Canvas>
+  <Story id='components-tabs--unstyled' />
+</Canvas>
+
+## Reimplementing your own styles
+
+<Canvas>
+  <Story id='components-tabs--custom-styles' />
+</Canvas>
+
+
+## Disabling a tab
+To disable a tab, use the `disabled` prop on the `Tab` component. Disabled tabs cannot be selected with the mouse, and are also skipped when navigating the tab list using the keyboard.
+
+## Manually activating tabs
+By default, tabs are automatically selected as the user navigates through them using the arrow keys.
+
+If you'd rather not change the current tab until the user presses Enter or Space, use the manual prop on the Tab.Group component. This can be helpful if selecting a tab performs an expensive operation and you don't want to run it unnecessarily.
+
+```jsx
+import { Tab } from '@headlessui/react'
+
+function MyTabs() {
+  return (
+    <Tab.Group manual>
+      <Tab.List>
+        <Tab>Tab 1</Tab>
+        <Tab>Tab 2</Tab>
+        <Tab>Tab 3</Tab>
+      </Tab.List>
+      <Tab.Panels>
+        <Tab.Panel>Content 1</Tab.Panel>
+        <Tab.Panel>Content 2</Tab.Panel>
+        <Tab.Panel>Content 3</Tab.Panel>
+      </Tab.Panels>
+    </Tab.Group>
+  )
+}
+```
+
+## Designer Guidance
+
+> Tabs organize content within a category in a horizontal menu of logical subsections. Each tab within a group contains a distinct subsection of content.
+
+### Common Characteristics
+All tabs are presented horizontally and have ALL-CAPS labels. All tabs have a separator that spans the width of the content area governed by the tabs. Tabs have these states: selected, active, hover/tap, and focused. A Tab with no content must have explanatory text rather than left blank.
+
+### Usage Guidelines
+The left-most tab is always pre-selected by default. Content within tabs must be peers related to the same parent category/topic/item. If necessary, tabs can scroll horizontally above the content they govern.
+
+## Props
+
+<ArgsTable />
