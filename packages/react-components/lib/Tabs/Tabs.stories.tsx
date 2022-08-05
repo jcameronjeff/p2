@@ -2,7 +2,7 @@ import React, { Fragment } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
-import { Tab, TabRoot } from '../Tabs';
+import { Tab, TabRoot } from './';
 import mdx from './README.mdx';
 import { ArchiveIcon, BadgeCheckIcon, BellIcon, AdjustmentsIcon } from '@heroicons/react/solid';
 
