@@ -36,6 +36,9 @@
   "dependencies": {
     "@headlessui/react": "^1.6.5",
     "@heroicons/react": "^1.0.6",
+    "@prism2/tailwind-elements": "workspace:0.0.0",
+    "@prism2/tailwind-preset": "workspace:0.0.0",
+    "@prism2/tailwind-theme": "workspace:0.0.0",
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.11",
     "@testing-library/jest-dom": "^5.16.4",
@@ -57,9 +60,6 @@
   "devDependencies": {
     "@babel/core": "^7.18.6",
     "@mdx-js/react": "^1.6.22",
-    "@prism2/tailwind-elements": "workspace:0.0.0",
-    "@prism2/tailwind-preset": "workspace:0.0.0",
-    "@prism2/tailwind-theme": "workspace:0.0.0",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-backgrounds": "^6.5.9",
     "@storybook/addon-docs": "^6.5.9",

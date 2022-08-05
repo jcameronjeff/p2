@@ -61,8 +61,9 @@ const combinations = [
     label: '' },
   { bg: 'bg-gray-50', title: 'text-green-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-green-200',
     label: '' },
-  { bg: 'bg-ocean-50', title: 'text-ocean-900', body: 'text-ocean-800', caption: 'text-ocean-600',  border: 'border-ocean-100',
+  { bg: 'bg-blue-50', title: 'text-blue-900', body: 'text-blue-500', caption: 'text-blue-400',  border: 'border-blue-200',
     label: '' },
+
   { bg: 'bg-gray-50', title: 'text-red-900', body: 'text-gray-500', caption: 'text-gray-400',  border: 'border-red-200',
     label: '' },
   { bg: 'bg-red-50', title: 'text-red-900', body: 'text-red-800', caption: 'text-red-400',  border: 'border-red-100',

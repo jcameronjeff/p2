@@ -1,14 +1,26 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
-import { colors } from './color-export';
+import * as themeColors from '@prism2/tailwind-theme/colors.json';
 import { Button } from '../lib';
 import { ArrowCircleRightIcon } from '@heroicons/react/solid';
 
+const colors = {
+  ...themeColors,
+  amber: themeColors.orange,
+  cerulean: themeColors.blue,
+  sky: themeColors.blue,
+  navy: themeColors.blue,
+  saffron: themeColors.orange,
+  gold: themeColors.yellow,
+  meadow: themeColors.green,
+  jungle: themeColors.green,
+  ocean: themeColors.blue,
+};
 export default {
   title: 'Demo/Design Tokens',
 } as ComponentMeta<any>;
 
-type ThemeColorName = Pick<typeof colors, 'gray' | 'blue' | 'sky' | 'yellow' | 'red' | 'amber'>;
+type ThemeColorName = Pick<typeof colors, 'gray' | 'blue' | 'yellow' | 'red' | 'amber'> | 'gold';
 type BgObject = {
   [key in keyof ThemeColorName]: string[]
 };
@@ -23,12 +35,7 @@ const bgs:Partial<BgObject> = {
     'bg-blue-400', 'bg-blue-500', 'bg-blue-600', 'bg-blue-700',
     'bg-blue-800', 'bg-blue-900', 'bg-blue-1000',
   ],
-  sky: [
-    'bg-sky-50', 'bg-sky-100', 'bg-sky-200', 'bg-sky-300',
-    'bg-sky-400', 'bg-sky-500', 'bg-sky-600', 'bg-sky-700',
-    'bg-sky-800', 'bg-sky-900',
-  ],
-  yellow: [
+  gold: [
     'bg-yellow-50', 'bg-yellow-100', 'bg-yellow-200', 'bg-yellow-300',
     'bg-yellow-400', 'bg-yellow-500', 'bg-yellow-600', 'bg-yellow-700',
     'bg-yellow-800', 'bg-yellow-900',
@@ -38,6 +45,11 @@ const bgs:Partial<BgObject> = {
     'bg-red-400', 'bg-red-500', 'bg-red-600', 'bg-red-700',
     'bg-red-800', 'bg-red-900',
   ],
+  green: [
+    'bg-green-50', 'bg-green-100', 'bg-green-200', 'bg-green-300',
+    'bg-green-400', 'bg-green-500', 'bg-green-600', 'bg-green-700',
+    'bg-green-800', 'bg-green-900',
+  ],
   amber: [
     'bg-amber-50', 'bg-amber-100', 'bg-amber-200', 'bg-amber-300',
     'bg-amber-400', 'bg-amber-500', 'bg-amber-600', 'bg-amber-700',
@@ -46,26 +58,20 @@ const bgs:Partial<BgObject> = {
 };
 
 let cx = [
-  ['text-yellow-500', 'Prism Gold', 'bg-yellow-500 border-yellow-600', 'gold', colors.yellow['500'], 'border-yellow-500'],
-  ['text-yellow-600', 'Prism Gold Dark', 'bg-yellow-600 border-yellow-700', 'yellow-dark', colors.yellow['600'], 'border-yellow-600'],
-  ['text-sky-500', 'Prism Cerulean', 'bg-sky-500 border-sky-600', 'cerulean', colors.sky['600'], 'border-sky-500'],
-  ['text-sky-600', 'Prism Cerulean Dark', 'bg-sky-600 border-sky-700', 'cerulean-dark', colors.yellow['700'], 'border-sky-600'],
-  ['text-blue-600', 'Prism Primary Blue', 'bg-blue-600 border-blue-700', 'primary', colors.blue['600'], 'border-blue-600'],
-  ['text-blue-700', 'Prism Primary Dark', 'bg-blue-700 border-blue-800', 'primary-dark', colors.blue['700'], 'border-blue-700'],
-  ['text-blue-800', 'Prism Navy', 'bg-blue-800 border-blue-900', 'navy', colors.blue['800'], 'border-blue-800'],
-  ['text-blue-900', 'Prism Navy Dark', 'bg-blue-900 border-blue-1000', 'navy-dark', colors.blue['900'], 'border-blue-900'],
+  ['text-yellow-400', 'Prism Gold', 'bg-yellow-400 border-yellow-500', 'gold', colors.yellow['400'], 'border-yellow-500'],
+  ['text-yellow-500', 'Prism Gold Dark', 'bg-yellow-500 border-yellow-600', 'yellow-dark', colors.yellow['500'], 'border-yellow-600'],
+  ['text-blue-500', 'Prism Cerulean', 'bg-blue-500 border-blue-600', 'cerulean', colors.blue['500'], 'border-blue-500'],
+  ['text-blue-600', 'Prism Cerulean Dark', 'bg-blue-600 border-blue-700', 'cerulean-dark', colors.blue['600'], 'border-blue-600'],
+  ['text-blue-700', 'Prism Primary Blue', 'bg-blue-700 border-blue-700', 'primary', colors.blue['700'], 'border-blue-600'],
+  ['text-blue-800', 'Prism Primary Dark', 'bg-blue-800 border-blue-800', 'primary-dark', colors.blue['800'], 'border-blue-700'],
+  ['text-blue-900', 'Prism Navy', 'bg-blue-900 border-blue-900', 'navy', colors.blue['900'], 'border-blue-800'],
+  ['text-blue-1000', 'Prism Navy Dark', 'bg-blue-1000 border-blue-1000', 'navy-dark', colors.blue['1000'], 'border-blue-900'],
   ['text-gray-800', 'Prism Body Text', 'bg-gray-800 border-gray-900', 'body', colors.gray['800'], 'border-gray-800'],
   ['text-gray-500', 'Prism Muted Text', 'bg-gray-500 border-gray-600', 'muted', colors.gray['500'], 'border-gray-500'],
   ['text-gray-400', 'Prism Caption Text', 'bg-gray-400 border-gray-500', 'caption', colors.gray['400'], 'border-gray-400'],
   ['text-gray-300', 'Prism Ghost Text', 'bg-gray-300 border-gray-400', 'ghost', colors.gray['300'], 'border-gray-300'],
   ['text-gray-100', 'Prism Surface', 'bg-gray-100 border-gray-200', 'ghost', colors.gray['100'], 'border-gray-100'],
-  ['text-teal-600', 'Prism Excellent / 5', 'bg-teal-600 border-sky-200', 'excellent', colors.sky['600'], 'border-teal-600'],
-  ['text-emerald-500', 'Prism Good / 4', 'bg-emerald-500 border-sky-200', 'good', colors.sky['600'], 'border-emerald-500'],
-  ['text-green-500', 'Prism OK / 3', 'bg-green-500 border-green-500', 'ok', colors.green['600'], 'border-green-500'],
-  ['text-gray-300', 'Prism Fine / -', 'bg-gray-300 border-gray-300', 'fine', colors.gray['300'], 'border-gray-300'],
-  ['text-yellow-400', 'Prism Warning / 2', 'bg-yellow-400 border-yellow-400', 'warning', colors.blue['400'], 'border-yellow-400'],
-  ['text-amber-400', 'Prism Alert / 1', 'bg-amber-400 border-amber-400', 'alert', colors.blue['400'], 'border-amber-400'],
-  ['text-red-400', 'Prism Danger / 0', 'bg-red-400 border-red-200', 'danger', colors.red['400'], 'border-red-400'],
+  ['text-blue-100', 'Prism Cerulean Light', 'bg-blue-100 border-blue-200', 'cerulean-light', colors.blue['100'], 'border-blue-200'],
 ];
 
 const Template: ComponentStory<any> = () => (
@@ -134,6 +140,46 @@ const HeightWidth: ComponentStory<any> = () => (
     ))}
     </div>
     </div>
+);
+
+export const ShadowExamples = () => (
+  <div className='flex gap-4 text-sm text-gray-500 tracking-tight'>
+    <div className='p-2 shadow'>.shadow</div>
+    <div className='p-2 shadow-sm'>.shadow-sm</div>
+    <div className='p-2 shadow-md'>.shadow-md</div>
+    <div className='p-2 shadow-lg'>.shadow-lg</div>
+    <div className='p-2 shadow-xl'>.shadow-xl</div>
+    <div className='p-2 shadow-2xl'>.shadow-2xl</div>
+  </div>
+);
+export const RadiusExamples = () => (
+  <div className='flex gap-4 text-sm text-white tracking-tight'>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-xs'>
+      <div>.rounded-xs</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-sm'>
+      <div>.rounded-sm</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded'>
+      <div>.rounded</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-md'>
+      <div>.rounded-md</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-lg'>
+      <div>.rounded-lg</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-xl'>
+      <div>.rounded-xl</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-2xl'>
+      <div>.rounded-2xl</div>
+    </div>
+    <div className='p-2 h-24 w-24 flex items-center justify-center text-center bg-blue-600 rounded-full'>
+      <div>.rounded-full</div>
+    </div>
+
+  </div>
 );
 export const HeightAndWidth = HeightWidth.bind({});
 const ButtonPadding: ComponentStory<any> = () => (
