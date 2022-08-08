@@ -1,4 +1,5 @@
 import { CheckCircleIcon, ExclamationCircleIcon, MailOpenIcon, InformationCircleIcon } from '@heroicons/react/solid';
+import React from 'react';
 // import { InfoIcon, CheckmarkIcon, NotificationIcon } from '../messageIcons';
 import { HTMLComponent } from '../types';
 
@@ -27,43 +28,33 @@ interface Props {
 }
 
 export const Message:HTMLComponent<Props> = ({ variant, as = 'div', title, children, className, ...htmlProps }) => {
+
+  let getVariant = () => {
+    if (variant === 'info') return ['bg-blue-200 text-blue-900', InformationCircleIcon];
+    if (variant === 'error') return ['bg-red-200 text-red-900', ExclamationCircleIcon];
+    if (variant === 'alert') return ['bg-yellow-200 text-red-900', ExclamationCircleIcon];
+    if (variant === 'success') return ['bg-green-200 text-green-900', CheckCircleIcon];
+    return ['bg-gray-100 text-gray-800', InformationCircleIcon];
+  };
+  const { cx, Icon } = React.useMemo(() => ({
+    Icon: getVariant()[1],
+    cx: [
+      getVariant()[0],
+      'p-4 pr-6 rounded min-w-[200px]',
+      'grid grid-cols-[min-content,1fr] gap-x-1 items-start',
+      className,
+    ].join(' '),
+  }), [variant, className]);
+
   const Component = as || 'div';
-
-  function getVariant() {
-    switch (variant) {
-      case 'info':
-        return ['bg-sky-200 text-sky-900', InformationCircleIcon]; break;
-        // return ['bg-sky-200 text-sky-900', InfoIcon]; break;
-      case 'error':
-        return ['bg-red-200 text-red-900', ExclamationCircleIcon]; break;
-        // return ['bg-red-200 text-red-900', NotificationIcon]; break;
-      case 'alert':
-        return ['bg-yellow-200 text-red-900', ExclamationCircleIcon]; break;
-      case 'success':
-        // Why is the font color different here from the otheres?..
-        return ['bg-green-200 text-green-900', CheckCircleIcon]; break;
-        // return ['bg-green-200 text-green-900', CheckmarkIcon]; break;
-      default:
-        return ['bg-blue-200 text-blue-900', MailOpenIcon];
-    }
-  }
-
-  const cx = [getVariant()[0], 'p-4 pr-6 rounded min-w-[200px]', className].join(' ');
-  const Icon = getVariant()[1];
   return (
     <Component {...htmlProps} className={cx}>
-      <div className='grid grid-cols-[min-content,1fr] gap-x-1 items-start'>
-        <Icon className='w-5 h-5 scale-90' />
-        {!title ? (
-          <div>{children}</div>
-        ) : (
-          <>
-          <div className='font-bold'>{title}</div>
-          <div className='w-6 h-6' />
-          <div>{children}</div>
-          </>
-        )}
-      </div>
+      <Icon className='w-5 h-5 scale-90' />
+      {!!title && <>
+        <div className='font-bold'>{title}</div>
+        <div className='w-6' />
+      </>}
+      <div>{children}</div>
     </Component>
   );
 };
