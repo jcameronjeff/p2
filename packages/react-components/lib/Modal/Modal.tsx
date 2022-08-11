@@ -237,12 +237,12 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
         innerAnimate = slideUpDown;
         break;
       case 'slideout':
-        clsx = 'prism-slideout-box';
+        clsx = 'prism-dialog-box right-0 h-screen fixed flex flex-col justify-between';
         outerAnimate = fadeInOut;
         innerAnimate = slideInRight;
         break;
       case 'slideout-left':
-        clsx = 'prism-slideout-box from-left';
+        clsx = 'prism-dialog-box left-0 h-screen fixed flex flex-col justify-between';
         outerAnimate = fadeInOut;
         innerAnimate = slideInLeft;
         break;

@@ -14,10 +14,10 @@ export type TransitionPropPreset = {
 };
 
 export const fadeInOut:TransitionPropPreset = {
-  enter: 'transition-opacity ease-linear duration-200',
+  enter: 'transition-all ease-in-out duration-200',
   enterFrom: 'opacity-0',
   enterTo: 'opacity-100',
-  leave: 'transition-opacity ease-linear duration-200',
+  leave: 'transition-all ease-in-out duration-200',
   leaveFrom: 'opacity-100',
   leaveTo: 'opacity-0',
 };
@@ -52,21 +52,21 @@ export const slideUpDownAlt:TransitionPropPreset = {
 
 
 export const slideInRight:TransitionPropPreset = {
-  enter: 'transition ease-in-out duration-200 transform',
-  enterFrom: 'translate-x-[400px] opacity-0',
+  enter: 'ease-in-out duration-200',
+  enterFrom: 'translate-x-96 opacity-0',
   enterTo: 'translate-x-0 opacity-100',
   leave: 'transition ease-in-out duration-200 transform',
   leaveFrom: 'translate-x-0 opacity-100',
-  leaveTo: 'translate-x-[400px] opacity-0',
+  leaveTo: 'translate-x-96 opacity-0',
 };
 
 export const slideInLeft:TransitionPropPreset = {
-  enter: 'transition ease-in-out duration-200 transform',
-  enterFrom: '-translate-x-[400px] opacity-0',
+  enter: 'ease-in-out duration-200',
+  enterFrom: '-translate-x-96 opacity-0',
   enterTo: 'translate-x-0 opacity-100',
   leave: 'transition ease-in-out duration-200 transform',
   leaveFrom: 'translate-x-0 opacity-100',
-  leaveTo: '-translate-x-[400px] opacity-0',
+  leaveTo: '-translate-x-96 opacity-0',
 };
 
 export const transitions:TransitionPropPreset[] = [

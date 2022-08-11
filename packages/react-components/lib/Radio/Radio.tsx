@@ -1,5 +1,5 @@
 import { RadioGroup } from '@headlessui/react';
-import { useRef, useState, HTMLProps, ReactNode, FormEvent, FormEventHandler, useCallback } from 'react';
+import { useRef, useState, HTMLProps, ReactNode, FormEvent, FormEventHandler, useCallback, Fragment } from 'react';
 import { Box } from '../Box';
 import { HTMLComponent } from '../types';
 
@@ -16,16 +16,17 @@ export const Radio:HTMLComponent<IProps>  = ({
   className = '',
   label,
   value,
+  tabIndex,
   ...props
 }) => {
   const baseClasses = 'cursor-pointer capitalize';
   const clsx = [baseClasses, className].join(' ');
 
   return (
-      <Box as='label' className='flex gap-2 items-center cursor-pointer'>
-        <Box as='input' value={value} type='radio' {...props}  />
-        <Box as='div' className={clsx}>{label || value}</Box>
-      </Box>
+    <Box as='label' className='flex gap-2 items-center cursor-pointer' >
+      <Box as='input' value={value} type='radio' {...props} className='prism-radio' />
+      <Box as='div' className={clsx}>{label || value}</Box>
+    </Box>
   );
 };
 
@@ -73,7 +74,7 @@ export const RadioSet:React.FC<Props> = ({ values, name, onChange = () => {}, on
       {name && <RadioGroup.Label className='prism-label' as="legend">{name}</RadioGroup.Label>}
       <div className={inline ? 'flex gap-4 items-center' : ''}>
       {values.map((item, key) => (
-        <RadioGroup.Option value={item} key={`item-${key}`}>
+        <RadioGroup.Option value={item} key={`item-${key}`} as={Fragment}>
           {({ checked }) => (
             <Radio value={item} name={name} checked={checked} onChange={onChange} />
           )}

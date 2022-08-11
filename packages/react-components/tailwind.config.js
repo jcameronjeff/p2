@@ -17,14 +17,24 @@ module.exports = {
     extend: require('@prism2/tailwind-theme'),
   },
   plugins: [
-    require('@tailwindcss/forms'),
+    // require('@tailwindcss/forms'),
     require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',
     }),
-    // require('../tailwind-plugin-elements')({
-    //   parent: '.prism-base',
-    //   strategy: 'base',
-    // }),
+    // modal styles
+    require('./lib/Modal/tailwind-plugin-modal'),
+    require('./lib/Button/tailwind-plugin-button'),
+    require('./lib/Tabs/tailwind-plugin-tab'),
+    require('./lib/Tooltip/tailwind-plugin-tooltip'),
+    require('./lib/Radio/tailwind-plugin-radio'),
+    require('./lib/Checkbox/tailwind-plugin-checkbox'),
+    require('./lib/Chip/tailwind-plugin-chip'),
+    //
+    function ({ addBase, theme }) {
+      addBase({
+        'strong, b': { fontWeight: theme('fontWeight.semibold') },
+      });
+    },
   ],
 };

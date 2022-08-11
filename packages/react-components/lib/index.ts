@@ -18,4 +18,5 @@ export * from './utils';
 // that contains all of our rules.
 import './styles/base.css';
 import './styles/components.css';
+import './styles/utilities.css';
 import './styles/fonts.css';

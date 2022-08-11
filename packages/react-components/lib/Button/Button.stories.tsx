@@ -4,8 +4,9 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button } from '../Button';
-import { BeakerIcon } from '@heroicons/react/solid';
+import { BeakerIcon, CheckCircleIcon, PencilAltIcon, SaveAsIcon, SaveIcon } from '@heroicons/react/solid';
 import mdx from './README.mdx';
+import { Box } from '../Box';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -24,109 +25,129 @@ export default {
 
 const ButtonTemplate: ComponentStory<any> = () => {
   const [count, setCount] = React.useState(0);
-  const variants = ['default', 'aux', 'outlined', 'contained', 'simulcast', 'text'];
+  const variants = ['default', 'text', 'fill', 'simulcast', 'aux'];
 
   return (
-    <div>
-    <div className='flex gap-2 flex-wrap justify-center items-center'>
-    <h3 className='prism-label mr-8 flex-grow'>normal</h3>
-    <button className='prism-btn'>Default</button>
-    <button className='prism-btn aux'>Aux</button>
-    <button className='prism-btn outlined'>Outline</button>
-    <button className='prism-btn contained'>Contained</button>
-    <button className='prism-btn simulcast'>Simulcast</button>
-    <button className='prism-btn text'>Text</button>
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>with icon</h3>
-    {variants.map(variant => (
-      <button className={`prism-btn ${variant}`}>
-        <BeakerIcon className="w-4 h-4"/>
-        <span>{variant}</span>
-      </button>
-    ))}
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>small</h3>
-    {variants.map(variant => (
-      <button className={`prism-btn text-xs ${variant}`}>
-        <BeakerIcon className="w-4 h-4"/>
-        <span>{variant}</span>
-      </button>
-    ))}
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>hover</h3>
-    {variants.map(variant => (
-      <button className={`prism-btn hover ${variant}`}>
-        <BeakerIcon className="w-4 h-4"/>
-        <span>{variant}</span>
-      </button>
-    ))}
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>focus</h3>
-    {variants.map(variant => (
-      <button className={`prism-btn focus ${variant}`}>
-        <BeakerIcon className="w-4 h-4"/>
-        <span>{variant}</span>
-      </button>
-    ))}
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>disabled</h3>
-    {variants.map(variant => (
-      <button disabled className={`prism-btn ${variant}`}>
-        <BeakerIcon className="w-4 h-4"/>
-        <span>{variant}</span>
-      </button>
-    ))}
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>overflowing</h3>
-    <button className='prism-btn outlined w-48'>
-      <BeakerIcon className='w-4 h-4' />
-      <span>Buttons allow a user to submit or request information</span>
-    </button>
-    <button className='prism-btn outlined w-48'>
-      <span>Buttons allow a user to submit or request information</span>
-      <BeakerIcon className='w-4 h-4' />
-    </button>
-    <button className='prism-btn outlined w-48'>
-      <span>Buttons allow a user to submit or request information</span>
-    </button>
-    <hr className='w-full my-4' />
-    <h3 className='prism-label mr-8 flex-grow'>submit</h3>
-    <button className='prism-btn' type='submit'>Submit</button>
-    <button className='prism-btn outlinedd'>
-      <BeakerIcon className='w-4 h-4' />
-    </button>
-    <button className='prism-btn contained'>
-      <BeakerIcon className='w-4 h-4' />
-    </button>
+    <div className='mx-auto w-[740px]'>
 
+    <h3 className='prism-heading-4 pb-1 mb-1'>Normal</h3>
+    <div className='flex gap-2'>
+      <button className='prism-btn'><BeakerIcon /> Default</button>
+      <button className='prism-btn text'>Text</button>
+      <button className='prism-btn fill'>Contained</button>
+      <button className='prism-btn simulcast'>Simulcast</button>
+      <button className='prism-btn text-sm text font-alt'>Aux</button>
+    </div>
+    <hr className='w-full my-4' />
+    <h3 className='prism-heading-4 pb-1 mb-1'>With Icon</h3>
+    <div className='flex gap-2'>
+      {variants.map(variant => (
+        <button className={`prism-btn ${variant}`}>
+          <BeakerIcon className="w-4 h-4"/>
+          {variant}
+        </button>
+      ))}
+    </div>
+    <hr className='w-full my-4' />
+    <h3 className='prism-heading-4 pb-1 mb-1'>Small</h3>
+    <div className='flex gap-2'>
+      {variants.map(variant => (
+        <button className={`prism-btn text-xs ${variant}`}>
+          <BeakerIcon className="w-4 h-4"/>
+          {variant}
+        </button>
+      ))}
+    </div>
+    <hr className='w-full my-4' />
+    <h3 className='prism-heading-4 pb-1 mb-1'>Disabled</h3>
+    <div className='flex gap-2'>
+      {variants.map(variant => (
+        <button disabled className={`prism-btn ${variant}`}>
+          <BeakerIcon className="w-4 h-4"/>
+          {variant}
+        </button>
+      ))}
+    </div>
+    <hr className='w-full my-4' />
+    <h3 className='prism-heading-4 pb-1 mb-1'>Overflowing</h3>
+    <div className='flex gap-2'>
+      {variants.map(variant => (
+         <button className={`prism-btn w-48 ${variant}`}>
+          <BeakerIcon className='flex-shrink-0' />
+          <div>Buttons allow a user to submit or request information</div>
+        </button>
+      ))}
+    </div>
+    <hr className='w-full my-4' />
+    <h3 className='prism-heading-4 pb-1 mb-1'>Automation</h3>
 
-    <hr className='w-full m-4' />
-
-    <input className='prism-btn aux' type="button" name="input" value="Input Button" />
-    <input className='prism-btn outlined' type="button" name="input" value="Outlined Button" />
-    <input className='prism-btn disabled' type="button" name="input" value="Disabled Outline Button" />
-    <input className='prism-btn fill' type="button" name="input" value="Fill Button" />
-    <input disabled className='prism-btn fill' type="button" name="input" value="Disabled Fill Button" />
-    <input className='prism-btn'  type="submit" name="submit" value="Submit Button" />
-    <input disabled className='prism-btn'  type="submit" name="submit" value="Disabled Submit Button" />
-    <input className='prism-btn' type="reset" name="reset" disabled value="Reset Button" />
-     <button className='prism-btn hover w-64'>
-      <BeakerIcon className="w-4 h-4"/>
-      <span>Buttons allow a user to submit or request information</span>
-    </button>
-    <button className='prism-btn hover w-64'>
-      <span>flex gap-2 flex-wrap justify-center flex gap-2 flex-wrap justify-center Default</span>
-      <BeakerIcon className="w-4 h-4"/>
-    </button>
-    <input className='prism-btn fill text-xs' type="reset" name="reset" disabled value="Reset Button" />
-    <input className='prism-btn text-sm capitalize font-medium text-gray-600 rounded-full ring-2 ring-gray-300' type="reset" name="reset" value="Reset Button" />
 
     <Button label={`Clicked ${count} times`} variant="outline" role="button" aria-name="This Button" onClick={() => setCount(count + 1)}/>
     {count > 4 && <h3>Automation Completed!</h3>}
   </div>
-  </div>
   );
 };
+
+export const WinnieTest = () => (
+  <div className='space-y-8'>
+  <Box as='div' className='flex gap-2 text-xs'>
+    <button className='prism-btn'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button className='prism-btn'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button className='prism-btn'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button disabled className='prism-btn'>
+      <div>Save</div>
+      <CheckCircleIcon className='w-4'/>
+    </button>
+
+  </Box>
+  <Box as='div' className='flex gap-1 text-xs'>
+    <button className='prism-btn text px-2 gap-0.5'>
+      <div>Edit</div>
+
+    </button>
+    <button className='prism-btn text px-2 gap-0.5'>
+      <div>Edit</div>
+
+    </button>
+    <button className='prism-btn text px-2 gap-0.5'>
+      <div>Edit</div>
+
+    </button>
+    <button disabled className='prism-btn text px-2 gap-0.5'>
+      <div>Save</div>
+
+    </button>
+
+  </Box>
+  <Box as='div' className='flex gap-2 text-xs'>
+    <button className='prism-btn fill'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button className='prism-btn fill'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button className='prism-btn fill'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
+    <button disabled className='prism-btn fill'>
+      <div>Save</div>
+      <CheckCircleIcon className='w-4'/>
+    </button>
+  </Box>
+  </div>
+);
 
 export const AutoButtonClick = ButtonTemplate.bind({});
 

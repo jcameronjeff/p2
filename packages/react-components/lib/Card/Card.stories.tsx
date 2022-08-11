@@ -23,7 +23,7 @@ const LoginPrompt: ComponentStory<any> = () => {
   const [isOpen, setIsOpen] = useState(false);
   const modalFocus = React.useRef(null);
   return (
-  <div className='prism'>
+  <div className=''>
     <Card className='m-auto'>
       <Card.Header className='gap-1'>
         <img className='h-[48px] w-[48px]' src='https://api.manheim.com/assets/images/manheimLogo.svg' />
@@ -31,8 +31,8 @@ const LoginPrompt: ComponentStory<any> = () => {
       <Card.Content>
         <h1 className='text-center prism-heading-1'>Sign In</h1>
         <div className='space-y-2'>
-          <input name='username' type='text' className='w-full' placeholder="Username" />
-          <input name='password' type='password' className='w-full' placeholder="Password" />
+          <input name='username' type='text' className='prism-input w-full' placeholder="Username" />
+          <input name='password' type='password' className='prism-input w-full' placeholder="Password" />
         </div>
         <div className='space-y-1'>
           <Checkbox defaultChecked={false} label="Remember my password" onChange={console.log} />

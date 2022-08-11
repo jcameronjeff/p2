@@ -11,17 +11,16 @@ interface IProps extends AppendPrependArgs {
 }
 
 export const Checkbox:React.FC<HTMLProps<IProps, 'input'>>  = ({ as, append, prepend, className, variant, label, ...props }) => {
-  const baseClasses = 'flex gap-2 items-center cursor-pointer';
-
   const isChip = variant === 'chip';
-  const inputClass = `prism-form-checkbox transition duration-200 ${isChip && 'peer hidden'}`;
+  const baseClasses = 'gap-2 inline inline-flex items-center cursor-pointer disabled:cursor-not-allowed';
+  const inputClass = `prism-checkbox transition h-4 w-4 duration-200 ${isChip && 'peer hidden'}`;
   const spanClass = isChip ? 'prism-chip transition duration-200 peer-checked:bg-blue-500 peer-checked:text-white flex gap-1' : 'flex gap-1';
   const clsx = [spanClass, className].join(' ');
   return (
-      <Box as='label' className={baseClasses}>
-        <Box as='input' type='checkbox' {...props} className={inputClass} />
-        <Box as='span' className={clsx}>{prepend}{label}{append}</Box>
-      </Box>
+    <Box as='label' className={baseClasses}>
+      <Box as='input' type='checkbox' {...props} className={inputClass} />
+      <Box as='span' className={clsx}>{prepend}{label}{append}</Box>
+    </Box>
   );
 };
 
