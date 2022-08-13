@@ -87,14 +87,10 @@ export function TabRoot(props: ExtractProps<typeof HeadlessTab> & {
     <HeadlessTab as={Fragment}>
       {({ selected }) => (
          <Component {...attr} disabled={disabled} className={!unstyle ? `
-          ${selected
-           ? 'font-bold border-blue-900 text-black border-r-blue-900'
-           : 'text-blue-700 border-transparent hover:border-yellow-600 hover:border-t-transparent hover:text-sky-500'}
-            disabled:hover:border-transparent
-            p-2 py-1.5 uppercase  focus:outline-none
-            disabled:hover:text-blue-700
-            flex items-center gap-1
-            ${vertical ? 'flex w-full border-r-4' : 'flex border-b-4 border-t-4 border-t-transparent'}
+          ${selected && 'selected'}
+
+            prism-tab
+            ${vertical && 'vertical'}
             ${className}
         ` : className}>
           {Icon && <Icon className='h-[1em]' />}

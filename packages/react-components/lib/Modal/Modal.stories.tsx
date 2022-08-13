@@ -104,64 +104,60 @@ const ShorthandTemplate: ComponentStory<typeof Modal> = (args) => {
 };
 
 export const VariantBehavior: ComponentStory<typeof Modal> = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isOpen2, setIsOpen2] = useState(false);
-  const [isOpen3, setIsOpen3] = useState(false);
-  const [isOpen4, setIsOpen4] = useState(false);
-  const [isOpen5, setIsOpen5] = useState(false);
+  const [current, setCurrent] = useState('');
   return (
     <>
       <div className="flex gap-2">
-        <Button onClick={() => setIsOpen2(!isOpen2)} label="Toggle Left" />
-        <Button onClick={() => setIsOpen4(!isOpen4)} label="Toggle Modal" />
-        <Button onClick={() => setIsOpen5(!isOpen5)} label="Toggle Panel" />
-        <Button onClick={() => setIsOpen3(!isOpen3)} label="Toggle Fullscreen" />
-        <Button onClick={() => setIsOpen(!isOpen)} label="Toggle Right" />
+        <Button onClick={() => setCurrent('slideout-left')} label="Toggle Left" />
+        <Button onClick={() => setCurrent('modal')} label="Toggle Modal" />
+        <Button onClick={() => setCurrent('panel')} label="Toggle Panel" />
+        <Button onClick={() => setCurrent('fullscreen')} label="Toggle Fullscreen" />
+        <Button onClick={() => setCurrent('slideout')} label="Toggle Right" />
       </div>
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
         variant="slideout"
         content={<p>This is the content of my modal</p>}
-        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
-        show={isOpen}
-        onClose={() => setIsOpen(false)}
+        footer={(<button className='prism-btn fill' onClick={() => setCurrent('')}>Ok</button>)}
+        show={current === 'slideout'}
+        onClose={() => setCurrent('')}
         __debug />
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
         variant="panel"
         content={<p>This is the content of my modal</p>}
-        footer={(<button className='prism-btn fill' onClick={() => setIsOpen5(false)}>Ok</button>)}
-        show={isOpen5}
-        onClose={() => setIsOpen5(false)}
+        footer={(<button className='prism-btn fill' onClick={() => setCurrent('')}>Ok</button>)}
+        show={current === 'panel'}
+        onClose={() => setCurrent('')}
         __debug />
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
         variant="modal"
         content={<p>This is the content of my modal</p>}
-        footer={(<button className='prism-btn fill' onClick={() => setIsOpen4(false)}>Ok</button>)}
-        show={isOpen4}
-        onClose={() => setIsOpen4(false)}
+        footer={(<button className='prism-btn fill' onClick={() => setCurrent('')}>Ok</button>)}
+        show={current === 'modal'}
+        onClose={() => setCurrent('')}
         __debug />
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
         variant="fullscreen"
         content={<p>This is the content of my modal</p>}
-        footer={(<button className='prism-btn fill' onClick={() => setIsOpen3(false)}>Ok</button>)}
-        show={isOpen3}
-        onClose={() => setIsOpen3(false)}
+        footer={(<button className='prism-btn fill' onClick={() => setCurrent('')}>Ok</button>)}
+        show={current === 'fullscreen'}
+        onClose={() => setCurrent('')}
         __debug />
       <Modal
         title='My SlideOut'
         description='Alternate modal behavior'
         variant="slideout-left"
         content={<p>This is the content of my modal</p>}
-        footer={(<button className='prism-btn fill' onClick={() => setIsOpen(false)}>Ok</button>)}
-        show={isOpen2}
-        onClose={() => setIsOpen2(false)}
+        footer={(<button className='prism-btn fill' onClick={() => setCurrent('')}>Ok</button>)}
+        show={current === 'slideout-left'}
+        onClose={() => setCurrent('')}
         __debug />
     </>
   );

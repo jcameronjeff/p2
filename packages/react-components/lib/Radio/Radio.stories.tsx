@@ -18,9 +18,9 @@ export default {
 export const Basic: ComponentStory<any> = () => {
   return (
     <Box as='fieldset' className='flex gap-2 items-center'>
-      <Radio name='make' value="BMW" />
-      <Radio name='make' value="Mercedes-Benz" defaultChecked={true}  />
-      <Radio name='make' value="Audi" />
+      <Radio name='make' value="BMW" tabIndex={1} />
+      <Radio name='make' value="Mercedes-Benz" defaultChecked={true} tabIndex={2}  />
+      <Radio name='make' value="Audi" tabIndex={3}  />
     </Box>
   );
 };
