@@ -73,8 +73,8 @@ module.exports = {
   },
   fontFamily: {
     // source: https://prism.coxautoinc.com/foundation/typography/typography--usage
-    sans: ['Roboto', ...defaultTheme.fontFamily.sans],
-    alt: ['Roboto Condensed', ...defaultTheme.fontFamily.sans],
+    sans: ['Roboto Flex', 'Roboto', ...defaultTheme.fontFamily.sans],
+    alt: ['Roboto Flex',  ...defaultTheme.fontFamily.sans],
     serif: ['Merriweather', 'serif'],
   },
 
@@ -134,7 +134,7 @@ module.exports = {
   },
   letterSpacing: {
     tighter: '-0.04em',
-    tight: '-0.02em',
+    tight: '-0.01em',
     normal: '0em',
     wide: '0.02em',
     wider: '0.04em',

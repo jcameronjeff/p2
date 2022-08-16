@@ -31,9 +31,15 @@ module.exports = {
     require('./lib/Checkbox/tailwind-plugin-checkbox'),
     require('./lib/Chip/tailwind-plugin-chip'),
     //
-    function ({ addBase, theme }) {
+    function ({ addBase, theme, addUtilities }) {
       addBase({
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
+      });
+      addUtilities({
+        '.font-alt': {
+          fontStretch: '64%',
+          'font-variation-settings': '\'GRAD\' -64',
+        },
       });
     },
   ],

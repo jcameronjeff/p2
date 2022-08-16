@@ -171,6 +171,10 @@ module.exports = plugin.withOptions(function (options = {
     }
 
     const typographyRules = {
+      [`.font-alt`]: {
+        fontStretch: '64%',
+        "font-variation-settings": `'GRAD' -64`
+      },
       [`*[class^=${prefix}caption]`]: {
         color: theme('colors.muted'),
       },
