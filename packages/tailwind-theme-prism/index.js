@@ -1,8 +1,34 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
-const colors = require('./colors');
+const colors = require('./colors.json');
 
 module.exports = {
-  baseColor: colors,
+  colors: ({ theme }) => ({
+    // source: https://prism.coxautoinc.com/foundation/colors/colors
+    ...colors,
+    // extend color names for legacy support
+    cerulean: theme.colors.blue,
+    sky: theme.colors.blue,
+    navy: theme.colors.blue,
+    amber: theme.colors.orange,
+    saffron: theme.colors.orange,
+    gold: theme.colors.yellow,
+    meadow: theme.colors.green,
+    jungle: theme.colors.emerald,
+    ocean: theme.colors.teal,
+    // top-level theme API
+    headings: theme.colors.blue['800'],
+    links: theme.colors.sky['700'],
+    body: theme.colors.gray['800'],
+    muted: theme.colors.gray['500'],
+    caption: theme.colors.gray['400'],
+    ghost: theme.colors.gray['300'],
+    surface: theme.colors.gray['100'],
+    // map our palette to existing named colors.
+    'primary': theme.colors.blue['700'],
+    'primary-dark': theme.colors.blue['800'],
+    'navy': theme.colors.blue['900'],
+    'navy-dark': theme.colors.blue['1000'],
+  }),
   screens: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
     xs: '480px',
@@ -51,32 +77,12 @@ module.exports = {
     alt: ['Roboto Condensed', ...defaultTheme.fontFamily.sans],
     serif: ['Merriweather', 'serif'],
   },
-  colors: ({ theme }) => ({
-    // source: https://prism.coxautoinc.com/foundation/colors/colors
-    // map our palette to existing named colors.
-    'primary': theme.colors.blue['700'],
-    'primary-dark': theme.colors.blue['800'],
-    'navy': theme.colors.blue['900'],
-    'navy-dark': theme.colors.blue['1000'],
-    'cerulean-light': theme.colors.sky['100'],
-    'cerulean': theme.colors.sky['500'],
-    'cerulean-dark': theme.colors.sky['600'],
-    'gold': theme.colors.yellow['500'],
-    'gold-dark': theme.colors.yellow['600'],
-    ...colors,
-    headings: colors.blue['800'],
-    links: theme.colors.sky['700'],
-    body: theme.colors.gray['800'],
-    muted: theme.colors.gray['500'],
-    caption: theme.colors.gray['400'],
-    ghost: theme.colors.gray['300'],
-    surface: theme.colors.gray['100'],
-  }),
+
   // This will set the color for `.border` out of the box.
   borderColor: ({ theme }) => ({
     ...theme('colors'),
     // #babcbe
-    DEFAULT: theme('colors.gray.300', 'currentColor'),
+    DEFAULT: theme('colors.gray.200', 'currentColor'),
   }),
   borderOpacity: ({ theme }) => theme('opacity'),
   borderRadius: {
