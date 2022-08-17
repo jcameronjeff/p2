@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
 import * as themeColors from '@prism2/tailwind-theme/colors.json';
 import { Button } from '../lib';
-import { ArrowCircleRightIcon } from '@heroicons/react/solid';
+import { ArrowCircleRightIcon } from '@prism2/icons/react/solid';
 
 const colors = {
   ...themeColors,

@@ -1,9 +1,88 @@
 // import KitchenSink from '../lib/HTML5';
 import { Dialog } from '@headlessui/react';
-import { ChevronDownIcon, PencilAltIcon, SaveAsIcon, ShareIcon, StarIcon } from '@heroicons/react/solid';
+import { PencilAltIcon, SaveAsIcon, ShareIcon, StarIcon } from '@prism2/icons/react/solid';
+import * as P2 from '@prism2/icons/react/prism';
 import React, { useEffect, useState } from 'react';
 import { Modal, Tab, Box, Message, Radio } from '../lib';
 
+export const AllIcons = () => (
+  <div className='flex flex-wrap gap-4'>
+    <P2.ArrowDownIcon className='w-6' />
+    <P2.ArrowLeftIcon className='w-6' />
+    <P2.ArrowRightIcon className='w-6' />
+    <P2.ArrowUpIcon className='w-6' />
+    <P2.BarcodeIcon className='w-6' />
+    <P2.BellIcon className='w-6' />
+    {/* <P2.BellOIcon className='w-6' /> */}
+    <P2.BlockedIcon className='w-6' />
+    <P2.BubblesIcon className='w-6' />
+    <P2.CalendarIcon className='w-6' />
+    <P2.CancelCircleIcon className='w-6' />
+    {/* <P2.CancelCircleOIcon className='w-6' /> */}
+    <P2.CarIcon className='w-6' />
+    <P2.CarSideIcon className='w-6' />
+    <P2.CheckboxCheckedIcon className='w-6' />
+    <P2.CheckboxUncheckedIcon className='w-6' />
+    <P2.CheckmarkCircleIcon className='w-6' />
+    <P2.CheckmarkIcon className='w-6' />
+    <P2.ChevronDownChamferedIcon className='w-6' />
+    <P2.ChevronDownIcon className='w-6' />
+    <P2.ChevronLeftIcon className='w-6' />
+    <P2.ChevronRightIcon className='w-6' />
+    <P2.ChevronUpIcon className='w-6' />
+    <P2.CloudUploadIcon className='w-6' />
+    <P2.CreditCardIcon className='w-6' />
+    <P2.CrossIcon className='w-6' />
+    <P2.CrossSmallIcon className='w-6' />
+    <P2.DetailsIcon className='w-6' />
+    <P2.DirectionIcon className='w-6' />
+    <P2.Envelop5Icon className='w-6' />
+    <P2.ExportIcon className='w-6' />
+    <P2.EyeBlockedIcon className='w-6' />
+    <P2.EyeIcon className='w-6' />
+    <P2.FileExcelIcon className='w-6' />
+    <P2.FilePdfIcon className='w-6' />
+    <P2.FileSpreadsheetIcon className='w-6' />
+    <P2.FilesEmptyIcon className='w-6' />
+    <P2.FilterIcon className='w-6' />
+    <P2.GavelIcon className='w-6' />
+    <P2.HeartIcon className='w-6' />
+    {/* <P2.HeartOIcon className='w-6' /> */}
+    <P2.ImagesIcon className='w-6' />
+    {/* <P2.InfoIcon className='w-6' /> */}
+    {/* <P2.InfoOIcon className='w-6' /> */}
+    <P2.ListIcon className='w-6' />
+    <P2.LocationIcon className='w-6' />
+    <P2.ManheimMedallionIcon className='w-6' />
+    <P2.MarkerIcon className='w-6' />
+    <P2.MedalIcon className='w-6' />
+    <P2.MenuIcon className='w-6' />
+    <P2.Minus2Icon className='w-6' />
+    <P2.MinusCircleIcon className='w-6' />
+    {/* <P2.MinusCircleOIcon className='w-6' /> */}
+    <P2.MinusIcon className='w-6' />
+    <P2.MobileIcon className='w-6' />
+    <P2.NotificationCircleIcon className='w-6' />
+    <P2.PaintCanIcon className='w-6' />
+    <P2.PlusIcon className='w-6' />
+    <P2.PrinterIcon className='w-6' />
+    <P2.SearchIcon className='w-6' />
+    <P2.ShieldCheckIcon className='w-6' />
+    <P2.ShieldIcon className='w-6' />
+    <P2.SortIcon className='w-6' />
+    <P2.StarEmptyIcon className='w-6' />
+    <P2.StarFullIcon className='w-6' />
+    <P2.StarHalfIcon className='w-6' />
+    <P2.ThreeBarsIcon className='w-6' />
+    <P2.ThreeDotsHorizontalIcon className='w-6' />
+    <P2.TriangleDownIcon className='w-6' />
+    <P2.TriangleLeftIcon className='w-6' />
+    <P2.TriangleRightIcon className='w-6' />
+    <P2.TriangleUpIcon className='w-6' />
+    <P2.TruckIcon className='w-6' />
+    <P2.UserIcon className='w-6' />
+  </div>
+);
 
 export function FormSpecimens() {
   return (
@@ -284,7 +363,7 @@ export function KitchenSink() {
 
 
 export function App() {
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
   const [variant, setVariant] = useState('slideout');
   const [count, setCount] = useState(0);
   useEffect(() => {
@@ -310,7 +389,10 @@ export function App() {
           <Tab.List as='div' className='flex gap-1'>
             <button className='prism-btn fill flex gap-1  text-sm items-center self-center' onClick={() => setIsOpen(!isOpen)}>
               Buy
-              <ChevronDownIcon className='w-4' />
+              <P2.CalendarIcon className='w-4' />
+              <P2.ArrowDownIcon className='w-4' />
+              <P2.CreditCardIcon className='w-4' />
+              <P2.BlockedIcon className='w-4' />
             </button>
             <Tab className='prism-btn text text-sm bg-gray-50'>Message</Tab>
             <Tab className='prism-btn text text-sm bg-gray-50'>Summary</Tab>
@@ -327,6 +409,7 @@ export function App() {
               This is some text message lorem ipsum delorate message lorem ipsum
             </p>
           </Message>
+          <AllIcons />
         </Tab.Panel>
         <Tab.Panel>
           <div className='flex gap-1 pb-4 border-b border-gray-100 justify-between'>

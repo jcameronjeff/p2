@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Combobox } from '@headlessui/react';
-import { CheckIcon } from '@heroicons/react/solid';
+import { CheckIcon } from '@prism2/icons/react/solid';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 
@@ -38,7 +38,7 @@ const MenuItem = ({ active, selected, value, onClick }: MProps) => {
 
 export const Template: ComponentStory<any> = (args) => {
   // import { Combobox } from '@headlessui/react';
-  // import { CheckIcon } from '@heroicons/react/solid';
+  // import { CheckIcon } from '@prism2/icons/react/solid';
   const [selectedOption, setSelectedOptions] = useState('');
   const [query, setQuery] = useState('');
 

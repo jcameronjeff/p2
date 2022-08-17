@@ -1,6 +1,6 @@
 import { createContext, Fragment, PropsWithChildren, ReactComponentElement, useCallback, useContext, useEffect, useMemo, useState } from 'react';
 import { Listbox } from '@headlessui/react';
-import { CheckCircleIcon, ChevronRightIcon } from '@heroicons/react/solid';
+import { CheckCircleIcon, ChevronRightIcon } from '@prism2/icons/react/solid';
 import { Chip } from '..';
 
 interface IAccordionContext {}

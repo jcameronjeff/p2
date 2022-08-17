@@ -24,7 +24,7 @@
     },
     "build-storybook": {
       "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)","stories/*",".storybook"],
-      "dependsOn": ["test","build"],
+      "dependsOn": ["test","^build"],
       "outputs": ["docs/**"]
     },
     "deploy": {
@@ -33,6 +33,7 @@
       "cache": false
     },
     "test": {
+      "dependsOn": ["build", "build_css"],
       "cache": false
     },
     "test_ui": {

@@ -1,7 +1,7 @@
 import { AccordionItem, Button, Accordion, Box, AccordionItemProps, Chip } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React, { ComponentType, useState } from 'react';
-import { ChevronRightIcon, FilterIcon } from '@heroicons/react/solid';
+import { ChevronRightIcon, FilterIcon } from '@prism2/icons/react/solid';
 import { Dropdown } from './Dropdown';
 
 

@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react';
-import { ChevronRightIcon } from '@heroicons/react/solid';
+import { ChevronRightIcon } from '@prism2/icons/react/solid';
 import React, { ComponentType, useEffect } from 'react';
 import { Box } from '../Box';
 import { slideUpDownAlt, slideUpDown, fadeInDownOutUp, fadeInOut } from '../utils';

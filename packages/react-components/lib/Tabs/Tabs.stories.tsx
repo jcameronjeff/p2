@@ -4,7 +4,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Tab, TabRoot } from './';
 import mdx from './README.mdx';
-import { ArchiveIcon, BadgeCheckIcon, BellIcon, AdjustmentsIcon } from '@heroicons/react/solid';
+import { ArchiveIcon, BadgeCheckIcon, BellIcon, AdjustmentsIcon } from '@prism2/icons/react/solid';
 
 export default {
   title: 'Components/Tabs',
