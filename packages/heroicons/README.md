@@ -39,68 +39,23 @@ Both icon styles are preconfigured to be stylable by setting the `color` CSS pro
 
 ## React
 
-First, install `@prism2/icons/react` from npm:
+First, install `@prism2/icons` from npm:
 
 ```sh
-npm install @heroicons/react
+npm install @prism2/icons
 ```
 
 Now each icon can be imported individually as a React component:
 
 ```js
-import { BeakerIcon } from '@prism2/icons/react/solid'
+import { ConditionReportIcon } from '@prism2/icons/react/prism'
 
 function MyComponent() {
   return (
     <div>
-      <BeakerIcon className="h-5 w-5 text-blue-500" />
+      <ConditionReportIcon className="h-5 w-5 text-blue-500" />
       <p>...</p>
     </div>
   )
 }
 ```
-
-The 24x24 outline icons can be imported from `@prism2/icons/react/outline`, and the 20x20 solid icons can be imported from `@prism2/icons/react/solid`.
-
-Icons use an upper camel case naming convention and are always suffixed with the word `Icon`.
-
-[Browse the full list of icon names on UNPKG &rarr;](https://unpkg.com/browse/@heroicons/react/outline/)
-
-## Vue
-
-_Note that this library currently only supports Vue 3._
-
-First, install `@heroicons/vue` from npm:
-
-```sh
-npm install @heroicons/vue
-```
-
-Now each icon can be imported individually as a Vue component:
-
-```vue
-<template>
-  <div>
-    <BeakerIcon class="h-5 w-5 text-blue-500" />
-    <p>...</p>
-  </div>
-</template>
-
-<script>
-import { BeakerIcon } from '@heroicons/vue/solid'
-
-export default {
-  components: { BeakerIcon },
-}
-</script>
-```
-
-The 24x24 outline icons can be imported from `@prism2/icons/vue/outline`, and the 20x20 solid icons can be imported from `@prism2/icons/vue/solid`.
-
-Icons use an upper camel case naming convention and are always suffixed with the word `Icon`.
-
-[Browse the full list of icon names on UNPKG &rarr;](https://unpkg.com/browse/@heroicons/vue/outline/)
-
-## License
-
-This library is MIT licensed.
