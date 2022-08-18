@@ -1,4 +1,5 @@
 import { ComponentMeta } from '@storybook/react';
+import { version as iconsVerson } from '@prism2/icons/package.json';
 import * as P2 from '@prism2/icons/react/prism';
 export default {
   title: 'Components/Icons',
@@ -680,33 +681,32 @@ export const AllIcons = ({ textColor = 'text-gray-400' }) => (
 );
 
 
-
-
-
-
 export const SplashPage = () => (
   <>
-  <div className='flex justify-center bg-blue-600 p-12 text-white flex-col items-center space-y-4'>
-    <h1 className='text-4xl font-light font-mono tracking-tighter'>
-      <span className='opacity-25 font-light'>@prism2/</span>
-      <span>icons</span>
-    </h1>
-    <div className='text-sm tracking-tight w-[540px] bg-slate-900 text-slate-300 rounded font-mono p-4'>
+  <div className='flex justify-center bg-blue-600 from-blue-900 bg-gradient-to-br p-12 text-white flex-col items-center space-y-4'>
+    <div className='text-center'>
+      <h1 className='text-4xl font-medium font-sans tracking-tighter'>
+        <span className='opacity-25 font-light'>prism2.</span>
+        <span>icons</span>
+      </h1>
+      <h4 className='text-sm text-gold-400'>{iconsVerson}</h4>
+    </div>
+    <div className='text-sm tracking-tight w-[540px] bg-slate-900 text-slate-300 rounded font-mono p-4 shadow-lg'>
       <span className='opacity-50'>// install</span><br />
       <span className='opacity-25'>$</span> pnpm add @prism2/icons<br />
       <span className='opacity-50'>// import</span><br />
       {'import { HeartIcon } from \'@prism2/icons/react/prism\''}<br />
       <span className='opacity-50'>// insert</span><br />
-      {'<HeartIcon className="w-24 text-blue-200" />'}
+      {'<HeartIcon className="w-12 text-red-400 animate-pulse" />'}
     </div>
-    <HeartIcon className="w-24 text-blue-200" />
+    <HeartIcon className="w-12 text-red-400 animate-pulse" />
   </div>
   <div className='flex justify-center items-center text-gray-900'>
     <div className="container  py-12">
       <AllIcons />
     </div>
-    <div className="container bg-slate-800 text-gray-50  py-12">
-      <AllIcons textColor='text-gray-500'/>
+    <div className="container bg-blue-1000 text-slate-50  py-12">
+      <AllIcons textColor='text-slate-500'/>
     </div>
   </div>
   </>
