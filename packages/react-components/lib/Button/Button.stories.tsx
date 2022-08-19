@@ -89,8 +89,13 @@ const ButtonTemplate: ComponentStory<any> = () => {
 };
 
 export const WinnieTest = () => (
-  <div className='space-y-8'>
-  <Box as='div' className='flex gap-2 text-xs'>
+  <div className='flex-col space-y-8 gap-8 items-start'>
+  <Box as='div' className='flex gap-2 text-xs items-center'>
+    <h4 className='prism-heading-4 w-[140px]'>Outlined</h4>
+    <button className='prism-btn'>
+      <div>Edit</div>
+      <PencilAltIcon className='w-4'/>
+    </button>
     <button className='prism-btn'>
       <div>Edit</div>
       <PencilAltIcon className='w-4'/>
@@ -109,9 +114,10 @@ export const WinnieTest = () => (
     </button>
 
   </Box>
-  <Box as='div' className='flex gap-1 text-xs'>
+  <Box as='div' className='flex gap-2 text-xs items-center'>
+    <h4 className='prism-heading-4 w-[140px]'>Text</h4>
     <button className='prism-btn text px-2 gap-0.5'>
-      <div>Edit</div>
+      <div>Save</div>
 
     </button>
     <button className='prism-btn text px-2 gap-0.5'>
@@ -119,30 +125,33 @@ export const WinnieTest = () => (
 
     </button>
     <button className='prism-btn text px-2 gap-0.5'>
-      <div>Edit</div>
+      <div>Settings</div>
+
+
 
     </button>
     <button disabled className='prism-btn text px-2 gap-0.5'>
-      <div>Save</div>
+      <div>View</div>
 
     </button>
 
   </Box>
-  <Box as='div' className='flex gap-2 text-xs'>
+  <Box as='div' className='flex gap-2 text-xs items-center'>
+    <h4 className='prism-heading-4 w-[140px]'>Outlined</h4>
     <button className='prism-btn fill'>
-      <div>Edit</div>
+      <div>Contained State</div>
       <PencilAltIcon className='w-4'/>
     </button>
     <button className='prism-btn fill'>
-      <div>Edit</div>
+      <div>Contained Button</div>
       <PencilAltIcon className='w-4'/>
     </button>
     <button className='prism-btn fill'>
-      <div>Edit</div>
+      <div>Submit</div>
       <PencilAltIcon className='w-4'/>
     </button>
     <button disabled className='prism-btn fill'>
-      <div>Save</div>
+      <div>Disabled</div>
       <CheckCircleIcon className='w-4'/>
     </button>
   </Box>

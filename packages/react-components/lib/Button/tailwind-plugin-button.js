@@ -8,17 +8,17 @@ module.exports = plugin(function ({ addComponents, theme }) {
     '.prism-btn': {
       '--tw-padding-x': theme('spacing.4'),
       '--tw-padding-y': theme('spacing.2'),
-      '--tw-ring-color': theme('colors.blue.300'),
+      '--tw-ring-color': theme('colors.blue.200'),
       '--tw-text-color': theme('colors.blue.700'),
       '--tw-bg-color': theme('colors.white'),
       '--tw-outline-color': theme('colors.blue.700'),
       '--tw-text-hover-color': theme('colors.blue.900'),
       '--tw-bg-hover-color': theme('colors.blue.100'),
+      '--tw-bg-active-color': theme('colors.blue.200'),
       '--tw-outline-hover-color': theme('colors.blue.800'),
       fontWeight: theme('fontWeight.semibold'),
       color: 'var(--tw-text-color) !important',
-      textTransform: 'uppercase',
-      backgroundColor: 'var(--tw-bg-color) !important',
+      backgroundColor: 'var(--tw-bg-color)',
       display: 'inline-flex',
       alignItems: 'center',
       justifyContent: 'center',
@@ -26,7 +26,7 @@ module.exports = plugin(function ({ addComponents, theme }) {
       gap: theme('spacing.2'),
       borderRadius: theme('borderRadius.xs'),
       cursor: 'pointer',
-      outlineColor: 'var(--tw-outline-color) !important',
+      outlineColor: 'var(--tw-outline-color)',
       outlineOffset: '0px !important',
       outlineStyle: 'solid',
       outlineWidth: theme('outlineWidth.1'),
@@ -34,6 +34,7 @@ module.exports = plugin(function ({ addComponents, theme }) {
       whiteSpace: 'nowrap',
       overflow: 'hidden',
       textOverflow: 'ellipses',
+
       'svg': {
         flexShrink: 0,
         width: theme('spacing.4'),
@@ -45,6 +46,7 @@ module.exports = plugin(function ({ addComponents, theme }) {
         'text-overflow': 'ellipsis !important',
       },
       '&:focus': {
+
         boxShadow: '0 0 0 4px var(--tw-ring-color) !important',
       },
       '&:disabled': {
@@ -53,15 +55,15 @@ module.exports = plugin(function ({ addComponents, theme }) {
         filter: 'grayscale(100%)',
         color: theme('colors.gray.500'),
       },
-      '&:not(:disabled)': {
-        '&:hover': {
-          backgroundColor: 'var(--tw-bg-hover-color) !important',
-          color: 'var(--tw-text-hover-color) !important',
-          outlineColor: 'var(--tw-outline-hover-color) !important',
-        },
-        '&:active': {
-          transform: 'scale(0.95)',
-        },
+
+      '&:hover': {
+        backgroundColor: 'var(--tw-bg-hover-color)',
+        color: 'var(--tw-text-hover-color)',
+        outlineColor: 'var(--tw-outline-hover-color)',
+      },
+
+      '&:active': {
+        backgroundColor: 'var(--tw-bg-active-color) !important',
       },
       '&.text': {
         '--tw-bg-color': 'transparent',
@@ -80,13 +82,14 @@ module.exports = plugin(function ({ addComponents, theme }) {
         '--tw-outline-hover-color': theme('colors.green.700'),
       },
       '&.fill': {
-        '--tw-ring-color': theme('colors.gold.400'),
+        '--tw-ring-color': theme('colors.gold.300'),
         '--tw-text-color': theme('colors.gold.900'),
         '--tw-bg-color': theme('colors.gold.400'),
         '--tw-outline-color': theme('colors.gold.500'),
         '--tw-text-hover-color': theme('colors.black'),
-        '--tw-bg-hover-color': theme('colors.gold.500'),
+        '--tw-bg-hover-color': theme('colors.gold.300'),
         '--tw-outline-hover-color': theme('colors.gold.600'),
+        '--tw-bg-active-color': theme('colors.gold.500'),
       },
     },
   });
