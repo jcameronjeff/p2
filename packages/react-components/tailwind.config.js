@@ -31,16 +31,12 @@ module.exports = {
     require('./lib/Checkbox/tailwind-plugin-checkbox'),
     require('./lib/Chip/tailwind-plugin-chip'),
     //
-    function ({ addBase, theme, addUtilities }) {
+    function ({ addBase, theme, addVariant }) {
       addBase({
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
       });
-      addUtilities({
-        '.font-alt': {
-          fontStretch: '64%',
-          'font-variation-settings': '\'GRAD\' -64',
-        },
-      });
+      addVariant('optional', '&:optional');
+      addVariant('selected', '&[aria-selected="true"]');
     },
   ],
 };
