@@ -15,10 +15,10 @@ module.exports = {
   "core": {
     "builder": "@storybook/builder-vite"
   },
-  "features": {
-    "storyStoreV7": false,
-    "previewMdx2": false
-  },
+  // "features": {
+  //   "storyStoreV7": false,
+  //   "previewMdx2": false
+  // },
   async viteFinal(config, { configType }) {
     let options = {}
     if (configType === 'DEVELOPMENT') {

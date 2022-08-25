@@ -1,14 +1,18 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React from 'react';
+import React, { HTMLAttributes } from 'react';
 import { Chip, Button, Box, Toggle } from '../lib';
 
 export default {
   title: 'Demo/Layout',
   component: Chip,
   subcomponents: { Chip, Button, Box, Toggle },
+  parameters: {
+    layout: 'fullscreen',
+  },
 } as ComponentMeta<any>;
 
 
+type HTMLFC<T extends any = any> = React.FC<HTMLAttributes<T>>;
 const LayoutTemplate: ComponentStory<any> = () => {
 
   /**
@@ -35,7 +39,7 @@ const LayoutTemplate: ComponentStory<any> = () => {
     // list dependencies of header such as user, session info or view context.
   ]);
 
-  let Content = (props) => (
+  let Content:React.FC<HTMLAttributes<any>> = (props) => (
     <main className={['space-y-4 p-4', props.className].join(' ')}>
       <article className='prism-prose'>
         {props.children}
@@ -43,13 +47,13 @@ const LayoutTemplate: ComponentStory<any> = () => {
     </main>
   );
 
-  let Footer = (props) => React.useMemo(() => (
+  let Footer:React.FC<HTMLAttributes<any>> = (props) => React.useMemo(() => (
     <footer className={['prism-caption', props.className].join(' ')}>
       <p>My footer content</p>
     </footer>
   ), []);
 
-  let Aside = (props) => (
+  let Aside:HTMLFC = (props) => (
     <aside className={['p-4 bg-gray-50 rounded-sm border border-gray-100', props.className].join(' ')}>
       <div className='prism-link-sm p-1'>
         Option One

@@ -16,8 +16,7 @@ export type MessageVariant = Record<MessageVariantName, string>;
 export type IconType = 'info' | 'error' | 'alert' | 'success';
 
 // export default Message;
-
-export interface MessageProps {
+export interface IMessageProps {
   /**
    * named variant value for this message.
    */
@@ -28,7 +27,7 @@ export interface MessageProps {
   title?: string
 }
 
-export const Message:HTMLComponent<MessageProps> = ({ variant, unstyle, as = 'div', title, children, className, ...htmlProps }) => {
+export const Message:HTMLComponent<IMessageProps> = ({ variant, as = 'div', title, children, className, ...htmlProps }) => {
 
   let getVariant = () => {
     if (unstyle) return ['', InformationCircleIcon];

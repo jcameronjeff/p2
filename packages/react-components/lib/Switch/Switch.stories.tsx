@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import {  ComponentMeta } from '@storybook/react';
+import {  ComponentStory, ComponentMeta } from '@storybook/react';
 import { Switch, SwitchRoot, useToggle } from '.';
 import mdx from './README.mdx';
 
@@ -13,7 +13,7 @@ export default {
     'Switch.Description': Switch.Description,
   },
   parameters: {
-    layout: 'fullscreen',
+    layout: 'centered',
     docs: {
       page: mdx,
     },
@@ -21,19 +21,21 @@ export default {
 } as ComponentMeta<typeof SwitchRoot>;
 
 
-export const Basic = () => {
+export const Basic:ComponentStory<typeof Switch> = () => {
   const attr = useToggle()
   return <Switch {...attr} />
 }
 
-export const WithText = () => {
+export const WithText:ComponentStory<typeof Switch> = () => {
   const [enabled, setEnabled] = React.useState(false);
-  return <Switch.Group className='flex gap-5 text-4xl'>
+  return <div>
+        <Switch.Group className='inline-flex gap-5 text-4xl'>
           <Switch.Label className='text-base'>Toggle All</Switch.Label>
           <Switch checked={enabled} onChange={setEnabled}>
             {enabled ? 'on' : 'off'}
           </Switch>
         </Switch.Group>
+        </div>
 }
 
 export const TestTemplate = (props:any) => {
@@ -47,7 +49,7 @@ export const TestTemplate = (props:any) => {
   )
 }
 
-export const Complex = () => {
+export const Complex:ComponentStory<typeof Switch> = () => {
   const args = {
     id: 'af2e1c-bae91-ef0c23',
     enabled: true,
@@ -91,7 +93,7 @@ export const Complex = () => {
 };
 
 
-export const KitchenSink = () => {
+export const KitchenSink:ComponentStory<typeof Switch> = () => {
   const sizes = [
     'text-xxs',
     'text-xs',
@@ -129,7 +131,7 @@ export const KitchenSink = () => {
 
 }
 
-export const Sizing = () => {
+export const Sizing:ComponentStory<typeof Switch> = () => {
   const attr = [0,1,2,3,4,5,6,7].map(() => useToggle(true))
   return (
     <div className='container w-[400px] gap-2 flex justify-center items-center'>
@@ -146,7 +148,7 @@ export const Sizing = () => {
 }
 
 
-export const Coloring = () => {
+export const Coloring:ComponentStory<typeof Switch> = () => {
   const attr = [0,1,2,3].map(() => useToggle(true))
   return (
     <div className='container w-[400px] gap-2 flex justify-center'>
