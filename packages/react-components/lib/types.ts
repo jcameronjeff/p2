@@ -110,6 +110,7 @@ export type AsProp<C extends React.ElementType> = {
    * Can also be another React component.
    */
   as?: C,
+  unstyle?: boolean,
   ref?: PolymorphicRef<any>
 };
 /**

@@ -2,60 +2,52 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Message } from './Message';
 
-/* eslint-disable */
 export default {
   title: 'Components/Message',
   component: Message,
   // subcomponents: { Message },
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
-} as ComponentMeta<any>;
+} as ComponentMeta<typeof Message>;
 
 
-const Default: ComponentStory<any> = ({variant}) => {
-  /**
-   * Need to add the array here to match the class and appropriate svg path.
-   */
-
+const Default: ComponentStory<typeof Message> = (args) => {
   return (
-
-    <Message title="This is my title" variant={variant}>
+    <Message {...args}>
       <p>
         This is some text message lorem ipsum delorate message lorem ipsum
       </p>
     </Message>
-
-  );
-};
-const WithoutTitleTemplate: ComponentStory<any> = ({variant}) => {
-
-  return (
-
-    <Message variant={variant}>
-      <p>
-        This is some text message lorem ipsum delorate message lorem ipsum
-      </p>
-    </Message>
-
   );
 };
 
-const variants = ['info', 'error', 'alert', 'success'] as const;
-
-export const InfoMsg = Default.bind({})
-export const WithoutTitle = WithoutTitleTemplate.bind({})
+export const InfoMsg = Default.bind({});
 InfoMsg.args = {
-  variant: 'info'
-}
-WithoutTitle.args = InfoMsg.args;
-export const ErrorMsg = Default.bind({})
+  variant: 'info',
+  title: 'Message Title',
+};
+export const Unstyled = Default.bind({});
+Unstyled.args = {
+  variant: 'info',
+  title: 'Message Title',
+  unstyle: true,
+  className: 'border p-4 bg-gray-50 rounded-xl font-2xl',
+};
+export const NoTitle = Default.bind({});
+NoTitle.args = {
+  variant: 'info',
+};
+export const ErrorMsg = Default.bind({});
 ErrorMsg.args = {
-  variant: 'error'
-}
-export const AlertMsg = Default.bind({})
+  variant: 'error',
+  title: 'Message Title',
+};
+export const AlertMsg = Default.bind({});
 AlertMsg.args = {
-  variant: 'alert'
-}
-export const SuccessMsg = Default.bind({})
+  variant: 'alert',
+  title: 'Message Title',
+};
+export const SuccessMsg = Default.bind({});
 SuccessMsg.args = {
-  variant: 'success'
-}
+  variant: 'success',
+  title: 'Message Title',
+};

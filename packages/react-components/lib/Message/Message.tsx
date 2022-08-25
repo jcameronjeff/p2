@@ -16,7 +16,7 @@ export type MessageVariant = Record<MessageVariantName, string>;
 export type IconType = 'info' | 'error' | 'alert' | 'success';
 
 // export default Message;
-interface Props {
+export interface MessageProps {
   /**
    * named variant value for this message.
    */
@@ -27,9 +27,10 @@ interface Props {
   title?: string
 }
 
-export const Message:HTMLComponent<Props> = ({ variant, as = 'div', title, children, className, ...htmlProps }) => {
+export const Message:HTMLComponent<MessageProps> = ({ variant, unstyle, as = 'div', title, children, className, ...htmlProps }) => {
 
   let getVariant = () => {
+    if (unstyle) return ['', InformationCircleIcon];
     if (variant === 'info') return ['bg-blue-200 text-blue-900', InformationCircleIcon];
     if (variant === 'error') return ['bg-red-200 text-red-900', ExclamationCircleIcon];
     if (variant === 'alert') return ['bg-yellow-200 text-red-900', ExclamationCircleIcon];
@@ -38,7 +39,7 @@ export const Message:HTMLComponent<Props> = ({ variant, as = 'div', title, child
   };
   const { cx, Icon } = React.useMemo(() => ({
     Icon: getVariant()[1],
-    cx: [
+    cx: unstyle ? className : [
       getVariant()[0],
       'p-4 pr-6 rounded min-w-[200px]',
       'grid grid-cols-[min-content,1fr] gap-x-1 items-start',
@@ -49,10 +50,10 @@ export const Message:HTMLComponent<Props> = ({ variant, as = 'div', title, child
   const Component = as || 'div';
   return (
     <Component {...htmlProps} className={cx}>
-      <Icon className='w-5 h-5 scale-90' />
+      <Icon className={!unstyle ? 'w-5 h-5 scale-90' : ''} />
       {!!title && <>
-        <div className='font-bold'>{title}</div>
-        <div className='w-6' />
+        <div className={!unstyle ? 'font-bold' : ''}>{title}</div>
+        <div className={!unstyle ? 'w-6' : ''} />
       </>}
       <div>{children}</div>
     </Component>
