@@ -1,6 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
 import React, { ElementType, Fragment, MutableRefObject, useRef } from 'react';
-import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft, forwardRefWithAs } from '../utils';
+import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
 /**

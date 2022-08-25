@@ -28,6 +28,7 @@ export const Experiment = () => (
     </p>
     <p className='text-xs text-gray-300'>
       {lorem(3)}
+      {ipsum2}
     </p>
   </div>
 );

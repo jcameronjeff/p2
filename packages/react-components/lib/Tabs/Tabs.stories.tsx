@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';

@@ -1,4 +1,4 @@
-import { createContext, Fragment, PropsWithChildren, ReactComponentElement, useCallback, useContext, useEffect, useMemo, useState } from 'react';
+import { createContext, Fragment, PropsWithChildren, useContext, useEffect, useState } from 'react';
 import { Listbox } from '@headlessui/react';
 import { CheckCircleIcon, ChevronRightIcon } from '@prism2/icons/react/solid';
 import { Chip } from '..';
@@ -55,10 +55,6 @@ export function Dropdown({ multiple, onChangeCallback = () => {} }: PropsWithChi
 
   const [selectedPerson, setSelectedPerson] = useState<Person[]>([]);
 
-  const DisplayVal = ({ str }:{ str:String }) => <span className={`p-2 py-0 font-medium whitespace-nowrap ${multiple ? 'rounded-sm bg-blue-800 text-white' : ''}`}>{str}</span>;
-
-
-
   function handleChange(val: Person | Person[]) {
     if (multiple) {
       setSelectedPerson(val as Person[]);
@@ -76,7 +72,7 @@ export function Dropdown({ multiple, onChangeCallback = () => {} }: PropsWithChi
     <Listbox value={selectedPerson} onChange={handleChange} multiple={multiple}>
       {({ open }) => (
         <>
-        <Listbox.Button className={`p-2 h-10 border flex items-center justify-between prism-input w-[600px] text-left overflow-hidden shadow-inner ${open && 'ring ring-1 ring-blue-600'}`}>
+        <Listbox.Button className={`p-2 h-10 border flex items-center justify-between prism-input w-[600px] text-left overflow-hidden shadow-inner ${open && 'ring-1 ring-blue-600'}`}>
           <div className='overflow-hidden flex gap-x-1'>
             {selectedPerson.map(per =>
               <span key={per.id} className={`p-2 py-0 font-medium whitespace-nowrap ${multiple ? 'rounded-sm bg-blue-800 text-white' : ''}`}>{per.name}</span>,

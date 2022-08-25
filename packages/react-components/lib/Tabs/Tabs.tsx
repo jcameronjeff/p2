@@ -1,4 +1,4 @@
-import React, { ComponentType, createContext, Fragment, ReactComponentElement, ReactElement, useContext, useMemo } from 'react';
+import React, { createContext, Fragment, useContext, useMemo } from 'react';
 import { Tab as HeadlessTab } from '@headlessui/react';
 import { ExtractProps } from '../types';
 

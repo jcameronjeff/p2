@@ -1,9 +1,7 @@
-import { AccordionItem, Button, Accordion, Box, AccordionItemProps, Chip } from '..';
+import { AccordionItem } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { ComponentType, useState } from 'react';
-import { ChevronRightIcon, FilterIcon } from '@prism2/icons/react/solid';
+import React, { useState } from 'react';
 import { Dropdown } from './Dropdown';
-
 
 export default {
   title: 'Components/Dropdown',
@@ -18,7 +16,7 @@ const Basic: ComponentStory<typeof Dropdown> = (args) => {
     <div>
       <Dropdown {...args} onChangeCallback={setData} />
     </div>
-      {/* <div className='w-[500px]'>Parent State: {JSON.stringify(data)}</div> */}
+      <div className='w-[500px] hidden'>Parent State: {JSON.stringify(data)}</div>
   </div>
   );
 };
