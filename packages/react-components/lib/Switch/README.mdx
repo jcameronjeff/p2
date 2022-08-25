@@ -1,0 +1,62 @@
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { Switch } from './'
+
+<Meta title="Docs/Switch" component={Switch} />
+
+# Switch
+
+> Switches are a pleasant interface for toggling a value between two states, and offer the same semantics and keyboard navigation as native checkbox elements. [@headlessui/react](https://headlessui.com/react/switch))
+
+```tsx
+import { Switch } from '@prism2/react-components'
+
+function MyComponent() {
+  const [checked, setChecked] = useState(false)
+  return (
+    <Switch.Group>
+      <Switch.Label>{label}</Switch.Label>
+      <Switch checked={checked} onChange={setChecked} />
+    </Switch.Group>
+  )
+}
+```
+
+## Basic example
+
+Switches are built using the `Switch` component. You can toggle your Switch by clicking directly on the component, or by pressing the spacebar while its focused.
+
+Toggling the switch calls the `onChange` function with a negated version of the `checked` value.
+
+<Canvas>
+  <Story id='components-switch--basic' />
+</Canvas>
+
+<Canvas>
+  <Story id='components-switch--with-text' />
+</Canvas>'
+
+
+## Adjusting the size
+
+Switch scales with text size. The inner knob will have a 1em diameter with a 2px outline.
+
+<Canvas>
+  <Story id='components-switch--sizing' />
+</Canvas>
+
+## Adjusting the color
+
+Switch is colors based on background color. That color is desturated and reduced to 50% opacity when disabled.
+
+<Canvas>
+  <Story id='components-switch--coloring' />
+</Canvas>
+
+
+## Option lists
+
+<Canvas>
+  <Story id='components-switch--complex' />
+</Canvas>
+
+<ArgsTable />

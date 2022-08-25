@@ -166,7 +166,7 @@ export const BasicTemplate: ComponentStory<typeof Tab> = ({ vertical, enableIcon
       </Tab.List>
       <Tab.Panels className='p-6 min-h-[100px]'>
         {items.map((item, idx) => (
-          <Tab.Panel data-testid={`panel-${idx}`}>{item[2]}</Tab.Panel>
+          <Tab.Panel key={`panel-${idx}`} data-testid={`panel-${idx}`}>{item[2]}</Tab.Panel>
         ))}
       </Tab.Panels>
     </Tab.Group>

@@ -1,6 +1,6 @@
 // Vitest Snapshot v1
 
-exports[`Tabs smoketest > matches snapshot 1`] = `
+exports[`Switch smoketest > matches snapshot 1`] = `
 {
   "debug": [Function],
   "findAllByAltText": [Function],

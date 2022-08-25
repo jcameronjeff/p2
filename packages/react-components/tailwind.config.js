@@ -1,5 +1,4 @@
 module.exports = {
-  important: true,
   content: [
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',
@@ -10,11 +9,11 @@ module.exports = {
     './stories/*.{tsx,css,mdx,jsx}',
     './tw/*.{js,ts,jsx,tsx}',
   ],
-  // presets: [
-  //   require('../tailwind-preset/index'),
-  // ],
   theme: {
     extend: require('@prism2/tailwind-theme'),
+    container: {
+      center: true,
+    },
   },
   plugins: [
     // require('@tailwindcss/forms'),
@@ -36,7 +35,7 @@ module.exports = {
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
       });
       addVariant('optional', '&:optional');
-      addVariant('selected', '&[aria-selected="true"]');
+      addVariant('selected', ['&[aria-selected="true"]']);
     },
   ],
 };

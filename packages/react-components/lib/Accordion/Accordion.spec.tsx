@@ -66,7 +66,6 @@ describe('Accordion smoketest', () => {
     expect(title1().parentElement).toHaveFocus();
     await userEvent.keyboard('[Enter]');
     await waitFor(() => {
-      console.log(content1());
       expect(content1()).toBeVisible();
     });
   });

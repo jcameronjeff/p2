@@ -1,6 +1,6 @@
 import React, { ComponentType, createContext, Fragment, ReactComponentElement, ReactElement, useContext, useMemo } from 'react';
 import { Tab as HeadlessTab } from '@headlessui/react';
-export type ExtractProps<T> = T extends ComponentType<infer P> ? P : T;
+import { ExtractProps } from '../types';
 
 // Context creation
 type TabConfigSettings = {

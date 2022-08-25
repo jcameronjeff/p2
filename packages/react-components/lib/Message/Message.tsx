@@ -16,6 +16,7 @@ export type MessageVariant = Record<MessageVariantName, string>;
 export type IconType = 'info' | 'error' | 'alert' | 'success';
 
 // export default Message;
+
 export interface MessageProps {
   /**
    * named variant value for this message.

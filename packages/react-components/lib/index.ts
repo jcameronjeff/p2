@@ -8,6 +8,7 @@ export * from './Chip';
 export * from './Dropdown';
 export * from './Input';
 export * from './Message';
+export * from './Switch';
 export * from './Modal';
 export * from './Radio';
 export * from './Tabs';
