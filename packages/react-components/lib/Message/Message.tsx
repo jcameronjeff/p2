@@ -27,7 +27,7 @@ export interface IMessageProps {
   title?: string
 }
 
-export const Message:HTMLComponent<IMessageProps> = ({ variant, as = 'div', title, children, className, ...htmlProps }) => {
+export const Message:HTMLComponent<IMessageProps> = ({ variant, as = 'div', title, unstyle, children, className, ...htmlProps }) => {
 
   let getVariant = () => {
     if (unstyle) return ['', InformationCircleIcon];
