@@ -1,6 +1,6 @@
 import { Box } from '../Box';
 import { AppendPrependArgs, HTMLProps } from '../types';
-
+import type { FC } from 'react';
 interface IProps extends AppendPrependArgs {
   /**
    * Callback function that accepts `label` and `checked` arguments.
@@ -10,7 +10,7 @@ interface IProps extends AppendPrependArgs {
   variant?: 'chip' | 'default'
 }
 
-export const Checkbox:React.FC<HTMLProps<IProps, 'input'>>  = ({ as, append, prepend, className, variant, label, ...props }) => {
+export const Checkbox:FC<HTMLProps<IProps, 'input'>>  = ({ as, append, prepend, className, variant, label, ...props }) => {
   const isChip = variant === 'chip';
   const baseClasses = 'gap-2 inline inline-flex items-center cursor-pointer disabled:cursor-not-allowed';
   const inputClass = `prism-checkbox transition h-4 w-4 duration-200 ${isChip && 'peer hidden'}`;

@@ -5,6 +5,7 @@ import { sleep } from '../utils';
 import { Tab, TabRoot } from './';
 import mdx from './README.mdx';
 import { ArchiveIcon, BadgeCheckIcon, BellIcon, AdjustmentsIcon } from '@prism2/icons/react/solid';
+import type { ElementType } from 'react';
 
 export default {
   title: 'Components/Tabs',
@@ -144,7 +145,7 @@ export const Controlled = () => {
 
 
 export const BasicTemplate: ComponentStory<typeof Tab> = ({ vertical, enableIcons }) => {
-  let items:[string, (React.ElementType | null), string][] = [
+  let items:[string, (ElementType | null), string][] = [
     ['First', BellIcon, 'Content A'],
     ['Second', ArchiveIcon, 'Content B'],
     ['Third', BadgeCheckIcon, 'Content C'],

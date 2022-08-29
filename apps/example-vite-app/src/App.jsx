@@ -1,8 +1,10 @@
-import { Fragment, useState } from 'react'
+import { useState } from 'react'
 import './App.css'
-
 import { Modal, Button, Tab } from '@prism2/react-components'
+import { Toolbar } from 'ui-shared';
+
 function App() {
+
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -39,17 +41,18 @@ function App() {
     )
   }]
 
-
   return (
     <div id="myApp" className='font-sans'>
-      <Tab.Group defaultIndex={0}>
-        <header className='gap-4 mb-4 bg-navy-dark p-4 sticky top-0 w-full'>
+
+      <Tab.Group unstyle defaultIndex={0}>
+        <Toolbar>apps/example-vite-app</Toolbar>
+        <header className='gap-4 w-full p-4 bg-blue-800'>
           <div className='container flex items-center m-auto'>
-            <span className='prism-heading-3 text-white'>Prism2 Sample App</span>
-            <Tab.List className='flex gap-2 ml-8 pl-8 border-l border-l-blue-600'>
+            <span className='prism-heading-3 text-white'></span>
+            <Tab.List className='flex gap-2 ml-8'>
               {TabContent.map(({ name }) => (
-                <Tab as={Fragment}>
-                  {({ selected }) => (<button className={`prism-btn fill ${selected && 'active'}`}>{name}</button>)}
+                <Tab className='text-white selected:ring-1 ring-blue-600/50 selected:text-gold-500 rounded p-2 hover:bg-blue-700/50'>
+                  {name}
                 </Tab>
               ))}
             </Tab.List>

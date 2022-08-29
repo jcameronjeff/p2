@@ -1,5 +1,6 @@
 import { Dialog, Transition } from '@headlessui/react';
-import React, { ElementType, Fragment, MutableRefObject, useRef } from 'react';
+import { useEffect, useMemo, Fragment, useRef } from 'react';
+import type { ElementType, MutableRefObject, ReactNode } from 'react';
 import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
 
@@ -93,12 +94,12 @@ export type ModalProps<T> = ModalPropBase<T> & {
   /**
    * Optionally provide children via a content prop.
    */
-  content?: React.ReactNode;
-  children?: React.ReactNode;
+  content?: ReactNode;
+  children?: ReactNode;
   /**
    * Optionally provide a footer to be appended after children/content.
    */
-  footer?: React.ReactNode;
+  footer?: ReactNode;
   /**
      * Escape hatch to optionally apply TW classes to the container.
      */
@@ -273,9 +274,9 @@ export function ModalRoot<TTag extends ElementType = typeof DEFAULT_MODAL_TAG>(
   const closeRef = useRef(null);
   const focus = props.initialFocus || undefined;
   const as = props.as || Fragment;
-  const { outerAnimate, innerAnimate, clsx } = React.useMemo(() => getAttributesFromVariant(), [props]);
+  const { outerAnimate, innerAnimate, clsx } = useMemo(() => getAttributesFromVariant(), [props]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (__debug && __debug === true) {
       modalValidations(props);
     }

@@ -1,0 +1,22 @@
+{
+  "extends": "../../tsconfig.json",
+  "exclude": [
+    "./*.js",
+    "**/dist/**",
+    "cypress",
+    ".turbo",
+    ".storybook",
+    "tailwind.config.js"
+  ],
+  "include": [
+    "vite.config.ts",
+    "lib",
+    "./**/*.ts",
+    "./*/*.ts",
+    "./**/*.tsx",
+    "./.*.tsx",
+    "./**/*.mdx",
+    "./.*.mdx",
+    "*.tsx"
+  ],
+}

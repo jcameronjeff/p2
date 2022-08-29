@@ -1,0 +1,5 @@
+@import url('https://rsms.me/inter/inter.css');
+@import '@prism2/react-components';
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

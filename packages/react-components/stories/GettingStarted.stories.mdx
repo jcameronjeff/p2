@@ -86,20 +86,74 @@ git commit -m "chore: README updates for Turborepo"
 
 ## Starting a new project
 
-### Scaffolding
+> This guide assumes that you have access to the CIA Artifactory and that the necessary packages have been published.
 
-```sh
-pnpm create vite@latest my-new-app && cd my-new-app
-pnpm install -D tailwindcss @prism2/tailwind-preset
-pnpx tailwindcss init
+### Create a new app
+(we're using Vite)
+```
+pnpm create vite --template react-ts my-app && cd my-app
 ```
 
-### Configure PostCSS
+### Bootstrap PostCSS Tailwind and Prism2
+```bash
+pnpm add @prism2/tailwind-preset @prism2/react-components tailwindcss postcss
+echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" >> postcss.config.cjs
+```
 
-Finally, create a postcss config that uses our preset.
+### Configure Tailwind
+```js
+/* tailwind.config.cjs */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  important: true,
+  content: [
+    './index.html',
+    './src/*.{vue,js,ts,jsx,tsx}',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ],
+}
+```
 
-```sh
-echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" > postcss.config.js
+### Inject our styles
+```css
+/* style.css */
+@import '@prism2/react-components';
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+### Rock and roll
+```tsx
+// App.tsx
+import React from 'react'
+import './App.css'
+
+const App = () => <div className='prism-heading-1'>Branded Heading One</div>
+```
+
+### Other Situations
+
+#### Configure template paths
+
+Add the paths to all of your template files in your tailwind.config.js file. Adding the preset will:
+
+  - Extends the theme with `@prism2/tailwind-theme`
+  - Loads the `@tailwindcss/typography` plugin.
+  - Loads the `@prism2/tailwind-elements` plugin with suggested settings.
+  - Watches the `src` directory for changes on matching file extensions.
+
+```js
+// tailwind.config.js
+module.exports = {
+  content: ["./src/**/*.{html,jsx,tsx,vue,mdx}"],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ]
+}
 ```
 
 ## Editor Configs
@@ -122,181 +176,8 @@ pnpm install
 pnpm run storybook
 ```
 
-## Install TailwindCSS
-
-Install tailwindcss via npm, and create your tailwind.config.js file.
-
-```
-npm install -D tailwindcss @prism2/tailwind-preset
-npx tailwindcss init
-```
-
-## Configure your template paths
-
-Add the paths to all of your template files in your tailwind.config.js file. Adding the preset will:
-
-  - Extends the theme with `@prism2/tailwind-theme`
-  - Loads the `@tailwindcss/typography` plugin.
-  - Loads the `@prism2/tailwind-elements` plugin with suggested settings.
-  - Watches the `src` directory for changes on matching file extensions.
-
-```js
-// tailwind.config.js
-module.exports = {
-  content: ["./src/**/*.{html,jsx,tsx,vue,mdx}"],
-  presets: [
-    require('@prism2/tailwind-preset')
-  ]
-}
-```
-
 ## Configure with Customizations
 
 Prism2 includes a CSS reset that provides out-of-the-box styling for most HTML5 elements.
 `@prism2/tailwind-elements` provides a flexible way to generate styles for your app or component.
 In some cases, you may want to apply design guidelines directly to HTML5 elements.
-
-
-```js
-// tailwind.config.js
-theme: {
-  extend: require('@prism2/tailwind-theme')
-},
-plugins: [
-  require("@prism2/tailwind-elements")({
-    parent: '.my-css-scope', // scope rules to children of this CSS selector.
-    strategy: 'base', // only generate global styles, ex: <h1>, <h2>, <h3>
-  }),
-  // You can add the plugin more than once
-  require("@prism2/tailwind-elements")({
-    strategy: 'class', // only generate global styles, ex: <h1>, <h2>, <h3>
-    parent: '.my-other-css-scope', // scope rules to children of this CSS selector.
-    prefix: 'my-component-',
-  }),
-],
-```
-
-## Plugin Strategy
-
-The `@prism2/tailwind-elements` plugin allows you to pass a configuration object to customize how styles are provided in your app.
-
-
-### Apply styles as HTML reset
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({ strategy: 'base' }) ]
-// App.tsx
-const Component = () => <h1>I am styled</h1>
-```
-
-### Scope styles to a parent selector
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({
-  parent: '.use-prism', // for children of .use-prism
-  strategy: 'base', // style base HTML elements like <h1> etc.
-}) ]
-
-// App.tsx
-const Unstyled = () => <h1>I am unstyled</h1>
-const Styled = () => <div className='use-prism'><h1>I am styled</h1></div>
-```
-
-### Use styles with classes
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({
-  strategy: 'class',  // style with classes like .prism-heading-01 etc.
-}) ]
-
-// App.tsx
-const Unstyled = () => <h1>I am unstyled</h1>
-const Styled = () => <span className='heading-1'>I am styled</span>
-```
-
-### Use class styles with parent scope
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({
-  parent: '.use-prism', // for children of .use-prism
-  strategy: 'class',  // style with classes like .prism-heading-01 etc.
-}) ]
-
-// App.tsx
-const Unstyled = () => <span className='heading-1'>I am unstyled</span>
-const Styled = () => (
-  <div className='use-prism'>
-    <span className='heading-1'>I am styled</span>
-  </div>
-```
-
-### Use class styles with a prefix
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({
-  prefix: 'prism', // for children of .use-prism
-  strategy: 'class',  // style with classes like .prism-heading-01 etc.
-}) ]
-// App.tsx
-const Unstyled = () => (
-  <div className='use-prism'>
-    <span className='heading-1'>I am not styled</span>
-  </div>
-)
-const Styled = <span className='prism-heading-1'>I am styled</span>
-```
-
-### Complete Class Scoping Strategy
-
-```jsx
-// tailwind.config.js
-plugins: [ require('@prism2/tailwind-elements')({
-  parent: 'use-prism', // for children of .use-prism
-  prefix: 'prism', // prefix class names with 'prism-'
-  strategy: 'class',  // style with classes like .prism-heading-01 etc.
-}) ]
-
-// App.tsx
-const Styled = () => (
-  <div className='use-prism'>
-    <span className='prism-heading-1'>This is a styled heading</span>
-    <h1>Unstyled</h1>
-    <span className='heading-1'>Unstyled</span>
-  </div>
-)
-```
-
-## Setup PostCSS
-
-Installing Tailwind CSS as a PostCSS plugin is the most seamless way to integrate it with build tools like webpack, Rollup, Vite, and Parcel.
-
-> See [Installation Using PostCSS](https://tailwindcss.com/docs/installation/using-postcss)
-
-```sh
-npm install --save-dev
-  postcss-import \
-  tailwindcss/nesting \
-  tailwindcss \
-  autoprefixer \
-  postcss-extend \
-  postcss-apply \
-  postcss-minify \
-```
-
-And then update your `postcss.config.js` file.
-
-```js
-// postcss.config.js
-module.exports = {
-  plugins: [
-    require('postcss-import'),
-    require('tailwindcss/nesting'),
-    require('tailwindcss'),
-    require('autoprefixer'),
-    require('postcss-extend'),
-    require('postcss-apply'),
-    require('postcss-minify'),
-    require('cssnano')
-  ]
-}
-```

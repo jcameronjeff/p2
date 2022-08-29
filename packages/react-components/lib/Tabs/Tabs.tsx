@@ -1,7 +1,7 @@
-import React, { createContext, Fragment, useContext, useMemo } from 'react';
+import React, { createContext, useContext, Fragment, useMemo } from 'react';
 import { Tab as HeadlessTab } from '@headlessui/react';
 import { ExtractProps } from '../types';
-
+import type { Component, ElementType } from 'react';
 // Context creation
 type TabConfigSettings = {
   /**
@@ -35,7 +35,7 @@ type TabConfigSettings = {
   /**
    * The element or component the Tabs should render as.
    */
-  as?: string | React.Component
+  as?: string | Component
 };
 
 export const TabConfig = createContext<TabConfigSettings>({
@@ -76,7 +76,7 @@ export function TabList({ className, children, ...props }: TabListProps) {
 }
 
 export function TabRoot(props: ExtractProps<typeof HeadlessTab> & {
-  icon?: React.ElementType | null | undefined | false
+  icon?: ElementType | null | undefined | false
 }) {
   // add your own logic here
   const { vertical, unstyle } = useContext(TabConfig);

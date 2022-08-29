@@ -1,4 +1,16 @@
-import React, { ReactNode, ReactElement } from 'react';
+import React from 'react';
+import type {
+  JSXElementConstructor,
+  ComponentProps,
+  ReactNode,
+  ComponentPropsWithoutRef,
+  ComponentPropsWithRef,
+  ComponentType,
+  ElementType,
+  FC,
+  ReactElement,
+} from 'react';
+
 
 /**
  * A unique placeholder we can use as a default. This is nice because we can use this instead of
@@ -14,8 +26,8 @@ export type __ = typeof __;
 
 export type Expand<T> = T extends infer O ? { [K in keyof O] : O[K] } : never;
 
-export type PropsOf<TTag = any> = TTag extends React.ElementType
-  ? React.ComponentProps<TTag>
+export type PropsOf<TTag = any> = TTag extends ElementType
+  ? ComponentProps<TTag>
   : never;
 
 type PropsWeControl = 'as' | 'children' | 'refName' | 'className';
@@ -94,17 +106,18 @@ PropsForFeature<T, Features.RenderStrategy, { unmount?: boolean }>
 
 
 // Source: https://github.com/emotion-js/emotion/blob/master/packages/styled-base/types/helper.d.ts
-// A more precise version of just React.ComponentPropsWithoutRef on its own
+// A more precise version of just ComponentPropsWithoutRef on its own
 export type PropsOfElem<
-  C extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
-> = JSX.LibraryManagedAttributes<C, React.ComponentPropsWithoutRef<C>>;
+  C extends keyof JSX.IntrinsicElements | JSXElementConstructor<any>,
+> = JSX.LibraryManagedAttributes<C, ComponentPropsWithoutRef<C>>;
+
 
 /**
  * @name AsProps
  * @abstract Passthrough for inheriting attributes from HTML elements.
  * @typeParam C - HTML element name, e.g. 'span'
  */
-export type AsProp<C extends React.ElementType> = {
+export type AsProp<C extends ElementType> = {
   /**
    * An override of the default HTML tag.
    * Can also be another React component.
@@ -128,7 +141,7 @@ export type ExtendableProps<
  * attributes like aria roles. The component (`C`) must be passed in.
  */
 export type InheritableElementProps<
-  C extends React.ElementType,
+  C extends ElementType,
   P = {},
 > = ExtendableProps<PropsOfElem<C>, P>;
 
@@ -139,7 +152,7 @@ export type InheritableElementProps<
  * the passed in `as` prop will determine which props can be included
  */
 export type PolymorphicComponentProps<
-  C extends React.ElementType,
+  C extends ElementType,
   P = {},
 > = InheritableElementProps<C, P & AsProp<C>>;
 
@@ -149,8 +162,8 @@ export type PolymorphicComponentProps<
  * @description This type allows you overload refs with HTML element props.
  */
 export type PolymorphicRef<
-  C extends React.ElementType,
-> = React.ComponentPropsWithRef<C>['ref'];
+  C extends ElementType,
+> = ComponentPropsWithRef<C>['ref'];
 
 /**
  * @name HTMLProps
@@ -158,8 +171,8 @@ export type PolymorphicRef<
  * @abstract Overloadable polymorphic props
  * @description This type allows you overload custom props with HTML element props.
  */
-export type HTMLProps<P, C extends React.ElementType = 'span'> = PolymorphicComponentProps<C, P>;
-export type PrismFC<P = {}> = React.FC<HTMLProps<P>>;
+export type HTMLProps<P, C extends ElementType = 'span'> = PolymorphicComponentProps<C, P>;
+export type PrismFC<P = {}> = FC<HTMLProps<P>>;
 
 /**
  * @remarks Very special polymorphic typing, allows props to change based on the
@@ -184,9 +197,9 @@ export type PrismFC<P = {}> = React.FC<HTMLProps<P>>;
  * // error: Property 'type' does not exist on type HTMLLiElement
  * ```
  */
-export type HTMLComponent<P = {}> = <C extends React.ElementType = 'span'>(
+export type HTMLComponent<P = {}> = <C extends ElementType = 'span'>(
   props: HTMLProps<P, C>
-) => React.ReactElement | null;
+) => ReactElement | null;
 
 /**
  * @name AppendPrependArgs
@@ -205,4 +218,4 @@ export interface AppendPrependArgs {
 }
 
 
-export type ExtractProps<T> = T extends React.ComponentType<infer P> ? P : T;
+export type ExtractProps<T> = T extends ComponentType<infer P> ? P : T;

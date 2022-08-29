@@ -1,8 +1,8 @@
 import { RadioGroup } from '@headlessui/react';
 import { useState, HTMLProps, FormEvent, useCallback, Fragment } from 'react';
 import { Box } from '../Box';
-import { HTMLComponent } from '../types';
-
+import type { HTMLComponent } from '../types';
+import type { FC } from 'react';
 export interface IProps extends HTMLProps<HTMLInputElement> {
   /**
    * Callback function that accepts `label` and `checked` arguments.
@@ -60,7 +60,7 @@ interface Props {
   onUpdate?(val:string): void
 }
 
-export const RadioSet:React.FC<Props> = ({ values, name, onChange = () => {}, onUpdate = () => {}, inline, ...props }) => {
+export const RadioSet:FC<Props> = ({ values, name, onChange = () => {}, onUpdate = () => {}, inline, ...props }) => {
 
   const [selection, setSelection] = useState(props.initialItem || values[0]);
 
@@ -86,7 +86,7 @@ export const RadioSet:React.FC<Props> = ({ values, name, onChange = () => {}, on
 };
 
 
-export const Radios:React.FC<Props> = ({
+export const Radios:FC<Props> = ({
   values,
   name,
   onUpdate = () => {},

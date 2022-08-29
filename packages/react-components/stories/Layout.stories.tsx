@@ -1,6 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import React, { HTMLAttributes } from 'react';
 import { Chip, Button, Box, Toggle } from '../lib';
+import { useMemo } from 'react';
+import type { HTMLAttributes, FC } from 'react';
 
 export default {
   title: 'Demo/Layout',
@@ -12,7 +13,7 @@ export default {
 } as ComponentMeta<any>;
 
 
-type HTMLFC<T extends any = any> = React.FC<HTMLAttributes<T>>;
+type HTMLFC<T extends any = any> = FC<HTMLAttributes<T>>;
 const LayoutTemplate: ComponentStory<any> = () => {
 
   /**
@@ -24,7 +25,7 @@ const LayoutTemplate: ComponentStory<any> = () => {
    * @note This behavior is anachronistic in React 18.
    * @returns Static HTML Header + Navigation
    */
-  let Header = () => React.useMemo(() => (
+  let Header = () => useMemo(() => (
     <header role='banner' className='sticky bg-primary-dark w-full text-white border-t-4 border-yellow-500'>
       <Box as='div' className='flex justify-between container p-4 m-auto items-center'>
         <h1 className='prism-heading-1 text-white'>Manheim</h1>
@@ -39,7 +40,7 @@ const LayoutTemplate: ComponentStory<any> = () => {
     // list dependencies of header such as user, session info or view context.
   ]);
 
-  let Content:React.FC<HTMLAttributes<any>> = (props) => (
+  let Content:FC<HTMLAttributes<any>> = (props) => (
     <main className={['space-y-4 p-4', props.className].join(' ')}>
       <article className='prism-prose'>
         {props.children}
@@ -47,7 +48,7 @@ const LayoutTemplate: ComponentStory<any> = () => {
     </main>
   );
 
-  let Footer:React.FC<HTMLAttributes<any>> = (props) => React.useMemo(() => (
+  let Footer:FC<HTMLAttributes<any>> = (props) => useMemo(() => (
     <footer className={['prism-caption', props.className].join(' ')}>
       <p>My footer content</p>
     </footer>

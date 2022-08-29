@@ -1,18 +1,19 @@
 import { Transition } from '@headlessui/react';
 import { ChevronRightIcon } from '@prism2/icons/react/solid';
-import React, { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { Box } from '../Box';
 import { fadeInDownOutUp } from '../utils';
+import type { ReactNode } from 'react';
 
 export interface AccordionItemProps {
   /**
    * Text to display when collapsed.
    */
-  label: string | React.ReactNode,
+  label: string | ReactNode,
   /**
    * Content to display when expanded.
    */
-  content: string | React.ReactNode,
+  content: string | ReactNode,
   /**
    * Initial open state, defaults to false.
    */
@@ -32,7 +33,7 @@ export interface AccordionItemProps {
 
 
 export function AccordionItem({ label, content, className, variant, defaultOpen, onChange = () => {} }:AccordionItemProps) {
-  const [enabled, setEnabled] = React.useState(defaultOpen || false);
+  const [enabled, setEnabled] = useState(defaultOpen || false);
   useEffect(() => {
     setEnabled(defaultOpen || false);
   }, [defaultOpen]);

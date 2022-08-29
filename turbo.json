@@ -1,6 +1,5 @@
 {
   "$schema": "https://turborepo.org/schema.json",
-  "baseBranch": "origin/next",
   "pipeline": {
     "build_css": {
       "inputs": ["lib/**/*.css"],
@@ -17,6 +16,10 @@
     },
     "preview": {
       "dependsOn": ["build"]
+    },
+    "build_web": {
+      "dependsOn": ["^build"],
+      "inputs": ["site","lib","index.html"]
     },
     "storybook": {
       "dependsOn": [],

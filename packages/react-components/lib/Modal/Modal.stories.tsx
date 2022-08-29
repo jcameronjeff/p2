@@ -3,7 +3,6 @@ import { useRef, useState } from 'react';
 import { Button, Modal, Card } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import mdx from './README.mdx';
-// type FCModal = React.FC<ModalProps<any>>;
 
 export default {
   title: 'Components/Modal',

@@ -1,4 +1,5 @@
 module.exports = {
+  // important: true,
   content: [
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',
@@ -35,7 +36,7 @@ module.exports = {
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
       });
       addVariant('optional', '&:optional');
-      addVariant('selected', ['&[aria-selected="true"]']);
+      addVariant('selected', '&[aria-selected="true"]');
     },
   ],
 };
