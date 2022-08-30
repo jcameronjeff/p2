@@ -15,7 +15,7 @@ export function App() {
     setCount(count + 1);
   }, [isOpen]);
   return (
-    <div className='bg-gray-50 min-h-screen overflow-x-hidden w-screen'>
+    <div className='bg-gray-50 min-h-screen overflow-x-hidden w-full'>
       <Tab.Group unstyle>
 
       <Box title='app-header' as='div' className='sticky top-0 left-0 right-0 w-screen z-50 bg-blue-800 space-y-2 border-b-4 shadow-sm border-gold-400 p-2'>
@@ -83,6 +83,18 @@ export function App() {
           </div>
         </Dialog.Panel>
       </Modal>
+      <div className="backdrop-blur-sm bg-white/75 p-4 fixed bottom-0 w-full">
+        <div className="container flex justify-between">
+          <button className='prism-btn text-xs' onClick={() => setIsOpen(false)}>
+            Dismiss
+            <P2.CrossIcon />
+            </button>
+          <button className='prism-btn fill text-xs' onClick={() => setIsOpen(false)}>
+            Confirm
+            <P2.CheckmarkIcon />
+          </button>
+        </div>
+      </div>
     </div>
   );
 }
