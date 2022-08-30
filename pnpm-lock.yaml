@@ -69,7 +69,7 @@ importers:
     specifiers:
       '@headlessui/react': ^1.6.5
       '@prism2/icons': workspace:*
-      '@prism2/react-components': workspace:0.0.0
+      '@prism2/react-components': workspace:*
       '@prism2/tailwind-preset': workspace:*
       '@types/react': ^18.0.17
       '@types/react-dom': ^18.0.6
@@ -13352,7 +13352,6 @@ packages:
       resolve: 1.22.1
     transitivePeerDependencies:
       - ts-node
-    dev: false
 
   /tapable/1.1.3:
     resolution: {integrity: sha512-4WK/bYZmj8xLr+HUCODHGF1ZFzsYffasLUgEiMBY4fgtltdO6B4WJtlSbPaDTLpYTcGVwM2qLnFTICEcNxs3kA==}
