@@ -1,10 +1,11 @@
 {
   "name": "@prism2/react-components",
   "private": false,
-  "version": "2.0.5-alpha.2",
+  "version": "2.0.5-alpha.3",
   "files": [
     "dist",
-    "dist/style.css"
+    "dist/style.css",
+    "lib"
   ],
   "style": "dist/style.css",
   "main": "./dist/index.umd.js",
@@ -36,10 +37,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
-    "@prism2/icons": "^2.0.5-alpha.2",
-    "@prism2/tailwind-elements": "^2.0.5-alpha.2",
-    "@prism2/tailwind-preset": "^2.0.5-alpha.2",
-    "@prism2/tailwind-theme": "^2.0.5-alpha.2",
+    "@prism2/icons": "^2.0.5-alpha.3",
+    "@prism2/tailwind-elements": "^2.0.5-alpha.3",
+    "@prism2/tailwind-preset": "^2.0.5-alpha.3",
+    "@prism2/tailwind-theme": "^2.0.5-alpha.3",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.11",
     "@testing-library/jest-dom": "^5.16.4",
