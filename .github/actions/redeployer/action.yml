@@ -1,0 +1,58 @@
+name: 'Build App and Deploy to Bucket'
+
+on:
+  workflow_call:
+    inputs:
+      bucket-name:
+        type: string
+        required: true
+      base-path:
+        type: string
+        required: true
+      aws-account:
+        default: '127382792002'
+        type: string
+        required: true
+
+runs:
+  using: "composite"
+  steps:
+    - name: Setup Node.js environment
+      uses: actions/setup-node@v2
+      with:
+        node-version: 16
+
+    - name: Install pnpm
+      shell: bash
+      run: npm install -g pnpm
+
+    - name: Install dependencies
+      shell: bash
+      run: pnpm install
+
+    - name: Build all
+      shell: bash
+      run: pnpm build
+
+    - name: Establish secure session to AWS
+      uses: cai-actions/aws-secure-access@v1
+      with:
+        account: ${{ inputs.aws-account }}
+
+    - name : Install AWS CLI
+      shell: bash
+      run: |
+        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+        unzip awscliv2.zip
+        sudo ./aws/install
+
+    - name: Build & Deploy
+      shell: bash
+      run: |
+        aws s3 cp --recursive ./apps/${{ inputs.base-path }}/dist s3://${{ inputs.bucket-name }}
+        aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ inputs.bucket-name }} s3://${{ inputs.bucket-name }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
+
+    - name: Results
+      shell: bash
+      run: |
+        echo "Finished deploying to ${{inputs.bucket-name}} ${{ github.environment.url }}"

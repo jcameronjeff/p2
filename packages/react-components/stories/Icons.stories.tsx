@@ -34,6 +34,22 @@ let boxClass = 'text-center w-24 text-xxs h-20 flex flex-col items-center gap-2 
 export const AllIcons = ({ textColor = 'text-gray-400' }) => (
   <div className='flex flex-wrap gap-4 text-center justify-center'>
     <div className={boxClass}>
+      <P2.ThreeSixtyIcon className='h-8' />
+      <div className={textColor}>ThreeSixty</div>
+    </div>
+    <div className={boxClass}>
+      <P2.ThreeSixtyExteriorIcon className='h-8' />
+      <div className={textColor}>ThreeSixtyExterior</div>
+    </div>
+    <div className={boxClass}>
+      <P2.ThreeSixtyInteriorFrontIcon className='h-8' />
+      <div className={textColor}>ThreeSixtyInteriorFront</div>
+    </div>
+    <div className={boxClass}>
+      <P2.ThreeSixtyInteriorRearIcon className='h-8' />
+      <div className={textColor}>ThreeSixtyInteriorRear</div>
+    </div>
+    <div className={boxClass}>
       <div><P2.AlarmAddIcon className='w-8' /></div>
       <div className={textColor}>AlarmAdd</div>
     </div>

@@ -7,57 +7,6 @@ on:
       - feature/demo-*
 
 jobs:
-  build-ts:
-    name: Build & Deploy - Vite TS Example App
-    timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
-    environment:
-      name: dev-react-ts
-      url: http://p2-demo-ts-react.s3-website.us-east-2.amazonaws.com/
-    env:
-      BUCKET_NAME: p2-demo-ts-react
-      BASE_PATH: "example-ts-app"
-      AWS_ACCOUNT: '127382792002'
-    strategy:
-      matrix:
-        node-version: [16.x]
-    steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2
-      with:
-        node-version: 16
-
-    - name: Install pnpm
-      run: npm install -g pnpm
-
-    - name: Install dependencies
-      run: pnpm install
-
-    - name: Establish secure session to AWS
-      uses: cai-actions/aws-secure-access@v1
-      with:
-        account: ${{ env.AWS_ACCOUNT }}
-    - name : Install AWS CLI
-      run: |
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install
-
-    - name: Build & Deploy
-      run: |
-        pnpm build --filter=./apps/${{ env.BASE_PATH }}
-        aws s3 cp --recursive ./apps/${{ env.BASE_PATH }}/dist s3://${{ env.BUCKET_NAME }}
-        aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ env.BUCKET_NAME }} s3://${{ env.BUCKET_NAME }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
-
-    - name: Results
-      run: |
-        echo "Finished deploying to ${{env.BUCKET_NAME}} ${{ github.environment.url }}"
-
 
   build-rc-site:
     name: Build & Deploy - RC Site
@@ -70,9 +19,6 @@ jobs:
       BUCKET_NAME: prism2-sandbox-demo-august-2022
       BASE_PATH: "react-components"
       AWS_ACCOUNT: '127382792002'
-    strategy:
-      matrix:
-        node-version: [16.x]
     steps:
       - name: Check out code
         uses: actions/checkout@v2
@@ -110,7 +56,25 @@ jobs:
         run: |
           echo "Finished deploying to ${{env.BUCKET_NAME}} ${{ github.environment.url }}"
 
+  build-ts-demo:
+    name: Build & Deploy - Example TS App
+    timeout-minutes: 15
+    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    environment:
+      name: dev-react-ts
+      url: https://p2-demo-ts-react.s3.us-east-2.amazonaws.com/index.html
 
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - uses: ./.github/actions/redeployer
+      with:
+        bucket-name: p2-demo-ts-react
+        base-path: "example-ts-app"
+        aws-account: '127382792002'
 
   build-theme-demo:
     name: Build & Deploy - Themeing Demo
@@ -119,47 +83,15 @@ jobs:
     environment:
       name: dev-theming-demo
       url: https://prism2-theming-demo-2022-08-27.s3.us-east-2.amazonaws.com/index.html
-    env:
-      BUCKET_NAME: prism2-theming-demo-2022-08-27
-      BASE_PATH: "demo-01-theme-swap"
-      AWS_ACCOUNT: '127382792002'
-    strategy:
-      matrix:
-        node-version: [16.x]
+
     steps:
     - name: Check out code
       uses: actions/checkout@v2
       with:
         fetch-depth: 2
 
-    - name: Setup Node.js environment
-      uses: actions/setup-node@v2
+    - uses: ./.github/actions/redeployer
       with:
-        node-version: 16
-
-    - name: Install pnpm
-      run: npm install -g pnpm
-
-    - name: Install dependencies
-      run: pnpm install
-
-    - name: Establish secure session to AWS
-      uses: cai-actions/aws-secure-access@v1
-      with:
-        account: ${{ env.AWS_ACCOUNT }}
-    - name : Install AWS CLI
-      run: |
-        curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-        unzip awscliv2.zip
-        sudo ./aws/install
-
-    - name: Build & Deploy
-      run: |
-        pnpm build --filter=./apps/${{ env.BASE_PATH }}
-        aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ env.BUCKET_NAME }} s3://${{ env.BUCKET_NAME }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
-        aws s3 cp --recursive ./apps/${{ env.BASE_PATH }}/dist s3://${{ env.BUCKET_NAME }}
-        aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ env.BUCKET_NAME }} s3://${{ env.BUCKET_NAME }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
-
-    - name: Results
-      run: |
-        echo "Finished deploying to ${{env.BUCKET_NAME}} ${{ github.environment.url }}"
+        bucket-name: prism2-theming-demo-2022-08-27
+        base-path: "demo-01-theme-swap"
+        aws-account: '127382792002'
