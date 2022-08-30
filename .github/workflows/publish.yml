@@ -62,7 +62,7 @@ jobs:
           ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_TOKEN }}
           ARTIFACTORY_AUTH_URL: https://artifactory.coxautoinc.com/artifactory/api/npm/auth
         run: |
-          for dir in tailwind-theme-prism heroicons tailwind-preset react-components
+          for dir in tailwind-theme-prism heroicons tailwind-preset react-components tailwind-plugin-elements
           do
             pushd packages/$dir
             echo 'registry=https://artifactory.coxautoinc.com/artifactory/api/npm/man-npm' >> .npmrc
