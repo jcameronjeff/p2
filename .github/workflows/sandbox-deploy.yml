@@ -13,10 +13,10 @@ jobs:
     timeout-minutes: 15
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
-      name: dev-react-js
-      url: https://prism2-sandbox-demo-august-2022.s3.us-east-2.amazonaws.com/index.html
+      name: example-react-app
+      url: https://prism2-example-react-app.awsgdmshednp.manheim.com
     env:
-      BUCKET_NAME: prism2-sandbox-demo-august-2022
+      BUCKET_NAME: p2-demo-ts-react
       BASE_PATH: "react-components"
       AWS_ACCOUNT: '127382792002'
     steps:
@@ -61,8 +61,8 @@ jobs:
     timeout-minutes: 15
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
-      name: dev-react-ts
-      url: https://p2-demo-ts-react.s3.us-east-2.amazonaws.com/index.html
+      name: example-ts-app
+      url: https://prism2-example-ts-app.awsgdmshednp.manheim.com
 
     steps:
     - name: Check out code
@@ -72,7 +72,7 @@ jobs:
 
     - uses: ./.github/actions/redeployer
       with:
-        bucket-name: p2-demo-ts-react
+        bucket-name: prism2-sandbox-demo-august-2022
         base-path: "example-ts-app"
         aws-account: '127382792002'
 
@@ -81,8 +81,8 @@ jobs:
     timeout-minutes: 15
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
-      name: dev-theming-demo
-      url: https://prism2-theming-demo-2022-08-27.s3.us-east-2.amazonaws.com/index.html
+      name: example-themed-app
+      url: https://prism2-theming-demo.awsgdmshednp.manheim.com
 
     steps:
     - name: Check out code
