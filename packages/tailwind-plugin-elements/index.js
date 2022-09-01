@@ -1,5 +1,11 @@
 const plugin = require('tailwindcss/plugin');
-
+const modalPlugin = require('./lib/tailwind-plugin-modal');
+const buttonPlugin = require('./lib/tailwind-plugin-button');
+const checkboxPlugin = require('./lib/tailwind-plugin-checkbox');
+const chipPlugin = require('./lib/tailwind-plugin-chip');
+const radioPlugin = require('./lib/tailwind-plugin-radio');
+const tabPlugin = require('./lib/tailwind-plugin-tab');
+const tooltipPlugin = require('./lib/tailwind-plugin-tooltip');
 module.exports = plugin.withOptions(function (options = {
   strategy: undefined,
   prefix: undefined,
@@ -299,6 +305,14 @@ module.exports = plugin.withOptions(function (options = {
     addComponents(proseRules);
     addComponents(typographyRules);
     addComponents(formsRules);
+
+    modalPlugin({ addComponents, theme });
+    buttonPlugin(({ addComponents, theme }));
+    checkboxPlugin(({ addComponents, theme }));
+    chipPlugin(({ addComponents, theme }));
+    radioPlugin(({ addComponents, theme }));
+    tabPlugin(({ addComponents, theme }));
+    tooltipPlugin(({ addComponents, theme }));
 
 
 

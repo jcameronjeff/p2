@@ -1,8 +1,12 @@
 {
   "name": "@prism2/tailwind-elements",
-  "version": "2.0.5-alpha.3",
+  "version": "2.0.6-alpha.1",
   "description": "TailwindCSS preset package for PRISM design system from @prism2",
   "main": "index.js",
+  "files": [
+    "index.js",
+    "lib"
+  ],
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-plugin-elements"
   },

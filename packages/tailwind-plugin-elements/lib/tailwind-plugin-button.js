@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin');
 /**
  * @type {typeof import("tailwindcss/plugin") }
  */
-module.exports = plugin(function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   addComponents({
     '.prism-btn': {
       '--tw-padding-x': theme('padding.4'),
@@ -94,4 +94,4 @@ module.exports = plugin(function ({ addComponents, theme }) {
     },
   });
 
-});
+};

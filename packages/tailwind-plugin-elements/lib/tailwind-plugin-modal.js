@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   addComponents({
     '.prism-dialog-frame': {
       width: theme('width.screen'),
@@ -41,4 +41,4 @@ module.exports = plugin(function ({ addComponents, theme }) {
       borderWidth: theme('borderWidth.DEFAULT'),
     },
   });
-});
+};

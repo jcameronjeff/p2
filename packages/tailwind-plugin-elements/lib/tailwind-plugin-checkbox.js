@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   addComponents({
 
     'input.prism-checkbox': {
@@ -21,4 +21,4 @@ module.exports = plugin(function ({ addComponents, theme }) {
     },
 
   });
-});
+};

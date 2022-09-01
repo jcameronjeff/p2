@@ -3,8 +3,8 @@ const plugin = require('tailwindcss/plugin');
 /**
  * @type {typeof import("tailwindcss/plugin") }
  */
-module.exports = plugin(function ({ addBase, theme }) {
-  addBase({
+module.exports = function ({ addComponents, theme }) {
+  addComponents({
     '.tt': {
       position: 'relative',
       display: 'inline-flex',
@@ -50,4 +50,4 @@ module.exports = plugin(function ({ addBase, theme }) {
       },
     },
   });
-});
+};

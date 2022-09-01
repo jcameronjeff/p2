@@ -1,0 +1,8 @@
+/* @import '@prism2/react-components'; */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+@layer base {
+  body {}
+}

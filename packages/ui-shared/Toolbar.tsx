@@ -3,7 +3,7 @@ import type { ReactNode } from 'react';
 
 export function Toolbar({children}:{children:ReactNode}) {
   return (
-    <div className='bg-gold-500 font-semibold tracking-tighter py-1 text-white dark:text-black dark:bg-red-500'>
+    <div className='bg-gray-900 font-regular font-alt tracking-tighter py-2.5 text-white px-4 text-sm'>
       <div className=''>{children}</div>
     </div>
   )

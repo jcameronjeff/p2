@@ -1,6 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 
-module.exports = plugin(function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   addComponents({
     'input.prism-radio': {
       '--tw-accent-color': theme('colors.blue.700'),
@@ -28,4 +28,4 @@ module.exports = plugin(function ({ addComponents, theme }) {
     },
   });
 
-});
+};

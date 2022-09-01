@@ -3,7 +3,7 @@ const plugin = require('tailwindcss/plugin');
 /**
  * @type {typeof import("tailwindcss/plugin") }
  */
-module.exports = plugin(function ({ addComponents, theme }) {
+module.exports = function ({ addComponents, theme }) {
   addComponents({
     '.prism-chip': {
       '--tw-padding': theme('spacing.1'),
@@ -33,4 +33,4 @@ module.exports = plugin(function ({ addComponents, theme }) {
       },
     },
   });
-});
+};
