@@ -1,34 +1,42 @@
-import { CheckboxCheckedIcon } from '@prism2/icons/react/prism';
-import { useState } from 'react';
-import { Toolbar, Tag, Code } from 'ui-shared';
+import { AllIcons, AllIconsMini, AllIconsOutline, AllIconsSolid, HeroBanner, IconGallery } from './comp';
+import { Tab } from '@prism2/react-components';
+import { Toolbar } from 'ui-shared';
 import './App.css';
-import { Modal } from '@prism2/react-components';
-import { ArrowUpIcon } from '@prism2/icons/react/prism'
-export function App() {
-  const [open, setOpen] = useState(false);
 
+export function App() {
   return (
-    <>
-    <Toolbar>apps/icons-website</Toolbar>
-    <main className='container text-center'>
-      <div className='text-center space-y-4 py-16'>
-        <ArrowUpIcon className='w-20 inline-block text-gray-100' />
-        <h1 className='prism-heading-1 font-alt text-blue-700'>
-          apps/icons-website
-        </h1>
-        <button onClick={() => setOpen(true)} className='prism-btn'>Button</button>
-        <Modal
-          title='My SlideOut'
-          description='Alternate modal behavior'
-          variant="modal"
-          content={<p>This is the content of my modal</p>}
-          footer={(<button className='prism-btn fill' onClick={() => setOpen(false)}>Ok</button>)}
-          show={open}
-          onClose={() => setOpen(false)}
-          __debug />
-      </div>
-    </main>
-    </>
+    <Tab.Group>
+      <Toolbar>@prism2/icons</Toolbar>
+      <HeroBanner />
+      <Tab.List as='div' className='justify-center'>
+        <Tab>Prism</Tab>
+        <Tab>Solid</Tab>
+        <Tab>Outline</Tab>
+        <Tab>Mini</Tab>
+      </Tab.List>
+      <Tab.Panels as='div' className='p-8'>
+        <Tab.Panel as={IconGallery}
+          title="Prism Icons"
+          subtitle="Icons custom for Manheim"
+          usage={`import { ThreeSixtyIcon } from '@prism2/icons/react/prism'`}
+          gallery={AllIcons} />
+        <Tab.Panel as={IconGallery}
+          title="Heroicons Solid"
+          subtitle="Icons courtest of heroicons 2"
+          usage={`import { AcademicCapIcon } from '@prism2/icons/react/24/solid'`}
+          gallery={AllIconsSolid} />
+        <Tab.Panel as={IconGallery}
+          title="Heroicons Outline"
+          subtitle="Outlined icons from heroicons 2"
+          usage={`import { AcademicCapIcon } from '@prism2/icons/react/24/outline'`}
+          gallery={AllIconsOutline} />
+        <Tab.Panel as={IconGallery}
+          title="Heroicons Mini"
+          subtitle="Miniature icons for rendering at smaller sizes from heroicons 2"
+          usage={`import { AcademicCapIcon } from '@prism2/icons/react/20/solid'`}
+          gallery={AllIconsMini} />
+      </Tab.Panels>
+    </Tab.Group>
   );
 }
 
