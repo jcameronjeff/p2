@@ -1,5 +1,5 @@
-import { Menu, Tab } from '@headlessui/react';
-import { QuestionMarkCircleIcon, StarIcon } from '@prism2/icons/react/solid';
+import { Tab } from '@headlessui/react';
+import { QuestionMarkCircleIcon, StarIcon } from '@prism2/icons/react/24/solid';
 import React from 'react';
 import { useMemo, useState } from 'react';
 import { Modal } from '../../lib/Modal';
@@ -144,7 +144,7 @@ export default function VLP({ query = '' }: { query: string }) {
       ))}
     </Tab.List>
     <Tab.Panels>
-       {[0, 1, 2, 3, 4, 5].map(x => currentItems.map((item, idx) =>
+       {[0, 1, 2, 3, 4, 5].map(() => currentItems.map((item) =>
           <Tab.Panel className='w-96 p-8 border-l h-full bg-gray-100 space-y-4'>
             <VehiclePreview item={item} />
             <p className='prism-label'>All data is for demonstration purposes. For internal use only, copyright 2022 Cox Automotive Inc.</p>

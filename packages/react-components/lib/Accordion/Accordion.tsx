@@ -1,5 +1,5 @@
 import { Transition } from '@headlessui/react';
-import { ChevronRightIcon } from '@prism2/icons/react/solid';
+import { ChevronRightIcon } from '@prism2/icons/react/24/solid';
 import { useState, useEffect } from 'react';
 import { Box } from '../Box';
 import { fadeInDownOutUp } from '../utils';

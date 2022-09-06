@@ -1,4 +1,4 @@
-import { ArrowCircleRightIcon } from '@prism2/icons/react/solid';
+import { ArrowRightCircleIcon } from '@prism2/icons/react/24/solid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Checkbox, Chip } from '..';
 
@@ -22,9 +22,9 @@ const Chips: ComponentStory<any> = () => (
 
 const WithIcons: ComponentStory<any> = () => (
   <div className='flex gap-2'>
-    <Chip append={<ArrowCircleRightIcon />} variant="light">Default Light</Chip>
-    <Chip prepend={<ArrowCircleRightIcon />} >Default</Chip>
-    <Chip append={<ArrowCircleRightIcon />} prepend={<ArrowCircleRightIcon />} variant="dark">Default Dark</Chip>
+    <Chip append={<ArrowRightCircleIcon />} variant="light">Default Light</Chip>
+    <Chip prepend={<ArrowRightCircleIcon />} >Default</Chip>
+    <Chip append={<ArrowRightCircleIcon />} prepend={<ArrowRightCircleIcon />} variant="dark">Default Dark</Chip>
   </div>
 );
 
@@ -44,8 +44,8 @@ const AsLinks: ComponentStory<any> = () => (
 );
 const AsCheckbox: ComponentStory<any> = () => (
    <div className='flex gap-2 text-xs'>
-    <Checkbox variant="chip" label="Selection One" append={<ArrowCircleRightIcon />} onToggle={console.log}/>
-    <Checkbox variant='chip' label="Selection Two" append={<ArrowCircleRightIcon />} onToggle={console.log} />
+    <Checkbox variant="chip" label="Selection One" append={<ArrowRightCircleIcon />} onToggle={console.log}/>
+    <Checkbox variant='chip' label="Selection Two" append={<ArrowRightCircleIcon />} onToggle={console.log} />
     <Checkbox variant='chip' label="Selection Three" onToggle={console.log} />
     <Checkbox variant='chip' label="Selection Four" onToggle={console.log} />
   </div>

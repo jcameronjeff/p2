@@ -1,4 +1,4 @@
-import { PencilAltIcon, SaveAsIcon, ShareIcon, StarIcon } from '@prism2/icons/react/solid';
+import { PencilSquareIcon, ArrowDownOnSquareStackIcon, ShareIcon, StarIcon } from '@prism2/icons/react/24/solid';
 import * as P2 from '@prism2/icons/react/prism';
 import React, { useState } from 'react';
 import { Box } from '../../lib';
@@ -849,9 +849,9 @@ export function KitchenSink() {
       <div className='flex gap-1 pb-4 border-b border-gray-100 justify-between mb-4'>
         <PageTitleVDP title='2019 Chevy Impala' />
         <div className='flex flex-col gap-0'>
-          <button className='prism-btn text-xs p-1 text'><SaveAsIcon /></button>
+          <button className='prism-btn text-xs p-1 text'><ArrowDownOnSquareStackIcon /></button>
           <button className='prism-btn text-xs p-1 text'><ShareIcon /></button>
-          <button className='prism-btn text-xs p-1 text'><PencilAltIcon /></button>
+          <button className='prism-btn text-xs p-1 text'><PencilSquareIcon /></button>
         </div>
       </div>
       <section className='space-y-6'>

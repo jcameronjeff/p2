@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button } from '../Button';
-import { BeakerIcon, CheckCircleIcon, PencilAltIcon } from '@prism2/icons/react/solid';
+import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons/react/24/solid';
 import mdx from './README.mdx';
 import { Box } from '../Box';
 
@@ -94,19 +94,19 @@ export const WinnieTest = () => (
     <h4 className='prism-heading-4 w-[140px]'>Outlined</h4>
     <button className='prism-btn'>
       <div>Edit</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button className='prism-btn'>
       <div>Edit</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button className='prism-btn'>
       <div>Edit</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button className='prism-btn'>
       <div>Edit</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button disabled className='prism-btn'>
       <div>Save</div>
@@ -140,15 +140,15 @@ export const WinnieTest = () => (
     <h4 className='prism-heading-4 w-[140px]'>Outlined</h4>
     <button className='prism-btn fill'>
       <div>Contained State</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button className='prism-btn fill'>
       <div>Contained Button</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button className='prism-btn fill'>
       <div>Submit</div>
-      <PencilAltIcon className='w-4'/>
+      <PencilSquareIcon className='w-4'/>
     </button>
     <button disabled className='prism-btn fill'>
       <div>Disabled</div>

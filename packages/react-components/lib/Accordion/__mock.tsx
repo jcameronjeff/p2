@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from '@prism2/icons/react/solid';
+import { ChevronRightIcon } from '@prism2/icons/react/24/solid';
 import { Box } from '../';
 
 export const mocks = {

@@ -4,7 +4,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Tab, TabRoot } from './';
 import mdx from './README.mdx';
-import { ArchiveIcon, BadgeCheckIcon, BellIcon, AdjustmentsIcon } from '@prism2/icons/react/solid';
+import { ArchiveBoxIcon, CheckBadgeIcon, BellIcon, AdjustmentsVerticalIcon } from '@prism2/icons/react/24/solid';
 import type { ElementType } from 'react';
 
 export default {
@@ -105,12 +105,12 @@ export const Controlled = () => {
     title: 'Two',
     children: <p>Tab "Two"</p>,
     disabled: false,
-    icon: BadgeCheckIcon,
+    icon: CheckBadgeIcon,
   }, {
     title: 'Three',
     children: <p>Tab "Three"</p>,
     disabled: false,
-    icon: ArchiveIcon,
+    icon: ArchiveBoxIcon,
   }, {
     title: 'Disabled',
     children: <div>Only when tab selected.</div>,
@@ -147,9 +147,9 @@ export const Controlled = () => {
 export const BasicTemplate: ComponentStory<typeof Tab> = ({ vertical, enableIcons }) => {
   let items:[string, (ElementType | null), string][] = [
     ['First', BellIcon, 'Content A'],
-    ['Second', ArchiveIcon, 'Content B'],
-    ['Third', BadgeCheckIcon, 'Content C'],
-    ['Fourth', AdjustmentsIcon, 'Content D'],
+    ['Second', ArchiveBoxIcon, 'Content B'],
+    ['Third', CheckBadgeIcon, 'Content C'],
+    ['Fourth', AdjustmentsVerticalIcon, 'Content D'],
     ['Disabled', null, 'no content'],
   ];
   return (

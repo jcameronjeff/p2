@@ -40,8 +40,20 @@ jobs:
 
         - uses: actions/upload-artifact@v3
           with:
-            name: rc-site-static
-            path: ./apps/vite/dist # or path/to/artifact
+            name: example-ts-app-${{ github.sha }}
+            path: ./apps/example-ts-app/dist # or path/to/artifact
+            retention-days: 3
+
+        - uses: actions/upload-artifact@v3
+          with:
+            name: example-vite-app-${{ github.sha }}
+            path: ./apps/example-vite-app/dist # or path/to/artifact
+            retention-days: 3
+
+        - uses: actions/upload-artifact@v3
+          with:
+            name: icons-website-${{ github.sha }}
+            path: ./apps/icons-website/dist # or path/to/artifact
             retention-days: 3
 
         - name: Test

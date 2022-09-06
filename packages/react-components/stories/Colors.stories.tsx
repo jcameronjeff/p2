@@ -2,7 +2,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
 import * as themeColors from '@prism2/tailwind-theme/colors.json';
 import { Button } from '../lib';
-import { ArrowCircleRightIcon } from '@prism2/icons/react/solid';
+import { ArrowRightCircleIcon } from '@prism2/icons/react/24/solid';
 
 const colors = {
   ...themeColors,
@@ -85,7 +85,7 @@ const Template: ComponentStory<any> = () => (
           </div>
           <div className='w-40'>{g[1]}</div>
           <div>
-            <ArrowCircleRightIcon />
+            <ArrowRightCircleIcon />
           </div>
           <div className='space-y-1'>
             <hr className={`${g[5]} w-32`} />
@@ -93,7 +93,7 @@ const Template: ComponentStory<any> = () => (
             <hr className={`${g[5]} border-t-4 w-32`} />
           </div>
           <div>
-            <ArrowCircleRightIcon />
+            <ArrowRightCircleIcon />
           </div>
           <div className={`px-2 py-0.5 ${g[2]} text-white text-xs rounded`}>{g[3]}</div>
         </li>

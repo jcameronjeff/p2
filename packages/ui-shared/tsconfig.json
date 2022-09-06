@@ -1,6 +1,6 @@
 {
   "extends": "../../tsconfig.json",
-  "include": ["src"],
+  "include": ["lib"],
   "compilerOptions": {
     "types": ["node", "vite/client", "vitest/globals","mdx"]
   }

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Toolbar, Tag, Code } from 'ui-shared';
 import './App.css';
 import { Modal } from '@prism2/react-components';
-
+import { ArrowUpIcon } from '@prism2/icons/react/prism'
 export function App() {
   const [open, setOpen] = useState(false);
 
@@ -12,7 +12,7 @@ export function App() {
     <Toolbar>apps/icons-website</Toolbar>
     <main className='container text-center'>
       <div className='text-center space-y-4 py-16'>
-        <CheckboxCheckedIcon className='w-20 inline-block text-gray-100' />
+        <ArrowUpIcon className='w-20 inline-block text-gray-100' />
         <h1 className='prism-heading-1 font-alt text-blue-700'>
           apps/icons-website
         </h1>

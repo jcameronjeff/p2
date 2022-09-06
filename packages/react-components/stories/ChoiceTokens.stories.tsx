@@ -1,4 +1,4 @@
-import { ArrowCircleRightIcon } from '@prism2/icons/react/solid';
+import { ArrowRightCircleIcon } from '@prism2/icons/react/24/solid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 export default {
@@ -14,7 +14,7 @@ const BoxToken: ComponentStory<any> = (args) => (
       <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${args.bg} ${args.body} border-l-4 ${args.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
         <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
           <div className='flex items-center animate-pulse'>
-            <ArrowCircleRightIcon />
+            <ArrowRightCircleIcon />
           </div>
           <div className='flex items-center'>
             <h3 className={`font-bold text-base ${args.title}`}>Example Box Variant</h3>
@@ -106,7 +106,7 @@ const Combos: ComponentStory<any> = () => (
         <div className={`p-4 pl-2 pr-4 w-[400px] rounded-sm ${i.bg} ${i.body} border-l-4 ${i.border} shadow-sm hover:ring-2 ring-gray-400 transition-all duration-100 cursor-pointer active:scale-[98%]`}>
           <div className='grid grid-cols-[min-content,1fr] items-top gap-x-2 gap-y-1'>
             <div className='flex items-center animate-pulse'>
-              <ArrowCircleRightIcon />
+              <ArrowRightCircleIcon />
             </div>
             <div className='flex items-center'>
               <h3 className={`font-bold text-base ${i.title}`}>Example Box Variant XOXO</h3>

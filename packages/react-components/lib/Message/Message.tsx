@@ -1,4 +1,4 @@
-import { CheckCircleIcon, ExclamationCircleIcon, InformationCircleIcon } from '@prism2/icons/react/solid';
+import { CheckCircleIcon, ExclamationCircleIcon, InformationCircleIcon } from '@prism2/icons/react/24/solid';
 import React from 'react';
 // import { InfoIcon, CheckmarkIcon, NotificationIcon } from '../messageIcons';
 import { HTMLComponent } from '../types';

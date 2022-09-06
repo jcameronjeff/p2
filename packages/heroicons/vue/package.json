@@ -1,7 +1,7 @@
 {
-  "name": "@prism2/icons/vue",
+  "name": "@heroicons/vue",
   "license": "MIT",
-  "version": "1.0.6",
+  "version": "2.0.10",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/tailwindlabs/heroicons#readme",
@@ -10,9 +10,10 @@
     "url": "https://github.com/tailwindlabs/heroicons.git"
   },
   "files": [
+    "20",
+    "24",
     "outline",
-    "solid",
-    "prism"
+    "solid"
   ],
   "publishConfig": {
     "access": "public"
