@@ -14,10 +14,10 @@ pnpm create vite --template react-ts my-app && cd my-app
 
 ### Bootstrap PostCSS Tailwind and Prism2
 
-> **IMPORTANT**: This guide assumes that you have access to the CIA Artifactory and that you have [configured your package manager](#artifactory-configuration) to use it as a registry. For assistance with setup, visit the [#artifactory Slack channel](). The latest version of all packages is `2.0.6-alpha.1` as of this writing.
+> **IMPORTANT**: This guide assumes that you have access to the CIA Artifactory and that you have [configured your package manager](#artifactory-configuration) to use it as a registry. For assistance with setup, visit the [#artifactory Slack channel](). The latest version of all packages is `2.0.8-alpha.1` as of this writing.
 
 ```bash
-pnpm add @prism2/tailwind-preset@2.0.6-alpha.1 @prism2/react-components@2.0.6-alpha.1 @prism2/icons@2.0.6-alpha.1 tailwindcss postcss
+pnpm add @prism2/tailwind-preset@^2.0.8-alpha.1 @prism2/react-components@^2.0.8-alpha.1 @prism2/icons@^2.0.8-alpha.1 tailwindcss postcss
 echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" >> postcss.config.cjs
 ```
 
@@ -58,7 +58,7 @@ Import our library stylesheets.
 @import '@prism2/react-components';
 ```
 
-We suggest importing the Tailwind libraries in a separate file. Live-reloading is drastically quicker as a result.  
+We suggest importing the Tailwind libraries in a separate file. Live-reloading is drastically quicker as a result.
 
 ```css
 /* index.css */
@@ -83,7 +83,7 @@ const App = () => (
 
 ### Artifactory Configuration
 
-In order to use Artifactory as your package registry, save a file named `.npmrc` to the root of your project. You will need to [log in to Artifactory](https://artifactory.coxautoinc.com/artifactory/) to acquire an authorization key. 
+In order to use Artifactory as your package registry, save a file named `.npmrc` to the root of your project. You will need to [log in to Artifactory](https://artifactory.coxautoinc.com/artifactory/) to acquire an authorization key.
 
 Navigate to your profile by clicking on your email address on the top right off the Artifactory dashboard. Copy your API key and paste into your `.npmrc`.
 
