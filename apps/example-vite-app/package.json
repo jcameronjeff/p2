@@ -1,19 +1,19 @@
 {
   "name": "example-vite-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.9-alpha.2",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
-    "@prism2/react-components": "workspace:*",
-    "@prism2/tailwind-preset": "workspace:*",
+    "@prism2/react-components": "^2.0.9-alpha.2",
+    "@prism2/tailwind-preset": "^2.0.9-alpha.2",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",
     "tailwindcss": "^3.1.8",
-    "ui-shared": "workspace:*"
+    "ui-shared": "^2.0.9-alpha.2"
   },
   "devDependencies": {
     "@types/react": "~18.0.17",

@@ -1,7 +1,7 @@
 {
   "name": "example-ts-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "2.0.9-alpha.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -10,13 +10,13 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
-    "@prism2/icons": "workspace:*",
-    "@prism2/react-components": "workspace:*",
-    "@prism2/tailwind-preset": "workspace:*",
-    "ui-shared": "workspace:*",
+    "@prism2/icons": "^2.0.9-alpha.2",
+    "@prism2/react-components": "^2.0.9-alpha.2",
+    "@prism2/tailwind-preset": "^2.0.9-alpha.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-live": "^2.4.1"
+    "react-live": "^2.4.1",
+    "ui-shared": "^2.0.9-alpha.2"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

@@ -1,6 +1,6 @@
 {
   "name": "ui-shared",
-  "version": "0.0.0",
+  "version": "2.0.9-alpha.2",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
@@ -8,13 +8,13 @@
     "lint": "eslint *.ts*"
   },
   "devDependencies": {
+    "@prism2/tsconfig": "workspace:*",
     "@types/react": "18",
     "@types/react-dom": "18",
     "@types/react-syntax-highlighter": "^15.5.5",
     "eslint": "^7.32.0",
     "eslint-config-custom": "workspace:*",
     "react": "18",
-    "tsconfig": "workspace:*",
     "typescript": "^4.5.2"
   },
   "dependencies": {
