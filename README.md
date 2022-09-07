@@ -2,7 +2,7 @@
 
 ![Prism2 Package Map](./media/p2-package-map.png)
 
-## Quickstart
+## Developing Prism2
 
 This project uses npm and turborepo to manage dependencies.
 
@@ -10,6 +10,86 @@ This project uses npm and turborepo to manage dependencies.
 git clone git@ghe.coxautoinc.com:Prism/prism2.git && cd prism2
 pnpm install
 pnpm storybook
+```
+
+## Starting a new project using Prism2
+
+> **IMPORTANT**: This guide assumes that you have access to the CIA Artifactory and that you have [configured your package manager](#artifactory-configuration) to use it as a registry. For assistance with setup, visit the [#artifactory Slack channel](). The latest version of all packages is `2.0.8-alpha.1` as of this writing.
+
+### Step 0: Create a new app
+
+Create a new project -- Here we are using Vite with the React Typescript template. Prism2 should be compatible with any framework though your setup steps may differ.
+
+```
+pnpm create vite --template react-ts my-app && cd my-app
+```
+
+### Bootstrap PostCSS Tailwind and Prism2
+
+
+```bash
+pnpm add @prism2/tailwind-preset@^2.0.8-alpha.1 @prism2/react-components@^2.0.8-alpha.1 @prism2/icons@^2.0.8-alpha.1 tailwindcss postcss
+echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" >> postcss.config.cjs
+```
+
+You can ignore warnings about missing peer dependencies. This is a known issue - for now, things will still work as expected.
+
+### Configure Tailwind
+
+```
+pnpm tailwindcss init
+```
+
+> *(You will likely have to rename the created file to `tailwind.config.~~js~~cjs` for compatibility reasons in TypeScript)*
+
+Replace the contents of `tailwind.config.cjs` with the following:
+
+```js
+/* tailwind.config.cjs */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  important: true,
+  content: [
+    './index.html',
+    './src/*.{vue,js,ts,jsx,tsx}',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ],
+}
+```
+
+### Inject our styles
+
+Import our library stylesheets.
+
+```css
+/* App.css */
+@import '@prism2/react-components';
+```
+
+We suggest importing the Tailwind libraries in a separate file. Live-reloading is drastically quicker as a result.
+
+```css
+/* index.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+```
+
+### Rock and roll
+
+```tsx
+// App.tsx
+import React from 'react'
+import './App.css'
+
+const App = () => (
+  <div className='container p-4'>
+    <div className='prism-heading-1'>Branded Heading One</div>
+  </div>
+)
 ```
 
 ## Toolchain
@@ -64,7 +144,17 @@ Completely unstyled, fully accessible UI components, designed to integrate beaut
 
 GitHub Actions makes it easy to automate all your software workflows, now with world-class CI/CD. Build, test, and deploy your code right from GitHub.
 
-### Note on Commit Messages
+## Editor Configs
+
+Prism2 includes autocompletion support via Typescript type declarations as well as through Tailwind Intellisense.
+
+- [Tailwind CSS IntelliSense for VSCode](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
+
+![React Intellisense](./media/react-intellisense.gif)
+![Classname Intellisense](./media/class-intellisense.gif)
+
+
+## Note on Commit Messages
 
 We have implemented a requirement that all commit messages follow our conventions as [specified by Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/). Commits are cancelled if your message has any issues - actionable feedback will be provided with an error message.
 
@@ -76,30 +166,3 @@ git commit -m "chore: README updates for Turborepo"
 ✖   found 1 problems, 0 warnings
 ⓘ   Get help: https://github.com/conventional-changelog/commitlint/#what-is-commitlint
 ```
-
-## Starting a new project
-
-### Scaffolding
-
-```sh
-pnpm create vite@latest my-new-app && cd my-new-app
-pnpm install -D tailwindcss @prism2/tailwind-preset
-pnpx tailwindcss init
-```
-
-### Configure PostCSS
-
-Finally, create a postcss config that uses our preset.
-
-```sh
-echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" > postcss.config.js
-```
-
-## Editor Configs
-
-Prism2 includes autocompletion support via Typescript type declarations as well as through Tailwind Intellisense.
-
-- [Tailwind CSS IntelliSense for VSCode](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss)
-
-![React Intellisense](./media/react-intellisense.gif)
-![Classname Intellisense](./media/class-intellisense.gif)
