@@ -7,7 +7,7 @@
     },
     "build": {
       "dependsOn": ["^build", "^build_css"],
-      "inputs": ["lib/**/*.tsx", "lib/**/*.ts", "lib/**/*.ts", "lib/**/*.css","src/**/*.jsx"],
+      "inputs": ["lib","src"],
       "outputs": ["dist/**"]
     },
     "dev": {

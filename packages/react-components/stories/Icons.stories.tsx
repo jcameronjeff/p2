@@ -1,8 +1,20 @@
 import { ComponentMeta } from '@storybook/react';
 import { version as iconsVerson } from '@prism2/icons/package.json';
 import * as P2 from '@prism2/icons/react/prism';
+import mdx from './IconUsage.mdx';
+
 export default {
-  title: 'Components/Icons',
+  title: 'Components/Icon',
+  // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
+  argTypes: {
+    backgroundColor: { control: 'color' },
+  },
+  parameters: {
+    layout: 'centered',
+    docs: {
+      page: mdx,
+    },
+  },
 } as ComponentMeta<any>;
 const {
   CreditCardIcon,
@@ -13,16 +25,18 @@ const {
   SpinnerIcon,
   NotificationCircleIcon,
 } = P2;
-export const BasicUsage = () => (
-  <div className='flex text-gray-700 gap-4'>
-    <CreditCardIcon className='w-4' />
-    <Envelop5Icon className='w-4 text-blue-700' />
-    <ExportIcon className='w-4 text-gold-400' />
-    <HeartIcon className='w-4 text-red-300'/>
-    <InfoIcon className='w-4 text-blue-300 animate-pulse' />
-    <NotificationCircleIcon className='w-4 animate-bounce' />
-  </div>
-);
+export const BasicUsage = () => {
+  // import { CreditCardIcon, Envelop5Icon, ExportIcon, HeartIcon, InfoIcon } from "@prism2/icons-react";
+  return (
+    <div className='flex text-gray-700 gap-4'>
+      <CreditCardIcon className='w-4' />
+      <Envelop5Icon className='w-4 text-blue-700' />
+      <ExportIcon className='w-4 text-gold-400' />
+      <HeartIcon className='w-4 text-red-300 animate-bounce'/>
+      <InfoIcon className='w-4 text-blue-300 animate-pulse' />
+    </div>
+  );
+};
 
 
 export const Spinner = () => (
@@ -693,6 +707,20 @@ export const AllIcons = ({ textColor = 'text-gray-400' }) => (
       <div><P2.ZoomOutIcon className='w-8' /></div>
       <div className={textColor}>ZoomOut</div>
     </div>
+  </div>
+);
+
+export const AppendPrependButton = () => (
+  <div className='flex gap-2'>
+    <button className='prism-btn'>
+      <NotificationCircleIcon className='h-[1em]' />
+      Button With Icon Before
+    </button>
+
+    <button className='prism-btn'>
+      Button With Icon After
+      <NotificationCircleIcon className='h-[1em]' />
+    </button>
   </div>
 );
 

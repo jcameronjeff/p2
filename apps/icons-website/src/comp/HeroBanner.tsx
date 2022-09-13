@@ -10,9 +10,9 @@ export const HeroBanner = () => (
     </div>
     <div className='text-xs tracking-tight w-[540px] bg-slate-900 text-slate-300 rounded font-mono p-4 shadow-lg'>
       <span className='opacity-50'>// install</span><br />
-      <span className='opacity-25'>$</span> pnpm add @prism2/icons<br />
+      <span className='opacity-25'>$</span> pnpm add @prism2/icons-react<br />
       <span className='opacity-50'>// import</span><br />
-      {'import { HeartIcon } from \'@prism2/icons/react/prism\''}<br />
+      {'import { HeartIcon } from \'@prism2/icons-react\''}<br />
       <span className='opacity-50'>// insert</span><br />
       {'<HeartIcon className="w-12 text-red-400 animate-pulse" />'}
     </div>

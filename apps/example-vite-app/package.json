@@ -8,7 +8,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@prism2/react-components": "^2.0.9-alpha.2",
+    "@prism2/react-components": "workspace:^2.0.9-alpha.2",
     "@prism2/tailwind-preset": "^2.0.9-alpha.2",
     "react": "~18.2.0",
     "react-dom": "~18.2.0",

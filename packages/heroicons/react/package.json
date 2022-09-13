@@ -1,7 +1,7 @@
 {
-  "name": "@heroicons/react",
+  "name": "@prism2/icons-react",
   "license": "MIT",
-  "version": "2.0.10",
+  "version": "2.0.9-alpha.2",
   "description": "",
   "keywords": [],
   "homepage": "https://github.com/tailwindlabs/heroicons#readme",
@@ -13,8 +13,10 @@
     "20",
     "24",
     "solid",
+    "prism",
     "outline"
   ],
+  "main": "prism/esm/index.js",
   "publishConfig": {
     "access": "public"
   },

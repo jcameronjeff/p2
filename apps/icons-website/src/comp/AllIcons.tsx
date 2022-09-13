@@ -1,14 +1,16 @@
 import React, { ReactElement } from 'react';
-import * as P2 from '@prism2/icons/react/prism';
-import * as Solid from '@prism2/icons/react/24/solid';
-import * as Mini from '@prism2/icons/react/20/solid';
-import * as Outline from '@prism2/icons/react/24/outline';
+import * as P2 from '@prism2/icons-react';
+import * as Solid from '@prism2/icons-react/24/solid';
+import * as Mini from '@prism2/icons-react/20/solid';
+import * as Outline from '@prism2/icons-react/24/outline';
 
 let boxClass = 'grid grid-cols-[50px,1fr] text-left items-center text-xxs gap-2 w-[200px]';
 
+interface IconProps extends React.ComponentProps<'svg'> {}
+
 const IconSample = (
   { Icon, textColor = 'text-gray-400', iconClass = 'h-6', name = '' }:
-  {Icon: React.FC<{className: string}>, textColor?: string, iconClass?:string, name: string}
+  {Icon: React.FC<IconProps>, name: string, iconClass: string, textColor: string }
 ) => (
     <div className={boxClass}>
       <Icon className={iconClass} />
@@ -297,7 +299,7 @@ const outlineList = [
     [Outline.WrenchScrewdriverIcon,'WrenchScrewdriverIcon'],
     [Outline.XCircleIcon,'XCircleIcon'],
     [Outline.XMarkIcon,'XMarkIcon'],
-] as [React.FunctionComponent<{className:string}>, string][]
+] as [React.FunctionComponent<React.ComponentProps<'svg'>>, string][]
 
 const solidList = [
     [Solid.AcademicCapIcon,'AcademicCapIcon'],
@@ -580,7 +582,7 @@ const solidList = [
     [Solid.WrenchScrewdriverIcon,'WrenchScrewdriverIcon'],
     [Solid.XCircleIcon,'XCircleIcon'],
     [Solid.XMarkIcon,'XMarkIcon'],
-] as [React.FunctionComponent<{className:string}>, string][]
+] as [React.FunctionComponent<React.ComponentProps<'svg'>>, string][]
 
 const prismList = [
     [P2.ThreeSixtyIcon, 'ThreeSixtyIcon'],
@@ -748,7 +750,7 @@ const prismList = [
     [P2.WifiIcon, 'WifiIcon'],
     [P2.ZoomInIcon, 'ZoomInIcon'],
     [P2.ZoomOutIcon, 'ZoomOutIcon'],
-] as [React.FunctionComponent<{className:string}>, string][]
+] as [React.FunctionComponent<React.ComponentProps<'svg'>>, string][]
 
 const miniList = [
     [Mini.AcademicCapIcon,'AcademicCapIcon'],
@@ -1031,7 +1033,7 @@ const miniList = [
     [Mini.WrenchScrewdriverIcon,'WrenchScrewdriverIcon'],
     [Mini.XCircleIcon,'XCircleIcon'],
     [Mini.XMarkIcon,'XMarkIcon'],
-] as [React.FunctionComponent<{className:string}>, string][]
+] as [React.FunctionComponent<React.ComponentProps<'svg'>>, string][]
 
 
 export const AllIconsBase = ({ list = solidList, textColor = 'text-gray-400', iconClass = 'h-6' }) => {
@@ -1042,7 +1044,7 @@ export const AllIconsBase = ({ list = solidList, textColor = 'text-gray-400', ic
   )
 }
 
-export const AllIcons = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
+export const AllIcons = ({textColor = 'text-gray-400', iconClass = 'h-4' }) =>
   <AllIconsBase list={prismList} textColor={textColor} iconClass={iconClass} />
 export const AllIconsSolid = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
   <AllIconsBase list={solidList} textColor={textColor} iconClass={iconClass} />

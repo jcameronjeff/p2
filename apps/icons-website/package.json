@@ -10,9 +10,10 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
-    "@prism2/icons": "^2.0.9-alpha.2",
-    "@prism2/react-components": "^2.0.9-alpha.2",
-    "@prism2/tailwind-preset": "^2.0.9-alpha.2",
+    "@prism2/icons": "workspace:*",
+    "@prism2/icons-react": "workspace:*",
+    "@prism2/react-components": "workspace:*",
+    "@prism2/tailwind-preset": "workspace:*",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-live": "^2.4.1",
