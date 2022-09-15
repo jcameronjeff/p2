@@ -1,6 +1,6 @@
 {
   "name": "nextjs-template",
-  "version": "2.0.9-alpha.2",
+  "version": "2.0.9-alpha.4",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -10,23 +10,23 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.6.5",
-    "@prism2/icons": "^2.0.9-alpha.2",
-    "@prism2/react-components": "^2.0.9-alpha.2",
-    "@prism2/tailwind-preset": "^2.0.9-alpha.2",
+    "@prism2/icons-react": "workspace:*",
+    "@prism2/react-components": "workspace:*",
+    "@prism2/tailwind-preset": "workspace:*",
     "next": "12.2.5",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "ui-shared": "^2.0.9-alpha.2"
+    "ui-shared": "workspace:*"
   },
   "devDependencies": {
     "@babel/core": "^7.0.0",
-    "@prism2/tsconfig": "^2.0.9-alpha.2",
+    "@prism2/tsconfig": "workspace:*",
     "@types/node": "^17.0.12",
     "@types/react": "^18.0.17",
     "@types/react-dom": "^18.0.6",
     "cssnano": "^5.1.13",
     "eslint": "7.32.0",
-    "eslint-config-custom": "^2.0.9-alpha.2",
+    "eslint-config-custom": "workspace:*",
     "next-transpile-modules": "9.0.0",
     "postcss": "^8.4.16",
     "postcss-apply": "^0.12.0",

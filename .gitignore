@@ -49,3 +49,6 @@ dist
 .next
 web
 *ts.timestamp-*
+
+
+**/.npmrc

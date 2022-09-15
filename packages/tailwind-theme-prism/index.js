@@ -1,6 +1,7 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 const colors = require('./colors.json');
 
+
 module.exports = {
   colors: ({ theme }) => ({
     // source: https://prism.coxautoinc.com/foundation/colors/colors
@@ -11,7 +12,7 @@ module.exports = {
     navy: theme.colors.blue,
     amber: theme.colors.orange,
     saffron: theme.colors.orange,
-    gold: theme.colors.yellow,
+    gold: colors.yellow,
     meadow: theme.colors.green,
     jungle: theme.colors.emerald,
     ocean: theme.colors.teal,

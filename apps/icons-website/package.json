@@ -1,7 +1,7 @@
 {
   "name": "icons-website",
   "private": true,
-  "version": "2.0.9-alpha.2",
+  "version": "2.0.9-alpha.4",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -18,7 +18,7 @@
     "react-dom": "^18.2.0",
     "react-live": "^2.4.1",
     "react-syntax-highlighter": "^15.5.0",
-    "ui-shared": "^2.0.9-alpha.2"
+    "ui-shared": "workspace:*"
   },
   "devDependencies": {
     "@types/react": "^18.0.17",

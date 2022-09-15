@@ -1,0 +1,22 @@
+{
+  "mode": "pre",
+  "tag": "alpha",
+  "initialVersions": {
+    "demo-01-theme-swap": "2.0.9-alpha.3",
+    "nextjs-template": "2.0.9-alpha.3",
+    "example-ts-app": "2.0.9-alpha.3",
+    "example-vite-app": "2.0.9-alpha.3",
+    "icons-website": "2.0.9-alpha.3",
+    "@prism2/core": "2.0.9-alpha.3",
+    "eslint-config-custom": "2.0.9-alpha.3",
+    "@prism2/icons": "2.0.9-alpha.3",
+    "migration-utils": "2.0.9-alpha.3",
+    "@prism2/react-components": "2.0.9-alpha.3",
+    "@prism2/tailwind-elements": "2.0.9-alpha.3",
+    "@prism2/tailwind-preset": "2.0.9-alpha.3",
+    "@prism2/tailwind-theme": "2.0.9-alpha.3",
+    "@prism2/tsconfig": "2.0.9-alpha.3",
+    "ui-shared": "2.0.9-alpha.3"
+  },
+  "changesets": []
+}

@@ -1,6 +1,6 @@
 {
   "name": "@prism2/core",
-  "version": "2.0.9-alpha.2",
+  "version": "2.0.9-alpha.4",
   "description": "TailwindCSS preset package for PRISM design system from @prism2",
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-preset"
@@ -16,9 +16,9 @@
   "author": "Darin Cassler",
   "license": "ISC",
   "dependencies": {
-    "@prism2/icons": "^2.0.9-alpha.2",
-    "@prism2/react-components": "^2.0.9-alpha.2",
-    "@prism2/tailwind-preset": "^2.0.9-alpha.2"
+    "@prism2/icons": "workspace:*",
+    "@prism2/react-components": "workspace:*",
+    "@prism2/tailwind-preset": "workspace:*"
   },
   "devDependencies": {
     "postcss": "^8.4.5",

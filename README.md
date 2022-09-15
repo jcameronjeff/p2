@@ -28,7 +28,7 @@ pnpm create vite --template react-ts my-app && cd my-app
 
 
 ```bash
-pnpm add @prism2/tailwind-preset@^2.0.8-alpha.1 @prism2/react-components@^2.0.8-alpha.1 @prism2/icons@^2.0.8-alpha.1 tailwindcss postcss
+pnpm add @prism2/tailwind-preset@alpha @prism2/react-components@alpha @prism2/icons@alpha tailwindcss postcss
 echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" >> postcss.config.cjs
 ```
 

@@ -3,7 +3,8 @@ import type { Dispatch, PropsWithChildren, SetStateAction, FC } from 'react';
 import reactLogo from './assets/react.svg'
 import './App.css'
 import { Switch, Button, Modal, Tab, Box, Avatar, Tooltip } from '@prism2/react-components';
-import { BoltIcon, ChevronDownIcon } from '@prism2/icons/react/prism';
+import { CheckIcon, ChevronUpDownIcon } from '@prism2/icons-react/24/solid'
+import { BoltIcon } from '@prism2/icons-react';
 import { Transition, Listbox } from '@headlessui/react'
 import { Toolbar } from 'ui-shared';
 
@@ -37,11 +38,11 @@ function Stack() {
       </div>
       </Tooltip>
       </div>
+
     </Box>
 
   )
 }
-import { CheckIcon, ChevronUpDownIcon } from '@prism2/icons/react/24/solid'
 
 const people = [
   { name: 'Wade Cooper' },

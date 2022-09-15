@@ -62,12 +62,13 @@ jobs:
           ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_TOKEN }}
           ARTIFACTORY_AUTH_URL: https://artifactory.coxautoinc.com/artifactory/api/npm/auth
         run: |
-          for dir in tailwind-theme-prism heroicons tailwind-preset react-components tailwind-plugin-elements
+          for dir in tailwind-theme-prism heroicons heroicons/react tailwind-preset react-components tailwind-plugin-elements
           do
             pushd packages/$dir
             echo 'registry=https://artifactory.coxautoinc.com/artifactory/api/npm/man-npm' >> .npmrc
             curl -u${ARTIFACTORY_USERNAME}:${ARTIFACTORY_API_KEY} ${ARTIFACTORY_AUTH_URL} >> .npmrc
-            npm config set userconfig .npmrc
-            npm publish --tag alpha
+            echo 'publish-branch=release/2.0.9-alpha.3' >> .npmrc
+            pnpm config set userconfig .npmrc
+            pnpm publish --tag alpha --no-git-checks
             popd
           done || exit 1
