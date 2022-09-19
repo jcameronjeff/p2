@@ -1,4 +1,4 @@
-import { ArrowRightCircleIcon } from '@prism2/icons/react/24/solid';
+import { ArrowRightCircleIcon } from '@prism2/icons-react/24/solid';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Checkbox, Chip } from '..';
 

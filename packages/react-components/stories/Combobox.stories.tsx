@@ -1,7 +1,7 @@
 import React, { Fragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Combobox } from '@headlessui/react';
-import { CheckIcon } from '@prism2/icons/react/24/solid';
+import { CheckIcon } from '@prism2/icons-react/24/solid';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../lib/utils';
 

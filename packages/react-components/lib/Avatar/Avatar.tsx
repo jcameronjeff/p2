@@ -1,4 +1,4 @@
-import { useState, HTMLProps } from 'react';
+import { ImgHTMLAttributes } from 'react';
 
 /**
  *
@@ -18,44 +18,48 @@ export function getInitials(str: string) {
 }
 
 
-export interface AvatarProps extends HTMLProps<HTMLDivElement> {
+export interface AvatarProps extends ImgHTMLAttributes<HTMLImageElement> {
   /**
    * Username to be displayed. Will return up to 3 initials..
    */
   name: string,
   /**
-   * Standard HTML 'alt' attribute to be used on profile picture
+   * Optionally display a name next to the avatar, defaults to false.
    */
-  alt?: string,
-  /**
-   * URL of image to be displayed
-   */
-  src?: string,
-  /**
-   * Optional classes to include on the container
-   */
-  className?: string
+  showName?: boolean
 }
 
 
-export function Avatar({ alt = 'Image', src, name, className, ...args }: AvatarProps) {
-  const [hasImage, setHasImage] = useState(!!src);
-  const clsx = ['rounded-full relative flex border-4 items-center relative justify-center border-gold-dark w-12 h-12 overflow-hidden',  className].join(' ');
-  return (
-    <div {...args} className={clsx}>
+export function Avatar({ name, src, alt, showName = false, className, ...args }: AvatarProps) {
 
-      {hasImage ? (
-        <img className='w-full h-full absolute top-0' src={src} alt={alt} onError={() => setHasImage(false)} />
-      ) : (
-        <span className='font-normal translate-y-[1px]'>{getInitials(name || '')}</span>
-      )}
+  const clsx = [
+    'rounded-full relative flex border-4 w-12 h-12',
+    'items-center relative justify-center border-gold-400',
+    'overflow-hidden bg-transparent bg-cover', className].join(' ');
 
+  const Picture = (
+    <div className={clsx}>
+      <span
+        className='prism-heading-4 translate-y-[1px] inset-0'
+        aria-label={name}>
+        {getInitials(name || '')}
+      </span>
+      <div
+        {...args}
+        aria-hidden
+        className='absolute bg-transparent bg-cover inset-0'
+        style={{ backgroundImage: `url(${src})` }} />
+      <img src={src} alt={alt} aria-hidden className='hidden' />
+    </div>
+  );
 
+  return !showName ? Picture : (
+    <div className="flex gap-2 items-center">
+      {Picture}
+      <span className='prism-heading-4'>{name}</span>
     </div>
   );
 }
-Avatar.defaultProps = {
-  variant: 'base',
-};
+
 export default Avatar;
 

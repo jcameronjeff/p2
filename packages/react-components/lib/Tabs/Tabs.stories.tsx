@@ -4,7 +4,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Tab, TabRoot } from './';
 import mdx from './README.mdx';
-import { ArchiveBoxIcon, CheckBadgeIcon, BellIcon, AdjustmentsVerticalIcon } from '@prism2/icons/react/24/solid';
+import { ArchiveBoxIcon, CheckBadgeIcon, BellIcon, AdjustmentsVerticalIcon } from '@prism2/icons-react/24/solid';
 import type { ElementType } from 'react';
 
 export default {

@@ -1,5 +1,5 @@
-import { PencilSquareIcon, ArrowDownOnSquareStackIcon, ShareIcon, StarIcon } from '@prism2/icons/react/24/solid';
-import * as P2 from '@prism2/icons/react/prism';
+import { PencilSquareIcon, ArrowDownOnSquareStackIcon, ShareIcon, StarIcon } from '@prism2/icons-react/24/solid';
+import * as P2 from '@prism2/icons-react/prism';
 import React, { useState } from 'react';
 import { Box } from '../../lib';
 

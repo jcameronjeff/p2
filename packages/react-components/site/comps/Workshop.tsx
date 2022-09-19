@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import { Combobox } from '@headlessui/react';
-import { CheckboxCheckedIcon, SearchIcon } from '@prism2/icons/react/prism';
+import { CheckboxCheckedIcon, SearchIcon } from '@prism2/icons-react/prism';
 import type { Fragment } from 'react';
 
 const stateNames = [

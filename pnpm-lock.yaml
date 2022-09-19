@@ -184,7 +184,6 @@ importers:
   apps/icons-website:
     specifiers:
       '@headlessui/react': ^1.6.5
-      '@prism2/icons': workspace:*
       '@prism2/icons-react': workspace:*
       '@prism2/react-components': workspace:*
       '@prism2/tailwind-preset': workspace:*
@@ -202,7 +201,6 @@ importers:
       vite: ^3.0.7
     dependencies:
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
-      '@prism2/icons': link:../../packages/heroicons
       '@prism2/icons-react': link:../../packages/heroicons/react
       '@prism2/react-components': link:../../packages/react-components
       '@prism2/tailwind-preset': link:../../packages/tailwind-preset
@@ -222,13 +220,13 @@ importers:
 
   packages/core:
     specifiers:
-      '@prism2/icons': workspace:*
+      '@prism2/icons-react': workspace:*
       '@prism2/react-components': workspace:*
       '@prism2/tailwind-preset': workspace:*
       postcss: ^8.4.5
       tailwindcss: ^3.0.24
     dependencies:
-      '@prism2/icons': link:../heroicons
+      '@prism2/icons-react': link:../heroicons/react
       '@prism2/react-components': link:../react-components
       '@prism2/tailwind-preset': link:../tailwind-preset
     devDependencies:
@@ -310,6 +308,7 @@ importers:
       '@headlessui/react': ^1.6.5
       '@mdx-js/react': ^1.6.22
       '@prism2/icons': workspace:*
+      '@prism2/icons-react': workspace:*
       '@prism2/tailwind-elements': workspace:*
       '@prism2/tailwind-preset': workspace:*
       '@prism2/tailwind-theme': workspace:*
@@ -385,6 +384,7 @@ importers:
     dependencies:
       '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
       '@prism2/icons': link:../heroicons
+      '@prism2/icons-react': link:../heroicons/react
       '@prism2/tailwind-elements': link:../tailwind-plugin-elements
       '@prism2/tailwind-preset': link:../tailwind-preset
       '@prism2/tailwind-theme': link:../tailwind-theme-prism
@@ -520,7 +520,7 @@ importers:
 
   packages/ui-shared:
     specifiers:
-      '@prism2/icons': workspace:*
+      '@prism2/icons-react': workspace:*
       '@prism2/tsconfig': workspace:*
       '@types/react': '18'
       '@types/react-dom': '18'
@@ -531,7 +531,7 @@ importers:
       react-syntax-highlighter: ^15.5.0
       typescript: ^4.5.2
     dependencies:
-      '@prism2/icons': link:../heroicons
+      '@prism2/icons-react': link:../heroicons/react
       react-syntax-highlighter: 15.5.0_react@18.2.0
     devDependencies:
       '@prism2/tsconfig': link:../tsconfig

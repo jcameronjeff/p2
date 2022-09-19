@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button } from '../Button';
-import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons/react/24/solid';
+import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons-react/24/solid';
 import mdx from './README.mdx';
 import { Box } from '../Box';
 

@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react';
-import { QuestionMarkCircleIcon, StarIcon } from '@prism2/icons/react/24/solid';
+import { QuestionMarkCircleIcon, StarIcon } from '@prism2/icons-react/24/solid';
 import React from 'react';
 import { useMemo, useState } from 'react';
 import { Modal } from '../../lib/Modal';

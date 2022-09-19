@@ -1,5 +1,5 @@
 import React, { HTMLAttributes } from 'react';
-import { ClipboardIcon, InfoIcon, StarFullIcon  } from '@prism2/icons/react/prism';
+import { ClipboardIcon, InfoIcon, StarFullIcon  } from '@prism2/icons-react/prism';
 
 interface PolymorphProps<T extends React.ElementType> extends HTMLAttributes<T> {
   as?: T;

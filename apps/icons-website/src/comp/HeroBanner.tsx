@@ -1,4 +1,4 @@
-import { HeartIcon } from '@prism2/icons/react/prism';
+import { HeartIcon } from '@prism2/icons-react/prism';
 
 export const HeroBanner = () => (
   <div className='flex justify-center bg-blue-600 from-blue-900 bg-gradient-to-br p-12 text-white flex-col items-center space-y-4 '>

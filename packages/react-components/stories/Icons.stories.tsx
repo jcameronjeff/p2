@@ -1,6 +1,6 @@
 import { ComponentMeta } from '@storybook/react';
-import { version as iconsVerson } from '@prism2/icons/package.json';
-import * as P2 from '@prism2/icons/react/prism';
+import { version as iconsVerson } from '@prism2/icons-react/package.json';
+import * as P2 from '@prism2/icons-react';
 import mdx from './IconUsage.mdx';
 
 export default {
@@ -739,7 +739,7 @@ export const SplashPage = () => (
       <span className='opacity-50'>// install</span><br />
       <span className='opacity-25'>$</span> pnpm add @prism2/icons<br />
       <span className='opacity-50'>// import</span><br />
-      {'import { HeartIcon } from \'@prism2/icons/react/prism\''}<br />
+      {'import { HeartIcon } from \'@prism2/icons-react/prism\''}<br />
       <span className='opacity-50'>// insert</span><br />
       {'<HeartIcon className="w-12 text-red-400 animate-pulse" />'}
     </div>

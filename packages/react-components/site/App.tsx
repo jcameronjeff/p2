@@ -1,6 +1,6 @@
 // import KitchenSink from '../lib/HTML5';
 import { Dialog } from '@headlessui/react';
-import * as P2 from '@prism2/icons/react/prism';
+import * as P2 from '@prism2/icons-react/prism';
 import React, { useEffect, useState } from 'react';
 import { Modal, Tab, Box, Message, Radio } from '../lib';
 import { AllIcons, KitchenSink, PageTitleVDP  } from './comps/TabContent';

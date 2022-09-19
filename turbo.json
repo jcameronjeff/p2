@@ -7,8 +7,8 @@
     },
     "build": {
       "dependsOn": ["^build", "^build_css"],
-      "inputs": ["lib","src"],
-      "outputs": ["dist/**"]
+      "inputs": ["lib","src","20","24","prism"],
+      "outputs": ["dist/**","optimized"]
     },
     "dev": {
       "dependsOn": ["build_css"],

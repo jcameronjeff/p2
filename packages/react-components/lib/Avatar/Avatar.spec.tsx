@@ -40,6 +40,7 @@ describe('Example smoketests', () => {
   const args = {
     name: 'Darin Cassler',
     'data-testid': 'mx',
+    src: '//www.fillmurray.com/128/128',
   };
   /**
    * This is simply rendering our Storybook story. As a result, we can
@@ -110,7 +111,7 @@ describe('Avatar with only name', () => {
 
 describe('Avatar with src', () => {
   const args = {
-    alt: 'Bill Murray',
+    alt: 'Darin Cassler',
     src: '//www.fillmurray.com/128/128',
     name: 'Darin Cassler',
     'data-testid': 'mx',
@@ -126,23 +127,16 @@ describe('Avatar with src', () => {
 
   });
   test('should get image', async () => {
-    let img = screen.getByAltText(/Bill Murray/i);
+    let img = screen.getByAltText(/Darin Cassler/i);
     expect(img.getAttribute('src')).toEqual(args.src);
-  });
-  // Many selectors are async, so we want to use a function reference
-  // that *returns* the value. We do not want to store that value
-  // in a variable because we expect it to change.
-  test('should not display initials', async () => {
-    let queryInitials = () => screen.queryByText(/DC/i);
-    expect(queryInitials()).not.toBeInTheDocument();
   });
 });
 
 describe('Avatar with broken src', () => {
   const args = {
-    alt: 'Missing Image',
     src: '//123.net/128/128',
-    name: 'Darin Cassler',
+    name: 'James Cameron',
+    alt: 'James Cameron',
     'data-testid': 'mx2',
   };
   beforeEach(() => {
@@ -159,13 +153,13 @@ describe('Avatar with broken src', () => {
   // - *DONT*: `const elem = screen.queryByText(/DC/i);`
   // - *DO*: `const getElem = () => screen.queryByText(/DC/i);`
   test('displays initials after image error', async () => {
-    let queryInitials = () => screen.queryByText(/DC/i);
-    expect(queryInitials()).not.toBeInTheDocument();
+    let queryInitials = () => screen.queryByText(/JC/i);
+    await waitFor(() => {
+      expect(queryInitials()).toBeInTheDocument();
+    });
     // Wait for the onError behavior to trigger and the
     // fallback behavior to render.
-    waitFor(async () => {
-      await expect(queryInitials()).toBeInTheDocument();
-    });
+
 
   });
 });
