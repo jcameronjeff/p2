@@ -305,7 +305,7 @@ importers:
   packages/react-components:
     specifiers:
       '@babel/core': ^7.18.6
-      '@headlessui/react': ^1.6.5
+      '@headlessui/react': ^1.7.2
       '@mdx-js/react': ^1.6.22
       '@prism2/icons': workspace:*
       '@prism2/icons-react': workspace:*
@@ -382,7 +382,7 @@ importers:
       vitest: ^0.17.0
       webpack: ^5.74.0
     dependencies:
-      '@headlessui/react': 1.6.6_biqbaboplfbrettd7655fr4n2y
+      '@headlessui/react': 1.7.2_biqbaboplfbrettd7655fr4n2y
       '@prism2/icons': link:../heroicons
       '@prism2/icons-react': link:../heroicons/react
       '@prism2/tailwind-elements': link:../tailwind-plugin-elements
@@ -2438,6 +2438,17 @@ packages:
 
   /@headlessui/react/1.6.6_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-MFJtmj9Xh/hhBMhLccGbBoSk+sk61BlP6sJe4uQcVMtXZhCgGqd2GyIQzzmsdPdTEWGSF434CBi8mnhR6um46Q==}
+    engines: {node: '>=10'}
+    peerDependencies:
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@headlessui/react/1.7.2_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha1-5qao04NCBkpTGC8esr9tnB5Tumo=}
     engines: {node: '>=10'}
     peerDependencies:
       react: '*'
@@ -5722,7 +5733,7 @@ packages:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.1.8_postcss@8.4.16
+      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.8:
     resolution: {integrity: sha512-QEdg40EmGvE7kKoDei8zr5sf4D1pIayHj4R31bH3lX8x2BtTiR+jNejYPOkhbmy3DXgkMF9jC8xqNiGFAuL9Sg==}
@@ -5732,7 +5743,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8_postcss@8.4.16
+      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
 
   /@testing-library/dom/8.17.1:
     resolution: {integrity: sha512-KnH2MnJUzmFNPW6RIKfd+zf2Wue8mEKX0M3cpX6aKl5ZXrJM1/c/Pc8c2xDNYQCnJO48Sm5ITbMXgqTr3h4jxQ==}
@@ -18450,7 +18461,6 @@ packages:
       resolve: 1.22.1
     transitivePeerDependencies:
       - ts-node
-    dev: false
 
   /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}

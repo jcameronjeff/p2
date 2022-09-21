@@ -1,5 +1,5 @@
 import '@testing-library/jest-dom';
-import { render, screen, waitFor } from '@testing-library/react';
+import { render, screen, waitFor, act } from '@testing-library/react';
 import { composeStories } from '@storybook/testing-react';
 // import { userEvent } from '@storybook/testing-library';
 
@@ -41,39 +41,49 @@ describe('Accordion smoketest', () => {
   });
   test('Item appears when title is clicked', async () => {
     expect(content1()).not.toBeVisible();
-    userEvent.click(title1());
+    act(() => {
+      userEvent.click(title1());
+    });
     expect(content1()).toBeVisible();
   });
   test('Only clicked item is toggled', async () => {
-    userEvent.click(title1());
+    act(() => {
+      userEvent.click(title1());
+    });
     expect(content2()).not.toBeVisible();
   });
   test('Accepts focus', async () => {
-    await userEvent.tab();
+    act(() => {
+      userEvent.tab();
+    });
     expect(title1().parentElement).toHaveFocus();
   });
   test('Tabs focus across items', async () => {
-    await userEvent.tab();
+    act(() => userEvent.tab());
     expect(title1().parentElement).toHaveFocus();
-    await userEvent.tab();
+    act(() => userEvent.tab());
     expect(title2().parentElement).toHaveFocus();
-    await userEvent.tab();
+    act(() => userEvent.tab());
     expect(title3().parentElement).toHaveFocus();
   });
   test('Toggles with Enter key', async () => {
-    await userEvent.tab();
+    act(() => userEvent.tab());
     expect(content1()).not.toBeVisible();
     expect(title1().parentElement).toHaveFocus();
-    await userEvent.keyboard('[Enter]');
+    act(() => {
+      userEvent.keyboard('[Enter]');
+    });
     await waitFor(() => {
       expect(content1()).toBeVisible();
     });
   });
   test('Toggles with Space key', async () => {
-    await userEvent.tab();
+    act(() => userEvent.tab());
     expect(content1()).not.toBeVisible();
     expect(title1().parentElement).toHaveFocus();
-    await userEvent.keyboard('[Space]');
+    act(() => {
+      userEvent.keyboard('[Space]');
+    });
     await waitFor(() => {
       expect(content1()).toBeVisible();
     });
@@ -99,14 +109,20 @@ describe('Autocollapse behavior', () => {
   });
   test('Item appears when title is clicked', async () => {
     expect(content1()).not.toBeVisible();
-    userEvent.click(title1());
+    act(() => {
+      userEvent.click(title1());
+    });
     expect(content1()).toBeVisible();
   });
   test('Only clicked item is toggled', async () => {
-    userEvent.click(title1());
+    act(() => {
+      userEvent.click(title1());
+    });
     expect(content1()).toBeVisible();
     expect(content2()).not.toBeVisible();
-    userEvent.click(title2());
+    act(() => {
+      userEvent.click(title2());
+    });
     await waitFor(() => expect(content2()).toBeVisible());
     await waitFor(() => expect(content1()).not.toBeVisible());
   });
@@ -114,14 +130,14 @@ describe('Autocollapse behavior', () => {
     expect(content1()).not.toBeVisible();
     expect(content2()).not.toBeVisible();
     expect(content3()).not.toBeVisible();
-    userEvent.click(openBtn());
+    act(() => userEvent.click(openBtn()));
     expect(content1()).toBeVisible();
     expect(content2()).toBeVisible();
     expect(content3()).toBeVisible();
   });
   test('Arrow rotates when toggled', () => {
     expect(arrow1()).not.toHaveClass('rotate-90');
-    userEvent.click(title1());
+    act(() => userEvent.click(title1()));
     expect(arrow1()).toHaveClass('rotate-90');
   });
 });

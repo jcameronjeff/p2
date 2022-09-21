@@ -36,7 +36,7 @@
     "build-storybook": "build-storybook -o ../../docs"
   },
   "dependencies": {
-    "@headlessui/react": "^1.6.5",
+    "@headlessui/react": "^1.7.2",
     "@prism2/icons": "workspace:*",
     "@prism2/icons-react": "workspace:*",
     "@prism2/tailwind-elements": "workspace:*",

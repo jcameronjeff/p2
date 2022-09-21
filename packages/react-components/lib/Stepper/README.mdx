@@ -1,0 +1,69 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Step, Tab } from '../'
+
+<Meta title="Docs/Stepper" component={Step} />
+
+# Stepper
+
+> Easily create accessible, fully customizable step interfaces. (Functionality is provided by [@headlessui/react](https://headlessui.com/react/tabs))
+
+```tsx
+import { Step } from '@prism2/react-components'
+
+function MyApp() {
+  return (
+    <Step.Group>
+      <Step.List>
+        <Step>One</Step>
+        <Step>Two</Step>
+        <Step>Three</Step>
+      </Step.List>
+      <Step.Panels>
+        <Step.Panel>Step One</Step.Panel>
+        <Step.Panel>Step Two</Step.Panel>
+        <Step.Panel>Step Three</Step.Panel>
+      </Step.Panels>
+    </Step.Group>
+  );
+};
+```
+
+### Basic
+
+<Canvas>
+  <Story id='components-stepper--basic' />
+</Canvas>
+
+### Including tab content
+
+<Canvas>
+  <Story id="components-stepper--with-panels" />
+</Canvas>
+
+### Setting the initial tab
+
+You can force the Stepper to initialize with a specific step pre-selected via the `defaultIndex` prop.
+
+<Canvas>
+  <Story id="components-stepper--initial-step" />
+</Canvas>
+
+### Controlling Progress
+
+Out of the box, Stepper manages it's own state. However, you can control the state by passing arguments for the `selectedIndex` and `onChange` props of `Step.Group`. This is useful for controlling the stepper from external elements.
+
+<Canvas>
+  <Story id="components-stepper--controlled" />
+</Canvas>
+
+### Manual Mode
+
+Because `Stepper` is based on HeadlessUI, it enjoys full keyboard support. Users can move forward and back through the steps using the `left` and `right` arrow keys. In some cases, you may want to limit the user's ability to navigate steps. When `manual` is enabled, all keyboard interactions are disabled.
+
+<Canvas>
+  <Story id="components-stepper--manual" />
+</Canvas>
+
+
+
+<ArgsTable tabs={Step} />

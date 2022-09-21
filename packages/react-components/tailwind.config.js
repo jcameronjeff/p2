@@ -36,6 +36,7 @@ module.exports = {
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
       });
       addVariant('optional', '&:optional');
+      addVariant('completed', '&[aria-complete="true"]');
       addVariant('selected', '&[aria-selected="true"]');
     },
   ],

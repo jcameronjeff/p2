@@ -11,6 +11,8 @@ export * from './Message';
 export * from './Switch';
 export * from './Modal';
 export * from './Radio';
+export * from './Stepper';
+export * from './Switch';
 export * from './Tabs';
 export * from './Tooltip';
 export * from './utils';
