@@ -5,6 +5,7 @@ import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button } from '../Button';
 import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons-react/24/solid';
+import { PlusCircleIcon } from '@prism2/icons-react';
 import mdx from './README.mdx';
 import { Box } from '../Box';
 
@@ -32,7 +33,10 @@ const ButtonTemplate: ComponentStory<any> = () => {
 
     <h3 className='prism-heading-4 pb-1 mb-1'>Normal</h3>
     <div className='flex gap-2'>
-      <button className='prism-btn'><BeakerIcon /> Default</button>
+      <Button>
+        <BeakerIcon />
+        Default
+      </Button>
       <button className='prism-btn text'>Text</button>
       <button className='prism-btn fill'>Contained</button>
       <button className='prism-btn simulcast'>Simulcast</button>
@@ -43,7 +47,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <div className='flex gap-2'>
       {variants.map(variant => (
         <button className={`prism-btn ${variant}`}>
-          <BeakerIcon className="w-4 h-4"/>
+          <PlusCircleIcon />
           {variant}
         </button>
       ))}
@@ -53,7 +57,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <div className='flex gap-2'>
       {variants.map(variant => (
         <button className={`prism-btn text-xs ${variant}`}>
-          <BeakerIcon className="w-4 h-4"/>
+          <BeakerIcon />
           {variant}
         </button>
       ))}
@@ -63,7 +67,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <div className='flex gap-2'>
       {variants.map(variant => (
         <button disabled className={`prism-btn ${variant}`}>
-          <BeakerIcon className="w-4 h-4"/>
+          <BeakerIcon />
           {variant}
         </button>
       ))}
@@ -72,9 +76,10 @@ const ButtonTemplate: ComponentStory<any> = () => {
     <h3 className='prism-heading-4 pb-1 mb-1'>Overflowing</h3>
     <div className='flex gap-2'>
       {variants.map(variant => (
-         <button className={`prism-btn w-48 ${variant}`}>
-          <BeakerIcon className='flex-shrink-0' />
+         <button className={`prism-btn ${variant}`}>
+          <BeakerIcon />
           <div>Buttons allow a user to submit or request information</div>
+          <PlusCircleIcon />
         </button>
       ))}
     </div>

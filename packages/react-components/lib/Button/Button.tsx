@@ -7,7 +7,7 @@ import { HTMLProps, ReactElement, Ref } from 'react';
  * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
  * @remark - Alternately: define components in TW3 and reference as variants.
  */
-export type ButtonVariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base';
+export type ButtonVariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base' | 'fill';
 export type ButtonVariant = Record<ButtonVariantName, string>;
 export type ButtonType = 'button' | 'submit' | 'reset';
 
@@ -54,7 +54,8 @@ export function Button(
     text: 'border-0',
     auxiliary: 'text-sm uppercase font-alt border-8',
     link: 'border-0 font-regular uppercase',
-    base: 'prism-btn fill',
+    fill: 'prism-btn fill',
+    base: 'prism-btn',
   };
 
   const clsx = [

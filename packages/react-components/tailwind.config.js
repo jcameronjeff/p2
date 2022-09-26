@@ -1,5 +1,5 @@
 module.exports = {
-  // important: true,
+  important: process.env !== 'PRODUCTION',
   content: [
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',

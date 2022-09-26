@@ -21,7 +21,7 @@ module.exports = function ({ addComponents, theme }) {
       backgroundColor: 'var(--tw-bg-color)',
       display: 'inline-flex',
       alignItems: 'center',
-      justifyContent: 'center',
+      justifyContent: 'flex-start',
       padding: 'var(--tw-padding-y) var(--tw-padding-x)',
       gap: theme('spacing.2'),
       borderRadius: theme('borderRadius.sm'),
@@ -32,21 +32,20 @@ module.exports = function ({ addComponents, theme }) {
       outlineWidth: theme('outlineWidth.1'),
       transition: 'all 150 ease-in-out',
       whiteSpace: 'nowrap',
-      overflow: 'hidden',
+      overflow:'hidden',
       textOverflow: 'ellipses',
-
-      'svg': {
-        flexShrink: 0,
-        width: theme('spacing.4'),
-      },
       '*': {
         'white-space': 'nowrap !important',
         'overflow': 'hidden !important',
         'display': 'block !important',
         'text-overflow': 'ellipsis !important',
       },
+      'svg': {
+        flexShrink: 0,
+        flexGrow: 0,
+        height: '1.25em',
+      },
       '&:focus': {
-
         boxShadow: '0 0 0 4px var(--tw-ring-color) !important',
       },
       '&:disabled': {
@@ -55,13 +54,11 @@ module.exports = function ({ addComponents, theme }) {
         filter: 'grayscale(100%)',
         color: theme('colors.gray.500'),
       },
-
       '&:hover': {
         backgroundColor: 'var(--tw-bg-hover-color)',
         color: 'var(--tw-text-hover-color)',
         outlineColor: 'var(--tw-outline-hover-color)',
       },
-
       '&:active': {
         backgroundColor: 'var(--tw-bg-active-color) !important',
       },

@@ -13,7 +13,7 @@ module.exports = plugin.withOptions(function (options = {
   jit: true
 }) {
 
-  return function ({ addBase, addComponents, theme }) {
+  return function ({ addBase, addVariant, addComponents, theme }) {
     const strategy = options.strategy === undefined ? ['base', 'class'] : [options.strategy];
     const prefix = options.prefix === undefined ? 'prism-' : options.prefix;
     const parent = options.parent ? `${options.parent} ` : '';
@@ -306,8 +306,14 @@ module.exports = plugin.withOptions(function (options = {
     addComponents(typographyRules);
     addComponents(formsRules);
 
+    addVariant('optional', '&:optional');
+    addVariant('completed', '&[aria-complete="true"]');
+    addVariant('selected', '&[aria-selected="true"]');
+
+
+
     modalPlugin({ addComponents, theme });
-    buttonPlugin(({ addComponents, theme }));
+    // buttonPlugin(({ addComponents, theme }));
     checkboxPlugin(({ addComponents, theme }));
     chipPlugin(({ addComponents, theme }));
     radioPlugin(({ addComponents, theme }));
