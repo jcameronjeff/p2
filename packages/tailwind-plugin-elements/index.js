@@ -313,7 +313,7 @@ module.exports = plugin.withOptions(function (options = {
 
 
     modalPlugin({ addComponents, theme });
-    // buttonPlugin(({ addComponents, theme }));
+    buttonPlugin(({ addComponents, theme }));
     checkboxPlugin(({ addComponents, theme }));
     chipPlugin(({ addComponents, theme }));
     radioPlugin(({ addComponents, theme }));

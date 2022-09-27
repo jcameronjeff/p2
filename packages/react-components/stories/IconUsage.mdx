@@ -77,6 +77,25 @@ We have retired the `<Spinner />` component in favor of an animated icon. With P
   <Story id="components-icon--spinner" />
 </Canvas>
 
+### Using scoped styles
+
+We provide a Tailwind variant for styling child icons via the `icons:` class.
+
+```jsx
+<div>
+  <ArrowLeftIcon className='h-6' />
+  <ArrowRightIcon className='h-6' />
+  <ArrowDownIcon className='h-6' />
+<div>
+// is the same as
+<div className="icons:h-6">
+  <ArrowLeftIcon />
+  <ArrowRightIcon />
+  <ArrowDownIcon />
+<div>
+```
+
+
 ## Samples
 
 <Canvas>

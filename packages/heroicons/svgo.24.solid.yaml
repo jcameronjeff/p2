@@ -3,8 +3,11 @@
   - 'removeXMLNS': false
   - 'sortAttrs': true
   - 'removeAttrs':
-      attrs: 'fill'
+      attrs:
+        - 'fill'
+        - 'viewBox'
   - 'addAttributesToSVGElement':
       attributes:
         - 'fill': 'currentColor'
         - 'aria-hidden': 'true'
+        - 'viewBox': '2 2 20 20'

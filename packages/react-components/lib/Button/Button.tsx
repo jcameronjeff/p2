@@ -1,5 +1,5 @@
 import { HTMLProps, ReactElement, Ref } from 'react';
-
+import type { AppendPrependArgs } from '../types';
 /**
  * @remark - Define types inline at the top of the file
  * @remark - Include comments explaining each key of Props
@@ -11,7 +11,7 @@ export type ButtonVariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'bas
 export type ButtonVariant = Record<ButtonVariantName, string>;
 export type ButtonType = 'button' | 'submit' | 'reset';
 
-interface Props extends HTMLProps<HTMLButtonElement> {
+type Props = HTMLProps<HTMLButtonElement> & AppendPrependArgs & {
   /**
    * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
    */
@@ -32,7 +32,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
    * Roundabout way to pass a ref directly to our element
    */
   innerRef?: Ref<HTMLButtonElement>
-}
+};
 
 /**
  *
@@ -43,7 +43,7 @@ interface Props extends HTMLProps<HTMLButtonElement> {
  *
  */
 export function Button(
-  { variant = 'base', label = 'OK', block = false, ...props }: Props,
+  { variant = 'base', label, block = false, prepend, append, ...props }: Props,
 ):ReactElement {
 
   const { children, className, innerRef, ...attr } = props;
@@ -66,7 +66,7 @@ export function Button(
   ].join(' ');
 
   return (
-    <button {...attr} ref={props.innerRef} className={clsx}>{children || label}</button>
+    <button {...attr} ref={props.innerRef} className={clsx}>{prepend}{label}{children}{append}</button>
   );
 }
 Button.defaultProps = {

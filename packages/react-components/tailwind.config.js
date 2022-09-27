@@ -1,5 +1,5 @@
 module.exports = {
-  important: process.env !== 'PRODUCTION',
+  important: false,
   content: [
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',
@@ -23,13 +23,13 @@ module.exports = {
       strategy: 'class',
     }),
     // modal styles
-    require('./lib/Modal/tailwind-plugin-modal'),
-    require('./lib/Button/tailwind-plugin-button'),
-    require('./lib/Tabs/tailwind-plugin-tab'),
-    require('./lib/Tooltip/tailwind-plugin-tooltip'),
-    require('./lib/Radio/tailwind-plugin-radio'),
-    require('./lib/Checkbox/tailwind-plugin-checkbox'),
-    require('./lib/Chip/tailwind-plugin-chip'),
+    // require('./lib/Modal/tailwind-plugin-modal'),
+    // require('./lib/Button/tailwind-plugin-button'),
+    // require('./lib/Tabs/tailwind-plugin-tab'),
+    // require('./lib/Tooltip/tailwind-plugin-tooltip'),
+    // require('./lib/Radio/tailwind-plugin-radio'),
+    // require('./lib/Checkbox/tailwind-plugin-checkbox'),
+    // require('./lib/Chip/tailwind-plugin-chip'),
     //
     function ({ addBase, theme, addVariant }) {
       addBase({
@@ -38,6 +38,7 @@ module.exports = {
       addVariant('optional', '&:optional');
       addVariant('completed', '&[aria-complete="true"]');
       addVariant('selected', '&[aria-selected="true"]');
+      addVariant('icons', '&>svg');
     },
   ],
 };

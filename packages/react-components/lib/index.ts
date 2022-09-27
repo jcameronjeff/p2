@@ -13,6 +13,7 @@ export * from './Modal';
 export * from './Radio';
 export * from './Stepper';
 export * from './Switch';
+export * from './Typography';
 export * from './Tabs';
 export * from './Tooltip';
 export * from './utils';

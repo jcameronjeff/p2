@@ -1044,12 +1044,12 @@ export const AllIconsBase = ({ list = solidList, textColor = 'text-gray-400', ic
   )
 }
 
-export const AllIcons = ({textColor = 'text-gray-400', iconClass = 'h-4' }) =>
+export const AllIcons = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
   <AllIconsBase list={prismList} textColor={textColor} iconClass={iconClass} />
 export const AllIconsSolid = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
   <AllIconsBase list={solidList} textColor={textColor} iconClass={iconClass} />
 
-  export const AllIconsMini = ({textColor = 'text-gray-400', iconClass = 'h-4' }) =>
+  export const AllIconsMini = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
   <AllIconsBase list={miniList} textColor={textColor} iconClass={iconClass} />
 
 export const AllIconsOutline = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>

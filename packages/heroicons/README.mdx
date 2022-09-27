@@ -88,11 +88,29 @@ Icons render a single SVG element - as a result, it is very simple to append or 
   Button With Icon Before
 </button>
 
-<button className='prism-btn'>
-  Button With Icon After
-  <NotificationCircleIcon className='h-[1em]' />
-</button>
+// or with the Reac component
+<Button prepend={<NotificationCircleIcon />}>Button with Icon Before</Button>
+<Button append={<NotificationCircleIcon />}>Button with Icon After</Button>
 ```
+
+### Using scoped styles
+
+With Tailwind, we can inherit icon styles from the parent. Below is an example of how we can style child SVGs using Tailwind utility classes.
+
+```jsx
+<div>
+  <ArrowLeftIcon className='h-6' />
+  <ArrowRightIcon className='h-6' />
+  <ArrowDownIcon className='h-6' />
+<div>
+// is the same as
+<div className="icons:h-6">
+  <ArrowLeftIcon />
+  <ArrowRightIcon />
+  <ArrowDownIcon />
+<div>
+```
+
 
 ### Spinners & Animations
 
