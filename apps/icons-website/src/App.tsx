@@ -3,7 +3,7 @@ import { Button, Tab } from '@prism2/react-components';
 import { Toolbar } from 'ui-shared';
 import './App.css';
 import { ArrowLeftIcon, ArrowRightIcon, BellIcon, BlockedIcon, BoltIcon, CancelCircleIcon, CarIcon, CheckmarkCircleIcon, NotificationCircleIcon, SpinnerIcon } from '@prism2/icons-react';
-import { ArrowDownCircleIcon, ArrowDownIcon, ArrowUpCircleIcon, ArrowUpIcon, BellAlertIcon } from '@prism2/icons-react/24/solid';
+import { ArrowDownCircleIcon, ArrowDownIcon, ArrowUpCircleIcon, ArrowUpIcon, BellAlertIcon } from '@prism2/icons-react/20/solid';
 
 export function App() {
   let list = [{
@@ -38,7 +38,7 @@ export function App() {
       <Tab.Panels as='div' className='p-8'>
         {list.map(args => <Tab.Panel as={IconGallery} {...args} />)}
         <Tab.Panel as='div' className='container m-auto text-center'>
-          <div className="inline-flex items-center p-2 border rounded-sm gap-2 m-4 text-gray-600 icons:h-4">
+          <div className="inline-flex items-center p-2 border rounded-sm gap-0.5 m-4 text-gray-600 icons:h-6 icons:p-1 icons:bg-gray-50 icons:border icons:border-gray-100 icons:rounded icons:shadow-sm icons:text-blue-700">
             <div className='text-blue-700 font-semibold font-alt text-sm'>Actions</div>
             <ArrowLeftIcon />
             <ArrowRightIcon />
