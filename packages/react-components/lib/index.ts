@@ -14,6 +14,7 @@ export * from './Radio';
 export * from './Stepper';
 export * from './Switch';
 export * from './Typography';
+export * from './Table';
 export * from './Tabs';
 export * from './Tooltip';
 export * from './utils';

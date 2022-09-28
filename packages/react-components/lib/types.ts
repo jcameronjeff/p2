@@ -10,6 +10,13 @@ import type {
   FC,
   ReactElement,
 } from 'react';
+// My css.d.ts file
+
+export type CSSCustomPropertyName = `--${string}`;
+
+export type CSSPropertiesWithVariables = React.CSSProperties & {
+  [K: CSSCustomPropertyName]: string | number;
+};
 
 
 /**

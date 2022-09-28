@@ -1,0 +1,134 @@
+import { Meta, Story, Source, Canvas, ArgsTable } from "@storybook/addon-docs";
+import { Table } from './'
+
+# @prism2/table
+
+By default the Table component is only a wrapper for our styles. You can use it like a normal `<table>` tag with support for all the same [HTML5 attributes](https://html.spec.whatwg.org/multipage/tables.html).
+
+```jsx
+// use with React
+import { Table } from '@prism2/react-components'
+
+// use with HTML
+<table class='prism-table'><!-- children --></table>
+```
+
+### Basic Example
+
+<Canvas>
+  <Story name='Tables' id='components-table--basic' />
+</Canvas>
+
+### Defining column names
+
+Optionally, you can pass your column names as an array using the `columns` prop. This takes priority over any column names inferred from the `data` prop.
+
+```jsx
+<Table columns={['Column A','Column B', 'Column C']}>
+  {/* ...children */}
+</Table>
+```
+
+<Canvas>
+  <Story name="Tables" id="components-table--with-columns" />
+</Canvas>
+
+### Inferring column names from data
+
+When passing rows to the component via the `data` prop, `Table` will use the keys on the first object to infer column names **unless you define columns explicitly**.
+
+```jsx
+const data = [{
+  name: 'Darin',
+  hometown: 'Shelburne',
+  count: 42
+}]
+
+<Table data={data} />
+```
+
+<Canvas>
+  <Story name="Tables" id="components-table--with-data" />
+</Canvas>
+
+### Using your own JSX
+
+You can throw out the functional bits of the component and use it like a styled `<table>` tag.
+
+```jsx
+<Table>
+  <tr>
+    <th>Name</th>
+    <th>Location</th>
+    <th>Score</th>
+  </tr>
+  <tbody>
+    <!-- etc ->
+  </tbody>
+</Table>
+```
+
+### Basic Sorting and Ordering
+
+<Canvas>
+  <Story name="Tables" id="components-table--arbitrary-content" />
+</Canvas>
+
+
+### Customize appearance
+
+Tables accept normal styling parameters like any `<table>` tag. Additionally, we provide variables that can be used to customize children.
+
+* `--thead-bg` bg color in headings
+* `--thead-color` text color in headings
+* `--thead-border` border color in headings
+* `--cell-border` border color between cells
+
+```jsx
+<Table
+  style={{'--thead-bg': '#96a', '--thead-border': '#639'}}
+  className='text-center text-xs m-auto max-w-[500px]'>
+  {/* ...children */}
+<Table>
+```
+
+<Canvas>
+  <Story name="Tables" id="components-table--with-styles" />
+</Canvas>
+
+### Deep Customization
+
+While this component supports fairly extensive customization, consider building your own `<table>` element using Tailwind classes as an alternative for particularly complicated instances.
+
+#### Building Dynamic Table Interfaces
+
+Prism2 doesn't have an opinion on how you build your table logic, however - we highly recommend using [TanStack Table](https://tanstack.com/table/v8/docs/guide/introduction
+) to build any complex table interactions.
+
+- [Codesandbox example usage](https://codesandbox.io/s/github/tanstack/table/tree/main/examples/react/basic?from-embed=&file=/src/main.tsx)
+- [Basic React Documentation](https://tanstack.com/table/v8/docs/examples/react/basic
+)
+
+```sh
+pnpm add @tanstack/react-table
+```
+
+```jsx
+import { useReactTable } from "@tanstack/react-table";
+
+function App() {
+const table = useReactTable(options)
+
+return (
+  <Table>
+    <thead>
+      {table.getHeaderGroups().map(headerGroup => ( /** your headers **/ ))}
+    </thead>
+    <!-- etc -->
+  </Table>
+}
+```
+
+### Props API
+
+<ArgsTable tabs={Table} />

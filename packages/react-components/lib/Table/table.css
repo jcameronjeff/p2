@@ -1,0 +1,60 @@
+.xnew-table {
+  --thead-border-color: theme('colors.blue.900');
+  --thead-bg: theme('colors.blue.800');
+  --tbody-border-color: theme('colors.gray.100');
+  @apply text-left;
+  thead {
+    @apply border-blue-800;
+    @apply text-white;
+    @apply font-regular;
+    background-color: var(--thead-bg);
+    --border-color: var(--thead-border-color);
+  }
+  tbody {
+    @apply text-sm;
+    --border-color: var(--tbody-border-color);
+  }
+  th, td, tr {
+    @apply p-2;
+    @apply border;
+    border-color: var(--border-color);
+  };
+  th {
+    @apply font-medium;
+  }
+  tr {
+    @apply border-b
+  }
+
+}
+
+
+.new-table {
+  --thead-bg: theme('colors.blue.800');
+  --thead-color: theme('colors.white');
+  --thead-border: theme('colors.blue.900');
+  --cell-border: theme('colors.gray.100');
+  @apply text-left;
+  caption-side: bottom;
+  thead {
+    background-color: var(--thead-bg);
+    color: var(--thead-color);
+    td,th {
+      border-color: var(--thead-border)
+    }
+  }
+  th {
+    @apply whitespace-nowrap;
+  }
+  td,th {
+    @apply p-2;
+    @apply border;
+    border-color: var(--cell-border)
+  }
+  caption {
+    @apply text-gray-500;
+    @apply text-sm;
+    @apply py-2;
+  }
+}
+
