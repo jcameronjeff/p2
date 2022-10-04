@@ -1,7 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 const modalPlugin = require('./lib/tailwind-plugin-modal');
 const buttonPlugin = require('./lib/tailwind-plugin-button');
-const checkboxPlugin = require('./lib/tailwind-plugin-checkbox');
 const chipPlugin = require('./lib/tailwind-plugin-chip');
 const radioPlugin = require('./lib/tailwind-plugin-radio');
 const tabPlugin = require('./lib/tailwind-plugin-tab');
@@ -314,7 +313,6 @@ module.exports = plugin.withOptions(function (options = {
 
     modalPlugin({ addComponents, theme });
     buttonPlugin(({ addComponents, theme }));
-    checkboxPlugin(({ addComponents, theme }));
     chipPlugin(({ addComponents, theme }));
     radioPlugin(({ addComponents, theme }));
     tabPlugin(({ addComponents, theme }));
