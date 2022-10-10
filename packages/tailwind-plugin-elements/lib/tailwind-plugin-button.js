@@ -10,7 +10,7 @@ module.exports = function ({ addComponents, theme }) {
       '--tw-padding-y': theme('padding.2'),
       '--tw-ring-color': theme('colors.blue.200'),
       '--tw-text-color': theme('colors.blue.700'),
-      '--tw-bg-color': theme('colors.white'),
+      '--tw-bg-color': theme('colors.transparent'),
       '--tw-outline-color': theme('colors.blue.700'),
       '--tw-text-hover-color': theme('colors.blue.900'),
       '--tw-bg-hover-color': theme('colors.blue.100'),
@@ -46,7 +46,7 @@ module.exports = function ({ addComponents, theme }) {
         height: '1.25em',
       },
       '&:focus': {
-        boxShadow: '0 0 0 4px var(--tw-ring-color) !important',
+        boxShadow: '0 0 0 2px var(--tw-ring-color)',
       },
       '&:disabled': {
         opacity: theme('opacity.25'),
@@ -60,7 +60,7 @@ module.exports = function ({ addComponents, theme }) {
         outlineColor: 'var(--tw-outline-hover-color)',
       },
       '&:active': {
-        backgroundColor: 'var(--tw-bg-active-color) !important',
+        backgroundColor: 'var(--tw-bg-active-color)',
       },
       '&.text': {
         '--tw-bg-color': 'transparent',

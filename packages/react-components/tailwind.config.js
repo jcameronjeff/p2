@@ -17,20 +17,13 @@ module.exports = {
     },
   },
   plugins: [
-    // require('@tailwindcss/forms'),
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
+    require('@tailwindcss/forms'),
+    require('@tailwindcss/typography'),
     require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',
     }),
-    // modal styles
-    // require('./lib/Modal/tailwind-plugin-modal'),
-    // require('./lib/Button/tailwind-plugin-button'),
-    // require('./lib/Tabs/tailwind-plugin-tab'),
-    // require('./lib/Tooltip/tailwind-plugin-tooltip'),
-    // require('./lib/Radio/tailwind-plugin-radio'),
-    // require('./lib/Checkbox/tailwind-plugin-checkbox'),
-    // require('./lib/Chip/tailwind-plugin-chip'),
-    //
     function ({ addBase, theme, addVariant }) {
       addBase({
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
@@ -42,3 +35,6 @@ module.exports = {
     },
   ],
 };
+
+
+

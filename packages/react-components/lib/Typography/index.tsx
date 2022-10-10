@@ -1,40 +1,45 @@
-import { HTMLComponent } from '../types';
+import React, { ComponentType, useMemo, useState } from 'react';
+import { Box } from '../Box';
 
-export const H1:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-1', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
+export function useTailwind(utilityClass: string, propsClass: string ) {
+  return useMemo(() => [utilityClass, propsClass].filter(Boolean).join(' '), [propsClass]);
+}
 
-export const H2:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-2', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
+interface WithPrismProps {
+  className?: string;
+  as?: React.ElementType
+}
 
-export const H3:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-3', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
-
-export const H4:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-4', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
-
-export const H5:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-5', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
-
-export const H6:HTMLComponent<{}> = ({ as, children, className, ...args }) => {
-  const Component = as || 'span';
-  const clsx = ['prism-heading-6', className].filter(Boolean).join(' ');
-  return <Component {...args} className={clsx}>{children}</Component>;
-};
+export const withPrism = <T extends React.ElementType>(clsx:string, defaultAs?: T) =>
+  <P extends React.PropsWithChildren>(Component: React.ComponentType<P>) =>
+    class WithPrism extends React.Component<P & WithPrismProps> {
+      render() {
+        const attr = {
+          ...this.props,
+          as: defaultAs || this.props.as,
+          className: [clsx, this.props.className].filter(Boolean).join(' '),
+        } as P;
+        return <Component {...attr as P} />;
+      }
+    };
 
 
-export const Typography = { H1, H2, H3, H4, H5, H6 };
+export const Banner = withPrism('', 'div')(Box);
+
+
+
+export const Heading1 = withPrism('prism-heading-1 font-alt', 'p')(Box);
+export const Heading2 = withPrism('prism-heading-2', 'p')(Box);
+export const Heading3 = withPrism('prism-heading-3', 'p')(Box);
+export const Heading4 = withPrism('prism-heading-4', 'p')(Box);
+export const Heading5 = withPrism('prism-heading-5', 'p')(Box);
+export const Heading6 = withPrism('prism-heading-6', 'p')(Box);
+export const Caption = withPrism('prism-caption', 'p')(Box);
+export const Label = withPrism('prism-label', 'p')(Box);
+export const Anchor = withPrism('font-semibold text-blue-700')(Box);
+/**
+ * usage
+ *
+ * <H2 as='span'>My span styled as prism-heading-2</H2>
+ */
+export const Typography = { Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Caption, Label, Anchor };

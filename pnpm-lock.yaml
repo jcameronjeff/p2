@@ -256,7 +256,7 @@ importers:
       eslint-config-airbnb-typescript: 17.0.0_vkapaxmgn4dgpbwyccknys4sku
       eslint-config-next: 12.2.5_td6yqss6ra3qoebludh4ctrhym
       eslint-config-prettier: 8.5.0_eslint@7.32.0
-      eslint-config-turbo: 0.0.3_eslint@7.32.0
+      eslint-config-turbo: 0.0.4_eslint@7.32.0
       eslint-plugin-import: 2.26.0_5oiuxltusxgtgimchdbl53d76a
       eslint-plugin-prettier: 4.2.1_7gsvg5lgwpfdww3i7smtqxamuy
       eslint-plugin-react: 7.28.0_eslint@7.32.0
@@ -305,7 +305,8 @@ importers:
   packages/react-components:
     specifiers:
       '@babel/core': ^7.18.6
-      '@headlessui/react': ^1.7.2
+      '@headlessui/react': ^1.7.3
+      '@headlessui/tailwindcss': ^0.1.1
       '@mdx-js/react': ^1.6.22
       '@prism2/icons': workspace:*
       '@prism2/icons-react': workspace:*
@@ -333,8 +334,8 @@ importers:
       '@storybook/storybook-deployer': ^2.8.11
       '@storybook/testing-library': ^0.0.11
       '@storybook/testing-react': ^1.3.0
-      '@tailwindcss/forms': ^0.5.0
-      '@tailwindcss/typography': ^0.5.2
+      '@tailwindcss/forms': ^0.5.2
+      '@tailwindcss/typography': ^0.5.4
       '@testing-library/dom': ^8.14.0
       '@testing-library/jest-dom': ^5.16.4
       '@testing-library/react': 13.3.0
@@ -382,7 +383,8 @@ importers:
       vitest: ^0.17.0
       webpack: ^5.74.0
     dependencies:
-      '@headlessui/react': 1.7.2_biqbaboplfbrettd7655fr4n2y
+      '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
+      '@headlessui/tailwindcss': 0.1.1_tailwindcss@3.1.8
       '@prism2/icons': link:../heroicons
       '@prism2/icons-react': link:../heroicons/react
       '@prism2/tailwind-elements': link:../tailwind-plugin-elements
@@ -390,6 +392,8 @@ importers:
       '@prism2/tailwind-theme': link:../tailwind-theme-prism
       '@storybook/react': 6.5.10_wghfnjfclbuxhgaa554f4fwwm4
       '@storybook/testing-library': 0.0.11_biqbaboplfbrettd7655fr4n2y
+      '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.8
+      '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.8
       '@testing-library/jest-dom': 5.16.5
       '@vitejs/plugin-react': 1.3.2
       autoprefixer: 10.4.8_postcss@8.4.16
@@ -427,8 +431,6 @@ importers:
       '@storybook/preview-web': 6.5.10_biqbaboplfbrettd7655fr4n2y
       '@storybook/storybook-deployer': 2.8.12
       '@storybook/testing-react': 1.3.0_truglhzl6p67jl4hctb7lm4u5i
-      '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.8
-      '@tailwindcss/typography': 0.5.4_tailwindcss@3.1.8
       '@testing-library/dom': 8.17.1
       '@testing-library/react': 13.3.0_biqbaboplfbrettd7655fr4n2y
       '@types/mdx': 2.0.2
@@ -472,6 +474,7 @@ importers:
 
   packages/tailwind-preset:
     specifiers:
+      '@headlessui/tailwindcss': ^0.1.1
       '@prism2/tailwind-elements': workspace:*
       '@prism2/tailwind-theme': workspace:*
       '@tailwindcss/forms': ^0.5.0
@@ -486,6 +489,7 @@ importers:
       postcss-minify: ^1.1.0
       tailwindcss: ^3.0.24
     dependencies:
+      '@headlessui/tailwindcss': 0.1.1_tailwindcss@3.1.8
       '@prism2/tailwind-elements': link:../tailwind-plugin-elements
       '@prism2/tailwind-theme': link:../tailwind-theme-prism
       '@tailwindcss/forms': 0.5.2_tailwindcss@3.1.8
@@ -2447,8 +2451,8 @@ packages:
       react-dom: 18.2.0_react@18.2.0
     dev: false
 
-  /@headlessui/react/1.7.2_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha1-5qao04NCBkpTGC8esr9tnB5Tumo=}
+  /@headlessui/react/1.7.3_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha1-hTxZj/R7N83RksXL7okNm2EMPsA=}
     engines: {node: '>=10'}
     peerDependencies:
       react: '*'
@@ -2456,6 +2460,15 @@ packages:
     dependencies:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@headlessui/tailwindcss/0.1.1_tailwindcss@3.1.8:
+    resolution: {integrity: sha1-Yd+BEvPQY8KXGXv+o7uwYBC0q2Y=}
+    engines: {node: '>=10'}
+    peerDependencies:
+      tailwindcss: ^3.0
+    dependencies:
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@humanwhocodes/config-array/0.10.4:
@@ -5733,7 +5746,8 @@ packages:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
+      tailwindcss: 3.1.8_postcss@8.4.16
+    dev: false
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.8:
     resolution: {integrity: sha512-QEdg40EmGvE7kKoDei8zr5sf4D1pIayHj4R31bH3lX8x2BtTiR+jNejYPOkhbmy3DXgkMF9jC8xqNiGFAuL9Sg==}
@@ -5743,7 +5757,8 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
+      tailwindcss: 3.1.8_postcss@8.4.16
+    dev: false
 
   /@testing-library/dom/8.17.1:
     resolution: {integrity: sha512-KnH2MnJUzmFNPW6RIKfd+zf2Wue8mEKX0M3cpX6aKl5ZXrJM1/c/Pc8c2xDNYQCnJO48Sm5ITbMXgqTr3h4jxQ==}
@@ -10137,13 +10152,13 @@ packages:
       typescript: 3.9.10
     dev: true
 
-  /eslint-config-turbo/0.0.3_eslint@7.32.0:
-    resolution: {integrity: sha1-YaO2/cQYa7aDKrS0i7btLTutV6g=}
+  /eslint-config-turbo/0.0.4_eslint@7.32.0:
+    resolution: {integrity: sha1-SFAlX4yFgTGEOqOIVNSu0P8Ju24=}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
     dependencies:
       eslint: 7.32.0
-      eslint-plugin-turbo: 0.0.3_eslint@7.32.0
+      eslint-plugin-turbo: 0.0.4_eslint@7.32.0
     dev: false
 
   /eslint-import-resolver-node/0.3.6:
@@ -10604,8 +10619,8 @@ packages:
       string.prototype.matchall: 4.0.7
     dev: false
 
-  /eslint-plugin-turbo/0.0.3_eslint@7.32.0:
-    resolution: {integrity: sha1-nYaJVzL5WwwjbWNjF3pSNo//3HE=}
+  /eslint-plugin-turbo/0.0.4_eslint@7.32.0:
+    resolution: {integrity: sha1-lm891iAhQ9DCjcnNu0iw93nQYXI=}
     peerDependencies:
       eslint: ^7.23.0 || ^8.0.0
     dependencies:
@@ -12037,7 +12052,7 @@ packages:
       source-map: 0.6.1
       wordwrap: 1.0.0
     optionalDependencies:
-      uglify-js: 3.17.0
+      uglify-js: 3.17.3
 
   /har-schema/2.0.0:
     resolution: {integrity: sha1-qUwiJOvKwEeCoNkDVSHyRzW37JI=}
@@ -14058,6 +14073,7 @@ packages:
 
   /lodash.castarray/4.4.0:
     resolution: {integrity: sha512-aVx8ztPv7/2ULbArGJ2Y42bG1mEQ5mGjpdvrbJcJFU3TbYybe+QlLS4pst9zV52ymy2in1KpFPiZnAOATxD4+Q==}
+    dev: false
 
   /lodash.debounce/4.0.8:
     resolution: {integrity: sha1-gteb/zCmfEAF/9XiUVMArZyk168=}
@@ -14076,6 +14092,7 @@ packages:
 
   /lodash.isplainobject/4.0.6:
     resolution: {integrity: sha512-oSXzaWypCMHkPC3NvBEaPHf0KsA5mvPrOPgQWDsbg8n7orZ290M0BmC/jgRZ4vcJ6DTAhjrsSYgdsW/F+MFOBA==}
+    dev: false
 
   /lodash.memoize/4.1.2:
     resolution: {integrity: sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=}
@@ -14495,6 +14512,7 @@ packages:
   /mini-svg-data-uri/1.4.4:
     resolution: {integrity: sha512-r9deDe9p5FJUPZAk3A59wGH7Ii9YrjjWw0jmw/liSbHl2CHiyXj6FcDXDu2K3TjVAXqiJdaw3xxwlZZr9E6nHg==}
     hasBin: true
+    dev: false
 
   /minimalistic-assert/1.0.1:
     resolution: {integrity: sha512-UtJcAD4yEaGtjPezWuO9wC4nwUnVH/8/Im3yEHQP4b67cXlD/Qr9hdITCU1xDbSEXg2XKNaP8jsReV7vQd00/A==}
@@ -18461,6 +18479,7 @@ packages:
       resolve: 1.22.1
     transitivePeerDependencies:
       - ts-node
+    dev: false
 
   /tailwindcss/3.1.8_postcss@8.4.16:
     resolution: {integrity: sha512-YSneUCZSFDYMwk+TGq8qYFdCA3yfBRdBlS7txSq0LUmzyeqRe3a8fBQzbz9M3WS/iFT4BNf/nmw9mEzrnSaC0g==}
@@ -19290,8 +19309,8 @@ packages:
     engines: {node: '>=4.2.0'}
     hasBin: true
 
-  /uglify-js/3.17.0:
-    resolution: {integrity: sha1-Vb1unRnOXu8NWtF80fWH2FsYCoU=}
+  /uglify-js/3.17.3:
+    resolution: {integrity: sha1-8P7t8BnEUQ8WQJno1+cv8tcwQ3c=}
     engines: {node: '>=0.8.0'}
     hasBin: true
     requiresBuild: true

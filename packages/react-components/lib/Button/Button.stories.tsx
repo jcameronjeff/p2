@@ -8,7 +8,7 @@ import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons-rea
 import { CreditCardIcon, PlusCircleIcon } from '@prism2/icons-react';
 import mdx from './README.mdx';
 import { Box } from '../Box';
-import { H4 } from '../Typography';
+import { Heading4 } from '../Typography';
 
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
 export default {
@@ -94,7 +94,7 @@ const ButtonTemplate: ComponentStory<any> = () => {
 export const WinnieTest = () => (
   <div className='flex-col space-y-8 gap-8 items-start'>
   <Box as='div' className='flex gap-2 text-xs items-center'>
-    <H4 className='w-[140px]'>Outlined</H4>
+    <Heading4 className='w-[140px]'>Outlined</Heading4>
     <Button label='Edit'><PencilSquareIcon /></Button>
     <Button prepend={<PencilSquareIcon />}>Edit</Button>
     <Button prepend={<PencilSquareIcon />}>Edit</Button>
@@ -102,14 +102,14 @@ export const WinnieTest = () => (
     <Button prepend={<CheckCircleIcon />} append={<CheckCircleIcon />} disabled>Save</Button>
   </Box>
   <Box as='div' className='flex gap-2 text-xs items-center'>
-    <H4>Text</H4>
+    <Heading4>Text</Heading4>
     <Button variant='text'>Save</Button>
     <Button variant='text'>Edit</Button>
     <Button variant='text'>Settings</Button>
     <Button variant='text' disabled>View</Button>
   </Box>
   <Box as='div' className='flex gap-2 text-xs items-center'>
-    <H4>Filled</H4>
+    <Heading4>Filled</Heading4>
     <Button prepend={<PencilSquareIcon />} variant='fill'>Submit</Button>
     <Button append={<PencilSquareIcon />} variant='fill'>Contained Button</Button>
     <Button append={<PencilSquareIcon />} variant='fill'>Submit</Button>

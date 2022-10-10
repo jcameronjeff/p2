@@ -73,6 +73,13 @@ module.exports = plugin.withOptions(function (options = {
       },
     },
     {
+      base: ['abbr','dfn','accronym'],
+      class: withPrefix(['tt']),
+      styles: {
+        fontStyle: 'normal'
+      }
+    },
+    {
       base: ['dl'],
       class: withPrefix(['def']),
       styles: {
@@ -148,6 +155,7 @@ module.exports = plugin.withOptions(function (options = {
     const proseRules = { // prose
       [`*[class^=${prefix}prose]`]: {
         color: theme('colors.body'),
+        '--tw-prose-links': theme('colors.blue.700'),
         '--tw-space-y-reverse': '0!important',
         '--tw-prose-rhythm': theme('spacing[4]'),
         '>:not([hidden])~:not([hidden])': {
@@ -158,6 +166,20 @@ module.exports = plugin.withOptions(function (options = {
       [`.${prefix}prose`]: {
         fontSize: theme('fontSize.base'),
         lineHeight: theme('fontSize.2xl'),
+        '--tw-space-y-reverse': '0!important',
+        '--tw-prose-rhythm': theme('spacing[4]'),
+        '>:not([hidden])~:not([hidden])': {
+          'margin-bottom': 'calc(var(--tw-prose-rhythm)*var(--tw-space-y-reverse))!important',
+          'margin-top': 'calc(var(--tw-prose-rhythm)*(1 - var(--tw-space-y-reverse)))!important',
+        },
+        ['a:link']: {
+          color: theme('colors.blue.700'),
+          fontWeight: theme('fontWeight.medium'),
+          textDecoration: 'none'
+        },
+        ['a:visited']: {
+          color: theme('colors.blue.600'),
+        }
       },
       [`.${prefix}prose-sm`]: {
         fontSize: theme('fontSize.sm'),
@@ -193,15 +215,16 @@ module.exports = plugin.withOptions(function (options = {
       },
 
       [`*[class^=${prefix}link]`]: {
-        color: theme('colors.links'),
+        color: theme('colors.blue.700'),
+        fontWeight: theme('fontWeight.semibold'),
       },
       [`.${prefix}link`]: {
         fontSize: theme('fontSize.base'),
-        fontWeight: theme('fontWeight.medium'),
+        fontWeight: theme('fontWeight.semibold'),
       },
       [`.${prefix}link-sm`]: {
         fontSize: theme('fontSize.sm'),
-        fontWeight: theme('fontWeight.medium'),
+        fontWeight: theme('fontWeight.semibold'),
       },
       [`.${prefix}link-xs`]: {
         fontSize: theme('fontSize.xs'),

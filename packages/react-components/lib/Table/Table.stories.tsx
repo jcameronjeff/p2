@@ -1,6 +1,6 @@
 
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { H1, Table, TR } from '..';
+import { Heading1, Table, TR } from '..';
 import type { CSSPropertiesWithVariables } from '../types';
 import { ArrowDownIcon, ArrowUpIcon } from '@prism2/icons-react';
 import mdx from './README.mdx';
@@ -196,7 +196,7 @@ export const ArbitraryContent: ComponentStory<typeof Table> = (args) => {
       <Table className='m-auto text-xs w-full table-auto' {...args}>
         <thead>
           <tr>
-            <td colSpan={data[0].length}><H1>Prism Tables</H1></td>
+            <td colSpan={data[0].length}><Heading1>Prism Tables</Heading1></td>
           </tr>
           <tr className={clsx.tr}>
             {columnNames.map((col, idx) => <TH idx={idx} label={col} onClick={() => handleSort(idx)} />)}
@@ -218,5 +218,6 @@ export const ArbitraryContent: ComponentStory<typeof Table> = (args) => {
     </div>
   );
 };
+
 
 

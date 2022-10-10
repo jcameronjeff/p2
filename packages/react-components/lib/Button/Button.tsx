@@ -51,7 +51,7 @@ export function Button(
   const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
   const vars:ButtonVariant = {
     outline: 'bg-transparent border border-blue-300 ring-0',
-    text: 'border-0',
+    text: 'border-0 !outline-0 ring-0',
     auxiliary: 'text-sm uppercase font-alt border-8',
     link: 'border-0 font-regular uppercase',
     fill: 'prism-btn fill',

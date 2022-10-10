@@ -3,7 +3,7 @@ import { useState, HTMLProps, FormEvent, useCallback, Fragment } from 'react';
 import { Box } from '../Box';
 import type { HTMLComponent } from '../types';
 import type { FC } from 'react';
-export interface IProps extends HTMLProps<HTMLInputElement> {
+export interface ICheckboxProps extends HTMLProps<HTMLInputElement> {
   /**
    * Callback function that accepts `label` and `checked` arguments.
    */
@@ -12,7 +12,7 @@ export interface IProps extends HTMLProps<HTMLInputElement> {
   label?: string,
 }
 
-export const Radio:HTMLComponent<IProps>  = ({
+export const Radio:HTMLComponent<ICheckboxProps>  = ({
   className = '',
   label,
   value,

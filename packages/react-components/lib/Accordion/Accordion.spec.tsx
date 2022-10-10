@@ -136,8 +136,8 @@ describe('Autocollapse behavior', () => {
     expect(content3()).toBeVisible();
   });
   test('Arrow rotates when toggled', () => {
-    expect(arrow1()).not.toHaveClass('rotate-90');
-    act(() => userEvent.click(title1()));
     expect(arrow1()).toHaveClass('rotate-90');
+    act(() => userEvent.click(title1()));
+    expect(arrow1()).not.toHaveClass('rotate-90');
   });
 });

@@ -12,7 +12,13 @@ module.exports = {
     }
   },
   plugins: [
+    // provides ui-active ui-selected etc classes
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
+    // provides basic form resets
     require('@tailwindcss/forms'),
+    // provides .prose and children
+    require('@tailwindcss/typography'),
+    // provides tw components
     require('@prism2/tailwind-elements')({
       parent: '',
       strategy: 'class',

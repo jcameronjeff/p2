@@ -1,5 +1,7 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { Avatar, Button, Tooltip } from '../lib';
+import { Avatar, Button, Tooltip, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Caption, Label, Banner } from '../lib';
+import { SpinnerIcon } from '@prism2/icons-react';
+import { DocumentTextIcon } from '@prism2/icons-react/24/solid'
 
 <Meta title="Components/HTML5" component={Avatar} />
 
@@ -11,37 +13,14 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 
 <Canvas>
 <Story name="Headings">
-  <div className='space-y-8 prism-base'>
-      <hgroup className='space-y-2'>
-        <Tooltip content="welcome to prism" className='prism-heading-1'>This is Our Future h1</Tooltip>
-        <div className='prism-heading-2'>Inter This is Our Future h2 - Heading 2</div>
-        <div className='prism-heading-3'>This is Our Future h3 - Heading 3</div><div className='prism-heading-4'>This is Our Future h4 - Heading 4</div>
-        <div className='prism-heading-5'>This is Our Future h5 - Heading 5</div>
-        <div className='prism-heading-6'>This is Our Future h6 - Heading 6</div>
-        <div className='prism-heading-2'>Overview</div>
-        <p>Designing and developing <strong> strong products</strong> for accessibility is <b>good for our business</b> and our clients.
-It drives product adoption and innovation, reduces legal risk, and enhances our brand by demonstrating our commitment to inclusivity.</p>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all levels are able to utilize and interact with Cox’s products in a meaningful and productive way. Our digital products should be perceivable, operable, understandable, and robust (POUR) for every user on every device</p>
-        <div className='prism-heading-3'>Perceivable</div>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all levels are able to utilize and interact with Cox’s products in a meaningful and productive way. Our digital products should be perceivable, operable, understandable, and robust (POUR) for every user on every device</p>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all levels are able to utilize and interact with Cox’s products in a meaningful and productive way. Our digital products should be perceivable, operable, understandable, and robust (POUR) for every user on every device</p>
-        <div className='prism-heading-4'>Images</div>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all.</p>
-        <div className='prism-heading-4'>Audio and Video</div>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all.</p>
-        <div className='prism-heading-4'>Color</div>
-        <p>Prism has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all levels are able to utilize and interact with Cox’s products in a meaningful and productive way. Our digital products should be perceivable, operable, understandable, and robust (POUR) for every user on every device</p>
-        <div className='prism-heading-5'>This is Our Future h5 - Heading 5</div>
-        <div className='prism-heading-6'>This is Our Future h6 - Heading 6</div>
-        <p>This is a paragraph</p>
-        <p className='text-semibold'>This is a strong paragraph</p>
-        <p className='text-sm'>This is a text-sm paragraph</p>
-        <p className='text-xs'>This is a text-xs paragraph</p>
-      </hgroup>
-      <article className='prism-prose'>
-        <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-      </article>
-  </div>
+  <Box className='container'>
+    <Heading1>This is our future h1 - Heading 1</Heading1>
+    <Heading2>This is Our Future h2 - Heading 2</Heading2>
+    <Heading3>This is Our Future h3 - Heading 3</Heading3>
+    <Heading4>This is Our Future h4 - Heading 4</Heading4>
+    <Heading5>This is Our Future h5 - Heading 5</Heading5>
+    <Heading6>This is Our Future h6 - Heading 6</Heading6>
+  </Box>
 </Story>
 </Canvas>
 
@@ -49,7 +28,30 @@ It drives product adoption and innovation, reduces legal risk, and enhances our 
 
 <Canvas>
 <Story name='Text Styles'>
-  <div className='space-y-4'>
+  <Box className='container space-y-4'>
+    <p>
+      Prism has been designed with accessibility in mind, but designers and
+      developers alike should take additional steps to ensure that users of all
+      levels are able to utilize and interact with Cox’s products in a meaningful
+      and productive way. Our digital products should be perceivable, operable,
+      understandable, and robust (POUR) for every user on every device
+    </p>
+    <p className='text-sm'>
+      Prism has been designed with accessibility in mind, but designers and
+      developers alike should take additional steps to ensure that users of all
+      levels are able to utilize and interact with Cox’s products in a meaningful
+      and productive way. Our digital products should be perceivable, operable,
+      understandable, and robust (POUR) for every user on every device
+    </p>
+    <p className='text-xs'>
+      Prism has been designed with accessibility in mind, but designers and
+      developers alike should take additional steps to ensure that users of all
+      levels are able to utilize and interact with Cox’s products in a meaningful
+      and productive way. Our digital products should be perceivable, operable,
+      understandable, and robust (POUR) for every user on every device
+    </p>
+    <Caption>Designing and developing <strong> strong products</strong> for accessibility is <b>good for our business</b> and our clients. It drives product adoption and innovation, reduces legal risk, and enhances our brand by demonstrating our commitment to inclusivity.</Caption>
+    <Label>Labels</Label>
     <p>Basic paragraph text <code>.text-base / 16px</code></p>
     <p className='text-sm'>Small paragraph text <code>.text-sm / 14px</code></p>
     <p className='text-xs'>Extra Small paragraph text <code>.text-xs / 12px</code></p>
@@ -62,7 +64,7 @@ It drives product adoption and innovation, reduces legal risk, and enhances our 
     <p className='prism-link-sm'>.prism-link-sm - Accordion Link, Inline Link (14px)</p>
     <p className='prism-link-xs'>.prism-link-xs - Inline Link XS (12px) </p>
     <p className='prism-link-xxs'>.prism-link-xxs - Inline Link XXS (10px) </p>
-  </div>
+  </Box>
 </Story>
 </Canvas>
 
@@ -71,25 +73,42 @@ It drives product adoption and innovation, reduces legal risk, and enhances our 
 
 <Canvas>
 <Story name="Prose">
-  <div className='space-y-12'>
-  <article className='prism-prose'>
-    <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p><strong>.prism-prose-sm</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p className='prism-caption'><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
+  <article className='prism-prose container max-w-screen-xs'>
+    <Heading3>Article Heading</Heading3>
+    <p>
+      Prism has been designed with accessibility in mind, but designers and
+      developers alike should take additional steps to ensure that users of all
+      levels are able to utilize and interact with Cox’s products in a meaningful
+      and productive way. Our digital products should be perceivable, operable,
+      understandable, and robust (POUR) for every user on every device
+    </p>
+    <p>
+      Prism has been designed with accessibility in mind, but designers and
+      developers alike should <a href='#'>take additional steps to ensure</a> that users of all
+      levels are able to utilize and interact with Cox’s products in a meaningful
+      and productive way. Our digital products should be perceivable, operable,
+      understandable, and robust (POUR) for every user on every device
+    </p>
+    <figure className='space-y-2 py-4'>
+      <img src='//place-hold.it/900x500/e3e3e3' />
+      <Caption as='figcaption' className="text-xs">
+        Designing and developing <strong> strong products</strong> for accessibility
+        is <b>good for our business</b> and our clients. It drives product adoption
+        and innovation, reduces legal risk, and enhances our brand by demonstrating
+        our commitment to inclusivity.
+      </Caption>
+    </figure>
+    <p>This paragraph is nested inside an article. It
+      contains many different, sometimes useful,{" "}
+      <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are
+      classics like <em>emphasis</em>, <strong>strong</strong>, and{" "}
+      <small>small</small> but there are many others as well. Hover the following
+      text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly,
+      you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You
+      can define <del>deleted text</del> which often gets replaced with{" "}
+      <ins>inserted</ins> text.
+    </p>
   </article>
-  <article className='prism-prose-sm'>
-    <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p><strong>.prism-prose-sm</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p className='prism-caption-xs'><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-  </article>
-  <article className='prism-prose-xs'>
-    <p><strong>.prism-prose</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-    <p><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-  </article>
-  <article className='prism-prose-xxs'>
-    <p><strong>.prism-prose-xxs</strong>: This paragraph is nested inside an article. It contains many different, sometimes useful, <a href="https://www.w3schools.com/tags/">HTML5 tags</a>. Of course there are classics like <em>emphasis</em>, <strong>strong</strong>, and <small>small</small>        but there are many others as well. Hover the following text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly, you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You can define <del>deleted text</del>        which often gets replaced with <ins>inserted</ins> text.</p>
-  </article>
-  </div>
 </Story>
 </Canvas>
 
