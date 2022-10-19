@@ -10,6 +10,7 @@ import type {
   FC,
   ReactElement,
 } from 'react';
+import { ReactTag } from '@headlessui/react/dist/types';
 // My css.d.ts file
 
 export type CSSCustomPropertyName = `--${string}`;
@@ -18,6 +19,12 @@ export type CSSPropertiesWithVariables = React.CSSProperties & {
   [K: CSSCustomPropertyName]: string | number;
 };
 
+// Provide clean TypeScript props, which exposes some of our custom API's.
+export type Props<
+  TTag extends ReactTag,
+  TSlot = {},
+  TOmitableProps extends PropertyKey = __,
+> = CleanProps<TTag, TOmitableProps> & OurProps<TTag, TSlot> & ClassNameOverride<TTag, TSlot>;
 
 /**
  * A unique placeholder we can use as a default. This is nice because we can use this instead of
@@ -57,14 +64,6 @@ type OurProps<TTag, TSlot = any> = {
 type ClassNameOverride<TTag, TSlot = any> = PropsOf<TTag> extends { className ? : any }
   ? { className ? : string | ((bag: TSlot) => string) }
   : {};
-
-// Provide clean TypeScript props, which exposes some of our custom API's.
-export type Props<TTag, TSlot = any, TOmitableProps extends keyof any = __> = CleanProps<
-TTag,
-TOmitableProps
-> &
-OurProps<TTag, TSlot> &
-ClassNameOverride<TTag, TSlot>;
 
 type Without<T, U> = { [P in Exclude<keyof T, keyof U>]?: never };
 export type XOR<T, U> = T | U extends __

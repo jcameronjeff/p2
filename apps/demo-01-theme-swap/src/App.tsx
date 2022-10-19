@@ -11,7 +11,7 @@ import { Toolbar } from 'ui-shared';
 function Stack() {
   const { dark, switchDark } = useContext(AppContext);
   return (
-    <Box skip={false} as='nav' className=''>
+    <Box as='nav' className=''>
       <div className="container flex justify-between items-center">
       <div className='font-semibold'>apps/demo-01-theme-swap</div>
       <Switch className='text-xl bg-blue-600 dark:bg-blue-300' checked={dark} onChange={switchDark} />

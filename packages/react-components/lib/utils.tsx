@@ -1,4 +1,5 @@
 import { forwardRef } from 'react';
+import { ExtractProps } from './types';
 
 export function sleep(ms:number) {
   return new Promise(resolve => setTimeout(resolve, ms));
@@ -29,15 +30,6 @@ export const fadeInDownOutUp:TransitionPropPreset = {
   leave: 'transition-all ease-linear duration-200',
   leaveFrom: 'opacity-100 translate-y-0 scale-y-100',
   leaveTo: 'opacity-0 -translate-y-2 scale-y-90',
-};
-
-export const popIn:TransitionPropPreset = {
-  enter:'transition ease-out duration-100',
-  enterFrom:'transform opacity-0 scale-95',
-  enterTo:'transform opacity-100 scale-100',
-  leave:'transition ease-in duration-75',
-  leaveFrom:'transform opacity-100 scale-100',
-  leaveTo:'transform opacity-0 scale-95',
 };
 
 export const slideUpDown:TransitionPropPreset = {
@@ -77,12 +69,40 @@ export const slideInLeft:TransitionPropPreset = {
   leaveFrom: 'translate-x-0 opacity-100',
   leaveTo: '-translate-x-96 opacity-0',
 };
+export const popInOut:TransitionPropPreset = {
+  enter:'transition ease-out duration-100',
+  enterFrom:'transform opacity-0 scale-95',
+  enterTo:'transform opacity-100 scale-100',
+  leave:'transition ease-in duration-75',
+  leaveFrom:'transform opacity-100 scale-100',
+  leaveTo:'transform opacity-0 scale-95',
+};
+
+export const popIn:TransitionPropPreset = {
+  enter: 'transition duration-100 ease-out',
+  enterFrom: 'transform scale-95 opacity-0',
+  enterTo: 'transform scale-100 opacity-100',
+  leave: 'transition duration-75 ease-out delay-75',
+  leaveFrom: 'transform scale-100 opacity-100',
+  leaveTo: 'transform scale-95 opacity-0',
+};
+
+export const popInSlow:TransitionPropPreset = {
+  enter: 'transition duration-500 ease-out',
+  enterFrom: 'transform scale-95 opacity-0',
+  enterTo: 'transform scale-100 opacity-100',
+  leave: 'transition duration-250 ease-out delay-200',
+  leaveFrom: 'transform scale-100 opacity-100',
+  leaveTo: 'transform scale-95 opacity-0',
+};
 
 export const transitions:TransitionPropPreset[] = [
   slideUpDown,
   fadeInOut,
   slideInRight,
   slideInLeft,
+  popIn,
+  popInOut,
 ];
 
 /**
@@ -97,4 +117,32 @@ export function forwardRefWithAs<T extends { name: string; displayName?: string 
   });
 }
 
+export interface PrismProps {
+  className?: string | string[],
+  as?: React.ElementType
+}
+
+export type WithPrismProps = <
+  P extends PrismProps,
+  Props extends ExtractProps<React.ComponentType<P>> & P,
+>(
+  Component: React.ComponentType<P>,
+  inject?: Partial<Props & P>
+) => (props:Props) => JSX.Element;
+
+export const withPrism:WithPrismProps = (Component, inject) => (props) => {
+  function getClass() {
+    const ourClass = [inject?.className] || [];
+    const theirClass = [props?.className] || [];
+    return [...ourClass, ...theirClass].flat().join(' ');
+  }
+  const attr = {
+    className: getClass(),
+    as: props?.as || inject?.as || 'div',
+  };
+  return <Component {...props} {...inject} {...attr} />;
+};
+
+
 export default { fadeInOut, slideUpDown, sleep };
+

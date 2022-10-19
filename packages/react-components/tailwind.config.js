@@ -1,5 +1,6 @@
 module.exports = {
   important: false,
+  dark: 'class',
   content: [
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',

@@ -10,7 +10,7 @@ interface WithPrismProps {
   as?: React.ElementType
 }
 
-export const withPrism = <T extends React.ElementType>(clsx:string, defaultAs?: T) =>
+const withPrismClsx = <T extends React.ElementType>(clsx:string, defaultAs?: T) =>
   <P extends React.PropsWithChildren>(Component: React.ComponentType<P>) =>
     class WithPrism extends React.Component<P & WithPrismProps> {
       render() {
@@ -24,19 +24,21 @@ export const withPrism = <T extends React.ElementType>(clsx:string, defaultAs?: 
     };
 
 
-export const Banner = withPrism('', 'div')(Box);
+
+export const Banner = withPrismClsx('', 'div')(Box);
 
 
 
-export const Heading1 = withPrism('prism-heading-1 font-alt', 'p')(Box);
-export const Heading2 = withPrism('prism-heading-2', 'p')(Box);
-export const Heading3 = withPrism('prism-heading-3', 'p')(Box);
-export const Heading4 = withPrism('prism-heading-4', 'p')(Box);
-export const Heading5 = withPrism('prism-heading-5', 'p')(Box);
-export const Heading6 = withPrism('prism-heading-6', 'p')(Box);
-export const Caption = withPrism('prism-caption', 'p')(Box);
-export const Label = withPrism('prism-label', 'p')(Box);
-export const Anchor = withPrism('font-semibold text-blue-700')(Box);
+export const Heading1 = withPrismClsx('prism-heading-1 font-alt', 'p')(Box);
+export const Heading2 = withPrismClsx('prism-heading-2', 'p')(Box);
+export const Heading3 = withPrismClsx('prism-heading-3', 'p')(Box);
+export const Heading4 = withPrismClsx('prism-heading-4', 'p')(Box);
+export const Heading5 = withPrismClsx('prism-heading-5', 'p')(Box);
+export const Heading6 = withPrismClsx('prism-heading-6', 'p')(Box);
+export const Caption = withPrismClsx('prism-caption', 'p')(Box);
+export const Label = withPrismClsx('prism-label', 'p')(Box);
+export const Anchor = withPrismClsx('font-semibold text-blue-700')(Box);
+
 /**
  * usage
  *
