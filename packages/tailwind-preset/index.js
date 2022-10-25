@@ -31,6 +31,8 @@ module.exports = {
       addVariant('completed', '&[aria-complete="true"]');
       addVariant('selected', '&[aria-selected="true"]');
       addVariant('icons', '&>svg');
+      addVariant('track', ['&::-webkit-slider-runnable-track', '&::-moz-range-track', '&::-mstrack']);
+      addVariant('thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb', '&::-ms-thumb']);
     },
   ]
 }

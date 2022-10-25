@@ -328,12 +328,6 @@ module.exports = plugin.withOptions(function (options = {
     addComponents(typographyRules);
     addComponents(formsRules);
 
-    addVariant('optional', '&:optional');
-    addVariant('completed', '&[aria-complete="true"]');
-    addVariant('selected', '&[aria-selected="true"]');
-
-
-
     modalPlugin({ addComponents, theme });
     buttonPlugin(({ addComponents, theme }));
     chipPlugin(({ addComponents, theme }));
