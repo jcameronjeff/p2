@@ -102,6 +102,7 @@ importers:
   apps/demo-03-headless-styled:
     specifiers:
       '@headlessui/react': ^1.6.5
+      '@headlessui/tailwindcss': ^0.1.1
       '@prism2/icons-react': workspace:*
       '@prism2/react-components': workspace:*
       '@prism2/tailwind-preset': workspace:*
@@ -118,6 +119,7 @@ importers:
       vite: ^3.0.7
     dependencies:
       '@headlessui/react': 1.7.3_biqbaboplfbrettd7655fr4n2y
+      '@headlessui/tailwindcss': 0.1.1_tailwindcss@3.1.8
       '@prism2/icons-react': link:../../packages/heroicons/react
       '@prism2/react-components': link:../../packages/react-components
       '@prism2/tailwind-preset': link:../../packages/tailwind-preset
@@ -2534,7 +2536,7 @@ packages:
     peerDependencies:
       tailwindcss: ^3.0
     dependencies:
-      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@humanwhocodes/config-array/0.10.4:
@@ -5812,7 +5814,7 @@ packages:
       tailwindcss: '>=3.0.0 || >= 3.0.0-alpha.1'
     dependencies:
       mini-svg-data-uri: 1.4.4
-      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@tailwindcss/typography/0.5.4_tailwindcss@3.1.8:
@@ -5823,7 +5825,7 @@ packages:
       lodash.castarray: 4.4.0
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
-      tailwindcss: 3.1.8_57znarxsqwmnneadci5z5fd5gu
+      tailwindcss: 3.1.8_postcss@8.4.16
     dev: false
 
   /@testing-library/dom/8.17.1:

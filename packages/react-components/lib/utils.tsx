@@ -103,6 +103,7 @@ export const transitions:TransitionPropPreset[] = [
   slideInLeft,
   popIn,
   popInOut,
+  popInSlow,
 ];
 
 /**

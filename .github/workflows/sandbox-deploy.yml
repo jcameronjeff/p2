@@ -93,5 +93,5 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-theming-demo-2022-08-27
-        base-path: "demo-01-theme-swap"
+        base-path: "demo-03-headless-styled"
         aws-account: '127382792002'

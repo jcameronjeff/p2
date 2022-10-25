@@ -6,12 +6,29 @@ module.exports = {
     './index.html',
     './src/*.{vue,js,ts,jsx,tsx}',
     './src/**/*.{vue,js,ts,jsx,tsx}',
+    './src/components/*.{vue,js,ts,jsx,tsx}',
+    './src/layout/*.{vue,js,ts,jsx,tsx}',
     './src/Menu.tsx',
     '../../packages/react-components/src/**/*.{vue,js,ts,jsx,tsx}',
     '../../packages/ui-shared/*.tsx'
   ],
   presets: [
     require('@prism2/tailwind-preset')
+  ],
+  plugins: [
+    require('@headlessui/tailwindcss')({ prefix: 'ui' }),
+    function ({ addBase, theme, addVariant }) {
+      addBase({
+        'strong, b': { fontWeight: theme('fontWeight.semibold') },
+      });
+      addVariant('optional', '&:optional');
+      addVariant('completed', '&[aria-complete="true"]');
+      addVariant('selected', '&[aria-selected="true"]');
+      addVariant('icons', '&>svg');
+      addVariant('track', ['&::-webkit-slider-runnable-track', '&::-moz-range-track', '&::-mstrack']);
+      addVariant('thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb', '&::-ms-thumb']);
+    },
+
   ],
   theme: {
     extend: {
