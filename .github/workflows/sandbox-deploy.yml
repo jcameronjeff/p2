@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - next
-      - feature/demo-*
+      - feature/*
 
 jobs:
 
@@ -73,7 +73,7 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-sandbox-demo-august-2022
-        base-path: "icons-website"
+        base-path: icons-website
         aws-account: '127382792002'
 
   build-theme-demo:
@@ -93,5 +93,5 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-theming-demo-2022-08-27
-        base-path: "demo-03-headless-styled"
+        base-path: demo-03-headless-styled
         aws-account: '127382792002'
