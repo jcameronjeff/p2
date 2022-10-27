@@ -5,6 +5,7 @@ module.exports = {
     './index.html',
     './lib/*.{vue,js,ts,jsx,tsx}',
     './lib/**/*.{vue,js,ts,jsx,tsx}',
+    './lib/Slider/*.{vue,js,ts,jsx,tsx}',
     './site/*.{vue,js,ts,jsx,tsx}',
     './site/**/*.{vue,js,ts,jsx,tsx}',
     './stories/**/*.{tsx,css,mdx,jsx}',
@@ -33,6 +34,8 @@ module.exports = {
       addVariant('completed', '&[aria-complete="true"]');
       addVariant('selected', '&[aria-selected="true"]');
       addVariant('icons', '&>svg');
+      addVariant('track', ['&::-webkit-slider-runnable-track', '&::-moz-range-track', '&::-mstrack']);
+      addVariant('thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb', '&::-ms-thumb']);
     },
   ],
 };

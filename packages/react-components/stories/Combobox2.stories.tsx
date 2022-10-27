@@ -7,6 +7,7 @@ import { userEvent, within } from '@storybook/testing-library';
 import { popIn, popInSlow, sleep } from '../lib/utils';
 import { CancelCircleIcon, PlusIcon, SearchIcon, UserIcon } from '@prism2/icons-react';
 import { Box, fadeInDownOutUp, useToggle } from '../lib';
+import { Slider2 } from '../lib/Slider';
 let priceTiers = ['$10,000', '$15,000', '$20,000', '$30,000', '$40,000', '$50,000', '$60,000', '$70,000', '$80,000', '$90,000', '1$00,000'];
 let usStates = [
   'Alabama',
@@ -152,7 +153,61 @@ export default {
     placeholder: { control: 'string', defaultValue: 'Select a location' },
   },
 } as ComponentMeta<any>;
-
+const style = {
+  next: {
+    input: [
+      'origin-center bg-slate-50/50',
+      'text-xs rounded-sm border-0 outline-none',
+      'w-auto text-center font-medium text-slate-800 group-focus-within:ring-blue-300 ring-slate-200 ring-1 group',
+      'flex items-center relative px-2 py-0.5 shrink overflow-hidden icons:h-4',
+    ].join(' '),
+    options: [
+      'p-1 bg-white top-full translate-y-2 z-50 max-h-[300px] overflow-scroll',
+      'w-full absolute shadow-lg rounded ring-1 ring-slate-400/50 divide-y divide-white',
+    ].join(' '),
+    option: [
+      'hover:bg-blue-500 hover:text-white icons:ui-active:ui-selected:text-white icons:text-transparent ui-active:text-white ui-active:bg-blue-500 text-slate-600 items-center ',
+      'w-full text-left block p-2 gap-2 text-xs rounded-sm font-medium cursor-pointer icons:h-4 flex icons:ml-auto icons:hover:text-white ui-selected:text-blue-500 ui-selected:bg-blue-100/50 icons:ui-selected:text-blue-500',
+    ].join(' '),
+    textbox: [
+      'text-ellipses border-none grow self-center focus:ring-0 focus:outline-none bg-transparent px-0 text-xs -my-1 placeholder:text-slate-300',
+    ].join(''),
+    highlite: 'text-blue-500 font-black ui-selected:text-blue-200 ui-active:text-blue-200',
+    tag: 'inline-flex truncate shrink-0 cursor-pointer bg-blue-100/50 hover:bg-blue-100/75 p-0.5 px-1 font-medium text-blue-500 rounded-xs items-center ring-blue-200/50 gap-1 icons:hover:text-blue-500 icons:hover:stroke-2 stroke-blue-500 icons:text-slate-500/50 transition duration-100',
+    close: 'w-4 self-center text-slate-400/10 focus-visible:outline-none justify-center focus:ring-0 group-focus-within:text-slate-400 rounded-full items-center group-hover:text-slate-400 transition-all duration-100 shrink-0 cursor-pointer',
+    label: [
+      'group-focus-within:text-blue-500 text-xxs uppercase font-alt',
+      'tracking-tight leading-loose text-slate-400 px-3 h-[1em]',
+      'bg-white relative inline-block ring-1 ring-white',
+      'transition duration-100 ease-in-out',
+    ].join(' '),
+  },
+  prism: {
+    input: [
+      'flex items-baseline relative rounded-xs border px-1 w-full',
+      'border-slate-400 focus:ring-0 focus:outline-none focus-within:border-slate-400',
+      'focus-within:shadow-lg gap-1 icons:h-5 overflow-hidden',
+    ].join(' '),
+    options: [
+      'absolute p-1 bg-white top-full',
+      'w-full shadow-lg rounded ring-1 ring-slate-400/50 divide-y divide-slate-400/20',
+      'px-0 rounded-none !ring-0 border z-50 mt-0.5',
+    ].join(' '),
+    option: [
+      'px-2 icons:ui-active:text-slate-700 justify-start icons:ml-auto',
+      'icons:text-transparent ui-active:bg-slate-50 icons:ui-selected:text-slate-700',
+      'w-full text-left block p-2 font-medium cursor-pointer',
+      'icons:h-6 flex !text-base text-slate-700',
+    ].join(' '),
+    textbox: [
+      'grow border-none focus:outline-none focus:ring-0 pl-0 leading-tight',
+    ].join(''),
+    highlite: 'font-bold text-black',
+    tag: 'font-bold flex items-center cursor-pointer icons:w-0 pr-0.5',
+    close: 'self-center text-slate-500 focus-visible:outline-none justify-center focus:ring-0 focus-within:text-blue-400 rounded-full -translate-x-1 icons:h-5',
+    label: 'prism-label',
+  },
+};
 function PrismCombobox(props) {
   const [query, setQuery] = React.useState('');
   const [selectedMake, setSelectedMake] = React.useState<string[] | string>(props.defaultSelection);
@@ -165,61 +220,7 @@ function PrismCombobox(props) {
     });
 
 
-  const style = {
-    next: {
-      input: [
-        'origin-center bg-slate-50/50',
-        'text-xs rounded-sm border-0 outline-none',
-        'w-auto text-center font-medium text-slate-800 group-focus-within:ring-blue-300 ring-slate-200 ring-1 group',
-        'flex items-center relative px-2 py-0.5 shrink overflow-hidden icons:h-4',
-      ].join(' '),
-      options: [
-        'p-1 bg-white top-full translate-y-2 z-50 max-h-[300px] overflow-scroll',
-        'w-full absolute shadow-lg rounded ring-1 ring-slate-400/50 divide-y divide-white',
-      ].join(' '),
-      option: [
-        'hover:bg-blue-500 hover:text-white icons:ui-active:ui-selected:text-white icons:text-transparent ui-active:text-white ui-active:bg-blue-500 text-slate-600 items-center ',
-        'w-full text-left block p-2 gap-2 text-xs rounded-sm font-medium cursor-pointer icons:h-4 flex icons:ml-auto icons:hover:text-white ui-selected:text-blue-500 ui-selected:bg-blue-100/50 icons:ui-selected:text-blue-500',
-      ].join(' '),
-      textbox: [
-        'text-ellipses border-none grow self-center focus:ring-0 focus:outline-none bg-transparent px-0 text-xs -my-1 placeholder:text-slate-300',
-      ].join(''),
-      highlite: 'text-blue-500 font-black ui-selected:text-blue-200 ui-active:text-blue-200',
-      tag: 'inline-flex truncate shrink-0 cursor-pointer bg-blue-100/50 hover:bg-blue-100/75 p-0.5 px-1 font-medium text-blue-500 rounded-xs items-center ring-blue-200/50 gap-1 icons:hover:text-blue-500 icons:hover:stroke-2 stroke-blue-500 icons:text-slate-500/50 transition duration-100',
-      close: 'w-4 self-center text-slate-400/10 focus-visible:outline-none justify-center focus:ring-0 group-focus-within:text-slate-400 rounded-full items-center group-hover:text-slate-400 transition-all duration-100 shrink-0 cursor-pointer',
-      label: [
-        'group-focus-within:text-blue-500 text-xxs uppercase font-alt',
-        'tracking-tight leading-loose text-slate-400 px-3 h-[1em]',
-        'bg-white relative inline-block ring-1 ring-white',
-        'transition duration-100 ease-in-out',
-      ].join(' '),
-    },
-    prism: {
-      input: [
-        'flex items-baseline relative rounded-xs border px-1 w-full',
-        'border-slate-400 focus:ring-0 focus:outline-none focus-within:border-slate-400',
-        'focus-within:shadow-lg gap-1 icons:h-5 overflow-hidden',
-      ].join(' '),
-      options: [
-        'absolute p-1 bg-white top-full',
-        'w-full shadow-lg rounded ring-1 ring-slate-400/50 divide-y divide-slate-400/20',
-        'px-0 rounded-none !ring-0 border z-50 mt-0.5',
-      ].join(' '),
-      option: [
-        'px-2 icons:ui-active:text-slate-700 justify-start icons:ml-auto',
-        'icons:text-transparent ui-active:bg-slate-50 icons:ui-selected:text-slate-700',
-        'w-full text-left block p-2 font-medium cursor-pointer',
-        'icons:h-6 flex !text-base text-slate-700',
-      ].join(' '),
-      textbox: [
-        'grow border-none focus:outline-none focus:ring-0 pl-0 leading-tight',
-      ].join(''),
-      highlite: 'font-bold text-black',
-      tag: 'font-bold flex items-center cursor-pointer icons:w-0 pr-0.5',
-      close: 'self-center text-slate-500 focus-visible:outline-none justify-center focus:ring-0 focus-within:text-blue-400 rounded-full -translate-x-1 icons:h-5',
-      label: 'prism-label',
-    },
-  };
+
   const styles2 = props.next ? style.next : style.prism;
 
   function resetForm() {
@@ -436,12 +437,46 @@ const FormInputs: ComponentStory<any> = (args) => {
         <UI.SectionHeader>Toggle Features <UserIcon /></UI.SectionHeader>
         <UI.SwitchList>
           {features.map((i, idx) => <UI.SwitchInput {...attr[idx]} label={i} disabled={idx === 4 || idx === 3} />)}
+          <SliderSection />
         </UI.SwitchList>
       </UI.FormSection>
-    </div>
+      <UI.FormSection>
+        <UI.SectionHeader>Sliders</UI.SectionHeader>
 
+      </UI.FormSection>
+    </div>
   );
 };
+
+function SliderSection() {
+  const [valueA, setValueA] = React.useState(20);
+  const [valueB, setValueB] = React.useState(50);
+  return (
+    <div className='break-inside-avoid'>
+      <div className=''>
+        <label className={[style.next.label, 'pl-0'].join(' ')}>Mileage</label>
+        <div className="relative h-8">
+          <Slider2
+            defaultValue={valueA}
+            invert
+            showValues
+            isHighValue={valueA > valueB}
+            onChange={(e) => setValueA(parseInt(e.currentTarget.value))} />
+          <Slider2
+            isHighValue={valueA <= valueB}
+            invert
+            showValues
+            defaultValue={valueB}
+            onChange={(e) => setValueB(parseInt(e.currentTarget.value))} />
+        </div>
+      </div>
+      <div>
+        <label className={[style.next.label, 'pl-0'].join(' ')}>Year</label>
+        <Slider2 standalone defaultValue={50}/>
+      </div>
+    </div>
+  );
+}
 
 export const MultiField = FormInputs.bind({});
 MultiField.args = {

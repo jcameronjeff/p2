@@ -1,0 +1,87 @@
+import {
+  Meta,
+  Story,
+  Source,
+  Canvas,
+  ArgsTable,
+  Description
+} from "@storybook/addon-docs";
+import { Slider2 } from "./";
+
+<Meta title="Docs/Slider2" component={Slider2} />
+
+# Slider
+
+Slider extends the functionality of a normal `input[type='range']` HTML element and will support all valid attributes. It can be used as controlled or uncontrolled component and includes broad accessibility support.
+
+<Canvas>
+  <Story id="components-slider--basic" />
+</Canvas>
+
+### Inverted
+
+Passing the `inverted` prop will cause the slider to reverse its segment coloring. This is entirely visual and has no effect on data.
+
+<Canvas>
+  <Story id="components-slider--greater-than" />
+</Canvas>
+
+### Controlled
+
+In this example, we are using `Slider` as a controlled component. This allows us to dynamically adjust the second slider.
+
+<Canvas>
+  <Story id="components-slider--controlled" />
+</Canvas>
+
+
+### Ranges
+
+Bounded ranges are as simple as adding a second controlled `Slider` components. We make use of the `onChange` `value` and `isHigherValue` props to keep everything aligned. All calculations are done using refs and have no dependency on state.
+
+<Canvas>
+  <Story id="components-slider--range-within" />
+</Canvas>
+<Canvas>
+  <Story id="components-slider--range-outside" />
+</Canvas>
+
+### Embelishments
+
+Several decorations can be enabled by passing props for `label` (string or node), `showValues` (boolean), `ticks` (number) . See the table below for details
+#### Display Labels
+
+<Canvas>
+  <Story id="components-slider--labelled" />
+</Canvas>
+
+#### Display Values
+
+<Canvas>
+  <Story id="components-slider--show-values" />
+</Canvas>
+
+#### Display Tickmarks
+
+<Canvas>
+  <Story id="components-slider--show-ticks" />
+</Canvas>
+
+### Disabled State
+
+As with any input, slider can be disabled.
+
+<Canvas>
+  <Story id="components-slider--disabled" />
+</Canvas>
+
+
+
+
+
+
+
+
+## Props
+
+<ArgsTable tabs={Slider2} />

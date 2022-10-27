@@ -3,6 +3,7 @@ import { useEffect, useMemo, Fragment, useRef } from 'react';
 import type { ElementType, MutableRefObject, ReactNode } from 'react';
 import { fadeInOut, slideUpDown, slideInRight, TransitionPropPreset, slideInLeft } from '../utils';
 import { Features, PropsForFeatures, Props } from '../types';
+import { ReactTag } from '@headlessui/react/dist/types';
 
 /**
  * @TODO OVERVIEW TOPIC - DOCGEN COMMENTS
@@ -48,14 +49,14 @@ export type ModalPropsWeControl =
  * 2. Provice `static`, `unmount`, and "as" props determinsitcally.
  * 3. Remove their passed props that we will control.
  */
-export type ModalPropBase<T> = Props<T, ModalRenderPropArg, ModalPropsWeControl> & PropsForFeatures<typeof ModalRenderFeatures>;
+export type ModalPropBase<T extends ReactTag> = Props<T, ModalRenderPropArg, ModalPropsWeControl> & PropsForFeatures<typeof ModalRenderFeatures>;
 
 /**
  * Merge ModalPropBase with our component API to get
  * a full set of prop types. The generic <T> is used to inherit typings
  * based on the element indicated in the "as" argument.
  */
-export type ModalProps<T> = ModalPropBase<T> & {
+export type ModalProps<T extends ReactTag> = ModalPropBase<T> & {
   /**
      *  Use the show prop to control whether the content should be
      *  visible or hidden.
