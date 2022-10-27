@@ -78,14 +78,15 @@ export function Slider2({ style, min = 0, max = 100, ...props }:Slider2Props) {
 
 
     track:h-1
-    track:bg-transparent
+
     track:my-3
-    [&::-moz-range-track]:opacity-100
 
 
-    z-5
-    thumb:z-4
-    track:-z-3
+
+    z-20
+    thumb:z-50
+    track:-z-5
+    track:bg-transparent
     absolute
 
     track:rounded-full track:relative
@@ -102,7 +103,7 @@ export function Slider2({ style, min = 0, max = 100, ...props }:Slider2Props) {
 
   function getOutputClassnames() {
     return [
-      'h-1 -z-2 mt-3.5 absolute text-slate-400 text-xs rounded-full peer-disabled:grayscale',
+      'h-1 z-10 mt-3.5 absolute text-slate-400 text-xs rounded-full peer-disabled:grayscale',
       props.disabled ? 'grayscale' : '',
       props.invert ? 'bg-slate-200' : 'bg-blue-500',
       props.isHighValue ? 'text-right' : 'text-left',
@@ -126,7 +127,18 @@ export function Slider2({ style, min = 0, max = 100, ...props }:Slider2Props) {
       {props.label ? <label className='prism-label h-6 flex w-full' htmlFor={inputName}>{props.label}</label> : null}
       <div className={['h-8 grow top-0 w-full group pointer-events-none', props.className].join(' ')}>
         <div aria-title="input-decorations" className="relative ">
-          <div className={`w-full ${props.invert ? 'bg-blue-500' : 'bg-slate-200'} h-1 rounded-full absolute top-3.5 -z-10`}></div>
+          <div className="relative h-0">
+          <div className={`w-full ${props.invert ? 'bg-blue-400' : 'bg-slate-200'} h-1 rounded-full absolute top-3.5 -z-5`}></div>
+        </div>
+        <input
+          {...attr}
+          name={inputName}
+          type='range'
+          ref={inputRef2}
+          list={listId}
+          className={inputClass2}
+        />
+
           <output
             className={getOutputClassnames()}
             style={getOutputStyle(ourValue)}>
@@ -149,14 +161,11 @@ export function Slider2({ style, min = 0, max = 100, ...props }:Slider2Props) {
             <div>{maxValueLabel}</div>
           </div>
         </div>
-        <input
-          {...attr}
-          name={inputName}
-          type='range'
-          ref={inputRef2}
-          list={listId}
-          className={inputClass2}
-        />
+
+
+
+
+
     </div>
     </>
   );
