@@ -1,0 +1,110 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+
+@layer base {
+  .prism-progress {
+    @apply rounded-full;
+    @apply bg-blue-50;
+    @apply shadow-inner;
+  }
+  .prism-progress-value {
+    @apply shadow-inner shadow-white/30;
+    @apply bg-gold-400;
+    @apply rounded-full;
+  }
+
+  progress {
+    @apply prism-progress;
+    &::-webkit-progress-bar {
+      @apply prism-progress;
+    }
+    &::-moz-progress-bar { @apply prism-progress-value }
+    &::-webkit-progress-value {
+      @apply prism-progress-value;
+      @apply bg-gold-400;
+      @apply relative;
+      &::after {
+        content: 'ok fine';
+        @apply absolute right-0 h-10 w-10 bg-red-400 z-20;
+      }
+    }
+  }
+
+
+}
+@layer components {
+
+
+  .prism-slider {
+    @apply h-8 top-0 w-full pointer-events-none;
+
+    input {
+      @apply relative w-full h-8 z-20 bg-transparent;
+      @apply pointer-events-none appearance-none;
+      @apply cursor-grab active:cursor-grabbing disabled:thumb:cursor-default;
+      @apply outline-none focus-visible:outline-none;
+
+      @apply thumb:appearance-none thumb:border-none thumb:pointer-events-auto;
+      @apply thumb:w-4 thumb:h-4 thumb:rounded-full;
+      @apply thumb:relative thumb:z-50 thumb:-mt-1.5;
+      @apply thumb:bg-white thumb:ring-4 thumb:ring-blue-500;
+      @apply thumb:transition thumb:duration-200 thumb:ease-in-out;
+
+      @apply disabled:thumb:grayscale;
+      @apply focus:thumb:bg-blue-100 focus:thumb:drop-shadow;
+      @apply track:relative track:h-1 track:my-3 track:z-10;
+      @apply track:bg-transparent track:rounded-full;
+
+      @apply active:thumb:scale-125;
+      &:disabled {
+        @apply active:thumb:scale-100;
+      }
+
+    }
+    output {
+      width: var(--value-width);
+      @apply h-1 z-10 mt-3.5 absolute;
+      @apply text-slate-400 text-xs;
+      @apply rounded-full;
+      @apply bg-blue-500;
+
+      &[aria-disabled] {
+        @apply grayscale;
+      }
+      &[data-inverted] {
+        @apply bg-slate-200;
+      }
+
+      @apply left-0;
+      @apply right-auto;
+      &[data-high-value=true] {
+        @apply left-auto;
+        @apply right-0;
+      }
+    }
+    datalist {
+      @apply w-full absolute top-3.5 flex justify-between;
+      @apply text-[3px] [&>option]:!p-0;
+
+      option {
+        @apply z-10;
+        @apply border-x-2 border-slate-200 border-l-blue-500;
+        @apply first-of-type:opacity-0 last-of-type:opacity-0;
+      }
+    }
+    legend {
+      @apply flex justify-between w-full absolute top-0 -translate-y-1.5;
+      @apply text-xs text-slate-400;
+    }
+    .track-decoration {
+      @apply w-full bg-slate-200 h-1 rounded-full;
+      @apply absolute top-3.5;
+
+      &[data-inverted] {
+        @apply bg-blue-400;
+      }
+    }
+  }
+}

@@ -1,7 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Slider2 } from '.';
+import { Slider2 } from './Slider';
 import mdx from './README.mdx';
+import './slider.css';
 
 export default {
   title: 'Components/Slider',
@@ -36,7 +37,6 @@ const Template: ComponentStory<typeof Slider2> = (args) => {
     </div>
   );
 };
-
 
 const Simple: ComponentStory<typeof Slider2> = (args) => {
   return <div className="container max-w-sm"><Slider2 {...args} /></div>;

@@ -11,6 +11,7 @@ export * from './Message';
 export * from './Switch';
 export * from './Modal';
 export * from './Radio';
+export * from './Slider';
 export * from './Stepper';
 export * from './Switch';
 export * from './Typography';
