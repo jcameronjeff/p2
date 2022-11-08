@@ -36,6 +36,8 @@ module.exports = {
       addVariant('icons', '&>svg');
       addVariant('track', ['&::-webkit-slider-runnable-track', '&::-moz-range-track', '&::-mstrack']);
       addVariant('thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb', '&::-ms-thumb']);
+      addVariant('value', ['&::-webkit-progress-value', '&::-moz-progress-bar']);
+      addVariant('bar', ['&::-webkit-progress-bar']);
     },
   ],
 };
