@@ -5,6 +5,7 @@ on:
     branches:
       - next
       - feature/*
+      - feat/*
 
 jobs:
 
@@ -55,6 +56,26 @@ jobs:
       - name: Results
         run: |
           echo "Finished deploying to ${{env.BUCKET_NAME}} ${{ github.environment.url }}"
+
+  build-alpha-site:
+    name: Build & Deploy - Prism2 Alpha Website
+    timeout-minutes: 15
+    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    environment:
+      name: alpha-website
+      url: https://prism2-alpha.awsgdmshednp.manheim.com
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - uses: ./.github/actions/redeployer
+      with:
+        bucket-name: prism2-alpha-website
+        base-path: demo-02-layout-tutorial
+        aws-account: '127382792002'
 
   build-ts-demo:
     name: Build & Deploy - Example TS App
