@@ -6,6 +6,7 @@ export * from './Card';
 export * from './Checkbox';
 export * from './Chip';
 export * from './Dropdown';
+export * from './Indicator';
 export * from './Input';
 export * from './Message';
 export * from './Switch';
