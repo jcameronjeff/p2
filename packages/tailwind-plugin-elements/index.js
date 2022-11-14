@@ -178,7 +178,7 @@ module.exports = plugin.withOptions(function (options = {
           textDecoration: 'none'
         },
         ['a:visited']: {
-          color: theme('colors.blue.600'),
+          color: theme('colors.fuchsia.800'),
         }
       },
       [`.${prefix}prose-sm`]: {

@@ -27,6 +27,9 @@ module.exports = {
       addBase({
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
       });
+      addBase({
+        'a:visited': { color: theme('colors.fuchsia.800')}
+      });
       addVariant('optional', '&:optional');
       addVariant('completed', '&[aria-complete="true"]');
       addVariant('selected', '&[aria-selected="true"]');
