@@ -1,6 +1,6 @@
 {
   "referenceUrl": "https://www.figma.com/file/cCZTqU5NxMOE3UYASaISs9/PRISM2.0-Color-System?node-id=10%3A1123",
-  "lastUpdated": "August 5, 2022",
+  "lastUpdated": "November 14, 2022",
   "blue": {
     "50": "#EBF6FF",
     "100": "#CCE8FF",
@@ -13,6 +13,18 @@
     "800": "#004986",
     "900": "#003468",
     "1000": "#001B35"
+  },
+  "fuchsia": {
+    "50": "#fcf1f7",
+    "100": "#F8DAEB",
+    "200": "#F2BDDB",
+    "300": "#EB9AC8",
+    "400": "#E474B2",
+    "500": "#DC4A9B",
+    "600": "#CA2780",
+    "700": "#A9216A",
+    "800": "#8C1D58",
+    "900": "#62133D"
   },
   "gray": {
     "50": "#F4F4F4",
