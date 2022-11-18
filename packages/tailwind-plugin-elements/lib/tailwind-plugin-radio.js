@@ -14,7 +14,7 @@ module.exports = function ({ addComponents, theme }) {
       borderStyle: 'solid',
       borderColor: theme('colors.gray.500'),
       position: 'relative',
-      boxShadow: 'inset 0 0 0 3px #fff',
+      boxShadow: 'inset 0 0 0 .15rem #fff',
       '&:hover': {
         borderWidth: '2px',
         borderColor: theme('colors.blue.700'),
@@ -23,9 +23,37 @@ module.exports = function ({ addComponents, theme }) {
       '&:checked': {
         borderWidth: '3px',
         borderColor: theme('colors.blue.700'),
-        backgroundColor: 'var(--tw-accent-color)',
+        backgroundColor: theme('colors.blue.700'),
+        backgroundImage: 'none',
+      },
+      '&:focus': {
+        '--tw-ring-offset-width': '0',
+        borderWidth: '2px',
+        borderColor: theme('colors.blue.700'),
+        backgroundColor: 'transparent',
+        boxShadow: 'inset 0 0 0 0.15rem #fff',
+      },
+      '&:disabled': {
+        boxShadow: 'none',
+        borderWidth: '1px',
+        opacity: theme('opacity.25'),
+        cursor: 'not-allowed',
+        filter: 'grayscale(100%)',
+        color: theme('colors.gray.500'),
+        backgroundColor: theme('colors.gray.500'),
       },
     },
+    '[type="radio"]': {
+      '&:focus': {
+        '--tw-ring-offset-width': '0',
+        '&:checked': {
+          backgroundColor: theme('colors.blue.700'),
+          borderWidth: '3px',
+          borderColor: theme('colors.blue.700'),
+          boxShadow: 'inset 0 0 0 0.15rem #fff',
+        },
+      },
+    }
   });
 
 };

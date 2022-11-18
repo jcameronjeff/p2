@@ -19,8 +19,8 @@ export const Basic: ComponentStory<any> = () => {
   return (
     <Box as='fieldset' className='flex gap-2 items-center'>
       <Radio name='make' value="BMW" tabIndex={1} />
-      <Radio name='make' value="Mercedes-Benz" defaultChecked={true} tabIndex={2}  />
-      <Radio name='make' value="Audi" tabIndex={3}  />
+      <Radio name='make' value="Mercedes-Benz" tabIndex={2} disabled />
+      <Radio name='make' value="Audi" defaultChecked={true} tabIndex={3} />
     </Box>
   );
 };
@@ -38,11 +38,11 @@ export const RadioGroups: ComponentStory<any> = () => {
 };
 
 interface HUIArgs {
-  items:string[],
+  items: string[],
   title: string,
   inline: boolean
 }
-const RadioSetHeadlessUI: ComponentStory<any> = (args:HUIArgs) => {
+const RadioSetHeadlessUI: ComponentStory<any> = (args: HUIArgs) => {
   const { items, title, inline } = args;
 
   let [plan, setPlan] = useState(items[2]);
@@ -50,7 +50,7 @@ const RadioSetHeadlessUI: ComponentStory<any> = (args:HUIArgs) => {
   return (
     <div className='space-y-4'>
       <h4 className='prism-label'>{plan}</h4>
-      <RadioSet values={items} name={title} inline={inline} onUpdate={setPlan} initialItem={plan}/>
+      <RadioSet values={items} name={title} inline={inline} onUpdate={setPlan} initialItem={plan} />
     </div>
   );
 };
