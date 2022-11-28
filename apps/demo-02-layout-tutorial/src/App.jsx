@@ -1,5 +1,5 @@
 import './App.css'
-import { Button, Heading3, TextInput } from '@prism2/react-components'
+import { Button, Heading3 } from '@prism2/react-components'
 import { ArrowDownIcon, ChevronDownIcon, LocationIcon, ManheimIcon, NotificationCircleIcon, SearchIcon } from '@prism2/icons-react'
 
 
