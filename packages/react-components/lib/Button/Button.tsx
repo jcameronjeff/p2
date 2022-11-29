@@ -1,4 +1,4 @@
-import { HTMLProps, ReactElement, Ref } from 'react';
+import { forwardRef, ForwardRefRenderFunction, HTMLProps, Ref } from 'react';
 import type { AppendPrependArgs } from '../types';
 /**
  * @remark - Define types inline at the top of the file
@@ -7,71 +7,72 @@ import type { AppendPrependArgs } from '../types';
  * @remark - Variant pattern can be re-used. Only TW3 classes allowed.
  * @remark - Alternately: define components in TW3 and reference as variants.
  */
-export type ButtonVariantName = 'text' | 'outline' | 'auxiliary' | 'link' | 'base' | 'fill';
+ type Props = HTMLProps<HTMLButtonElement> & AppendPrependArgs & {
+   /**
+   * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
+   */
+   variant?: keyof ButtonVariant,
+   /**
+   * HTML Type attribute https://www.w3schools.com/tags/att_type.asp
+   */
+   type?: ButtonType,
+   /**
+   * Optional text to display on button, otherwise use children.
+   */
+   label?: string,
+   /**
+   * If true, button will span container
+   */
+   block?: boolean,
+   /**
+   * If true, button will apply absolute positioning 
+   */
+   floating?: boolean,
+ };
+
+export type ButtonVariantName = 'fill' | 'text' | 'outline' | 'auxiliary' | 'link' | 'base' | 'icon';
 export type ButtonVariant = Record<ButtonVariantName, string>;
 export type ButtonType = 'button' | 'submit' | 'reset';
 
-type Props = HTMLProps<HTMLButtonElement> & AppendPrependArgs & {
-  /**
-   * Tokenized name for desired style. `button-outline` becomes `variant='outline'`.
-   */
-  variant?: keyof ButtonVariant,
-  /**
-   * HTML Type attribute https://www.w3schools.com/tags/att_type.asp
-   */
-  type?: ButtonType,
-  /**
-   * Optional text to display on button, otherwise use children.
-   */
-  label?: string,
-  /**
-   * If true, button will span container
-   */
-  block?: boolean,
-  /**
-   * Roundabout way to pass a ref directly to our element
-   */
-  innerRef?: Ref<HTMLButtonElement>
+type StyleOptions = {
+  [key: string]: string
 };
 
 /**
- *
- * - @todo Generate a singular Button component that:
- * - includes styles for everything with small footprint.
- * - styles do not pollute other elements.
- * - minimal API surface area (variant + tailwind)
- *
+ * @remark Moved these out of the function to act more as constants. Using CSS apply may be a better pattern. I.e. do we really need a variant prop at all...
  */
-export function Button(
-  { variant = 'base', label, block = false, prepend, append, ...props }: Props,
-):ReactElement {
 
-  const { children, className, innerRef, ...attr } = props;
+export const styles:StyleOptions = {    
+  base: 'prism-btn focus-within:ring-1 focus-within:ring-offset-1',
+  outline: 'bg-transparent border ring-0 border-0',
+  text: 'border-0 text !outline-0 ring-0',
+  auxiliary: 'text-sm text uppercase font-alt',
+  link: 'border-0 font-regular uppercase',
+  fill: 'fill',
+  icon: 'overflow-visible',
+  simulcast: 'simulcast',
+  floating: 'rounded-full text-sm absolute',
+  block: 'w-full text-center',
+};
 
-  const baseClass = 'prism-btn focus-within:ring-1 focus-within:ring-offset-1';
-  const vars:ButtonVariant = {
-    outline: 'bg-transparent border border-blue-300 ring-0',
-    text: 'border-0 !outline-0 ring-0',
-    auxiliary: 'text-sm uppercase font-alt border-8',
-    link: 'border-0 font-regular uppercase',
-    fill: 'prism-btn fill',
-    base: 'prism-btn',
-  };
 
+export const ButtonComponent:ForwardRefRenderFunction<HTMLButtonElement, Props> =  (
+  { variant = 'outline', type = 'button', ...props }, ref) => {
+
+  const { className, children, name, label, prepend, append, block, floating, ...attr } = props;
+ 
   const clsx = [
-    baseClass,
-    vars[variant],
-    (block && 'w-full text-center'),
-    className,
+    styles.base,
+    styles[variant] ?? '',
+    block ? styles.block :  '',
+    floating ? styles.floating : '',
+    className ?? '',
   ].join(' ');
 
   return (
-    <button {...attr} ref={props.innerRef} className={clsx}>{prepend}{label}{children}{append}</button>
+    <button {...attr} ref={ref} className={clsx} type={type}>{prepend}{label}{children}{append}</button>
   );
-}
-Button.defaultProps = {
-  variant: 'base',
-  type: 'button',
 };
 
+export const Button = forwardRef(ButtonComponent);
 export default Button;
