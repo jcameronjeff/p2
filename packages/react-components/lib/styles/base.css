@@ -1,2 +1,15 @@
 @import 'tailwindcss/base';
 
+@layer base {
+  input {
+    &::-webkit-inner-spin-button {
+      @apply text-blue-500;
+      filter: sepia(1) saturate(3) hue-rotate(180deg);
+
+    }
+    &::-webkit-calendar-picker-indicator {
+      filter: invert(1) brightness(0.3) sepia(1) saturate(5) hue-rotate(180deg);
+      transform: scale(1);
+    }
+  }
+}

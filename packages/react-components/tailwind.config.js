@@ -37,6 +37,7 @@ module.exports = {
       addVariant('track', ['&::-webkit-slider-runnable-track', '&::-moz-range-track', '&::-mstrack']);
       addVariant('thumb', ['&::-webkit-slider-thumb', '&::-moz-range-thumb', '&::-ms-thumb']);
       addVariant('value', ['&::-webkit-progress-value', '&::-moz-progress-bar']);
+      addVariant('date', ['&::-webkit-calendar-picker-indicator']);
       addVariant('bar', ['&::-webkit-progress-bar']);
     },
   ],

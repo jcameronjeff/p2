@@ -208,9 +208,9 @@ const style = {
     label: 'prism-label',
   },
 };
-function PrismCombobox(props) {
+export function PrismCombobox(props) {
   const [query, setQuery] = React.useState('');
-  const [selectedMake, setSelectedMake] = React.useState<string[] | string>(props.defaultSelection);
+  const [selectedMake, setSelectedMake] = React.useState<string[] | string | undefined>(props.defaultSelection);
   const inputRef = useRef<HTMLInputElement>(null);
 
 
