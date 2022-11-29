@@ -17,7 +17,7 @@ module.exports = function ({ addComponents, theme }) {
       '--tw-bg-active-color': theme('colors.blue.200'),
       '--tw-outline-hover-color': theme('colors.blue.800'),
       fontWeight: theme('fontWeight.semibold'),
-      color: 'var(--tw-text-color) !important',
+      color: 'var(--tw-text-color)',
       backgroundColor: 'var(--tw-bg-color)',
       display: 'inline-flex',
       alignItems: 'center',
@@ -87,6 +87,14 @@ module.exports = function ({ addComponents, theme }) {
         '--tw-bg-hover-color': theme('colors.gold.300'),
         '--tw-outline-hover-color': theme('colors.transparent'),
         '--tw-bg-active-color': theme('colors.gold.500'),
+      },
+      '&.action': {
+        '--tw-text-hover-color': theme('colors.blue.300'),
+        '--tw-bg-hover-color': 'transparent',
+
+        '&:active': {
+          backgroundColor: 'transparent',
+        },
       },
     },
   });

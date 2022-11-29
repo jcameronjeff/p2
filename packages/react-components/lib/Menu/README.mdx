@@ -1,0 +1,45 @@
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { Menu } from '@headlessui/react';
+
+<Meta title="Docs/Menu" component={Menu} />
+
+# Menu (Dropdown)
+
+>Menus offer an easy way to build custom, accessible dropdown components with robust support for keyboard navigation.
+
+## Basic Example
+
+Menu Buttons are built on top of [HeadlessUI's `Menu`](https://headlessui.dev/react/menu), `Menu.Button`, `Menu.Items`, and `Menu.Item` components.
+
+## Usage Guidelines
+Use Action Menus to reduce clutter at the top of a page. Avoid more than two page-level actions.
+
+Use Action Menus to reduce clutter on cards.
+
+Actions that also indicate a status (e.g. Add to workbook or Set Lane Alert) should not be nested in a menu.
+
+
+## Showing/hiding the menu
+
+By default, your Menu.Items instance will be shown/hidden automatically based on the internal open state tracked within the Menu component itself. [See more](https://headlessui.com/react/menu#showing-hiding-the-menu)
+
+
+
+## Closing menus manually
+
+The menu will already close by default, however it can happen that 3rd party Link components use event.preventDefault(), which prevents the default behaviour and therefore won't close the menu. [See more](https://headlessui.dev/react/menu#closing-menus-manually)
+
+
+<Canvas>
+  <Story id='components-menu--toolbar' />
+</Canvas>
+
+## Disabling an item
+
+Use the disabled prop to disable a Menu.Item. This will make it unselectable via keyboard navigation, and it will be skipped when pressing the up/down arrows. [See more](https://headlessui.dev/react/menu#disabling-an-item)
+
+## Transitions
+
+Menu is pre-configured with our recommended transition animations. These can be customized or replaced All you need to do is wrap the Menu.Items in a `<Transition>`, and the transition will be applied automatically. [See more](https://headlessui.com/react/menu#transitions)
+
+<ArgsTable tabs={Menu} />

@@ -5,8 +5,8 @@ import { Box } from '../Box';
 import { fadeInDownOutUp } from '../utils';
 import type { ReactNode } from 'react';
 
-export const IndicatorChevron:React.FC<{ enabled: boolean }> = ({ enabled }) => (
-  <ChevronRightIcon className={`w-[1.5em] h-[1.5em] transition-all duration-200 transform ${enabled ? '-rotate-90' : 'rotate-90'}`}/>
+export const IndicatorChevron:React.FC<{ enabled?:boolean }> = ({ enabled }) => (
+  <ChevronRightIcon className={`w-[1.5em] h-[1.5em] transition-all duration-200 transform ui-open:-rotate-90 ui-not-open:rotate-90 ${enabled ? '-rotate-90' : 'rotate-90'}`} />
 );
 
 export interface AccordionItemProps {
