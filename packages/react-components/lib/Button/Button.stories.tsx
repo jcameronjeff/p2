@@ -5,7 +5,7 @@ import { within, userEvent } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Button, ButtonVariantName } from '../Button';
 import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons-react/24/solid';
-import { CreditCardIcon, PlusCircleIcon } from '@prism2/icons-react';
+import { CreditCardIcon } from '@prism2/icons-react';
 import mdx from './README.mdx';
 import { Box } from '../Box';
 import { Heading4 } from '../Typography';
@@ -16,7 +16,9 @@ export default {
   component: Button,
   // More on argTypes: https://storybook.js.org/docs/react/api/argtypes
   argTypes: {
-    backgroundColor: { control: 'color' },
+    label: { control: 'text' },
+    disabled: { control: 'boolean' },
+    className: { control: 'text' },
   },
   parameters: {
     docs: {
@@ -25,80 +27,48 @@ export default {
   },
 } as ComponentMeta<typeof Button>;
 
-const ButtonTemplate: ComponentStory<any> = () => {
- 
-  const variants:ButtonVariantName[] = ['outline', 'fill', 'text', 'auxiliary'];
+const variants:ButtonVariantName[] = ['outline', 'fill', 'text', 'auxiliary'];
 
-  return (
-    <div className='mx-auto w-[740px]'>
-    <h3 className='prism-heading-4 pb-1 mb-1'>Default</h3>
-    <div className='flex gap-2'>
-      {variants.map((variant:ButtonVariantName) => (
-        <Button variant={variant} label={variant} />
-      ))}
-    </div>
-    <hr className='w-full my-4' />
-    <h3 className='prism-heading-4 pb-1 mb-1'>With Icon</h3>
-    <div className='flex gap-2'>
-      {variants.map(variant => (
-        <Button className='overflow-visible' variant={variant as ButtonVariantName}>
-          <BeakerIcon />{variant} 
-        </Button>
-      ))}
-      <Button variant='icon'><BeakerIcon /></Button>
-    </div>
-    <hr className='w-full my-4' />
-    <h3 className='prism-heading-4 pb-1 mb-1'>Overflowing </h3>
-    <div className='flex gap-2'>
-      {variants.map(variant => (
-         <Button variant={variant as ButtonVariantName}>
-          <BeakerIcon />
-          <div>Buttons allow a user to submit or request information</div>
-
-        </Button>
-      ))}
-    </div>
-    <hr className='w-full my-4' />
-    <h3 className='prism-heading-4 pb-1 mb-1'>Small</h3>
-    <div className='flex gap-2'>
-      {variants.map(variant => (
-        <Button variant={variant as ButtonVariantName} className='text-xs'>
-          <BeakerIcon />{variant}
-        </Button>
-      ))}
-      
-    </div>
-    <hr className='w-full my-4' />
-    <h3 className='prism-heading-4 pb-1 mb-1'>Disabled</h3>
-    <div className='flex gap-2'>
-      {variants.map(variant => (
-        <Button variant={variant as ButtonVariantName} disabled>
-          <BeakerIcon />{variant}
-        </Button>
-      ))}
-    </div>
-
-    <hr className='w-full my-4 relative' />
-    <h3 className='prism-heading-4 pb-1 mb-1 '>Floating Button</h3>
-     <div className='relative py-4'>
-     <div className='flex py-4 gap-2'>
-        {variants.map((variant:ButtonVariantName) => (
-        <Button variant={variant} label={variant} />
-        ))}
-        </div>
-        <Button variant='fill' className='right-0 top-0 w-12 h-12 p-4 absolute' floating={true}><BeakerIcon /></Button>
-        <Button variant='fill' className='left-0 top-0 p-4 absolute' floating={true}><BeakerIcon />Floating</Button>
-        
-    </div>
+const ButtonTemplate: ComponentStory<typeof Button> = (args) => (
+  <div className='mx-auto w-[740px] flex gap-2 items-center'>
+    {variants.map(variant => <Button variant={variant} className='capitalize' label={variant} {...args} />)}
   </div>
-  );
-};
+);
 
-export const Variants = ButtonTemplate.bind({});
+export const FloatingButtons = () => (
+  <div className='p-12 h-[450px]'>
+    <h1 className='prism-heading-1'>Floating Buttons</h1>
+    <Button variant='fill' className='right-8 bottom-8 fixed w-12 h-12 p-4' floating append={<BeakerIcon />} />
+    <Button variant='fill' className='left-8 bottom-8 fixed p-4' floating label="Floating" append={<BeakerIcon />} />
+  </div>
+);
+
+
+export const Basic = ButtonTemplate.bind({});
+export const WithIcon = ButtonTemplate.bind({});
+export const Overflow = ButtonTemplate.bind({});
+export const Small = ButtonTemplate.bind({});
+export const Disabled = ButtonTemplate.bind({});
+WithIcon.args = {
+  children: <BeakerIcon />,
+};
+Overflow.args = {
+  prepend: <BeakerIcon />,
+  label: '',
+  children: <span>Buttons allow a user to submit or request information</span>,
+};
+Small.args = {
+  className: 'text-sm',
+  label: 'My Small Button',
+};
+Disabled.args = {
+  disabled: true,
+  label: 'Not Enabled',
+};
 
 const AutoButton = () => {
   const [count, setCount] = React.useState(0);
-  return (  
+  return (
   <div>
     <hr className='w-full my-4' />
     <h3 className='prism-heading-4 pb-1 mb-1'>Automation</h3>
@@ -139,7 +109,7 @@ export const WinnieTest = () => (
   </div>
 );
 
- 
+
 
 
 export const AutoButtonClick = AutoButton.bind({});
