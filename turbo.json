@@ -27,17 +27,17 @@
     },
     "build-storybook": {
       "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)","stories/*",".storybook"],
-      "dependsOn": ["test","^build"],
+      "dependsOn": ["^build"],
       "outputs": ["docs/**"]
     },
     "deploy": {
       "inputs": ["**.stories.@(tsx|jsx)", "lib/**/*.@(tsx|jsx|css)"],
       "dependsOn": ["build-storybook"],
-      "cache": false
+      "cache": true
     },
     "test": {
       "dependsOn": ["build", "build_css"],
-      "cache": false
+      "cache": true
     },
     "test_ui": {
       "cache": false

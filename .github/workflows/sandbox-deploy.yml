@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - next
+      - feature/sb-public-build
 
 jobs:
 
@@ -72,7 +73,7 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-alpha-website
-        base-path: demo-02-layout-tutorial
+        base-path: apps/demo-02-layout-tutorial/dist
         aws-account: '127382792002'
 
   build-ts-demo:
@@ -92,7 +93,7 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-sandbox-demo-august-2022
-        base-path: icons-website
+        base-path: apps/icons-website/dist
         aws-account: '127382792002'
 
   build-theme-demo:
@@ -112,5 +113,26 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-theming-demo-2022-08-27
-        base-path: demo-03-headless-styled
+        base-path: apps/demo-03-headless-styled/dist
+        aws-account: '127382792002'
+
+
+  build-sb-public:
+    name: Build & Deploy - Storybook Public
+    timeout-minutes: 15
+    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    environment:
+      name: storybook-public
+      url: https://prism2-storybook.awsgdmshednp.manheim.com
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - uses: ./.github/actions/redeployer
+      with:
+        bucket-name: prism2-storybook
+        base-path: docs
         aws-account: '127382792002'

@@ -38,7 +38,7 @@ module.exports = {
         resolve: (await import('../vite.web.config.js')).default.resolve,
         // Use the base needed for our URL pattern in production
         // base: (await import('../vite.web.config.js')).default.base,
-        base: '/prism/prism2/',
+        base: process.env.BASE || '/prism/prism2/',
         // Add dependencies to pre-optimization
         optimizeDeps: {
           include: ['storybook-dark-mode'],

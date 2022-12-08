@@ -34,6 +34,10 @@ runs:
       shell: bash
       run: pnpm build
 
+    - name: Build Storybook
+      shell: bash
+      run: BASE=/ pnpm build-storybook
+
     - name: Establish secure session to AWS
       uses: cai-actions/aws-secure-access@v1
       with:
@@ -49,7 +53,7 @@ runs:
     - name: Build & Deploy
       shell: bash
       run: |
-        aws s3 cp --recursive ./apps/${{ inputs.base-path }}/dist s3://${{ inputs.bucket-name }}
+        aws s3 cp --recursive ./${{ inputs.base-path }} s3://${{ inputs.bucket-name }}
         aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ inputs.bucket-name }} s3://${{ inputs.bucket-name }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
 
     - name: Results
