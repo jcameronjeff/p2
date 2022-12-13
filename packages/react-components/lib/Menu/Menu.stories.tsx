@@ -1,7 +1,7 @@
 import { DiskIcon, EnvelopeIcon, PrinterIcon } from '@prism2/icons-react';
 import { DocumentPlusIcon, PencilSquareIcon } from '@prism2/icons-react/24/solid';
 import { ComponentStory, Meta } from '@storybook/react';
-import { Menu  } from '@headlessui/react';
+import { Menu } from '@headlessui/react';
 import { Box, Button } from '../';
 import { ExtractProps } from '../types';
 import { MenuItem, MenuButton, MenuItems, PMenu, MenuSection } from './Menu';
@@ -68,7 +68,7 @@ export const Template2: ComponentStory<any> = (args) => {
         Open Me
       </Menu.Button>
       <MenuItems className='ui-open:translate-y-2 duration-1000 delay-150 transition-transform'>
-        {args.items.map((item:string) => (
+        {args.items.map((item: string) => (
           <MenuItem disabled><PencilSquareIcon /> {item}</MenuItem>
         ))}
       </MenuItems>

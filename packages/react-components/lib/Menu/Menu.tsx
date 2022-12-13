@@ -5,19 +5,19 @@ import { ExtractProps } from '../types';
 import { IndicatorChevron } from '../Accordion';
 
 
-export const PMenu = (props:ExtractProps<typeof Menu>) => {
-  let attr = {
+export const PMenu = (props: ExtractProps<typeof Menu>) => {
+  let attrs = {
     ...props,
     className: [
       'relative inline-block',
       props.className,
     ].join(' '),
   };
-  return <Menu as='div' {...attr} />;
+  return <Menu as='div' {...attrs} />;
 };
 
-export const MenuButton = ({ children, ...props }:ExtractProps<typeof Menu.Button> & { children?: ReactNode }) => {
-  let attr = {
+export const MenuButton = ({ children, ...props }: ExtractProps<typeof Menu.Button> & { children?: ReactNode }) => {
+  let attrs = {
     ...props,
     className: [
       'prism-btn',
@@ -25,14 +25,14 @@ export const MenuButton = ({ children, ...props }:ExtractProps<typeof Menu.Butto
     ].join(' '),
   };
   return (
-    <Menu.Button as='div' {...attr}>
+    <Menu.Button as='div' {...attrs}>
       {children}
       <IndicatorChevron />
     </Menu.Button>
   );
 };
 
-export const MenuItems = (props:ExtractProps<typeof Menu.Items>) => {
+export const MenuItems = (props: ExtractProps<typeof Menu.Items>) => {
   let attrs = {
     ...props,
     className: [
@@ -49,7 +49,7 @@ export const MenuItems = (props:ExtractProps<typeof Menu.Items>) => {
   );
 };
 
-export const MenuItem = (props:ExtractProps<typeof Menu.Item>) => {
+export const MenuItem = (props: ExtractProps<typeof Menu.Item>) => {
   let attrs = {
     ...props,
     className: [
@@ -64,4 +64,4 @@ export const MenuItem = (props:ExtractProps<typeof Menu.Item>) => {
   return <Menu.Item as='button' {...attrs} />;
 };
 
-export const MenuSection = (props:HTMLAttributes<HTMLDivElement>) => <div className='p-1'>{props.children}</div>;
+export const MenuSection = (props: HTMLAttributes<HTMLDivElement>) => <div className='p-1'>{props.children}</div>;

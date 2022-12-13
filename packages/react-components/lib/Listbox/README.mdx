@@ -1,0 +1,77 @@
+import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
+import { Listbox } from './';
+
+<Meta title="Docs/Listbox" component={Listbox} />
+
+# Listbox (Select)
+
+> Listboxes are a great foundation for building custom, accessible select menus for your app, complete with robust support for keyboard navigation.
+
+## Basic Example
+
+Listbox are built on top of [HeadlessUI's `Listbox`](https://headlessui.dev/react/listbox), `Listbox`, `Listbox.Button`, `Listbox.Options`, `Listbox.Option` and `Listbox.Label` components.
+
+<Canvas>
+  <Story id='components-listbox--singleselect' className='flex justify-center' />
+</Canvas>
+
+## Usage Guidelines
+
+Dropdowns are useful for presenting lists of options without cluttering up the UI. However, they are inefficient because they hide data and add clicks to the experience. They are also prone to usability problems, especially with very long lists, or on small screens. Therefore, use dropdowns cautiously—as a last resort—when other controls don't meet the need.
+
+#### Do
+Avoid dropdowns when possible, especially for short, or very long lists.
+Consider dropdowns for lists of 5-12 items.
+Consider dropdowns when users aren't familiar with the acceptable input options.
+Support keyboard navigation within dropdowns for accessibility (tab, arrows, enter, characters).
+Gray out unavailable options rather than hiding them.
+Include placeholder text (e.g. “Select one…”), or pre-select an option when it is likely to assist a user.
+Remember the last selection when it is likely to assist the user.
+
+#### Don’t
+Use dropdowns for less than 5 options. Instead, use radio buttons or button groups.
+Use dropdowns for more than 12 options. Instead, use a text input with auto-complete (e.g. for Makes, Models, Sellers, Auctions, States/Provinces).
+Use dropdowns for entries that are highly familiar to users. Instead, use a text input (e.g. birth years, Mr/Mrs/Ms).
+Use dropdowns for State/Province. Instead, use a ZIP code text field and auto-populate the city and state in a single editable text field.
+
+
+## Styling different states
+
+Headless UI keeps track of a lot of state about each component, like which listbox option is currently selected, whether a popover is open or closed, or which item in a menu is currently active via the keyboard. [See more](https://headlessui.com/react/listbox#styling-different-states)
+
+## Using data attributes 
+
+Each component also exposes information about its current state via a `data-headlessui-state` attribute that you can use to conditionally apply different styles. [See more](https://headlessui.com/react/listbox#using-data-attributes)
+
+## Selecting multiple values
+
+To allow selecting multiple values in your listbox, use the `multiple` prop and pass an array to `value` instead of a single option. [See more](https://headlessui.com/react/listbox#selecting-multiple-values)
+
+<Canvas>
+  <Story id='components-listbox--multiselect' />
+</Canvas>
+
+## Using with HTML forms
+
+If you add the `name` prop to your listbox, hidden `input` elements will be rendered and kept in sync with your selected value. [See more](https://headlessui.com/react/listbox#using-with-html-forms)
+
+
+## Using as an uncontrolled component
+
+If you provide a `defaultValue` prop to the `Listbox` instead of a `value`, Headless UI will track its state internally for you, allowing you to use it as an [See more](https://headlessui.com/react/listbox#using-as-an-uncontrolled-component).
+
+## Disabling an option
+
+Use the `disabled` prop to disable a `Listbox.Option`. This will make it unselectable via mouse and keyboard, and it will be skipped when pressing the up/down arrows. [See more](https://headlessui.com/react/listbox#disabling-an-option)
+
+## Transitions
+
+To animate the opening/closing of the listbox panel, use the provided `Transition` component. All you need to do is wrap the `Listbox.Options` in a `<Transition>`, and the transition will be applied automatically. [See more](https://headlessui.com/react/listbox#transitions)
+
+## Customized Example
+
+<Canvas>
+  <Story id='components-listbox--strings-only' />
+</Canvas>
+
+<ArgsTable tabs={Listbox} />

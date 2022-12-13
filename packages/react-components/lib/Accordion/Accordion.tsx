@@ -1,12 +1,12 @@
 import { Transition } from '@headlessui/react';
-import { ChevronRightIcon } from '@prism2/icons-react';
+import { ChevronRightIcon } from '@prism2/icons-react/24/solid';
 import { useState, useEffect } from 'react';
 import { Box } from '../Box';
 import { fadeInDownOutUp } from '../utils';
 import type { ReactNode } from 'react';
 
 export const IndicatorChevron:React.FC<{ enabled?:boolean }> = ({ enabled }) => (
-  <ChevronRightIcon className={`w-[1.5em] h-[1.5em] transition-all duration-200 transform ui-open:-rotate-90 ui-not-open:rotate-90 ${enabled ? '-rotate-90' : 'rotate-90'}`} />
+  <ChevronRightIcon className={`w-5 h-5 transition-all duration-200 transform ui-open:-rotate-90 ui-not-open:rotate-90 ${enabled ? '-rotate-90' : 'rotate-90'}`} />
 );
 
 export interface AccordionItemProps {
