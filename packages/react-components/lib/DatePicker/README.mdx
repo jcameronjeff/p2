@@ -1,0 +1,37 @@
+import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Box, Input } from '../';
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
+import './styles/datepicker.css';
+
+<Meta title='Docs/Datepicker' />
+
+# @prism2/datepicker
+
+In Prism2, we only provide styles and usage examples for DatePicker. Functionality is powered entirely by React DatePicker library https://reactdatepicker.com/
+
+```jsx
+import DatePicker from 'react-datepicker';
+import './styles/datepicker.css';
+```
+
+### Basic Example
+
+<Canvas>
+  <Story id='components-datepicker--basic' />
+</Canvas>
+
+### As Popper
+
+<Canvas>
+  <Story id='components-datepicker--as-popover' />
+</Canvas>
+
+### Range Picker
+
+<Canvas>
+  <Story id='components-datepicker--range-picker' />
+</Canvas>
+
+
+<ArgsTable tabs={DatePicker} />
