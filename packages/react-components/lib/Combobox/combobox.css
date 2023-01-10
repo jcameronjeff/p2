@@ -1,0 +1,52 @@
+@import 'tailwindcss/utilities';
+@import 'tailwindcss/components';
+@import 'tailwindcss/base';
+
+@layer components {
+
+  .prism-combobox-input-wrapper {
+    @apply prism-input relative p-0
+
+  }
+
+  .prism-combobox-input-area {
+    @apply w-full border-none py-2 px-3 focus:ring-0
+  }
+
+  .prism-combobox-button {
+    @apply inset-y-0 px-2 h-full;
+    @apply border-l;
+    @apply ui-not-open:bg-gray-50/50 ui-open:bg-blue-50;
+    @apply icons:ui-open:text-blue-500;
+    @apply flex items-center;
+  }
+  .prism-menu-item {
+    @apply bg-white;
+    @apply text-body;
+    /* not disabled */
+    @apply ui-not-disabled:ui-active:bg-blue-800;
+    @apply ui-not-disabled:ui-active:text-white;
+    @apply ui-not-disabled:cursor-pointer;
+    /* disabled */
+    @apply ui-disabled:cursor-not-allowed;
+    @apply ui-disabled:opacity-50;
+    /* layout */
+    @apply flex flex-grow w-full p-2 items-center justify-between gap-2;
+    /* animation */
+    @apply transition-colors duration-75 ease-in-out;
+
+
+
+
+
+  }
+
+  .menu-item-icon {
+    @apply transition-colors duration-100 ease-in-out;
+    @apply text-transparent;
+    @apply ui-selected:text-inherit;
+    @apply h-4;
+  }
+
+}
+

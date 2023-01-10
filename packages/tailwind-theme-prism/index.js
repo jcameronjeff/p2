@@ -114,6 +114,7 @@ module.exports = {
   // @TODO - Tese are pretty tight.
   borderWidth: ({ theme }) => ({
     ...theme.borderWidth,
+    '1.5': '1.5px',
     2: '2px'
   }),
   lineHeight: {

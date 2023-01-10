@@ -145,5 +145,15 @@ export const withPrism:WithPrismProps = (Component, inject) => (props) => {
 };
 
 
+
+export function sortByKey<T = object>(array:T[]|null, key:keyof T):T[]|[] {
+  if (!array) return [];
+  return array.sort(function (a, b) {
+    var x = a[key]; var y = b[key];
+    return ((x < y) ? -1 : ((x > y) ? 1 : 0));
+  });
+}
+
+
 export default { fadeInOut, slideUpDown, sleep };
 

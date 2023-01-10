@@ -8,142 +8,17 @@ import { popIn, popInSlow, sleep } from '../lib/utils';
 import { CancelCircleIcon, PlusIcon, SearchIcon, UserIcon } from '@prism2/icons-react';
 import { Box, fadeInDownOutUp, useToggle } from '../lib';
 import { Slider2 } from '../lib/Slider';
-let priceTiers = ['$10,000', '$15,000', '$20,000', '$30,000', '$40,000', '$50,000', '$60,000', '$70,000', '$80,000', '$90,000', '1$00,000'];
-let usStates = [
-  'Alabama',
-  'Alaska',
-  'Arizona',
-  'Arkansas',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Delaware',
-  'Florida',
-  'Georgia',
-  'Hawaii',
-  'Idaho',
-  'Illinois',
-  'Indiana',
-  'Iowa',
-  'Kansas',
-  'Kentucky',
-  'Louisiana',
-  'Maine',
-  'Maryland',
-  'Massachusetts',
-  'Michigan',
-  'Minnesota',
-  'Mississippi',
-  'Missouri',
-  'Montana',
-  'Nebraska',
-  'Nevada',
-  'New Hampshire',
-  'New Jersey',
-  'New Mexico',
-  'New Y$or,000',
-  'North Carolina',
-  'North Dakota',
-  'Ohio',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Rhode Island',
-  'South Carolina',
-  'South Dakota',
-  'Tennessee',
-  'Texas',
-  'Utah',
-  'Vermont',
-  'Virginia',
-  'Washington',
-  'West Virginia',
-  'Wisconsin',
-  'Wyoming',
-];
-const items = [
-  'Daward Reynolds',
-  'Darrn Towne',
-  'Darin Apple',
-  'Darin Cassler',
-  'Darin Hazelnuts',
-  'Benedict D Kessler',
-  'Katelyn Rohan',
-];
-const makes = [
-  'Acura',
-  'Alfa',
-  'AMC',
-  'Aston',
-  'Audi',
-  'Bentley',
-  'BMW',
-  'Bugatti',
-  'Buick',
-  'Cadillac',
-  'Chevrolet',
-  'Chrysler',
-  'Daewoo',
-  'Datsun',
-  'DeLorean',
-  'Dodge',
-  'Eagle',
-  'Ferrari',
-  'FIAT',
-  'Fisker',
-  'Ford',
-  'Freightliner',
-  'Genesis',
-  'Geo',
-  'GMC',
-  'Honda',
-  'HUMMER',
-  'Hyundai',
-  'INFINITI',
-  'Isuzu',
-  'Jaguar',
-  'Jeep',
-  'Karma',
-  'Kia',
-  'Lamborghini',
-  'Land',
-  'Lexus',
-  'Lincoln',
-  'Lotus',
-  'Lucid',
-  'Maserati',
-  'Maybach',
-  'MAZDA',
-  'McLaren',
-  'Mercedes',
-  'Mercury',
-  'MINI',
-  'Mitsubishi',
-  'Nissan',
-  'Oldsmobile',
-  'Plymouth',
-  'Polestar',
-  'Pontiac',
-  'Porsche',
-  'RAM',
-  'Rivian',
-  'Rolls',
-  'Saab',
-  'Saturn',
-  'Scion',
-  'SRT',
-  'Subaru',
-  'Suzuki',
-  'Tesla',
-  'Toyota',
-  'Volkswagen',
-  'Volvo',
-  'Yugo',
-];
+import { makes, usStates, items, priceTiers } from './_mockData';
+import mdx from '../lib/Combobox/README.mdx';
 
 export default {
   title: 'Components/Combobox2',
   component: Combobox,
+  parameters: {
+    docs: {
+      page: mdx,
+    },
+  },
   argTypes: {
     next: { control: 'boolean', defaultValue: true },
     enableIcon: { control: 'boolean', defaultValue: true },
@@ -153,6 +28,7 @@ export default {
     placeholder: { control: 'string', defaultValue: 'Select a location' },
   },
 } as ComponentMeta<any>;
+
 const style = {
   next: {
     input: [
@@ -208,9 +84,10 @@ const style = {
     label: 'prism-label',
   },
 };
+
 export function PrismCombobox(props) {
   const [query, setQuery] = React.useState('');
-  const [selectedMake, setSelectedMake] = React.useState<string[] | string | undefined>(props.defaultSelection);
+  const [selectedMake, setSelectedMake] = React.useState<string[]>(props.defaultSelection);
   const inputRef = useRef<HTMLInputElement>(null);
 
 
@@ -502,7 +379,7 @@ Simple.args = {
   enableIcon: false,
   label: 'Makes',
   placeholder: 'Search by manufacturer...',
-  defaultSelection: '',
+  defaultSelection: [],
 };
 
 export const Autoplay = TemplateComponent.bind({});
@@ -522,7 +399,7 @@ PrismSimple.args = {
   options: items,
   placeholder: 'Search by name',
   label: 'Users',
-  defaultSelection: '',
+  defaultSelection: [],
 };
 export const PrismLegacy = TemplateComponent.bind({});
 PrismLegacy.args = {

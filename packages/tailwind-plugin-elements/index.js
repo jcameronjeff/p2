@@ -251,30 +251,28 @@ module.exports = plugin.withOptions(function (options = {
       },
       [`.${prefix}menu`]: {
         width: '100%',
+        overflowY: 'auto',
         backgroundColor: theme('colors.white'),
-        borderRadius: theme('borderRadius.xs'),
-        boxShadow: theme('boxShadow.sm'),
+        borderRadius: theme('borderRadius.md'),
+        paddingTop: theme('padding.1'),
+        paddingBottom: theme('padding.1'),
+        boxShadow: theme('boxShadow.lg'),
         borderWidth: theme('borderWidth.DEFAULT'),
         marginTop: '-1px',
+        ['&:focus']: {
+          outline: 'none'
+        }
       },
 
       [`.${prefix}menu-item, ${prefix}menu option`]: {
-        padding: theme('spacing.2'),
-        width: '100%',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'space-between',
-        gap: theme('spacing.2'),
-        backgroundColor: theme('colors.white'),
-        color: theme('colors.body'),
-        '&.active, &:hover': {
-          backgroundColor: theme('colors.blue.800'),
-          color: theme('colors.white'),
-        },
-        '&.selected': {
-          backgroundColor: theme('colors.gray.200'),
-          color: theme('colors.black'),
-        },
+        // padding: theme('spacing.2'),
+        // width: '100%',
+        // display: 'flex',
+        // alignItems: 'center',
+        // justifyContent: 'space-between',
+        // gap: theme('spacing.2'),
+        // backgroundColor: theme('colors.white'),
+        // color: theme('colors.body'),
       },
       [`.${prefix}label, .${prefix}form-control`]: {
         fontSize: theme('fontSize.sm'),
@@ -308,19 +306,48 @@ module.exports = plugin.withOptions(function (options = {
         outlineColor: theme('colors.gray.300'),
         borderWidth: '0',
         borderStyle: 'solid',
-        borderRadius: theme('borderRadius.xs'),
+        borderRadius: theme('borderRadius.sm'),
         backgroundColor: theme('colors.white'),
         padding: theme('spacing.2'),
+        overflow:'hidden',
         fontSize: theme('fontSize.base'),
+        [`&[aria-invalid='true']`]: {
+          outlineColor: theme('colors.red.400'),
+          outlineWidth: theme('borderWidth[1.5]')
+        },
         '&::placeholder': {
-          color: theme('colors.gray.400'),
+          color: theme('colors.gray.300'),
         },
         '&:focus': {
           boxShadow: theme('boxShadow.sm'),
+          outlineColor: theme('colors.blue.600'),
+          outlineWidth: theme('borderWidth[1.5]')
         },
         '&:focus-within': {
           boxShadow: theme('boxShadow.lg'),
+          outlineColor: theme('colors.blue.600'),
+          outlineWidth: theme('borderWidth[1.5]')
         },
+        ['& svg']: {
+          color: theme('colors.gray.600'),
+          height: '1em'
+        },
+        [`& .append, & .prepend`]: {
+          position: 'absolute',
+          borderColor: theme('colors.gray.100'),
+          display: 'flex',
+          alignItems: 'center',
+          paddingLeft: theme('padding.2'),
+          paddingRight: theme('padding.2'),
+          top: 0,
+          bottom: 0,
+        },
+        '& .append': {
+          right: 0,
+        },
+        '& .prepend': {
+          left: 0,
+        }
       },
     }
 

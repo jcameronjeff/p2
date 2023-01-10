@@ -1,0 +1,223 @@
+import {
+  Meta,
+  Story,
+  Source,
+  Canvas,
+  ArgsTable,
+  Description
+} from "@storybook/addon-docs";
+import { PCombobox } from './ComboboxHOC'
+
+
+
+<Meta title="Docs/Combobox"/>
+
+# Combobox
+
+> Full Documentation on HeadlessUI.dev - https://headlessui.com/react/combobox
+
+
+Comboboxes are the foundation of accessible autocompletes and command palettes for your app, complete with robust support for keyboard navigation.
+
+Comboboxes are built using the `Combobox`, `Combobox.Input`, `Combobox.Button`, `Combobox.Options`, `Combobox.Option` and `Combobox.Label` components.
+
+The `Combobox.Input` will automatically open/close the `Combobox.Options` when searching.
+
+You are completely in charge of how you filter the results, whether it be with a fuzzy search library client-side or by making server-side requests to an API. In this example we will keep the logic simple for demo purposes.
+
+---
+
+### Basic Example
+
+<Canvas columns={2}>
+  <Story id="components-combobox3--basic" />
+  <Story id="components-combobox3--basic-open" />
+</Canvas>
+
+
+### Styling different states
+
+Headless UI keeps track of a lot of state about each component, like which listbox option is currently selected, whether a popover is open or closed, or which item in a menu is currently active via the keyboard.
+
+But because the components are headless and completely unstyled out of the box, you can't see this information in your UI until you provide the styles you want for each state yourself.
+
+
+### Multiselect
+
+You can allow multiple values to be selected by passing `multiple=true` to the component. When this feature is enabled, options will remain visible after selecting items to accomadate the user.
+
+<Canvas columns={2}>
+  <Story id="components-combobox3--basic-multiselect" />
+  <Story id="components-combobox3--basic-multiselect-open" />
+</Canvas>
+
+## Working with Complex Data
+
+Often times, you will want the Combobox to work with dynamic or complex sets of data. We've done our best to ease the complexity of managing this data by implementing standard ways of transforming and rendering our output with type safety.
+
+We provide several convenient methods for working with arrays of object. See the official [Headless UI Combobox documentation](https://headlessui.com/react/combobox#combobox) for full details.
+
+In the example below, we will:
+
+- Use a complex JSON array for our data.
+- Enjoy strong type safety inferred from our data shape.
+- Sort the array by an object key using the `sortBy` prop.
+- Customize the value displayed on the input itself with the `displayValue` prop.
+- Customize how we render each option on the list with the `optionRenderer` prop.
+
+For reference, each user is represented by an object like so:
+
+```ts
+type User = {
+  id: number;
+  first_name: string;
+  last_name: string;
+  email: string;
+  ip_address: string;
+};
+```
+
+#### Complex Specimens
+
+<Canvas columns={3} withToolbar>
+  <Story id="components-combobox3--complex-data" />
+  <Story id="components-combobox3--complex-data-multi" />
+  <Story id="components-combobox3--complex-data-email-only" />
+</Canvas>
+
+
+
+
+#### The `displayValue` prop
+
+First, we will tell the Combobox how to represent each user as simple text. We provide a function which accepts a user object and returns a string to our `displayValue` prop like so.
+
+```jsx
+// convert a single user
+const getUserHandle = (user) => `${user.first_name} ${user.last_name}`
+```
+
+
+#### The `optionRenderer`
+
+Here we will create a function component which takes a single user as props. We will then pass that function to Combobox as our `optionRenderer` argument.
+
+```jsx
+const renderUserOption = (user:User) => (
+  <div>
+    <b>{user.first_name} {user.last_name}</b>
+    <small>{user.id} - {user.email}</small>
+  </div>
+)
+```
+
+#### The `sortBy` prop
+
+Combobox will attempt to sort any data provided when a valid key is provided. In this example, we can just assert `sortBy="email"` and the resulting option list will be sorted accordingly.
+
+### Working with multiple or null selections
+
+Note that functions passed to `displayValue` will expect _the current selections data type_ as an argument. This means that it will be an array if `multiple` is true, and it may be `null` if `nullable` is enabled. Accordingly, your `displayValue` method will need to support your configuration.
+
+```jsx
+// function to convert a user to display string
+const getUserHandle = (user: User) => `${user.first_name} ${user.last_name}`;
+// handle multiple or null selections
+const getDisplayValue = (users: user[] | null) => {
+  // if there are no selections, return nothing
+  if (users === null) return;
+  // print each user, comma separated
+  return users.map((u) => getUserHandle(u)).join(", ");
+};
+```
+
+
+### Bringing it all together
+
+```jsx
+<Combobox
+  sortBy="email"
+  nullable
+  multiple
+  displayValue={getDisplayValue}
+  optionRenderer={renderUserOption}
+  {...props}
+/>
+```
+
+<Canvas>
+  <Story id="components-combobox3--complex-data-multi" />
+</Canvas>
+
+## Customizing Appearance
+
+
+<Canvas columns={3}>
+  <Story id="components-combobox3--with-smaller-options" />
+  <Story id="components-combobox3--with-larger-input-text" />
+  <Story id="components-combobox3--fully-customize-appearance" />
+</Canvas>
+
+### Fully Customized Appearance
+
+<Canvas>
+  <Story id="components-combobox3--fully-customize-appearance-2" />
+</Canvas>
+
+
+## Using only CSS
+
+```jsx
+<div className='prism-combobox-input-wrapper'>
+  <button className='prism-combobox-button right-0 absolute'>
+    <ChevronDownIcon aria-hidden='true' />
+  </button>
+  <input className='prism-combobox-input-area pr-10' />
+  <ul className='prism-menu absolute my-1 max-h-60'>
+    {/* for each item on your menu */}
+    <li className='prism-menu-item'>
+      <span>Item Name</span>
+      <CheckCircleIcon className="menu-item-icon" aria-hidden="true" />
+    </li>
+  </ul>
+</div>
+```
+
+### SVG Markup
+
+#### CheckCircleIcon
+
+```html
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  viewBox="0 0 24 24"
+  fill="currentColor"
+  aria-hidden="true"
+  class="menu-item-icon"
+>
+  <path
+    fill-rule="evenodd"
+    d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z"
+    clip-rule="evenodd"
+  ></path>
+</svg>
+```
+
+#### ChevronDownIcon
+```html
+<svg
+  xmlns="http://www.w3.org/2000/svg"
+  fill="none"
+  viewBox="0 0 24 24"
+  stroke-width="1.5"
+  stroke="currentColor"
+  aria-hidden="true"
+>
+  <path
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+  />
+</svg>
+```
+

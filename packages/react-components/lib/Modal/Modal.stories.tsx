@@ -16,6 +16,7 @@ export default {
 } as ComponentMeta<typeof Modal>;
 
 
+
 export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
   const [isOpen, setIsOpen] = useState(false);
   const okRef = useRef(null);
@@ -47,7 +48,6 @@ export const TestTemplate: ComponentStory<typeof Modal> = (args) => {
     </>
   );
 };
-
 
 export const BasicExample = TestTemplate.bind({});
 BasicExample.args = { 'data-testid': 'mx', variant: 'modal' };
@@ -220,3 +220,5 @@ export const Default: ComponentStory<typeof Modal> = (args) => {
   </>
   );
 };
+
+

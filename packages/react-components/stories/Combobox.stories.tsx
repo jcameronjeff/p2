@@ -1,80 +1,18 @@
-import React, { Fragment, useEffect, useRef, useState } from 'react';
+import React, { useRef } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-
 import { Combobox, Transition } from '@headlessui/react';
-import { CheckCircleIcon, CheckIcon } from '@prism2/icons-react/24/solid';
-import { userEvent, within } from '@storybook/testing-library';
-import { popIn, popInSlow, sleep } from '../lib/utils';
-import { CancelCircleIcon, SearchIcon, SpinnerIcon } from '@prism2/icons-react';
-import { setDefaultResultOrder } from 'dns';
-import { ExtractProps } from '../lib/types';
+import { CheckCircleIcon } from '@prism2/icons-react/24/solid';
+import { popIn } from '../lib/utils';
+import { CancelCircleIcon, SearchIcon } from '@prism2/icons-react';
+import { usStates } from './_mockData';
 
 export default {
   title: 'Components/Combobox',
   component: Combobox,
 } as ComponentMeta<any>;
 
-const items = [
-  'Daward Reynolds',
-  'Darrn Towne',
-  'Darin Apple',
-  'Darin Cassler',
-  'Darin Hazelnuts',
-  'Benedict D Kessler',
-  'Katelyn Rohan',
-];
-let usStates = [
-  'Alabama',
-  'Alaska',
-  'Arizona',
-  'Arkansas',
-  'California',
-  'Colorado',
-  'Connecticut',
-  'Delaware',
-  'Florida',
-  'Georgia',
-  'Hawaii',
-  'Idaho',
-  'Illinois',
-  'Indiana',
-  'Iowa',
-  'Kansas',
-  'Kentucky',
-  'Louisiana',
-  'Maine',
-  'Maryland',
-  'Massachusetts',
-  'Michigan',
-  'Minnesota',
-  'Mississippi',
-  'Missouri',
-  'Montana',
-  'Nebraska',
-  'Nevada',
-  'New Hampshire',
-  'New Jersey',
-  'New Mexico',
-  'New York',
-  'North Carolina',
-  'North Dakota',
-  'Ohio',
-  'Oklahoma',
-  'Oregon',
-  'Pennsylvania',
-  'Rhode Island',
-  'South Carolina',
-  'South Dakota',
-  'Tennessee',
-  'Texas',
-  'Utah',
-  'Vermont',
-  'Virginia',
-  'Washington',
-  'West Virginia',
-  'Wisconsin',
-  'Wyoming',
-];
+
+
 const styles = {
   input: [
     'origin-center bg-gray-400/10 my-2',
