@@ -73,15 +73,15 @@ jobs:
     - uses: ./.github/actions/redeployer
       with:
         bucket-name: prism2-alpha-website
-        base-path: apps/demo-02-layout-tutorial/dist
+        base-path: apps/alpha-website/dist
         aws-account: '127382792002'
 
   build-ts-demo:
-    name: Build & Deploy - Example TS App
+    name: Build & Deploy - Icons Website
     timeout-minutes: 15
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
-      name: example-ts-app
+      name: icons-website
       url: https://prism2-example-ts-app.awsgdmshednp.manheim.com
 
     steps:
