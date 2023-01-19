@@ -4,6 +4,7 @@
   "version": "2.0.9-alpha.4",
   "files": [
     "dist",
+    "dist/style",
     "dist/style.css",
     "lib"
   ],
@@ -15,12 +16,6 @@
     "gitUsername": "man-TeamPrism",
     "gitEmail": "man.TeamPrism@coxautoinc.com",
     "commitMessage": "chore: Deploy Storybook to GitHub Pages"
-  },
-  "exports": {
-    ".": {
-      "import": "./dist/index.mjs",
-      "require": "./dist/index.umd.js"
-    }
   },
   "scripts": {
     "dev": "vite --config vite.web.config.js",

@@ -1,0 +1,28 @@
+name: Alpha Website Tracking
+
+on:
+  push:
+    branches:
+      - feature/alpha-website-*
+
+jobs:
+
+  build-alpha-site:
+    name: Build & Deploy - Prism2 Alpha Website
+    timeout-minutes: 15
+    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    environment:
+      name: alpha-website
+      url: https://prism2-alpha.awsgdmshednp.manheim.com
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - uses: ./.github/actions/redeployer
+      with:
+        bucket-name: prism2-alpha-website
+        base-path: apps/alpha-website/dist
+        aws-account: '127382792002'

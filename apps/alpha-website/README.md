@@ -1,58 +1,95 @@
-# Prism2 Project Template (React/JS)
+# Prism2 Typescript React
 
-This folder provides an out-of-the-box configuration of the Prism2 styling engine with recommended defaults.
+This folder contains a sample project configured to use Prism2 alongside Typescript and React. To bootstrap a project of your own with this template:
 
-## Quickstart (from scratch)
+## Quickstart
 
-- `npx create vite@2.9.5 my-prism2-app --template react`
-- `cd my-prism-app && npm install`
-- `npm install @prism2/tailwind-preset @prism2/react-components tailwindcss`
-- `npm run dev`
+### Step 0: Create a new app
 
-## Quickstart (copy folder)
+Create a new Vite project using their React Typescript template.
 
-- Clone or copy the contents of this folder.
-- `npm install`
-- `npm run dev`
+```
+pnpm create vite --template react-ts my-app && cd my-app
+```
 
-## What's included?
+### Bootstrap PostCSS Tailwind and Prism2
 
-- ViteJS Framework for dev, build and preview.
-- TailwindCSS
-- Prism2 React Components
-- Prism2 Preset for Tailwind
-  - Prism2 Tailwind Plugin (via preset)
-  - Prism2 Tailwind Theme (via preset)
-  - PostCSS configuration
+> **IMPORTANT**: This guide assumes that you have access to the CIA Artifactory and that you have [configured your package manager](#artifactory-configuration) to use it as a registry. For assistance with setup, visit the [#artifactory Slack channel](). The latest version of all packages is `2.0.8-alpha.1` as of this writing.
 
-## Recommended Extensions
+```bash
+pnpm add @prism2/tailwind-preset@alpha @prism2/react-components@alpha @prism2/icons@alpha tailwindcss postcss
+echo "module.exports = require('@prism2/tailwind-preset/postcss.config')" >> postcss.config.cjs
+```
 
-We strongly recommend using the [Tailwind Intellisense Extension](https://marketplace.visualstudio.com/items?itemName=bradlc.vscode-tailwindcss) for VSCode. It will provide autocompletion for all class names and lint for conflicting/redundant classes.
+You can ignore warnings about missing peer dependencies. This is a known issue - for now, things will still work as expected.
 
-![Using Tailwind Intellisense Extension](../../media/class-intellisense.gif)
+### Configure Tailwind
 
-## Using Themed Tailwind classes
+```
+pnpm tailwindcss init
+```
 
-In order to generate styles for classnames in your code, you must import Tailwind into your CSS files.
+> *(You will likely have to rename the created file to `tailwind.config.~~js~~cjs` for compatibility reasons in TypeScript)*
 
-```pcss
-// App.css
+Replace the contents of `tailwind.config.cjs` with the following:
+
+```js
+/* tailwind.config.cjs */
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  important: true,
+  content: [
+    './index.html',
+    './src/*.{vue,js,ts,jsx,tsx}',
+    './src/**/*.{vue,js,ts,jsx,tsx}',
+  ],
+  presets: [
+    require('@prism2/tailwind-preset')
+  ],
+}
+```
+
+### Inject our styles
+
+Import our library stylesheets.
+
+```css
+/* App.css */
+@import '@prism2/react-components';
+```
+
+We suggest importing the Tailwind libraries in a separate file. Live-reloading is drastically quicker as a result.
+
+```css
+/* index.css */
 @import 'tailwindcss/base';
-@import 'tailwindcss/utilities';
 @import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 ```
 
-## Using provided styles
+### Rock and roll
 
-Some of our React components ship with dedicated styles. You can import these into your project in a single file:
+```tsx
+// App.tsx
+import React from 'react'
+import './App.css'
 
-```pcss
-@import '../node_modules/@prism2/react-components/dist/style.css';
+const App = () => (
+  <div className='container p-4'>
+    <div className='prism-heading-1'>Branded Heading One</div>
+  </div>
+)
 ```
 
-Or each layer independently.
+### Artifactory Configuration
 
-```pcss
-@import '../node_modules/@prism2/react-components/dist/style/base.css';
-@import '../node_modules/@prism2/react-components/dist/style/fonts.css';
+In order to use Artifactory as your package registry, save a file named `.npmrc` to the root of your project. You will need to [log in to Artifactory](https://artifactory.coxautoinc.com/artifactory/) to acquire an authorization key.
+
+Navigate to your profile by clicking on your email address on the top right off the Artifactory dashboard. Copy your API key and paste into your `.npmrc`.
+
+```.npmrc
+registry=https://artifactory.coxautoinc.com/artifactory/api/npm/man-npm
+always-auth=true
+email=your.name@coxautoinc.com
+_auth=YOUR_ARTIFACTORY_KEY_HERE
 ```

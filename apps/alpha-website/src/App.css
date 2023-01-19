@@ -1,4 +1,36 @@
-@import '@prism2/react-components';
+/* We only need component styles because were using the TW plugins */
+@import '@prism2/react-components/dist/style/components.css';
+/* Roboto Variable injections */
+@import '@prism2/react-components/dist/style/fonts.css';
+/* Resets and global variables */
 @import 'tailwindcss/base';
-@import 'tailwindcss/utilities';
-@import 'tailwindcss/components';
+
+body,html {
+  @apply bg-white;
+}
+.section-header {
+  @apply prism-heading-4 flex items-center gap-1;
+  @apply icons:w-6 icons:text-blue-900;
+}
+
+.aux-button {
+  @apply font-light ml-auto text-blue-700 uppercase text-xs;
+}
+
+.search-count {
+  @apply rounded-full bg-gray-100 text-gray-900 text-xs leading-6 px-2 font-medium tracking-tight;
+}
+
+.tag-input {
+  @apply p-1 px-2;
+  @apply ring-1 ring-black ring-opacity-5;
+  @apply bg-slate-50;
+  @apply text-xs tracking-tight font-medium;
+  @apply inline-flex gap-1 items-center;
+  @apply rounded-xs shadow-sm;
+}
+
+.input-heading {
+  @apply uppercase font-semibold text-xxs text-gray-700 text-left;
+}
+
