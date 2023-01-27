@@ -1,4 +1,32 @@
-# @prism
+<!-- START doctoc generated TOC please keep comment here to allow auto update -->
+<!-- DON'T EDIT THIS SECTION, INSTEAD RE-RUN doctoc TO UPDATE -->
+# @prism2
+
+- [Developing Prism2](#developing-prism2)
+- [Starting a new project using Prism2](#starting-a-new-project-using-prism2)
+  - [Step 0: Create a new app](#step-0-create-a-new-app)
+  - [Bootstrap PostCSS Tailwind and Prism2](#bootstrap-postcss-tailwind-and-prism2)
+  - [Configure Tailwind](#configure-tailwind)
+  - [Inject our styles](#inject-our-styles)
+  - [Rock and roll](#rock-and-roll)
+- [Toolchain](#toolchain)
+  - [Stack](#stack)
+    - [turborepo](#turborepo)
+    - [pnpm](#pnpm)
+    - [vite](#vite)
+    - [esbuild](#esbuild)
+    - [tailwindcss](#tailwindcss)
+    - [postcss](#postcss)
+    - [typescript](#typescript)
+    - [docgen](#docgen)
+    - [storybook](#storybook)
+    - [husky](#husky)
+    - [headlessui](#headlessui)
+    - [github actions](#github-actions)
+- [Editor Configs](#editor-configs)
+- [Note on Commit Messages](#note-on-commit-messages)
+
+<!-- END doctoc generated TOC please keep comment here to allow auto update -->
 
 ![Prism2 Package Map](./media/p2-package-map.png)
 

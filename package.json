@@ -16,7 +16,8 @@
     "storybook": "turbo run storybook --scope=@prism2/react-components",
     "build-storybook": "turbo run build-storybook",
     "appdev": "turbo run dev --scope=example-vite-app",
-    "libdev": "turbo run dev --scope=@prism2/react-components"
+    "libdev": "turbo run dev --scope=@prism2/react-components",
+    "toc": "npx doctoc README.md --title '# @prism2'"
   },
   "engines": {
     "node": ">=10",
