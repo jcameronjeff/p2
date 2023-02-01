@@ -1,5 +1,6 @@
 /* eslint-disable import/no-extraneous-dependencies */
 /** @type {import('tailwindcss').Config} */
+
 const plugin = require('tailwindcss/plugin');
 module.exports = {
   important: true,
@@ -26,8 +27,8 @@ module.exports = {
           body: theme.colors.gray[600],
           headings: theme.colors.blue[800],
           highlightBg: theme.colors.blue[100],
-          border: theme.colors.slate[400],
-          ring: theme.colors.purple[400],
+          border: theme.colors.gray[200],
+          ring: theme.colors.blue[100],
         },
       }),
       borderColor: ({ theme }) => ({
@@ -36,7 +37,7 @@ module.exports = {
       }),
       borderWidth: ({ theme }) => ({
         ...theme.borderWidth,
-        DEFAULT: '2px',
+        DEFAULT: '0.5px',
       }),
       borderRadius: ({ theme }) => ({
         ...theme.width,
@@ -46,39 +47,37 @@ module.exports = {
         ...theme.ringColor,
         DEFAULT: theme('colors.prism.ring'),
       }),
-
     },
   },
   plugins: [
-    plugin(function ({ addBase, theme, addVariant }) {
-
-      // shorthand to style all child heading elements
+    plugin(function ({ matchComponents, theme, addVariant }) {
+      // Experiment #1 -- create avariant to style heading children
       addVariant('headings', ['& :is(h1,h2,h3,h4,h5,h6)']);
-      addBase({
-        [':root']: {
-          // this is a good place to *surface*  CSS named variables
-          ['--prism-ring-color']: theme('colors.prism.ring'),
-          ['--prism-border-color']: theme('colors.prism.border'),
-          ['--prism-body-color']: theme('colors.prism.body'),
+
+      /**
+       * Provides fixed scaling of X and Y padding with as single input.
+       * The left and right padding will always be double the initial padding.
+       * Example: `bx-2`
+       * Output: { padding: 2rem 4rem }
+       */
+      matchComponents(
+        {
+          bx: (value) => ({
+            '--tw-padding-base': value,
+            '--tw-padding-x': 'calc(var(--tw-padding-base) / 2)',
+            padding: 'var(--tw-padding-base)',
+            paddingTop: 'var(--tw-padding-x)',
+            paddingBottom: 'var(--tw-padding-x)',
+          }),
+          array: (value) => ({
+            gap: value,
+            alignItems: 'center',
+            display: 'flex',
+          }),
         },
-        ['* , :after, :before']: {
-          // this is a good place to *apply* globally
-          ['--prism-ring-color']: theme('colors.prism.ring'),
-          ['--prism-border-color']: theme('colors.prism.border'),
-          ['--prism-body-color']: theme('colors.prism.body'),
-        },
-        ['body,html']: {
-          color: theme('colors.prism.body'),
-        },
-        ['h1,h2,h3,h4,h5,h6']: {
-          color: theme('colors.prism.headings'),
-        },
-      });
-    }),
-    /**
-     * Trying a plugin for applying color schemes from a base
-     */
-    plugin(function ({ matchComponents, theme }) {
+        { values: theme('padding') },
+      );
+
       matchComponents(
         {
           paper: (value) => ({
@@ -90,9 +89,6 @@ module.exports = {
             ['--tw-caption-color']: value[500],
             ['--tw-border-color']: value[400],
             ['--tw-outline-color']: value[400],
-            '--tw-shadow-color': '#f00!important',
-            '--tw-shadow': 'var(--tw-shadow-colored)!important',
-
             ['--tw-ring-offset-shadow-color']: value[900],
             ['--tw-ring-offset-color']: value[200],
             ['--tw-ring-shadow-color']: value[800],
@@ -102,14 +98,8 @@ module.exports = {
             ['--tw-ring-width']: '1px',
             ['--tw-border-width-base']: '0.5px',
             borderRadius: theme('borderRadius.md'),
-            // borderTopLeftRadius: theme('borderRadius.lg'),
-            // borderBottomLeftRadius: theme('borderRadius.lg'),
-            borderTopWidth: 'var(--tw-border-width-base)',
-            borderBottomWidth: 'var(--tw-border-width-base)',
-            borderRightWidth: 'var(--tw-border-width-base)',
+            borderWidth: 'var(--tw-border-width-base)',
             borderStyle: 'solid',
-            borderLeftWidth: theme('borderWidth.8'),
-
             backgroundColor: 'var(--tw-bg-color)',
             borderColor: 'var(--tw-border-color)',
             outlineColor: 'var(--tw-outline-color)',

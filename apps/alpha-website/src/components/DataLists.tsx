@@ -6,7 +6,7 @@ import { CrossIcon } from '@prism2/icons-react';
 type MakeItem = { name: string, count: number };
 import '../App.css';
 
-export function FilterByMake(props: { data:MakeItem[], listLabel: string } & HTMLAttributes<HTMLDivElement>) {
+export function FilterByMake(props: { data:MakeItem[], listLabel: string, disabled?: boolean } & HTMLAttributes<HTMLInputElement>) {
   const results = props.data || stateList;
   const [filter, setFilter] = useState<MakeItem[]>([]);
   const [query, setQuery] = useState<string>('');
@@ -26,12 +26,13 @@ export function FilterByMake(props: { data:MakeItem[], listLabel: string } & HTM
       <input
         value={item.name}
         type='checkbox'
+        tabIndex={-1}
         className='prism-input form-checkbox w-4 flex-shrink-0'
         checked={selected}
         onChange={() => {}}
       />
-      <div className='text-sm text-left flex-shrink whitespace-nowrap overflow-hidden text-ellipsis'>{item.name}</div>
-      <div className='leading-5 px-2 search-count ui-active:bg-gray-300/50 ml-auto flex-shrink-0 font-light'>{item.count}</div>
+      <div className='text-xs text-left flex-shrink whitespace-nowrap overflow-hidden text-ellipsis'>{item.name}</div>
+      <div className='leading-4 px-2 search-count ui-active:bg-gray-300/50 text-xxs ml-auto flex-shrink-0 font-light'>{item.count}</div>
     </div>;
 
   const SelectionDiv = ({ item }: { item:MakeItem }) =>
@@ -43,13 +44,13 @@ export function FilterByMake(props: { data:MakeItem[], listLabel: string } & HTM
 
 
   return (
-    <Combobox defaultValue={filter} multiple onChange={(v) => setFilter(v)} as='div' className='relative'>
-      <div className={['flex flex-col relative space-evenly border-b w-full', props.className].join(' ')}>
+    <Combobox disabled={props.disabled} defaultValue={filter} multiple onChange={(v) => setFilter(v)} as='div' className=''>
+      <div className={['flex flex-col space-evenly border-b w-full', props.className].join(' ')}>
       <Combobox.Input
         onChange={(e) => setQuery(e.target.value)}
         displayValue={() => query}
         onKeyDown={handleKeyDown}
-        className='inline-flex flex-shrink-0 prism-input rounded-xs mb-2'
+        className='inline-flex prism-input disabled:bg-gray-50 flex-shrink-0 rounded-xs text-sm mb-2'
         placeholder={props.placeholder || 'Filter by makes'}
       />
       <h5 className='input-heading'>{props.listLabel}</h5>

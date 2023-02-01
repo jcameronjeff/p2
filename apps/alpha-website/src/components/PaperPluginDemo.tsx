@@ -18,7 +18,7 @@ export function PaperPluginDemo() {
   return (
     <div className=' flex flex-wrap gap-8 items-center justify-center mb-8'>
       {['paper-green', 'paper-blue', 'paper-yellow', 'paper-indigo', 'paper-orange', 'paper-gray', 'paper-slate', 'paper-stone' ].map(i => [
-        'shadow-md',
+        'shadow-md hover:ring transition-color duration-200',
         'border-none shadow',
         'outline headings:text-xl headings:leading-8',
         'outline dark tinted',
