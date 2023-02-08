@@ -16,21 +16,6 @@ module.exports = {
   ],
   theme: {
     extend: {
-      colors: ({ theme }) => ({
-        ...theme.colors,
-        // Experimenting with middle-layer token methods for applying
-        // a design system or pre-defined theming convention.
-        // This also maps to default values on the related utilites.
-        // e.g. the `.border` utility will be colored as defined here. No need
-        // for a second `.border-slate-400`.
-        prism: {
-          body: theme.colors.gray[600],
-          headings: theme.colors.blue[800],
-          highlightBg: theme.colors.blue[100],
-          border: theme.colors.gray[200],
-          ring: theme.colors.blue[100],
-        },
-      }),
       borderColor: ({ theme }) => ({
         ...theme.borderColor,
         DEFAULT: theme('colors.prism.border'),
