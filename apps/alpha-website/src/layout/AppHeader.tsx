@@ -1,7 +1,7 @@
 import { Popover, Transition } from '@headlessui/react';
 import { ChevronDownIcon, SearchIcon } from '@prism2/icons-react';
 import { Button, popInOut } from '@prism2/react-components';
-import { SearchMode } from './SearchMode';
+import { SearchMode } from './SearchMode/SearchMode';
 
 export const AppHeader = () => (
 

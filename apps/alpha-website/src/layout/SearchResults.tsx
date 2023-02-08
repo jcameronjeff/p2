@@ -1,14 +1,50 @@
-import { Listbox } from '@headlessui/react';
-import { ArrowLeftIcon, ArrowRightIcon } from '@prism2/icons-react';
-import { ChevronDownIcon } from '@prism2/icons-react/24/outline';
+import { Listbox, Menu } from '@headlessui/react';
+import { ArrowDownIcon, ArrowUpIcon, DetailsIcon, ListIcon } from '@prism2/icons-react';
+import { ChevronUpDownIcon, TableCellsIcon  } from '@prism2/icons-react/24/outline';
 import { Button, Tab } from '@prism2/react-components';
-import { useMemo, useState } from 'react';
-import { SingleVehicle, TabularVehicle } from '../components/SingleVehicleDetail';
+import { Fragment, HTMLAttributes, useMemo, useState } from 'react';
+import { SearchPagination } from '../components/SearchPagination';
+import { SingleVehicle } from '../components/SingleVehicle/SingleVehicleDetail';
 import { newAutoSrpVehicles as srpVehicles } from '../lib/_mockResultsAuto';
 import { SRPContext } from '../SRPContext';
 
 
-export function SearchResults() {
+export function SortSelect() {
+  return (
+    <Listbox className='relative' as='div' defaultValue="Time Remaining">
+    {({ value }) => (
+      <>
+      <Listbox.Button className='prism-input rounded-xs text-xs inline-flex items-center gap-2'>
+        {value}
+        <ChevronUpDownIcon />
+      </Listbox.Button>
+      <Listbox.Options className='prism-menu absolute z-50 text-xs w-auto min-w-full mt-[1px] shadow-lg'>
+        {['Odometer', 'Time Remaining', 'Year', 'Condition', 'Current Big', 'Adjusted MMR'].map(label => (
+          <Fragment key={label}>
+          <Listbox.Option
+            as='div'
+            key={label + '-desc-option'}
+            value={label + ' Desc'}
+            className='prism-menu-item whitespace-nowrap icons:w-3 icons:mr-auto'>
+            {label} <ArrowDownIcon />
+          </Listbox.Option>
+          <Listbox.Option
+            as='div'
+            key={label + '-asc-option'}
+            value={label + ' Asc'}
+            className='prism-menu-item whitespace-nowrap icons:w-3 icons:mr-auto'>
+            {label} <ArrowUpIcon />
+          </Listbox.Option>
+          </Fragment>
+        ))}
+      </Listbox.Options>
+      </>
+    )}
+  </Listbox>
+  );
+}
+
+export function SearchResults(props:HTMLAttributes<HTMLDivElement>) {
   const [workbookItems, setWorkbookItems] = useState<string[]>([]);
   const [hiddenItems, setHiddenItems] = useState<string[]>([]);
 
@@ -31,68 +67,66 @@ export function SearchResults() {
   const visibleVehicles = srpVehicles.items.filter(i => !hiddenItems.includes(i.id));
   const hiddenVehicles = srpVehicles.items.filter(i => hiddenItems.includes(i.id));
   const workbookVehicles = srpVehicles.items.filter(i => workbookItems.includes(i.id));
-
+  const [itemIndex, setItemIndex] = useState(0);
+  const [pageSize, setPageSize] = useState(5);
+  const [displayMode, setDisplayMode] = useState<'detail' | 'table' | 'list'>('detail');
   const ctx = useMemo(() => ({
+    data: srpVehicles.items,
+    itemCount: srpVehicles.items.length,
     hiddenItems,
     workbookItems,
     toggleHideItem,
     toggleWorkbookItems,
-  }), [hiddenItems, workbookItems, setWorkbookItems, setHiddenItems]);
+    itemIndex,
+    setItemIndex,
+    pageSize,
+    displayMode,
+    setPageSize,
+  }), [hiddenItems, workbookItems, setWorkbookItems, setHiddenItems, pageSize, itemIndex, displayMode]);
 
-  const [itemIndex, setItemIndex] = useState(0);
-  const [pageSize, setPageSize] = useState(5);
+
+
 
   return (
     <SRPContext.Provider value={ctx}>
+      <div {...props}>
       <Tab.Group>
-        <Tab.List as='div' className='flex mb-4 border-b-0'>
-          <Tab className='font-light ui-selected:font-medium'>Search Results</Tab>
-          <Tab className='font-light ui-selected:font-medium'>Workbook</Tab>
-          <Tab className='font-light ui-selected:font-medium'>Hidden</Tab>
-          <Tab className='font-light ui-selected:font-medium'>Advanced</Tab>
-          <div className='ml-auto text-xs font-medium tracking-tighter text-gray-600 p-2'>
-            {itemIndex + 1}-{Math.min(itemIndex + pageSize, srpVehicles.items.length)} of {srpVehicles.items.length}
-          </div>
-          <div className='flex outline rounded outline-gray-200 outline-[0.5px] shadow divide-x self-center'>
-            <Button
-              className='text-xs tracking-tighter uppercase rounded-r-none hover:bg-gray-50 disabled:hover:bg-inherit disabled:text-inherit ring-blue-200 ring-offset-0 group text-gray-600'
-              variant='fill'
-              disabled={itemIndex < 1}
-              onClick={() => setItemIndex(Math.max(itemIndex - pageSize, 0))}>
-              <ArrowLeftIcon
-                className='w-3 text-gray-400 active:text-blue-700 group-hover:text-blue-700 group-focus-within:text-blue-700'
-              />
-                <span className='hidden lg:inline'>Previous</span>
-            </Button>
-            <Listbox onChange={setPageSize} as='div' className='relative z-50'>
-              <Listbox.Button
-                variant='fill'
-                className='ring-offset-0 rounded-none text-xs h-full tracking-tighter text-gray-600 hover:bg-gray-50 ring-blue-300'
-                as={Button}>
-                {pageSize} <span className='hidden lg:inline -ml-1'>per page</span>
-                <ChevronDownIcon className='w-4' />
-              </Listbox.Button>
-              <Listbox.Options className='absolute prism-menu'>
-                <Listbox.Option className='prism-menu-item text-xs p-2' value={2}>2</Listbox.Option>
-                <Listbox.Option className='prism-menu-item text-xs p-2' value={5}>5</Listbox.Option>
-                <Listbox.Option className='prism-menu-item text-xs p-2' value={10}>10</Listbox.Option>
-                <Listbox.Option className='prism-menu-item text-xs p-2' value={20}>20</Listbox.Option>
-              </Listbox.Options>
-            </Listbox>
-            <Button
-              className='text-xs tracking-tighter ring-offset-0 uppercase hover:bg-gray-50 disabled:hover:bg-inherit disabled:text-inherit ring-blue-200 rounded-l-none group text-gray-600'
-              variant='fill'
-              disabled={itemIndex + pageSize + 1 > srpVehicles.items.length}
-              onClick={() => setItemIndex(itemIndex + pageSize)}>
-              <span className='hidden lg:inline'>Next</span>
-              <ArrowRightIcon
-                className='w-3 text-gray-400 active:text-blue-700 group-hover:text-blue-700 group-focus-within:text-blue-700'
-              />
-            </Button>
-          </div>
-        </Tab.List>
+        <div className="flex border-b-0 flex-wrap mb-4 space-y-2">
+          <Tab.List as='div' className='flex'>
+            <Tab className='font-light ui-selected:font-medium'>Search Results</Tab>
+            <Tab className='font-light ui-selected:font-medium'>Workbook</Tab>
+            <Tab className='font-light ui-selected:font-medium'>Hidden</Tab>
+          </Tab.List>
+        </div>
         <Tab.Panels>
-          <Tab.Panel as='div' className='space-y-4'>
+          <div className="bg-gray-50 p-2 mb-4 flex gap-4 items-center">
+            <div className='flex items-center gap-2 flex-grow'>
+              <div className='prism-label text-xs'>Sort by</div>
+              <SortSelect />
+            </div>
+            <div className="ml-auto border rounded-sm border-blue-700 divide-x divide-blue-700">
+              <Button
+                variant='text'
+                className='text-xs px-2 rounded-r-none'
+                onClick={() => setDisplayMode('detail')}>
+                <DetailsIcon />
+              </Button>
+              <Button
+                variant='text'
+                className='text-xs px-2 rounded-none'
+                onClick={() => setDisplayMode('table')}>
+                <TableCellsIcon />
+              </Button>
+              <Button
+                variant='text'
+                className='text-xs px-2 rounded-l-none'
+                onClick={() => setDisplayMode('list')}>
+                <ListIcon />
+              </Button>
+            </div>
+            <SearchPagination className="flex justify-end text-sm h-8 items-center gap-2" />
+          </div>
+          <Tab.Panel as='div' className={displayMode === 'detail' ? 'space-y-4' : ''}>
             {visibleVehicles.slice(itemIndex, itemIndex + pageSize).map(item => (
               <SingleVehicle {...item} key={item.id} />
             ))}
@@ -107,14 +141,9 @@ export function SearchResults() {
               <SingleVehicle {...item} key={item.id} />
             ))}
           </Tab.Panel>
-          <Tab.Panel as='div' className='space-y-4'>
-            {visibleVehicles.map(item => (
-              <TabularVehicle {...item} key={item.id} />
-            ))}
-          </Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
+      </div>
     </SRPContext.Provider>
   );
-
 }

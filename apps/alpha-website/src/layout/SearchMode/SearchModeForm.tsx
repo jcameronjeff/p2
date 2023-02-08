@@ -1,9 +1,9 @@
 import { ChevronDownIcon } from '@prism2/icons-react';
 import { Switch, Button, Tab, useToggle } from '@prism2/react-components';
-import { auctionList, makesList, odometerScale, stateList } from '../lib/_mockData';
-import { FilterByMake } from './DataLists';
-import { MyListbox } from './ListboxStatic';
-import { YearRange } from './YearRange';
+import { auctionList, makesList, odometerScale, stateList } from '../../lib/_mockData';
+import { FilterByMake } from '../../components/FilterByMake';
+import { MyListbox } from '../../components/ListboxStatic';
+import { YearRange } from '../../components/SingleVehicle/YearRange';
 
 
 function LocationFilters() {

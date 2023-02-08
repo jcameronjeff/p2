@@ -1,7 +1,7 @@
 import { Listbox } from '@headlessui/react';
 import { TriangleDownIcon } from '@prism2/icons-react';
 import { useMemo, useState } from 'react';
-import { yearsList } from '../lib/_mockData';
+import { yearsList } from '../../lib/_mockData';
 
 function YearSelect(props: {
   value: any,

@@ -21,10 +21,10 @@
   "author": "Darin Cassler",
   "license": "ISC",
   "dependencies": {
+    "@headlessui/tailwindcss": "^0.1.1",
     "@prism2/tailwind-elements": "workspace:*",
     "@prism2/tailwind-theme": "workspace:*",
     "@tailwindcss/forms": "^0.5.0",
-    "@headlessui/tailwindcss": "^0.1.1",
     "@tailwindcss/typography": "^0.5.2",
     "autoprefixer": "^10.4.5",
     "cssnano": "^5.1.7",
@@ -34,6 +34,6 @@
     "postcss-extend-rule": "^4.0.0",
     "postcss-import": "^14.1.0",
     "postcss-minify": "^1.1.0",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "3.2"
   }
 }

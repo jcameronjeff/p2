@@ -1,9 +1,9 @@
 /* We only need component styles because were using the TW plugins */
+@import 'tailwindcss/base';
 @import '@prism2/react-components';
 /* Roboto Variable injections */
 @import '@prism2/react-components/dist/style/fonts.css';
 /* Resets and global variables */
-@import 'tailwindcss/base';
 
 body,html {
   @apply bg-white;

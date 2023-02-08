@@ -1,7 +1,7 @@
 import { Popover } from '@headlessui/react';
 import { CrossIcon, SearchIcon } from '@prism2/icons-react';
-import { SavedSearches } from '../components/SavedSearch';
-import { SearchModeForm } from '../components/SearchModeForm';
+import { SavedSearches } from './SavedSearch';
+import { SearchModeForm } from './SearchModeForm';
 
 
 export function SearchMode() {

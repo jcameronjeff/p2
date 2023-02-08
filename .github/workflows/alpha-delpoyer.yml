@@ -3,7 +3,7 @@ name: Alpha Website Tracking
 on:
   push:
     branches:
-      - feature/alpha-website-*
+      - feature/alpha-*
 
 jobs:
 
