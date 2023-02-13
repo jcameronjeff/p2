@@ -15,7 +15,7 @@ export type VehicleInterface = typeof srpVehicles.items[0];
 export type SingleVehicleProps = HTMLAttributes<HTMLDivElement> & VehicleInterface;
 export const SingleVehicleContext = createContext<VehicleInterface>(srpVehicles.items[0]);
 
-export function VehicleTitle(props:HTMLAttributes<HTMLHeadingElement>) {
+export function VehicleTitle(props:HTMLAttributes<HTMLSpanElement>) {
   const { year, sourceMake, models, trims } = useContext(SingleVehicleContext);
   const title = `${year} ${sourceMake} ${models.join(', ')} ${trims.join(', ')}`;
   return <span {...props}>{title}</span>;
@@ -32,7 +32,7 @@ export function VehicleStatline(props:HTMLAttributes<HTMLDivElement>)  {
 export function VehicleDescription(props: HTMLAttributes<HTMLDivElement>)  {
   const {  vin } = useContext(SingleVehicleContext);
   return <div {...props}>
-    <h3 className='uppercase text-blue-700 font-bold tracking-tight leading-6'>
+    <h3 className='uppercase text-blue-700 font-bold tracking-tight leading-4 py-1.5'>
       <VehicleTitle />
     </h3>
     <h6 className='text-gray-400 text-xs capitalize font-medium pb-2 tracking-tight'>
@@ -56,7 +56,7 @@ export function VehicleToolbar(props:HTMLAttributes<HTMLDivElement>) {
   }, 250);
   return <div {...props}>
     <Disclosure>
-      <div className="flex gap-2">
+      <div className="flex gap-2 justify-center md:justify-start">
       <Disclosure.Button as={Button} className='p-2 bg-white uppercase text-xxs sm:text-xs tracking-tight font-bold pr-3'>
         <EditIcon />
         Add Note
@@ -150,8 +150,8 @@ export function VehicleOverview(props:HTMLAttributes<HTMLDivElement>) {
   return <div {...props}>
     <div className="flex flex-col h-full">
 
-    <div className="flex gap-2 p-1 flex-grow">
-      <div className="w-1/4">
+    <div className="grid grid-cols-[200px,1fr] gap-2 p-1 flex-grow">
+      <div className="w-full">
         <VehicleImage />
         <div className="grid sm:grid-cols-2 gap-2 text-xs py-2 text-center">
           {[interiorColor, exteriorColor].map( (color, idx) => (
@@ -162,13 +162,13 @@ export function VehicleOverview(props:HTMLAttributes<HTMLDivElement>) {
           ))}
         </div>
       </div>
-      <div className="p-1 w-3/4 text-left space-y-2 pb-4">
+      <div className="w-full text-left space-y-2 pb-4">
 
         <div className="flex px-2">
         <VehicleDescription className='' />
-          <div className='ml-auto text-right p-1 px-4 space-y-4'>
+          <div className='ml-auto text-right space-y-4'>
             {/* <PriceDisplay label='Base MMR' value={valuationsMmr.baseValue} /> */}
-            <p className='text-blue-900 text-sm'>On Sale</p>
+            <p className='text-blue-900 text-sm inline-block whitespace-nowrap'>On Sale</p>
             {valuationsMmr && valuationsMmr.adjustedValue && (
               <div>
                 <PriceDisplay label='Adjusted MMR' value={valuationsMmr.adjustedValue} />
@@ -190,7 +190,7 @@ export function VehicleOverview(props:HTMLAttributes<HTMLDivElement>) {
             )}
           </div>
         </div>
-        <SellerInfo className="grid grid-cols-2 text-sm " />
+        <SellerInfo className="grid md:block lg:grid grid-cols-2 text-sm " />
       </div>
     </div>
     <div className="self-end w-full">
@@ -207,44 +207,52 @@ export function VehicleCard({ id }: { id:string }) {
     <div className='w-full shadow border border-gray-100 rounded overflow-clip' key={id}>
       <div className='md:flex'>
         <VehicleOverview className='flex-grow' />
-        <AuctionUI className='md:w-48 border-l flex-shrink-0 ml-auto hidden sm:flex-col sm:flex' />
+        <AuctionUI className='xl:w-64 lg:w-48 md:w-40 border-l border-t flex-shrink-0 ml-auto sm:flex-col sm:flex' />
       </div>
-      <VehicleToolbar className='bg-gray-50 p-2 justify-start border-t' />
+      <VehicleToolbar className='bg-gray-50 p-2 md:justify-start border-t' />
     </div>
   );
 }
 
 export function VehicleListItem() {
-  const { interiorColor, exteriorColor, source, odometer, odometerUnits, driveTrain, vin } = useContext(SingleVehicleContext);
+  const { allowBuyNow, id, interiorColor, exteriorColor, source, odometer, odometerUnits, driveTrain, vin, buyNowPrice } = useContext(SingleVehicleContext);
+  const { toggleHideItem } = useContext(SRPContext);
   return (
-    <div className="flex items-center gap-4 border-b pb-2">
-      <div className="w-20 text-left text-sm">
+    <div className="flex items-center gap-4 border-b p-1">
+      <div className="w-12 text-left text-xs ">
         {source}
       </div>
-      <div className="w-12 justify-center gap-1 flex items-center">
+      <div className="justify-center flex-col gap-1 flex lg:flex-row items-center">
         {[interiorColor, exteriorColor].map( (color, idx) => (
-          <div className='flex gap-2 text-center justify-center py-1' key={color + '-' + idx}>
+          <div className='flex text-center justify-center' key={color + '-' + idx}>
             <div style={{ backgroundColor: color }} className='border h-4 w-4 rounded-full' />
             {/* <span className='leading-4'>{color}</span> */}
           </div>
         ))}
       </div>
       <div className='text-left flex-grow'>
-        <VehicleTitle className='uppercase text-base font-bold text-blue-800 leading-8' /><br />
-        <div className="flex gap-4 text-sm">
+        <VehicleTitle className='uppercase font-bold text-blue-800 inline-block text-sm lg:text-base' /><br />
+        <div className="flex gap-4 text-xs leading-tight">
           <div>{vin}</div>
-          <div className='ml-auto'>{odometer}{odometerUnits}</div>
-          <div>{driveTrain}</div>
         </div>
       </div>
-      <div className="w-12">
+      <div className='ml-auto text-xs w-12 flex-shrink-0'>{odometer}{odometerUnits}</div>
+      <div className='text-xs w-32 flex-shrink-0 hidden lg:block'>{driveTrain}</div>
+      <div className="w-10 flex-shrink-0">
         <div className="rounded-xs outline outline-orange-500 inline-flex">
           <div className="bg-orange-500 p-0.5 text-white text-xs leading-3">CR</div>
           <div className="bg-white p-0.5 px-1 text-xs leading-3">5</div>
         </div>
       </div>
-      <div className="w-48">
-        Buy Now
+      <div className="w-24 lg:w-32 uppercase text-blue-800 text-sm flex-shrink-0">
+        {source === 'Simulcast' && <><span className='hidden lg:inline'>Enter</span> Proxy Bid</>}
+        {allowBuyNow && <span>${buyNowPrice?.toLocaleString()}</span>}
+
+      </div>
+      <div className='w-12 flex-shrink-0'>
+        <Button variant='text'>
+          <BlockedIcon onClick={() => toggleHideItem(id)}className='w-4'/>
+        </Button>
       </div>
     </div>
   );

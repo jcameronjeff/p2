@@ -1,5 +1,5 @@
 import { Listbox } from '@headlessui/react';
-import { ChevronDownLightIcon, TriangleDownIcon } from '@prism2/icons-react';
+import { TriangleDownIcon } from '@prism2/icons-react';
 import { useState } from 'react';
 import { stateList } from '../lib/_mockData';
 
@@ -20,13 +20,13 @@ export const MyListbox:React.FC<{ data?:typeof stateList, defaultValue?: typeof 
           <TriangleDownIcon className='w-5' />
         </div>
       </Listbox.Button>
-      <Listbox.Options className='paper-gray bx-1 outline text-sm tracking-tight shadow-xl w-full max-h-72 overflow-auto absolute outline-slate-300 mt-2'>
+      <Listbox.Options className='prism-menu absolute mt-2 h-64'>
         {data.map((state) => (
           <Listbox.Option
             key={state.name}
             value={state}
             as='div'
-            className='bx-4 border-none rounded-sm flex ui-not-selected:ui-active:bg-blue-50 ui-not-selected:ui-active:text-black ui-selected:bg-blue-700 ui-selected:text-white ui-selected:ui-active:bg-blue-800'
+            className='prism-menu-item'
           >
             {state.name}
           </Listbox.Option>

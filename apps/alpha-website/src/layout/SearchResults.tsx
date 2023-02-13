@@ -1,5 +1,5 @@
-import { Listbox, Menu } from '@headlessui/react';
-import { ArrowDownIcon, ArrowUpIcon, DetailsIcon, ListIcon } from '@prism2/icons-react';
+import { Listbox } from '@headlessui/react';
+import { ArrowDownIcon, ArrowUpIcon, DetailsIcon, ExportIcon, ListIcon, PlusCircleIcon, PrinterIcon } from '@prism2/icons-react';
 import { ChevronUpDownIcon, TableCellsIcon  } from '@prism2/icons-react/24/outline';
 import { Button, Tab } from '@prism2/react-components';
 import { Fragment, HTMLAttributes, useMemo, useState } from 'react';
@@ -97,14 +97,28 @@ export function SearchResults(props:HTMLAttributes<HTMLDivElement>) {
             <Tab className='font-light ui-selected:font-medium'>Workbook</Tab>
             <Tab className='font-light ui-selected:font-medium'>Hidden</Tab>
           </Tab.List>
+          <div className="ml-auto text-sm border rounded-sm border-blue-700 divide-x divide-blue-700">
+            <Button variant='text' className='text-xs uppercase rounded-r-none'>
+              <PlusCircleIcon />
+              <span className='hidden md:inline'>Add All</span>
+            </Button>
+            <Button variant='text' className='text-xs uppercase rounded-none'>
+              <ExportIcon />
+              <span className='hidden md:inline'>Export</span>
+            </Button>
+            <Button variant='text' className='text-xs uppercase rounded-l-none'>
+              <PrinterIcon />
+              <span className='hidden md:inline'>Print</span>
+            </Button>
+          </div>
         </div>
         <Tab.Panels>
           <div className="bg-gray-50 p-2 mb-4 flex gap-4 items-center">
-            <div className='flex items-center gap-2 flex-grow'>
+            <div className='flex items-center gap-2 flex-grow flex-shrink-0'>
               <div className='prism-label text-xs'>Sort by</div>
               <SortSelect />
             </div>
-            <div className="ml-auto border rounded-sm border-blue-700 divide-x divide-blue-700">
+            <div className="ml-auto border rounded-sm border-blue-700 divide-x divide-blue-700 flex-shrink-0">
               <Button
                 variant='text'
                 className='text-xs px-2 rounded-r-none'
@@ -124,7 +138,7 @@ export function SearchResults(props:HTMLAttributes<HTMLDivElement>) {
                 <ListIcon />
               </Button>
             </div>
-            <SearchPagination className="flex justify-end text-sm h-8 items-center gap-2" />
+            <SearchPagination className="flex justify-end text-sm h-8 items-center md:gap-2" />
           </div>
           <Tab.Panel as='div' className={displayMode === 'detail' ? 'space-y-4' : ''}>
             {visibleVehicles.slice(itemIndex, itemIndex + pageSize).map(item => (

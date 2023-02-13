@@ -7,7 +7,7 @@ export function App() {
   return (
     <div className='text-center'>
       <AppHeader />
-      <div className="container mt-20 md:grid md:grid-cols-[220px,1fr] gap-8">
+      <div className="container mt-24 pt-4 md:grid md:grid-cols-[220px,1fr] gap-8">
         <AppSidebar className='hidden md:block' />
         <SearchResults />
       </div>

@@ -1,8 +1,5 @@
 import { createContext } from 'react';
 import { SingleVehicleProps } from './components/SingleVehicle/SingleVehicleDetail';
-import { newAutoSrpVehicles } from './lib/_mockResultsAuto';
-
-
 export interface SRPContextI {
   data: SingleVehicleProps[],
   itemCount: number,

@@ -1,5 +1,5 @@
 import { Listbox } from '@headlessui/react';
-import { ArrowLeftIcon, ArrowRightIcon, ChevronDownIcon } from '@prism2/icons-react';
+import { ChevronDownIcon, ChevronLeftIcon, ChevronRightIcon } from '@prism2/icons-react';
 import { Button } from '@prism2/react-components';
 import { HTMLAttributes, useContext } from 'react';
 import { SRPContext } from '../SRPContext';
@@ -21,12 +21,12 @@ export function SearchPagination(props: HTMLAttributes<HTMLDivElement>) {
   const goToNext = () => setItemIndex(itemIndex + pageSize);
   return (
     <div {...props}>
-      <Button variant='text' className='border border-blue-700 text-xs' disabled={isFirstPage} onClick={goToPrevious}>
-        <ArrowLeftIcon />
+      <Button variant='text' className='border border-blue-700 text-xs px-1 md:px-2' disabled={isFirstPage} onClick={goToPrevious}>
+        <ChevronLeftIcon />
         <span className='hidden lg:inline uppercase'>Previous</span>
       </Button>
       <Listbox onChange={setPageSize} as='div' className='relative'>
-        <Listbox.Button as={Button} variant="text" className='h-8 text-xs p-2' >
+        <Listbox.Button as={Button} variant="text" className='h-8 text-xs p-2 px-1 md:px-2' >
           <PaginationLocation />
           <ChevronDownIcon />
         </Listbox.Button>
@@ -37,9 +37,9 @@ export function SearchPagination(props: HTMLAttributes<HTMLDivElement>) {
           <Listbox.Option className='prism-menu-item text-xs p-2' value={20}>20</Listbox.Option>
         </Listbox.Options>
       </Listbox>
-      <Button variant='text' className='border  border-blue-700 text-xs' disabled={isLastPage} onClick={goToNext}>
+      <Button variant='text' className='border  border-blue-700 text-xs px-1 md:px-2' disabled={isLastPage} onClick={goToNext}>
         <span className='hidden lg:inline uppercase'>Next</span>
-        <ArrowRightIcon />
+        <ChevronRightIcon />
       </Button>
     </div>
   );

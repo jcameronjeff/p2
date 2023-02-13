@@ -1,9 +1,11 @@
-import { ChevronDownIcon } from '@prism2/icons-react';
+import { ChevronDownIcon, TriangleDownIcon } from '@prism2/icons-react';
 import { Switch, Button, Tab, useToggle } from '@prism2/react-components';
 import { auctionList, makesList, odometerScale, stateList } from '../../lib/_mockData';
 import { FilterByMake } from '../../components/FilterByMake';
 import { MyListbox } from '../../components/ListboxStatic';
 import { YearRange } from '../../components/SingleVehicle/YearRange';
+import { Listbox } from '@headlessui/react';
+import { ChevronUpDownIcon, StarIcon } from '@prism2/icons-react/24/solid';
 
 
 function LocationFilters() {
@@ -44,20 +46,54 @@ function LocationFilters() {
 }
 
 function ConditionFilter() {
+
+  let stars = [
+    <></>,
+    <><StarIcon /></>,
+    <><StarIcon /><StarIcon /></>,
+    <><StarIcon /><StarIcon /><StarIcon /></>,
+    <><StarIcon /><StarIcon /><StarIcon /><StarIcon /></>,
+    <><StarIcon /><StarIcon /><StarIcon /><StarIcon /><StarIcon /></>,
+  ];
   return (
-      <div className="flex gap-2 items-center justify-between">
-        <select className='flex-grow prism-select rounded-sm h-10 py-0'>
-          {['0.0', '0.5', '1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'].map(val => (
-            <option>{val}</option>
-          ))}
-          <ChevronDownIcon />
-        </select>
-        <span className='prism-label text-2xl'>&mdash;</span>
-        <select className='flex-grow prism-select rounded-sm h-10 py-0'>
-          {['0.0', '0.5', '1.0', '1.5', '2.0', '2.5', '3.0', '3.5', '4.0', '4.5', '5.0'].map(val => (
-            <option>{val}</option>
-          ))}
-        </select>
+      <div className="grid grid-cols-2 gap-2 items-center justify-between relative">
+         <Listbox defaultValue={0} as='div' className='relative flex-grow'>
+          <Listbox.Button className='prism-input rounded-xs flex w-full h-10 items-center relative'>{({ value }) => (
+            <>
+              <span className='w-5 text-left'>{value}</span>
+              {stars[value]}
+              <TriangleDownIcon className='right-2 ml-auto' />
+            </>
+          )}
+          </Listbox.Button>
+          <Listbox.Options className='prism-menu absolute top-full z-50'>
+            {[0, 1, 2, 3, 4, 5].map(x => (
+              <Listbox.Option className='prism-menu-item icons:w-4 justify-start gap-1 font-mono' value={x}>
+                <span className='w-5 text-left'>{x}</span>
+                {stars[x]}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Listbox>
+        <Listbox defaultValue={5} as='div' className='relative flex-grow'>
+          <Listbox.Button className='prism-input rounded-xs flex w-full h-10 items-center relative'>{({ value }) => (
+           <>
+              <span className='w-5 text-left'>{value}</span>
+              {stars[value]}
+              <TriangleDownIcon className='right-2 ml-auto' />
+            </>
+          )}
+          </Listbox.Button>
+          <Listbox.Options className='prism-menu absolute top-full z-50'>
+            {[0, 1, 2, 3, 4, 5].map(x => (
+              <Listbox.Option className='prism-menu-item icons:w-4 justify-start gap-1 font-mono' value={x}>
+                <span className='w-5 text-left'>{x}</span>
+                {stars[x]}
+              </Listbox.Option>
+            ))}
+          </Listbox.Options>
+        </Listbox>
+
       </div>
   );
 }

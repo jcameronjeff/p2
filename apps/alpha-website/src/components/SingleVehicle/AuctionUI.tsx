@@ -27,21 +27,26 @@ export function AuctionCountdown(props:HTMLAttributes<HTMLDivElement> & { until:
   );
 }
 export function AuctionUI(props:HTMLAttributes<HTMLDivElement>) {
-  const { buyNowPrice, startingBidPrice, auctionEndTime, allowBuyNow, source } = useContext(SingleVehicleContext);
+  const { buyNowPrice, startingBidPrice, auctionEndTime, allowBuyNow, source, laneNumber, runNumber } = useContext(SingleVehicleContext);
   return <div {...props}>
-    <div className="bg-blue-800 text-white h-6 text-xs leading-6">{source}</div>
-    <div className='text-center text-sm text-gray-800 space-y-4'>
-      <div className="p-4">
+    <div className="hidden bg-blue-800 text-white h-6 text-xs leading-6 sm:block">{source}</div>
+    <div className='text-center text-sm text-gray-800 space-y-4 flex md:block'>
+      <div className="p-4 flex md:block items-center w-full gap-4 justify-evenly">
+        {source === 'Simulcast' && <>
+          <p className='md:mb-2'><span className='pr-1'>Simulcast</span> {laneNumber} / {runNumber}</p>
+          <Button variant='text' className='uppercase font-light lg:text-base'>Enter Sale</Button>
+          <Button variant='text' className='uppercase font-regular lg:text-base'>Proxy Bid</Button>
+        </>}
         {startingBidPrice && <PriceDisplay label='Starting Bid' value={startingBidPrice} />}
         {allowBuyNow && buyNowPrice && <PriceDisplay label='Buy Now' value={buyNowPrice} />}
       </div>
     </div>
-    <div className="border-t mt-auto p-4 space-y-2">
+    <div className="border-t mt-auto p-2 flex md:block items-center justify-evenly gap-4 md:space-y-2">
       <div className="flex items-center gap-1 justify-center flex-wrap">
         <span className='prism-label text-xs'>{'Ends in'}</span>
         <AuctionCountdown className='text-lg tracking-tight inline-block' until={auctionEndTime} />
       </div>
-      <Button variant='fill' className='bg-blue-800 text-white' >Make offer</Button>
+      <Button variant='fill' className='bg-blue-800 text-white uppercase font-regular text-sm' >Make offer</Button>
     </div>
   </div>;
 }
