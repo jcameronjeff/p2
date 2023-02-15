@@ -16,6 +16,18 @@ module.exports = {
   ],
   theme: {
     extend: {
+      keyframes: {
+        load: {
+          '0%': { transform: 'rotate(0deg)', opacity: 1 },
+          '25%': { transform: 'rotate(90deg)', opacity: 0.5 },
+          '50%': { transform: 'rotatate(180deg)', opacity: 1 },
+          '75%': { transform: 'rotate(270deg)', opacity: 0.5 },
+          '100%': { transform: 'rotate(360deg)', opacity: 1 },
+        },
+      },
+      animation: {
+        'loading': 'load 2s linear infinite',
+      },
       borderColor: ({ theme }) => ({
         ...theme.borderColor,
         DEFAULT: theme('colors.prism.border'),

@@ -1,7 +1,8 @@
 import { Disclosure } from '@headlessui/react';
-import { ChevronDownLightIcon, CrossIcon } from '@prism2/icons-react';
+import { ChevronDownLightIcon, CrossIcon, SpinnerIcon } from '@prism2/icons-react';
 import { Chip } from '@prism2/react-components';
-import { HTMLAttributes } from 'react';
+import { HTMLAttributes, useRef } from 'react';
+import { useTimeout } from 'react-use';
 import { SearchFacet } from '../components/SearchFacet';
 
 
@@ -33,9 +34,12 @@ const SavedSearchFacet = () => {
   );
 };
 export function AppSidebar(props:HTMLAttributes<HTMLDivElement>) {
+  const [isReady, cancel] = useTimeout(4000);
   return (
     <aside {...props}>
-    <h2 className='prism-heading-2 uppercase tracking-tight pt-2 pb-4'>192,782 vehicles</h2>
+      <h2 className='prism-heading-2 uppercase text-left tracking-tight pt-2 pb-4 flex items-center'>
+        192,782 Vehicles
+      </h2>
       <div className="search-facet space-y-2">
          <Disclosure defaultOpen>
           <Disclosure.Button className='bg-gray-50 text-blue-900 font-bold p-2 w-full text-sm text-left flex gap-1 items-center'>
