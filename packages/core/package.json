@@ -1,6 +1,7 @@
 {
   "name": "@prism2/core",
-  "version": "2.0.9-alpha.4",
+  "version": "2.0.9-alpha.6",
+  "private": true,
   "description": "TailwindCSS preset package for PRISM design system from @prism2",
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-preset"
@@ -22,6 +23,6 @@
   },
   "devDependencies": {
     "postcss": "^8.4.5",
-    "tailwindcss": "^3.0.24"
+    "tailwindcss": "^3.2.6"
   }
 }

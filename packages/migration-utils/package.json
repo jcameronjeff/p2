@@ -1,56 +1,57 @@
 {
-    "version": "2.0.9-alpha.4",
-    "license": "MIT",
-    "main": "dist/index.js",
-    "typings": "dist/index.d.ts",
-    "files": [
-        "dist",
-        "src"
-    ],
-    "engines": {
-        "node": ">=10"
-    },
-    "scripts": {
-        "start": "tsdx watch",
-        "build": "tsdx build",
-        "test": "pnpm vitest --watch=false",
-        "lint": "tsdx lint",
-        "prepare": "tsdx build",
-        "size": "size-limit",
-        "analyze": "size-limit --why"
-    },
-    "husky": {
-        "hooks": {
-            "pre-commit": "tsdx lint"
-        }
-    },
-    "prettier": {
-        "printWidth": 80,
-        "semi": true,
-        "singleQuote": true,
-        "trailingComma": "es5"
-    },
-    "name": "migration-utils",
-    "author": "Darin Cassler",
-    "module": "dist/migration-utils.esm.js",
-    "size-limit": [
-        {
-            "path": "dist/migration-utils.cjs.production.min.js",
-            "limit": "10 KB"
-        },
-        {
-            "path": "dist/migration-utils.esm.js",
-            "limit": "10 KB"
-        }
-    ],
-    "dependencies": {
-        "boxen": "^7.0.0"
-    },
-    "devDependencies": {
-        "nodemon": "^2.0.19",
-        "tsdx": "^0.14.1",
-        "tslib": "^2.4.0",
-        "vite": "^3.1.0",
-        "vitest": "^0.17.1"
+  "version": "2.0.9-alpha.6",
+  "private": true,
+  "license": "MIT",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "start": "tsdx watch",
+    "build": "tsdx build",
+    "test": "pnpm vitest --watch=false",
+    "lint": "tsdx lint",
+    "prepare": "tsdx build",
+    "size": "size-limit",
+    "analyze": "size-limit --why"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "tsdx lint"
     }
+  },
+  "prettier": {
+    "printWidth": 80,
+    "semi": true,
+    "singleQuote": true,
+    "trailingComma": "es5"
+  },
+  "name": "migration-utils",
+  "author": "Darin Cassler",
+  "module": "dist/migration-utils.esm.js",
+  "size-limit": [
+    {
+      "path": "dist/migration-utils.cjs.production.min.js",
+      "limit": "10 KB"
+    },
+    {
+      "path": "dist/migration-utils.esm.js",
+      "limit": "10 KB"
+    }
+  ],
+  "dependencies": {
+    "boxen": "^7.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.19",
+    "tsdx": "^0.14.1",
+    "tslib": "^2.4.0",
+    "vite": "^3.1.0",
+    "vitest": "^0.17.1"
+  }
 }

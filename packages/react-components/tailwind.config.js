@@ -13,7 +13,7 @@ module.exports = {
     './tw/*.{js,ts,jsx,tsx}',
   ],
   theme: {
-    extend: require('@prism2/tailwind-theme'),
+    extend: require('@prism2/tailwind-theme-manheim'),
     container: {
       center: true,
     },

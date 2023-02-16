@@ -22,7 +22,7 @@
   }
   .prism-menu-item {
     @apply bg-white;
-    @apply text-body;
+    @apply text-black;
     /* not disabled */
     @apply ui-not-disabled:ui-active:bg-blue-800;
     @apply ui-not-disabled:ui-active:text-white;

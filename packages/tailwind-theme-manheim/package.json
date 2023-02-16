@@ -1,16 +1,19 @@
 {
-  "name": "@prism2/tailwind-theme",
-  "version": "2.0.9-alpha.4",
-  "description": "TailwindCSS preset package for PRISM design system from @prism2",
+  "name": "@prism2/tailwind-theme-manheim",
+  "version": "2.0.9-alpha.6",
+  "description": "Base TailwindCSS theme and utilities for Manheim/CAI",
   "main": "index.js",
   "files": [
     "index.js",
     "colors.json",
-    "design-tokens.json"
+    "design-tokens.json",
+    "generated/theme.js",
+    "generated/theme.json"
   ],
   "scripts": {
-    "test": "echo skipping tests for @prism2/tailwind-theme",
-    "build": "node scripts/build-readme.js"
+    "test": "echo skipping tests for @prism2/tailwind-theme-manheim",
+    "prepare": "npm run build",
+    "build": "node ./scripts/generate-theme-file.js"
   },
   "keywords": [
     "tailwind",
@@ -25,7 +28,7 @@
   "dependencies": {
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
-    "tailwindcss": "^3.0.23"
+    "tailwindcss": "^3.2.6"
   },
   "devDependencies": {
     "color": "^4.2.3",

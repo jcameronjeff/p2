@@ -1,7 +1,7 @@
 {
   "name": "@prism2/react-components",
   "private": false,
-  "version": "2.0.9-alpha.4",
+  "version": "2.0.9-alpha.6",
   "files": [
     "dist",
     "dist/style",
@@ -37,7 +37,7 @@
     "@prism2/icons-react": "workspace:*",
     "@prism2/tailwind-elements": "workspace:*",
     "@prism2/tailwind-preset": "workspace:*",
-    "@prism2/tailwind-theme": "workspace:*",
+    "@prism2/tailwind-theme-manheim": "workspace:*",
     "@storybook/react": "^6.5.10",
     "@storybook/testing-library": "^0.0.11",
     "@tailwindcss/forms": "^0.5.2",

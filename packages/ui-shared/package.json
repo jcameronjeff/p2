@@ -1,9 +1,10 @@
 {
   "name": "ui-shared",
-  "version": "2.0.9-alpha.4",
+  "version": "2.0.9-alpha.6",
   "main": "./index.tsx",
   "types": "./index.tsx",
   "license": "MIT",
+  "private": true,
   "scripts": {
     "lint": "eslint *.ts*"
   },

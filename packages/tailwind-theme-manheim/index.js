@@ -6,29 +6,7 @@ module.exports = {
   colors: ({ theme }) => ({
     // source: https://prism.coxautoinc.com/foundation/colors/colors
     ...colors,
-    // extend color names for legacy support
-    cerulean: theme.colors.blue,
-    sky: theme.colors.blue,
-    navy: theme.colors.blue,
-    amber: theme.colors.orange,
-    saffron: theme.colors.orange,
     gold: colors.yellow,
-    meadow: theme.colors.green,
-    jungle: theme.colors.emerald,
-    ocean: theme.colors.teal,
-    // top-level theme API
-    headings: theme.colors.blue['800'],
-    links: theme.colors.sky['700'],
-    body: theme.colors.gray['800'],
-    muted: theme.colors.gray['500'],
-    caption: theme.colors.gray['400'],
-    ghost: theme.colors.gray['300'],
-    surface: theme.colors.gray['100'],
-    // map our palette to existing named colors.
-    'primary': theme.colors.blue['700'],
-    'primary-dark': theme.colors.blue['800'],
-    'navy': theme.colors.blue['900'],
-    'navy-dark': theme.colors.blue['1000'],
   }),
   screens: {
     // source: https://prism.coxautoinc.com/foundation/grid/grid--usage
@@ -82,7 +60,14 @@ module.exports = {
   borderColor: ({ theme }) => ({
     ...theme('colors'),
     // #babcbe
-    DEFAULT: theme('colors.gray.200', 'currentColor'),
+    DEFAULT: theme('colors.gray.300', 'currentColor'),
+  }),
+  // @TODO - Tese are pretty tight.
+  borderWidth: ({ theme }) => ({
+    ...theme.borderWidth,
+    DEFAULT: '1px',
+    '1.5': '1.5px',
+    2: '2px'
   }),
   borderOpacity: ({ theme }) => theme('opacity'),
   borderRadius: {
@@ -110,12 +95,6 @@ module.exports = {
     '7xl': ['4.5rem', { lineHeight: theme('lineHeight.snug') }],
     '8xl': ['6rem', { lineHeight: theme('lineHeight.tight') }],
     '9xl': ['8rem', { lineHeight: theme('lineHeight.tight') }],
-  }),
-  // @TODO - Tese are pretty tight.
-  borderWidth: ({ theme }) => ({
-    ...theme.borderWidth,
-    '1.5': '1.5px',
-    2: '2px'
   }),
   lineHeight: {
     none: '1',
