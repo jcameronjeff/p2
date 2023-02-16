@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import  * as theme from 'tailwindcss/defaultTheme';
-import * as themeColors from '@prism2/tailwind-theme/colors.json';
+import * as themeColors from '@prism2/tailwind-theme-manheim/colors.json';
 import { Button } from '../lib';
 import { ArrowRightCircleIcon } from '@prism2/icons-react/24/solid';
 
