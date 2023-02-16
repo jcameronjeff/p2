@@ -1,6 +1,6 @@
 ### Quickstart
 ```
-pnpm add @prism2/tailwind-theme
+pnpm add @prism2/tailwind-theme-manheim
 ```
 
 ```
@@ -8,7 +8,7 @@ pnpm add @prism2/tailwind-theme
 module.exports = {
   content: [],
   theme: {
-    extend: require('@prism2/tailwind-theme)
+    extend: require('@prism2/tailwind-theme-manheim)
   },
   plugins: []
 }
@@ -25,7 +25,7 @@ Run `build:theme` to update the files based on the current theme content. This i
 
 ### Using raw values
 
-`import theme from '@prism2/tailwind-theme/generated/theme.json'`
+`import theme from '@prism2/tailwind-theme-manheim/generated/theme.json'`
 
 ### Manheim Theme Colors
 
