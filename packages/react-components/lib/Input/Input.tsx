@@ -25,7 +25,7 @@ type StyleOptions = {
   [key: string]: string
 };
 
-export const styles:StyleOptions = {
+const styles:StyleOptions = {
   text: 'flex text-slate-700 px-1 items-baseline relative rounded-xs border w-full focus:outline-none placeholder:text-slate-500/50',
   label: 'prism-label',
   inline: 'flex-row items-center gap-1',

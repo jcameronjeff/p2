@@ -25,7 +25,7 @@ import type { AppendPrependArgs } from '../types';
    */
    block?: boolean,
    /**
-   * If true, button will apply absolute positioning 
+   * If true, button will apply absolute positioning
    */
    floating?: boolean,
  };
@@ -42,7 +42,7 @@ type StyleOptions = {
  * @remark Moved these out of the function to act more as constants. Using CSS apply may be a better pattern. I.e. do we really need a variant prop at all...
  */
 
-export const styles:StyleOptions = {    
+const styles:StyleOptions = {
   base: 'prism-btn focus-within:ring-1 focus-within:ring-offset-1',
   outline: 'bg-transparent border ring-0 border-0',
   text: 'border-0 text !outline-0 ring-0',
@@ -60,7 +60,7 @@ export const ButtonComponent:ForwardRefRenderFunction<HTMLButtonElement, Props> 
   { variant = 'outline', type = 'button', ...props }, ref) => {
 
   const { className, children, name, label, prepend, append, block, floating, ...attr } = props;
- 
+
   const clsx = [
     styles.base,
     styles[variant] ?? '',
