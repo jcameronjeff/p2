@@ -9,14 +9,20 @@
   #root {
     width: 100%
   }
-  .sbdocs.sbdocs-content > [class^="sbdocs"] {
-    max-width: var(--sb-content-inner);
+  #storybook-docs,
+  .sbdocs.sbdocs-content {
+    font-family: "Roboto Flex"
+  }
+  .sbdocs.sbdocs-content :not(pre,div) :is(ul,li,ol,blockquote, p),
+  .sbdocs.sbdocs-content > * {
+    max-width: 600px;
     margin-left: auto;
     margin-right: auto;
+    font-family: "Roboto Flex" !important;
   }
-  .sbdocs.sbdocs-content > .sbdocs.sbdocs-pre {
+  .sbdocs.sbdocs-content > :is(pre, div) {
     max-width: 100% !important;
-    width: var(--sb-content-full) !important;
+    /* width: var(--sb-content-full) !important; */
     margin-left: auto;
     margin-right: auto;
   }
@@ -27,11 +33,10 @@
     justify-content: center;
     align-items: center;
   }
+  .sbdocs.sbdocs-content h2 { font-weight: bold }
+  .sbdocs.sbdocs-content h3 { font-weight: 600 }
   /* Adjust the text sizing */
-  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h1 { font-weight: 700; font-size: 40px; }
-  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h2 { font-weight: 700; font-size: 32px; }
-  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h3 { font-weight: 700; font-size: 24px; }
-  .sbdocs.sbdocs-content > .sbdocs.sbdocs-h4 { font-weight: 700; font-size: 18px; }
+
 
   .sb-show-main {
     padding: 20px

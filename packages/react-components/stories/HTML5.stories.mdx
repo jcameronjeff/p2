@@ -1,9 +1,9 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import { Avatar, Button, Tooltip, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Caption, Label, Banner } from '../lib';
+import { Meta, Primary, Canvas, Story } from "@storybook/blocks";
+import { Avatar, Button, Tooltip, Heading1, Heading2, Heading3, Heading4, Heading5, Heading6, Caption, Label, Banner, Box } from '../lib';
 import { SpinnerIcon } from '@prism2/icons-react';
 import { DocumentTextIcon } from '@prism2/icons-react/24/solid'
 
-<Meta title="Components/HTML5" component={Avatar} />
+<Meta title="Components/HTML5" />
 
 # HTML5 Elements
 
@@ -68,64 +68,12 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 </Story>
 </Canvas>
 
-
-### Body Text
-
-<Canvas>
-<Story name="Prose">
-  <article className='prism-prose container max-w-screen-xs'>
-    <Heading3>Article Heading</Heading3>
-    <p>
-      Prism has been designed with accessibility in mind, but designers and
-      developers alike should take additional steps to ensure that users of all
-      levels are able to utilize and interact with Cox’s products in a meaningful
-      and productive way. Our digital products should be perceivable, operable,
-      understandable, and robust (POUR) for every user on every device
-    </p>
-    <p>
-      Prism has been designed with accessibility in mind, but designers and
-      developers alike should <a href='#'>take additional steps to ensure</a> that users of all
-      levels are able to utilize and interact with Cox’s products in a meaningful
-      and productive way. Our digital products should be perceivable, operable,
-      understandable, and robust (POUR) for every user on every device
-    </p>
-    <figure className='space-y-2 py-4'>
-      <img src='//place-hold.it/900x500/e3e3e3' />
-      <Caption as='figcaption' className="text-xs">
-        Designing and developing <strong> strong products</strong> for accessibility
-        is <b>good for our business</b> and our clients. It drives product adoption
-        and innovation, reduces legal risk, and enhances our brand by demonstrating
-        our commitment to inclusivity.
-      </Caption>
-    </figure>
-    <p>This paragraph is nested inside an article. It
-      contains many different, sometimes useful,{" "}
-      <a href="https://www.w3schools.com/tags/">HTML5 tags</a> as well as <a href='https://sdfsdfsdf.net'>unvisited links</a>. Of course there are
-      classics like <em>emphasis</em>, <strong>strong</strong>, and{" "}
-      <small>small</small> but there are many others as well. Hover the following
-      text for abbreviation tag: <abbr title="abbreviation">abbr</abbr>. Similarly,
-      you can use acronym tag like this: <abbr title="For The Win">ftw</abbr>. You
-      can define <del>deleted text</del> which often gets replaced with{" "}
-      <ins>inserted</ins> text.
-    </p>
-  </article>
-</Story>
-</Canvas>
-
-
 ### Blockquotes
 
 <Canvas>
 <Story name="Blockquotes">
 <section className='space-y-4 prose prose-sm'>
   <blockquote>
-    <p>Blockquote: I quickly explained that many big jobs involve few hazards</p>
-  </blockquote>
-  <blockquote>
-    <p>This is a mult-line blockquote with a cite reference. People think focus means saying yes to the thing you’ve got to focus on. But that’s not what it means at all. It means saying no to the hundred other good ideas that there are. You have to pick
-      carefully. I’m actually as proud of the things we haven’tdone as the things I have done. Innovation is saying no to 1,000 things.
-      <cite>Steve Jobs – Apple Worldwide Developers’ Conference, 1997</cite>
-    </p>
   </blockquote>
 </section>
 </Story>
@@ -134,8 +82,6 @@ See [tailwind-elements](/story/install-tailwind--page) for more.
 ## Tables
 
 Table styles will be applied to `.prism-table` presuming a standard DOM structure.
-
-
 
 <Canvas>
   <Story name='Tables'>
@@ -215,13 +161,12 @@ Table styles will be applied to `.prism-table` presuming a standard DOM structur
     <ul className='prism-list'>
       <li>List item two</li>
       <li>List item three</li>
-      <li>List item four
-        <ul className='prism-list'>
-          <li>List item two</li>
-          <li>List item three</li>
-          <li>List item four</li>
-        </ul>
-      </li>
+      <li>List item four</li>
+      <ul className='prism-list'>
+        <li>List item two</li>
+        <li>List item three</li>
+        <li>List item four</li>
+      </ul>
     </ul>
   </Story>
 </Canvas>
@@ -296,10 +241,12 @@ We include basic styling for definition lists with `<dl />`, `<dt />` and `<dd/>
 <Canvas>
   <Story name='Forms'>
     <form className='space-y-2 prism'>
-    <label htmlFor="example-input-email" className='prism-label'>Email address
+    <label htmlFor="example-input-email" className='prism-label'>
+      Email address
       <input className='prism-text-input' type="email" id="example-input-email" placeholder="Enter email" />
     </label>
-    <label htmlFor="example-input-email" className='prism-form-control'>Inline Form
+    <label htmlFor="example-input-email" className='prism-form-control'>
+      Inline Form
       <input className='prism-text-input' type="text" id="example-input-text" placeholder="Text input" />
     </label>
     <label className='prism-form-control' htmlFor="example-input-password1">

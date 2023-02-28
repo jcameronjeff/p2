@@ -10,11 +10,7 @@ import mdx from './README.mdx';
 export default {
   title: 'Components/Menu',
   component: Menu,
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as Meta<ExtractProps<typeof Menu>>;
 
 export const Template: ComponentStory<any> = () => {

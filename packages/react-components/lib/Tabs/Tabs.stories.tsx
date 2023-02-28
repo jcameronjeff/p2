@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
 import { Tab, TabRoot } from './';
-import mdx from './README.mdx';
+// import mdx from './README.mdx';
 import { ArchiveBoxIcon, CheckBadgeIcon, BellIcon, AdjustmentsVerticalIcon } from '@prism2/icons-react/24/solid';
 import type { ElementType } from 'react';
 
@@ -16,13 +16,13 @@ export default {
     'Tab.Panels': Tab.Panels,
     'Tab.Panel': Tab.Panel,
   },
-  parameters: {
-    // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
-    layout: 'fullscreen',
-    docs: {
-      page: mdx,
-    },
-  },
+  // parameters: {
+  //   // More on Story layout: https://storybook.js.org/docs/react/configure/story-layout
+  //   layout: 'fullscreen',
+  //   docs: {
+  //     page: mdx,
+  //   },
+  // },
 } as ComponentMeta<typeof TabRoot>;
 
 export const Simple = () => {

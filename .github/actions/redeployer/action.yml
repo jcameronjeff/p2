@@ -36,7 +36,9 @@ runs:
 
     - name: Build Storybook
       shell: bash
-      run: BASE=/ pnpm build-storybook
+      run: |
+        export NODE_OPTIONS="--max_old_space_size=4096"
+        BASE=/ pnpm build-storybook
 
     - name: Establish secure session to AWS
       uses: cai-actions/aws-secure-access@v1

@@ -10,11 +10,7 @@ import mdx from './README.mdx';
 export default {
   title: 'Components/DatePicker',
   component: Box,
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof DatePicker>;
 
 export const AsPopover = () => {

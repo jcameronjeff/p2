@@ -1,3 +1,10 @@
+import '../lib/styles/base.css'
+import '../lib/styles/utilities.css'
+import '../lib/styles/fonts.css'
+import '../lib/styles/components.css'
+
+
+
 export const parameters = {
   actions: { argTypesRegex: "^on[A-Z].*" },
   layout: 'centered',

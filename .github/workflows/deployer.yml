@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - next
-      - feature/sb-public-build
+      - feature/*
 
 jobs:
   build:
@@ -41,6 +41,7 @@ jobs:
         - name: Deploy Storybook
           run: |
             git remote set-url origin https://git:${GITHUB_TOKEN}@ghe.coxautoinc.com/${GITHUB_REPOSITORY}.git
+            export NODE_OPTIONS="--max_old_space_size=4096"
             BASE=/prism/prism2 pnpm run deploy
           env:
             GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}

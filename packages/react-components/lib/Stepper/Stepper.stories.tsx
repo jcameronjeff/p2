@@ -1,7 +1,6 @@
 import React from 'react';
 import {  ComponentMeta } from '@storybook/react';
 import { Step, StepRoot } from './';
-import mdx from './README.mdx';
 import { Button } from '../Button';
 
 export default {
@@ -12,12 +11,6 @@ export default {
     'Step.List': Step.List,
     'Step.Panels': Step.Panels,
     'Step.Panel': Step.Panel,
-  },
-  parameters: {
-    layout: 'fullscreen',
-    docs: {
-      page: mdx,
-    },
   },
 } as ComponentMeta<typeof StepRoot>;
 

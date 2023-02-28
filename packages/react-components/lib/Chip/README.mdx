@@ -1,6 +1,8 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Chip } from './'
-<Meta title="Docs/Chips" component={Chip} />
+import { Meta, Primary, Controls, Story } from "@storybook/blocks";
+import * as ChipStories from "./Chip.stories";
+
+
+<Meta title="Docs/Chips" of={ChipStories} />
 
 # Chip
 
@@ -15,35 +17,27 @@ Chips labels may be bold ALL-CAPS, or regular sentence case. Maintain a minimum 
 
 ### Default
 
-<Canvas>
-  <Story id='components-chips--basic' />
-</Canvas>
+<Primary />
 
 ### With Icons
 
 `Chip` makes use of our standardized `append` and `prepend` props to render iconography and the like.
 
-<Canvas>
-  <Story id='components-chips--icon-chips' />
-</Canvas>
+<Story of={ChipStories.IconChips} />
 
 ### As Buttons
-<Canvas>
-  <Story id='components-chips--button-chips' />
-</Canvas>
+
+<Story of={ChipStories.ButtonChips} />
 
 ### As Links
-<Canvas>
-  <Story id='components-chips--link-chips' />
-</Canvas>
+
+<Story of={ChipStories.LinkChips} />
+
 
 ### As Toggle
 
 We make use of a dedicated `Toggle` component styled to appear like a `Chip`
 
-<Canvas>
-  <Story id='components-chips--toggle-chips' />
-</Canvas>
+<Story of={ChipStories.ToggleChips} />
 
-
-<ArgsTable tabs={Chip} />
+<Controls />

@@ -1,7 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Listbox } from './';
+import { Meta, Primary, Controls, Story, Canvas } from "@storybook/blocks";
+import * as ListboxStories from './Listbox.stories'
 
-<Meta title="Docs/Listbox" component={Listbox} />
+<Meta title="Docs/Listbox" of={ListboxStories} />
 
 # Listbox (Select)
 
@@ -39,7 +39,7 @@ Use dropdowns for State/Province. Instead, use a ZIP code text field and auto-po
 
 Headless UI keeps track of a lot of state about each component, like which listbox option is currently selected, whether a popover is open or closed, or which item in a menu is currently active via the keyboard. [See more](https://headlessui.com/react/listbox#styling-different-states)
 
-## Using data attributes 
+## Using data attributes
 
 Each component also exposes information about its current state via a `data-headlessui-state` attribute that you can use to conditionally apply different styles. [See more](https://headlessui.com/react/listbox#using-data-attributes)
 
@@ -74,4 +74,4 @@ To animate the opening/closing of the listbox panel, use the provided `Transitio
   <Story id='components-listbox--strings-only' />
 </Canvas>
 
-<ArgsTable tabs={Listbox} />
+<Controls />

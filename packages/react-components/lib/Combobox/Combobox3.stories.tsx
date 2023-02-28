@@ -20,11 +20,7 @@ Transition.displayName = 'Transition';
 export default {
   title: 'Components/Combobox3',
   component: PCombobox,
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof PCombobox>;
 
 

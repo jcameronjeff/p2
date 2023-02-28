@@ -1,10 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Box, Input } from '../';
-import DatePicker from 'react-datepicker';
-import 'react-datepicker/dist/react-datepicker.css';
-import './styles/datepicker.css';
+import { Meta, Primary, Controls, Story } from "@storybook/blocks";
+import * as DatepickerStories from './DatePicker.stories';
 
-<Meta title='Docs/Datepicker' />
+<Meta title='Docs/Datepicker' of={DatepickerStories}/>
 
 # @prism2/datepicker
 
@@ -15,23 +12,17 @@ import DatePicker from 'react-datepicker';
 import './styles/datepicker.css';
 ```
 
+<Controls />
+
 ### Basic Example
 
-<Canvas>
-  <Story id='components-datepicker--basic' />
-</Canvas>
+<Primary />
 
 ### As Popper
 
-<Canvas>
-  <Story id='components-datepicker--as-popover' />
-</Canvas>
+<Story of={DatepickerStories.AsPopover} />
 
 ### Range Picker
 
-<Canvas>
-  <Story id='components-datepicker--range-picker' />
-</Canvas>
+<Story of={DatepickerStories.RangePicker} />
 
-
-<ArgsTable tabs={DatePicker} />

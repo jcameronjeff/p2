@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import {  ComponentStory, ComponentMeta } from '@storybook/react';
 import { Switch, SwitchRoot, useToggle } from '.';
-import mdx from './README.mdx';
 
 /* eslint-disable */
 export default {
@@ -11,12 +10,6 @@ export default {
     'Switch.Group': Switch.Group,
     'Switch.Label': Switch.Label,
     'Switch.Description': Switch.Description,
-  },
-  parameters: {
-    layout: 'centered',
-    docs: {
-      page: mdx,
-    },
   },
 } as ComponentMeta<typeof SwitchRoot>;
 

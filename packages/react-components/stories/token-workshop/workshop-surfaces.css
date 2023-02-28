@@ -1,0 +1,79 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/utilities';
+
+
+@layer base {
+
+  .surface {
+    & {
+      @apply bg-white text-black;
+      @apply ui-active:surface-active;
+      @apply ui-selected:surface-selected;
+      @apply ui-disabled:surface-disabled;
+      /* @apply ui-open:surface-open; */
+    }
+    &-selected {
+      @apply bg-blue-900;
+      @apply text-white;
+    }
+    &-active {
+      @apply bg-blue-50;
+      @apply text-black;
+      @apply cursor-pointer;
+    }
+    &-disabled {
+      @apply bg-gray-100;
+      @apply text-gray-400;
+    }
+    &-open {
+      @apply ring-2 ring-blue-300
+    }
+  }
+
+
+  .target {
+    & { @apply p-2 px-3 }
+    &-tight { @apply p-1 px-2 }
+  }
+
+  .naked-input {
+    @apply focus:ring-0 focus:outline-none;
+    @apply focus-visible:ring-0;
+    @apply border-none;
+  }
+
+  .option-panel {
+    @apply py-1 rounded shadow-lg border;
+    @apply w-full text-sm;
+    @apply mt-1;
+  }
+
+  .split-input {
+    @apply flex p-0 divide-x;
+  }
+
+
+
+  .primary {
+    & {
+      @apply text-blue-700;
+      @apply icons:fill-blue-700;
+      @apply icons:text-blue-700;
+      @apply hover:primary-active;
+      @apply ui-active:primary-active;
+      @apply ui-selected:primary-selected;
+      @apply ui-disabled:primary-disabled;
+    }
+    &-active {
+      @apply bg-blue-50;
+    }
+    &-selected {
+      @apply bg-blue-900 text-white;
+    }
+    &-disabled {
+      @apply bg-transparent;
+      @apply text-gray-400;
+    }
+  }
+}
+

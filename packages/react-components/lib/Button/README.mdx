@@ -1,43 +1,34 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Button } from './'
+import { Meta, Controls, Canvas, Story } from '@storybook/addon-docs';
+import * as ButtonStories from './Button.stories'
 
-<Meta title="Docs/Buttons" component={Button} />
+<Meta title='Docs/Button' of={ButtonStories} />
 
 # Button
 
-<Canvas>
-  <Story id='components-button--basic' />
-</Canvas>
+<Story of={ButtonStories.Basic} />
+
 
 ### Including an icon
 
-<Canvas>
-  <Story id='components-button--with-icon' />
-</Canvas>
+<Story of={ButtonStories.WithIcon} />
+
 
 ### Sizing
 
-<Canvas>
-  <Story id="components-button--small" />
-</Canvas>
+<Story of={ButtonStories.Small} />
+
 
 ### Overflowed Text
 
-<Canvas>
-  <Story id="components-button--overflow" />
-</Canvas>
+<Story of={ButtonStories.Overflow} />
+
 
 ### Floating
 
-<Canvas>
-  <Story id="components-button--floating-buttons" />
-</Canvas>
+<Story of={ButtonStories.FloatingButtons} />
 
 ### Disabled
 
-<Canvas>
-  <Story id="components-button--disabled" />
-</Canvas>
+<Story of={ButtonStories.Disabled} />
 
-
-<ArgsTable tabs={Button} />
+<Controls />

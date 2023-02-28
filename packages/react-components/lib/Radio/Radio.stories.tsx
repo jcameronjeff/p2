@@ -8,11 +8,7 @@ export default {
   title: 'Components/Radios',
   component: Radio,
   subcomponents: { Radios },
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<any>;
 
 export const Basic: ComponentStory<any> = () => {

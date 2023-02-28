@@ -3,7 +3,6 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Heading1, Table, TR } from '..';
 import type { CSSPropertiesWithVariables } from '../types';
 import { ArrowDownIcon, ArrowUpIcon } from '@prism2/icons-react';
-import mdx from './README.mdx';
 import  { useMemo, useState } from 'react';
 
 
@@ -33,11 +32,7 @@ export default {
       control: { type: 'select' },
     },
   },
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof Table>;
 
 

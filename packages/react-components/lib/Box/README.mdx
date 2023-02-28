@@ -1,7 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Box } from '..';
+import { Meta, Canvas, Primary, Controls, Story } from '@storybook/blocks';
+import * as BoxStories from './Box.stories'
 
-<Meta title="Components/Box" component={Box} />
+<Meta title="Docs/Box" of={BoxStories} />
 
 # Box
 
@@ -9,7 +9,7 @@ Prism uses the concept of "boxes" to define behaviorial and visual aspects of va
 
 ### The `as` Prop
 
-<ArgsTable tabs={Box} />
+<Controls />
 
 Prism2 components are polymorphic - they allow you to indicate with props *which kind of* HTML element components should render as.
 

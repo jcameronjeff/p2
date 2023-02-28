@@ -1,0 +1,123 @@
+import { Meta, Story, Canvas, Title, Description } from '@storybook/blocks'
+import * as WorkshopStories from './token-workshop/Tokens.stories';
+
+<Meta title="Token Workshop" description="A component for fixing an element's width to the current breakpoint." />
+
+# Token Workshop
+
+---
+
+![Prism2 Package Map](./media/whiteboard-1.png)
+![Prism2 Package Map](./media/whiteboard-2.png)
+
+## Base Token Strategy
+
+### system | global | core | base tokens
+
+- names represent a common name for a specific value
+- absolute values are scaled with numbers  (blue.100,200,300 etc)
+- relative values are scaled with names (leading-loose, tight, etc.)
+- aka "system", "global"
+
+This is already being accomplished with our Tailwind theme. Nearly all CSS properties are defined here. This allows us to facilitate further tokenization freely.
+
+## Reference Tokens
+- names represents a purpose or context
+- correspond to a repeating style or pattern
+- provide simple relational mapping
+
+Reference tokens provide a way to alias/map our system tokens to Reference tokens are where the main theming experience takes place. Typically, these correspond to a "color by number key" -- where we can define which of our *base tokens*
+
+In the example below, we assign `primary` and `on-primary` a base token value - giving us blue text on a white background. Additionally, our system calls for the inverse - with a blue background and white text.
+
+We can define this relationship deterministically with referencing:
+
+```js
+// white text on blue background
+ref.color.primary = base.color.blue.700
+ref.color.on-primary = base.color.white
+
+// white background with blue text
+ref.primary-container = ref.color.on-primary
+ref.on-primary-container = ref.color.primary
+
+// with cx mappings
+ref.cx.secondary-container = ref.color.on-primary
+ref.cx.secondary = ref.color.primary
+```
+
+
+
+## pseudo states
+
+### ui-active:
+This corresponds to surfaced that are hovered or focused. It does not include any focus decorations. This state is always determined by the user or a result of user action.
+- focus rings are styled separately and determined by the browser.
+- Listbox
+- Combobox
+- RadioGroup
+- Menu
+
+### ui-selected
+This corresponds to *current* items in a list such in cases where a "checked" Boolean may not satisfy requirements.
+- Listbox.Item
+- Combobox.Item
+- Tab
+
+### ui-checked
+- Toggle/Switch
+- Radio
+
+### ui-open
+A dynamic-only state that corresponds to elements that can be hidden or revealed and their respective toggle. An example is a Menu.Button and Menu.Panel. When the panel is visible - both are considered "open"
+- Combobox
+- Disclosure
+- Menu
+- Listbox
+
+### base
+
+> Tabs, Listbox items, DateTime entry, Month selection
+<Canvas>
+  <Story of={WorkshopStories.Base} />
+  <Story of={WorkshopStories.BaseActive} />
+  <Story of={WorkshopStories.BaseSelected} />
+  <Story of={WorkshopStories.BaseDisabled} />
+</Canvas>
+
+
+### surface
+
+> Inputs, Toggles, Chips, Table Headers
+
+<Canvas>
+  <Story of={WorkshopStories.Surface} />
+  <Story of={WorkshopStories.SurfaceActive} />
+  <Story of={WorkshopStories.SurfaceSelected} />
+  <Story of={WorkshopStories.SurfaceDisabled} />
+  <Story of={WorkshopStories.SurfaceMuted} />
+</Canvas>
+
+
+### primary-container
+
+> Primary buttons, calls-to-action.
+
+<Canvas>
+  <Story of={WorkshopStories.PrimaryContainer} />
+  <Story of={WorkshopStories.PrimaryContainerActive} />
+  <Story of={WorkshopStories.PrimaryContainerSelected} />
+  <Story of={WorkshopStories.PrimaryContainerDisabled} />
+</Canvas>
+
+### primary
+
+> Links, Menu Items, Links, Buttons
+
+<Canvas title='primary'>
+  <Story of={WorkshopStories.Primary} />
+  <Story of={WorkshopStories.PrimaryActive} />
+  <Story of={WorkshopStories.PrimarySelected} />
+  <Story of={WorkshopStories.PrimaryDisabled} />
+</Canvas>
+

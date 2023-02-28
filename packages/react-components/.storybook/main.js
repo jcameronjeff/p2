@@ -1,26 +1,42 @@
 const { mergeConfig } = require('vite');
-
+const myConfig = require('../vite.config.js');
+const remarkGfm = require('remark-gfm');
 module.exports = {
   "stories": [
-    "../stories/**/*.stories.@(js|jsx|ts|tsx|mdx)",
-    "../lib/**/*.stories.@(js|jsx|ts|tsx|mdx)"
+    "../stories/**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
+    "../lib/**/*.@(mdx|stories.@(js|jsx|ts|tsx))",
   ],
   "addons": [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
-    "@storybook/addon-interactions"
+    "@storybook/addon-interactions",
+    // "@storybook/addon-mdx-gfm",
+    {
+      name: '@storybook/addon-docs',
+      options: {
+        mdxPluginOptions: {
+          mdxCompileOptions: {
+            remarkPlugins: [remarkGfm],
+          },
+        },
+      },
+    },
   ],
-  "staticDirs": [{ from: '../../../media', to: '/media' }],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  "staticDirs": [{
+    from: '../../../media',
+    to: '/media'
+  }],
+  "framework": {
+    name: "@storybook/react-vite",
+    options: {}
   },
-  // "features": {
-  //   "storyStoreV7": false,
-  //   "previewMdx2": false
-  // },
-  async viteFinal(config, { configType }) {
-    let options = {}
+  "features": {
+    "storyStoreV7": true
+  },
+  async viteFinal(config, {
+    configType
+  }) {
+    let options = {};
     if (configType === 'DEVELOPMENT') {
       // Your development configuration goes here
       // Object.assign(options, {
@@ -33,21 +49,36 @@ module.exports = {
     }
     if (configType === 'PRODUCTION') {
       // Your production configuration goes here.
+      console.log('building with PRODUCTION environment');
       Object.assign(options, {
         // Use the same "resolve" configuration as your app
-        resolve: (await import('../vite.web.config.js')).default.resolve,
+        // resolve: (await import('../vite.web.config.js')).default.resolve,
         // Use the base needed for our URL pattern in production
         // base: (await import('../vite.web.config.js')).default.base,
-        base: process.env.BASE || '/prism/prism2/',
+        // base: process.env.BASE || '/prism/prism2/',
         // Add dependencies to pre-optimization
-        optimizeDeps: {
-          include: ['storybook-dark-mode'],
-        },
+        // optimizeDeps: {
+        //   include: ['storybook-dark-mode'],
+        // },
+        build: {
+          rollupOptions: {
+            output: {
+              assetFileNames: `assets/[name][extname]`,
+              entryFileNames: `[name].js`,
+              chunkFileNames: `assets/[name].js`,
+              dynamicImportInCjs: false,
+              // inlineDynamicImports: true
+            }
+          }
+        }
       })
     }
     return mergeConfig(config, {
       // Your environment configuration here
       ...options
     });
+  },
+  docs: {
+    autodocs: true
   }
-}
+};

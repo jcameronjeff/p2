@@ -1,79 +1,63 @@
-import {
-  Meta,
-  Story,
-  Source,
-  Canvas,
-  ArgsTable,
-  Description
-} from "@storybook/addon-docs";
-import { Slider2 } from "./";
+import { Meta, Primary, Controls, Story, Canvas } from "@storybook/blocks";
+import * as SliderStories from './Slider.stories'
 
-<Meta title="Docs/Slider2" component={Slider2} />
+
+<Meta of={SliderStories} />
 
 # Slider
 
 Slider extends the functionality of a normal `input[type='range']` HTML element and will support all valid attributes. It can be used as controlled or uncontrolled component and includes broad accessibility support.
 
-<Canvas>
-  <Story id="components-slider--basic" />
-</Canvas>
+<Primary />
 
 ### Inverted
 
 Passing the `inverted` prop will cause the slider to reverse its segment coloring. This is entirely visual and has no effect on data.
 
-<Canvas>
-  <Story id="components-slider--greater-than" />
-</Canvas>
+<Story of={SliderStories.GreaterThan} />
+
 
 ### Controlled
 
 In this example, we are using `Slider` as a controlled component. This allows us to dynamically adjust the second slider.
 
-<Canvas>
-  <Story id="components-slider--controlled" />
-</Canvas>
+<Story of={SliderStories.Controlled} />
+
 
 
 ### Ranges
 
 Bounded ranges are as simple as adding a second controlled `Slider` components. We make use of the `onChange` `value` and `isHigherValue` props to keep everything aligned. All calculations are done using refs and have no dependency on state.
 
-<Canvas>
-  <Story id="components-slider--range-within" />
-</Canvas>
-<Canvas>
-  <Story id="components-slider--range-outside" />
-</Canvas>
+
+<Story of={SliderStories.RangeWithin} />
+<Story of={SliderStories.RangeOutside} />
+
 
 ### Embelishments
 
 Several decorations can be enabled by passing props for `label` (string or node), `showValues` (boolean), `ticks` (number) . See the table below for details
+
 #### Display Labels
 
-<Canvas>
-  <Story id="components-slider--labelled" />
-</Canvas>
+<Story of={SliderStories.Labelled} />
 
 #### Display Values
 
-<Canvas>
-  <Story id="components-slider--show-values" />
-</Canvas>
+<Story of={SliderStories.ShowValues} />
+
 
 #### Display Tickmarks
 
-<Canvas>
-  <Story id="components-slider--show-ticks" />
-</Canvas>
+<Story of={SliderStories.ShowTicks} />
+
 
 ### Disabled State
 
 As with any input, slider can be disabled.
 
-<Canvas>
-  <Story id="components-slider--disabled" />
-</Canvas>
+<Story of={SliderStories.Disabled} />
+
 
 
 
@@ -84,4 +68,4 @@ As with any input, slider can be disabled.
 
 ## Props
 
-<ArgsTable tabs={Slider2} />
+<Controls />

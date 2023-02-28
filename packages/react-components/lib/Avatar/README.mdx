@@ -1,50 +1,47 @@
-import { Meta, Story, Source, Canvas, ArgsTable } from '@storybook/addon-docs';
-import { Avatar } from './';
+import { Meta, Story, Primary, Controls, Description } from '@storybook/addon-docs';
+import * as AvatarStories from './Avatar.stories'
+import { Title, Subtitle } from '@storybook/blocks'
 
-<Meta title="Docs/Avatar" component={Avatar} />
+<Meta
+  title="Docs/Avatar" of={AvatarStories}
+  description="An avatar is a representation of an individual user. It can be used as a link to an individual's account content." />
 
-# Avatar
+<Title />
 
-## Definition
+<Subtitle />
 
-An avatar is a representation of an individual user. It can be used as a link to an individual’s account content.
+<Primary />
+
+
+<Controls />
 
 ## Content
 
-An avatar should contain a scalable image of the user. If an image is not available, the avatar should display the user’s first and last initials. If neither is available, the avatar should display a generic person icon.
+An avatar should contain a scalable image of the user. If an image is not available, the avatar should display the user's first and last initials. If neither is available, the avatar should display a generic person icon.
 
 ## Basic Example
 
-<Canvas>
-  <Story name='Card' id='components-avatar--basic' />
-</Canvas>
+
+<Story of={AvatarStories.Basic} />
 
 ## Sizing
 
 Avatars are round and contain a scalable graphic. The recommended avatar sizes are: 24px (xs), 32px (sm), 40px (md), or 48px (lg)
 
-<Canvas>
-  <Story name='Card' id='components-avatar--sizing' />
-</Canvas>
+<Story of={AvatarStories.Sizing} />
 
 
 ## With a Name
 
-<Canvas>
-  <Story name='Card' id='components-avatar--with-name' />
-</Canvas>
+<Story of={AvatarStories.WithName} />
 
 ## With an Image
 
-<Canvas>
-  <Story name='Card' id='components-avatar--with-image' />
-</Canvas>
+<Story of={AvatarStories.WithImage} />
+
 
 ## With Initials (no image)
 
-<Canvas>
-  <Story name='Card' id='components-avatar--with-error' />
-</Canvas>
+<Story of={AvatarStories.WithError} />
 
 
-<ArgsTable tabs={Avatar} />

@@ -1,7 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Modal } from './'
+import { Meta, Primary, Controls, Story, Canvas } from "@storybook/blocks";
+import * as ModalStories from './Modal.stories'
 
-<Meta title="Docs/Modal" component={Modal} />
+<Meta of={ModalStories} />
 
 # Modal
 
@@ -150,4 +150,4 @@ You may want to use the unmodified `Dialog` component for maximum customization.
 
 ## Props
 
-<ArgsTable tabs={Modal} />
+<Controls  />

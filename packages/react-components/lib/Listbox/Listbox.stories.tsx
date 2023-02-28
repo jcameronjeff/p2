@@ -23,11 +23,7 @@ const people: Person[] = [
 export default {
   title: 'Components/Listbox',
   component: Listbox,
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as Meta<typeof Listbox>;
 
 

@@ -5,17 +5,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button, Checkbox } from '..';
 import { userEvent, within } from '@storybook/testing-library';
 import { sleep } from '../utils';
-import mdx from './README.mdx';
 
 export default {
   title: 'Components/Card',
   component: Card,
   subcomponents: { Checkbox, Button, Modal, Dialog },
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<any>;
 
 

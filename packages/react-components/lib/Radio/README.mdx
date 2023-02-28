@@ -1,24 +1,16 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Radio } from '..';
-import { Transition, Dialog } from '@headlessui/react';
+import { Meta, Primary, Controls, Story } from "@storybook/blocks";
+import * as RadioStories from './Radio.stories';
 
-<Meta title="Docs/Radio" component={Radio} />
+<Meta of={RadioStories} />
 
 # Radio
 
 This page is a stub.
 
-<Canvas>
-  <Story id='components-radios--hui' />
-</Canvas>
+<Story of={RadioStories.HUI} />
 
-<Canvas>
-  <Story id='components-radios--basic' />
-</Canvas>
+<Story of={RadioStories.Basic} />
 
-<Canvas>
-  <Story id='components-radios--radio-groups' />
-</Canvas>
+<Story of={RadioStories.Groups} />
 
-
-<ArgsTable tabs={Radio} />
+<Controls  />

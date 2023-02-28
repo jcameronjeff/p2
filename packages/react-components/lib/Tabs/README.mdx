@@ -1,7 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Tab } from './'
+import { Meta, Primary, Controls, Story, Canvas } from "@storybook/blocks";
+import * as TabStories from './Tabs.stories'
 
-<Meta title="Docs/Tabs" component={Tab} />
+<Meta title="Docs/Tabs" of={TabStories} />
 
 # Tabs
 
@@ -111,4 +111,4 @@ The left-most tab is always pre-selected by default. Content within tabs must be
 
 ## Props
 
-<ArgsTable />
+<Controls />

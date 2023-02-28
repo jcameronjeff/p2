@@ -1,7 +1,7 @@
-import { Meta, Story, Source, Canvas, ArgsTable, Description } from '@storybook/addon-docs';
-import { Switch } from './'
+import { Meta, Primary, Controls, Story, Canvas } from "@storybook/blocks";
+import * as SwitchStories from './Switch.stories'
 
-<Meta title="Docs/Switch" component={Switch} />
+<Meta title="Docs/Switch" of={SwitchStories} />
 
 # Switch
 
@@ -33,7 +33,7 @@ Toggling the switch calls the `onChange` function with a negated version of the 
 
 <Canvas>
   <Story id='components-switch--with-text' />
-</Canvas>'
+</Canvas>
 
 
 ## Adjusting the size
@@ -59,4 +59,4 @@ Switch is colors based on background color. That color is desturated and reduced
   <Story id='components-switch--complex' />
 </Canvas>
 
-<ArgsTable />
+<Controls />

@@ -2,17 +2,12 @@ import { Dialog } from '@headlessui/react';
 import { useRef, useState } from 'react';
 import { Button, Modal, Card } from '..';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import mdx from './README.mdx';
 
 export default {
   title: 'Components/Modal',
   component: Modal,
   subcomponents: { Button, Card },
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof Modal>;
 
 

@@ -6,7 +6,6 @@ import { sleep } from '../utils';
 import { Button, ButtonVariantName } from '../Button';
 import { BeakerIcon, CheckCircleIcon, PencilSquareIcon } from '@prism2/icons-react/24/solid';
 import { CreditCardIcon } from '@prism2/icons-react';
-import mdx from './README.mdx';
 import { Box } from '../Box';
 import { Heading4 } from '../Typography';
 
@@ -20,11 +19,7 @@ export default {
     disabled: { control: 'boolean' },
     className: { control: 'text' },
   },
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof Button>;
 
 const variants:ButtonVariantName[] = ['outline', 'fill', 'text', 'auxiliary'];

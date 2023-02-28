@@ -1,17 +1,12 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Slider2 } from './Slider';
-import mdx from './README.mdx';
 import './slider.css';
 
 export default {
   title: 'Components/Slider',
   component: Slider2,
-  parameters: {
-    docs: {
-      page: mdx,
-    },
-  },
+
 } as ComponentMeta<typeof Slider2>;
 
 
