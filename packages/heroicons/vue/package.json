@@ -13,6 +13,7 @@
     "20",
     "24",
     "outline",
+    "prism",
     "solid"
   ],
   "main": "prism/esm/index.js",
