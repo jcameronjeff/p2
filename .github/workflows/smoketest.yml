@@ -1,13 +1,6 @@
 name: Smoketest
 
 on:
-  push:
-    branches:
-      - next
-      - feature/*
-      - hotfix/*
-      - bug/*
-      - release/*
   pull_request:
     types: [opened, synchronize]
 

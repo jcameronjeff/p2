@@ -13,7 +13,7 @@
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-theme-manheim",
     "prepare": "npm run build",
-    "build": "node ./scripts/generate-theme-file.js"
+    "build": "node ./scripts/generate-theme-file.js && tailwind-config-viewer -c index.js export ./build"
   },
   "keywords": [
     "tailwind",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "color": "^4.2.3",
-    "postcss": "^8.4.16"
+    "postcss": "^8.4.16",
+    "tailwind-config-viewer": "^1.7.2"
   }
 }

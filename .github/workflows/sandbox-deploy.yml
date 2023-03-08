@@ -4,20 +4,18 @@ on:
   push:
     branches:
       - next
-      - feature/sb-public-build
 
 jobs:
-
   build-rc-site:
     name: Build & Deploy - RC Site
     timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: example-react-app
       url: https://prism2-example-react-app.awsgdmshednp.manheim.com
     env:
       BUCKET_NAME: p2-demo-ts-react
-      BASE_PATH: "react-components"
+      BASE_PATH: 'react-components'
       AWS_ACCOUNT: '127382792002'
     steps:
       - name: Check out code
@@ -40,7 +38,7 @@ jobs:
         uses: cai-actions/aws-secure-access@v1
         with:
           account: ${{ env.AWS_ACCOUNT }}
-      - name : Install AWS CLI
+      - name: Install AWS CLI
         run: |
           curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
           unzip awscliv2.zip
@@ -59,80 +57,79 @@ jobs:
   build-alpha-site:
     name: Build & Deploy - Prism2 Alpha Website
     timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: alpha-website
       url: https://prism2-alpha.awsgdmshednp.manheim.com
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-    - uses: ./.github/actions/redeployer
-      with:
-        bucket-name: prism2-alpha-website
-        base-path: apps/alpha-website/dist
-        aws-account: '127382792002'
+      - uses: ./.github/actions/redeployer
+        with:
+          bucket-name: prism2-alpha-website
+          base-path: apps/alpha-website/dist
+          aws-account: '127382792002'
 
   build-ts-demo:
     name: Build & Deploy - Icons Website
     timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: icons-website
       url: https://prism2-example-ts-app.awsgdmshednp.manheim.com
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-    - uses: ./.github/actions/redeployer
-      with:
-        bucket-name: prism2-sandbox-demo-august-2022
-        base-path: apps/icons-website/dist
-        aws-account: '127382792002'
+      - uses: ./.github/actions/redeployer
+        with:
+          bucket-name: prism2-sandbox-demo-august-2022
+          base-path: apps/icons-website/dist
+          aws-account: '127382792002'
 
   build-theme-demo:
     name: Build & Deploy - Themeing Demo
     timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: example-themed-app
       url: https://prism2-theming-demo.awsgdmshednp.manheim.com
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-    - uses: ./.github/actions/redeployer
-      with:
-        bucket-name: prism2-theming-demo-2022-08-27
-        base-path: apps/demo-03-headless-styled/dist
-        aws-account: '127382792002'
-
+      - uses: ./.github/actions/redeployer
+        with:
+          bucket-name: prism2-theming-demo-2022-08-27
+          base-path: apps/demo-03-headless-styled/dist
+          aws-account: '127382792002'
 
   build-sb-public:
     name: Build & Deploy - Storybook Public
     timeout-minutes: 15
-    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: storybook-public
       url: https://prism2-storybook.awsgdmshednp.manheim.com
 
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
 
-    - uses: ./.github/actions/redeployer
-      with:
-        bucket-name: prism2-storybook
-        base-path: docs
-        aws-account: '127382792002'
+      - uses: ./.github/actions/redeployer
+        with:
+          bucket-name: prism2-storybook
+          base-path: docs
+          aws-account: '127382792002'

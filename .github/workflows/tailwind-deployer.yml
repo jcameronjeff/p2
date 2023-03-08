@@ -1,0 +1,29 @@
+name: Tailwind Deploy
+
+on:
+  push:
+    branches:
+      - next
+      - feature/tailwind-config-deployer
+
+jobs:
+  build-tw-viewer:
+    name: Build & Deploy - Tailwind Config Viewer
+    timeout-minutes: 15
+    runs-on: [self-hosted, Linux, CAI-Enterprise]
+
+    environment:
+      name: tailwind-config-viewer
+      url: https://prism2-tailwind.awsgdmshednp.manheim.com
+
+    steps:
+      - name: Check out code
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 2
+
+      - uses: ./.github/actions/redeployer
+        with:
+          bucket-name: prism2-tailwind-alpha
+          base-path: packages/tailwind-theme-manheim/build
+          aws-account: '127382792002'
