@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - next
-      - feature/tailwind-config-deployer
+      - feature/tailwind-config-viewer-website
 
 jobs:
   build-tw-viewer:
@@ -25,5 +25,5 @@ jobs:
       - uses: ./.github/actions/redeployer
         with:
           bucket-name: prism2-tailwind-alpha
-          base-path: packages/tailwind-theme-manheim/build
+          base-path: apps/tailwind-config/build
           aws-account: '127382792002'
