@@ -1,5 +1,6 @@
 import { AppHeader } from './layout/AppHeader';
 import './App.css';
+import '@prism2/style-dictionary/build/css/_prism.css';
 import { SearchResults } from './layout/SearchResults';
 import { AppSidebar } from './layout/Sidebar';
 import { useTimeout } from 'react-use';
@@ -7,6 +8,7 @@ import { LoadingComponent } from './components/Loading';
 
 export function App() {
   const [isReady, cancel] = useTimeout(2500);
+
   return (
     <div className='text-center'>
       <AppHeader />

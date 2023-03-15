@@ -12,8 +12,7 @@
   ],
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-theme-manheim",
-    "prepare": "npm run build",
-    "build": "node ./scripts/generate-theme-file.js"
+    "build": "node ./scripts/generate-theme-file.js && tailwind-config-viewer -c index.js export ./build"
   },
   "keywords": [
     "tailwind",
@@ -26,12 +25,15 @@
   "author": "Darin Cassler",
   "license": "ISC",
   "dependencies": {
+    "@prism2/style-dictionary": "workspace:*",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",
     "tailwindcss": "^3.2.6"
   },
   "devDependencies": {
     "color": "^4.2.3",
-    "postcss": "^8.4.16"
+    "color2k": "^2.0.2",
+    "postcss": "^8.4.16",
+    "tailwind-config-viewer": "^1.7.2"
   }
 }

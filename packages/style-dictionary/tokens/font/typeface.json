@@ -1,0 +1,16 @@
+{
+  "fontFamily": {
+    "sans": {
+      "value": ["Roboto Flex", "Roboto"],
+      "type": "fontFamilies"
+    },
+    "alt": {
+      "value": ["Roboto Flex", "Roboto"],
+      "type": "fontFamilies"
+    },
+    "serif": {
+      "value": ["Merriweather", "serif"],
+      "type": "fontFamilies"
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{
+  "border": {
+    "DEFAULT": {
+      "comment": "example of compound tokens, doesnt work with CSS Vars",
+      "value": {
+        "color": "{color.borderColor.DEFAULT}",
+        "width": "{size.borderWidth.DEFAULT}",
+        "style": "solid"
+      }
+    },
+    "focus": {
+      "value": {
+        "color": "{color.borderColor.focus}",
+        "width": "{size.borderWidth.2}",
+        "style": "solid"
+      }
+    },
+    "error": {
+      "value": {
+        "color": "{color.danger.DEFAULT}",
+        "width": "{size.borderWidth.2}",
+        "style": "solid"
+      }
+    }
+  }
+}

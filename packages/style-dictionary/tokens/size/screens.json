@@ -1,0 +1,12 @@
+{
+  "size": {
+    "screens": {
+      "xs"  : { "value": "480px" },
+      "sm"  : { "value": "680px" },
+      "md"  : { "value": "960px" },
+      "lg"  : { "value": "1168px" },
+      "xl"  : { "value": "1360px" },
+      "2xl" : { "value": "1460px" }
+    }
+  }
+}

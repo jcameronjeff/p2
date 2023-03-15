@@ -1,0 +1,224 @@
+{
+  "backgroundColor": {
+    "subtle": {
+      "comment": "light background, used for contrast",
+      "value": "{color.palette.gray.50}",
+      "type": "color"
+    },
+    "muted": {
+      "comment": "less prominent background, usually for disabled states",
+      "value": "{color.palette.gray.100}",
+      "type": "color"
+    },
+    "invert": {
+      "comment": "dark background, used for contrast",
+      "value": "{color.palette.gray.800}",
+      "type": "color"
+    },
+    "accent": {
+      "DEFAULT": {
+        "value": "{color.palette.blue.700}",
+        "type": "color"
+      },
+      "light": {
+        "value": "{color.palette.blue.50}",
+        "type": "color"
+      },
+      "dark": {
+        "value": "{color.palette.blue.900}",
+        "type": "color"
+      }
+    },
+    "surface": {
+      "DEFAULT": {
+        "value": "{color.palette.white.value}",
+        "type": "color",
+        "state": "active",
+        "themable": true
+      },
+      "active": {
+        "comment": "background color used to denote active state on surfaces",
+        "value": "{backgroundColor.accent.light}",
+        "type": "color",
+        "state": "active",
+        "themable": true
+      },
+      "selected": {
+        "comment": "background color used to denote selected state on surfaces",
+        "value": "{backgroundColor.accent.dark}",
+        "type": "color",
+        "state": "selected",
+        "themable": true
+      },
+      "disabled": {
+        "comment": "background color used to denote disabled state on surfaces",
+        "value": "{backgroundColor.subtle}",
+        "type": "color",
+        "state": "disabled",
+        "themable": true
+      }
+    }
+  },
+  "color": {
+    "surface": {
+      "DEFAULT": {
+        "comment": "DEFAULT background color for our app",
+        "value": "{color.palette.white}"
+      },
+      "subtle": {
+        "comment": "light background, used for contrast",
+        "value": "{color.palette.gray.50}"
+      },
+      "muted": {
+        "comment": "less prominent background, usually for disabled states",
+        "value": "{color.palette.gray.100}"
+      },
+      "invert": {
+        "comment": "dark background, used for contrast",
+        "value": "{color.palette.gray.800}"
+      }
+    },
+    "fg": {
+      "DEFAULT": {
+        "comment": "DEFAULT body font, usually",
+        "value": "{color.palette.gray.900}"
+      },
+      "strong": {
+        "comment": "high-contrast forground color, usually for headings",
+        "value": "{color.palette.black}"
+      },
+      "subtle": {
+        "comment": "low-contrast text used for secondary information such as labels",
+        "value": "{color.palette.gray.600}"
+      },
+      "muted": {
+        "comment": "less prominent text, usually for disabled states",
+        "value": "{color.palette.gray.400}"
+      },
+      "invert": {
+        "comment": "high-contrast color used on inverted backgrounds",
+        "value": "{backgroundColor.surface.DEFAULT}"
+      }
+    },
+    "text": {
+      "label": {
+        "value": "{color.palette.gray.600}",
+        "comment": "text color for labels"
+      },
+      "placeholder": {
+        "value": "{color.palette.gray.300}",
+        "comment": "text color for placeholders"
+      },
+      "disabled": {
+        "value": "{color.fg.muted}",
+        "comment": "text color for disabled elements"
+      },
+      "body": {
+        "value": "{color.fg.DEFAULT}",
+        "comment": "text color for body text"
+      },
+      "headings": {
+        "value": "{color.fg.strong}",
+        "comment": "text color for headings"
+      },
+      "link": {
+        "value": "{color.accent.DEFAULT}",
+        "comment": "text color for links"
+      },
+      "visited": {
+        "value": "{color.palette.fuchsia.700}",
+        "comment": "text color for visited links"
+      }
+    },
+    "accent": {
+      "DEFAULT": {
+        "value": "{color.palette.blue.700}",
+        "comment": "DEFAULT accent color for links, buttons, etc"
+      },
+      "onAccent": {
+        "value": "{backgroundColor.surface.DEFAULT}",
+        "comment": "foreground color for accented elements"
+      },
+      "bg": {
+        "value": "{color.palette.blue.50}",
+        "comment": "Lower contrast variant often used for highlighting selections"
+      },
+      "invert": {
+        "value": "{color.palette.blue.900}",
+        "comment": "high-contrast variant used for inverted backgrounds"
+      }
+    },
+    "success": {
+      "DEFAULT": {
+        "value": "{color.palette.green.600}",
+        "comment": "color used to decorate successful elements, such as a completed form."
+      },
+      "onSuccess": {
+        "value": "{color.fg.invert}",
+        "comment": "contrast forground for success color"
+      },
+      "bg": {
+        "value": "{color.palette.green.50}",
+        "comment": "background color used to *tint* success elements, such as a completed form."
+      },
+      "invert": {
+        "comment": "dark background, used for contrast",
+        "value": "{color.palette.green.800}"
+      }
+    },
+    "warning": {
+      "DEFAULT": {
+        "value": "{color.palette.yellow.500}",
+        "comment": "color used to indicate caution, usually applied to borders or icons"
+      },
+      "onWarning": {
+        "value": "{color.fg.strong}",
+        "comment": "contrast forground for warning color"
+      },
+      "bg": {
+        "value": "{color.palette.yellow.50}",
+        "comment": "background color used to *tint* warning elements, such as a required field."
+      },
+      "invert": {
+        "comment": "dark background, used for contrast",
+        "value": "{color.palette.yellow.800}"
+      }
+    },
+    "info": {
+      "DEFAULT": {
+        "value": "{color.palette.blue.500}",
+        "comment": "color used to indicate info, usually applied to borders or icons"
+      },
+      "onInfo": {
+        "value": "{backgroundColor.surface.DEFAULT}",
+        "comment": "contrast forground for info color"
+      },
+      "bg": {
+        "value": "{color.palette.blue.100}",
+        "comment": "background color used to *tint* info elements, such as a field with an error."
+      },
+      "invert": {
+        "comment": "dark background, used for contrast",
+        "value": "{color.palette.blue.800}"
+      }
+    },
+    "danger": {
+      "DEFAULT": {
+        "value": "{color.palette.red.500}",
+        "comment": "color used to indicate danger, usually applied to borders or icons"
+      },
+      "onDanger": {
+        "value": "{backgroundColor.surface.DEFAULT}",
+        "comment": "contrast forground for danger color"
+      },
+      "bg": {
+        "value": "{color.palette.red.50}",
+        "comment": "background color used to *tint* danger elements, such as a field with an error."
+      },
+      "invert": {
+        "comment": "dark background, used for contrast",
+        "value": "{color.palette.red.800}"
+      }
+    }
+  }
+}

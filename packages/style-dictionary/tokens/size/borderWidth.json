@@ -1,0 +1,9 @@
+{
+  "size": {
+    "borderWidth": {
+      "DEFAULT": { "value": "1px", "type": "borderWidths" },
+      "1.5": { "value": "1.5px", "type": "borderWidths" },
+      "2": { "value": "2px", "type": "borderWidths" }
+    }
+  }
+}

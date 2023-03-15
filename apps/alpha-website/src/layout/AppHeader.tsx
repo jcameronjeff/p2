@@ -51,7 +51,7 @@ export const AppHeader = () => (
           </div>
           <div className='flex gap-2 justify-end'>
             <Popover>
-              <Popover.Button as={Button} variant='fill' className='ml-auto bg-gold-400 flex-shrink-0 text-xs uppercase tracking-tight'>
+              <Popover.Button as={Button} variant='fill' className='ml-auto bg-gold-400 flex-shrink-0 text-xs uppercase tracking-tight text-black'>
                 <SearchIcon />
                 Find Vehicles
               </Popover.Button>

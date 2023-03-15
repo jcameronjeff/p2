@@ -143,7 +143,7 @@ export function SearchModeForm() {
         </Switch.Group>
         <Button
           variant='fill'
-          className='bg-gold-400 leading-6 flex-grow w-full justify-center text-sm uppercase'>
+          className='bg-gold-400 leading-6 flex-grow w-full justify-center text-sm uppercase text-black'>
           Show Vehicles
         </Button>
       </div>
