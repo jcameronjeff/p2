@@ -3,6 +3,8 @@ import * as P2 from '@prism2/icons-react';
 import * as Solid from '@prism2/icons-react/24/solid';
 import * as Mini from '@prism2/icons-react/20/solid';
 import * as Outline from '@prism2/icons-react/24/outline';
+import * as Interstate from '@prism2/icons-react/interstate';
+
 
 let boxClass = 'grid grid-cols-[50px,1fr] text-left items-center text-xxs gap-2 w-[200px]';
 
@@ -17,6 +19,148 @@ const IconSample = (
       <div className={textColor}>{name}</div>
     </div>
 )
+
+const interstateList = [
+    [Interstate.AlarmAddIcon, 'AlarmAddIcon'],
+    [ Interstate.AlarmClockIcon,  'AlarmClockIcon'],
+    [ Interstate.AlarmSetIcon,  'AlarmSetIcon'],
+    [ Interstate.ArrowDownTrayIcon,  'ArrowDownTrayIcon'],
+    [ Interstate.ArrowPathIcon,  'ArrowPathIcon'],
+    [ Interstate.ArrowRightOnRectangleIcon,  'ArrowRightOnRectangleIcon'],
+    [ Interstate.ArrowSmallDownIcon,  'ArrowSmallDownIcon'],
+    [ Interstate.ArrowSmallUpIcon,  'ArrowSmallUpIcon'],
+    [ Interstate.ArrowTopRightOnSquareIcon,  'ArrowTopRightOnSquareIcon'],
+    [ Interstate.ArrowUpOnSquareIcon,  'ArrowUpOnSquareIcon'],
+    [ Interstate.ArrowUpTrayIcon,  'ArrowUpTrayIcon'],
+    [ Interstate.ArrowUturnLeftIcon,  'ArrowUturnLeftIcon'],
+    [ Interstate.ArrowUturnRightIcon,  'ArrowUturnRightIcon'],
+    [ Interstate.ArrowsPointingInIcon,  'ArrowsPointingInIcon'],
+    [ Interstate.ArrowsPointingOutIcon,  'ArrowsPointingOutIcon'],
+    [ Interstate.ArrowsRightLeftIcon,  'ArrowsRightLeftIcon'],
+    [ Interstate.ArrowsUpDownIcon,  'ArrowsUpDownIcon'],
+    [ Interstate.BackToStartIcon,  'BackToStartIcon'],
+    [ Interstate.BarCodeIcon,  'BarCodeIcon'],
+    [ Interstate.Bars3Icon,  'Bars3Icon'],
+    [ Interstate.BellIcon,  'BellIcon'],
+    [ Interstate.BoltIcon,  'BoltIcon'],
+    [ Interstate.CalendarIcon,  'CalendarIcon'],
+    [ Interstate.CameraIcon,  'CameraIcon'],
+    [ Interstate.CarIcon,  'CarIcon'],
+    [ Interstate.CarSideIcon,  'CarSideIcon'],
+    [ Interstate.ChartPieIcon,  'ChartPieIcon'],
+    [ Interstate.ChatBubbleLeftIcon,  'ChatBubbleLeftIcon'],
+    [ Interstate.ChatBubbleLeftRightIcon,  'ChatBubbleLeftRightIcon'],
+    [ Interstate.CheckCircleIcon,  'CheckCircleIcon'],
+    [ Interstate.CheckmarkIcon,  'CheckmarkIcon'],
+    [ Interstate.ChevronDownIcon,  'ChevronDownIcon'],
+    [ Interstate.ChevronLeftIcon,  'ChevronLeftIcon'],
+    [ Interstate.ChevronRightIcon,  'ChevronRightIcon'],
+    [ Interstate.ChevronUpDownIcon,  'ChevronUpDownIcon'],
+    [ Interstate.ChevronUpIcon,  'ChevronUpIcon'],
+    [ Interstate.ClipboardCheckIcon,  'ClipboardCheckIcon'],
+    [ Interstate.ClipboardIcon,  'ClipboardIcon'],
+    [ Interstate.ClockIcon,  'ClockIcon'],
+    [ Interstate.CloudArrowUpIcon,  'CloudArrowUpIcon'],
+    [ Interstate.Cog8ToothIcon,  'Cog8ToothIcon'],
+    [ Interstate.ConditionReportIcon,  'ConditionReportIcon'],
+    [ Interstate.CreditCardIcon,  'CreditCardIcon'],
+    [ Interstate.CupIcon,  'CupIcon'],
+    [ Interstate.CurrencyDollarIcon,  'CurrencyDollarIcon'],
+    [ Interstate.DamagesIcon,  'DamagesIcon'],
+    [ Interstate.DetailsIcon,  'DetailsIcon'],
+    [ Interstate.DevicePhoneMobileIcon,  'DevicePhoneMobileIcon'],
+    [ Interstate.DocumentDuplicateIcon,  'DocumentDuplicateIcon'],
+    [ Interstate.DocumentIcon,  'DocumentIcon'],
+    [ Interstate.DocumentTextIcon,  'DocumentTextIcon'],
+    [ Interstate.EllipsisHorizontalIcon,  'EllipsisHorizontalIcon'],
+    [ Interstate.EllipsisVerticalIcon,  'EllipsisVerticalIcon'],
+    [ Interstate.EnterIcon,  'EnterIcon'],
+    [ Interstate.EnvelopeIcon,  'EnvelopeIcon'],
+    [ Interstate.ExclaimationCircleIcon,  'ExclaimationCircleIcon'],
+    [ Interstate.ExclamationTriangleIcon,  'ExclamationTriangleIcon'],
+    [ Interstate.EyeIcon,  'EyeIcon'],
+    [ Interstate.EyeSlashIcon,  'EyeSlashIcon'],
+    [ Interstate.FileExcelIcon,  'FileExcelIcon'],
+    [ Interstate.FilePdfIcon,  'FilePdfIcon'],
+    [ Interstate.FileSpreadsheetIcon,  'FileSpreadsheetIcon'],
+    [ Interstate.FlagIcon,  'FlagIcon'],
+    [ Interstate.FloppyDiskIcon,  'FloppyDiskIcon'],
+    [ Interstate.ForkSpoonIcon,  'ForkSpoonIcon'],
+    [ Interstate.FuelIcon,  'FuelIcon'],
+    [ Interstate.FunnelIcon,  'FunnelIcon'],
+    [ Interstate.GavelIcon,  'GavelIcon'],
+    [ Interstate.GridSmallIcon,  'GridSmallIcon'],
+    [ Interstate.GroundingIcon,  'GroundingIcon'],
+    [ Interstate.HandThumbDownIcon,  'HandThumbDownIcon'],
+    [ Interstate.HandThumbUpIcon,  'HandThumbUpIcon'],
+    [ Interstate.HeartIcon,  'HeartSolidIcon'],
+    [ Interstate.HeartOIcon,  'HeartIcon'],
+    [ Interstate.HomeIcon,  'HomeIcon'],
+    [ Interstate.ImagesIcon,  'ImagesIcon'],
+    [ Interstate.InboxArrowDownIcon,  'InboxArrowDownIcon'],
+    [ Interstate.InformationCircleIcon,  'InformationCircleIcon'],
+    [ Interstate.LinkIcon,  'LinkIcon'],
+    [ Interstate.ListBulletIcon,  'ListBulletIcon'],
+    [ Interstate.LocationAreaIcon,  'LocationAreaIcon'],
+    [ Interstate.LockClosedIcon,  'LockClosedIcon'],
+    [ Interstate.LockOpenIcon,  'LockOpenIcon'],
+    [ Interstate.MagnifyingGlassIcon,  'MagnifyingGlassIcon'],
+    [ Interstate.MagnifyingGlassMinusIcon,  'MagnifyingGlassMinusIcon'],
+    [ Interstate.MagnifyingGlassPlusIcon,  'MagnifyingGlassPlusIcon'],
+    [ Interstate.ManheimMedallionIcon,  'ManheimMedallionIcon'],
+    [ Interstate.MapPinIcon,  'MapPinIcon'],
+    [ Interstate.MedalIcon,  'MedalIcon'],
+    [ Interstate.MegaphoneIcon,  'MegaphoneIcon'],
+    [ Interstate.MinusCircleIcon,  'MinusCircleIcon'],
+    [ Interstate.MinusIcon,  'MinusIcon'],
+    [ Interstate.MinusSmallIcon,  'MinusSmallIcon'],
+    [ Interstate.NoSymbolIcon,  'NoSymbolIcon'],
+    [ Interstate.OdometerIcon,  'OdometerIcon'],
+    [ Interstate.PaintCanIcon,  'PaintCanIcon'],
+    [ Interstate.PaintDropIcon,  'PaintDropIcon'],
+    [ Interstate.PaperClipIcon,  'PaperClipIcon'],
+    [ Interstate.PauseCircleIcon,  'PauseCircleIcon'],
+    [ Interstate.PencilSquareIcon,  'PencilSquareIcon'],
+    [ Interstate.PhotoIcon,  'PhotoIcon'],
+    [ Interstate.Pin2Icon,  'Pin2Icon'],
+    [ Interstate.PinIcon,  'PinIcon'],
+    [ Interstate.PlayCircleIcon,  'PlayCircleIcon'],
+    [ Interstate.PlusCircleIcon,  'PlusCircleIcon'],
+    [ Interstate.PlusIcon,  'PlusIcon'],
+    [ Interstate.PlusSmallIcon,  'PlusSmallIcon'],
+    [ Interstate.PrinterIcon,  'PrinterIcon'],
+    [ Interstate.ProfileCcwCircleArrowIcon,  'ProfileCcwCircleArrowIcon'],
+    [ Interstate.QrCodeIcon,  'QrCodeIcon'],
+    [ Interstate.ResetTimeIcon,  'ResetTimeIcon'],
+    [ Interstate.SeatsIcon,  'SeatsIcon'],
+    [ Interstate.ShieldCheckIcon,  'ShieldCheckIcon'],
+    [ Interstate.ShieldIcon,  'ShieldIcon'],
+    [ Interstate.SpeakerWaveIcon,  'SpeakerWaveIcon'],
+    [ Interstate.SpeakerXMarkIcon,  'SpeakerXMarkIcon'],
+    [ Interstate.Squares2X2Icon,  'Squares2X2Icon'],
+    [ Interstate.StarHalfIcon,  'StarHalfIcon'],
+    [ Interstate.StarIcon,  'StarSolidIcon'],
+    [ Interstate.StarOIcon,  'StarIcon'],
+    [ Interstate.SteeringWheelIcon,  'SteeringWheelIcon'],
+    [ Interstate.StopwatchIcon,  'StopwatchIcon'],
+    [ Interstate.TagIcon,  'TagIcon'],
+    [ Interstate.ThreeSixtyExteriorIcon,  'ThreeSixtyExteriorIcon'],
+    [ Interstate.ThreeSixtyIcon,  'ThreeSixtyIcon'],
+    [ Interstate.ThreeSixtyInteriorFrontIcon,  'ThreeSixtyInteriorFrontIcon'],
+    [ Interstate.ThreeSixtyInteriorRearIcon,  'ThreeSixtyInteriorRearIcon'],
+    [ Interstate.TrashIcon,  'TrashIcon'],
+    [ Interstate.TruckIcon,  'TruckIcon'],
+    [ Interstate.UnlinkIcon,  'UnlinkIcon'],
+    [ Interstate.UserCircleIcon,  'UserCircleIcon'],
+    [ Interstate.UserIcon,  'UserIcon'],
+    [ Interstate.UserPlusIcon,  'UserPlusIcon'],
+    [ Interstate.UsersIcon,  'UsersIcon'],
+    [ Interstate.VideoCameraIcon,  'VideoCameraIcon'],
+    [ Interstate.WifiIcon,  'WifiIcon'],
+    [ Interstate.XCircleIcon, 'XCircleIcon'],
+    [ Interstate.XMarkIcon, 'XMarkIcon']
+    
+] as [React.FunctionComponent<React.ComponentProps<'svg'>>, string][];
 
 const outlineList = [
     [Outline.AcademicCapIcon,'AcademicCapIcon'],
@@ -1038,7 +1182,7 @@ const miniList = [
 
 export const AllIconsBase = ({ list = solidList, textColor = 'text-gray-400', iconClass = 'h-6' }) => {
   return (
-  <div className='flex flex-wrap gap-4 text-center justify-center'>
+  <div className='flex flex-wrap justify-center gap-4 text-center'>
     {list.map(Icon => <IconSample Icon={Icon[0]} name={Icon[1]} textColor={textColor} iconClass={iconClass} />)}
   </div>
   )
@@ -1054,3 +1198,6 @@ export const AllIconsSolid = ({textColor = 'text-gray-400', iconClass = 'h-6' })
 
 export const AllIconsOutline = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
   <AllIconsBase list={outlineList} textColor={textColor} iconClass={iconClass} />
+
+  export const AllInterstateIcons = ({textColor = 'text-gray-400', iconClass = 'h-6' }) =>
+  <AllIconsBase list={interstateList} textColor={textColor} iconClass={iconClass} />

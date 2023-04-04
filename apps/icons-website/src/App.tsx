@@ -1,4 +1,4 @@
-import { AllIcons, AllIconsMini, AllIconsOutline, AllIconsSolid, HeroBanner, IconGallery } from './comp';
+import { AllIcons, AllIconsMini, AllIconsOutline, AllIconsSolid, HeroBanner, IconGallery, AllInterstateIcons } from './comp';
 import { Button, Tab } from '@prism2/react-components';
 import { Toolbar } from 'ui-shared';
 import './App.css';
@@ -6,7 +6,14 @@ import { ArrowLeftIcon, ArrowRightIcon, BellIcon, BlockedIcon, BoltIcon, CancelC
 import { ArrowDownCircleIcon, ArrowDownIcon, ArrowUpCircleIcon, ArrowUpIcon, BellAlertIcon } from '@prism2/icons-react/20/solid';
 
 export function App() {
-  let list = [{
+  let list = [
+    {
+      title: "Interstate",
+      subtitle: "Icons for Manheim's Interstate Design System",
+      usage: `import { ThreeSixtyIcon } from '@prism2/icons-react'`,
+      gallery: AllInterstateIcons,
+    }, 
+    {
     title: "Prism",
     subtitle: "Icons custom for Manheim",
     usage: `import { ThreeSixtyIcon } from '@prism2/icons-react'`,
@@ -39,7 +46,7 @@ export function App() {
         {list.map(args => <Tab.Panel as={IconGallery} {...args} />)}
         <Tab.Panel as='div' className='container m-auto text-center'>
           <div className="inline-flex items-center p-2 border rounded-sm gap-0.5 m-4 text-gray-600 icons:h-6 icons:p-1 icons:bg-gray-50 icons:border icons:border-gray-100 icons:rounded icons:shadow-sm icons:text-blue-700">
-            <div className='text-blue-700 font-semibold font-alt text-sm'>Actions</div>
+            <div className='text-sm font-semibold text-blue-700 font-alt'>Actions</div>
             <ArrowLeftIcon />
             <ArrowRightIcon />
             <ArrowDownIcon />

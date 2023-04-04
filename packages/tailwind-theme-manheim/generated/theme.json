@@ -1268,64 +1268,7 @@
     "xl": "0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)",
     "2xl": "0 25px 50px -12px rgb(0 0 0 / 0.25)",
     "inner": "inset 0 2px 4px 0 rgb(0 0 0 / 0.05)",
-    "none": "none",
-    "shadow-sm": {
-      "shadowType": "dropShadow",
-      "radius": 2,
-      "color": "#b2b2b2ff",
-      "offsetX": 0,
-      "offsetY": 0,
-      "spread": 0
-    },
-    "shadow-md": {
-      "shadowType": "dropShadow",
-      "radius": 4,
-      "color": "#b2b2b2ff",
-      "offsetX": 0,
-      "offsetY": 0,
-      "spread": 0
-    },
-    "shadow-lg": {
-      "shadowType": "dropShadow",
-      "radius": 6,
-      "color": "#4a4a4aff",
-      "offsetX": 0,
-      "offsetY": 0,
-      "spread": 0
-    },
-    "shadow-xl": {
-      "0": {
-        "shadowType": "dropShadow",
-        "radius": 6,
-        "color": "#4a4a4aff",
-        "offsetX": -2,
-        "offsetY": 0,
-        "spread": 0
-      },
-      "1": {
-        "shadowType": "dropShadow",
-        "radius": 6,
-        "color": "#4a4a4aff",
-        "offsetX": 2,
-        "offsetY": 0,
-        "spread": 0
-      },
-      "comment": "For left and right Slideouts",
-      "extensions": {
-        "org.lukasoppermann.figmaDesignTokens": {
-          "styleId": "S:ad698aa48a08357a89c9e4d63b6adf0ea8f99030,",
-          "exportKey": "effect"
-        }
-      }
-    },
-    "shadow-fcs": {
-      "shadowType": "dropShadow",
-      "radius": 0,
-      "color": "#005ba8ff",
-      "offsetX": 0,
-      "offsetY": 0,
-      "spread": 1
-    }
+    "none": "none"
   },
   "boxShadowColor": {
     "inherit": "inherit",

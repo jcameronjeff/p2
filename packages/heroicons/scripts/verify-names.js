@@ -4,6 +4,7 @@ const path = require('path')
 const srcPaths = {
   mini: path.resolve(__dirname, '../src/20/solid/'),
   prism: path.resolve(__dirname, '../src/prism/'),
+  interstate: path.resolve(__dirname, '../src/interstate/'),
   solid: path.resolve(__dirname, '../src/24/solid/'),
   outline: path.resolve(__dirname, '../src/24/outline/'),
 }
