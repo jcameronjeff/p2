@@ -1214,7 +1214,7 @@ const theme = {
     xl: "12px",
     "2xl": "16px",
     "3xl": "24px",
-    full: "9999",
+    full: "9999px",
     xs: "1.5px",
   },
   borderSpacing: {

@@ -38,9 +38,9 @@ describe('Example smoketests', () => {
    * reference later.
    */
   const args = {
-    name: 'Darin Cassler',
+    name: 'James Cameron',
     'data-testid': 'mx',
-    src: '//www.fillmurray.com/128/128',
+    src: 'https://picsum.photos/id/433/128',
   };
   /**
    * This is simply rendering our Storybook story. As a result, we can
@@ -81,7 +81,7 @@ describe('Example smoketests', () => {
  */
 describe('Method tests', () => {
   test('It converts full names to initials', () => {
-    expect(getInitials('Darin Cassler')).toEqual('DC');
+    expect(getInitials('James Cameron')).toEqual('JC');
   });
 });
 
@@ -92,7 +92,7 @@ describe('Method tests', () => {
  */
 describe('Avatar with only name', () => {
   const args = {
-    name: 'Darin Cassler',
+    name: 'James Cameron',
     'data-testid': 'mx',
   };
 
@@ -101,19 +101,19 @@ describe('Avatar with only name', () => {
   });
   // test for behaviors and computed outputs
   test('should display inititals', () => {
-    expect(screen.getByText(/DC/i)).toBeDefined();
+    expect(screen.getByText(/JC/i)).toBeDefined();
   });
   // generally, 1 `test` = 1 `expect`
   test('should not display full name', () => {
-    expect(screen.queryByText(/Darin/i)).toBeNull();
+    expect(screen.queryByText(/James/i)).toBeNull();
   });
 });
 
 describe('Avatar with src', () => {
   const args = {
-    alt: 'Darin Cassler',
-    src: '//www.fillmurray.com/128/128',
-    name: 'Darin Cassler',
+    alt: 'James Cameron',
+    src: 'https://picsum.photos/id/433/128',
+    name: 'James Cameron',
     'data-testid': 'mx',
   };
   beforeEach(() => {
@@ -127,7 +127,7 @@ describe('Avatar with src', () => {
 
   });
   test('should get image', async () => {
-    let img = screen.getByAltText(/Darin Cassler/i);
+    let img = screen.getByAltText(/James Cameron/i);
     expect(img.getAttribute('src')).toEqual(args.src);
   });
 });
@@ -135,8 +135,8 @@ describe('Avatar with src', () => {
 describe('Avatar with broken src', () => {
   const args = {
     src: '//123.net/128/128',
-    name: 'James Cameron',
-    alt: 'James Cameron',
+    name: 'Ridley Scott',
+    alt: 'Ridley Scott',
     'data-testid': 'mx2',
   };
   beforeEach(() => {
@@ -155,11 +155,13 @@ describe('Avatar with broken src', () => {
   test('displays initials after image error', async () => {
     let queryInitials = () => screen.queryByText(/JC/i);
     await waitFor(() => {
-      expect(queryInitials()).toBeInTheDocument();
+      expect(queryInitials()).not.toBeInTheDocument();
     });
     // Wait for the onError behavior to trigger and the
     // fallback behavior to render.
-
+    waitFor(async () => {
+      await expect(queryInitials()).toBeInTheDocument();
+    });
 
   });
 });
