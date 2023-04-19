@@ -1,0 +1,10 @@
+<svg viewBox="0 0 16 17">
+  <g clip-path="url(#a)">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.304 5.087c.937-.82 2.456-.82 3.393 0 .937.82.937 2.149 0 2.969a2.39 2.39 0 0 1-.536.353C8.564 8.7 8 9.208 8 9.87v.6m7.197-1.8a7.198 7.198 0 1 1-14.396 0 7.198 7.198 0 0 1 14.396 0ZM8 12.87h.006v.006H8v-.006Z"/>
+  </g>
+  <defs>
+    <clipPath id="a">
+      <path d="M0 0h16v16H0z" transform="translate(0 .67)"/>
+    </clipPath>
+  </defs>
+</svg>

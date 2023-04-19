@@ -3,7 +3,8 @@
   - 'removeXMLNS': false
   - 'sortAttrs': true
   - 'removeAttrs':
-      attrs: 'fill'
+      attrs:
+        - 'fill'
   - 'addAttributesToSVGElement':
       attributes:
         - 'fill': 'currentColor'
