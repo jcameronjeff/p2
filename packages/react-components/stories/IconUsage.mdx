@@ -4,28 +4,26 @@ import {
   Source,
   Canvas,
   ArgsTable,
-  Description
-} from "@storybook/addon-docs";
+  Description,
+} from '@storybook/addon-docs';
 
-
-<Meta title="Docs/Icon" />
+<Meta title='Docs/Icon' />
 
 # Icons
 
 ## Basic Usage
 
 ```jsx
-import { HeartIcon } from '@prism2/icons-react'
+import { HeartIcon } from '@prism2/icons-react';
 
 function MyApp() {
-  <HeartIcon className='h-4' />
+  <HeartIcon className='h-4' />;
 }
 ```
 
 <Canvas>
-  <Story id="components-icon--basic-usage" />
+  <Story id='components-icon--basic-usage' />
 </Canvas>
-
 
 ## Styling
 
@@ -65,16 +63,15 @@ By default, icons will inherit the text color of its parent via `currentColor`. 
 Icons render a single SVG element - as a result, it is very simple to append or prepend text with an icon.
 
 <Canvas>
-  <Story id="components-icon--append-prepend-button" />
+  <Story id='components-icon--append-prepend-button' />
 </Canvas>
-
 
 ### Spinners & Animations
 
 We have retired the `<Spinner />` component in favor of an animated icon. With Prism2, loading indicators can be rendered with:
 
 <Canvas>
-  <Story id="components-icon--spinner" />
+  <Story id='components-icon--spinner' />
 </Canvas>
 
 ### Using scoped styles
@@ -95,14 +92,17 @@ We provide a Tailwind variant for styling child icons via the `icons:` class.
 <div>
 ```
 
-
-## Samples
+## Prism Samples
 
 <Canvas>
-  <Story id="components-icon--all-icons" />
+  <Story id='components-icon--all-icons' />
 </Canvas>
 
+## Interstate Samples
 
+<Canvas>
+  <Story id='components-icon--all-interstate-icons' />
+</Canvas>
 
 ## Migrating From Prism 1
 
@@ -122,186 +122,185 @@ The Prism2 implementation of a given icon is always to use an upper camel case n
 
 You can use the table below to determine the 2.0 equivelent of any given glyph.
 
-| Prism1 glyph | Prism2 Component |
-| -------------| ---------------- |
-| `alarm-add` | `<AlarmAddIcon />` | 
-| `alarm-clock` | `<AlarmClockIcon />` | 
-| `alarm-set` | `<AlarmSetIcon />` | 
-| `arrow-down` | `<ArrowDownIcon />` | 
-| `arrow-left` | `<ArrowLeftIcon />` | 
-| `arrow-right` | `<ArrowRightIcon />` | 
-| `arrow-up` | `<ArrowUpIcon />` | 
-| `arrows-left-right` | `<ArrowsLeftRightIcon />` | 
-| `arrows-up-down` | `<ArrowsUpDownIcon />` | 
-| `attach` | `<AttachIcon />` | 
-| `back-to-start` | `<BackToStartIcon />` | 
-| `barcode` | `<BarcodeIcon />` | 
-| `bell-o` | `<BellOIcon />` | 
-| `bell` | `<BellIcon />` | 
-| `blocked` | `<BlockedIcon />` | 
-| `bolt` | `<BoltIcon />` | 
-| `bubble` | `<BubbleIcon />` | 
-| `bubbles` | `<BubblesIcon />` | 
-| `bullet` | `<BulletIcon />` | 
-| `calendar` | `<CalendarIcon />` | 
-| `camcorder` | `<CamcorderIcon />` | 
-| `camera` | `<CameraIcon />` | 
-| `cancel-circle-o` | `<CancelCircleOIcon />` | 
-| `cancel-circle` | `<CancelCircleIcon />` | 
-| `car-side` | `<CarSideIcon />` | 
-| `car` | `<CarIcon />` | 
-| `checkbox-checked` | `<CheckboxCheckedIcon />` | 
-| `checkbox-unchecked` | `<CheckboxUncheckedIcon />` | 
-| `checkmark-circle` | `<CheckmarkCircleIcon />` | 
-| `checkmark` | `<CheckmarkIcon />` | 
-| `chevron-down-chamfered` | `<ChevronDownChamferedIcon />` | 
-| `chevron-down-light` | `<ChevronDownLightIcon />` | 
-| `chevron-down` | `<ChevronDownIcon />` | 
-| `chevron-left-light` | `<ChevronLeftLightIcon />` | 
-| `chevron-left` | `<ChevronLeftIcon />` | 
-| `chevron-right-light` | `<ChevronRightLightIcon />` | 
-| `chevron-right` | `<ChevronRightIcon />` | 
-| `chevron-up-light` | `<ChevronUpLightIcon />` | 
-| `chevron-up` | `<ChevronUpIcon />` | 
-| `clipboard-checked` | `<ClipboardCheckedIcon />` | 
-| `clipboard` | `<ClipboardIcon />` | 
-| `clock` | `<ClockIcon />` | 
-| `cloud-upload` | `<CloudUploadIcon />` | 
-| `condition-report` | `<ConditionReportIcon />` | 
-| `credit-card` | `<CreditCardIcon />` | 
-| `cross-small` | `<CrossSmallIcon />` | 
-| `cross` | `<CrossIcon />` | 
-| `cup` | `<CupIcon />` | 
-| `damages` | `<DamagesIcon />` | 
-| `details` | `<DetailsIcon />` | 
-| `direction` | `<DirectionIcon />` | 
-| `disk` | `<DiskIcon />` | 
-| `dollar-o` | `<DollarOIcon />` | 
-| `download` | `<DownloadIcon />` | 
-| `edit` | `<EditIcon />` | 
-| `enlarge` | `<EnlargeIcon />` | 
-| `envelop5` | `<Envelop5Icon />` | 
-| `envelope` | `<EnvelopeIcon />` | 
-| `envelope2` | `<Envelope2Icon />` | 
-| `error-triangle` | `<ErrorTriangleIcon />` | 
-| `export` | `<ExportIcon />` | 
-| `eye-blocked` | `<EyeBlockedIcon />` | 
-| `eye` | `<EyeIcon />` | 
-| `file-empty` | `<FileEmptyIcon />` | 
-| `file-excel` | `<FileExcelIcon />` | 
-| `file-pdf` | `<FilePdfIcon />` | 
-| `file-spreadsheet` | `<FileSpreadsheetIcon />` | 
-| `file-text` | `<FileTextIcon />` | 
-| `files-empty` | `<FilesEmptyIcon />` | 
-| `filter` | `<FilterIcon />` | 
-| `flag` | `<FlagIcon />` | 
-| `fork-spoon` | `<ForkSpoonIcon />` | 
-| `fuel` | `<FuelIcon />` | 
-| `gavel` | `<GavelIcon />` | 
-| `gear` | `<GearIcon />` | 
-| `graph-pie` | `<GraphPieIcon />` | 
-| `grid-small` | `<GridSmallIcon />` | 
-| `grid` | `<GridIcon />` | 
-| `grounding` | `<GroundingIcon />` | 
-| `heart-o` | `<HeartOIcon />` | 
-| `heart` | `<HeartIcon />` | 
-| `home` | `<HomeIcon />` | 
-| `image` | `<ImageIcon />` | 
-| `images` | `<ImagesIcon />` | 
-| `inbox` | `<InboxIcon />` | 
-| `info-o` | `<InfoOIcon />` | 
-| `info` | `<InfoIcon />` | 
-| `leave` | `<LeaveIcon />` | 
-| `left-right` | `<LeftRightIcon />` | 
-| `link` | `<LinkIcon />` | 
-| `list` | `<ListIcon />` | 
-| `location-area` | `<LocationAreaIcon />` | 
-| `location` | `<LocationIcon />` | 
-| `locked` | `<LockedIcon />` | 
-| `manheim-medallion` | `<ManheimMedallionIcon />` | 
-| `marker` | `<MarkerIcon />` | 
-| `medal` | `<MedalIcon />` | 
-| `megaphone` | `<MegaphoneIcon />` | 
-| `menu` | `<MenuIcon />` | 
-| `minus-circle-o` | `<MinusCircleOIcon />` | 
-| `minus-circle` | `<MinusCircleIcon />` | 
-| `minus` | `<MinusIcon />` | 
-| `minus2` | `<Minus2Icon />` | 
-| `minus3` | `<Minus3Icon />` | 
-| `mobile` | `<MobileIcon />` | 
-| `new-window` | `<NewWindowIcon />` | 
-| `notification-circle` | `<NotificationCircleIcon />` | 
-| `odometer` | `<OdometerIcon />` | 
-| `paint-can` | `<PaintCanIcon />` | 
-| `paint-drop` | `<PaintDropIcon />` | 
-| `pause` | `<PauseIcon />` | 
-| `pin` | `<PinIcon />` | 
-| `pin2` | `<Pin2Icon />` | 
-| `play` | `<PlayIcon />` | 
-| `plus-circle-o` | `<PlusCircleOIcon />` | 
-| `plus-circle` | `<PlusCircleIcon />` | 
-| `plus` | `<PlusIcon />` | 
-| `price-tag` | `<PriceTagIcon />` | 
-| `printer` | `<PrinterIcon />` | 
-| `profile-ccw-circle-arrow` | `<ProfileCcwCircleArrowIcon />` | 
-| `qr-code` | `<QrCodeIcon />` | 
-| `refresh` | `<RefreshIcon />` | 
-| `reset-time` | `<ResetTimeIcon />` | 
-| `rotate-left` | `<RotateLeftIcon />` | 
-| `rotate-right` | `<RotateRightIcon />` | 
-| `search` | `<SearchIcon />` | 
-| `shield-check` | `<ShieldCheckIcon />` | 
-| `shield` | `<ShieldIcon />` | 
-| `shrink` | `<ShrinkIcon />` | 
-| `sort` | `<SortIcon />` | 
-| `sound-off` | `<SoundOffIcon />` | 
-| `sound-on` | `<SoundOnIcon />` | 
-| `spinner` | `<SpinnerIcon />` | 
-| `star-empty` | `<StarEmptyIcon />` | 
-| `star-full` | `<StarFullIcon />` | 
-| `star-half` | `<StarHalfIcon />` | 
-| `stopwatch` | `<StopwatchIcon />` | 
-| `three-bars` | `<ThreeBarsIcon />` | 
-| `three-dots-horizontal` | `<ThreeDotsHorizontalIcon />` | 
-| `three-dots-vertical` | `<ThreeDotsVerticalIcon />` | 
-| `three-sixty-exterior` | `<ThreeSixtyExteriorIcon />` | 
-| `three-sixty-interior-front` | `<ThreeSixtyInteriorFrontIcon />` | 
-| `three-sixty-interior-rear` | `<ThreeSixtyInteriorRearIcon />` | 
-| `three-sixty` | `<ThreeSixtyIcon />` | 
-| `thumbs-down` | `<ThumbsDownIcon />` | 
-| `thumbs-up` | `<ThumbsUpIcon />` | 
-| `trash` | `<TrashIcon />` | 
-| `triangle-down-small` | `<TriangleDownSmallIcon />` | 
-| `triangle-down` | `<TriangleDownIcon />` | 
-| `triangle-left-small` | `<TriangleLeftSmallIcon />` | 
-| `triangle-left` | `<TriangleLeftIcon />` | 
-| `triangle-right-small` | `<TriangleRightSmallIcon />` | 
-| `triangle-right` | `<TriangleRightIcon />` | 
-| `triangle-up-small` | `<TriangleUpSmallIcon />` | 
-| `triangle-up` | `<TriangleUpIcon />` | 
-| `truck` | `<TruckIcon />` | 
-| `unlink` | `<UnlinkIcon />` | 
-| `unlocked` | `<UnlockedIcon />` | 
-| `upload` | `<UploadIcon />` | 
-| `user-add` | `<UserAddIcon />` | 
-| `user` | `<UserIcon />` | 
-| `users` | `<UsersIcon />` | 
-| `wifi` | `<WifiIcon />` | 
-| `work-order` | `<WorkOrderIcon />` | 
-| `zoom-in` | `<ZoomInIcon />` | 
-| `zoom-out` | `<ZoomOutIcon />` | 
+| Prism1 glyph                 | Prism2 Component                  |
+| ---------------------------- | --------------------------------- | --- |
+| `alarm-add`                  | `<AlarmAddIcon />`                |     |
+| `alarm-clock`                | `<AlarmClockIcon />`              |     |
+| `alarm-set`                  | `<AlarmSetIcon />`                |     |
+| `arrow-down`                 | `<ArrowDownIcon />`               |     |
+| `arrow-left`                 | `<ArrowLeftIcon />`               |     |
+| `arrow-right`                | `<ArrowRightIcon />`              |     |
+| `arrow-up`                   | `<ArrowUpIcon />`                 |     |
+| `arrows-left-right`          | `<ArrowsLeftRightIcon />`         |     |
+| `arrows-up-down`             | `<ArrowsUpDownIcon />`            |     |
+| `attach`                     | `<AttachIcon />`                  |     |
+| `back-to-start`              | `<BackToStartIcon />`             |     |
+| `barcode`                    | `<BarcodeIcon />`                 |     |
+| `bell-o`                     | `<BellOIcon />`                   |     |
+| `bell`                       | `<BellIcon />`                    |     |
+| `blocked`                    | `<BlockedIcon />`                 |     |
+| `bolt`                       | `<BoltIcon />`                    |     |
+| `bubble`                     | `<BubbleIcon />`                  |     |
+| `bubbles`                    | `<BubblesIcon />`                 |     |
+| `bullet`                     | `<BulletIcon />`                  |     |
+| `calendar`                   | `<CalendarIcon />`                |     |
+| `camcorder`                  | `<CamcorderIcon />`               |     |
+| `camera`                     | `<CameraIcon />`                  |     |
+| `cancel-circle-o`            | `<CancelCircleOIcon />`           |     |
+| `cancel-circle`              | `<CancelCircleIcon />`            |     |
+| `car-side`                   | `<CarSideIcon />`                 |     |
+| `car`                        | `<CarIcon />`                     |     |
+| `checkbox-checked`           | `<CheckboxCheckedIcon />`         |     |
+| `checkbox-unchecked`         | `<CheckboxUncheckedIcon />`       |     |
+| `checkmark-circle`           | `<CheckmarkCircleIcon />`         |     |
+| `checkmark`                  | `<CheckmarkIcon />`               |     |
+| `chevron-down-chamfered`     | `<ChevronDownChamferedIcon />`    |     |
+| `chevron-down-light`         | `<ChevronDownLightIcon />`        |     |
+| `chevron-down`               | `<ChevronDownIcon />`             |     |
+| `chevron-left-light`         | `<ChevronLeftLightIcon />`        |     |
+| `chevron-left`               | `<ChevronLeftIcon />`             |     |
+| `chevron-right-light`        | `<ChevronRightLightIcon />`       |     |
+| `chevron-right`              | `<ChevronRightIcon />`            |     |
+| `chevron-up-light`           | `<ChevronUpLightIcon />`          |     |
+| `chevron-up`                 | `<ChevronUpIcon />`               |     |
+| `clipboard-checked`          | `<ClipboardCheckedIcon />`        |     |
+| `clipboard`                  | `<ClipboardIcon />`               |     |
+| `clock`                      | `<ClockIcon />`                   |     |
+| `cloud-upload`               | `<CloudUploadIcon />`             |     |
+| `condition-report`           | `<ConditionReportIcon />`         |     |
+| `credit-card`                | `<CreditCardIcon />`              |     |
+| `cross-small`                | `<CrossSmallIcon />`              |     |
+| `cross`                      | `<CrossIcon />`                   |     |
+| `cup`                        | `<CupIcon />`                     |     |
+| `damages`                    | `<DamagesIcon />`                 |     |
+| `details`                    | `<DetailsIcon />`                 |     |
+| `direction`                  | `<DirectionIcon />`               |     |
+| `disk`                       | `<DiskIcon />`                    |     |
+| `dollar-o`                   | `<DollarOIcon />`                 |     |
+| `download`                   | `<DownloadIcon />`                |     |
+| `edit`                       | `<EditIcon />`                    |     |
+| `enlarge`                    | `<EnlargeIcon />`                 |     |
+| `envelop5`                   | `<Envelop5Icon />`                |     |
+| `envelope`                   | `<EnvelopeIcon />`                |     |
+| `envelope2`                  | `<Envelope2Icon />`               |     |
+| `error-triangle`             | `<ErrorTriangleIcon />`           |     |
+| `export`                     | `<ExportIcon />`                  |     |
+| `eye-blocked`                | `<EyeBlockedIcon />`              |     |
+| `eye`                        | `<EyeIcon />`                     |     |
+| `file-empty`                 | `<FileEmptyIcon />`               |     |
+| `file-excel`                 | `<FileExcelIcon />`               |     |
+| `file-pdf`                   | `<FilePdfIcon />`                 |     |
+| `file-spreadsheet`           | `<FileSpreadsheetIcon />`         |     |
+| `file-text`                  | `<FileTextIcon />`                |     |
+| `files-empty`                | `<FilesEmptyIcon />`              |     |
+| `filter`                     | `<FilterIcon />`                  |     |
+| `flag`                       | `<FlagIcon />`                    |     |
+| `fork-spoon`                 | `<ForkSpoonIcon />`               |     |
+| `fuel`                       | `<FuelIcon />`                    |     |
+| `gavel`                      | `<GavelIcon />`                   |     |
+| `gear`                       | `<GearIcon />`                    |     |
+| `graph-pie`                  | `<GraphPieIcon />`                |     |
+| `grid-small`                 | `<GridSmallIcon />`               |     |
+| `grid`                       | `<GridIcon />`                    |     |
+| `grounding`                  | `<GroundingIcon />`               |     |
+| `heart-o`                    | `<HeartOIcon />`                  |     |
+| `heart`                      | `<HeartIcon />`                   |     |
+| `home`                       | `<HomeIcon />`                    |     |
+| `image`                      | `<ImageIcon />`                   |     |
+| `images`                     | `<ImagesIcon />`                  |     |
+| `inbox`                      | `<InboxIcon />`                   |     |
+| `info-o`                     | `<InfoOIcon />`                   |     |
+| `info`                       | `<InfoIcon />`                    |     |
+| `leave`                      | `<LeaveIcon />`                   |     |
+| `left-right`                 | `<LeftRightIcon />`               |     |
+| `link`                       | `<LinkIcon />`                    |     |
+| `list`                       | `<ListIcon />`                    |     |
+| `location-area`              | `<LocationAreaIcon />`            |     |
+| `location`                   | `<LocationIcon />`                |     |
+| `locked`                     | `<LockedIcon />`                  |     |
+| `manheim-medallion`          | `<ManheimMedallionIcon />`        |     |
+| `marker`                     | `<MarkerIcon />`                  |     |
+| `medal`                      | `<MedalIcon />`                   |     |
+| `megaphone`                  | `<MegaphoneIcon />`               |     |
+| `menu`                       | `<MenuIcon />`                    |     |
+| `minus-circle-o`             | `<MinusCircleOIcon />`            |     |
+| `minus-circle`               | `<MinusCircleIcon />`             |     |
+| `minus`                      | `<MinusIcon />`                   |     |
+| `minus2`                     | `<Minus2Icon />`                  |     |
+| `minus3`                     | `<Minus3Icon />`                  |     |
+| `mobile`                     | `<MobileIcon />`                  |     |
+| `new-window`                 | `<NewWindowIcon />`               |     |
+| `notification-circle`        | `<NotificationCircleIcon />`      |     |
+| `odometer`                   | `<OdometerIcon />`                |     |
+| `paint-can`                  | `<PaintCanIcon />`                |     |
+| `paint-drop`                 | `<PaintDropIcon />`               |     |
+| `pause`                      | `<PauseIcon />`                   |     |
+| `pin`                        | `<PinIcon />`                     |     |
+| `pin2`                       | `<Pin2Icon />`                    |     |
+| `play`                       | `<PlayIcon />`                    |     |
+| `plus-circle-o`              | `<PlusCircleOIcon />`             |     |
+| `plus-circle`                | `<PlusCircleIcon />`              |     |
+| `plus`                       | `<PlusIcon />`                    |     |
+| `price-tag`                  | `<PriceTagIcon />`                |     |
+| `printer`                    | `<PrinterIcon />`                 |     |
+| `profile-ccw-circle-arrow`   | `<ProfileCcwCircleArrowIcon />`   |     |
+| `qr-code`                    | `<QrCodeIcon />`                  |     |
+| `refresh`                    | `<RefreshIcon />`                 |     |
+| `reset-time`                 | `<ResetTimeIcon />`               |     |
+| `rotate-left`                | `<RotateLeftIcon />`              |     |
+| `rotate-right`               | `<RotateRightIcon />`             |     |
+| `search`                     | `<SearchIcon />`                  |     |
+| `shield-check`               | `<ShieldCheckIcon />`             |     |
+| `shield`                     | `<ShieldIcon />`                  |     |
+| `shrink`                     | `<ShrinkIcon />`                  |     |
+| `sort`                       | `<SortIcon />`                    |     |
+| `sound-off`                  | `<SoundOffIcon />`                |     |
+| `sound-on`                   | `<SoundOnIcon />`                 |     |
+| `spinner`                    | `<SpinnerIcon />`                 |     |
+| `star-empty`                 | `<StarEmptyIcon />`               |     |
+| `star-full`                  | `<StarFullIcon />`                |     |
+| `star-half`                  | `<StarHalfIcon />`                |     |
+| `stopwatch`                  | `<StopwatchIcon />`               |     |
+| `three-bars`                 | `<ThreeBarsIcon />`               |     |
+| `three-dots-horizontal`      | `<ThreeDotsHorizontalIcon />`     |     |
+| `three-dots-vertical`        | `<ThreeDotsVerticalIcon />`       |     |
+| `three-sixty-exterior`       | `<ThreeSixtyExteriorIcon />`      |     |
+| `three-sixty-interior-front` | `<ThreeSixtyInteriorFrontIcon />` |     |
+| `three-sixty-interior-rear`  | `<ThreeSixtyInteriorRearIcon />`  |     |
+| `three-sixty`                | `<ThreeSixtyIcon />`              |     |
+| `thumbs-down`                | `<ThumbsDownIcon />`              |     |
+| `thumbs-up`                  | `<ThumbsUpIcon />`                |     |
+| `trash`                      | `<TrashIcon />`                   |     |
+| `triangle-down-small`        | `<TriangleDownSmallIcon />`       |     |
+| `triangle-down`              | `<TriangleDownIcon />`            |     |
+| `triangle-left-small`        | `<TriangleLeftSmallIcon />`       |     |
+| `triangle-left`              | `<TriangleLeftIcon />`            |     |
+| `triangle-right-small`       | `<TriangleRightSmallIcon />`      |     |
+| `triangle-right`             | `<TriangleRightIcon />`           |     |
+| `triangle-up-small`          | `<TriangleUpSmallIcon />`         |     |
+| `triangle-up`                | `<TriangleUpIcon />`              |     |
+| `truck`                      | `<TruckIcon />`                   |     |
+| `unlink`                     | `<UnlinkIcon />`                  |     |
+| `unlocked`                   | `<UnlockedIcon />`                |     |
+| `upload`                     | `<UploadIcon />`                  |     |
+| `user-add`                   | `<UserAddIcon />`                 |     |
+| `user`                       | `<UserIcon />`                    |     |
+| `users`                      | `<UsersIcon />`                   |     |
+| `wifi`                       | `<WifiIcon />`                    |     |
+| `work-order`                 | `<WorkOrderIcon />`               |     |
+| `zoom-in`                    | `<ZoomInIcon />`                  |     |
+| `zoom-out`                   | `<ZoomOutIcon />`                 |     |
 
 ## Aditional icons from Heroicons
 
-We provide four distinct icon sets, the official Prism icons as well as Solid, Outline and Mini sets from [Heroicons]((https://heroicons.com). The three Heroicons sets each provide the same list of icons with their respective styling. The main Prism icon set uses a unique list of icons that _do not_ overlap with the other sets.
+We provide five distinct icon sets, the official Interstate icons as well as Prism, Solid, Outline and Mini sets from [Heroicons]((https://heroicons.com). The three Heroicons sets each provide the same list of icons with their respective styling. The main Prism icon set uses a unique list of icons that _do not_ overlap with the other sets.
 
 ```jsx
-import { BellIcon } from '@prism2/icons-react' // Prism icon set
-import { BellIcon } from '@prism2/icons-react/24/solid' // Heroicons 'solid' set
-import { BellIcon } from '@prism2/icons-react/24/outline' // Heroicons 'outline' set
-import { BellIcon } from '@prism2/icons-react/20/solid' // Heroicons 'mini' set
+import { BellIcon } from '@prism2/icons-react/interstate'; // Interstate icon set
+import { BellIcon } from '@prism2/icons-react'; // Prism icon set
+import { BellIcon } from '@prism2/icons-react/24/solid'; // Heroicons 'solid' set
+import { BellIcon } from '@prism2/icons-react/24/outline'; // Heroicons 'outline' set
+import { BellIcon } from '@prism2/icons-react/20/solid'; // Heroicons 'mini' set
 ```
 
 The 24x24 outline icons can be imported from `@prism2/icons-react/24/outline`, the 24x24 solid icons can be imported from `@prism2/icons-react/24/solid`, and the 20x20 solid icons can be imported from `@prism2/icons-react/20/solid`.
-
-

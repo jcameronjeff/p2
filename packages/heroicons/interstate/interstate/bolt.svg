@@ -1,3 +1,3 @@
-<svg viewBox="0 0 17 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
-  <path stroke-linecap="round" stroke-linejoin="round" d="M2.75 9.103l7.72-8.27-1.655 6.064h6.065l-7.719 8.27 1.654-6.064H2.751z"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
+  <path stroke-linecap="round" stroke-linejoin="round" d="M1.936 9.103L9.654.833 8 6.897h6.065l-7.719 8.27L8 9.103H1.936z"/>
 </svg>

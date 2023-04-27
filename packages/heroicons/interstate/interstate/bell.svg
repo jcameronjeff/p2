@@ -1,10 +1,10 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 17" fill="currentColor" aria-hidden="true">
-  <g clip-path="url(#clip0_1022_8559)">
-    <path fill-rule="evenodd" d="M2.6 6.147a5.4 5.4 0 0110.8 0v.6c0 1.699.64 3.246 1.694 4.416a.6.6 0 01-.237.965 19.644 19.644 0 01-3.865.994 3 3 0 11-5.984 0 19.667 19.667 0 01-3.865-.995.6.6 0 01-.238-.964A6.574 6.574 0 002.6 6.747v-.6zm3.602 7.12a1.8 1.8 0 103.596 0c-1.196.108-2.4.108-3.596 0z" clip-rule="evenodd"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
   <defs>
-    <clipPath id="clip0_1022_8559">
-      <path d="M0 0h16v16H0z" transform="translate(0 .547)"/>
+    <clipPath id="a">
+      <path d="M0 0h16v16H0z"/>
     </clipPath>
   </defs>
+  <g clip-path="url(#a)">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.275 12.047a18.998 18.998 0 004.345-1.043 7.142 7.142 0 01-1.841-4.796V5.61a4.779 4.779 0 00-9.558 0v.598a7.142 7.142 0 01-1.84 4.796c1.38.51 2.835.864 4.344 1.043m4.55 0a19.316 19.316 0 01-4.55 0m4.55 0a2.39 2.39 0 11-4.55 0"/>
+  </g>
 </svg>

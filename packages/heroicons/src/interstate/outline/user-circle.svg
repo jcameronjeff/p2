@@ -1,10 +1,10 @@
-<svg viewBox="0 0 16 17">
-  <g clip-path="url(#a)">
-    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.778 13.96A5.981 5.981 0 0 0 8 11.584c-1.95 0-3.684.932-4.778 2.376m9.556 0a7.189 7.189 0 1 0-9.556 0m9.556 0A7.162 7.162 0 0 1 8 15.777a7.162 7.162 0 0 1-4.778-1.817m7.174-7.169a2.396 2.396 0 1 1-4.792 0 2.396 2.396 0 0 1 4.792 0Z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
   <defs>
     <clipPath id="a">
-      <path d="M0 0h16v16H0z" transform="translate(0 .589)"/>
+      <rect width="16" height="16"/>
     </clipPath>
   </defs>
+  <g clip-path="url(#a)">
+    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12.778 13.371A5.981 5.981 0 0 0 8 10.995c-1.95 0-3.684.933-4.778 2.377m9.556 0a7.189 7.189 0 1 0-9.556 0m9.556 0A7.162 7.162 0 0 1 8 15.188a7.162 7.162 0 0 1-4.778-1.818m7.174-7.168a2.396 2.396 0 1 1-4.792 0 2.396 2.396 0 0 1 4.792 0Z"/>
+  </g>
 </svg>

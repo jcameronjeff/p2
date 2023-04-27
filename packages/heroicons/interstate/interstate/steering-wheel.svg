@@ -1,10 +1,10 @@
-<svg viewBox="0 0 17 17" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
-  <g clip-path="url(#a)">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M2.518 6.412l3.61.603a15 15 0 004.992-.007l3.497-.596m-6.472 8.973l-.515-3.016c-.196-1.148-.92-2.19-2.02-2.908L2.554 7.465m6.433 7.92l.514-3.016c.196-1.148.92-2.19 2.02-2.908l3.056-1.996m.825 1.084a6.834 6.834 0 11-13.668 0 6.834 6.834 0 0113.668 0zm-5.334.384a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
   <defs>
     <clipPath id="a">
-      <path d="M0 0h16v16H0z" transform="translate(.568 .55)"/>
+      <path d="M0 0h16v16H0z"/>
     </clipPath>
   </defs>
+  <g clip-path="url(#a)">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M1.95 5.862l3.61.603a15 15 0 004.993-.007l3.497-.596m-6.52 8.903l-.468-2.946c-.196-1.148-.92-2.19-2.02-2.908L1.987 6.915m6.453 7.85l.494-2.946c.196-1.148.92-2.19 2.02-2.908l3.056-1.996m.825 1.084a6.834 6.834 0 11-13.668 0 6.834 6.834 0 0113.668 0zM9.5 8.383a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/>
+  </g>
 </svg>

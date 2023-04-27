@@ -1,10 +1,10 @@
-<svg viewBox="0 0 17 17" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
-  <g clip-path="url(#a)">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M5.98 1.32H3.568a2.222 2.222 0 100 4.445h4.53M6.115 1.423L1.68 9.108a2 2 0 00.732 2.732l3.638 2.1a2 2 0 002.732-.732l3.527-6.11 1.718-1.108-7.91-4.567zm8.064 8.509l-1.49 3.627a1.61 1.61 0 102.978 0L14.18 9.932z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
   <defs>
     <clipPath id="a">
-      <path d="M0 0h16v16H0z" transform="translate(.568 .55)"/>
+      <path d="M0 0h16v16H0z"/>
     </clipPath>
   </defs>
+  <g clip-path="url(#a)">
+    <path stroke-linecap="round" stroke-linejoin="round" d="M5.411.77h-2.41a2.222 2.222 0 100 4.445h4.53M5.547.873L1.112 8.558a2 2 0 00.732 2.732l3.638 2.1a2 2 0 002.732-.732l3.528-6.11 1.717-1.107L5.55.873zm8.064 8.509l-1.489 3.627a1.61 1.61 0 102.977 0l-1.488-3.627z"/>
+  </g>
 </svg>

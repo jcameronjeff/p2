@@ -14,7 +14,8 @@
     "24",
     "solid",
     "prism",
-    "outline"
+    "outline",
+    "interstate"
   ],
   "main": "prism/esm/index.js",
   "publishConfig": {

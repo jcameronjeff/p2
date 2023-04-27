@@ -1,11 +1,11 @@
-<svg viewBox="0 0 17 17" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
-  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)">
-    <path d="M11.67 3.722A6.539 6.539 0 019.005 16.23 6.537 6.537 0 014.281 5.175a6.567 6.567 0 002.348 2.023 7.118 7.118 0 012.663-5.441 6.505 6.505 0 002.377 1.965z"/>
-    <path d="M9.005 13.854a2.972 2.972 0 00.392-5.918 4.746 4.746 0 00-1.525 2.81 4.735 4.735 0 01-1.69-.793 2.972 2.972 0 002.824 3.9z"/>
-  </g>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none">
   <defs>
     <clipPath id="a">
-      <path d="M0 0h16v16H0z" transform="translate(.912 .98)"/>
+      <path d="M0 0h16v16H0z"/>
     </clipPath>
   </defs>
+  <g stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" clip-path="url(#a)">
+    <path d="M10.757 2.742a6.539 6.539 0 01-2.664 12.51A6.537 6.537 0 013.37 4.194 6.567 6.567 0 005.717 6.22 7.118 7.118 0 018.38.777a6.505 6.505 0 002.377 1.965z"/>
+    <path d="M8.093 12.874a2.972 2.972 0 00.392-5.917 4.746 4.746 0 00-1.525 2.81 4.734 4.734 0 01-1.69-.793 2.972 2.972 0 002.824 3.9z"/>
+  </g>
 </svg>
