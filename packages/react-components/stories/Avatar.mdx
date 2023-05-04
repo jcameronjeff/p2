@@ -1,0 +1,177 @@
+import { Meta, Story, Primary, Controls, Description } from '@storybook/addon-docs';
+import { Title, Subtitle } from '@storybook/blocks';
+import { UserIcon } from '@prism2/icons-react/interstate';
+
+<Meta title="Avatar Recipe" 
+description="An avatar is a representation of an individual user. It can be used as a link to an individual's account content." />
+
+#  Avatar Component Recipe Template
+
+## Usage
+### Definition
+
+An avatar is a representation of an individual user. It can be used as a link to an individual’s account content.
+
+### Content
+
+An avatar should contain a scalable image of the user. If an image is not available, the avatar should display the user’s first and last initials. If neither is available, the avatar should display a generic person icon.
+
+<div class="flex items-center justify-center gap-4">
+
+  <div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700"></span>
+    <div class="absolute inset-0 hidden bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}} aria-hidden></div>
+    <UserIcon class='w-8 h-8 text-blue-700 rounded-full' alt="Avatar" />
+  </div>
+
+</div>
+
+```html
+<div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-800"></span>
+  <div class="absolute inset-0 hidden bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')" aria-hidden></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+```
+
+## Common Sizing Characteristics
+
+Avatars are round and contain a scalable graphic or text. The avatar can be xs (24px), sm (32px), md (40px), or lg (48px).
+
+
+<div class="flex items-center justify-center gap-4">
+ 
+  <div class="relative flex items-center justify-center w-6 h-6 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}} ></div>
+    <UserIcon class='hidden w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+  
+  <div class="relative flex items-center justify-center w-8 h-8 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}}></div>
+    <UserIcon class='hidden w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+  
+  <div class="relative flex items-center justify-center w-10 h-10 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}} ></div>
+    <UserIcon class='hidden w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+ 
+  <div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}}></div>
+    <UserIcon class='w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+</div>
+
+```html
+<div class="relative flex items-center justify-center w-6 h-6 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+
+<div class="relative flex items-center justify-center w-8 h-8 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+
+<div class="relative flex items-center justify-center w-10 h-10 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+
+<div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+```
+
+## With an Image
+<div class="flex items-center justify-center gap-4">
+
+  <div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}}></div>
+    <UserIcon class='hidden w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+</div>
+
+```html
+<div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl font-medium text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128')"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="hidden w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+```
+
+## With Initials (no image)
+
+<div class="flex items-center justify-center gap-4">
+
+  <div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl text-blue-700">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full"></div>
+    <UserIcon class='hidden w-8 h-8 text-blue-700 rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+</div>
+
+```html
+<div class="relative flex items-center justify-center w-12 h-12 border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="hidden w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+```
+
+## Non Clickable
+
+<div class="flex items-center justify-center gap-4">
+
+  <div class="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl text-black">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style={{ backgroundImage: `url(https://picsum.photos/id/64/128)`}}></div>
+    <UserIcon class='hidden w-8 h-8 text-black rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+  <div class="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl text-black">JC</span>
+    <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full"></div>
+    <UserIcon class='hidden w-8 h-8 text-black rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+  <div class="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl text-black" aria-label="{}"></span>
+    <div class="absolute inset-0 hidden bg-transparent bg-cover border-2 border-white rounded-full"></div>
+    <UserIcon class='w-8 h-8 text-black rounded-full' alt="Avatar" aria-hidden />
+  </div>
+
+</div>
+
+```html
+<div class="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl text-black">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full" style="background-image: url('https://picsum.photos/id/64/128');"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="hidden w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+
+<div class="relative flex items-center justify-center w-12 h-12 overflow-hidden bg-transparent bg-cover border border-blue-700 rounded-full">
+  <span class="translate-y-[1px] inset-0 text-2xl text-blue-700">JC</span>
+  <div class="absolute inset-0 bg-transparent bg-cover border-2 border-white rounded-full"></div>
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="hidden w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+
+<div class="relative flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full">
+    <span class="translate-y-[1px] inset-0 text-2xl text-black" aria-label="{}"></span>
+    <div class="absolute inset-0 hidden bg-transparent bg-cover border-2 border-white rounded-full"></div>
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" stroke-width="1.5" stroke="currentColor" aria-hidden="true" fill="none" class="w-8 h-8 text-blue-700 rounded-full" alt="Avatar"><path stroke-linecap="round" stroke-linejoin="round" d="..."></path></svg>
+</div>
+```
