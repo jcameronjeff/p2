@@ -1,7 +1,7 @@
 {
   "name": "prism2-alpha-website",
   "private": true,
-  "version": "2.0.9-alpha.6",
+  "version": "2.0.9-alpha.7",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -11,8 +11,8 @@
   "dependencies": {
     "@headlessui/react": "^1.7.3",
     "@prism2/icons-react": "workspace:*",
-    "@prism2/style-dictionary": "workspace:*",
     "@prism2/react-components": "workspace:*",
+    "@prism2/style-dictionary": "workspace:*",
     "@prism2/tailwind-preset": "workspace:*",
     "@tailwindcss/line-clamp": "^0.4.2",
     "react": "^18.2.0",

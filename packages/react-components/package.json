@@ -1,7 +1,7 @@
 {
   "name": "@prism2/react-components",
   "private": false,
-  "version": "2.0.9-alpha.6",
+  "version": "2.0.9-alpha.7",
   "files": [
     "dist",
     "dist/style",

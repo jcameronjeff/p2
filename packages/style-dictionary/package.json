@@ -1,6 +1,6 @@
 {
   "name": "@prism2/style-dictionary",
-  "version": "2.0.9-alpha.6",
+  "version": "2.0.9-alpha.7",
   "description": "(WIP): Canonical repository of platform-agnostic design tokens and build tools",
   "scripts": {
     "prepare": "npm run build",

@@ -1,6 +1,6 @@
 {
   "name": "@prism2/tailwind-theme-manheim",
-  "version": "2.0.9-alpha.6",
+  "version": "2.0.9-alpha.7",
   "description": "Base TailwindCSS theme and utilities for Manheim/CAI",
   "main": "index.js",
   "files": [
