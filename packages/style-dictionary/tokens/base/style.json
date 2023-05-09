@@ -1,0 +1,11 @@
+{
+  "style": {
+    "font": {
+      "family": {
+        "sans": { "value": "'Roboto Flex'", "description": "Font Family - Sans Serif" },
+        "serif": { "value": "'Roboto Serif'", "description": "Font Family - Serif" },
+        "alt": { "value": "'Roboto Condensed'", "description": "Font Family - Alternative" }
+      }
+    }
+  }
+}

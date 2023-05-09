@@ -1,0 +1,58 @@
+{
+  "size": {
+    "px": { "value": "1px", "description": "Space - 1px" },
+    "0": { "value": "0px", "description": "Space - 0px" },
+    "5": { "value": "2px", "description": "Space - 2px" },
+    "10": { "value": "4px", "description": "Space - 4px" },
+    "15": { "value": "6px", "description": "Space - 6px" },
+    "20": { "value": "8px", "description": "Space - 8px" },
+    "25": { "value": "10px", "description": "Space - 10px" },
+    "30": { "value": "12px", "description": "Space - 12px" },
+    "35": { "value": "14px", "description": "Space - 14px" },
+    "40": { "value": "16px", "description": "Space - 16px" },
+    "50": { "value": "20px", "description": "Space - 20px" },
+    "60": { "value": "24px", "description": "Space - 24px" },
+    "80": { "value": "32px", "description": "Space - 32px" },
+    "100": { "value": "40px", "description": "Space - 40px" },
+    "120": { "value": "48px", "description": "Space - 48px" },
+    "border": {
+      "none": { "value": "0px", "description": "Border Width - None" },
+      "px": { "value": "1px", "description": "Border Width - Base" },
+      "sm": { "value": "2px", "description": "Border Width - 2px" },
+      "md": { "value": "4px", "description": "Border Width - 4px" },
+      "lg": { "value": "8px", "description": "Border Width - 8px" },
+      "radius": {
+        "none": { "value": "0px", "description": "Border Radius - None" },
+        "xs": { "value": "2px", "description": "Border Radius - 2px" },
+        "sm": { "value": "4px", "description": "Border Radius - 4px" },
+        "md": { "value": "6px", "description": "Border Radius - 6px" },
+        "lg": { "value": "8px", "description": "Border Radius - 8px" },
+        "xl": { "value": "12px", "description": "Border Radius - 12px" },
+        "2xl": { "value": "16px", "description": "Border Radius - 16px" },
+        "3xl": { "value": "24px", "description": "Border Radius - 24px" },
+        "full": { "value": "9999px", "description": "Border Radius - Full" }
+      }
+    },
+    "font": {
+      "2xs": { "value": "{size.font.md} * .625", "description": "Font Size - 10px" },
+      "xs": { "value": "{size.font.md} * 0.75", "description": "Font Size - 12px" },
+      "sm": { "value": "{size.font.md} * 0.875", "description": "Font Size - 14px" },
+      "md": { "value": "16", "description": "Font Size - 16px" },
+      "lg": { "value": "{size.font.md} * 1.125", "description": "Font Size - 18px" },
+      "xl": { "value": "{size.font.md} * 1.25", "description": "Font Size - 20px" },
+      "2xl": { "value": "{size.font.md} * 1.375", "description": "Font Size - 22px" },
+      "3xl": { "value": "{size.font.md} * 1.75", "description": "Font Size - 28px" },
+      "weight": {
+        "thin": { "value": "100", "description": "Font Weight - Thin" },
+        "extralight": { "value": "200", "description": "Font Weight - Extra Thin" },
+        "light": { "value": "300", "description": "Font Weight - Light" },
+        "regular": { "value": "400", "description": "Font Weight - Regular" },
+        "medium": { "value": "500", "description": "Font Weight - Medium" },
+        "semibold": { "value": "600", "description": "Font Weight - Semibold" },
+        "bold": { "value": "700", "description": "Font Weight - Bold" },
+        "extrabold": { "value": "800", "description": "Font Weight - Extra Bold" },
+        "black": { "value": "900", "description": "Font Weight - Black" }  
+      }
+    }
+  }
+}
