@@ -13,7 +13,7 @@
     "prepublishOnly": "npm run build",
     "lint": "node ./scripts/verify-names.js",
     "prebuild": "rimraf ./{20,24} ./{vue,react}/{20,24} ./optimized/",
-    "build": "npm run build-24-outline && npm run build-20-solid && npm run build-20-prism && npm run build-24-solid & npm run build-16-interstate && npm run build-vue && npm run build-react",
+    "build": "npm run build-24-outline; npm run build-20-solid; npm run build-20-prism; npm run build-24-solid & npm run build-16-interstate; npm run build-vue; npm run build-react",
     "build-react": "node ./scripts/build.js react",
     "build-vue": "node ./scripts/build.js vue",
     "build-24-outline": "rimraf ./24/outline && svgo --config=svgo.24.outline.yaml -f ./src/24/outline -o ./optimized/24/outline --pretty --indent=2 && mkdir -p ./24 && cp -R ./optimized/24/outline ./24/outline",
@@ -22,7 +22,7 @@
     "build-20-prism": "rimraf ./prism && svgo --config=svgo.prism.yaml -f ./src/prism -o ./optimized/prism --pretty --indent=2 && mkdir -p ./20 && cp -R ./optimized/prism ./prism",
     "build-16-interstate-solid": "svgo --config=svgo.interstate.solid.yaml -f ./src/interstate/solid -o ./optimized/interstate/ --pretty --indent=2",
     "build-16-interstate-outline": "svgo --config=svgo.interstate.outline.yaml -f ./src/interstate/outline -o ./optimized/interstate/ --pretty --indent=2",
-    "build-16-interstate": "rimraf ./interstate/ && npm run build-16-interstate-outline && npm run build-16-interstate-solid &&  mkdir -p ./interstate && cp -R ./optimized/interstate ./interstate",
+    "build-16-interstate": "rimraf ./interstate/ && npm run build-16-interstate-outline && npm run build-16-interstate-solid &&  mkdir -p ./interstate && cp -R ./optimized/interstate/* ./interstate",
     "migrate": "svgo --config=svgo.prism-migrate.yaml -f ./src/interstate -o ./src/migrated --pretty --indent=2"
   },
   "devDependencies": {
