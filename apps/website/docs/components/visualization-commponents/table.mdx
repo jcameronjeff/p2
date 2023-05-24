@@ -1,0 +1,443 @@
+---
+title: 'Table'
+---
+
+## Usage
+
+<definition>
+    The basic responsive table organizes data to help users quickly scan and compare information
+    and take actions on any size screen. Separate components provide the optional sort and
+    pagination functions. Basic tables do not have advanced functions like bulk actions, inline
+    editing, or column management.
+    <br /><br />
+    The Basic Table is primarily for single lines of data but can be adjusted to accommodate block list data and paragraphs.
+</definition>
+
+### Common Characteristics
+
+The Basic Responsive Table is built with these default properties:
+
+- Headings and cells within the same column always share the same alignment.
+- The left column is always left-aligned and cannot be changed.
+- Other columns are left-aligned by default and can be changed (see usage guidelines below).
+- The header row has a white background and bottom stroke by default.
+- All rows have a white background and bottom stroke with hover / tap states.
+- Headings and data reflow at the XS and S breakpoints.
+- Text is truncated by default if it cannot be displayed on one line. Truncated text is viewable in a tool tip on hover / tap.
+
+### Table Options
+
+The following options are built into the Basic Responsive Table:
+
+- Columns can be optionally right- or center-aligned (except the left column).
+- Top and bottom padding can be reduced for “tight” viewing.
+- The header row can be switched to light or dark backgrounds.
+- The header row can be pinned to facilitate scanning on long tables.
+- The table can be optionally placed in a distinct visual container.
+- Cells can contain text, icons, and/or interactive elements.
+- Two responsive layout options are available for the XS-S breakpoints. Data is right-aligned by default but can be left-aligned.
+- A pagination component and results per page button group can be added optionally.
+- A responsive sort control can be added optionally.
+
+![table 1](/img/components/table/table-1.jpg)
+
+_Cells can contain text, icons, Indicators and cell-level actions. Avoid linking data and group row-level actions in the right column._
+
+![table 2](/img/components/table/table-2.jpg)
+
+_Data in the XS-S breakpoints is right-aligned by default and can be left-aligned. The background should be #F7F7F7_
+
+
+### Usage Guidelines
+
+To promote ease of scanning and understanding, follow these UX best practices:
+
+- Keep heading labels short.
+- Use the default left-alignment in most cases.
+- Numbers of varying lengths should be right aligned (e.g. odometer, dollar amounts).
+- Data of the same length may be optionally center- or right-aligned (e.g. phone numbers, VINs, state abbreviations, icons)
+- Avoid scattering interactive elements in tables. Group interactive elements in the right column as much as possible to reduce motor activity and provide consistency between tables. Actions in the right column will reflow above data groups in the XS-S breakpoints.
+
+![table 3](/img/components/table/table-3.jpg)
+
+_Data should be aligned according to best practices._
+
+![table 4](/img/components/table/table-4.jpg)
+
+_Actions should be grouped in the right column as much as possible._
+
+![table 5](/img/components/table/table-5.jpg)
+
+_Avoid sprinkling actions in multiple columns._
+
+
+### STYLE
+
+### Spacing
+
+![table 6](/img/components/table/table-6.jpg)
+
+_Data rows have 16px default top/bottom padding. This can be changed to 8px for a tight layout._
+
+
+### Actions
+
+![table 7](/img/components/table/table-7.jpg)
+
+_Actions in tables are non-bold and have a hover/tap state._
+
+
+### Header Style Options
+
+![table 8](/img/components/table/table-8.jpg)
+
+_The default white header can be changed to light or dark._
+
+
+### Row Style
+
+![table 9](/img/components/table/table-9.jpg)
+
+_On hover, rows have a background highlight to help users focus on one row._
+
+
+### Pinned Header Option
+
+![table 10](/img/components/table/table-10.jpg)
+
+_The table header can be optionally pinned to the top of the view port. Use a drop shadow to indicate the z-axis._
+
+
+### Container Option
+
+![table 11](/img/components/table/table-11.jpg)
+
+_The entire table can be optionally displayed in a visible container with 4px rounded corners. For white, light, or dark headers._
+
+## Code
+
+### Default Table
+
+```jsx live
+<Table>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+        <td>Antelope</td>
+        <td>Grapefruit</td>
+        <td>1</td>
+        <td>
+        <Anchor
+            icon="edit"
+            href={window.location + '#'}
+        >
+            Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Beaver</td>
+        <td>Apple</td>
+        <td>93</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+        </Anchor>
+        </td>
+    </tr>
+  </tbody>
+</Table>
+```
+
+
+### Light Header Table
+
+```jsx live
+<Table lightHeader>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+</Table>
+```
+
+
+### Dark Header Table
+
+```jsx live
+<Table darkHeader>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+</Table>
+```
+
+
+### Color Header Table
+
+```jsx live
+<Table colorHeader>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+</Table>
+```
+
+
+### Condensed Table
+
+```jsx live
+<Table condensed>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+        <td>Antelope</td>
+        <td>Grapefruit</td>
+        <td>1</td>
+        <td>
+        <Anchor
+            icon="edit"
+            href={window.location + '#'}
+        >
+            Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Beaver</td>
+        <td>Apple</td>
+        <td>93</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+        </Anchor>
+        </td>
+    </tr>
+  </tbody>
+</Table>
+```
+
+
+### Sticky Header Table
+
+```jsx live
+<Table headerSticky>
+  <thead>
+    <tr>
+      <th>Animal</th>
+      <th>Fruit</th>
+      <th>Number</th>
+      <th className="actions">Actions</th>
+    </tr>
+  </thead>
+</Table>
+```
+
+
+### Sorted Table
+
+```jsx live
+<Table condensed>
+  <thead>
+    <tr>
+      <th sort nowrap={true}>Animal</th>
+      <th sort>Fruit</th>
+      <th sort sorttype="number" className="align-right">Number</th>
+      <th className="align-right actions">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+        <td>Antelope</td>
+        <td>Grapefruit</td>
+        <td>1</td>
+        <td>
+        <Anchor
+            icon="edit"
+            href={window.location + '#'}
+        >
+            Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Beaver</td>
+        <td>Apple</td>
+        <td>93</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+        </Anchor>
+        </td>
+    </tr>
+  </tbody>
+</Table>
+```
+
+
+### Paginated Table
+
+```jsx live
+<Table paginated perPageOptions={[2,4,10]} condensed>
+  <thead>
+    <tr>
+      <th sort nowrap={true}>Animal</th>
+      <th sort>Fruit</th>
+      <th sort sorttype="number" className="align-right">Number</th>
+      <th className="align-right actions">Actions</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+        <td>Antelope Antelope Antelope Antelope Antelope</td>
+        <td>Grapefruit</td>
+        <td>1</td>
+        <td>
+        <Anchor
+            icon="edit"
+            href={window.location + '#'}
+        >
+            Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Beaver</td>
+        <td>Apple</td>
+        <td>93</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Crocodile</td>
+        <td>Pineapple</td>
+        <td>12</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+            </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Deer</td>
+        <td>Watermelon</td>
+        <td>84</td>
+        <td>
+        <Anchor
+            icon="edit"
+            href={window.location + '#'}
+        >
+            Edit
+        </Anchor>
+        </td>
+    </tr>
+    <tr>
+        <td>Elephant</td>
+        <td>Pear</td>
+        <td>23</td>
+        <td>
+            <Anchor
+                icon="edit"
+                href={window.location + '#'}
+            >
+                Edit
+        </Anchor>
+        </td>
+    </tr>
+  </tbody>
+</Table>
+```
+
+
+### Props
+
+### Table Props
+
+| Name                  | Type                          | Default        | Description
+| --------------------- | ----------------------------- | -------------- | ----------------------
+| `paginated`           | `boolean` (optional)          | `false`        | Activates pagination for table rows.
+| `perPageOptions`      | `array` (optional)            | `[10, 25, 50]` | Array of results per page options for table row pagination
+| `tableControls`       | `jsx` (optional)              | `null`         | Components to be placed in control area above table
+| `lightHeader`        | `boolean` (optional)          | `false`        | Activates light header styles.
+| `colorHeader`        | `boolean` (optional)          | `false`        | Activates color header styles.
+| `darkHeader`         | `boolean` (optional)          | `false`        | Activates dark header styles.
+| `headerSticky`       | `boolean` (optional)          | `false`        | Activates sticky header styles.
+| `condensed`           | `boolean` (optional)          | `false`        | Activates condensed cell padding.
+
+
+
+### Table Head Cell Props
+
+| Name                  | Type                 | Default     | Description
+| --------------------- | -------------------- | ----------- | ----------------------
+| `sort`                | `boolean` (optional) | `false`     | Sets this column to be sortable.
+| `sorttype`            | `string` (optional)  | `"alpha"`   | Sets sort type for this column ("alpha" | "number")
+
+
+### Table Row Cell Props
+
+| Name                    | Type                 | Default     | Description
+| ----------------------- | -------------------- | ----------- | ----------------------
+| `sortvalue`             | `string` (optional)  | `""`        | Sort value for a cell (use is cells contents contain anything other than a plain string)
+
+
+### Classes 
+
+### th
+
+| className             | Description
+| --------------------- | ----------------------
+| `align-left`          | Sets column text alignment to left.
+| `align-center`        | Sets column text alignment to center.
+| `align-right`         | Sets column text alignment to right.
+| `actions`             | Adds special styles to action columns.

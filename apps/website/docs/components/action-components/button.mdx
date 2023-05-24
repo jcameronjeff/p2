@@ -1,0 +1,705 @@
+---
+title: 'Buttons'
+---
+
+## Buttons
+
+## Usage
+
+Buttons allow a user to submit or request information, make decisions, and for navigation.
+
+Button hierarchy is established by whether a button is contained (i.e. with a background color) for most emphasis, or outlined (no background) for less emphasis, or text only for the least emphasis.
+
+Buttons may be normal (40px high) or small (32px). Full-screen width buttons are only allowed on the XS grid (0-479). In all other cases, button width is determined by the length of the label plus minimum L/R padding.
+
+
+### Common Characteristics
+
+All buttons have bold, ALL-CAPS labels.
+
+All buttons have these states: disabled, active, hover/tap, and focused.
+
+```example
+<SandboxDemo>
+  <Button color="primary" className="m-2">CONTAINED BUTTON</Button>
+  <Button variant="outline" className="m-2">OUTLINE BUTTON</Button>
+  <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
+</SandboxDemo>
+```
+
+### Size
+
+Buttons are normally 40px high, but a small 32px alternative may be used when vertical space is at a premium. Whichever size is used, use the same size for any associated elements like inputs and selects.
+
+Special controls like the keyword search button, pagination controls, icon buttons, and menu buttons are always 32px high.
+
+```example
+<SandboxDemo>
+  <div className="row d-inline-flex align-items-center">
+    <Button color="primary" className="m-w btn d-inline-flex m-2">
+      CONTAINED BUTTON
+    </Button>
+    <Button color="primary" size="sm" className="m-2">
+      CONTAINED BUTTON SMALL
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+### Hierarchy
+
+#### Contained Buttons
+
+Contained buttons have the most emphasis and should be used for primary actions. When one button is needed (such as an “OK”) use a contained button.
+
+An element cannot have more than one contained button.
+
+```example
+<SandboxDemo>
+  <Container>
+    <Row>
+      <Col>
+        <div className="row align-items-center">
+          <Button color="primary" className="m-2">CONTAINED BUTTON</Button>
+          <Button color="primary" className="m-2">
+            <i className="icon btn-icon__left interstate-icon-search" />
+            ICON BUTTON
+          </Button>
+          <Button disabled color="primary" className="m-2">
+            DISABLED BUTTON
+          </Button>
+          <Button color="primary" className="m-2">
+            ICON BUTTON
+            <i className="btn-icon__right icon interstate-icon-chevron-right" />
+          </Button>
+          <Button color="primary" size="sm" className="m-2">
+            CONTAINED SMALL BUTTON
+          </Button>
+          <Button color="primary" size="sm" icononly className="m-2">
+            <i className="icon interstate-icon-envelope" />
+          </Button>
+          <Button className="m-2" icononly disabled color="primary" size="sm">
+            <i className="icon interstate-icon-envelope" />
+          </Button>
+          <Button color="simulcast" className="m-2">SIMULCAST BID BUTTON</Button>
+        </div>
+      </Col>
+    </Row>
+  </Container>
+</SandboxDemo>
+```
+
+#### Outlined Buttons
+
+Outlined buttons provide less emphasis. When two or more buttons without hierarchy are needed, use multiple outlined buttons, or multiple text buttons.
+
+```example
+<SandboxDemo>
+  <div className="d-inline-flex align-items-center  row">
+    <Button variant="outline" className="m-2">
+      OUTLINE BUTTON
+    </Button>
+    <Button variant="outline" className="m-2">
+      <i className="icon btn-icon__left interstate-icon-search" />
+      ICON BUTTON
+    </Button>
+    <Button disabled variant="outline" className="m-2">
+      DISABLED BUTTON
+    </Button>
+    <Button variant="outline" className="m-2">
+      ICON BUTTON
+      <i className="btn-icon__right icon interstate-icon-chevron-right" />
+    </Button>
+    <Button variant="outline" className="m-2" size="sm">
+      OUTLINE SMALL BUTTON
+    </Button>
+    <Button className="btn-icon-only" variant="outline" className="m-2" size="sm">
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+    <Button
+      icononly
+      className="m-2"
+      disabled
+      variant="outline"
+      size="sm"
+    >
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+#### Text Buttons
+
+Text buttons have the least emphasis. When two buttons with hierarchy are needed (e.g. “SUBMIT” OR “CANCEL”), use a contained button for the primary action, and a text button for the secondary action.
+
+When two or more buttons without hierarchy are needed, use multiple text buttons, or multiple outlined buttons.
+
+```example
+<SandboxDemo>
+  <div className="d-inline-flex align-items-center row">
+    <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
+    <Button variant="textonly" className="m-2">
+      <i className="icon btn-icon__left interstate-icon-search" />
+      ICON BUTTON
+    </Button>
+    <Button disabled variant="textonly" className="m-2">
+      DISABLED BUTTON
+    </Button>
+    <Button variant="textonly" className="m-2">
+      ICON BUTTON
+      <i className="btn-icon__right icon interstate-icon-chevron-right" />
+    </Button>
+    <Button variant="textonly" size="sm" className="m-2">
+      TEXT SMALL BUTTON
+    </Button>
+    <Button variant="textonly" icononly className="m-2">
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+    <Button disabled variant="textonly" icononly className="m-2">
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+#### Specialty Buttons
+
+These buttons can be used in a UI in addition to the core button hierarchy.
+
+##### Auxiliary Buttons
+
+Auxiliary buttons are small, 24px high text buttons with short labels. They can be used with a left or right icon and have only 4px L/R padding. In narrow contexts where a user could take multiple actions, auxiliary buttons provide button functionality without a heavy footprint.
+
+```example
+<SandboxDemo>
+   <div className="p-2 m-1 bg-white row">
+    <Button variant="aux" className='m-1'>
+      Auxiliary ACTIVE
+    </Button>
+    <Button variant="aux" className='hover m-1' >Auxiliary HOVER</Button>
+    <Button variant="aux"  className='focus m-1'>
+      Auxiliary Focus
+    </Button>
+    <Button variant="aux" disabled  className='m-1'>
+      Auxiliary Disabled
+    </Button>
+  </div>
+   <div className="bg-secondary-dark p-2 m-1 row">
+   <Button variant="aux" color='light' className='m-1'>
+      Auxiliary ACTIVE
+    </Button>
+    <Button variant="aux" color='light' className='hover m-1' >Auxiliary HOVER</Button>
+    <Button variant="aux" color='light'  className='focus m-1'>
+      Auxiliary Focus
+    </Button>
+    <Button variant="aux" color='light' disabled  className='m-1'>
+      Auxiliary Disabled
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+```example
+<SandboxDemo>
+   <div className="p-2  m-1 bg-white">
+    <div className="d-block my-3">
+      <Button variant="aux">
+        <i className="icon btn-icon__left interstate-icon-refresh" /> Refresh
+      </Button>
+    </div>
+    <div className="d-block my-3">
+      <Button variant="aux" >
+        Edit <i className="icon btn-icon__right interstate-icon-edit" />
+      </Button>
+    </div>
+       <div className="d-block my-3">
+      <Button variant="aux" >
+      Clear
+      </Button>
+    </div>
+       <div className="d-block my-3">
+      <Button variant="aux">
+        Message
+      </Button>
+    </div>
+       <div className="d-block my-3">
+      <Button variant="aux" >
+        Hide
+      </Button>
+    </div>
+  </div>
+</SandboxDemo>
+```
+_Example uses for Auxiliary buttons_
+
+![seller tools horizontal](/img/components/button/sellertools.png)
+
+_Auxiliary Buttons used in Seller Tools concept, and Search Results filters._
+
+
+#### Floating Action Buttons
+
+Floating Action Buttons allow a user to initiate an action related to the displayed content. They are contained buttons which are anchored in place above the content using the z-axis.
+
+Floating action buttons can initiate an action or display a menu of actions to the user.
+![checkbox horizontal](/img/components/button/FLOATING.png)
+
+_A contained button may be modified to create a floating action button. The floating action button can overlay content and is locked to a specific position in the lower right of the screen._
+
+![checkbox horizontal](/img/components/button/BACK-TO-TOP.png)
+
+_A floating action button can be used to scroll the user to the top of a screen. In this case, the button is hidden until the user has scrolled down 2x the height of the window._
+
+
+### Scenarios
+
+#### Single Button
+
+![checkbox horizontal](/img/components/button/SINGLECONTAINED.png)
+
+_When a single button is needed, use a contained button._
+
+#### Two Buttons with Hierarchy
+
+![checkbox horizontal](/img/components/button/BUTTONS-HEIRARCHY.png)
+
+#### Two Buttons without Hierarchy
+
+![checkbox horizontal](/img/components/button/TWO-BUTTONS-NO-HEIRARCHY.png)
+![checkbox horizontal](/img/components/button/CARD-2-TEXT-BUTTONS.png)
+
+_When two or more buttons without hierarchy are needed, they may be outlined buttons or text buttons, but cannot be contained buttons._
+
+#### Anchored Buttons
+
+![checkbox horizontal](/img/components/button/CANCEL-SUBMIT.png)
+
+_Buttons can be optionally anchored to the bottom of the screen on a semi-transparent action bar._
+
+![checkbox horizontal](/img/components/button/BACK-NEXT.png)
+
+_The text button can be optionally floated to the left._
+
+![checkbox horizontal](/img/components/button/TWO-BUTTONS-HEIRARCHY.png)
+
+_When stacking buttons, the higher priority button (if any) goes on top._
+
+#### Menu Bars
+
+![checkbox horizontal](/img/components/button/TAB-BAR.png)
+
+_Text Icon buttons may be modified to create a mobile menu bar. Small text labels are optional if needed._
+
+
+## Design
+
+
+### Basics
+
+<!-- ![large vs small](./images/LARGEVSSMALL.png) -->
+
+_All buttons have bold, ALL-CAPS labels and specified minimum left and right padding._
+
+### Hierarchy
+
+#### Contained Buttons
+
+Contained buttons have a background color to provide the most emphasis. Outline buttons have no background color, and thus have less emphasis. Text buttons have no background and no outline, and thus have the least emphasis.
+
+```example
+<SandboxDemo>
+  <Container>
+    <Row>
+      <Col md={5}>
+        <Button type="button" color="primary"  className="m-2">
+          CONTAINED BUTTON
+        </Button>
+        <br />
+        <Button type="button" variant="outline" className="m-2">
+          OUTLINE BUTTON
+        </Button>
+        <br />
+        <Button variant="textonly" className="m-2">
+          TEXT BUTTON
+        </Button>
+      </Col>
+      <Col>
+        <Button color="primary" size="sm" className="m-2">
+          CONTAINED SMALL BUTTON
+        </Button>
+        <br />
+        <Button variant="outline" size="sm" className="m-2">
+          OUTLINE SMALL BUTTON
+        </Button>
+        <br />
+        <Button variant="textonly" size="sm" className="m-2">
+          TEXT SMALL BUTTON
+        </Button>
+      </Col>
+    </Row>
+  </Container>
+</SandboxDemo>
+```
+
+See [Button Usage](#usage) for button type rules and scenarios.
+
+#### With Icons
+
+```example
+<SandboxDemo>
+  <Container>
+    <Row>
+      <Col md={5}>
+        <Button className="m-2" color="primary">
+          <i className="icon btn-icon__left interstate-icon-search" />
+          BUTTON
+        </Button>
+      <br />
+        <Button variant="outline" className="m-2">
+          <i className="icon btn-icon__left interstate-icon-search" />
+          OUTLINE BUTTON
+        </Button>
+      <br />
+        <Button type="button" variant="textonly" className="m-2">
+          <i className="icon btn-icon__left interstate-icon-search" />
+          TEXT BUTTON
+        </Button>
+      </Col>
+      <Col>
+        <Button color="primary" className="m-2">
+          BUTTON
+          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
+        </Button>
+      <br />
+        <Button variant="outline" className="m-2">
+          OUTLINE BUTTON
+          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
+        </Button>
+      <br />
+        <Button type="button" variant="textonly" className="m-2">
+          TEXT BUTTON
+          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
+        </Button>
+      </Col>
+    </Row>
+  </Container>
+</SandboxDemo>
+```
+
+_Buttons may have an optional left or right icon. Never use two icons._
+
+### States
+
+#### Contained Button States
+
+```example
+<SandboxDemo>
+  <Row>
+    <Button color="primary" className="m-2">CONTAINED / ACTIVE</Button>
+    <Button color="primary" className="hover m-2">
+      HOVER
+    </Button>
+    <Button color="primary" className="focus m-2">
+      FOCUS
+    </Button>
+    <Button color="primary" disabled className="m-2">DISABLED</Button>
+  </Row>
+</SandboxDemo>
+```
+
+#### Outline Button States
+
+```example
+<SandboxDemo>
+  <Row>
+    <Button variant="outline" className="m-2">
+      OUTLINE / ACTIVE
+    </Button>
+    <Button variant="outline" className="hover m-2">
+      HOVER
+    </Button>
+    <Button variant="outline" className="focus m-2">
+      FOCUS
+    </Button>
+    <Button variant="outline" disabled className="m-2">
+      DISABLED
+    </Button>
+  </Row>
+</SandboxDemo>
+```
+
+#### Outline Button States (Light)
+
+```example
+<SandboxDemo>
+  <div className="row center">
+    <Button variant="outline" color="light" className="m-2">
+      OUTLINE / ACTIVE
+    </Button>
+    <Button variant="outline" color="light" type="button" className=" hover m-2">
+      HOVER
+    </Button>
+    <Button variant="outline" color="light" type="button" className="focus m-2">
+      FOCUS
+    </Button>
+    <Button variant="outline" disabled color="light" type="button" className="disabled m-2">
+      DISABLED
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+#### Text Button States
+
+```example
+<SandboxDemo>
+  <Row>
+    <Button variant="textonly" color="primary" className="m-2">
+      TEXT / ACTIVE
+    </Button>
+    <Button variant="textonly" color="primary" className="hover m-2">
+      HOVER
+    </Button>
+    <Button variant="textonly" color="primary" className="focus m-2">
+      FOCUS
+    </Button>
+    <Button variant="textonly" disabled className="m-2">
+      DISABLED
+    </Button>
+  </Row>
+</SandboxDemo>
+```
+
+#### Text Button States (Light)
+
+```example
+<SandboxDemo>
+  <div className="row center">
+    <Button variant="textonly" color="light" className="m-2">
+      TEXT / ACTIVE
+    </Button>
+    <Button variant="textonly" color="light" className="hover m-2">
+      HOVER
+    </Button>
+    <Button variant="textonly" color="light" className="focus m-2">
+      FOCUS
+    </Button>
+    <Button variant="textonly" disabled color="light" className="m-2">
+      DISABLED
+    </Button>
+  </div>
+</SandboxDemo>
+```
+
+#### Auxiliary Buttons
+
+### SCSS
+
+Use these modifiers with `.css-className`
+
+#### Color
+
+| Class          | Property                        |
+| -------------- | ------------------------------- |
+| `.btn-primary`   | Applies primary button styles   |
+| `.btn-secondary` | Applies secondary button styles |
+| `.btn-danger`    | Applies primary button styles   |
+| `.btn-success`   | Applies secondary button styles |
+| `.btn-simulcast` | Applies simulcast button styles |
+
+#### Size
+
+| Class   | Property                    |
+| ------- | --------------------------- |
+| .btn-sm | Applies small button styles |
+
+#### Type
+
+| Class                 | Property          |
+| --------------------- | ----------------- |
+| .btn-outline-{color}  | Outlined Button   |
+| .btn-textonly-{color} | Text-Only Button  |
+| .btn-icon-only        | Icon-Only Button  |
+| .disabled, :disabled  | Disabled Styles   |
+| .btn.dropdown-toggle  | Dropdown Button   |
+| .btn-floating         | Floating Button   |
+| .btn-pagination       | Pagination Button |
+| .btn-auxiliary        | Specialty Button |
+
+## Code
+
+**In regular markup, using the `.btn` class without a modifier will create a contained button. The `.btn` class can be used on `<button>, <a>, or <input>` elements. Links should be assigned a role="button" attribute.**
+
+**With React, the Button component can apply branded styles by padding properties. Theming is available with `color` (string), `size` (string), `variant`(string), `icononly`(bool), and `disabled` (bool).**
+
+
+### Contained Buttons
+
+Icons can be added before or after text.
+
+```jsx live
+<Container>
+  <Row>
+    <Col>
+      <Row className="row align-items-center">
+        <Button color="primary" className="m-2">CONTAINED BUTTON</Button>
+        <Button color="primary" className="m-2">
+          <i className="icon btn-icon__left interstate-icon-search" />
+          ICON BUTTON
+        </Button>
+        <Button disabled color="primary" className="m-2">
+          DISABLED BUTTON
+        </Button>
+        <Button color="primary" className="m-2">
+          ICON BUTTON
+          <i className="btn-icon__right icon interstate-icon-chevron-right" />
+        </Button>
+        <Button color="primary" size="sm" className="m-2">
+          CONTAINED SMALL BUTTON
+        </Button>
+        <Button color="primary" size="sm" className="btn-icon-only m-2">
+          <i className="icon interstate-icon-envelope" />
+        </Button>
+        <Button className="btn-icon-only m-2" disabled color="primary" size="sm">
+          <i className="icon interstate-icon-envelope" />
+        </Button>
+        <Button color="simulcast" className="m-2">SIMULCAST BID BUTTON</Button>
+      </Row>
+    </Col>
+  </Row>
+</Container>
+```
+
+### Outlined Buttons
+
+For outlined buttons, add a `.btn-outline-***` modifier followed by color.
+
+With React, pass the `outline` value for `variant` prop to the Button component. This will apply required styles, so it is **not necessary to pass a color prop**.
+
+```jsx live
+<Container>
+  <Row>
+    <Col>
+      <Button variant="outline" className="m-2">
+        OUTLINE BUTTON
+      </Button>
+      <Button variant="outline" className="m-2">
+        <i className="icon btn-icon__left interstate-icon-search" />
+        ICON BUTTON
+      </Button>
+      <Button  variant="outline" disabled className="m-2">
+        DISABLED BUTTON
+      </Button>
+      <Button variant="outline" className="m-2">
+        ICON BUTTON
+        <i className="btn-icon__right icon interstate-icon-chevron-right" />
+      </Button>
+      <Button variant="outline" size="sm" className="m-2">
+        OUTLINE SMALL BUTTON
+      </Button>
+      <Button className="btn-icon-only m-2" variant="outline" size="sm">
+        <i className="icon interstate-icon-envelope" />
+      </Button>
+      <Button
+        icononly
+        disabled
+        variant="outline"
+        size="sm"
+        className="m-2"
+      >
+        <i className="icon interstate-icon-envelope" />
+      </Button>
+    </Col>
+  </Row>
+</Container>
+```
+
+### Text Buttons
+
+With React, pass the `textonly` value to `variant` prop to the Button component. This will apply required styles, so it is **not necessary to pass a color prop**.
+
+```jsx live
+<Container>
+  <Row>
+   <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
+    <Button variant="textonly" className="m-2">
+      <i className="icon btn-icon__left interstate-icon-search" />
+      ICON BUTTON
+    </Button>
+    <Button disabled variant="textonly" className="m-2">
+      DISABLED BUTTON
+    </Button>
+    <Button variant="textonly" className="m-2">
+      ICON BUTTON
+      <i className="btn-icon__right icon interstate-icon-chevron-right" />
+    </Button>
+    <Button variant="textonly" size="sm" className="m-2">
+      TEXT SMALL BUTTON
+    </Button>
+    <Button variant="textonly" icononly className="m-2">
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+    <Button disabled variant="textonly" icononly className="m-2">
+      <i className="icon interstate-icon-envelope" />
+    </Button>
+  </Row>
+</Container>
+```
+
+### Alternative Button styles
+
+#### Auxiliary Button
+
+```jsx live
+<Container>
+  <Row>
+    <Col>
+      <Button variant="aux" className="m-1">
+        Auxiliary Button
+      </Button>
+    </Col>
+  </Row>
+</Container>
+```
+
+#### Action Link Button
+
+Action links are text links that appear as an anchor but perform an action rather than direct the browser to a new URL via an `href`.
+
+```jsx live
+  <Button variant="actionLink"
+    onClick={() => alert("action link click") }
+  >
+    Action Link Button
+  </Button>
+```
+
+### Floating Action Buttons
+
+A contained button may be modified to create a floating action button by using the `floatingAction` value for `variant` prop.
+The floatingAction button accepts primary or secondary color styles via the `color` prop. The `textonly` or `outline` values cannot be used in conjunction with the `floatingAction` value for `variant` prop.
+
+**Only one floatingAction button can be used on a single page.**
+
+```jsx live
+<>
+    <div>The floating action button will overlay content and is locked to a specific position in the lower right of the screen.</div>
+    <Button color="primary" variant="floatingAction" className="m-2" onClick={() => alert('This is a floating action button')}>
+      <i className="icon btn-icon__left interstate-icon-plus" />
+    </Button>
+</>
+```
+
+### Props
+
+| Name   | Type         | Default             | Description
+| -------- | ---------- | ------------------- | -----------------------------------------
+| color    | `string`   | `"Primary"`         | Sets the button styles to either Primary or Secondary                           |
+| size     | `string`   | `"lg"`              | Set the button size to either small 'sm' or large 'lg'
+| active   | `bool`     | `true`              | Set the active state a button
+| disabled | `bool`     | `true`              | Disables button and applies disabled styles
+| icononly | `bool`     | `false`             | Sets styles for icon-only buttons
+| close    | `bool`     | `false`             | For use with toggle close buttons
+| onClick  | `function` | `null`              | Sets a custom onClick function
+| variant  | `string`   | `null`              | Use `outline`, `textonly`, `actionLink`, `aux`, `floatingAction` values for `variant` prop

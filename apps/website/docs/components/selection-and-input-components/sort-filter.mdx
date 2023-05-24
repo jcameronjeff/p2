@@ -1,0 +1,120 @@
+---
+title: 'Sort Filter'
+---
+
+## Usage 
+The single level sort allows a user to sort data in a responsive table by one criterion at a time in any breakpoint.
+
+
+### Common Characteristics
+The single level sort consists of a “sort by” label and an action link displaying the currently
+selected sort criterion. Clicking or tapping the action link opens a panel of sort criteria, each with
+a pair of buttons for sorting high-to-low or low-to-high.
+
+- “↑” sorts low-to-high (#-###,###) / last-to-first (Z-A)
+- “↓” sorts high-to-low (###,###-#) / first-to-last (A-Z)
+
+export const sortFields = [
+  {
+    label: 'Year',
+    index: 0,
+    sorttype: 'number'
+  },
+  {
+    label: 'Make',
+    index: 1,
+    sorttype: 'alpha'
+  },
+  {
+    label: 'Price',
+    index: 2,
+    sorttype: 'number'
+  },
+  {
+    label: 'Odometer',
+    index: 3,
+    sorttype: 'number'
+  },
+  {
+    label: 'Condition',
+    index: 4,
+    sorttype: 'number'
+  }
+];
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <div className=" container">
+    <SingleSort 
+      sortFields={sortFields} 
+      activeSortField={sortFields[3]}
+    />
+  </div>
+</div>
+```
+
+_The single level sort should be paired with the Basic Responsive Table. Sort criteria
+is determined by the needs of each use case._
+
+## Code
+
+### Default Single Sort
+
+```jsx live
+<SingleSort
+    sortFields={[
+        {
+            label: 'Year',
+            index: 0,
+            sorttype: 'number'
+        },
+        {
+            label: 'Make',
+            index: 1,
+            sorttype: 'alpha'
+        },
+        {
+            label: 'Price',
+            index: 2,
+            sorttype: 'number'
+        },
+        {
+            label: 'Odometer',
+            index: 3,
+            sorttype: 'number'
+        },
+        {
+            label: 'Condition',
+            index: 4,
+            sorttype: 'number'
+        }
+    ]}
+    activeSortField={{
+        label: 'Odometer',
+        index: 3,
+        sorttype: 'number'
+    }}
+/>
+```
+
+### Props
+
+#### Single Sort
+
+| Name                  | Type       | Default     | Description
+| --------------------- | ---------- | ----------- | ----------------------
+| sortFields            | `array`    | `[]`        | Array of available `sortField` objects (See below).
+| activeSortField       | `object`   | `null`      | `sortField` object representing current search criteria
+| dataRows              | `array`    | `[]`        | Array of components to sort base on sort vale. Components can either have simple string value or must define a `sortvalue` attribute.
+| sortedCallback        | `function` | `null`      | Callback called after data is resorted, receives array of sorted data.
+| sortOrder             | `string`   | `"ASC"`     | String defining current sort direction. `ASC` or `DESC`
+
+
+#### sortField Object
+
+| Name                  | Type       | Default         | Description
+| --------------------- | ---------- | --------------- | ----------------------
+| label                 | `string`   | `""`            | Label for search option
+| sortvalue             | `string`   | `""` (optional) | Optional sortable value.
+| index                 | `number`  | `undefined`      | Unique Integer used to match `sortFields` object with activeSortField
+| sorttype              | `string`   | `"alpha"`       | Type of sort. `alpha` or `number`

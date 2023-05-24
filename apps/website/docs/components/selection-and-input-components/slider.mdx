@@ -1,0 +1,143 @@
+---
+title: 'Slider'
+---
+
+## Usage
+
+The slider allows a user to quickly select a single value within a range (such as a volume control), or a custom range (such as an odometer filter) with a click/drag gesture rather than slower, more motor-intensive typing.
+
+Sliders are most useful for quick approximations. When greater precision is required, consider using a text input or combo box input.
+
+Sliders may have an optional 2nd thumb.
+
+
+### Common Characteristics
+
+All sliders include a track, one or two thumbs, a label, and a value or range of values.
+
+All sliders indicate the selected range with dark color, and the excluded range with light color.
+
+The low end of the range is always on the left.
+
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <Slider label={"MIN Condition Grade"}
+    defaultValue={2.5}
+    min={0}
+    max={5.0}
+    step={0.1}
+    invertedTrack={true}
+  />
+</div>
+```
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <Slider label={"MAX Condition Grade"}
+    defaultValue={2.5}
+    min={0}
+    max={5.0}
+    step={0.1}
+    invertedTrack={false}
+  />
+</div>
+```
+
+<em>These two sliders are functionally identical, even though the label and selected range are expressed differently.</em>
+
+### Interaction and Accessibility
+
+To ensure accessibility, the user can tap anywhere on the track to set the thumb, or drag the thumb along the track, or use the keyboard left/right arrows when the thumb is focused.
+
+### States
+
+Slider thumbs can be enabled, hovered/focused, or disabled.
+
+### Variants
+
+#### Single Thumb
+A slider with a single thumb can be used to exclude high values or low values.
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <Slider label={"MIN Condition Grade"}
+    defaultValue={1}
+    min={0}
+    max={5.0}
+    step={0.1}
+    invertedTrack={true}
+  />
+  <em>This slider excludes low values by sliding to the right.</em>
+</div>
+```
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <Slider label={"MAX Odometer"}
+    defaultValue={40000}
+    min={0}
+    max={100000}
+    step={1000}
+  />
+<em>This slider excludes high values by sliding to the left.</em>
+</div>
+```
+
+#### Two Thumbs
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <Slider label={"Odometer"}
+    defaultValue={[1000, 4000]}
+    min={0}
+    max={5000}
+    step={1000}
+  />
+  <em>This slider excludes low and high values.</em>
+</div>
+```
+
+## Code
+
+### Default Slider
+
+```jsx live
+    <Slider
+        defaultValue={50}
+        labelUnitOfMeasure={"Km"}
+        labelAlignment={'right'}
+        label={'MAX distance'}
+        disabled={false}
+        onChange={(value) => {
+            console.log(`on change! ${value}`)
+        }}
+        onChangeCommitted={(value) => {
+            console.log(`on change committed! ${value}`)
+        }}
+    />
+```
+
+### Slider with Range
+
+```jsx live
+       <Slider
+            defaultValue={[0, 100000]}
+            max={100000}
+            label="Odometer"
+        />
+```
+
+### Sliders with inverted/disabled tracks
+
+```jsx live
+    <>
+        <Slider defaultValue={50}/>
+        <Slider defaultValue={[15, 85]} />
+        <div style={{margin: '64px 0', borderTop: '2px solid lightgray'}}/>
+        <Slider invertedTrack defaultValue={50}/>
+        <div style={{margin: '64px 0',  borderTop: '2px solid lightgray'}}/>
+        <Slider disabled defaultValue={50}/>
+        <Slider disabled defaultValue={[15, 85]} />
+    </>
+```

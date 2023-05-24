@@ -1,0 +1,166 @@
+---
+title: 'Page Layout'
+sidebar_position: 2
+---
+
+## Usage
+
+### Base-8 Grid
+
+The base-8 fluid grid is &mdash; as the name suggests &mdash; based on spaces that are multiples of 8px horizontally and vertically.
+It is fully fluid (up to specified maximums) to provide the optimal presentation of the content at any width.
+
+It is content-driven, device-agnostic, and fully fluid, which allows designers to optimize the content layout at key breakpoints.
+
+### Key Features
+
+- Six responsive breakpoints (XS, S, M, L, XL, XXL)
+- Twelve fluid columns for M, L, XL, XXL
+- Four fluid columns for S
+- Two fluid columns for XS
+- Fixed margins and gutters across all breakpoints
+
+### Responsive Breakpoints
+
+_:NEEDS REVISION: Ensure all design constraints are still within current standards_
+
+| Size | Viewport      | Columns | Gutters | Margins |
+| ---- | ------------- | ------- | ------- | ------- |
+| XS   | 0-479px       | 2       | 8px     | 8px     |
+| S    | 480-679px     | 4       | 8px     | 8px     |
+| M    | 680-959px     | 12      | 16px    | 16px    |
+| L    | 960-1167px    | 12      | 16px    | 16px    |
+| XL   | 1168-1359px   | 12      | 16px    | 16px    |
+| XXL  | 1360px-1456px | 12      | 16px    | 16px    |
+
+### Designing with Base-8
+
+Designers can use the grid to provide the optimal presentation of their content &mdash; whether data tables, paragraph copy, galleries, or media.
+Thus, they may not always need to design every breakpoint.
+
+The recommended design widths below use column widths that are divisible by eight.
+
+#### Recommended Design widths
+
+| Size | Viewport      | Recommended Design Widths |
+| ---- | ------------- | ------------------------- |
+| XS   | 0-479px       | 392px                     |
+| S    | 480-679px     | 584px                     |
+| M    | 680-959px     | 784px                     |
+| L    | 960-1167px    | 976px                     |
+| XL   | 1168-1359px   | 1168px                    |
+| XXL  | 1360px-1456px | 1360px                    |
+
+#### Max widths
+
+The max width of applications such as Simulcast and MMR should be determined by the needs of the content.
+
+| Size | Viewport      | Content Type                             |
+| ---- | ------------- | ---------------------------------------- |
+| XS   | 0-479px       | All content types                        |
+| S    | 480-679px     | All content types                        |
+| M    | 680-959px     | All content types                        |
+| L    | 960-1167px    | Max for Content pages<sup>&dagger;</sup> |
+| XL   | 1168-1359px   | Max for Listing pages                    |
+| XXL  | 1360px-1456px | Max for Landing pages               |
+
+<sup>&dagger;</sup> Paragraphs of body text should not exceed a comfortable reading width, generally no more than 700px when viewing a desktop monitor from a typical distance.
+
+## Code
+
+### Grid Containers, Rows, & Columns
+
+_:NEEDS REVISION: All class names will need to updated.
+
+```jsx live
+<Container>
+    <Row className='bg-white p-2'>
+        <Col className='bg-info text-light'> Col 1 </Col>
+        <Col className='bg-primary text-dark'> Col 1 </Col>
+        <Col className='bg-info text-light'> Col 1 </Col>
+    </Row>
+    <Row className='bg-white p-2'>
+        <Col md={2} className='bg-info text-light'> Col 2 </Col>
+        <Col md={6} className='bg-primary text-dark'> Col 6 </Col>
+        <Col md={4} className='bg-info text-light'> Col 4 </Col>
+    </Row>
+    <Row className='bg-white p-2'>
+        <Col md={6} className='bg-info text-light'> Col 6 </Col>
+        <Col md={6} className='bg-primary text-dark'> Col 6 </Col>
+    </Row>
+     <Row className='bg-white p-2'>
+        <Col md={12} className='bg-info text-light'> Col 12 </Col>
+    </Row>
+</Container>
+```
+
+### Grid Breakpoints
+
+```jsx live
+<Container>
+  <Row className="bg-white p-2">
+    <Col xs={4} className="bg-info text-light">Col</Col>
+    <Col xs={4} className="bg-primary text-dark">Col</Col>
+    <Col xs={4} className="bg-info text-light">Col</Col>
+  </Row>
+  <Row className="bg-white p-2">
+    <Col sm={4} className="bg-info text-light">Col</Col>
+    <Col sm={4} className="bg-primary text-dark">Col</Col>
+    <Col sm={4} className="bg-info text-light">Col</Col>
+  </Row>
+  <Row className="bg-white p-2">
+    <Col md={4} className="bg-info text-light">Col</Col>
+    <Col md={4} className="bg-primary text-dark">Col</Col>
+    <Col md={4} className="bg-info text-light">Col</Col>
+  </Row>
+  <Row className="bg-white p-2">
+    <Col lg={4} className="bg-info text-light">Col</Col>
+    <Col lg={4} className="bg-primary text-dark">Col</Col>
+    <Col lg={4} className="bg-info text-light">Col</Col>
+  </Row>
+  <Row className="bg-white p-2">
+    <Col xl={4} className="bg-info text-light">Col</Col>
+    <Col xl={4} className="bg-primary text-dark">Col</Col>
+    <Col xl={4} className="bg-info text-light">Col</Col>
+  </Row>
+</Container>
+```
+
+### Nested Layouts
+
+```jsx live
+<Container>
+    <Row className='bg-white p-2'>
+        <Col className='bg-info text-light'>
+         <Container>
+            <Row>
+            <Col className='bg-primary text-dark'>Col</Col>
+            <Col className='bg-info text-light'>Col</Col>
+            </Row>
+        </Container>
+        </Col>
+        <Col className='bg-info text-light'>
+         <Container>
+            <Row>
+            <Col xs={10} className='bg-primary text-dark'>Col</Col>
+            <Col xs={2} className='bg-info text-light'>Col</Col>
+            </Row>
+        </Container>
+        </Col>
+    </Row>
+</Container>
+```
+
+### Props
+
+The props below are optional. When omitted, the result will be a 100% width column.
+
+| Name   | Type       | Default          | Description            |
+| -------| ---------- | -----------------|----------------------- |
+| xs     | `number`   |                  |  sets the width percentage for the xs breakpoint <br /> (0-479px)|
+| sm     | `number`   |                  |  sets the width percentage for the sm breakpoint <br /> (480-679px) |
+| md     | `number`   |                  |  sets the width percentage for the md breakpoint <br /> (680-959px) |
+| lg     | `number`   |                  |  sets the width percentage for the lg breakpoint <br /> (960-1167px) |
+| xl     | `number`   |                  |  sets the width percentage for the xl breakpoint <br /> (1168-1359px) |
+| xxl    | `number`   |                  |  sets the width percentage for the xxl breakpoint <br /> (1360px-1456px) |
+

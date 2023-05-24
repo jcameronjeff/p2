@@ -1,0 +1,314 @@
+---
+title: 'Date Picker & Time Picker'
+---
+
+## Date Picker
+
+## Usage
+
+The Date Picker allows a user to input a date or a date range. When used with
+the Time Picker, a user can input a date and time.
+
+### Common Characteristics
+
+The Date Picker is a variant of the input component with an icon on the right.
+The input may be normal (40px high) or small (32px high).
+
+The Date Picker input is displayed in mm/dd/yyyy format.
+
+The Date Picker supports keyboard navigation and input, along with the ability
+to set a default date, and exclude dates.
+
+```example
+<DatePicker />
+```
+
+### States
+
+The Date Picker has these states: active, focused, filled, disabled, and error.
+The error state should only be necessary when input is required but the user
+skips the input.
+
+### Options
+
+Use a pair of Date Picker inputs to input a start date and end date.
+
+Use with a Time Picker to input a date and time.
+
+## Code
+
+
+### Default DatePicker
+
+The DatePicker component displays today's date as a default value.
+
+```jsx live
+<DatePicker />
+```
+
+### Using with Forms
+
+For standard form handling, adding an `id` or `name` prop is expected.
+Label decoration is also available directly from the `label` prop.
+
+```jsx live
+<DatePicker
+  id="inspect-element"
+  name="see-name"
+  label="Select a date"
+/>
+```
+
+### onChange Callbacks
+
+```jsx live
+<DatePicker onChange={console.log} />
+```
+
+### Disabled/readonly
+
+```jsx live
+<DatePicker disabled />
+```
+
+### DatePicker can be readonly
+
+```jsx live
+<DatePicker readonly />
+```
+
+### Sizing
+
+```jsx live
+<DatePicker size="sm" />
+```
+
+### With Initial Value
+
+```jsx live
+<>
+  <DatePicker defaultValue={new Date('October 29, 1981')}/>
+  <DatePicker defaultValue="October 29, 1981"/>
+  <DatePicker defaultValue="October 29"/>
+</>
+```
+
+### Custom placeholder
+
+```jsx live
+<DatePicker placeholder="Start Date" defaultValue={null} />
+```
+
+### Custom validation status
+
+```jsx live
+<>
+  <DatePicker valid />
+  <DatePicker invalid />
+  <DatePicker invalid="Message indicating what is wrong." />
+</>
+```
+
+### Constrained Values
+
+```jsx live
+<>
+  <DatePicker defaultValue="10/29/81" minDate="1/1/81" maxDate="12/1/81" />
+  <DatePicker defaultValue="10/29/81" minDate="12/1/81" />
+  <DatePicker defaultValue="10/29/81" maxDate="10/1/81" />
+</>
+```
+
+## DatePicker can select date range
+
+The with range selection, the date picker also provides a clear button.
+Enabling date range selection will return an array containing the start and end dates selected.
+
+```jsx live
+<DatePicker
+  selectsRange
+  onChange={([startDate, endDate]) => {
+    console.log('start date:', startDate);
+    console.log('end date:', endDate);
+  }}
+/>
+```
+
+
+## Props
+
+| Name        | Type       | Default                   | Description
+| ----------- | -----------| ------------------------- | ----------------------
+| afterClickOutside | `function` | `null` | Callback function used when the calendar is closed due to a click outside of the DatePicker
+| afterCalendarClose | `function` | `null` |  Callback function used for any close mechanic
+| className | `string` | `null` | Class name to add to the `FormGroup`
+| defaultValue | `Date`, `string` | `new Date()` | Date used as the initially selected date
+| disabled | `bool` | false | Disables the date picker
+| readonly | `bool` | false | Enables readonly state for date picker
+| inputClassName | `string` | `null` | Class name to add to the `input`
+| invalid | `bool`, `string` | `false` | Decorates the component as invalid. If is a string, then the message is also below the component
+| label | `string` | `null` | Decorates the component with a label element
+| maxDate | `Date`, `string` | `new Date('12/31/9999')` | Maxiumum available date to select
+| minDate | `Date`, `string` | `new Date(null)` | Minumum available date to select
+| onChange | `function` | null | Callback when a date value changes
+| placeholder | `string` | `'mm/dd/yyyy'` for single date picker,<br />`'Select date range'` for date range picker | String displayed when the input is empty
+| selectsRange | `bool` | false | Enables date range selection from the date picker
+| startDate | `Date`, `string`, or `null` | null | Initial start date when using the `selectsRange` prop
+| endDate | `Date`, `string`, or `null` | null | Initial end date when using the `selectsRange` prop
+| size | `"sm"`,`"lg"` | `"lg"` | Changes the display size of the component
+| triggerClassName | `string` | `null` | Class name to add to the `button`
+| valid | `bool` | false | Decorates the component as valid
+
+___
+
+## Time Picker
+
+## Usage
+
+<definition>
+  The Time Picker allows a user to input a time. When used with the Date Picker,
+  a user can input a date and time.
+</definition>
+
+### Common Characteristics
+
+The Time Picker is a variant of the input component with an icon on the right.
+The input may be normal (40px high) or small (32px high).
+
+The Time Picker input is displayed in hh:mm am/pm format.
+
+The Time Picker supports the ability to set a default time, and exclude times.
+
+```example
+<SandboxDemo>
+<TimePicker />
+</SandboxDemo>
+```
+
+### States
+
+The Time Picker has these states: active, focused, filled, disabled, and error.
+The error state should only be necessary when input is required but the user
+skips the input.
+
+### Options
+
+Time Picker increments are configurable.
+
+Use a pair of Time Picker inputs to input a start time and end time.
+
+Use with a Date Picker to input a date and time.
+
+## Code
+
+### Default TimePicker
+
+The TimePicker component displays current, system time as a default value.
+
+```jsx live
+<TimePicker />
+```
+
+### TimePicker in a form
+
+For standard form handling, adding an `id` or `name` prop is expected.
+Label decoration is also available directly from the `label` prop.
+
+```jsx live
+<TimePicker
+  id="inspect-element"
+  name="see-name"
+  label="Select a time"
+/>
+```
+
+### TimePicker will notify when time is changed
+
+```jsx live
+<TimePicker onChange={console.log} />
+```
+
+### TimePicker can be disabled
+
+```jsx live
+<TimePicker disabled />
+```
+
+### TimePicker can be readonly
+
+```jsx live
+<TimePicker readonly />
+```
+
+### TimePicker can be small
+
+```jsx live
+<TimePicker size="sm" />
+```
+
+### TimePicker can be set initially
+
+```jsx live
+<>
+  <TimePicker defaultValue="5p" />
+  <TimePicker defaultValue="12:15 AM" />
+  <TimePicker defaultValue={new Date('1/1 2:45 pm')} />
+  <TimePicker defaultValue={new Date('1995-12-17T03:24:00')} />
+</>
+```
+
+### TimePicker can have a different placeholder
+
+```jsx live
+<TimePicker placeholder="Start Time" defaultValue={null} />
+```
+
+### TimePicker can display differnt time intervals
+
+```jsx live
+<TimePicker timeIntervals={7} />
+```
+
+### TimePicker can be set `valid` or `invalid`
+
+```jsx live
+<>
+  <TimePicker valid />
+  <TimePicker invalid />
+  <TimePicker invalid="Message indicating what is wrong." />
+</>
+```
+
+### TimePicker can be constrained between times
+
+```jsx live
+<>
+  <TimePicker defaultValue="3:45 pm" minTime="3:00 pm" maxTime="5:00p" />
+  <TimePicker defaultValue="3:45 pm" minTime="4:00 pm" />
+  <TimePicker defaultValue="3:45 pm" maxTime="3:00 pm" />
+</>
+```
+
+
+### Time Picker Props
+
+| Name        | Type       | Default                   | Description
+| ----------- | -----------| ------------------------- | ----------------------
+| afterClickOutside | `function` | `null` | Callback function used when the calendar is closed due to a click outside of the TimePicker
+| afterClose | `function` | `null` |  Callback function used for any close mechanic
+| className | `string` | `null` | Class name to add to the `FormGroup`
+| defaultValue | `Date`, `string` | `new Date()` | Date used as the initially selected date
+| disabled | `bool` | `false` | Disables the date picker
+| readonly | `bool` | `false` | Enables readonly state for time picker
+| inputClassName | `string` | `null` | Class name to add to the `input`
+| invalid | `bool`, `string` | `false` | Decorates the component as invalid. If is a string, then the message is also below the component
+| label | `string` | `null` | Decorates the component with a label element
+| maxTime | `Date`, `string` | `new Date('1/1 23:59:59')` | Maxiumum available time (as Date) to select
+| minTime | `Date`, `string` | `new Date('1/1 00:00:00')` | Minumum available time (as Date) to select
+| onChange | `function` | null | Callback when the date value changes
+| placeholder | `string` | `'hh:mm a'` | String displayed when the input is empty
+| size | `"sm"`, `"lg"` | `"lg"` | Changes the display size of the component
+| timeIntervals | `number` | `15` | Increment in minutes between each item in the picker
+| triggerClassName | `string` | `null` | Class name to add to the `button`
+| valid | `bool` | `false` | Decorates the component as valid
+

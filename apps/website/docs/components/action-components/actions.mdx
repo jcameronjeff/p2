@@ -1,0 +1,659 @@
+---
+title: Actions
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+Actions are functions that work like buttons but are styled like links. Actions
+can apply to a whole page (e.g. &ldquo;Print&rdquo;), or a component (e.g.
+&ldquo;Add to Workbook&rdquo;) or be nested in a menu.
+
+</definition>
+
+
+### Common Characteristics
+Actions function like buttons but are styled like links. Actions have hover,
+focused and disabled states.
+
+### Options
+Actions can be text or an icon or an icon + link pair.
+To preserve screen real estate actions can be placed in a menu. Action menus
+are opened with a label + down chevron (e.g. `More ⌵`, `Actions ⌵`, etc) or
+a kabob icon (`⋮`). Similar actions can be grouped in the menu using a horizontal
+divider. The Actions Menu is right-aligned with the action that opens it but can
+be left- or center-aligned.
+
+### Usage Guidelines
+Use Action Menus to reduce clutter at the top of a page. Avoid more than two
+page-level actions.
+
+Use Action Menus to reduce clutter on cards.
+
+Actions that also indicate a status (e.g. Add to workbook or Set Lane Alert)
+should not be nested in a menu.
+
+### Examples
+
+```example
+<div className='interstate-sandbox interstate-sandbox' style={{
+  padding: '2rem',
+  background: '#eee',
+  textAlign: 'right'
+}}>
+  <Action addOnPrepend="printer" label="Print Page" />
+</div>
+```
+
+_Page actions appear in the top-right of the screen._
+
+```example
+<div className='interstate-sandbox interstate-sandbox' style={{
+  background: '#eee',
+  display: 'flex',
+  gap: '1.6rem',
+  justifyContent: 'flex-end',
+  padding: '2rem',
+  textAlign: 'right',
+}}>
+  <Action addOnPrepend="printer" label="Print Page" />
+  <Action addOnPrepend="envelope" label="Email Runlist" />
+</div>
+```
+
+_Display no more than two actions on the page._
+
+```example
+<div className='interstate-sandbox interstate-sandbox' style={{
+  padding: '2rem',
+  background: '#eee',
+  textAlign: 'left'
+}}>
+  <Actions show={0}>
+    <Action addOnPrepend="printer" label="Print Page" />
+    <Action addOnPrepend="envelope" label="Email Runlist" />
+    <Action addOnPrepend="disk" label="Save Runlist" />
+  </Actions>
+</div>
+```
+
+_Nest actions in an Actions Menu when more than two are needed._
+
+
+## Design
+
+```example
+<Container
+  className="d-flex justify-content-end interstate-sandbox interstate-sandbox"
+  style={{borderTop: '20px solid #003468', marginTop: 40 }}
+>
+  <Actions
+    actions={[{
+      addOnPrepend: "printer",
+      label: "Print Page",
+      onClick: () => alert("Print Page with `window.print();`."),
+    }, {
+      addOnPrepend: "envelope",
+      label: "Email Runlist",
+      onClick: () => alert("Email runlist."),
+    }]}
+  />
+</Container>
+```
+
+```example
+<Container
+  className="d-flex justify-content-end interstate-sandbox interstate-sandbox"
+  style={{borderTop: '20px solid #003468', marginTop: 40 }}
+>
+  <Actions show={1}>
+    <Action addOnPrepend="printer" label="Print Page" onClick={() => alert("Print Page with `window.print()`.")} />
+    <Action addOnPrepend="envelope" label="Email Runlist" onClick={() => alert("Email runlist.")} />
+    <Action addOnPrepend="new-window" label="New Window" onClick={() => alert("Open new window with `window.open()`.")} />
+  </Actions>
+</Container>
+```
+
+```example
+<Container
+  className="d-flex justify-content-end interstate-sandbox interstate-sandbox"
+  style={{borderTop: '20px solid #003468', marginTop: 40 }}
+>
+  <Actions show={0}>
+    <Action addOnPrepend="printer" label="Print Page" onClick={() => alert("Print Page with `window.print();`.")} />
+    <Action addOnPrepend="envelope" label="Email Runlist" onClick={() => alert("Email runlist.")} />
+  </Actions>
+</Container>
+```
+
+_Display no more than two utilities on the page._
+
+## Code
+
+```example
+<Message title="Under the Hood">
+
+Actions are `<Button variant="actionLink"/>` elements with all props (other than those
+specified) passed through untouched. As such, `onClick` methods ought to be
+provided to each Action. This has been omitted in the examples for brevity.
+
+</Message>
+```
+
+### Default Action
+
+Icons can be appended to (placed before) or prepended to (placed after) the
+label. If no label, only the addOn(s) will show.
+
+```jsx live
+<Action addOnPrepend="info" label="Information" />
+```
+
+
+### with icon on right
+
+```jsx live
+<Action addOnAppend="printer" label="Print" />
+```
+
+
+### with icon on right and left
+
+```jsx live
+<Action addOnPrepend="chevron-left" addOnAppend="chevron-right" label="CODE" />
+```
+
+
+### Actions can group many Action components
+
+``` jsx live
+<Actions>
+  <Action addOnPrepend="info" label="Information" />
+</Actions>
+```
+
+
+### more than one
+
+```jsx live
+<Actions>
+  <Action addOnPrepend="error-triangle" label="Error Triangle" />
+  <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+  <Action addOnPrepend="heart" label="Heart" />
+  <Action addOnPrepend="shield-check" label="Sheild Check" />
+  <Action addOnPrepend="unlink" label="Unlink" />
+</Actions>
+```
+
+### with `actions` prop
+
+```jsx live
+<Actions actions={[
+  {
+    addOnPrepend: 'error-triangle',
+    label: 'Error Triangle',
+  },
+  {
+    addOnPrepend: 'fork-spoon',
+    label: 'Fork Spoon',
+  },
+  {
+    addOnPrepend: 'heart',
+    label: 'Heart',
+  },
+  {
+    addOnPrepend: 'shield-check',
+    label: 'Sheild Check',
+  },
+  {
+    addOnPrepend: 'unlink',
+    label: 'Unlink',
+  },
+]} />
+```
+
+## Actions adjust display count with the `show` prop
+
+```jsx live
+<Actions show={3}>
+  <Action addOnPrepend="error-triangle" label="Error Triangle" />
+  <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+  <Action addOnPrepend="heart" label="Heart" />
+  <Action addOnPrepend="shield-check" label="Sheild Check" />
+  <Action addOnPrepend="unlink" label="Unlink" />
+</Actions>
+```
+
+### with `actions` prop
+
+```jsx live
+<Actions show={3} actions={[
+  {
+    addOnPrepend: 'error-triangle',
+    label: 'Error Triangle',
+  },
+  {
+    addOnPrepend: 'fork-spoon',
+    label: 'Fork Spoon',
+  },
+  {
+    addOnPrepend: 'heart',
+    label: 'Heart',
+  },
+  {
+    addOnPrepend: 'shield-check',
+    label: 'Sheild Check',
+  },
+  {
+    addOnPrepend: 'unlink',
+    label: 'Unlink',
+  },
+]} />
+```
+
+## Actions adjust text display with `iconOnly` prop
+
+The `iconOnly` prop only affects the shown actions. All actions in the menu will
+display with complete icons and labels.
+
+```jsx live
+<Actions iconOnly>
+  <Action addOnPrepend="error-triangle" label="Error Triangle" />
+  <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+  <Action addOnPrepend="heart" label="Heart" />
+  <Action addOnPrepend="shield-check" label="Sheild Check" />
+  <Action addOnPrepend="unlink" label="Unlink" />
+</Actions>
+```
+
+### with `actions` prop
+
+```jsx live
+<Actions
+  iconOnly
+  actions={[
+    {
+      addOnPrepend: 'error-triangle',
+      label: 'Error Triangle',
+    },
+    {
+      addOnPrepend: 'fork-spoon',
+      label: 'Fork Spoon',
+    },
+    {
+      addOnPrepend: 'heart',
+      label: 'Heart',
+    },
+    {
+      addOnPrepend: 'shield-check',
+      label: 'Sheild Check',
+    },
+    {
+      addOnPrepend: 'unlink',
+      label: 'Unlink',
+    },
+  ]}
+/>
+```
+
+### Actions adjust icon display with `textOnly` prop
+
+The `textOnly` prop only affects the shown actions. All actions in the menu will
+display with complete icons and label.
+
+```jsx live
+<Actions textOnly>
+  <Action addOnPrepend="error-triangle" label="Error Triangle" />
+  <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+  <Action addOnPrepend="heart" label="Heart" />
+  <Action addOnPrepend="shield-check" label="Sheild Check" />
+  <Action addOnPrepend="unlink" label="Unlink" />
+</Actions>
+```
+
+### with `actions` prop
+
+```jsx live
+<Actions
+  textOnly
+  actions={[
+    {
+      addOnPrepend: 'error-triangle',
+      label: 'Error Triangle',
+    },
+    {
+      addOnPrepend: 'fork-spoon',
+      label: 'Fork Spoon',
+    },
+    {
+      addOnPrepend: 'heart',
+      label: 'Heart',
+    },
+    {
+      addOnPrepend: 'shield-check',
+      label: 'Sheild Check',
+    },
+    {
+      addOnPrepend: 'unlink',
+      label: 'Unlink',
+    },
+  ]}
+/>
+```
+
+### Actions menu opener label changes with the `menuLabel` prop
+
+```jsx live
+<Actions
+  menuLabel="Page Actions"
+  actions={[
+    {
+      addOnPrepend: 'error-triangle',
+      label: 'Error Triangle',
+    },
+    {
+      addOnPrepend: 'fork-spoon',
+      label: 'Fork Spoon',
+    },
+    {
+      addOnPrepend: 'heart',
+      label: 'Heart',
+    },
+    {
+      addOnPrepend: 'shield-check',
+      label: 'Sheild Check',
+    },
+    {
+      addOnPrepend: 'unlink',
+      label: 'Unlink',
+    },
+  ]}
+/>
+```
+
+### Actions in the menu can be visibly separated
+
+Similar actions can be grouped by a horizontal divider.
+
+```jsx live
+<Actions show={0} menuLabel="Page Actions">
+  <Action addOnPrepend="error-triangle" label="Error Triangle" />
+  <Actions.Spacer />
+  <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+  <Action addOnPrepend="heart" label="Heart" />
+  <Actions.Spacer />
+  <Action addOnPrepend="shield-check" label="Sheild Check" />
+  <Action addOnPrepend="unlink" label="Unlink" />
+</Actions>
+```
+
+### with `actions` prop
+
+```jsx live
+<Actions
+  show={0}
+  menuLabel="Page Actions"
+  actions={[
+    {
+      addOnPrepend: 'error-triangle',
+      label: 'Error Triangle',
+    },
+    { spacer: true },
+    {
+      addOnPrepend: 'fork-spoon',
+      label: 'Fork Spoon',
+    },
+    {
+      addOnPrepend: 'heart',
+      label: 'Heart',
+    },
+    { spacer: true },
+    {
+      addOnPrepend: 'shield-check',
+      label: 'Sheild Check',
+    },
+    {
+      addOnPrepend: 'unlink',
+      label: 'Unlink',
+    }
+  ]}
+/>
+```
+
+
+
+### Actions align menu with `menuAlignment` prop
+
+`menuAlignment` pertains to the alignment of the link menu in relation to the
+opener button. Menu will always be either above or below the trigger depending
+on the available visible space and will align to the right edge by default.
+
+### Align `"left"`
+
+```jsx live
+<Container style={{ textAlign: 'center' }}>
+  <Actions
+    show={0}
+    menuAlignment="left"
+    menuLabel="Page Actions"
+  >
+    <Action addOnPrepend="heart-o" label="Add page to Workbook" />
+    <Actions.Spacer />
+    <Action addOnPrepend="printer" label="Print current view" />
+    <Action addOnPrepend="printer" label="Print run list" />
+    <Actions.Spacer />
+    <Action addOnPrepend="envelope" label="Email run list" />
+    <Action addOnPrepend="file-excel" label="Export to Excel" />
+    <Actions.Spacer />
+    <Action addOnPrepend="clipboard-checked" label="Really long Action name in a Panel" />
+  </Actions>
+</Container>
+```
+
+### Align `"center"`
+
+```jsx live
+<Container style={{ textAlign: 'center' }}>
+  <Actions
+    show={0}
+    menuAlignment="center"
+    menuLabel="Page Actions"
+  >
+    <Action addOnPrepend="heart-o" label="Add page to Workbook" />
+    <Actions.Spacer />
+    <Action addOnPrepend="printer" label="Print current view" />
+    <Action addOnPrepend="printer" label="Print run list" />
+    <Actions.Spacer />
+    <Action addOnPrepend="envelope" label="Email run list" />
+    <Action addOnPrepend="file-excel" label="Export to Excel" />
+    <Actions.Spacer />
+    <Action addOnPrepend="clipboard-checked" label="Really long Action name in a Panel" />
+  </Actions>
+</Container>
+```
+
+### Align `"right"` (default)
+
+```jsx live
+<Container style={{ textAlign: 'center' }}>
+  <Actions
+    show={0}
+    menuAlignment="right"
+    menuLabel="Page Actions"
+  >
+    <Action addOnPrepend="heart-o" label="Add page to Workbook" />
+    <Actions.Spacer />
+    <Action addOnPrepend="printer" label="Print current view" />
+    <Action addOnPrepend="printer" label="Print run list" />
+    <Actions.Spacer />
+    <Action addOnPrepend="envelope" label="Email run list" />
+    <Action addOnPrepend="file-excel" label="Export to Excel" />
+    <Actions.Spacer />
+    <Action addOnPrepend="clipboard-checked" label="Really long Action name in a Panel" />
+  </Actions>
+</Container>
+```
+_The container here is for illustrative purposes only._
+
+### Actions can be updated externally
+
+In the following example, the `labelState` will update on any click of any of
+the Action buttons. The state is visible in the labels as `On` or `Off` and
+update as the buttons are interacted upon.
+
+```jsx live
+() => {
+  const [labelState, setLabelState] = React.useState(false)
+
+  const handleClick = () => {
+    setLabelState(!labelState)
+  }
+
+  const label = (name) => `${name} ${labelState ? 'Off' : 'On'}`
+
+  return (
+    <>
+      <Actions show={3}>
+        <Action label={label('wifi')} onClick={handleClick} addOnPrepend="wifi" />
+        <Action label={label('truck')} onClick={handleClick} addOnPrepend="truck" />
+        <Action label={label('trash')} onClick={handleClick} addOnPrepend="trash" />
+        <Action label={label('home')} onClick={handleClick} addOnPrepend="home" />
+        <Action label={label('medal')} onClick={handleClick} addOnPrepend="medal" />
+      </Actions>
+
+      <Actions show={1} actions={[{
+         addOnAppend: 'search',
+         label: `search ${labelState ? 'Off' : 'On'}`,
+         onClick: handleClick,
+       }, {
+         addOnAppend: 'fuel',
+         label: `fuel ${labelState ? 'Off' : 'On'}`,
+         onClick: handleClick,
+       }, {
+         addOnAppend: 'pin',
+         label: `pin ${labelState ? 'Off' : 'On'}`,
+         onClick: handleClick,
+       },]} />
+    </>
+  );
+}
+```
+
+### Actions can be paired with different props
+
+This example shows how two different and unique actions may be used in
+a component.
+
+```jsx live
+<>
+  <Container style={{
+    width: 350,
+    boxShadow: '0 0 4px 0 #babcbe',
+  }} className="my-2 rounded">
+    <Row>
+      <Col className="p-0">
+        <img src="https://placedog.net/350/262" className="rounded-top" />
+      </Col>
+    </Row>
+    <Row>
+      <Col className="p-2">
+        <strong>Card Title</strong>
+        <p>Lorem ipsum dolor sit amet, consec tetur adiplscing elit.</p>
+      </Col>
+    </Row>
+    <Row className="border-top border-light">
+      <Col className="justify-content-start p-0">
+        <Actions textOnly>
+          <Action label="Action 1" />
+        </Actions>
+      </Col>
+      <Col className="justify-content-end p-0">
+        <Actions iconOnly show={1}>
+          <Action label="Action 2" addOnPrepend="bell" />
+          <Action label="Action 3" addOnPrepend="bell-o" />
+          <Action label="Action 4" addOnPrepend="eye-blocked" />
+          <Action label="Action 5" addOnPrepend="plus" />
+        </Actions>
+      </Col>
+    </Row>
+  </Container>
+</>
+```
+
+### Actions can be modified with display variants
+
+
+#### Variant `list`
+
+This example shows how to display the actions in a vertical manner, still allowing
+for a "more" menu to show if desired.
+
+```jsx live
+<Card width="320">
+  <Actions variant="list" show={3}>
+    <Action addOnPrepend="error-triangle" label="Error Triangle" />
+    <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+    <Action addOnPrepend="heart" label="Heart" />
+    <Action addOnPrepend="shield-check" label="Sheild Check" />
+    <Action addOnPrepend="unlink" label="Unlink" />
+  </Actions>
+</Card>
+```
+
+#### Variant `panel-list`
+
+This example shows how to display the actions in a vertical manner which mimics the
+"more" panel, still allowing for a "more" menu to show if desired.
+
+```jsx live
+<Card width="320" gutter="none" className="py-2">
+  <Actions variant="panel-list" show={3}>
+    <Action addOnPrepend="error-triangle" label="Error Triangle" />
+    <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
+    <Action addOnPrepend="heart" label="Heart" />
+    <Action addOnPrepend="shield-check" label="Sheild Check" />
+    <Action addOnPrepend="unlink" label="Unlink" />
+  </Actions>
+</Card>
+```
+
+### Props
+
+#### Actions
+
+| Name                  | Type       | Default     | Description
+| --------------------- | ---------- | ----------- | ----------------------
+| action                | `object`   |             | A single Action to be displayed. All keys are passed as props to the created Action.
+| actions               | `object`   | `[]`        | One or more Action elements to be displayed. All keys are passed as props to the created Action.
+| children              | `node`     |             | Action and Actions.Spacer elements.
+| className             | `string`   |             |
+| iconOnly              | `bool`     |             | Turns off text labels for Actions visible outside of the menu.
+| menuAlignment         | `string`   | `"right"`   | Aligns the menu panel to the menu trigger.
+| menuLabel             | `string`   | `"More"`    | Changes the menu trigger label.
+| textOnly              | `bool`     |             | Turns off icons for Actions visible outside of the menu.
+| show                  | `number`, `"all"`   | `2` | Determines the number of Actions to display in addition to a menu trigger.
+| variant               | `string`   |             | Will change the display to either `list` or `panel-list`. `panel-list` is used to mimic the hover states of the actions in the "more" panel.
+
+
+### Action
+| Name                  | Type       | Default     | Description
+| --------------------- | ---------- | ----------- | ----------------------
+| className             | `string`   |             |
+| addOnPrepend          | `string`   |             | Name of glyph to show before the label.
+| addOnAppend           | `string`   |             | Name of glyph to show after the label.
+| iconOnly              | `bool`     |             | Removes the label from the Action.
+| inline                | `bool`     |             | Removes minimum size constraints.
+| label                 | `string`   |             | Text to display in the Action.
+| textOnly              | `bool`     |             | Removes all icons from the Action.
+
+### Panel
+| Name                  | Type       | Default     | Description
+| --------------------- | ---------- | ----------- | ----------------------
+| align                 | `string`   | `"left"`    | Sets an alignment class leveraged by the Actions menu trigger.
+
+### Spacer
+None available.
+

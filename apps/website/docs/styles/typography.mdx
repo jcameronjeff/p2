@@ -1,0 +1,137 @@
+---
+title: 'Typography'
+sidebar_position: 3
+---
+
+_:NEEDS REVISION: Class names are incorrect. Is Roboto used for all themes? Is this better suited for themes if it is?_
+
+## Code
+
+<h1>H1 Roboto Condensed Bold 26px Line Height: 30</h1>
+<h2>H2 Roboto Medium 22px Line Height: 25</h2>
+<h3>H3 Roboto Regular 20px Line Height: 24</h3>
+<h4>H4 Roboto Light 18px Line Height: 22</h4>
+<h5>H5 Roboto Bold 14px Line Height: 17</h5>
+<h6>H6 Roboto Bold 12px Line Height: 15</h6>
+
+### Headings
+
+
+```jsx
+<Container className="i8e-docs__typography">
+  <Row className="mb-5">
+    <Col>
+      <h1>H1 Roboto Condensed Bold 26px Line Height: 30</h1>
+      <h2>H2 Roboto Medium 22px Line Height: 25</h2>
+      <h3>H3 Roboto Regular 20px Line Height: 24</h3>
+      <h4>H4 Roboto Light 18px Line Height: 22</h4>
+      <h5>H5 Roboto Bold 14px Line Height: 17</h5>
+      <h6>H6 Roboto Bold 12px Line Height: 15</h6>
+    </Col>
+  </Row>
+</Container>
+```
+
+
+---
+
+### Using classNames
+
+
+```jsx
+<Container className="i8e-docs__typography">
+  <Row className="mb-5">
+    <Col>
+      <div className="h1">H1 Roboto Condensed Bold 26px Line Height: 30</div>
+      <div className="h2">H2 Roboto Medium 22px Line Height: 25</div>
+      <div className="h3">H3 Roboto Regular 20px Line Height: 24</div>
+      <div className="h4">H4 Roboto Light 18px Line Height: 22</div>
+      <div className="h5">H5 Roboto Bold 14px Line Height: 17</div>
+      <div className="h6">H6 Roboto Bold 12px Line Height: 15</div>
+    </Col>
+  </Row>
+</Container>
+```
+
+
+---
+
+### Paragraphs
+
+
+```jsx
+<Container>
+  <Row className="mb-5">
+    <Col md={8}>
+      <p>
+        P (Body) <br /> 16px Roboto Regular
+        <br /> Line Height: 20
+      </p>
+      <p className="mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus
+        vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel,
+        porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed
+        vulputate fringilla felis.
+      </p>
+
+      <p className="para-md">
+        P (Body) For data-heavy pages, IE VDP (Paragraphs/Wrapping Text)
+        <br /> 14px Roboto Regular <br /> Line Height: 18
+      </p>
+      <p className="para-md mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus
+        vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel,
+        porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed
+        vulputate fringilla felis.
+      </p>
+      <p className="para-sm">
+        P Small (Paragraphs/Wrapping Text) 12px Roboto Regular Line Height: 15
+      </p>
+      <p className="para-sm mb-5">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras dapibus
+        vulputate diam eu pretium. Mauris elit orci, ultricies id fermentum vel,
+        porta et eros. Vestibulum condimentum lectus in convallis feugiat. Sed
+        vulputate fringilla felis.
+      </p>
+
+    </Col>
+  </Row>
+</Container>
+```
+
+
+---
+
+
+```jsx
+<Container>
+  <Row>
+    <Col className="px-0">
+      <ul>
+        <li>16/24 list item</li>
+        <li>16/24 list item</li>
+        <li>16/24 list item</li>
+      </ul>
+
+      <ul className="list-md">
+        <li>14/20 list item</li>
+        <li>14/20 list item</li>
+        <li>14/20 list item</li>
+      </ul>
+
+      <ul className="list-sm">
+        <li>12/16 list item</li>
+        <li>12/16 list item</li>
+        <li>12/16 list item</li>
+      </ul>
+
+      <ul className="list-legal">
+        <li>10/15 list item</li>
+        <li>10/15 list item</li>
+        <li>10/15 list item</li>
+      </ul>
+    </Col>
+  </Row>
+</Container>
+```
+

@@ -7,7 +7,7 @@ const darkCodeTheme = require('prism-react-renderer/themes/dracula');
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Interstate Design System',
-  tagline: 'Design Systems are cool',
+  tagline: 'Design Systems are cool!',
   favicon: 'img/favicon.ico',
 
   url: 'https://interstate.coxautoinc.com',
@@ -23,6 +23,20 @@ const config = {
     locales: ['en'],
   },
 
+  plugins: [
+    async function myPlugin(context, options) {
+      return {
+        name: "docusaurus-tailwindcss",
+        configurePostCss(postcssOptions) {
+          // Appends TailwindCSS and AutoPrefixer.
+          postcssOptions.plugins.push(require("tailwindcss"));
+          postcssOptions.plugins.push(require("autoprefixer"));
+          return postcssOptions;
+        },
+      };
+    },
+  ], 
+
   presets: [
     [
       'classic',
@@ -35,7 +49,7 @@ const config = {
           // Remove this to remove the "edit this page" links.
         },
         theme: {
-          customCss: require.resolve('./src/css/custom.css'),
+          customCss: [require.resolve('./src/css/custom.css')],
         },
       }),
     ],
@@ -54,11 +68,41 @@ const config = {
         items: [
           {
             type: 'docSidebar',
+            sidebarId: 'gettingStartedSidebar',
+            position: 'left',
+            label: 'Getting Started'
+          },
+          {to: '/whats-new', label: 'What\'s New', position: 'left'},
+          {
+            type: 'docSidebar',
+            sidebarId: 'foundationSidebar',
+            position: 'left',
+            label: 'Foundation',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'stylesSidebar',
+            position: 'left',
+            label: 'Styles',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'tokensSidebar',
+            position: 'left',
+            label: 'Tokens',
+          },
+          {
+            type: 'docSidebar',
+            sidebarId: 'designPattersSidebar',
+            position: 'left',
+            label: 'Design Patterns',
+          },
+          {
+            type: 'docSidebar',
             sidebarId: 'componentsSidebar',
             position: 'left',
             label: 'Components',
           },
-          {to: '/whats-new', label: 'What\'s New', position: 'left'},
           {
             href: 'https://ghe.coxautoinc.com/Interstate',
             label: 'GitHub',
@@ -74,7 +118,7 @@ const config = {
             items: [
               {
                 label: 'Components',
-                to: '/docs/components/intro',
+                to: '/docs/components/',
               },
             ],
           },

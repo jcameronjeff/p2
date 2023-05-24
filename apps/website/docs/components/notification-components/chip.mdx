@@ -1,0 +1,545 @@
+---
+title: "Chip"
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+Chips are small elements which present small amounts of information or offer optional actions.
+
+</definition>
+
+### Common Characteristics
+
+All chips have a background color, and are 24px high. They have 8px left and right padding unless this is increased to achieve a 40px minimum width.
+
+Chips labels may be bold ALL-CAPS, or regular sentence case. Maintain a minimum of 4px space between chips vertically and horizontally.
+
+
+### Basic Chips
+
+```example
+<SandboxDemo>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" bold uppercase>
+        Light Chip
+      </Chip>
+      <Chip color="medium" bold uppercase>
+        Medium Chip
+      </Chip>
+      <Chip color="dark" bold uppercase>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light"  bold type="actionable">
+        Light Chip
+      </Chip>
+      <Chip color="medium"  bold type="actionable">
+        Medium Chip
+      </Chip>
+      <Chip color="dark"  bold type="actionable">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" bold type="filter">
+        Light Chip
+      </Chip>
+      <Chip color="medium" bold type="filter">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" bold type="filter">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" bold type="selectable">
+        Light Chip
+      </Chip>
+      <Chip color="medium" bold type="selectable">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" bold type="selectable">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" iconBefore="arrow-left" bold uppercase>
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="arrow-left" bold uppercase>
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="arrow-left" bold uppercase>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" iconAfter="cancel-circle" bold uppercase>
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconAfter="cancel-circle" bold uppercase>
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconAfter="cancel-circle" bold uppercase>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light">Light Chip</Chip>
+      <Chip color="medium">Medium Chip</Chip>
+      <Chip color="dark">Dark Chip</Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" iconBefore="bell">
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="bell">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="bell">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+  <div className="row mb-4">
+    <div className="col">
+      <Chip color="light" iconAfter="cup">
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconAfter="cup">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconAfter="cup">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+</SandboxDemo>
+```
+
+_Chips may be dark, medium, or light._
+
+
+### Transparent Chips
+
+```example
+<SandboxDemo>
+ <div className="row mb-4" style={{backgroundColor: '#f3f3f3'}}>
+    <div className="col p-2">
+      <Chip color="light" iconBefore="arrow-left" bold transparent >
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="arrow-left"  bold transparent >
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="arrow-left" bold  transparent>
+        Dark Chip
+      </Chip>
+    </div>
+    <div className="col p-2" style={{backgroundColor: '#777'}}>
+      <Chip color="light" iconBefore="arrow-left" bold transparent >
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="arrow-left"  bold transparent >
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="arrow-left" bold  transparent>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+</SandboxDemo>
+```
+
+_Chips can be marked as transparent. Background colors will become transparent while additional stylings remain unchanges. This is useful
+for working with dark backgrounds._
+
+### Chips with Tooltips
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Tooltip
+      size="sm"
+      tooltipContent="Small tooltip"
+      target="interstate-docs__chip-tooltip-demo--small"
+    />
+    <Chip id="interstate-docs__chip-tooltip-demo--small" color="medium" bold>
+      CH
+    </Chip>
+  </div>
+  <div className="col">
+    <Tooltip
+      size="lg"
+      tooltipContent="Large tooltip with content that wraps as shown."
+      target="interstate-docs__chip-tooltip-demo--small2"
+    />
+    <Chip id="interstate-docs__chip-tooltip-demo--small2" color="medium" bold>
+      CH
+    </Chip>
+  </div>
+</SandboxDemo>
+```
+
+_Chips can have an optional tooltip that displays on hover/tap._
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Chip color="dark" bold uppercase>
+      HMR
+    </Chip>
+    <Chip color="medium" bold uppercase>
+      CH
+    </Chip>
+    <Chip color="light" bold uppercase>
+      GA
+    </Chip>
+    <Chip color="medium" bold uppercase>
+      MPP
+    </Chip>
+    <Chip color="dark" bold uppercase>
+      ACH-S
+    </Chip>
+    <Chip color="medium" bold uppercase>
+      ACH-B
+    </Chip>
+    <Chip color="light" bold uppercase>
+      AC1
+    </Chip>
+  </div>
+</SandboxDemo>
+```
+
+_Color can be used to indicate higher urgency._
+
+### Actionable Chips
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      SD
+    </Chip>
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      DE
+    </Chip>
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      WS
+    </Chip>
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      CR
+    </Chip>
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      CR 5
+    </Chip>
+    <Chip color="light" type="action" href="javascript:void(0);" bold uppercase>
+      CR 5.0
+    </Chip>
+    <Chip
+      color="light"
+      type="action"
+      href="javascript:void(0);"
+      bold
+      uppercase
+      iconBefore="shield"
+    >
+      CR 5.0
+    </Chip>
+  </div>
+</SandboxDemo>
+```
+
+![](/img/components/chips/chip-design-actionable.png)
+
+<div className="mt-5">
+
+_Chips can be used to navigate to more content._
+
+</div>
+
+### Filter Chips
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Chip type="filter">OVE</Chip>
+    <Chip type="filter">Passenger</Chip>
+    <Chip type="filter">Honda</Chip>
+    <Chip type="filter">Accord Sedan</Chip>
+    <Chip type="filter">10,000 - 30,000 mi</Chip>
+    <Chip type="filter">AL - America's Auto Auction Birmingham</Chip>
+  </div>
+</SandboxDemo>
+```
+
+### With icon variant
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Chip type="filter" iconBefore="car">
+      OVE
+    </Chip>
+  </div>
+</SandboxDemo>
+```
+
+_Chips can optionally be prepended AND/OR appended with any of the [Interstate icons](docs/components/images-and-icon-components/icon)._
+
+### Selection Chip
+
+### Selected
+
+```example
+<SandboxDemo containerClassName="row align-items-center">
+  <div className="col">
+    <Chip type="select" selected iconAfter="car">
+      Selected option 1
+    </Chip>
+    <Chip type="select" selected>
+      Selected option 2
+    </Chip>
+    <Chip type="select">Unselected</Chip>
+  </div>
+</SandboxDemo>
+```
+
+_Chips can be used to select options from a group. Note the sentence case labels._
+
+![](/img/components/chips/chip-design-selection.png)
+
+## Design
+
+### Basic Chips
+
+![](/img/components/chips/chip-design-basic.png)
+
+### Actionable Chips
+
+![](/img/components/chips/chip-design-actionable.png)
+
+### Filter Chips
+
+![](/img/components/chips/chip-design-filter.png)
+
+### Selection Chips
+
+![](/img/components/chips/chip-design-selection.png)
+
+## Code
+
+### Basic Chips
+
+```jsx live
+<div>
+  <div className="row">
+    <div className="col">
+      <Chip color="light" label="Light" />
+      <Chip color="medium" label="Medium" />
+      <Chip color="dark" label="Dark" />
+    </div>
+  </div>
+
+  <div className="row">
+    <div className="col">
+      <Chip color="light" iconBefore="arrow-left" bold uppercase>
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="arrow-left" bold uppercase>
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="arrow-left" bold uppercase>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+
+  <div className="row">
+    <div className="col">
+      <Chip color="light" iconAfter="cup" bold uppercase>
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconAfter="cup" bold uppercase>
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconAfter="cup" bold uppercase>
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+
+  <div className="row">
+    <div className="col">
+      <Chip color="light">Light Chip</Chip>
+      <Chip color="medium">Medium Chip</Chip>
+      <Chip color="dark">Dark Chip</Chip>
+    </div>
+  </div>
+
+  <div className="row">
+    <div className="col">
+      <Chip color="light" iconBefore="arrow-right">
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconBefore="arrow-right">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconBefore="arrow-right">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+
+  <div className="row">
+    <div className="col">
+      <Chip color="light" iconAfter="cancel-circle">
+        Light Chip
+      </Chip>
+      <Chip color="medium" iconAfter="cancel-circle">
+        Medium Chip
+      </Chip>
+      <Chip color="dark" iconAfter="cancel-circle">
+        Dark Chip
+      </Chip>
+    </div>
+  </div>
+</div>
+```
+
+### Actionable Chips
+
+```jsx live
+<div className="row align-items-center">
+  <div className="col">
+    <Chip
+      color="light"
+      type="action"
+      onClick={() => {
+        alert("Actionable Chip was clicked.");
+      }}
+      bold
+      uppercase
+    >
+      SD
+    </Chip>
+    <a href="https://ask.com">
+      <Chip color="light" type="action" bold uppercase>
+        DE
+      </Chip>
+    </a>
+    <a href="https://bing.com">
+      <Chip color="light" type="action" bold uppercase>
+        WS
+      </Chip>
+    </a>
+    <a href="https://search.yahoo.com">
+      <Chip
+        color="light"
+        type="action"
+        bold
+        uppercase
+      >
+        CR 5
+      </Chip>
+    </a>
+    <a href="https://qwant.com">        
+      <Chip color="light"
+        type="action"
+        bold
+        uppercase>
+        CR 5.0
+      </Chip>
+    </a>
+    <a href="https://searchencrypt.com">
+      <Chip
+        color="light"
+        type="action"
+        bold
+        uppercase
+        iconBefore="shield"
+      >
+      CR 5.0
+      </Chip>
+    </a>
+  </div>
+</div>
+```
+
+_Actionable chips are created by providing a `type="action"` prop.
+Providing a wrapper anchor tag with an `href` will allow the chip to take the user to the provided URL._
+
+### Chips with Tooltips
+
+```jsx live
+class ChipTooltipExample extends React.Component {
+  constructor(props) {
+    super(props);
+
+    this.toggle = this.toggle.bind(this);
+
+    this.state = {
+      tooltipOpen: false,
+    };
+  }
+
+  toggle() {
+    const { tooltipOpen } = this.state;
+
+    this.setState({
+      tooltipOpen: !tooltipOpen,
+    });
+  }
+
+  render() {
+    const { tooltipOpen } = this.state;
+
+    return (
+      <div>
+        <Chip id="interstate-docs__chip-tooltip-demo-code--small" color="light" bold>
+          CH
+        </Chip>
+        <Tooltip
+          size="sm"
+          target="interstate-docs__chip-tooltip-demo-code--small"
+          toggle={this.toggle}
+          isOpen={tooltipOpen}
+        >
+          Small Tooltip content
+        </Tooltip>
+      </div>
+    );
+  }
+}
+```
+
+### Chips Props
+
+| Name       | Type      | Default    | Description                                         |
+| ---------- | --------- | ---------- | --------------------------------------------------- |
+| color      | `string`  | `"medium"` | Sets the chip color to either light, medium or dark |
+| label      | `string`  | `null`     | Displays label text displayed inside the chip       |
+| iconBefore | `string`  | `null`     | Displays an icon before the chip label text         |
+| iconAfter  | `string`  | `null`     | Displays an icon after the chip label text          |
+| bold       | `boolean` | `false`    | Sets the chip label text to display as bold         |
+| uppercase  | `boolean` | `false`    | Sets the chip label text to display as uppercase    |

@@ -1,0 +1,174 @@
+---
+title: 'Switch'
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+The switch is a binary toggle used to turn a function on/off. The switch label can be phrased as a yes/no question, in which case the switch "answers" with yes/no.
+
+Do not use the switch for selection between non-binary alternatives (e.g. this or that). The switch is only used to turn a function on/off.
+
+</definition>
+
+### Common Characteristics
+
+The switch consists of a label, a UI control, and status text indicating the state of the control. Both the control and the text indicator are interactive.
+
+The status text must be be “yes”/”no”, or “on”/”off”.
+
+### Function Label
+
+```example
+<SandboxDemo>
+    <Switch
+        label="Bidding"
+        labelAlignment="left"
+        statusText="OnOff"
+    />
+</SandboxDemo>
+```
+
+### Question Label
+
+```example
+<SandboxDemo>
+    <Switch
+        label="Do you want to bid?"
+        labelAlignment="left"
+        statusText="YesNo"
+    />
+</SandboxDemo>
+```
+
+### Switch Label Positions
+
+The switch supports left-, right-, or top-aligned labels.
+
+### Label left align
+
+```example
+<SandboxDemo>
+    <Switch label="Do you want to bid?" labelAlignment="left" />
+</SandboxDemo>
+```
+
+### Label right align
+
+```example
+<SandboxDemo>
+    <Switch label="Do you want to bid?" labelAlignment="right" />
+</SandboxDemo>
+```
+
+### Label top align
+
+```example
+<SandboxDemo>
+    <Switch label="Do you want to bid?" labelAlignment="top" />
+</SandboxDemo>
+```
+
+## Code
+
+### Default Switch
+
+```jsx live
+<Switch label="Do you want to bid?" />
+```
+
+### Switch Label Types
+
+### Function Label
+
+```jsx live
+<Switch
+    label="Bidding"
+    labelAlignment="left"
+    statusText="OnOff"
+/>
+```
+
+
+### Question Label
+
+```jsx live
+<Switch
+    label="Do you want to bid?"
+    labelAlignment="left"
+    statusText="YesNo"
+/>
+```
+
+### Switch Label Positions
+
+The switch supports left-, right-, or top-aligned labels.
+
+### Label left align
+
+```jsx live
+<Switch label="Do you want to bid?" labelAlignment="left" />
+```
+
+### Label right align
+
+```jsx live
+<Switch label="Do you want to bid?" labelAlignment="right" />
+```
+
+### Label top align
+
+```jsx live
+<Switch label="Do you want to bid?" labelAlignment="top" />
+```
+
+### Prop status false, switch off
+
+```jsx live
+<Switch label="Do you want to bid?" statusText="YesNo" status={false} />
+```
+
+### Prop status true, switch on
+
+```jsx live
+<Switch label="Do you want to bid?" statusText="YesNo" status={true} />
+```
+
+### Disabled and not checked
+
+```jsx live
+<Switch label="Do you want to bid?" disabled={true} />
+```
+
+### Disabled and checked
+```
+<Switch label="Bidding" statusText="OnOff" status={true} disabled={true} />
+```
+
+### Prop status false, switch off
+
+```jsx live
+<Switch label="Would you like to do the thing?" statusText="OnOff" status={false} />
+```
+
+### Prop status true, switch on
+
+```jsx live
+<Switch label="Would you like to do the thing?" statusText="OnOff" status={true} />
+```
+
+### Switch Props
+
+| property       | propType             | required | default | description
+|----------------|----------------------|----------|---------|------------
+| disabled       | bool                 | no       | false   | Determines whether or not the switch appears to be disabled and is unclickable.
+| label          | string               | yes      | -       | Controls the text that will appear in the text label associated with the switch
+| labelAlignment | 'top','left','right' | no       | left    | Determines whether the text label associated with switch appears to the left of the containing element, to the immediate right of the switch itself regardless of containing element, or on top of the switch.            
+| onChange       | func                 | no       | -       | Enables the consumer of this component to hook into the onChange event when toggled.
+| status         | bool                 | no       | false   | If status is false the switch will be in left most position, if true it will be in right most
+| statusText     | 'OnOff','YesNo'      | yes      | OnOff   | Determines the text that will appear to the right of the switch
+| size           | 'lg','md','sm'       | no       | 'md'    | Enables the label size to large 'lg' or small 'sm'
+| readonly       | bool                 | no       | false   | Enables the readonly State

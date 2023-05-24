@@ -1,0 +1,164 @@
+---
+title: 'Link'
+---
+
+## Usage
+
+<definition>
+  Anchors expose the content and functions a user can access via descriptive text.
+</definition>
+
+### Common Characteristics
+
+All links have a specific color that clearly contrasts with other text elements and the background color.
+
+### Usage Guidelines
+
+Anchors should use descriptive text to help guide the user to the desired content or function. Never use generic text like “click here”.
+
+### Normal Anchors
+
+```jsx live
+  <Space vertical>
+    <Space className='p-4'>
+      <Anchor>Default Link</Anchor>
+      <Anchor className="active">Active Link</Anchor>
+      <Anchor className="visited">Visited Link</Anchor>
+    </Space>
+    <Space className='p-4 bg-dark-sample'>
+      <Anchor color='light'>Default Link</Anchor>
+      <Anchor color='light' className="active">Active Link</Anchor>
+      <Anchor color='light' className="visited">Visited Link</Anchor>
+    </Space>
+  </Space>
+```
+
+### Medium Anchors
+
+```jsx live
+ <Space vertical>
+    <Space className='p-4'>
+    <Anchor>Default Link</Anchor>
+    <Anchor className="active">Active Link</Anchor>
+    <Anchor className="visited">Visited Link</Anchor>
+  </Space>
+  <Space className='p-4 bg-dark-sample'>
+    <Anchor color='light'>Default Link</Anchor>
+    <Anchor color='light' className="active">Active Link</Anchor>
+    <Anchor color='light' className="visited">Visited Link</Anchor>
+  </Space>
+</Space>
+```
+
+### Small Anchors
+
+```jsx live
+  <Space vertical>
+    <Space className='p-4'>
+      <Anchor size="sm">Default Link</Anchor>
+      <Anchor size="sm" className="active">Active Link</Anchor>
+      <Anchor size="sm" className="visited">Visited Link</Anchor>
+    </Space>
+    <Space className='p-4 bg-dark-sample'>
+      <Anchor size="sm" color='light'>Default Link</Anchor>
+      <Anchor size="sm" color='light' className="active">Active Link</Anchor>
+      <Anchor size="sm" color='light' className="visited">Visited Link</Anchor>
+    </Space>
+  </Space>
+```
+
+### Legal/Smallest Anchors
+
+```jsx live
+  <Space vertical>
+    <Space className='p-4'>
+      <Anchor size="xs">Default Link</Anchor>
+      <Anchor size="xs" className="active">Active Link</Anchor>
+      <Anchor size="xs" className="visited">Visited Link</Anchor>
+    </Space>
+    <Space className='p-4 bg-dark-sample'>
+      <Anchor size="xs" color='light'>Default Link</Anchor>
+      <Anchor size="xs" color='light' className="active">Active Link</Anchor>
+      <Anchor size="xs" color='light' className="visited">Visited Link</Anchor>
+    </Space>
+  </Space>
+```
+
+### With Icons
+
+```jsx live
+  <Space vertical>
+    <Space className='p-4'>
+      <Anchor icon="search">Default Link</Anchor>
+      <Anchor icon="search" className="active">Active Link</Anchor>
+      <Anchor icon="search" className="visited">Visited Link</Anchor>
+    </Space>
+    <Space className='p-4 bg-dark-sample'>
+      <Anchor icon="search" color='light'>Default Link</Anchor>
+      <Anchor icon="search" color='light' className="active">Active Link</Anchor>
+      <Anchor icon="search" color='light' className="visited">Visited Link</Anchor>
+    </Space>
+  </Space>
+```
+
+```jsx live
+  <Space vertical>
+    <Space className='p-4'>
+      <Anchor icon="search" size="sm">Default Link</Anchor>
+      <Anchor icon="search" size="sm" className="active">Active Link</Anchor>
+      <Anchor icon="search" size="sm" className="visited">Visited Link</Anchor>
+    </Space>
+    <Space className='p-4 bg-dark-sample'>
+      <Anchor float='right' icon="search" size="sm" color='light'>Default Link</Anchor>
+      <Anchor float='right' icon="search" size="sm" color='light' className="active">Active Link</Anchor>
+      <Anchor float='right' icon="search" size="sm" color='light' className="visited">Visited Link</Anchor>
+    </Space>
+  </Space>
+```
+
+_Anchors can have a single left or right icon. Never two icons._
+
+## Code
+
+### Default
+
+```jsx live
+<Anchor href="#">Default Link</Anchor>
+```
+
+### Size
+
+```jsx live
+<Space>
+  <Anchor icon="search" size="xs">Extra Small Link</Anchor>
+  <Anchor icon="search" size="sm">Small Link</Anchor>
+  <Anchor icon="search" size="md">Default Link</Anchor>
+  <Anchor icon="search" size="lg">Large Link</Anchor>
+</Space>
+```
+
+### Size, Color, and Icons
+
+```jsx live
+<Space vertical style={{ backgroundColor: "#003468" }} className='p-4'>
+  <Anchor float='right' icon="search" size="xs" color='light'>
+    Default Link
+  </Anchor>
+  <Anchor float='right' icon="search" size="sm" color='light' className='active'>
+    Active Link
+  </Anchor>
+  <Anchor float='right' icon="search" color='light' className='visited'>
+    Visited Link
+  </Anchor>
+</Space>
+```
+
+### Anchor Props
+
+| Name                  | Type       | Default     | Description
+| --------------------- | ---------- | ----------- | ----------------------
+| size                  |string      | "lg"        | sets the anchor link to either xs, xm, md or lg
+| color                 |string      | "dark"      | sets the anchor link color to either light or dark
+| icon                  |string      | null        | displays an icon next to the anchor link
+| float                 |string      | "left"      | the position of the icon to either left or right of the link text
+| href                  |string      | null        | the url the anchor links to or the javascript that fires when the link is clicked

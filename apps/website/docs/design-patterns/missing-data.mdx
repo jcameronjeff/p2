@@ -1,0 +1,117 @@
+---
+title: "Missing Data"
+sidebar_position: 6
+---
+
+## Usage
+
+### Guidance
+
+Represent missing data with a double hyphen “--” using the style for data in the application.
+
+### Rationale
+
+This lets the user know that data should appear here, but is not currently available. 
+Leaving the area blank can leave the user wondering if the system is working. 
+“n/a” may be confused with “not applicable”. 
+“null” is term that may not be widely understood.
+
+
+_:NEEDS REVISION: update using tailwind_
+
+```example
+<SandboxDemo>
+  <div className="container">
+    <span style={{color: 'green'}}><IconSvg glyph="checkmark-circle" height="42px" /></span>
+    <br />
+    <br />
+    <br />
+    <div className='noInterstateMistBg'>
+      <h4>Horizontal</h4>
+    </div>
+    <div className='noInterstateRow'>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Owner</label>
+        <p>FleeceMobile</p>
+      </div>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Owner</label>
+        <p>--</p>
+      </div>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Status</label>
+        <p>Pending Sales</p>
+      </div>
+    </div>
+    <p /><br />
+    <div className='noInterstateMistBg'>
+      <h4>Vertical</h4>
+    </div>
+    <div className='noInterstateVert'>
+      <div>
+        <label className='noInterstate'>Owner</label>
+        <p>FleeceMobile</p>
+      </div>
+      <div>
+        <label className='noInterstate'>Owner</label>
+        <p>--</p>
+      </div>
+      <div>
+        <label className='noInterstate'>Status</label>
+        <p>Pending Sales</p>
+      </div>
+    </div>
+  </div>
+</SandboxDemo>
+```
+## Avoid
+
+- Don't leave the data blank.
+- Don't apply a different text style or color.
+- Don't use “n/a” or “null”.
+
+```example
+<SandboxDemo>
+  <div className="container">
+    <span style={{color: 'red'}}><IconSvg glyph="cancel-circle" height="42px" /></span>
+    <br />
+    <br />
+    <br />
+    <div className='noInterstateMistBg'>
+      <h4>Horizontal</h4>
+    </div>
+    <div className='noInterstateRow'>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Owner</label>
+        <p className='noInterstateRed'></p>
+      </div>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Owner No.</label>
+        <p className='noInterstateRed'>--</p>
+      </div>
+      <div className='noInterstateCol'>
+        <label className='noInterstate'>Status</label>
+        <p>null</p>
+      </div>
+    </div>
+    <p /><br />
+    <div className='noInterstateMistBg'>
+      <h4>Vertical</h4>
+    </div>
+    <div className='noInterstateVert'>
+      <div>
+        <label className='noInterstate'>Owner</label>
+        <p className='noInterstateRed'></p>
+      </div>
+      <div>
+        <label className='noInterstate'>Owner No.</label>
+        <p className='noInterstateRed'>123456</p>
+      </div>
+      <div>
+        <label className='noInterstate'>Status</label>
+        <p>null</p>
+      </div>
+    </div>
+  </div>
+</SandboxDemo>
+```

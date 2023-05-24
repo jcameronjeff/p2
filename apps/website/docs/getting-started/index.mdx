@@ -1,0 +1,234 @@
+---
+title: 'Getting Started'
+sidebar_position: 1
+---
+
+## Welcome to the Interstate Design System
+
+Interstate enables every product team to more quickly deliver and optimize digital experiences with a coherent system of flexible, on-brand, modular UI components.
+
+Communication on Slack or Teams channels is generally the best way to reach others with knowledge of the existing workflow for contributors.
+
+_:NEEDS REVISION: Currently no teams channel. Removal of this link may be necessary_
+
+- Slack: [#interstate-ds-support](https://coxauto.slack.com/archives/C04B2TF5FFU) for support discussions
+- Teams: [Interstate Design System - General](https://teams.microsoft.com/l/channel/19%3a45fccf0ae00e415a858b996a53e08044%40thread.skype/General?groupId=39a2e4c4-f262-4f77-875a-571cec949d79&tenantId=7c7fea3f-e205-448e-b10a-701c54916e39)
+
+Choose your role below to get started with Interstate.
+
+```example
+<div className="flex flex-col" style={{ background: 'transparent' }}>
+  <Button variant="outline" href="#getting-started__designers" className="m-3">
+    Designer
+  </Button>
+  <Button variant="outline" href="#getting-started__developers" className="m-3">
+    Developer
+  </Button>
+  <Button variant="outline" href="#getting-started__manager" className="m-3">
+    Product Manager
+  </Button>
+</div>
+```
+
+## <a name="getting-started__designers"></a>Designers
+
+Good interaction and interface design begins with understanding our design environment, users, and standards.
+To that end, designers should thoroughly review the Foundations section of the Interstate Design System. 
+We recommend you start with the following topics:
+
+_:NEEDS REVISION: Links need to be updated_
+
+- [Our Users](docs/design-patterns/?our-users/)
+- [Interstate Design Principles](docs/design-patterns/?principles/)
+- [Content Guidelines](docs/design-patterns/?content-guidelines/)
+- [Base-8 Responsive Grid](docs/design-patterns/?grid)
+
+## <a name="getting-started__developers"></a>Developers
+
+> Using a Interstate component in your project is just like using any other library.
+
+Developers implement Interstate's reusable components to improve speed and consistency while delivering a best-in-class user experience. 
+
+_:NEEDS REVISION: No longer uses bootstrap and React Components are not using Tailwind._
+Interstate is created from the building blocks found in Bootstrap layered with React components. 
+This provides a familiar syntax to element class names and treatments, while allowing for an unlimited amount of capabilities.
+
+Use Interstate within your application whether it uses TailwindCSS or React:
+
+- [TailwindCSS](https://tailwindcss.com/)
+- [React](https://reactjs.org/)
+- [CDN](https://aws.amazon.com/cloudfront/)
+- [React in non-react](https://reactjs.org/docs/integrating-with-other-libraries.html)
+
+### Quickstart
+
+If your project uses React and is already configured with Artifactory you can get started right away.
+In other cases, continue below to learn more about how to use Interstate in your project.
+
+
+_:NEEDS REVISION: css is not delivered this way, library may not be the package name, may only have one option._
+```
+// Existing projects may already be configured to access
+// artifactory. If not, follow the instructions below.
+import React from 'react';
+
+// Typically, you can import from the full library.
+import { Button } from '@interstate/library'
+import '@interstate/styles/interstate.comps.min.css';
+
+// or '@interstate/styles/interstate/button.min.css'
+
+function MyComponent() {
+  return <Button variant="primary">Click Me</Button>
+}
+```
+
+### Using Interstate in Your Project
+
+In the following section, we will:
+1. [Setup your project to be able to access artifactory](#using-artifactory)
+2. [Install Interstate packages](#installing-interstate) (individually or the entire library)
+3. [Use Interstate Styles and Components in your project](#using-interstate)
+
+The Interstate javascript library is available as a single bundle or as individual components.
+
+Interstate provides packages as [CommonJS (CJS)](https://blog.risingstack.com/node-js-at-scale-module-system-commonjs-require/), [ES Module (ESM)](https://hacks.mozilla.org/2018/03/es-modules-a-cartoon-deep-dive/), [Immediately-invoked Function Expressions (IIFE)](http://adripofjavascript.com/blog/drips/an-introduction-to-iffes-immediately-invoked-function-expressions.html), and [SystemJS (SJS)](https://github.com/systemjs/systemjs). 
+The type of module used is often determined by the environment using the package, but each module type is available for direct use if needed.
+
+In modern javascript applications, like `create-react-app`, Interstate will support code-splitting/lazy loading. 
+However, this feature is still under development, so the best way to get only the code you want is to install individual components (i.e. `@interstate/button`).
+
+### <a name="getting-started__using-artifactory"></a> Using Artifactory
+
+#### Using the artifactory credentials script
+To use Interstate in a React project, you will first need to setup npm/yarn to use the artifactory registry for Interstate packages. 
+We have created a script to help you get your artifcatory credentials and setup your `.npmrc` file.
+
+To use the artifactory credentials script, you will need to either clone the Interstate repository on to your local machine or download the [artifcatory credentials script file](https://ghe.coxautoinc.com/Interstate/interstate/blob/master/scripts/get_artifactory_creds.sh)
+Once the script is on your machine, you can execute it in your terminal by running:
+
+
+_:NEEDS REVISION: are we providing this script?_
+
+```sh
+sudo ./scripts/get_artifactory_creds.sh
+```
+
+The script will walk you through the process of getting your artifactory token, which you will use to complete your `.npmrc` file.
+
+#### Updating Your .npmrc
+In order to install and use the Interstate node modules, you will need to configure your package manager to use the artifactory registry. 
+An easy way to do this is by using the `.npmrc`. This file is used to configure npm OR yarn to download *@interstate* packages from the artifactory registry. 
+If you are using yarn, the `.npmrc` will work just fine. 
+You won't need a `.yarnrc`.
+
+For this example, we will use an `.npmrc` in the project's root directory. 
+Copy the example [.npmrc](https://ghe.coxautoinc.com/Interstate/interstate/blob/master/.npmrc.example) into the root directory of your project and rename the file to `.npmrc`. 
+Export the `ARTIFACTORY_EMAIL` and `ARTIFACTORY_TOKEN` generated by the artifactory credentials script into your system environment, like so:
+
+```bash
+export ARTIFACTORY_EMAIL=************** && export ARTIFACTORY_TOKEN=**************
+```
+
+Now, your package manager is ready to install *@interstate* packages from artifactory.
+
+### Installing Interstate
+
+#### Installing the Interstate Styles Package
+
+_:NEEDS REVISION: styles are baked into the components. this section will need to be removed or rewritten._
+Interstate relies on css styles that are not packaged with the components or the library, so you will need to install them in your project prior to using the components.
+
+```js
+yarn add @interstate/styles
+```
+
+Once installed, you will need to import the styles into your project's entrypoint. 
+Typically, this is a file at the root of your project directory or project `src` directory, called `index.js`, `App.js`, or `Main.js`. 
+In the top of your entrypoint file, include the following line:
+
+```
+import '@interstate/styles/interstate.comps.min.css';
+import '@interstate/styles/icon-font.min.css'; // only if using @interstate/icons without SVG.
+```
+
+If your project utilizes scss and you would like to import interstate styles through your own scss pipeline, you may use `@interstate/scss`, which includes all Sass files from the framework and all available themes.
+
+#### Installing Interstate Component Packages
+Interstate is a modular library, so you can import individual components (recommended) OR the entire interstate library into your project.
+
+Individual components can be installed using:
+
+```js
+yarn add @interstate/button
+```
+
+_:NEEDS REVISION: Is openSeaDragon still used?_
+The entire library can be installed using*:
+
+```js
+yarn add @interstate/library openseadragon
+```
+
+_*When you install the library, you will need to also install the openseadragon module as a dependency of the multimedia viewer. 
+This will be updated in a future release to remove this requirement._
+
+### Using Interstate
+You will need to import the component in the file where you intend to use the component.
+
+_:NEEDS REVISION: look up proper way to install components_
+If you installed an individual component:
+
+```js
+import Button from @interstate/button
+```
+
+If you installed the entire library:
+
+```js
+import { Button } from @interstate/library
+```
+
+That's it! Now you're using Interstate in your project!
+
+### Contributing to Interstate
+
+If you would like to make Interstate better, contributions can be made via pull request on [Github](https://ghe.coxautoinc.com/Interstate/).
+
+- [Github](https://ghe.coxautoinc.com/Interstate/)
+- Site/Code Organization
+- Contributing Best Practices
+
+#### Developer Resources
+
+- [Gatsby](https://www.gatsbyjs.org/)
+- [Webpack](https://webpack.js.org/)
+- [Jest](https://jestjs.io/)
+- [AWS](https://aws.amazon.com/)
+
+## <a name="getting-started__manager"></a>Product Managers, Business Stakeholders, and Everyone Else
+
+### What is a design system?
+
+Our Interstate design system is a coherent set of reusable, coded components, branding elements, and interaction patterns that can be combined in different ways to create digital products. 
+Think of it as a set of digital LEGO® bricks that your team uses to build amazing, fully interactive client experiences.
+
+### How does a design system benefit our clients?
+
+Every component in the design system has been carefully thought out, built to exacting standards, and exhaustively tested. 
+_:NEEDS REVISION: is this true?_
+Out of the box, they include such built-in benefits as responsive design (they work well on both desktop and mobile) and hooks for analytics tagging. 
+When we build all of our products using a design system, they share a common look and feel and work together seamlessly, so even new products feel familiar and easy to use.
+
+Take a few minutes to peruse Interstate elements and components for inspiration on how you can evolve the user experience of your product. 
+_:NEEDS REVISION: we will need an email address_
+To learn more about how Interstate can benefit your users and development teams, contact [interstate@coxautoinc.com](mailto:interstate@coxautoinc.com?subject=Interstate%20Inquiry), or post a message on the [#interstate-community](https://coxauto.slack.com/archives/CKB6V4Q4A) Slack channel.
+
+### Benefits of Interstate
+
+- Efficiency - A build-it once model for most common components
+- Velocity - Prebuilt components lets designers and developers work more quickly
+- High-quality Code - Components are rigorously tested and embody our standards
+- Seamless Experience - Familiar interfaces across products builds client confidence
+- Cost Savings - We don't pay to design, build, test, or maintain duplicate components
+- Rigor - Our governance model guides enhancements and additions to the system

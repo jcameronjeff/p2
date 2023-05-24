@@ -1,0 +1,236 @@
+---
+title: 'Adaptive Select'
+---
+
+export const colors = [
+    {label: 'red'},
+    {label: 'orange'},
+    {label: 'yellow'},
+    {label: 'green'},
+    {label: 'blue'},
+    {label: 'indigo'},
+    {label: 'violet'}
+];
+
+export const colors_chips = [
+    {label: 'red', count: 8},
+    {label: 'orange', count: 45},
+    {label: 'yellow', count: 683},
+    {label: 'green', count: 2365},
+    {label: 'blue', count: 38456},
+    {label: 'indigo', count: 345},
+    {label: 'violet', count: 8234}
+];
+
+## Usage
+
+<definition>
+    The adaptive select provides a touch-friendly alternative to HTML selects, checkboxes, and radio buttons on small screens and slide out panels. It has two parts: a menu trigger and a select list (single or multi) embedded in a slide out panel.
+</definition>
+
+### Common Characteristics
+
+The menu trigger is always 48px tall with a white background. Width varies with breakpoint or container (e.g. a card or slide out).
+Each selector in the select list is 48px tall with a white background. The select list always appears in a slide out. The slide out width can be determined by the designer to suit the needs of the content.
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <AdaptiveSelect label="Color" options={colors} onChange={() => {}} />
+</div>
+```
+
+### Options
+
+#### Icons and Chips
+
+The menu trigger can have an optional icon to the left of the label.
+Selectors can appear with filter counts on light chips.
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <AdaptiveSelect label="Color" labelIcon="paint-drop" options={colors_chips} onChange={() => {}} />
+</div>
+```
+
+#### Multi-Select
+
+The adaptive select can be used for single select or multi-select. The multi-select option includes a “Select all” toggle and a “Done” function that submits selections.
+
+```example
+<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
+  <AdaptiveSelect label="Color" labelIcon="paint-drop" multiselect={true} options={colors_chips} onChange={() => {}}/>
+</div>
+ ```
+
+## Code
+
+### Default Adaptive Select
+
+```jsx live
+<>
+    <AdaptiveSelect label="Color" options={[
+        {label: 'red'},
+        {label: 'orange'},
+        {label: 'yellow'},
+        {label: 'green'},
+        {label: 'blue'},
+        {label: 'indigo'},
+        {label: 'violet'}
+    ]}
+    />
+
+    <AdaptiveSelect label="Color"
+        selections={['yellow']}
+        options={[
+            {label: 'red'},
+            {label: 'orange'},
+            {label: 'yellow'},
+            {label: 'green'},
+            {label: 'blue'},
+            {label: 'indigo'},
+            {label: 'violet'}
+        ]}
+    />
+
+    <AdaptiveSelect label="Shape"
+        placeholder="Choose a shape"
+        options={[
+            {label: 'square'},
+            {label: 'circle'},
+            {label: 'triangle'},
+            {label: 'star'},
+            {label: 'heart'},
+        ]}
+    />
+</>
+```
+
+### Adaptive Select with Label Icon
+
+```jsx live
+<>
+    <AdaptiveSelect label="Color" labelIcon="paint-drop" options={[
+        {label: 'red'},
+        {label: 'orange'},
+        {label: 'yellow'},
+        {label: 'green'},
+        {label: 'blue'},
+        {label: 'indigo'},
+        {label: 'violet'}
+    ]} />
+
+    <AdaptiveSelect label="Color" labelIcon="image" options={[
+        {label: 'red'},
+        {label: 'orange'},
+        {label: 'yellow'},
+        {label: 'green'},
+        {label: 'blue'},
+        {label: 'indigo'},
+        {label: 'violet'}
+    ]} />
+</>
+```
+
+### Adaptive Select with Option Chip Counts
+
+```jsx live
+<AdaptiveSelect label="Color" options={[
+    {label: 'red', count: 8},
+    {label: 'orange', count: 45},
+    {label: 'yellow', count: 683},
+    {label: 'green', count: 2365},
+    {label: 'blue', count: 38456},
+    {label: 'indigo', count: 345},
+    {label: 'violet', count: 8234}
+]} />
+```
+
+### Adaptive Select with Multi Select
+
+```jsx live
+<>
+    <AdaptiveSelect label="Color" multiselect={true} options={[
+        {label: 'red'},
+        {label: 'orange'},
+        {label: 'yellow'},
+        {label: 'green'},
+        {label: 'blue'},
+        {label: 'indigo'},
+        {label: 'violet'}
+    ]} />
+
+    <AdaptiveSelect label="Color" multiselect={true}
+        selections={['red', 'blue', 'violet']}
+        options={[
+            {label: 'red'},
+            {label: 'orange'},
+            {label: 'yellow'},
+            {label: 'green'},
+            {label: 'blue'},
+            {label: 'indigo'},
+            {label: 'violet'}
+        ]}
+    />
+</>
+```
+
+### Adaptive Select Required & Disabled
+
+```jsx live
+<>
+    <AdaptiveSelect label="Color"
+        required={true}
+        options={[
+            {label: 'red'},
+            {label: 'orange'},
+            {label: 'yellow'},
+            {label: 'green'},
+            {label: 'blue'},
+            {label: 'indigo'},
+            {label: 'violet'}
+        ]} onChange={() => {}}
+    />
+
+    <AdaptiveSelect label="Color"
+        disabled={true}
+        options={[
+            {label: 'red'},
+            {label: 'orange'},
+            {label: 'yellow'},
+            {label: 'green'},
+            {label: 'blue'},
+            {label: 'indigo'},
+            {label: 'violet'}
+        ]}
+        onChange={() => {}}
+    />
+</>
+```
+
+### Props
+
+#### Adaptive Select
+
+| Name               | Type              | Default                   | Description
+| ------------------ | ----------------- | ------------------------- | ----------------------
+| label              | `string`          | `""`                      | Main label for the Adaptive Select
+| labelIcon          | `string`          | `""`                      | Sets icon for main label. Accepts any Interstate icon slug.
+| selctions          | `array`           | `[]`                      | An array of value strings to set initial selections
+| options            | `array`           | `[]`                      | An array of objects that define Adaptive select options. See below for options object definition
+| multiselect        | `boolean`         | `false`                   | Toggles multiselect on or off.
+| required           | `boolean`         | `false`                   | Toggles required icon on or off. This is for display only, it is up to the implementor to define validation logic.
+| disabled           | `boolean`         | `false`                   | Toggles disabled state on or off.
+| onChange           | `function`        | `null`                    | Callback function to be excuted when selections are made. Recieves an array of selected values as a parameter.
+| viewName           | `string`          | `""`                      | If set, the back button on the slide out uses this as its label.
+| placeholder        | `string`          | `""`                      | Shows a placeholder if there is no selection
+
+#### Option Object Properties
+
+| Name               | Type                   | Description
+| ------------------ | ---------------------- | ----------------------
+| label              | `string`               | Label displayed in the slide out for this option.
+| value              | `string` (optional)    | If set, allows value for this option, which is passed back to the app with the `onChange` callback to be different from the option label.
+| count              | `number` (optional)    | Ads a chip with a comma formatted string for this option in the slide out.
+
+
+

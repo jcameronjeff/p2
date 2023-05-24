@@ -1,0 +1,61 @@
+---
+title: "Button Placement"
+sidebar_position: 2
+---
+
+_:NEEDS REVISION: Update class names_
+
+## Usage Patterns
+
+### Anchored Buttons
+
+When content is taller than a viewport, it is recommended that buttons be anchored to the bottom of a screen to prevent them from being hidden below the scroll. For examples, see <a href="https://interstate.coxautoinc.com/docs/components/button/#anchored-buttons"> Anchored Buttons </a> on the <a href="https://interstate.coxautoinc.com/docs/components/button/"> Button Groups </a> page. 
+
+### Primary Action and Cancel Buttons
+
+```jsx live
+<Container>
+  <div className="row flex-column flex-sm-row-reverse">
+    <Button color="primary" className="m-2">Primary Action</Button>
+    <Button variant="textonly" className="m-2">Cancel</Button>
+  </div>
+</Container>
+```
+
+### Next and Back Buttons
+
+```jsx live
+<Container>
+  <div className="row flex-row-reverse">
+    <Button color="primary" className="m-2 w-25">
+      Next
+      <i className="btn-icon__right  icon interstate-icon-chevron-right"></i>
+    </Button>
+    <Button variant="outline" className="m-2 w-25">
+      <i className="btn-icon__left  icon interstate-icon-chevron-left"></i>
+      Back
+    </Button>
+  </div>
+</Container>
+```
+
+### Next, Back and Auxiliary Buttons
+
+```jsx live
+<Container>
+  <div className="row justify-content-between flex-row-reverse">
+    <div className="row flex-row-reverse">
+      <Button color="primary" className="m-2">
+        Next
+        <i className="btn-icon__right  icon interstate-icon-chevron-right"></i>
+      </Button>
+      <Button variant="outline" className="m-2">
+        <i className="btn-icon__left  icon interstate-icon-chevron-left"></i>
+        Back
+      </Button>
+    </div>
+    <Button  variant="textonly" className="m-2">Cancel</Button>
+  </div>
+</Container>
+```
+

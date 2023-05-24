@@ -1,0 +1,115 @@
+---
+title: 'Radio Button'
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+Radio buttons allow a user to select one item from a short list of two to four options. For single selection of five or more options, use a dropdown or select list instead.
+
+For a single option, use a switch instead. For small screen applications avoid radio buttons and use a button group or custom select list instead.
+
+Avoid nesting radio buttons.
+
+</definition>
+
+### Common Characteristics
+
+All radio buttons allow the user to tap the radio button or its associated label. The label is vertically centered with the radio button even when the text wraps. Radio buttons should normally be active and unchecked by default.
+
+Radio buttons have these states: active unchecked, or hover/tap, or checked; and disabled unchecked, or checked.
+
+```example
+<SandboxDemo>
+  <Container className="bg-white px-3 py-1 w-50 mx-auto">
+    <FormGroup row>
+      <Col>
+        <RadioButton value="1" label="Select this" />
+        <RadioButton value="2" label="Select that" />
+        <RadioButton value="3" label="Select the other" />
+        <RadioButton
+          value="select"
+          label="Select a long wrapping checkbox label"
+        />
+      </Col>
+    </FormGroup>
+  </Container>
+</SandboxDemo>
+```
+
+### Scenarios
+
+### Horizontal
+
+When necessary to use a horizontal layout, ensure there is at least 32px space between each radio button/label element.
+
+![spacing](/img/components/radios/radiospacing.png)
+
+### Filter Counts
+
+When using radio buttons as filters with counts, right align the counts.
+
+```example
+<SandboxDemo>
+  <Container className="bg-white px-3 py-1 w-50 mx-auto">
+    <FormGroup row>
+      <Col>
+        <RadioButton disabled value="this2" label="Disabled" counts="12,345" />
+        <RadioButton value="that2" label="Select That" counts="54,321" />
+        <RadioButton value="select2" label="Select the other" counts="1,234" />
+      </Col>
+    </FormGroup>
+  </Container>
+</SandboxDemo>
+```
+
+## Design
+
+### States
+
+Radio buttons have these states: active unchecked, or checked, or hover/tap; and disabled unchecked, or checked.
+
+![radio](/img/components/radios/radiooptions.png)
+
+## Code
+
+### Active
+
+```jsx live
+<Container className="bg-white">
+  <FormGroup row>
+    <Col>
+      <RadioButton value="1" label="Select this" />
+      <RadioButton value="2" label="Select that" />
+      <RadioButton value="3" label="Select the other" />
+      <RadioButton value="select" label="Select a long wrapping checkbox label" />
+    </Col>
+  </FormGroup>
+</Container>
+```
+
+### Disabled
+
+```jsx live
+<Container className="bg-white">
+  <FormGroup row>
+    <Col>
+      <RadioButton disabled value="this2" label="Select This" counts="12,345" />
+      <RadioButton disabled value="that2" label="Select That" counts="54,321" />
+      <RadioButton disabled value="select2" label="Select the other" counts="1,234" />
+    </Col>
+  </FormGroup>
+</Container>
+```
+
+### Radio Button Props
+
+| Name        | Type       | Default                   | Description           
+| ----------- | -----------| ------------------------- | ----------------------
+| value       | `string`   | `null`                    | Sets the value of the selected radio button
+| label       | `string`   | `null`                    | Sets the label text to the right of the radio button
+| counts      | `string`   | `null`                    | Optional counts shown to the far right of the label text
+

@@ -1,0 +1,47 @@
+---
+title: 'Pagination'
+---
+
+## Usage
+
+The Pagination Component is a set of controls that gives a user the ability to navigate a large set of items when they can't be displayed on a single page.
+
+### Common Characteristics
+
+The pagination component only appears at the bottom of a long list of items. (e.g. a search results page, or runlist). It is horizontally centered with the list column, not the whole page.
+
+The pagination control appears the same at every breakpoint and allows the user to navigate to the first page, a previous page, and a next page. The user also has access to a limited set of numbered pages.
+
+```jsx live
+<Pagination currentPage={5} totalPages={20} />
+```
+
+### Usage Guidelines
+
+Hide the pagination control when there is only one page of list items (governed by the results per page setting).
+
+Display the pagination component only at the bottom of a list of items. It should be centered with the listings, not the page width.
+
+## Code
+
+```jsx live
+<Pagination
+  currentPage={6}
+  totalPages={20}
+  onChange={(pageData)=> { console.log(pageData)  }}
+/>
+```
+
+_The props `currentPage` and `totalPages` are required by the component._
+
+Providing a callback to the `onChange` property will allow the application
+author to see the previously selected index and the newly selected index,
+identified as `prevIndex` and `index` respectively.
+
+### Props
+
+| Name        | Type       | Default                   | Description
+| ----------- | -----------| ------------------------- | ----------------------
+| currentPage | `number`   | `1`                       | Sets the current page number
+| totalPages  | `number`   | `1`                       | Sets the total number of pagination pages
+| onChange    | `function` | `null`                    | Sets the function called when the navigating to page numbers

@@ -1,0 +1,299 @@
+---
+title: 'Tooltips'
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+Tooltips display text that describes an element or provides additional information. Tooltips can appear on hover, focus, or tap, and disappear after a short duration.
+
+</definition>
+
+### Common Characteristics
+
+All tooltips are light text on a dark background and are normally positioned below the element they are paired with. They fade in and persist on hover or tap, and fade out off hover or another tap. Tooltips are stationary and do not follow the cursor.
+
+### Tooltip Basics
+
+Tooltips come in two sizes&#58; small and large. Small tooltips are always a single line of small, center-aligned text. Large tooltips have larger, left-aligned text that can wrap, and a pointer.
+
+### Interactivity
+
+When a tooltip is paired with a functional element (e.g. a print icon, a linked avatar, etc), the tooltip is displayed on hover, but is ignored on tap. The tap executes the function instead of displaying the tooltip.
+
+With non-functional elements (e.g. an info icon, etc), the tooltip is displayed on tap or on hover.
+
+### Small Tooltip
+
+The small tooltip width varies with the center-aligned, 12px text plus 8px left/right padding up to a maximum of 200px. If a small tooltip won’t accomodate your text on a single line, use a large tooltip instead.
+
+### Functional Element
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <Button variant="outline" onClick={() => alert('Button Clicked!')} id="interstate-docs__tooltip-demo--small-functional">SHOW SMALL TOOLTIP</Button>
+    <Tooltip targetIsFunctional size="sm" target="interstate-docs__tooltip-demo--small-functional">Small tooltip 200px max.</Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+_Functional elements will not show tooltips on touch devices._
+
+### Non-Functional Element
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <i id="interstate-docs__tooltip-demo--small-nonfunctional" className="icon interstate-icon-info" />
+    <Tooltip size="sm" target="interstate-docs__tooltip-demo--small-nonfunctional">Small tooltip 200px max.</Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+<a name="large-tooltips"></a>
+
+### Large Tooltip
+
+The large tooltip has a fixed 200px width, 16px left/right padding, and wrapping, left-aligned 14px text.
+
+### Functional Element
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <Button variant="outline" onClick={() => alert('Button Clicked!')} id="interstate-docs__tooltip-demo--large-functional">SHOW LARGE TOOLTIP</Button>
+    <Tooltip targetIsFunctional size="lg" target="interstate-docs__tooltip-demo--large-functional">
+      Large tooltip multiline content. This tooltip could describe what the button does when clicked.
+    </Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+_Functional elements will not show tooltips on touch devices._
+
+### Non-Functional Element
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <i id="interstate-docs__tooltip-demo--large-nonfunctional" className="icon interstate-icon-info" />
+    <Tooltip size="lg" target="interstate-docs__tooltip-demo--large-nonfunctional">
+      Large tooltip multiline content for showing informational text.
+    </Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+### Typical Examples
+
+Tooltips are commonly used with icon functions like print or close, or to provide contextual information.
+
+```example
+<SandboxDemo containerClassName="row d-inline-flex align-items-center">
+  <div className="col-4">
+    <Button variant="textonly" onClick={() => alert('Button Clicked!')} id="interstate-docs__tooltip-demo--typical-small-1"><i className="icon interstate-icon-cross" /></Button>
+    <Tooltip targetIsFunctional size="sm" target="interstate-docs__tooltip-demo--typical-small-1">Close</Tooltip>
+  </div>
+
+  <div className="col-4">
+    <Button variant="textonly" onClick={() => alert('Button Clicked!')} id="interstate-docs__tooltip-demo--typical-small-2"><i className="icon interstate-icon-printer" /></Button>
+    <Tooltip targetIsFunctional size="sm" target="interstate-docs__tooltip-demo--typical-small-2">Print</Tooltip>
+  </div>
+
+  <div className="col-4">
+    <Button variant="textonly" onClick={() => alert('Button Clicked!')} id="interstate-docs__tooltip-demo--typical-small-3"><i className="icon interstate-icon-heart-o" /></Button>
+    <Tooltip targetIsFunctional size="sm" target="interstate-docs__tooltip-demo--typical-small-3">Save to favorites</Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+_Icon functions with small tooltips. <br />Functional elements will not show tooltips on touch devices._
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <i id="interstate-docs__tooltip-demo--typical-large-1" className="icon interstate-icon-info" />
+    <Tooltip size="lg" target="interstate-docs__tooltip-demo--typical-large-1">
+      We recommend vehicles that may interest you based on your past bids and purchases.
+    </Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+_Info icon with large tooltip_
+
+```example
+<SandboxDemo className="row d-inline-flex align-items-center">
+  <div className="col">
+    <i id="interstate-docs__tooltip-demo--typical-small-4" className="icon interstate-icon-user" />
+    <Tooltip size="sm" target="interstate-docs__tooltip-demo--typical-small-4">logged in as&#58; [account name]</Tooltip>
+  </div>
+</SandboxDemo>
+```
+
+_Avatar with small tooltip_
+
+## Design
+
+![](/img/components/tooltips/tooltip-design.png)
+
+## Code
+
+### Small Tooltip for Non-Functional Elements
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--small-nonfunctional" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--small-nonfunctional"
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+### Large Tooltip for Non-Functional Elements
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--large-nonfunctional" className="icon interstate-icon-info" />
+  <Tooltip
+    size="lg"
+    target="interstate-docs__tooltip-code-demo--large-nonfunctional"
+  >
+    Large tooltip multiline content. This tooltip could show informational text.
+  </Tooltip>
+</div>
+```
+
+### Small Tooltip for Functional Elements
+
+_Functional elements will not show tooltips on touch devices._
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--small-functional" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--small-functional"
+    targetIsFunctional
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+### Large Tooltip for Functional Elements
+
+_Functional elements will not show tooltips on touch devices._
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--large-functional" className="icon interstate-icon-info" />
+  <Tooltip
+    size="lg"
+    target="interstate-docs__tooltip-code-demo--large-functional"
+    targetIsFunctional
+  >
+    Large tooltip multiline content. This tooltip could show informational text.
+  </Tooltip>
+</div>
+```
+
+## Tooltip supports placement
+
+To adjust the alignment of the arrow, Tooltip adds variation to the placement prop by adding `-start` and `-end`. 
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--right-placement" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--right-placement"
+    placement="top"
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+## Tooltip with arrow styling
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--right-start-placement" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--right-start-placement"
+    placement="right-start"
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+## Delay before showing or hiding the tooltip
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--delay-option" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--delay-option"
+    delay="1000"
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+## Disabled Tooltip
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--disabled" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--disabled"
+    disabled
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+## Tooltip without arrow
+
+```jsx live
+<div>
+  <i id="interstate-docs__tooltip-code-demo--hide-arrow" className="icon interstate-icon-info" />
+  <Tooltip
+    size="sm"
+    target="interstate-docs__tooltip-code-demo--hide-arrow"
+    hideArrow
+  >
+    Small Tooltip content
+  </Tooltip>
+</div>
+```
+
+### Tooltip Props
+
+| Name               | Type                       | Default                   | Description
+| ------------------ | -------------------------- | ------------------------- | ----------------------
+| className          | `string`                   | `""`                      | Adds additional classes to the tooltip
+| delay              | `number` or `object`       | 0                         | Adds a delay to showing and hiding the tooltip on hover
+| disabled           | `boolean`                  | `false`                   | Disables the tooltip from opening
+| hideArrow          | `boolean`                  | `false`                   | Hides the arrow on the tooltip
+| isOpen             | `boolean`                  | `false`                   | Sets whether the tooltip is shown or not
+| modifiers          | `array(object)`            | `[]`                      | Prop for any additional custom modifiers as specified by the [react-popper library](https://popper.js.org/docs/v2/modifiers/)
+| placement          | `string`                   | `"bottom"`                  | Sets the placement of the tooltip relative to its target. Supporting placements include `auto`,`top`,`bottom`,`right`,`left`. Append `-start` or `-end` to align the tooltip arrow.
+| size               | `string`                   | `"lg"`                    | Sets size of the tooltip to either sm or lg
+| target             | `string`, `ref`, or `node` | required (no default)     | Associates the id of the element which triggers the tooltip
+| targetIsFunctional | `boolean`                  | `false`                   | Sets whether the element that triggers the tooltip also has an action associated to it
+| toggle             | `function`                 | `() => {}`                | Callback function when the tooltip is toggled

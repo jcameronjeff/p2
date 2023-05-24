@@ -1,0 +1,112 @@
+---
+title: 'Styles'
+sidebar_position: 1
+---
+
+_:NEEDS REVISION: All packages will need the thought through and synced._
+_:NEEDS REVISION: Remove all references to bootstrap._
+
+## Packages
+
+### `@interstate/styles`
+
+CSS files are built from the contents of the `@interstate/scss` package and made
+avialable within the `@interstate/styles` package. The assets are created using the
+following schema:
+
+Root assets match:<br />
+`<theme>[-grid|-reboot][.comps][.sandbox][.min].css`
+
+Theme assets match:<br />
+`<theme>/<component>[.sandbox][.min].css`
+
+- **`<theme>`**: the theme represented in the file
+- **`<component>`**: component styles are specific to
+- **[-grid|-reboot]**: _(optional)_ Bootstrap provides three root files: `bootstrap.scss`,
+    `bootstrap-grid`, and `bootstrap-reboot`. These files are represented here
+    using logic from Bootstrap.
+- **[.comps]**: _(optional)_ includes _all_ component styles
+- **[.sandbox]**: _(optional)_ prefixes _all_ selectors with `.interstate-sandbox`; this prevents
+    Interstate defined styles from "leaking" outside of the container. Developers
+    must wrap all Interstate components with this class name in order to have the
+    Interstate styles appear.
+- **[.min]**: _(optional)_ minified file using CSSNano
+
+Themes available now:
+
+- `interstate`: this is the "Manheim" theme; the name is scheduled to change to
+  `"manheim"` in the future
+- `mui`: _(deprecated)_ a theme to carry over MUI styles to make ease transitions
+
+
+### `@interstate/scss`
+
+This package consists of raw scss files used within the Interstate library to build
+the `@interstate/styles` package. The `@interstate/scss` package can be useful to build
+app specific components that will match the Interstate design system as it changes
+over time.
+
+As of version `1.10.0`, work is being done to extend Bootstrap in a more cohesive manner
+enabling more updates and code to be leveraged from the Bootstrap ecosystem.
+This work will impact the `@interstate/scss` package over time.
+
+## Usage
+
+### Bootstrap
+
+Branding and style guidelines are provided by the user experience group once
+approved. The approval process has many layers and currently results in a
+specification established in Figma for usage, design, and content. In
+development, styling is heavily based off Bootstrap and Interstate extends it under
+the hood.
+
+This means, the class names provided by Bootstrap are likely available to be
+used in your applications including the utility classes such as
+[spacing](https://getbootstrap.com/docs/4.6/utilities/spacing/) and
+[text](https://getbootstrap.com/docs/4.6/utilities/text/). Some Bootstrap class
+names have also been made into modules such as `@interstate/container`, `@interstate/row`,
+and `@interstate/col` for the [Grid system](https://getbootstrap.com/docs/4.6/layout/grid/).
+
+If you find a class name does not appear to be supported for some reason in the
+Interstate library, please [file an issue](https://ghe.coxautoinc.com/Interstate/interstate/issues/new/choose)
+(for faster corrections also provide a [pull request](https://ghe.coxautoinc.com/Interstate/interstate/compare)).
+
+### Z Index
+
+_:NEEDS REVISION: Does this need to be on a different page?_
+
+When working with the ordering of different layers, keeping track of each
+individual position can be taxing. Below is a list of starting indexes based on
+the role of the component. Ranges are incremented in thousands to allow plenty
+of room for the number of things applications can hold.
+
+Note, this list is different from the
+[z-index](https://getbootstrap.com/docs/4.6/layout/overview/#z-index) variables Bootstrap
+provides. These variables are fine to use within the application as they will
+fall well below the ranges defined. The ranges defined here are standardized and
+used across several applications and shared services and influence the
+components built within the Interstate library. Stacking conflicts can likely be
+avoided by adhering to these ranges as well.
+
+| Classification | Starting
+|----------------|-----------
+| interstitial | 11001
+| mask--interstitial | 11000
+| dialog | 10001
+| mask--dialog | 10000
+| overlay | 9001
+| mask--overlay | 9000
+| header | 8000
+| reserved | 7000
+| inline-loading | 6000
+| ads | 5000
+
+
+### Themes
+
+As of version `1.10.0`, Interstate has one theme known as the "Manheim" theme. This
+is the current face of Interstate. Other themes are in development to support other
+brands and usage requirements. Themes are built and published through the
+`@interstate/styles` package. This package, contains built `.css` files useful to style
+components within an application. Component sytles are both bundled and separated
+within the theme directories published.

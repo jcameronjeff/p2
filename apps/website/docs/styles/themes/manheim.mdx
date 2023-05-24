@@ -1,0 +1,202 @@
+---
+title: "Manheim"
+---
+
+_:NEEDS REVISION: Content may not be accurate._
+
+## Primaries
+
+```example
+<BrowserOnly>
+<div style={{
+  display: "flex",
+  flexWrap: "wrap",
+  width: '100%',
+  gap: '10px'
+}}>
+  {[
+  {
+    name: "Prism Navy",
+    hex: "#003468",
+  },
+  {
+    name: "Prism Navy Dark",
+    hex: "#001b35",
+  },
+  {
+    name: "Prism Primary Blue",
+    hex: "#005ba8",
+  },
+  {
+    name: "Prism Primary Dark",
+    hex: "#004986",
+  },
+  {
+    name: "Prism Cerulean",
+    hex: "#2c90cc",
+  },
+  {
+    name: "Prism Cerulean Dark",
+    hex: "#2372a2",
+  },
+  {
+    name: "Prism Gold",
+    hex: "#ffc20e",
+  },
+  {
+    name: "Prism Gold Dark",
+    hex: "#ebb000",
+  },
+].map(c => (
+    <ColorCard {...c} key={Math.random()} />
+  ))}
+</div>
+  </BrowserOnly>
+```
+
+## Secondaries
+
+```example
+  <BrowserOnly>
+<div style={{
+  display: "flex",
+  flexWrap: "wrap",
+  width: '100%',
+  gap: '10px'
+}}>
+  <ColorCard
+    name="Prism Cerulean Light"
+    variable="$prism-cerulean-light"
+    hex="#c1dff2"
+  />
+  <ColorCard
+    name="Prism Gold Light"
+    variable="$prism-gold-light"
+    hex="#fff0c3"
+  />
+  <ColorCard
+    name="Prism Meadow Light"
+    variable="$prism-meadow-light"
+    hex="#e3fad1"
+  />
+  <ColorCard
+    name="Prism Scarlet Light"
+    variable="$prism-scarlet-light"
+    hex="#fcccc0"
+  />
+</div>
+  </BrowserOnly>
+```
+
+## Neutrals
+
+```example
+<BrowserOnly>
+<div style={{
+   display: "flex",
+  flexWrap: "wrap",
+  width: '100%',
+  gap: '10px'
+}}>
+  <ColorCard
+    name="Prism White"
+    variable="$prism-white"
+    hex="#ffffff"
+  />
+  <ColorCard
+    name="Prism Mist"
+    variable="$prism-mist"
+    hex="#f6f6f6" />
+  <ColorCard
+    name="Prism Ash"
+    variable="$prism-ash"
+    hex="#eeeeee" />
+    <ColorCard
+    name="Prism Cloudy"
+    variable="$prism-cloudy"
+    hex="#dfe0e0" />
+  <ColorCard
+    name="Prism Smoke"
+    variable="$prism-smoke"
+    hex="#babcbe"
+  />
+  <ColorCard
+    name="Prism Pewter"
+    variable="$prism-pewter"
+    hex="#98999b" />
+  <ColorCard
+    name="Prism Slate"
+    variable="$prism-slate"
+    hex="#6a6a6a"
+  />
+  <ColorCard
+    name="Prism Graphite"
+    variable="$prism-graphite"
+    hex="#5b5b5b" />
+  <ColorCard
+    name="Prism Charcoal"
+    variable="$prism-charcoal"
+    hex="#4a4a4a"
+  />
+  <ColorCard
+    name="Prism Carbon"
+    variable="$prism-carbon"
+    hex="#333333" />
+  <ColorCard
+    name="Prism Black"
+    variable="$prism-black"
+    hex="#000000"
+  />
+</div>
+</BrowserOnly>
+```
+
+## Accents
+
+```example
+<BrowserOnly>
+<div style={{
+   display: "flex",
+  flexWrap: "wrap",
+  width: '100%',
+  gap: '10px',
+}}>
+  <ColorCard
+    name="Prism Ocean"
+    variable="$prism-ocean"
+    hex="#00aaa8"
+  />
+  <ColorCard
+    name="Prism Jungle"
+    variable="$prism-jungle"
+    hex="#0d8240"
+  />
+  <ColorCard
+    name="Prism Meadow"
+    variable="$prism-meadow"
+    hex="#82c250"
+  />
+  <ColorCard name="Prism Plum" variable="$prism-plum" hex="#8c1d58" />
+  <ColorCard
+    name="Prism Scarlet"
+    variable="$prism-scarlet"
+    hex="#c33a00"
+  />
+  <ColorCard
+    name="Prism Scarlet Dark"
+    variable="$prism-scarlet-dark"
+    hex="#902b00"
+  />
+  <ColorCard
+    name="Prism Saffron "
+    variable="$prism-saffron"
+    hex="#EB9114"
+  />
+  <ColorCard
+    name="Prism Saffron Dark"
+    variable="$prism-saffron-dark"
+    hex="#C0650C"
+  />
+</div>
+</BrowserOnly>
+```

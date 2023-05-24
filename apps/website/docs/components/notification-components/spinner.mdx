@@ -1,0 +1,195 @@
+---
+title: 'Spinners'
+---
+
+## Usage
+
+<definition>
+
+### Definition
+
+<p>
+  Spinners are a visual element used by `Interstitials` to indicate a pending
+  state. Typically this is used when first rendering a component which relies on
+  fetching data from an outside source.
+</p>
+
+</definition>
+
+### Common Characteristcs
+
+A spinner is a visual element used to indicate a pending state. Typically this is
+used when first rendering a component which relies on fetching data from an
+external source.
+
+### Usage Guidelines
+
+- Spinner should be used when an interface is not immediately available.
+- Spinners provide a visual indication that something is happening.
+- Typically, a Spinner will be displayed until data becomes available or when an error is encountered.
+- The [Interstitial component](docs/components/layout-and-structure-components/interstitial) provides a best-practice implementation of this pattern and is recommended when using the Interstate library in you app.
+
+```example
+<SandboxDemo>
+  <Message isOpen={true} color="info" title="Before using Spinner">
+    <p>
+      We recommend using{" "}
+      <a href="docs/components/interstitial">Interstitial</a> for
+      a consistent implementation when orchestrating loading/suspense states. The{" "}
+      Spinner component is offered only as an escape hatch where an interstitial
+      won't suffice.
+    </p>
+  </Message>
+</SandboxDemo>
+```
+
+```example
+<StopLightList
+  green={[
+    "Use to display a loading state.",
+    "Represent that data has been requested and is pending.",
+    "Render components immediately with a spinner instead of waiting for data",
+    'Transition to a "success" or "error" state afterward.',
+  ]}
+  red={[
+    "Avoid using Spinner when transitioning between pages or views.",
+    "Avoid using to present invalid or incomplete states.",
+    "Avoid using to represent a lack of data.",
+  ]}
+/>
+```
+
+## Code
+
+### Default Spinner
+
+```jsx live
+<div className="p-3 bg-white text-center">
+  <Spinner />
+</div>
+```
+
+### Spinner Color
+
+Set the color of a spinner - accepts [Bootstrap utility classes](docs/styles/?utilities) or [CSS Hex colors](https://www.w3schools.com/cssref/css_colors_legal.asp) as a string. This does not support named CSS colors or rgb(a) values.
+
+```jsx live
+<div className="bg-white text-center">
+  <div className="row p-3">
+    <div className="col-3">
+      <h5>primary</h5>
+      <Spinner color="primary" />
+    </div>
+    <div className="col-3">
+      <h5>secondary</h5>
+      <Spinner color="secondary" />
+    </div>
+    <div className="col-3">
+      <h5>success</h5>
+      <Spinner color="success" />
+    </div>
+    <div className="col-3">
+      <h5>danger</h5>
+      <Spinner color="danger" />
+    </div>
+  </div>
+  <div className="row p-3">
+    <div className="col-3">
+      <h5>info</h5>
+      <Spinner color="info" />
+    </div>
+    <div className="col-3">
+      <h5>warning</h5>
+      <Spinner color="warning" />
+    </div>
+    <div className="col-3">
+      <h5>#ff0000</h5>
+      <Spinner color="#ff0000" />
+    </div>
+    <div className="col-3">
+      <h5>#00ff00</h5>
+      <Spinner color="#00ff00" />
+    </div>
+  </div>
+</div>
+```
+
+### Color Options
+
+We recommend using [Bootstrap utility classes](docs/styles/?utilities) for consistent colors before resorting to CSS Hex colors. The default theme for Interstate includes the following color mappings:
+
+| Bootstrap Color Name | Hex       |
+| -------------------- | --------- |
+| primary              | `#ffc20e` |
+| secondary            | `#005ba8` |
+| success              | `#0d8240` |
+| danger               | `#c33a00` |
+| info                 | `#2c90cc` |
+| warning              | `#eb9114` |
+
+### Spinner Sizes
+
+You can adjust the dimensions of a spinner using the `size` prop. It accepts any valid [CSS Dimension](https://www.w3schools.com/css/css_dimension.asp) but we recommend using Bootstrap utility names where possible (`sm`, `lg`, `xl` etc.).
+
+```jsx live
+<>
+  <div className="row p-3 bg-white text-center">
+    <div className="col-3">
+      <h5>xs - 15px</h5>
+      <Spinner size="xs" />
+    </div>
+    <div className="col-3">
+      <h5>sm - 19px</h5>
+      <Spinner size="sm" />
+    </div>
+    <div className="col-3">
+      <h5>md - 25px</h5>
+      <Spinner size="md" />
+    </div>
+    <div className="col-3">
+      <h5>lg - 33px</h5>
+      <Spinner size="lg" />
+    </div>
+  </div>
+  <div className="row p-3 bg-white text-center">
+    <div className="col-3">
+      <h5>xl - 47px</h5>
+      <Spinner size="xl" />
+    </div>
+    <div className="col-3">
+      <h5>xxl - 47px</h5>
+      <Spinner size="xxl" />
+    </div>
+    <div className="col-3">
+      <h5>Custom Size (string)</h5>
+      <Spinner size="73px" />
+    </div>
+    <div className="col-3">
+      <h5>Custom Size (number)</h5>
+      <Spinner size={97} />
+    </div>
+  </div>
+</>
+```
+
+### Size Options
+
+**Note:** In order to consistently center the spinner, numerical size arguments must be an odd number. Even values will be rendered 1px smaller than indicated in order to calculate the center correctly.
+
+| Size   | Rendered Height |
+| ------ | --------------- |
+| xs     | 15px            |
+| sm     | 19px            |
+| md     | 25px            |
+| lg     | 33px            |
+| xl     | 47px            |
+| xxl    | 47px            |
+| "74px" | 73px            |
+| 20     | 19px            |
+
+### Spinner Props
+
+| Name  | Type                       | Default   | Description           |
+| ----- | -------------------------- | --------- | --------------------- |
+| size  | `string,number` (odd only) | `md`      | Size of spinner\*     |
+| color | `string`                   | `#000000` | Fill color of spinner |

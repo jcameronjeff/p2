@@ -10,11 +10,10 @@ import styles from './index.module.css';
 function HomepageHeader() {
   const { siteConfig } = useDocusaurusContext();
   return (
-    <header className={clsx('hero hero--primary', styles.heroBanner)}>
-      <div className="container">
-        <h1 className="hero__title">{siteConfig.title}</h1>
-        <p className="hero__subtitle">{siteConfig.tagline}</p>
-
+    <header className="border-gray-400 my-36">
+      <div className="border-y-2 border-blue-900 bg-white flex flex-col items-center justify-center pb-12 shadow-xl">
+        <img src="/img/interstate-social-card.svg" alt="Interstate Design System" className="h-96 m-10" />
+        <p className="text-4xl font-bold text-amber-500">{siteConfig.tagline}</p>
       </div>
     </header>
   );

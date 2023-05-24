@@ -1,0 +1,96 @@
+---
+title: 'Accessibility'
+sidebar_position: 1
+---
+
+## Overview
+
+Designing and developing products for accessibility is good for our business and our clients.
+It drives product adoption and innovation, reduces legal risk, and enhances our brand by demonstrating our commitment to inclusivity.
+
+Interstate has been designed with accessibility in mind, but designers and developers alike should take additional steps to ensure that users of all levels are able to utilize and interact with Cox’s products in a meaningful and productive way.
+Our digital products should be _perceivable_, _operable_, _understandable_, and _robust_ (**POUR**) for every user on every device.
+
+By following the POUR model we can ensure that at minimum, we can achieve AA compliance levels within each WCAG 2.0 guideline.
+
+## Perceivable
+
+### Images
+
+Primary images that convey content or important information should have `alt` attribute content that conveys the same content or information as the image in written form.
+Be descriptive but concise.
+
+### Audio and Video
+
+Videos should be accompanied by captioning or transcripts of the video content.
+_Never_ auto-play audio or video content.
+
+### Color
+
+Many users have some form of color blindness, so color should never be the _only_ means of communicating meaning.
+
+### Contrast
+
+At least a 5:1 contrast ratio is necessary to allow partially visually impaired users to read text.
+It is recommended to use available tools to test this.
+Use tools like this Contrast Grid to verify that text is legible.
+_:NEEDS REVISION: What contrast grid?_
+
+## Operable
+
+### Keyboard Navigation
+
+Passing keyboard navigation tests is an important threshold making our digital experiences accessible.
+Make sure the keyboard can be used to navigate to every interactive element on the page.
+Users should be able to navigate tabs, form fields, and submit buttons using only the keyboard.
+
+### Flashing Content
+
+Flashing content can present a seizure risk and should be **completely avoided**.
+
+## Understandable
+
+### Jargon
+
+Avoid using jargon, unusual words, acronyms, or abbreviations without providing a mechanism to identify and define them, such as a key, or tooltip.
+Unknown terms can be difficult to discern and retain for those with learning disabilities or other cognitive impairments, such as short-term memory loss.
+
+### Reading Level
+
+Content should be geared for a fourth-grade reading level as measured by the Flesch-Kincaid Readability Scale.
+Short words and short sentences improve understanding for all our users.
+You can check the readability of your content at `<ExtLink href="https://www.perrymarshall.com/grade/" text="www.perrymarshall.com/grade/" />`.
+
+### Forms
+
+Use the standard top aligned label for form fields whenever possible.
+When necessary, instructions or examples should be placed below the field.
+
+## Robust
+
+### Links
+
+Linked text should be understandable when read out of context.
+Make linked text descriptive of the destination and content to allow for ease of use with screen readers and assistive technology.
+
+### Headings
+
+Page titles and section headings should be understandable when read out of context.
+Make every heading descriptive of the content associated with it.
+
+### Navigation and Calls-to-Action
+
+Buttons should be used to complete actions, not for navigation.
+Links should be used for navigation, not for completing actions.
+This can cause errors in assistive web browsers.
+
+## Resources
+
+-	Readability Checker: `<ExtLink href="https://www.perrymarshall.com/grade/" text="www.perrymarshall.com/grade/" />`
+-	Accessibility Checklist: `<ExtLink href="https://webaim.org/standards/wcag/checklist" text="webaim.org/standards/wcag/checklist" />`
+-	Contrast Checker: `<ExtLink href="https://webaim.org/resources/contrastchecker/" text="webaim.org/resources/contrastchecker/" />`
+-	Colorblind Simulator:`<ExtLink href="https://www.color-blindness.com/2006/05/05/color-oracle/" text="www.color-blindness.com/2006/05/05/color-oracle/" />`
+-	Screen Reader Simulator: `<ExtLink href="https://webaim.org/simulations/screenreader" text="webaim.org/simulations/screenreader" />`
+-	Keyboard Accessibility: `<ExtLink href="https://webaim.org/techniques/keyboard/" text="webaim.org/techniques/keyboard/" />`
+-	A business case for Accessibility: `<ExtLink href="https://www.w3.org/WAI/business-case/" text="www.w3.org/WAI/business-case/" />`
+-	Legal case for Accessibility: `<ExtLink href="https://www.searchenginejournal.com/website-accessibility-law/285199/" text="www.searchenginejournal.com/website-accessibility-law/285199/" />`
