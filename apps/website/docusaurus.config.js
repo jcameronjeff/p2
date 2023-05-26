@@ -12,7 +12,7 @@ const config = {
 
   url: 'https://interstate.coxautoinc.com',
   baseUrl: '/',
- 
+
   projectName: 'Interstate Design System', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -26,17 +26,17 @@ const config = {
   plugins: [
     async function myPlugin(context, options) {
       return {
-        name: "docusaurus-tailwindcss",
+        name: 'docusaurus-tailwindcss',
         configurePostCss(postcssOptions) {
           // Appends TailwindCSS and AutoPrefixer.
-          postcssOptions.plugins.push(require("tailwindcss"));
-          postcssOptions.plugins.push(require("autoprefixer"));
+          postcssOptions.plugins.push(require('tailwindcss'));
+          postcssOptions.plugins.push(require('autoprefixer'));
           return postcssOptions;
         },
       };
     },
-  ], 
-
+  ],
+  themes: ['@docusaurus/theme-live-codeblock'],
   presets: [
     [
       'classic',
@@ -70,9 +70,9 @@ const config = {
             type: 'docSidebar',
             sidebarId: 'gettingStartedSidebar',
             position: 'left',
-            label: 'Getting Started'
+            label: 'Getting Started',
           },
-          {to: '/whats-new', label: 'What\'s New', position: 'left'},
+          { to: '/whats-new', label: "What's New", position: 'left' },
           {
             type: 'docSidebar',
             sidebarId: 'foundationSidebar',

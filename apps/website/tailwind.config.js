@@ -8,5 +8,5 @@ module.exports = {
     extend: {},
   },
   plugins: [],
-}
-
+  presets: [require('@prism2/tailwind-preset')],
+};

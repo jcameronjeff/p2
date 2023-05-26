@@ -2,101 +2,80 @@
 title: 'Icon'
 ---
 
+import { AllIcons } from '@site/src/components/IconGallery';
+import { UsersIcon } from '@prism2/icons-react/interstate';
+
+import UsersIconSVG from '@prism2/icons/interstate/users.svg';
 
 ## Usage
-
-```example
-<definition>
 
 ### Definition
 
 Icons help communicate key touch-points in the experience. They are to be used in combination with text and without text.
 
-</definition>
+# Interstate Icons
+
+The Interstate Icon set is available for download via npm as optimized SVG's.
+
+<UsersIconSVG className='ml-5 h-12' />
+
+```js
+const UsersIconSVG = require('@prism2/icons/interstate/users.svg');
 ```
 
-# Manheim Font
+### Icon Gallery
 
-The Manheim font leverages ico-moon's font library and is a css-managed web font. There are over 2000 fonts in total of which many were handpicked to be used across experiences. To use the font in your designs download the fonts to your font manager to preview and use them.
-
-```example
-<SandboxDemo>
-  <Icons.All />
-</SandboxDemo>
-```
+<AllIcons />
 
 ### Usage Guidelines
 
 To promote ease of scanning and understanding, follow these UX best practices:
 
-```example
 <StopLightList
-    green={[
-        'Use icons to communicate meaning or emphasize meaning.',
-        'Use icons to mean the same thing that they mean in other Manheim applications.',
-        'Use text with icons whenever possible.',
-        'Use stand alone icons sparingly and specify the alt-text that communicates the meaning of the icon.',
-        'Icons with inline text are typically 12px, 14px, or 16px.',
-        'Large stand alone icons should be sized in multiples of 8 (e.g. 24px, 32px, 40px, etc).',
-        'Provide proportional white space around large standalone icons, also in multiples of 8.',
-    ]}
-    red={[
-        'Use icons as visual enhancements without meaning. Instead, use textures, illustrations, etc as visual enhancements when appropriate.',
-        'Use icons to mean something different than their common meaning at Manheim.',
-        'Use different icons to mean the same thing.',
-        'Use so small an icon that it becomes illegible.',
-        'Use so large an icon that it crowds out proportional whitespace.',
-    ]}
+  green={[
+    'Use icons to communicate meaning or emphasize meaning.',
+    'Use icons to mean the same thing that they mean in other Manheim applications.',
+    'Use text with icons whenever possible.',
+    'Use stand alone icons sparingly and specify the alt-text that communicates the meaning of the icon.',
+    'Icons with inline text are typically 12px, 14px, or 16px.',
+    'Large stand alone icons should be sized in multiples of 8 (e.g. 24px, 32px, 40px, etc).',
+    'Provide proportional white space around large standalone icons, also in multiples of 8.',
+  ]}
+  red={[
+    'Use icons as visual enhancements without meaning. Instead, use textures, illustrations, etc as visual enhancements when appropriate.',
+    'Use icons to mean something different than their common meaning at Manheim.',
+    'Use different icons to mean the same thing.',
+    'Use so small an icon that it becomes illegible.',
+    'Use so large an icon that it crowds out proportional whitespace.',
+  ]}
 />
-```
 
 ## Code
 
 ## Icon Methods
 
-**Icons are installed as a CSS font, and can be applied to self-closing `span` or `i` tags without children.**
+**Icons can be applied by including the SVG in the file directly via `import` or the `require()` function.**
 
-```jsx live
-<div className="d-flex justify-content-center">
-  <span className="icon prism-icon-paint-can" />
-</div>
+```js
+const eyeIcon = require('@prism2/icons/eye.svg');
 ```
-
-```jsx live
-<div className="d-flex justify-content-center">
-  <i className="icon prism-icon-checkmark-circle" />
-</div>
-```
-_Icons can be added to the DOM with classnames_
 
 **Or Icons can be rendered as a React component**
 
-```jsx live
-<div className="d-flex justify-content-center">
-  <Icon glyph="360-exterior" color="dark" />
-</div>
+```jsx
+import { UsersIcon } from '@prism2/icons-react/interstate';
+
+function renderIcon() {
+  return <UsersIcon />;
+}
 ```
-_Icons can also be added to the DOM via the Icon component_
 
-**Or Icons can be rendered as SVGs in the DOM**
-
-```jsx live
-<div className="d-flex justify-content-center">
-  <IconSvg glyph="360-exterior" color="dark" />
-</div>
-```
-_Icons can also be added to the DOM as an SVG via the IconSvg component_
-
+_Icons can also be added to the DOM via the icons-react package_
 
 ## Color, Size
 
-Icons can be styled with text utility classes.
+Icons can be styled with utility classes.
 
-```jsx live
-<div className="d-flex justify-content-center">
-  <i className="icon prism-icon-checkmark-circle text-success display-4" />
-  <Icon glyph="checkmark-circle" color="success" className="display-4 mx-3" />
-  <IconSvg glyph="checkmark-circle" color="success" height="35px" />
-</div>
+```jsx
+<CheckmarkIcon className='self-center flex-none inline h-6 mr-2 text-green-500' />
 ```
-

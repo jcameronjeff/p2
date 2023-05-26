@@ -16,7 +16,11 @@
   "dependencies": {
     "@docusaurus/core": "2.4.1",
     "@docusaurus/preset-classic": "2.4.1",
+    "@docusaurus/theme-live-codeblock": "^2.4.1",
     "@mdx-js/react": "^1.6.22",
+    "@prism2/icons": "workspace:*",
+    "@prism2/icons-react": "workspace:*",
+    "@prism2/tailwind-preset": "workspace:*",
     "autoprefixer": "^10.4.14",
     "clsx": "^1.2.1",
     "postcss": "^8.4.23",
