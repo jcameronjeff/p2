@@ -372,7 +372,8 @@ a.navbar__link:visited,
 a.navbar__brand:visited {
   color: var(--ifm-color-primary) !important;
 }
-.menu__link:visited {
+.menu__link:visited,
+.menu__caret:visited {
   color: var(--ifm-menu-color) !important;
 }
 a.pagination-nav__link,
@@ -382,6 +383,12 @@ a.pagination-nav__link--prev {
 nav.menu,
 .navbar-sidebar {
   background-color: var(--ifm-color-primary-dark);
+}
+
+nav.menu {
+  .menu__caret::before {
+    filter: invert(1) saturate(5) hue-rotate(175deg);
+  }
 }
 
 nav.menu .menu__link--sublist:after {
