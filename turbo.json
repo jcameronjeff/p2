@@ -10,6 +10,10 @@
       "inputs": ["lib","src","20","24","prism","tokens/**/*.json","config.json"],
       "outputs": ["dist/**","optimized/**","build/**","generated/**"]
     },
+    "start": {
+        "dependsOn": ["build_css"],
+        "cache": false
+    },
     "dev": {
       "dependsOn": ["build_css"],
       "cache": false

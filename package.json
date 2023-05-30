@@ -9,6 +9,7 @@
   "scripts": {
     "build": "turbo run build",
     "build_web": "turbo run build_web",
+    "start": "turbo run start --scope=website",
     "test": "turbo run test",
     "test_ui": "turbo run test_ui",
     "deploy": "turbo run deploy",

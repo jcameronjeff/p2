@@ -368,7 +368,17 @@ h6 {
 article {
   padding: 1rem;
 }
-
+a.navbar__link:visited,
+a.navbar__brand:visited {
+  color: var(--ifm-color-primary) !important;
+}
+.menu__link:visited {
+  color: var(--ifm-menu-color) !important;
+}
+a.pagination-nav__link,
+a.pagination-nav__link--prev {
+  color: var(--ifm-color-primary) !important;
+}
 nav.menu,
 .navbar-sidebar {
   background-color: var(--ifm-color-primary-dark);
