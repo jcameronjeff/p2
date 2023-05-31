@@ -113,11 +113,11 @@ export function VehicleToolbar(props:HTMLAttributes<HTMLDivElement>) {
 export function SellerInfo(props:HTMLAttributes<HTMLDivElement>) {
   const { sellerName, pickupLocation } = useContext(SingleVehicleContext);
   return <div {...props}>
-    <Button variant='text' className='gap-2 py-1 p-2 font-regular block md:flex text-left text-ellipsis overflow-hidden'>
+    <Button variant='text' className='gap-2 py-1 p-2 font-normal block md:flex text-left text-ellipsis overflow-hidden'>
       <span className='inline prism-label text-xs'>Pickup</span><br className='sm:hidden' />
       <span className='text-xs'>{pickupLocation}</span>
     </Button>
-    <Button variant='text' className='gap-2 py-1 p-2 font-regular block md:flex text-left text-ellipsis overflow-hidden'>
+    <Button variant='text' className='gap-2 py-1 p-2 font-normal block md:flex text-left text-ellipsis overflow-hidden'>
       <span className='inline prism-label text-xs'>Seller</span><br className='sm:hidden' />
       <span className='text-xs'>{sellerName}</span>
     </Button>

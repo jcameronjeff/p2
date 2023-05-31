@@ -4,15 +4,11 @@
   "description": "Base TailwindCSS theme and utilities for Manheim/CAI",
   "main": "index.js",
   "files": [
-    "index.js",
-    "colors.json",
-    "design-tokens.json",
-    "generated/theme.js",
-    "generated/theme.json"
+    "index.js"
   ],
   "scripts": {
     "test": "echo skipping tests for @prism2/tailwind-theme-manheim",
-    "build": "node ./scripts/generate-theme-file.js && tailwind-config-viewer -c index.js export ./build"
+    "build": "tailwind-config-viewer -c index.js export ./build"
   },
   "keywords": [
     "tailwind",

@@ -6,7 +6,7 @@
   thead {
     @apply border-blue-800;
     @apply text-white;
-    @apply font-regular;
+    @apply font-normal;
     background-color: var(--thead-bg);
     --border-color: var(--thead-border-color);
   }

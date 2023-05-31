@@ -88,7 +88,7 @@ function MyCombobox() {
               <Combobox.Option key={person} value={person} as={Fragment}>
                 {({ active, selected }) => (
                   <li
-                    className={`flex font-regular justify-between p-2 py-1 ${
+                    className={`flex font-normal justify-between p-2 py-1 ${
                       active ? 'bg-blue-700 text-white' : 'bg-white text-black'
                     }`}
                   >

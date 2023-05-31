@@ -35,7 +35,7 @@ export function AuctionUI(props:HTMLAttributes<HTMLDivElement>) {
         {source === 'Simulcast' && <>
           <p className='md:mb-2'><span className='pr-1'>Simulcast</span> {laneNumber} / {runNumber}</p>
           <Button variant='text' className='uppercase font-light lg:text-base'>Enter Sale</Button>
-          <Button variant='text' className='uppercase font-regular lg:text-base'>Proxy Bid</Button>
+          <Button variant='text' className='uppercase font-normal lg:text-base'>Proxy Bid</Button>
         </>}
         {startingBidPrice && <PriceDisplay label='Starting Bid' value={startingBidPrice} />}
         {allowBuyNow && buyNowPrice && <PriceDisplay label='Buy Now' value={buyNowPrice} />}
@@ -46,7 +46,7 @@ export function AuctionUI(props:HTMLAttributes<HTMLDivElement>) {
         <span className='prism-label text-xs'>{'Ends in'}</span>
         <AuctionCountdown className='text-lg tracking-tight inline-block' until={auctionEndTime} />
       </div>
-      <Button variant='fill' className='bg-blue-800 text-white uppercase font-regular text-sm' >Make offer</Button>
+      <Button variant='fill' className='bg-blue-800 text-white uppercase font-normal text-sm' >Make offer</Button>
     </div>
   </div>;
 }

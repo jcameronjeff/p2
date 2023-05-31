@@ -1,0 +1,16 @@
+{
+  "fontFamily": {
+    "sans": {
+      "value": ["'Roboto Flex'", "Roboto", "sans-serif"]
+    },
+    "serif": {
+      "value": ["'Roboto Serif'", "serif"]
+    },
+    "alt": {
+      "value": ["'Roboto Condensed'", "sans-serif"]
+    },
+    "mono": {
+      "value": ["'Roboto Mono'", "monospace"]
+    }
+  }
+}

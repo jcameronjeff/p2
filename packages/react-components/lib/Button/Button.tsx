@@ -47,7 +47,7 @@ const styles:StyleOptions = {
   outline: 'bg-transparent border ring-0 border-0',
   text: 'border-0 text !outline-0 ring-0',
   auxiliary: 'text-sm text uppercase font-alt',
-  link: 'border-0 font-regular uppercase',
+  link: 'border-0 font-normal uppercase',
   fill: 'fill',
   icon: 'overflow-visible',
   simulcast: 'simulcast',

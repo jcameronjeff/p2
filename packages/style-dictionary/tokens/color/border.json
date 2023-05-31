@@ -1,8 +1,0 @@
-{
-  "color": {
-    "borderColor": {
-      "DEFAULT" : { "value": "{color.palette.gray.300}" },
-      "focus"   : { "value": "{color.palette.blue.500}" }
-    }
-  }
-}

@@ -15,7 +15,7 @@
     "80": { "value": "32px", "description": "Space - 32px" },
     "100": { "value": "40px", "description": "Space - 40px" },
     "120": { "value": "48px", "description": "Space - 48px" },
-    "text": {
+    "font": {
       "leading": {
         "none": { "value": "100%", "description": "Line Height - 100%" },
         "tight": { "value": "115%", "description": "Line Height - 115%" },

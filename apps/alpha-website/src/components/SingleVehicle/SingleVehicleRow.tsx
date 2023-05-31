@@ -14,7 +14,7 @@ export function VehicleTableRow() {
         <VehicleTitle className='flex-shrink-0'/>
 
       </td>
-      <td className='font-regular text-gray-500 w-64 text-left'>
+      <td className='font-normal text-gray-500 w-64 text-left'>
           <VehicleStatline className=''/>
         </td>
 

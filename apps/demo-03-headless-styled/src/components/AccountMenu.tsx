@@ -6,7 +6,7 @@ import React from "react";
 
 const menuItemClasses = [
   'p-1 pr-6 rounded-sm text-xs z-30',
-  'icons:h-4 inline-flex gap-2 font-regular',
+  'icons:h-4 inline-flex gap-2 font-normal',
   'ui-active:bg-blue-600 ui-active:text-white icons:ui-active:text-blue-50',
   '!hover:bg-blue-600 hover:text-white icons:hover:text-blue-50',
   'items-center icons:text-blue-600',
