@@ -108,13 +108,13 @@ Checkboxes buttons have these states: active unchecked, or hover/tap, or checked
 
 The Checkbox component is now uncontrolled. It will take a checked prop, but is rendered as defaultChecked.
 
-```jsx live
+```jsx dead
 <Checkbox checked={true} id="check1" label="Default" />
 ```
 
 ### Default Controlled Checkbox
 
-```jsx live
+```jsx dead
 function ControlledCheckbox() {
   const [checked, setChecked] = useState(false);
 
@@ -132,13 +132,13 @@ function ControlledCheckbox() {
 
 ### Disabled Checkbox
 
-```jsx live
+```jsx dead
 <Checkbox disabled id="check3" label="Disabled" />
 ```
 
 ### Indeterminate Checkbox
 
-```jsx live
+```jsx dead
 <Checkbox id="check4" label="Indeterminate" className="indeterminate" />
 ```
 

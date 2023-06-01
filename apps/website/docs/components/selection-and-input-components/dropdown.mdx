@@ -308,7 +308,7 @@ All dropdowns have these states: default, disabled, and focused.
 
 ### Default
 
-```jsx live
+```jsx dead
 <div>
   <Dropdown placeholder="Select One..." style={{width: 200}}>
     <DrOption id="1" name="Apples" value="a1" />
@@ -327,7 +327,7 @@ All dropdowns have these states: default, disabled, and focused.
 
 ### With readonly state
 
-```jsx live
+```jsx dead
 <div>
   <Dropdown readonly placeholder="Select One..." style={{width: 200}}>
     <DrOption id="1" name="Apples" value="a1" />
@@ -343,7 +343,7 @@ _The Dropdown component expects either the `<DrOption>` or `<DrOptionGroup>` com
 
 ### With default selection
 
-```jsx live
+```jsx dead
 <div>
   <Dropdown defaultSelection={["one"]} style={{width: 200}}>
     <DrOption id="6" name="Apples" value="one" />
@@ -359,7 +359,7 @@ _If the placeholder prop is omitted, the `defaultSelection` is displayed as a st
 
 ### With onChange callback
 
-```jsx live
+```jsx dead
 <div>
   <Dropdown onChange={(event) => console.log(event)} style={{width: 200}}>
     <DrOption id="11" name="Apples" value="one" />

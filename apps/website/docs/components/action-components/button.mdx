@@ -539,7 +539,7 @@ Use these modifiers with `.css-className`
 
 Icons can be added before or after text.
 
-```jsx live
+```jsx dead
 <Container>
   <Row>
     <Col>
@@ -578,7 +578,7 @@ For outlined buttons, add a `.btn-outline-***` modifier followed by color.
 
 With React, pass the `outline` value for `variant` prop to the Button component. This will apply required styles, so it is **not necessary to pass a color prop**.
 
-```jsx live
+```jsx dead
 <Container>
   <Row>
     <Col>
@@ -620,7 +620,7 @@ With React, pass the `outline` value for `variant` prop to the Button component.
 
 With React, pass the `textonly` value to `variant` prop to the Button component. This will apply required styles, so it is **not necessary to pass a color prop**.
 
-```jsx live
+```jsx dead
 <Container>
   <Row>
    <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
@@ -652,7 +652,7 @@ With React, pass the `textonly` value to `variant` prop to the Button component.
 
 #### Auxiliary Button
 
-```jsx live
+```jsx dead
 <Container>
   <Row>
     <Col>
@@ -668,7 +668,7 @@ With React, pass the `textonly` value to `variant` prop to the Button component.
 
 Action links are text links that appear as an anchor but perform an action rather than direct the browser to a new URL via an `href`.
 
-```jsx live
+```jsx dead
   <Button variant="actionLink"
     onClick={() => alert("action link click") }
   >
@@ -683,7 +683,7 @@ The floatingAction button accepts primary or secondary color styles via the `col
 
 **Only one floatingAction button can be used on a single page.**
 
-```jsx live
+```jsx dead
 <>
     <div>The floating action button will overlay content and is locked to a specific position in the lower right of the screen.</div>
     <Button color="primary" variant="floatingAction" className="m-2" onClick={() => alert('This is a floating action button')}>

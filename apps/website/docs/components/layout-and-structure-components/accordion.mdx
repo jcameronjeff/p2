@@ -65,7 +65,7 @@ Each menu accordion content panel accommodates the height of its content and doe
 
 ### Default Accordion
 
-```jsx live
+```jsx dead
 <Accordion>
   <Accordion.Item title="Item 1">
     <p>Accordion Content</p>
@@ -83,7 +83,7 @@ Each menu accordion content panel accommodates the height of its content and doe
 
 ### Accordion Closed
 
-```jsx live
+```jsx dead
 <Accordion open={false}>
   <Accordion.Item title="Item 1">
     <p>Accordion Content</p>
@@ -100,7 +100,7 @@ _Accordion Items are all open by default unless open is set to false._
 
 ### Open an Accordion Item
 
-```jsx live
+```jsx dead
 <Accordion open={false}>
   <Accordion.Item defaultOpen={true} title="Item 1">
     <p>Accordion Content</p>
@@ -121,7 +121,7 @@ _Explicitly adding ids to Accordion Item/Input components is recommended. UUIDs 
 
 #### Menu Accordion
 
-```jsx live
+```jsx dead
 <Accordion
   onChange={(accordionState) => {
     console.log(accordionState);
@@ -138,7 +138,7 @@ _Explicitly adding ids to Accordion Item/Input components is recommended. UUIDs 
 
 #### Filter Accordion
 
-```jsx live
+```jsx dead
 
 <Accordion
   onChange={(accordionState) => {
@@ -159,7 +159,7 @@ _Explicitly adding ids to Accordion Item/Input components is recommended. UUIDs 
 
 ### Accordion Input / Filter Accordion Variant
 
-```jsx live
+```jsx dead
 <Accordion>
   <Accordion.Input onChange={(e) => console.log(e)} title="Makes">
     <Input className="mb-2" type="text" placeholder="Input Accordion" />
@@ -171,7 +171,7 @@ _Explicitly adding ids to Accordion Item/Input components is recommended. UUIDs 
 
 ### Clearble Accordion Input
 
-```jsx live
+```jsx dead
 <Accordion>
   <Accordion.Input
     onChange={(e) => console.log("example", e)}

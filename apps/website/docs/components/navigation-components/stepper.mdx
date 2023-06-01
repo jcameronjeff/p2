@@ -78,7 +78,7 @@ The Stepper comes in two different sizes. The largest of which is the
 default and is responsive. Starting at the smallest component size at the
 smallest screen width and then adjusting in size as the viewport changes in size.
 
-```jsx live
+```jsx dead
 <Stepper currentStep={1}>
   <Step complete>Pick Up Location</Step>
   <Step>Confirm</Step>
@@ -90,7 +90,7 @@ smallest screen width and then adjusting in size as the viewport changes in size
 Occasionally you need to lock a component to the smallest size. This is done
 with the `size="sm"` property.
 
-```jsx live
+```jsx dead
 <Stepper size="sm" currentStep={1}>
   <Step complete>Pick Up Location</Step>
   <Step>Confirm</Step>
@@ -108,7 +108,7 @@ custom props directly into the Stepper component.
 When using the Step component, titles can be included either as a child of the
 Step component or as a title prop of the Step component.
 
-```jsx live
+```jsx dead
 <Stepper currentStep={1}>
   <Step>Pick Up Location</Step>
   <Step>Shipping Address</Step>
@@ -122,7 +122,7 @@ Step component or as a title prop of the Step component.
 This example aims to highlight how you specify which step is complete. By default, all steps are complete if they are before the
 currentStep index.
 
-```jsx live
+```jsx dead
 <Stepper currentStep={2}>
   <Step complete title="Pick Up Location" />
   <Step complete title="Shipping Address" />
@@ -143,7 +143,7 @@ currentStep index will be marked as complete by default.
 Titles can be passes as a string or as a title property to the Step
 configuration object.
 
-```jsx live
+```jsx dead
 <Stepper currentStep={2} steps={[
   'Pick Up Location',
   'Shipping Address',
@@ -159,7 +159,7 @@ In order to display a Step to specify one as complete, Step
 configuration objects will need to be used. These can also be mixed with title
 strings for when only one step needs to have complete specified.
 
-```jsx live
+```jsx dead
 <Stepper currentStep={1} steps={[
   { title: 'Pick Up Location', complete: true },
   { title: 'Shipping Address'},
@@ -176,7 +176,7 @@ Steps can be directed to other locations or actions by providing `href` or
 
 ### React Notation
 
-```jsx live
+```jsx dead
 <Stepper currentStep={1}>
   <Step onClick={(e) => { e.preventDefault(); alert('#Pick-Up-Location'); }}>Pick Up Location</Step>
   <Step href="#nope" title="Shipping Address" />
@@ -185,7 +185,7 @@ Steps can be directed to other locations or actions by providing `href` or
 
 ### Object Notation
 
-```jsx live
+```jsx dead
 <Stepper currentStep={1} steps={[
   {
     title: 'Pick Up Location',

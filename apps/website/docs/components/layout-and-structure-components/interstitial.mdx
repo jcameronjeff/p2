@@ -143,7 +143,7 @@ The interstitial component can be used to indicate the component is busy with
 a task, such as a form submitting. To do so, simply provide an `inline` prop and
 place within the input or the disabled submit button.
 
-```jsx live
+```jsx dead
 <>
   <FormGroup>
     <Label>Vehicle</Label>
@@ -172,7 +172,7 @@ The target can be any element in the document, see
 [React Portal](https://reactjs.org/docs/portals.html) for container limitations
 and restrictions.
 
-```jsx live
+```jsx dead
 () => {
   const containerRef = React.useRef(null)
 
@@ -200,7 +200,7 @@ Or on the form as could help the first example.
 interstitial are hidden. This is visually handled with CSS and does not
 interfere with other states or timers.
 
-```jsx live
+```jsx dead
 () => {
   const formRef = React.useRef(null);
 
@@ -233,7 +233,7 @@ least. The `color` prop needs to be set to `'dark'` (per spec) and the target
 needs to be set to the `document.body`.
 
 
-```jsx live
+```jsx dead
 () => {
   const [isBodyActive, setIsBodyActive] = useState(false)
 
@@ -268,7 +268,7 @@ needs to be set to the `document.body`.
 A label can be provided by using the `label` prop. After `5 seconds`, the
 label (and glyph) will change to the ADA final state.
 
-```jsx live
+```jsx dead
 <div className="position-relative" style={{ height: 200 }}>
   <div className="bg-light" style={{ height: 200}} />
   <Interstitial label="Thinking" adaTimeoutLabel="Still thinking" />
@@ -281,7 +281,7 @@ Initially, the interstitial starts in the animated state displaying an
 `@interstate/spinner` component. Depending on the use case and the browser/device
 specifications, the spinner can be disabled using a `isStatic` prop.
 
-```jsx live
+```jsx dead
 <>
   <div className="position-relative" style={{height: 100}}>
     <Interstitial isStatic label="Default is clock"/>
@@ -297,7 +297,7 @@ The ADA icon and label can be changed for the changed using the provided props.
 Static and spinner interstitials will change to the final glyph and label
 determined by the `adaTimeoutGlyph` and the `adaTimeoutLabel` props.
 
-```jsx live
+```jsx dead
 <>
   <div className="position-relative" style={{height: 100}}>
     <Interstitial
@@ -316,7 +316,7 @@ determined by the `adaTimeoutGlyph` and the `adaTimeoutLabel` props.
 By attaching state to even listeners, we can display an interstitial while
 the image changes. (`displayDelay` is reduced here for example purposes.)
 
-```jsx live
+```jsx dead
 () => {
   const { useRef, useEffect } = React;
   const contentRef = React.useRef(null)

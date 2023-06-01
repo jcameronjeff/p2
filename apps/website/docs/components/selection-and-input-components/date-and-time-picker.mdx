@@ -42,7 +42,7 @@ Use with a Time Picker to input a date and time.
 
 The DatePicker component displays today's date as a default value.
 
-```jsx live
+```jsx dead
 <DatePicker />
 ```
 
@@ -51,7 +51,7 @@ The DatePicker component displays today's date as a default value.
 For standard form handling, adding an `id` or `name` prop is expected.
 Label decoration is also available directly from the `label` prop.
 
-```jsx live
+```jsx dead
 <DatePicker
   id="inspect-element"
   name="see-name"
@@ -61,31 +61,31 @@ Label decoration is also available directly from the `label` prop.
 
 ### onChange Callbacks
 
-```jsx live
+```jsx dead
 <DatePicker onChange={console.log} />
 ```
 
 ### Disabled/readonly
 
-```jsx live
+```jsx dead
 <DatePicker disabled />
 ```
 
 ### DatePicker can be readonly
 
-```jsx live
+```jsx dead
 <DatePicker readonly />
 ```
 
 ### Sizing
 
-```jsx live
+```jsx dead
 <DatePicker size="sm" />
 ```
 
 ### With Initial Value
 
-```jsx live
+```jsx dead
 <>
   <DatePicker defaultValue={new Date('October 29, 1981')}/>
   <DatePicker defaultValue="October 29, 1981"/>
@@ -95,13 +95,13 @@ Label decoration is also available directly from the `label` prop.
 
 ### Custom placeholder
 
-```jsx live
+```jsx dead
 <DatePicker placeholder="Start Date" defaultValue={null} />
 ```
 
 ### Custom validation status
 
-```jsx live
+```jsx dead
 <>
   <DatePicker valid />
   <DatePicker invalid />
@@ -111,7 +111,7 @@ Label decoration is also available directly from the `label` prop.
 
 ### Constrained Values
 
-```jsx live
+```jsx dead
 <>
   <DatePicker defaultValue="10/29/81" minDate="1/1/81" maxDate="12/1/81" />
   <DatePicker defaultValue="10/29/81" minDate="12/1/81" />
@@ -124,7 +124,7 @@ Label decoration is also available directly from the `label` prop.
 The with range selection, the date picker also provides a clear button.
 Enabling date range selection will return an array containing the start and end dates selected.
 
-```jsx live
+```jsx dead
 <DatePicker
   selectsRange
   onChange={([startDate, endDate]) => {
@@ -205,7 +205,7 @@ Use with a Date Picker to input a date and time.
 
 The TimePicker component displays current, system time as a default value.
 
-```jsx live
+```jsx dead
 <TimePicker />
 ```
 
@@ -214,7 +214,7 @@ The TimePicker component displays current, system time as a default value.
 For standard form handling, adding an `id` or `name` prop is expected.
 Label decoration is also available directly from the `label` prop.
 
-```jsx live
+```jsx dead
 <TimePicker
   id="inspect-element"
   name="see-name"
@@ -224,31 +224,31 @@ Label decoration is also available directly from the `label` prop.
 
 ### TimePicker will notify when time is changed
 
-```jsx live
+```jsx dead
 <TimePicker onChange={console.log} />
 ```
 
 ### TimePicker can be disabled
 
-```jsx live
+```jsx dead
 <TimePicker disabled />
 ```
 
 ### TimePicker can be readonly
 
-```jsx live
+```jsx dead
 <TimePicker readonly />
 ```
 
 ### TimePicker can be small
 
-```jsx live
+```jsx dead
 <TimePicker size="sm" />
 ```
 
 ### TimePicker can be set initially
 
-```jsx live
+```jsx dead
 <>
   <TimePicker defaultValue="5p" />
   <TimePicker defaultValue="12:15 AM" />
@@ -259,19 +259,19 @@ Label decoration is also available directly from the `label` prop.
 
 ### TimePicker can have a different placeholder
 
-```jsx live
+```jsx dead
 <TimePicker placeholder="Start Time" defaultValue={null} />
 ```
 
 ### TimePicker can display differnt time intervals
 
-```jsx live
+```jsx dead
 <TimePicker timeIntervals={7} />
 ```
 
 ### TimePicker can be set `valid` or `invalid`
 
-```jsx live
+```jsx dead
 <>
   <TimePicker valid />
   <TimePicker invalid />
@@ -281,7 +281,7 @@ Label decoration is also available directly from the `label` prop.
 
 ### TimePicker can be constrained between times
 
-```jsx live
+```jsx dead
 <>
   <TimePicker defaultValue="3:45 pm" minTime="3:00 pm" maxTime="5:00p" />
   <TimePicker defaultValue="3:45 pm" minTime="4:00 pm" />

@@ -149,21 +149,21 @@ provided to each Action. This has been omitted in the examples for brevity.
 Icons can be appended to (placed before) or prepended to (placed after) the
 label. If no label, only the addOn(s) will show.
 
-```jsx live
+```jsx dead
 <Action addOnPrepend="info" label="Information" />
 ```
 
 
 ### with icon on right
 
-```jsx live
+```jsx dead
 <Action addOnAppend="printer" label="Print" />
 ```
 
 
 ### with icon on right and left
 
-```jsx live
+```jsx dead
 <Action addOnPrepend="chevron-left" addOnAppend="chevron-right" label="CODE" />
 ```
 
@@ -179,7 +179,7 @@ label. If no label, only the addOn(s) will show.
 
 ### more than one
 
-```jsx live
+```jsx dead
 <Actions>
   <Action addOnPrepend="error-triangle" label="Error Triangle" />
   <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
@@ -191,7 +191,7 @@ label. If no label, only the addOn(s) will show.
 
 ### with `actions` prop
 
-```jsx live
+```jsx dead
 <Actions actions={[
   {
     addOnPrepend: 'error-triangle',
@@ -218,7 +218,7 @@ label. If no label, only the addOn(s) will show.
 
 ## Actions adjust display count with the `show` prop
 
-```jsx live
+```jsx dead
 <Actions show={3}>
   <Action addOnPrepend="error-triangle" label="Error Triangle" />
   <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
@@ -230,7 +230,7 @@ label. If no label, only the addOn(s) will show.
 
 ### with `actions` prop
 
-```jsx live
+```jsx dead
 <Actions show={3} actions={[
   {
     addOnPrepend: 'error-triangle',
@@ -260,7 +260,7 @@ label. If no label, only the addOn(s) will show.
 The `iconOnly` prop only affects the shown actions. All actions in the menu will
 display with complete icons and labels.
 
-```jsx live
+```jsx dead
 <Actions iconOnly>
   <Action addOnPrepend="error-triangle" label="Error Triangle" />
   <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
@@ -272,7 +272,7 @@ display with complete icons and labels.
 
 ### with `actions` prop
 
-```jsx live
+```jsx dead
 <Actions
   iconOnly
   actions={[
@@ -305,7 +305,7 @@ display with complete icons and labels.
 The `textOnly` prop only affects the shown actions. All actions in the menu will
 display with complete icons and label.
 
-```jsx live
+```jsx dead
 <Actions textOnly>
   <Action addOnPrepend="error-triangle" label="Error Triangle" />
   <Action addOnPrepend="fork-spoon" label="Fork Spoon" />
@@ -317,7 +317,7 @@ display with complete icons and label.
 
 ### with `actions` prop
 
-```jsx live
+```jsx dead
 <Actions
   textOnly
   actions={[
@@ -347,7 +347,7 @@ display with complete icons and label.
 
 ### Actions menu opener label changes with the `menuLabel` prop
 
-```jsx live
+```jsx dead
 <Actions
   menuLabel="Page Actions"
   actions={[
@@ -379,7 +379,7 @@ display with complete icons and label.
 
 Similar actions can be grouped by a horizontal divider.
 
-```jsx live
+```jsx dead
 <Actions show={0} menuLabel="Page Actions">
   <Action addOnPrepend="error-triangle" label="Error Triangle" />
   <Actions.Spacer />
@@ -393,7 +393,7 @@ Similar actions can be grouped by a horizontal divider.
 
 ### with `actions` prop
 
-```jsx live
+```jsx dead
 <Actions
   show={0}
   menuLabel="Page Actions"
@@ -434,7 +434,7 @@ on the available visible space and will align to the right edge by default.
 
 ### Align `"left"`
 
-```jsx live
+```jsx dead
 <Container style={{ textAlign: 'center' }}>
   <Actions
     show={0}
@@ -456,7 +456,7 @@ on the available visible space and will align to the right edge by default.
 
 ### Align `"center"`
 
-```jsx live
+```jsx dead
 <Container style={{ textAlign: 'center' }}>
   <Actions
     show={0}
@@ -478,7 +478,7 @@ on the available visible space and will align to the right edge by default.
 
 ### Align `"right"` (default)
 
-```jsx live
+```jsx dead
 <Container style={{ textAlign: 'center' }}>
   <Actions
     show={0}
@@ -505,7 +505,7 @@ In the following example, the `labelState` will update on any click of any of
 the Action buttons. The state is visible in the labels as `On` or `Off` and
 update as the buttons are interacted upon.
 
-```jsx live
+```jsx dead
 () => {
   const [labelState, setLabelState] = React.useState(false)
 
@@ -548,7 +548,7 @@ update as the buttons are interacted upon.
 This example shows how two different and unique actions may be used in
 a component.
 
-```jsx live
+```jsx dead
 <>
   <Container style={{
     width: 350,
@@ -592,7 +592,7 @@ a component.
 This example shows how to display the actions in a vertical manner, still allowing
 for a "more" menu to show if desired.
 
-```jsx live
+```jsx dead
 <Card width="320">
   <Actions variant="list" show={3}>
     <Action addOnPrepend="error-triangle" label="Error Triangle" />
@@ -609,7 +609,7 @@ for a "more" menu to show if desired.
 This example shows how to display the actions in a vertical manner which mimics the
 "more" panel, still allowing for a "more" menu to show if desired.
 
-```jsx live
+```jsx dead
 <Card width="320" gutter="none" className="py-2">
   <Actions variant="panel-list" show={3}>
     <Action addOnPrepend="error-triangle" label="Error Triangle" />

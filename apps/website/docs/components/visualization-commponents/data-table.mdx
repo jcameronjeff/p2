@@ -92,7 +92,7 @@ To promote ease of scanning and understanding, follow these UX best practices:
 The most simplistic column is a string. Rows will be keyed to the value of the
 column.
 
-```jsx live
+```jsx dead
 <DataTable
   columns={[
     'Animal',
@@ -112,7 +112,7 @@ column.
 
 More common, the columns will need more data to describe happening in the column
 
-```jsx live
+```jsx dead
 <DataTable
   columns={[
     {
@@ -142,7 +142,7 @@ More common, the columns will need more data to describe happening in the column
 A responsive table will take the Header and align it to the left with the value
 to the right on small screens.
 
-```jsx live
+```jsx dead
 <DataTable
   responsive
   columns={[
@@ -166,7 +166,7 @@ Table headers have three (3) distinctly different look options other than the
 uncolored default.
 
 #### Light
-```jsx live
+```jsx dead
 <DataTable
   headerStyle="light"
   columns={[ 'Animal', 'Fruit', 'Count' ]}
@@ -174,7 +174,7 @@ uncolored default.
 ```
 
 #### Dark
-```jsx live
+```jsx dead
 <DataTable
   headerStyle="dark"
   columns={[ 'Animal', 'Fruit', 'Count' ]}
@@ -183,7 +183,7 @@ uncolored default.
 
 #### Color
 
-```jsx live
+```jsx dead
 <DataTable
   headerStyle="color"
   columns={[ 'Animal', 'Fruit', 'Count' ]}
@@ -194,7 +194,7 @@ uncolored default.
 
 Adding the `condensed` prop will reduce
 
-```jsx live
+```jsx dead
 <DataTable
   condensed
   columns={[
@@ -219,7 +219,7 @@ alternative width or height, use the `width` and `height` property. The use of
 `width` and `height` without `contain` or `isScrollable` will apply the
 dimensions to the `Table` component.
 
-```jsx live
+```jsx dead
 <DataTable
   contain
   columns={[
@@ -236,7 +236,7 @@ dimensions to the `Table` component.
 />
 ```
 
-```jsx live
+```jsx dead
 <DataTable
   scrollable
   height={100}
@@ -261,7 +261,7 @@ In long tables, when compaired to the viewport or the contained height, it may
 be desirable to maintain the visial presence of the header. Do so with the
 `headerSticky` prop.
 
-```jsx live
+```jsx dead
 <DataTable
   scrollable
   height={200}
@@ -285,7 +285,7 @@ be desirable to maintain the visial presence of the header. Do so with the
 
 Columns can be sorted by adding the `sortable` key to the column.
 
-```jsx live
+```jsx dead
 <DataTable
   columns={[
     {
@@ -316,7 +316,7 @@ To specify which column to be sorted, specify it with the `sortBy` prop. `sortBy
 contains two keys: `id` and `desc` (optional). **Note**: A column can be sorted
 initially regardless of the `sortable` key in the column.
 
-```jsx live
+```jsx dead
 <DataTable
   sortBy={{
     id: 'animal',
@@ -349,7 +349,7 @@ initially regardless of the `sortable` key in the column.
 
 It is recommended that any mutation to `data` be done through the actions API described below. In cases where you want to mutate data from a parent component but maintain pagination state, you can disabled some of the recommended reset behavior with the `skipReset` prop.
 
-```jsx live
+```jsx dead
 function Example() {
   const [tableData, setTableData] = React.useState([
     {a: '1', b: 'b', c: 'c'},
@@ -388,7 +388,7 @@ provide custom content to the cell, provide a custom formatter component to the
 `Cell` key. In an application, this can be a defined component where many props
 are passed to the function.
 
-```jsx live
+```jsx dead
 <DataTable
   responsive
   columns={[
@@ -439,7 +439,7 @@ are passed to the function.
 Adding the `singleSort` prop will move the sort mechanics to the `SingleSort`
 component and remove the ability to sorting from the table headers.
 
-```jsx live
+```jsx dead
 <DataTable
   singleSort
   columns={[
@@ -474,7 +474,7 @@ object with the keys: `pageIndex`, `pageSize`, `pageSizes`. The page sizes label
 defaults to `Results per page` and can be modified by providing a `label` key to
 the pagination object.
 
-```jsx live
+```jsx dead
 <DataTable
   pagination={{
     pageSize: 4,
@@ -512,7 +512,7 @@ the pagination object.
 To create a row with expanded content, simply provide an `expandedRow` attribute
 to the corresponding entry in `data` with the expanded content as the value.
 
-```jsx live
+```jsx dead
 <DataTable
   columns={[
     {
