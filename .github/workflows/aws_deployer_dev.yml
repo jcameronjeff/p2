@@ -1,28 +1,64 @@
-name:  Deploy Interstate to AWS (Non-Prod)
+name: Deploy Interstate to AWS (Non-Prod)
 
 on:
   push:
     branches:
       - next
-
+      - US1067648/aws deploy
 jobs:
-
   deploy-nonprod:
-    name: Build & Deploy - Interstate Styles
-    timeout-minutes: 15
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
       name: development
       url: https://interstate-staging.awsgdmshednp.manheim.com
-
+    strategy:
+      matrix:
+        node-version: [16.x]
     steps:
-    - name: Check out code
-      uses: actions/checkout@v2
-      with:
-        fetch-depth: 2
-
-    - uses: ./.github/actions/redeployer
-      with:
-        bucket-name: interstate-staging-assets
-        base-path: apps/website/
-        aws-account: '127382792002'
+      - name: Establish secure session to AWS
+        uses: cai-actions/aws-secure-access@v1
+        with:
+          account: ${{ secrets.AWS_ACCOUNT_ID }}
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ matrix.node-version }}
+          token: ${{ secrets.ARTIFACTORY_TOKEN }}
+          always-auth: true
+      - name: Configure Artifactory Access
+        env:
+          ARTIFACTORY_USERNAME: ${{ secrets.ARTIFACTORY_EMAIL }}
+          ARTIFACTORY_API_KEY: ${{ secrets.ARTIFACTORY_TOKEN }}
+          ARTIFACTORY_AUTH_URL: https://artifactory.coxautoinc.com/artifactory/api/npm/auth
+        # Create a temporary .npmrc file to use for authentication
+        run: |
+          echo 'registry=https://artifactory.coxautoinc.com/artifactory/api/npm/man-npm' >> .npmrc
+          curl -u${ARTIFACTORY_USERNAME}:${ARTIFACTORY_API_KEY} ${ARTIFACTORY_AUTH_URL} >> .npmrc
+          npm config set userconfig .npmrc
+          npm config ls -l
+      - name : Install AWS CLI
+        run: |
+          curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+          unzip awscliv2.zip
+          sudo ./aws/install
+      - name : Install yarn
+        run: npm i -g yarn --ignore-scripts
+      - name : Install pnpm
+        run: npm i -g pnpm
+      - name: Install dependencies
+        run: pnpm install
+      - name: Build Docusaurus
+        env:
+          DOCUSAURUS_BASE: /
+          DOCUSAURUS_URL: https://interstate-staging.awsgdmshednp.manheim.com
+        run: pnpm turbo run build
+      - name: Deploy to S3
+        run: |
+          aws s3 cp --recursive ./apps/website/build s3://${{ secrets.AWS_S3_BUCKET }}
+          aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ secrets.AWS_S3_BUCKET }} s3://${{ secrets.AWS_S3_BUCKET }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
+      - name: Invalidate Non-Prod Cloudfront
+        run: |
+          CFID=$(aws ssm get-parameters --names "/staging/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
+          aws cloudfront create-invalidation --distribution-id ${CFID} --paths "/*"
