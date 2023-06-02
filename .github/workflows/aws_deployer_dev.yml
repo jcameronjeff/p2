@@ -1,0 +1,28 @@
+name:  Deploy Interstate to AWS (Non-Prod)
+
+on:
+  push:
+    branches:
+      - next
+
+jobs:
+
+  deploy-nonprod:
+    name: Build & Deploy - Interstate Styles
+    timeout-minutes: 15
+    runs-on:  [self-hosted, Linux, CAI-Enterprise]
+    environment:
+      name: development
+      url: https://interstate-staging.awsgdmshednp.manheim.com
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v2
+      with:
+        fetch-depth: 2
+
+    - uses: ./.github/actions/redeployer
+      with:
+        bucket-name: interstate-staging-assets
+        base-path: apps/website/
+        aws-account: '127382792002'
