@@ -6,59 +6,234 @@
     },
     "0": {
       "value": "0px",
-      "description": "Space - 0px"
+      "description": "Space - 0px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "0.5": {
+      "value": "{size.1} / 2",
+      "description": "Space - 2px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "1": {
+      "value": "0.4",
+      "description": "Space - 4px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "1.5": {
+      "value": "{size.1} * 1.5",
+      "description": "Space - 6px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "2": {
+      "value": "{size.1} * 2",
+      "description": "Space - 8px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "2.5": {
+      "value": "{size.1} * 2.5",
+      "description": "Space - 10px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "3": {
+      "value": "{size.1} * 3",
+      "description": "Space - 12px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "3.5": {
+      "value": "{size.1} * 3.5",
+      "description": "Space - 14px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "4": {
+      "value": "{size.1} * 4",
+      "description": "Space - 16px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "5": {
-      "value": "2px",
-      "description": "Space - 2px"
+      "value": "{size.1} * 5",
+      "description": "Space - 20px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "6": {
+      "value": "{size.1} * 6",
+      "description": "Space - 24px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "7": {
+      "value": "{size.1} * 7",
+      "description": "Space - 28px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "8": {
+      "value": "{size.1} * 8",
+      "description": "Space - 32px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "9": {
+      "value": "{size.1} * 9",
+      "description": "Space - 36px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "10": {
-      "value": "4px",
-      "description": "Space - 4px"
+      "value": "{size.1} * 10",
+      "description": "Space - 40px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "15": {
-      "value": "6px",
-      "description": "Space - 6px"
+    "11": {
+      "value": "{size.1} * 11",
+      "description": "Space - 44px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "12": {
+      "value": "{size.1} * 12",
+      "description": "Space - 48px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "14": {
+      "value": "{size.1} * 14",
+      "description": "Space - 56px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "16": {
+      "value": "{size.1} * 16",
+      "description": "Space - 64px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "20": {
-      "value": "8px",
-      "description": "Space - 8px"
+      "value": "{size.1} * 20",
+      "description": "Space - 80px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "25": {
-      "value": "10px",
-      "description": "Space - 10px"
+    "24": {
+      "value": "{size.1} * 24",
+      "description": "Space - 96px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "30": {
-      "value": "12px",
-      "description": "Space - 12px"
+    "28": {
+      "value": "{size.1} * 28",
+      "description": "Space - 112px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "35": {
-      "value": "14px",
-      "description": "Space - 14px"
+    "32": {
+      "value": "{size.1} * 32",
+      "description": "Space - 128px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "36": {
+      "value": "{size.1} * 36",
+      "description": "Space - 144px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "40": {
-      "value": "16px",
-      "description": "Space - 16px"
+      "value": "{size.1} * 40",
+      "description": "Space - 176px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "50": {
-      "value": "20px",
-      "description": "Space - 20px"
+    "48": {
+      "value": "{size.1} * 48",
+      "description": "Space - 192px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "52": {
+      "value": "{size.1} * 52",
+      "description": "Space - 208px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "56": {
+      "value": "{size.1} * 56",
+      "description": "Space - 224px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "60": {
-      "value": "24px",
-      "description": "Space - 24px"
+      "value": "{size.1} * 60",
+      "description": "Space - 240px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "64": {
+      "value": "{size.1} * 64",
+      "description": "Space - 256px",
+      "attribute": {
+        "category": "size"
+      }
+    },
+    "72": {
+      "value": "{size.1} * 72",
+      "description": "Space - 288px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "80": {
-      "value": "32px",
-      "description": "Space - 32px"
+      "value": "{size.1} * 80",
+      "description": "Space - 320px",
+      "attribute": {
+        "category": "size"
+      }
     },
-    "100": {
-      "value": "40px",
-      "description": "Space - 40px"
-    },
-    "120": {
-      "value": "48px",
-      "description": "Space - 48px"
+    "96": {
+      "value": "{size.1} * 96",
+      "description": "Space - 384px",
+      "attribute": {
+        "category": "size"
+      }
     },
     "border": {
       "none": {
@@ -143,7 +318,7 @@
         }
       },
       "md": {
-        "value": "16",
+        "value": "1.6rem",
         "description": "Font Size - 16px",
         "attribute": {
           "category": "size"
@@ -173,6 +348,13 @@
       "3xl": {
         "value": "{size.font.md} * 1.75",
         "description": "Font Size - 28px",
+        "attribute": {
+          "category": "size"
+        }
+      },
+      "base": {
+        "value": "{size.font.md} * 1",
+        "description": "Font Size - 16",
         "attribute": {
           "category": "size"
         }

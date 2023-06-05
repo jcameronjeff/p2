@@ -23,6 +23,7 @@
   "dependencies": {
     "@headlessui/tailwindcss": "^0.1.1",
     "@prism2/tailwind-elements": "workspace:*",
+    "@prism2/tailwind-plugins": "workspace:2.0.9-alpha.7",
     "@prism2/tailwind-theme-manheim": "workspace:*",
     "@tailwindcss/forms": "^0.5.0",
     "@tailwindcss/typography": "^0.5.2",

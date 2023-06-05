@@ -1,0 +1,31 @@
+{
+  "name": "@prism2/tailwind-plugins",
+  "version": "2.0.9-alpha.7",
+  "description": "TailwindCSS preset package for Interstate design system from @prism2",
+  "main": "index.js",
+  "files": [
+    "index.js",
+    "src"
+  ],
+  "scripts": {
+    "test": "echo skipping tests for @prism2/tailwind-plugin-plugins",
+    "build": "npx tailwindcss -i ./build/input.css -o ./build/output.css"
+  },
+  "keywords": [
+    "tailwind",
+    "preset",
+    "css",
+    "postcss",
+    "interstate",
+    "preview"
+  ],
+  "license": "ISC",
+  "dependencies": {
+    "@prism2/tailwind-theme-manheim": "workspace:2.0.9-alpha.7",
+    "autoprefixer": "^10.4.14",
+    "tailwindcss": "~3.2.6"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.23"
+  }
+}

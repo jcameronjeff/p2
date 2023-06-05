@@ -1,6 +1,13 @@
 const { format } = require('prettier')
 const parseBabel = require('prettier/parser-babel')
 
+const tokensMap = {
+  spacing: 'size',
+  fontSize: 'size.font',
+  borderRadius: 'size.border.radius',
+}
+
+
 const formatObj = (obj) => (format(obj, {
   parser: 'babel',
   plugins: [parseBabel]
@@ -79,6 +86,12 @@ const findTokens = (allTokens, path = '') => {
   return tokens || {};
 }
 
+const updateTokens = (allTokens, tokensMap) => (
+  Object.keys(tokensMap).map(key => {
+    allTokens[key] = findTokens(allTokens, tokensMap[key])
+  })
+)
+
 const jsTailwind = {
   name: 'javascript/tailwind',
   formatter: ({ dictionary, platform, options, file }) => {
@@ -102,8 +115,8 @@ const jsTailwind = {
     }, allTokens)
 
     allTokens = splitTokens(allTokens)
-    allTokens.fontSize = findTokens(allTokens, 'size.font')
-    allTokens.borderRadius = findTokens(allTokens, 'size.border.radius')
+
+    updateTokens(allTokens, tokensMap)
 
 
     const output = JSON.stringify(allTokens, null, 2)

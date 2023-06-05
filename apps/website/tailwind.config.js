@@ -7,6 +7,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
   presets: [require('@prism2/tailwind-preset')],
 };

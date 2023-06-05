@@ -51,6 +51,7 @@
       "info": { "value": "{color.blue.100}" },
       "warning": { "value": "{color.gold.100}" },
       "error": { "value": "{color.red.100}" },
+      "hover": { "value": "{color.blue.50}" },
       "cta": {
         "primary": {
           "rest": { "value": "{color.blue.700}" },
@@ -61,16 +62,16 @@
         },
         "secondary": {
           "rest": { "value": "{color.transparent}" },
-          "hover": { "value": "{color.transparent}" },
-          "focus": { "value": "{color.transparent}" },
-          "active": { "value": "{color.transparent}" },
+          "hover": { "value": "{color.blue.50}" },
+          "focus": { "value": "{color.blue.50}" },
+          "active": { "value": "{color.blue.50}" },
           "disabled": { "value": "{color.transparent}" }
         },
         "tertiary": {
           "rest": { "value": "{color.transparent}" },
-          "hover": { "value": "{color.transparent}" },
-          "focus": { "value": "{color.transparent}" },
-          "active": { "value": "{color.transparent}" },
+          "hover": { "value": "{color.blue.50}" },
+          "focus": { "value": "{color.blue.50}" },
+          "active": { "value": "{color.blue.50}" },
           "disabled": { "value": "{color.transparent}" }
         }
       }

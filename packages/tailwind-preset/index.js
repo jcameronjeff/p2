@@ -19,10 +19,7 @@ module.exports = {
     // provides .prose and children
     require('@tailwindcss/typography'),
     // provides tw components
-    require('@prism2/tailwind-elements')({
-      parent: '',
-      strategy: 'class',
-    }),
+    ...(require('@prism2/tailwind-plugins').plugins),
     function ({ addBase, theme, addVariant }) {
       addBase({
         'strong, b': { fontWeight: theme('fontWeight.semibold') },
