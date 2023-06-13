@@ -52,7 +52,7 @@
   width: 1.7rem;
   font-family: theme('fontFamily.sans');
   font-style: normal;
-  font-weight: theme('fontWeight.regular');
+  font-weight: theme('fontWeight.normal');
   font-size: theme('fontSize.xs');
 }
 
