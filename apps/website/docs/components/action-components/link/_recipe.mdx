@@ -1,0 +1,89 @@
+import PhotoIcon from '@prism2/icons/interstate/photo.svg';
+
+## Description
+
+Links allow a user to navigate to another location via descriptive text.
+
+## Ingredients
+
+Links are made up of a combination of __elements__ and __styles__.  The styles will be made up of __Always__ and __configurables__ .
+
+(Always)
+  - label
+
+(Configurables)
+  - size
+  - icon left
+  - icon right
+  - type [standalone, inline]
+
+(Optional)
+- None
+
+
+## Directions
+- Link specs apply to all font sizes from text-xxs to text-3xl
+- Links always use the font-medium weight
+- - In body text, designers should use the underline link styles.
+- - For links that are not in body text, devlopers should use the link styles, which does not have an underline, but does allow for a left or right icon.  See: Standalone Label below
+ 
+
+<div className="flex flex-wrap gap-2 flex-col ">
+
+  ### Standalone label only
+
+  For links that are not in body text, devlopers should use the Standalone link, which does not have an underline.
+
+  <span className="link">Base Link</span>
+
+  <span className="link link-lg">Large Link</span>
+
+  ### Standalone label with icon
+
+  Standalone links which allow for a left or right icon and do not have an underline.
+
+  <span className="link link-xxs gap-x-1"><PhotoIcon className="icon" /> XXS Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-sm gap-x-1"><PhotoIcon className="icon" /> Small Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-visited gap-x-1"><PhotoIcon className="icon" /> Visited Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-lg gap-x-1"><PhotoIcon className="icon" /> Large Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-xl gap-x-1"><PhotoIcon className="icon" /> xl Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-2xl gap-x-1"><PhotoIcon className="icon" /> 2xl Link <PhotoIcon className="icon" /></span>
+
+  <span className="link link-3xl gap-x-1"><PhotoIcon className="icon" /> 3xl Link <PhotoIcon className="icon" /></span>
+
+</div>
+
+### Inline label only
+
+In body text, designers should use the underline link styles.
+
+<p>Consequat est velit laborum <span className="link link-inline" href="">sample inline link</span> nisi.</p>
+
+## Kitchen
+
+```
+argTypes {
+  label: {
+    control: string
+  },
+  size: {
+    control: select
+    options: [xxs, xs, sm, md, xl, lg, 2xl, 3xl]
+  },
+  iconLeft: {
+    control: boolean
+  },
+  iconRight: {
+    control: boolean
+  },
+  type: {
+    control: select
+    options: [standalone, inline]
+  }
+}
+```

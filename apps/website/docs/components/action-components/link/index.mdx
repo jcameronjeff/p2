@@ -1,0 +1,16 @@
+---
+title: 'Link'
+sidebar_position: 4
+---
+
+import TabSet from '/src/components/TabSet'
+
+import DesignContent from './_design.mdx'
+import RecipeContent from './_recipe.mdx'
+import ReactContent from './_react.mdx'
+
+<TabSet tabs={[
+  { label: "Design", Content: DesignContent },
+  { label: "Recipe", Content: RecipeContent },
+  { label: "React", Content: ReactContent },
+]} />
