@@ -2,9 +2,102 @@
   "style": {
     "font": {
       "family": {
-        "sans": { "value": "'Roboto Flex'", "description": "Font Family - Sans Serif" },
-        "serif": { "value": "'Roboto Serif'", "description": "Font Family - Serif" },
-        "alt": { "value": "'Roboto Condensed'", "description": "Font Family - Alternative" }
+        "sans": {
+          "value": "'Roboto Flex'",
+          "type": "fontFamilies",
+          "description": "Font Family - Sans Serif"
+        },
+        "serif": {
+          "value": "'Roboto Serif'",
+          "type": "fontFamilies",
+          "description": "Font Family - Serif"
+        },
+        "alt": {
+          "value": "'Roboto Condensed'",
+          "type": "fontFamilies",
+          "description": "Font Family - Alternative"
+        },
+        "monospaced": {
+          "value": "'Roboto Mono'",
+          "type": "fontFamilies",
+          "description": "Font Family - Monospaced"
+        }
+      },
+      "decoration": {
+        "underline": {
+          "value": "underline",
+          "type": "textDecoration",
+          "description": "Text Decoration - Underline"
+        }
+      },
+      "transform": {
+        "normal": {
+          "value": "none",
+          "type": "textTransform",
+          "description": "Text Transform - Normal"
+        },
+        "lowercase": {
+          "value": "lowercase",
+          "type": "textTransform",
+          "description": "Text Transform - Lower"
+        },
+        "uppercase": {
+          "value": "uppercase",
+          "type": "textTransform",
+          "description": "Text Transform - Upper"
+        },
+        "capitalize": {
+          "value": "capitalize",
+          "type": "textTransform",
+          "description": "Text Transform - Capitalize"
+        }
+      },
+      "weight": {
+        "thin": {
+          "value": "100",
+          "type": "fontWeights",
+          "description": "Font Weight - Thin (100)"
+        },
+        "extralight": {
+          "value": "200",
+          "type": "fontWeights",
+          "description": "Font Weight - Extra Thin (200)"
+        },
+        "light": {
+          "value": "300",
+          "type": "fontWeights",
+          "description": "Font Weight - Light (300)"
+        },
+        "regular": {
+          "value": "400",
+          "type": "fontWeights",
+          "description": "Font Weight - Regular (400)"
+        },
+        "medium": {
+          "value": "500",
+          "type": "fontWeights",
+          "description": "Font Weight - Medium (500)"
+        },
+        "semibold": {
+          "value": "600",
+          "type": "fontWeights",
+          "description": "Font Weight - Semibold (600)"
+        },
+        "bold": {
+          "value": "700",
+          "type": "fontWeights",
+          "description": "Font Weight - Bold (700)"
+        },
+        "extrabold": {
+          "value": "800",
+          "type": "fontWeights",
+          "description": "Font Weight - Extra Bold (800)"
+        },
+        "black": {
+          "value": "900",
+          "type": "fontWeights",
+          "description": "Font Weight - Black (900)"
+        }
       }
     }
   }

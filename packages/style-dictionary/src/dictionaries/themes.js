@@ -5,8 +5,7 @@ const StyleDictionary = require('style-dictionary')
 const { buildPlatform } = require('../platforms')
 
 // export const themes = fs.readdirSync(path.join('.',  'tokens', 'themes'))
-const themes = ['default']
-// console.log('themes', themes)
+const themes = ['cais']
 
 const configs = themes.map(theme => ({
   source: [`tokens/themes/${theme}/${theme}.json`],
@@ -14,12 +13,16 @@ const configs = themes.map(theme => ({
   platforms: {
     css: buildPlatform({ 
       name: 'css', 
-      dest: `${theme}.css`,
+      destination: `${theme}.css`,
     }),
     tailwind: buildPlatform({
       name: 'tailwind',
-      dest: `${theme}.js`,
-    })
+      destination: `${theme}.js`,
+    }),
+    figma: buildPlatform({
+      name: 'figma',
+      destination: `${theme}.json`,
+    }),
   }
 }))
 

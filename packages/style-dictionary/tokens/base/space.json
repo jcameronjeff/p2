@@ -1,34 +1,134 @@
 {
   "space": {
-    "px": { "value": "1px", "description": "Space - 1px" },
-    "0": { "value": "0px", "description": "Space - 0px" },
-    "5": { "value": "2px", "description": "Space - 2px" },
-    "10": { "value": "4px", "description": "Space - 4px" },
-    "15": { "value": "6px", "description": "Space - 6px" },
-    "20": { "value": "8px", "description": "Space - 8px" },
-    "25": { "value": "10px", "description": "Space - 10px" },
-    "30": { "value": "12px", "description": "Space - 12px" },
-    "35": { "value": "14px", "description": "Space - 14px" },
-    "40": { "value": "16px", "description": "Space - 16px" },
-    "50": { "value": "20px", "description": "Space - 20px" },
-    "60": { "value": "24px", "description": "Space - 24px" },
-    "80": { "value": "32px", "description": "Space - 32px" },
-    "100": { "value": "40px", "description": "Space - 40px" },
-    "120": { "value": "48px", "description": "Space - 48px" },
+    "px": {
+      "value": "1px",
+      "type": "spacing",
+      "description": "Space - 1px"
+    },
+    "0": {
+      "value": "0px",
+      "type": "spacing",
+      "description": "Space - 0px"
+    },
+    "5": {
+      "value": "0.2rem",
+      "type": "spacing",
+      "description": "Space - 2px"
+    },
+    "10": {
+      "value": "0.4rem",
+      "type": "spacing",
+      "description": "Space - 4px"
+    },
+    "15": {
+      "value": "0.6rem",
+      "type": "spacing",
+      "description": "Space - 6px"
+    },
+    "20": {
+      "value": "0.8rem",
+      "type": "spacing",
+      "description": "Space - 8px"
+    },
+    "25": {
+      "value": "1.0rem",
+      "type": "spacing",
+      "description": "Space - 10px"
+    },
+    "30": {
+      "value": "1.2rem",
+      "type": "spacing",
+      "description": "Space - 12px"
+    },
+    "35": {
+      "value": "1.4rem",
+      "type": "spacing",
+      "description": "Space - 14px"
+    },
+    "40": {
+      "value": "1.6rem",
+      "type": "spacing",
+      "description": "Space - 16px"
+    },
+    "50": {
+      "value": "2.0rem",
+      "type": "spacing",
+      "description": "Space - 20px"
+    },
+    "60": {
+      "value": "2.4rem",
+      "type": "spacing",
+      "description": "Space - 24px"
+    },
+    "80": {
+      "value": "3.2rem",
+      "type": "spacing",
+      "description": "Space - 32px"
+    },
+    "100": {
+      "value": "4.0rem",
+      "type": "spacing",
+      "description": "Space - 40px"
+    },
+    "120": {
+      "value": "4.8rem",
+      "type": "spacing",
+      "description": "Space - 48px"
+    },
     "font": {
       "leading": {
-        "none": { "value": "100%", "description": "Line Height - 100%" },
-        "tight": { "value": "115%", "description": "Line Height - 115%" },
-        "snug": { "value": "120%", "description": "Line Height - 120%" },
-        "normal": { "value": "125%", "description": "Line Height - 125%" },
-        "loose  ": { "value": "130%", "description": "Line Height - 130%" }
+        "none": {
+          "value": "100%",
+          "type": "lineHeight",
+          "description": "Line Height - 100%"
+        },
+        "tight": {
+          "value": "115%",
+          "type": "lineHeight",
+          "description": "Line Height - 115%"
+        },
+        "snug": {
+          "value": "120%",
+          "type": "lineHeight",
+          "description": "Line Height - 120%"
+        },
+        "normal": {
+          "value": "125%",
+          "type": "lineHeight",
+          "description": "Line Height - 125%"
+        },
+        "loose": {
+          "value": "130%",
+          "type": "lineHeight",
+          "description": "Line Height - 130%"
+        }
       },
       "tracking": {
-        "tighter": { "value": "-4%", "description": "Letter Spacing - -4%" },
-        "tight": { "value": "-1%", "description": "Letter Spacing - -1%" },
-        "normal": { "value": "0%", "description": "Letter Spacing - 0%" },
-        "wide": { "value": "2%", "description": "Letter Spacing - 2%" },
-        "wider": { "value": "4%", "description": "Letter Spacing -4% " }
+        "tighter": {
+          "value": "-4%",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - -4%"
+        },
+        "tight": {
+          "value": "-1%",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - -1%"
+        },
+        "normal": {
+          "value": "0%",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - 0%"
+        },
+        "wide": {
+          "value": "2%",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - 2%"
+        },
+        "wider": {
+          "value": "4%",
+          "type": "letterSpacing",
+          "description": "Letter Spacing -4% "
+        }
       }
     }
   }

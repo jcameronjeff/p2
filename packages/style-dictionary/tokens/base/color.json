@@ -1,305 +1,388 @@
 {
   "color": {
-    "transparent": { "value": "rgba(0,0,0,0)", "description": "Color - Transparent" },
-    "white": { "value": "#ffffff", "description": "Color - White" },
-    "black": { "value": "#000000", "description": "Color - Black" },
+    "transparent": {
+      "value": "rgba(0,0,0,0)",
+      "type": "color",
+      "description": "Color - Transparent"
+    },
+    "white": {
+      "value": "#ffffff",
+      "type": "color",
+      "description": "Color - White"
+    },
+    "black": {
+      "value": "#000000",
+      "type": "color",
+      "description": "Color - Black"
+    },
     "gray": {
       "50": {
         "value": "#f4f4f4",
+        "type": "color",
         "description": "Neutral Gray - 50"
       },
       "100": {
         "value": "#e3e3e3",
+        "type": "color",
         "description": "Neutral Gray - 100"
       },
       "200": {
         "value": "#cccccc",
+        "type": "color",
         "description": "Neutral Gray - 200"
       },
       "300": {
         "value": "#b2b2b2",
+        "type": "color",
         "description": "Neutral Gray - 300"
       },
       "400": {
         "value": "#959595",
+        "type": "color",
         "description": "Neutral Gray - 400"
       },
       "500": {
         "value": "#828282",
+        "type": "color",
         "description": "Neutral Gray - 500"
       },
       "600": {
         "value": "#6d6d6d",
+        "type": "color",
         "description": "Neutral Gray - 600"
       },
       "700": {
         "value": "#5a5a5a",
+        "type": "color",
         "description": "Neutral Gray - 700"
       },
       "800": {
         "value": "#4a4a4a",
+        "type": "color",
         "description": "Neutral Gray - 800"
       },
       "900": {
         "value": "#333333",
+        "type": "color",
         "description": "Neutral Gray - 900"
       }
     },
     "blue": {
       "50": {
         "value": "#ebf6ff",
+        "type": "color",
         "description": "Blue - 50"
       },
       "100": {
         "value": "#cce8ff",
+        "type": "color",
         "description": "Blue - 100"
       },
       "200": {
         "value": "#a3d0f5",
+        "type": "color",
         "description": "Blue - 200"
       },
       "300": {
         "value": "#81b7e4",
+        "type": "color",
         "description": "Blue - 300"
       },
       "400": {
         "value": "#57a0db",
+        "type": "color",
         "description": "Blue - 400"
       },
       "500": {
         "value": "#318ad3",
+        "type": "color",
         "description": "Blue - 500"
       },
       "600": {
         "value": "#2372b8",
+        "type": "color",
         "description": "Blue - 600"
       },
       "700": {
         "value": "#005ba8",
+        "type": "color",
         "description": "Blue - 700 (Manheim Primary Blue)"
       },
       "800": {
         "value": "#004986",
+        "type": "color",
         "description": "Blue - 800"
       },
       "900": {
         "value": "#003468",
+        "type": "color",
         "description": "Blue - 900 (Manheim Navy)"
       },
       "1000": {
         "value": "#001b35",
+        "type": "color",
         "description": "Blue - 1000 (Manheim Navy Dark)"
-      }  
+      }
     },
     "green": {
       "50": {
         "value": "#e9f6e5",
+        "type": "color",
         "description": "Green - 50"
       },
       "100": {
         "value": "#c9eabf",
+        "type": "color",
         "description": "Green - 100"
       },
       "200": {
         "value": "#9fda8e",
+        "type": "color",
         "description": "Green - 200"
       },
       "300": {
         "value": "#6cc651",
+        "type": "color",
         "description": "Green - 300"
       },
       "400": {
         "value": "#53ac39",
+        "type": "color",
         "description": "Green - 400"
       },
       "500": {
         "value": "#479230",
+        "type": "color",
         "description": "Green - 500"
       },
       "600": {
         "value": "#3c7b29",
+        "type": "color",
         "description": "Green - 600"
       },
       "700": {
         "value": "#326622",
+        "type": "color",
         "description": "Green - 700"
       },
       "800": {
         "value": "#28541a",
+        "type": "color",
         "description": "Green - 800"
       },
       "900": {
         "value": "#203a17",
+        "type": "color",
         "description": "Green - 900"
-      }  
+      }
     },
     "amber": {
       "50": {
         "value": "#fff0e6",
+        "type": "color",
         "description": "Amber - 50"
       },
       "100": {
         "value": "#ffdbc3",
+        "type": "color",
         "description": "Amber - 100"
       },
       "200": {
         "value": "#ffbd93",
+        "type": "color",
         "description": "Amber - 200"
       },
       "300": {
         "value": "#ff995a",
+        "type": "color",
         "description": "Amber - 300"
       },
       "400": {
         "value": "#f87216",
+        "type": "color",
         "description": "Amber - 400"
       },
       "500": {
         "value": "#d26217",
+        "type": "color",
         "description": "Amber - 500"
       },
       "600": {
         "value": "#b05417",
+        "type": "color",
         "description": "Amber - 600"
       },
       "700": {
         "value": "#924719",
+        "type": "color",
         "description": "Amber - 700"
       },
       "800": {
         "value": "#773a15",
+        "type": "color",
         "description": "Amber - 800"
       },
       "900": {
         "value": "#512912",
+        "type": "color",
         "description": "Amber - 900"
-      }  
+      }
     },
     "red": {
       "50": {
         "value": "#ffeae7",
+        "type": "color",
         "description": "Red - 50"
       },
       "100": {
         "value": "#ffd6cf",
+        "type": "color",
         "description": "Red - 100"
       },
       "200": {
         "value": "#ffb6aa",
+        "type": "color",
         "description": "Red - 200"
       },
       "300": {
         "value": "#f99384",
+        "type": "color",
         "description": "Red - 300"
       },
       "400": {
         "value": "#f06f61",
+        "type": "color",
         "description": "Red - 400"
       },
       "500": {
         "value": "#e44941",
+        "type": "color",
         "description": "Red - 500"
       },
       "600": {
         "value": "#d41e27",
+        "type": "color",
         "description": "Red - 600"
       },
       "700": {
         "value": "#b11d23",
+        "type": "color",
         "description": "Red - 700"
       },
       "800": {
         "value": "#94141b",
+        "type": "color",
         "description": "Red - 800"
       },
       "900": {
         "value": "#6f0000",
+        "type": "color",
         "description": "Red - 900"
-      }  
+      }
     },
     "gold": {
       "50": {
         "value": "#fff7e0",
+        "type": "color",
         "description": "Gold - 50"
       },
       "100": {
         "value": "#fff0c2",
+        "type": "color",
         "description": "Gold - 100"
       },
       "200": {
         "value": "#ffe699",
+        "type": "color",
         "description": "Gold - 200"
       },
       "300": {
         "value": "#ffd966",
+        "type": "color",
         "description": "Gold - 300"
       },
       "400": {
         "value": "#ffc20e",
+        "type": "color",
         "description": "Gold - 400 (Manheim Gold)"
       },
       "500": {
         "value": "#ebb000",
+        "type": "color",
         "description": "Gold - 500"
       },
       "600": {
         "value": "#b38600",
+        "type": "color",
         "description": "Gold - 600"
       },
       "700": {
         "value": "#8f6b00",
+        "type": "color",
         "description": "Gold - 700"
       },
       "800": {
         "value": "#664d00",
+        "type": "color",
         "description": "Gold - 800"
       },
       "900": {
         "value": "#4d3900",
+        "type": "color",
         "description": "Gold - 900"
       }
     },
     "fuchsia": {
       "50": {
         "value": "#fcf1f7",
+        "type": "color",
         "description": "Fuchsia - 50"
       },
       "100": {
         "value": "#f8daeb",
+        "type": "color",
         "description": "Fuchsia - 100"
       },
       "200": {
         "value": "#f2bddb",
+        "type": "color",
         "description": "Fuchsia - 200"
       },
       "300": {
         "value": "#eb9ac8",
+        "type": "color",
         "description": "Fuchsia - 300"
       },
       "400": {
         "value": "#e474b2",
+        "type": "color",
         "description": "Fuchsia - 400"
       },
       "500": {
         "value": "#dc4a9b",
+        "type": "color",
         "description": "Fuchsia - 500"
       },
       "600": {
         "value": "#ca2780",
+        "type": "color",
         "description": "Fuchsia - 600"
       },
       "700": {
         "value": "#a9216a",
+        "type": "color",
         "description": "Fuchsia - 700"
       },
       "800": {
         "value": "#8c1d58",
+        "type": "color",
         "description": "Fuchsia - 800"
       },
       "900": {
         "value": "#62133d",
+        "type": "color",
         "description": "Fuchsia - 900"
-      }  
+      }
     }
   }
 }

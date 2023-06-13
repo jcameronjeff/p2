@@ -1,6 +1,6 @@
 import { AppHeader } from './layout/AppHeader';
 import './App.css';
-import '@prism2/style-dictionary/build/css/default.css';
+import '@prism2/style-dictionary/build/css/cais.css';
 import { SearchResults } from './layout/SearchResults';
 import { AppSidebar } from './layout/Sidebar';
 import { useTimeout } from 'react-use';

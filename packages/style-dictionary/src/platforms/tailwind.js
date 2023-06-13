@@ -4,8 +4,10 @@ const tailwind = {
     'name/cti/kebab', 
     'color/hsl', 
     'math/calc',
-    'size/rem',
- ],
+    'math/eval',
+    'ts/shadow/css/shorthand'
+  ],
+  basePxFontSize: 10,
   buildPath: 'build/tailwind/',
   files: [{
     destination: 'base.js',

@@ -2,29 +2,22 @@ const StyleDictionary = require('style-dictionary')
 const css = require('./css')
 const scss = require('./scss')
 const tailwind = require('./tailwind')
+const figma = require('./figma')
 
-const platforms = { css, scss, tailwind }
+const platforms = { css, scss, tailwind, figma }
 
-const buildPlatform = ({ name, dest, transforms }) => {
-  const p = JSON.parse(JSON.stringify(platforms[name] || {}))
+const buildPlatform = ({ name, destination }) => {
+  const platform = platforms[name]
 
-  if (transforms) {
-    let ts = []
-
-    if (p.transformGroup) {
-      const transformsByGroup = StyleDictionary.transformGroup[p.transformGroup] || []
-      ts = [...transformsByGroup]
-    }
-
-    if (p.transforms) {
-      ts = [...ts, ...p.transforms]
-    }
-
-    p.transforms = [...ts, ...transforms]
+  if (!platform) {
+    return null
   }
 
-  p.files = p.files.map((file) => ({ ...file, destination: dest }))
-  return p
+  if (destination) {
+    platform.files = platform.files.map((file) => ({ ...file, destination }))
+  }
+
+  return platform
 }
 
 module.exports = { ...platforms, platforms, buildPlatform }

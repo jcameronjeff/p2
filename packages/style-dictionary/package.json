@@ -12,8 +12,10 @@
     "build"
   ],
   "dependencies": {
+    "@csstools/css-calc": "^1.1.1",
     "@divriots/style-dictionary-to-figma": "^0.4.0",
     "prettier": "^2.8.4",
+    "@tokens-studio/sd-transforms": "^0.9.3",
     "style-dictionary": "^3.7.2",
     "style-dictionary-utils": "^1.1.0"
   },

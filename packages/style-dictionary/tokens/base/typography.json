@@ -1,0 +1,963 @@
+{
+  "typography": {
+    "fontFamily": {
+      "h1": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 1"
+      },
+      "h2": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 2"
+      },
+      "h3": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 3"
+      },
+      "h4": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 4"
+      },
+      "h5": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 5"
+      },
+      "h6": {
+        "value": "{style.font.family.sans}",
+        "type": "fontFamily",
+        "description": "Font Family - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Body Base"
+        },
+        "sm": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Body SM"
+        },
+        "xs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Body XS"
+        },
+        "xxs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Anchor Base"
+        },
+        "sm": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Anchor SM"
+        },
+        "xs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Anchor XS"
+        },
+        "xxs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Strong Base"
+        },
+        "sm": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Strong SM"
+        },
+        "xs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Strong XS"
+        },
+        "xxs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Underline Base"
+        },
+        "sm": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Underline SM"
+        },
+        "xs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Underline XS"
+        },
+        "xxs": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Label SM"
+        },
+        "md": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Label MD"
+        },
+        "lg": {
+          "value": "{style.font.family.sans}",
+          "type": "fontFamily",
+          "description": "Font Family - Label LG"
+        }
+      }
+    },
+    "fontWeight": {
+      "h1": {
+        "value": "{style.font.weight.bold}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 1"
+      },
+      "h2": {
+        "value": "{style.font.weight.bold}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 2"
+      },
+      "h3": {
+        "value": "{style.font.weight.semibold}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 3"
+      },
+      "h4": {
+        "value": "{style.font.weight.medium}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 4"
+      },
+      "h5": {
+        "value": "{style.font.weight.semibold}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 5"
+      },
+      "h6": {
+        "value": "{style.font.weight.semibold}",
+        "type": "fontWeight",
+        "description": "Font Weight - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Body Base"
+        },
+        "sm": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Body SM"
+        },
+        "xs": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Body XS"
+        },
+        "xxs": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Anchor Base"
+        },
+        "sm": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Anchor SM"
+        },
+        "xs": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Anchor XS"
+        },
+        "xxs": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "{style.font.weight.semibold}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong Base"
+        },
+        "sm": {
+          "value": "{style.font.weight.semibold}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong SM"
+        },
+        "xs": {
+          "value": "{style.font.weight.semibold}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong XS"
+        },
+        "xxs": {
+          "value": "{style.font.weight.semibold}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong Base"
+        },
+        "sm": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong SM"
+        },
+        "xs": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong XS"
+        },
+        "xxs": {
+          "value": "{style.font.weight.medium}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong SM"
+        },
+        "md": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong MD"
+        },
+        "lg": {
+          "value": "{style.font.weight.regular}",
+          "type": "fontWeight",
+          "description": "Font Weight - Strong LG"
+        }
+      }
+    },
+    "lineHeight": {
+      "h1": {
+        "value": "{space.font.leading.tight}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 1"
+      },
+      "h2": {
+        "value": "{space.font.leading.tight}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 2"
+      },
+      "h3": {
+        "value": "{space.font.leading.snug}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 3"
+      },
+      "h4": {
+        "value": "{space.font.leading.snug}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 4"
+      },
+      "h5": {
+        "value": "{space.font.leading.snug}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 5"
+      },
+      "h6": {
+        "value": "{space.font.leading.snug}",
+        "type": "lineHeight",
+        "description": "Line Height - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "{space.font.leading.normal}",
+          "type": "lineHeight",
+          "description": "Line Height - Body Base"
+        },
+        "sm": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Body SM"
+        },
+        "xs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Body XS"
+        },
+        "xxs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "{space.font.leading.normal}",
+          "type": "lineHeight",
+          "description": "Line Height - Anchor Base"
+        },
+        "sm": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Anchor SM"
+        },
+        "xs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Anchor XS"
+        },
+        "xxs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "{space.font.leading.normal}",
+          "type": "lineHeight",
+          "description": "Line Height - Strong Base"
+        },
+        "sm": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Strong SM"
+        },
+        "xs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Strong XS"
+        },
+        "xxs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{space.font.leading.normal}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline Base"
+        },
+        "sm": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline SM"
+        },
+        "xs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline XS"
+        },
+        "xxs": {
+          "value": "{space.font.leading.loose}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "{space.font.leading.tight}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline SM"
+        },
+        "md": {
+          "value": "{space.font.leading.tight}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline MD"
+        },
+        "lg": {
+          "value": "{space.font.leading.tight}",
+          "type": "lineHeight",
+          "description": "Line Height - Underline LG"
+        }
+      }
+    },
+    "fontSize": {
+      "h1": {
+        "value": "{size.font.3xl}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 1"
+      },
+      "h2": {
+        "value": "{size.font.2xl}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 2"
+      },
+      "h3": {
+        "value": "{size.font.xl}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 3"
+      },
+      "h4": {
+        "value": "{size.font.lg}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 4"
+      },
+      "h5": {
+        "value": "{size.font.md}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 5"
+      },
+      "h6": {
+        "value": "{size.font.sm}",
+        "type": "fontSize",
+        "description": "Font Size - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "{size.font.md}",
+          "type": "fontSize",
+          "description": "Font Size - Body Base"
+        },
+        "sm": {
+          "value": "{size.font.sm}",
+          "type": "fontSize",
+          "description": "Font Size - Body SM"
+        },
+        "xs": {
+          "value": "{size.font.xs}",
+          "type": "fontSize",
+          "description": "Font Size - Body XS"
+        },
+        "xxs": {
+          "value": "{size.font.xxs}",
+          "type": "fontSize",
+          "description": "Font Size - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "{size.font.md}",
+          "type": "fontSize",
+          "description": "Font Size - Anchor Base"
+        },
+        "sm": {
+          "value": "{size.font.sm}",
+          "type": "fontSize",
+          "description": "Font Size - Anchor SM"
+        },
+        "xs": {
+          "value": "{size.font.xs}",
+          "type": "fontSize",
+          "description": "Font Size - Anchor XS"
+        },
+        "xxs": {
+          "value": "{size.font.xxs}",
+          "type": "fontSize",
+          "description": "Font Size - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "{size.font.md}",
+          "type": "fontSize",
+          "description": "Font Size - Strong Base"
+        },
+        "sm": {
+          "value": "{size.font.sm}",
+          "type": "fontSize",
+          "description": "Font Size - Strong SM"
+        },
+        "xs": {
+          "value": "{size.font.xs}",
+          "type": "fontSize",
+          "description": "Font Size - Strong XS"
+        },
+        "xxs": {
+          "value": "{size.font.xxs}",
+          "type": "fontSize",
+          "description": "Font Size - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{size.font.md}",
+          "type": "fontSize",
+          "description": "Font Size - Underline Base"
+        },
+        "sm": {
+          "value": "{size.font.sm}",
+          "type": "fontSize",
+          "description": "Font Size - Underline SM"
+        },
+        "xs": {
+          "value": "{size.font.xs}",
+          "type": "fontSize",
+          "description": "Font Size - Underline XS"
+        },
+        "xxs": {
+          "value": "{size.font.xxs}",
+          "type": "fontSize",
+          "description": "Font Size - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "{size.font.xs}",
+          "type": "fontSize",
+          "description": "Font Size - Label SM"
+        },
+        "md": {
+          "value": "{size.font.sm}",
+          "type": "fontSize",
+          "description": "Font Size - Label MD"
+        },
+        "lg": {
+          "value": "{size.font.lg}",
+          "type": "fontSize",
+          "description": "Font Size - Label LG"
+        }
+      }
+    },
+    "letterSpacing": {
+      "h1": {
+        "value": "{space.font.tracking.tight}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 1"
+      },
+      "h2": {
+        "value": "{space.font.tracking.normal}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 2"
+      },
+      "h3": {
+        "value": "{space.font.tracking.normal}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 3"
+      },
+      "h4": {
+        "value": "{space.font.tracking.normal}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 4"
+      },
+      "h5": {
+        "value": "{space.font.tracking.normal}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 5"
+      },
+      "h6": {
+        "value": "{space.font.tracking.normal}",
+        "type": "letterSpacing",
+        "description": "Letter Spacing - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Body Base"
+        },
+        "sm": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Body SM"
+        },
+        "xs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Body XS"
+        },
+        "xxs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Anchor Base"
+        },
+        "sm": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Anchor SM"
+        },
+        "xs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Anchor XS"
+        },
+        "xxs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Strong Base"
+        },
+        "sm": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Strong SM"
+        },
+        "xs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Strong XS"
+        },
+        "xxs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Underline Base"
+        },
+        "sm": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Underline SM"
+        },
+        "xs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Underline XS"
+        },
+        "xxs": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Label SM"
+        },
+        "md": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Label MD"
+        },
+        "lg": {
+          "value": "{space.font.tracking.normal}",
+          "type": "letterSpacing",
+          "description": "Letter Spacing - Label LG"
+        }
+      }
+    },
+    "textDecoration": {
+      "h1": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 1"
+      },
+      "h2": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 2"
+      },
+      "h3": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 3"
+      },
+      "h4": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 4"
+      },
+      "h5": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 5"
+      },
+      "h6": {
+        "value": "",
+        "type": "textDecoration",
+        "description": "Text Decoration - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Body Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Body SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Body XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Anchor Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Anchor SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Anchor XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Strong Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Strong SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Strong XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "{style.font.decoration.underline}",
+          "type": "textDecoration",
+          "description": "Text Decoration - Underline Base"
+        },
+        "sm": {
+          "value": "{style.font.decoration.underline}",
+          "type": "textDecoration",
+          "description": "Text Decoration - Underline SM"
+        },
+        "xs": {
+          "value": "{style.font.decoration.underline}",
+          "type": "textDecoration",
+          "description": "Text Decoration - Underline XS"
+        },
+        "xxs": {
+          "value": "{style.font.decoration.underline}",
+          "type": "textDecoration",
+          "description": "Text Decoration - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Label SM"
+        },
+        "md": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Label MD"
+        },
+        "lg": {
+          "value": "",
+          "type": "textDecoration",
+          "description": "Text Decoration - Label LG"
+        }
+      }
+    },
+    "textTransform": {
+      "h1": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 1"
+      },
+      "h2": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 2"
+      },
+      "h3": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 3"
+      },
+      "h4": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 4"
+      },
+      "h5": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 5"
+      },
+      "h6": {
+        "value": "{style.font.transform.capitalize}",
+        "type": "textTransform",
+        "description": "Text Transform - Heading Level 6"
+      },
+      "body": {
+        "base": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Body Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Body SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Body XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Body XXS"
+        }
+      },
+      "anchor": {
+        "base": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Anchor Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Anchor SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Anchor XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Anchor XXS"
+        }
+      },
+      "strong": {
+        "base": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Strong Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Strong SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Strong XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Strong XXS"
+        }
+      },
+      "underline": {
+        "base": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Underline Base"
+        },
+        "sm": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Underline SM"
+        },
+        "xs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Underline XS"
+        },
+        "xxs": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Underline XXS"
+        }
+      },
+      "label": {
+        "sm": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Label SM"
+        },
+        "md": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Label MD"
+        },
+        "lg": {
+          "value": "",
+          "type": "textTransform",
+          "description": "Text Transform - Label LG"
+        }
+      }
+    }
+  }
+}
