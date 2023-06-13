@@ -135,7 +135,7 @@ const config = {
         copyright: `Interstate Design System. Copyright © ${new Date().getFullYear()} Cox Automotive Inc. All Rights Reserved.`,
       },
       prism: {
-        theme: lightCodeTheme,
+        theme: require('prism-react-renderer/themes/nightOwl'),
         darkTheme: darkCodeTheme,
       },
     }),
