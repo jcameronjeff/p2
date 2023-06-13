@@ -44,5 +44,5 @@ jobs:
             export NODE_OPTIONS="--max_old_space_size=4096"
             BASE=/prism/prism2 pnpm run deploy
           env:
-            GITHUB_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
+            GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
 
