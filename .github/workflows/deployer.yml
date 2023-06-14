@@ -14,11 +14,10 @@ jobs:
       environment:
         name: development
         url: https://pages.ghe.coxautoinc.com/prism/prism2/
-      # To use Remote Caching, uncomment the next lines and follow the steps below.
       env:
         GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
-        # GH_USERNAME: man.TeamPrism
-        # GH_EMAIL: man.TeamPrism@coxautoinc.com
+        # To use Remote Caching, uncomment the next lines and follow the steps below.
+        # TURBO_TOKEN: ${{ secrets.TURBO_TOKEN }}
         # TURBO_TEAM: ${{ secrets.TURBO_TEAM }}
       strategy:
         matrix:
@@ -49,5 +48,3 @@ jobs:
             GH_USERNAME: man.TeamPrism
             GH_EMAIL: man.TeamPrism@coxautoinc.com
             GITHUB_TOKEN: ${{ secrets.GH_DEPLOY_TOKEN }}
-            
-
