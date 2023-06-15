@@ -50,15 +50,30 @@
       "type": "spacing",
       "description": "Space - 16px"
     },
+    "45": {
+      "value": "1.8rem",
+      "type": "spacing",
+      "description": "Space - 18px"
+    },
     "50": {
       "value": "2.0rem",
       "type": "spacing",
       "description": "Space - 20px"
     },
+    "55": {
+      "value": "2.2rem",
+      "type": "spacing",
+      "description": "Space - 22px"
+    },
     "60": {
       "value": "2.4rem",
       "type": "spacing",
       "description": "Space - 24px"
+    },
+    "70": {
+      "value": "2.8rem",
+      "type": "spacing",
+      "description": "Space - 28px"
     },
     "80": {
       "value": "3.2rem",

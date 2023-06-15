@@ -8,8 +8,8 @@ const linkPlugin = function({ addComponents, theme }) {
       fontWeight: 'medium',
       color: theme('textColor.link.rest'),
       '.icon': {
-        width: theme('width[4]'),
-        height: theme('height[4]'),
+        width: theme('width.40'),
+        height: theme('height.40'),
       },
     },
     [`.${name}-inline`]: {
@@ -19,57 +19,57 @@ const linkPlugin = function({ addComponents, theme }) {
     [`.${name}-xxs`]: {
       fontSize: theme('fontSize.xxs'),
       '.icon': {
-        width: theme('width[2.5]'),
-        height: theme('height[2.5]'),
+        width: theme('width.25'),
+        height: theme('height.25'),
       },
     },
     [`.${name}-xs`]: {
       fontSize: theme('fontSize.xs'),
       '.icon': {
-        width: theme('width[3]'),
-        height: theme('height[3]'),
+        width: theme('width.30'),
+        height: theme('height.30'),
       },
     },
     [`.${name}-sm`]: {
       fontSize: theme('fontSize.sm'),
       '.icon': {
-        width: theme('width[3.5]'),
-        height: theme('height[3.5]'),
+        width: theme('width.35'),
+        height: theme('height.35'),
       },
     },
     [`.${name}-md`]: {
       fontSize: theme('fontSize.md'),
       '.icon': {
-        width: theme('width[4]'),
-        height: theme('height[4]'),
+        width: theme('width.40'),
+        height: theme('height.40'),
       },
     },
     [`.${name}-lg`]: {
       fontSize: theme('fontSize.lg'),
       '.icon': {
-        width: theme('width[4.5]'),
-        height: theme('height[4.5]'),
+        width: theme('width.45'),
+        height: theme('height.45'),
       },
     },
     [`.${name}-xl`]: {
       fontSize: theme('fontSize.xl'),
       '.icon': {
-        width: theme('width[5]'),
-        height: theme('height[5]'),
+        width: theme('width.50'),
+        height: theme('height.50'),
       },
     },
     [`.${name}-2xl`]: {
       fontSize: theme('fontSize.2xl'),
       '.icon': {
-        width: theme('width[5.5]'),
-        height: theme('height[5.5]'),
+        width: theme('width.55'),
+        height: theme('height.55'),
       },
     },
     [`.${name}-3xl`]: {
       fontSize: theme('fontSize.3xl'),
       '.icon': {
-        width: theme('width[7]'),
-        height: theme('height[7]'),
+        width: theme('width.70'),
+        height: theme('height.70'),
       },
     },
     [`.${name}-visited`]: {

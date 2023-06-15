@@ -159,7 +159,8 @@ const jsTailwind = {
       ['color.on-surface', 'textColor'],
       ['color.border', 'borderColor'],
       ['size.font', 'fontSize'],
-      ['size.border.radius', 'borderRadius']
+      ['size.border.radius', 'borderRadius'],
+      ['space', 'spacing'],
     ]
     allTokens = moveTokens(allTokens, paths, true)
 
