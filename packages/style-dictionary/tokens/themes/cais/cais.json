@@ -226,6 +226,9 @@
             "type": "color"
           }
         }
+      },
+      "hover": {
+        "value": "{color.blue.50}"
       }
     },
     "on-surface": {

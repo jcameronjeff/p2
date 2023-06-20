@@ -120,7 +120,7 @@ const moveTokens = (tokens, paths, removeWhenFound = false) => (
     }
 
     let dest = tokenSet
-    
+
     destPath.split('.').forEach((step, i, steps) => {
       if (!dest[step]) {
         dest[step] = {}
@@ -129,6 +129,8 @@ const moveTokens = (tokens, paths, removeWhenFound = false) => (
       if (steps.length === i + 1) {
         dest[step] = src     
       }
+
+      dest = dest[step]
     })
       
     return tokenSet
@@ -146,7 +148,7 @@ const jsTailwind = {
     }, {})
 
     // Merge colors across color names (e.g. Success color values across surface.success)
-    const types = ['surface', 'onSurface', 'border']
+    const types = ['surface', 'on-surface', 'border']
     types.forEach(type => {
       if (allTokens.color[type]) {
         allTokens.color[type] = mergeColorValues(allTokens.color[type], allTokens.color)
@@ -161,6 +163,7 @@ const jsTailwind = {
       ['size.font', 'fontSize'],
       ['size.border.radius', 'borderRadius'],
       ['space', 'spacing'],
+      ['typography.default', 'typography.DEFAULT.css']
     ]
     allTokens = moveTokens(allTokens, paths, true)
 

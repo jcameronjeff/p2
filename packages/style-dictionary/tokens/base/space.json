@@ -98,22 +98,22 @@
           "description": "Line Height - 100%"
         },
         "tight": {
-          "value": "115%",
+          "value": "1.15",
           "type": "lineHeight",
           "description": "Line Height - 115%"
         },
         "snug": {
-          "value": "120%",
+          "value": "1.20",
           "type": "lineHeight",
           "description": "Line Height - 120%"
         },
         "normal": {
-          "value": "125%",
+          "value": "1.25",
           "type": "lineHeight",
           "description": "Line Height - 125%"
         },
         "loose": {
-          "value": "130%",
+          "value": "1.30",
           "type": "lineHeight",
           "description": "Line Height - 130%"
         }
