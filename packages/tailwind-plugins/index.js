@@ -1,12 +1,10 @@
-const plugin = require('tailwindcss/plugin');
-const twPlugins = require('./src/index')
+const twPlugins = require('./src');
 
-
-module.exports = Object.entries(twPlugins).reduce((acc, cur) => {
-  const [name, fn] = cur
+module.exports = Object.values(twPlugins).reduce((acc, cur) => {
+  const { name, fn, plugin } = cur
 
   acc.fn[name] = fn
-  acc.plugins.push(plugin(fn))
+  acc.plugins.push(plugin)
 
   return acc
 }, { plugins: [], fn: {} })

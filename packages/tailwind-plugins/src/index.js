@@ -1,4 +1,4 @@
-const avatar = require('./elements/avatar.js')
-const link = require('./elements/link.js')
+const components = require('./components')
+const elements = require('./elements')
 
-module.exports = { avatar, link }
+module.exports = { ...elements, ...components }

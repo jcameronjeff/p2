@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin');
 const name = 'avatar'
 
 const avatarPlugin = function({ addComponents, theme }) {
@@ -66,4 +67,8 @@ const avatarPlugin = function({ addComponents, theme }) {
   });
 };
 
-module.exports = avatarPlugin
+module.exports = {
+  name,
+  fn: avatarPlugin,
+  plugin: plugin(avatarPlugin)
+}

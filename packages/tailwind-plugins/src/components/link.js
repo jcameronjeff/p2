@@ -1,3 +1,4 @@
+const plugin = require('tailwindcss/plugin')
 const name = 'link'
 
 const linkPlugin = function({ addComponents, theme }) {
@@ -81,4 +82,8 @@ const linkPlugin = function({ addComponents, theme }) {
   });
 };
 
-module.exports = linkPlugin
+module.exports = {
+  name,
+  fn: linkPlugin,
+  plugin: plugin(linkPlugin)
+}
