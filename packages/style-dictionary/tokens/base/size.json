@@ -1,144 +1,69 @@
 {
   "size": {
-    "px": {
-      "value": "1px",
-      "type": "size",
-      "description": "Space - 1px"
-    },
-    "0": {
-      "value": "0px",
-      "type": "size",
-      "description": "Space - 0px"
-    },
-    "5": {
-      "value": "2px",
-      "type": "size",
-      "description": "Space - 2px"
-    },
-    "10": {
-      "value": "4px",
-      "type": "size",
-      "description": "Space - 4px"
-    },
-    "15": {
-      "value": "6px",
-      "type": "size",
-      "description": "Space - 6px"
-    },
-    "20": {
-      "value": "8px",
-      "type": "size",
-      "description": "Space - 8px"
-    },
-    "25": {
-      "value": "10px",
-      "type": "size",
-      "description": "Space - 10px"
-    },
-    "30": {
-      "value": "12px",
-      "type": "size",
-      "description": "Space - 12px"
-    },
-    "35": {
-      "value": "14px",
-      "type": "size",
-      "description": "Space - 14px"
-    },
-    "40": {
-      "value": "16px",
-      "type": "size",
-      "description": "Space - 16px"
-    },
-    "50": {
-      "value": "20px",
-      "type": "size",
-      "description": "Space - 20px"
-    },
-    "60": {
-      "value": "24px",
-      "type": "size",
-      "description": "Space - 24px"
-    },
-    "80": {
-      "value": "32px",
-      "type": "size",
-      "description": "Space - 32px"
-    },
-    "100": {
-      "value": "40px",
-      "type": "size",
-      "description": "Space - 40px"
-    },
-    "120": {
-      "value": "48px",
-      "type": "size",
-      "description": "Space - 48px"
-    },
     "border": {
       "none": {
-        "value": "{size.0}",
+        "value": "{space.0}",
         "type": "borderWidth",
         "description": "Border Width - None"
       },
       "px": {
-        "value": "{size.px}",
+        "value": "{space.px}",
         "type": "borderWidth",
         "description": "Border Width - Base"
       },
       "sm": {
-        "value": "{size.5}",
+        "value": "{space.05}",
         "type": "borderWidth",
         "description": "Border Width - 2px"
       },
       "md": {
-        "value": "{size.10}",
+        "value": "{space.10}",
         "type": "borderWidth",
         "description": "Border Width - 4px"
       },
       "lg": {
-        "value": "{size.20}",
+        "value": "{space.20}",
         "type": "borderWidth",
         "description": "Border Width - 8px"
       },
       "radius": {
         "none": {
-          "value": "{size.0}",
+          "value": "{space.0}",
           "type": "borderRadius",
           "description": "Border Radius - None"
         },
         "xs": {
-          "value": "{size.5}",
+          "value": "{space.05}",
           "type": "borderRadius",
           "description": "Border Radius - 2px"
         },
         "sm": {
-          "value": "{size.10}",
+          "value": "{space.10}",
           "type": "borderRadius",
           "description": "Border Radius - 4px"
         },
         "md": {
-          "value": "{size.15}",
+          "value": "{space.15}",
           "type": "borderRadius",
           "description": "Border Radius - 6px"
         },
         "lg": {
-          "value": "{size.20}",
+          "value": "{space.20}",
           "type": "borderRadius",
           "description": "Border Radius - 8px"
         },
         "xl": {
-          "value": "{size.30}",
+          "value": "{space.30}",
           "type": "borderRadius",
           "description": "Border Radius - 12px"
         },
         "2xl": {
-          "value": "{size.40}",
+          "value": "{space.40}",
           "type": "borderRadius",
           "description": "Border Radius - 16px"
         },
         "3xl": {
-          "value": "{size.60}",
+          "value": "{space.60}",
           "type": "borderRadius",
           "description": "Border Radius - 24px"
         },
@@ -166,6 +91,12 @@
         "value": "{size.font.md} * 0.875",
         "type": "fontSizes",
         "description": "Font Size - 14px",
+        "category": "size"
+      },
+      "base": {
+        "value": "{size.font.md}",
+        "type": "fontSizes",
+        "description": "Font Size - 16px",
         "category": "size"
       },
       "md": {

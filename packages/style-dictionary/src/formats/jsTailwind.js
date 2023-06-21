@@ -137,10 +137,31 @@ const moveTokens = (tokens, paths, removeWhenFound = false) => (
   }, {...tokens})
 )
 
+/**
+ * Offsets the numeric values of token names. Returns the modified object. 
+ * @param {object} tokens Design Tokens object
+ * @returns Modified Design Tokens
+ * 
+ * @example
+ * Given { 5: 2px, 40: 10px, px: 1px }
+ * Returns { 0.5: 2px, 4: 10px, px: 1px }
+ */
+const offsetTokens = (tokens, offset = 0.1) => {
+  return Object.entries(tokens).reduce((acc, [tokenName, tokenValue]) => {
+    if (/\d+/.test(tokenName)) {
+      let offsetName = parseFloat(tokenName, 16) * offset
+      acc[offsetName] = tokenValue
+    } else {
+      acc[tokenName] = tokenValue
+    }
+    return acc
+  }, {})
+}
+
 const jsTailwind = {
   name: 'javascript/tailwind',
   formatter: ({ dictionary, platform, options, file }) => {
-    
+
     // Flatten values
     let allTokens = Object.keys(dictionary.tokens).reduce((acc, category) => {
       acc[category] = minifyDictionary(dictionary.tokens[category])
@@ -155,6 +176,9 @@ const jsTailwind = {
       }
     })
 
+    // Space token names are offset by 10. Need to divide names by 10 to correct for tailwind
+    allTokens.spacing = offsetTokens(allTokens.space)
+
     // move source tokens to new locations
     const paths = [
       ['color.surface', 'backgroundColor'],
@@ -162,7 +186,6 @@ const jsTailwind = {
       ['color.border', 'borderColor'],
       ['size.font', 'fontSize'],
       ['size.border.radius', 'borderRadius'],
-      ['space', 'spacing'],
       ['typography.default', 'typography.DEFAULT.css']
     ]
     allTokens = moveTokens(allTokens, paths, true)

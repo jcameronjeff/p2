@@ -11,14 +11,15 @@ const avatarPlugin = function({ addComponents, theme }) {
       backgroundColor: theme('backgroundColor.subtle'),
       border: `${theme('borderWidth.DEFAULT')} solid ${theme('colors.transparent')}`,
       borderRadius: theme('borderRadius.full'),
+      lineHeight: theme('space.font.leading.none'),
     },
     [`.${name}-xs`]: {
       width: theme('width.6'),
       height: theme('height.6'),
       fontSize: theme('fontSize.xxs'),
       svg: {
-        width: theme('width[3.5]'),
-        height: theme('height[3.5]'),
+        width: theme('width.3'),
+        height: theme('height.3'),
       },
     },
     [`.${name}-sm`]: {
@@ -26,8 +27,8 @@ const avatarPlugin = function({ addComponents, theme }) {
       height: theme('height.8'),
       fontSize: theme('fontSize.sm'),
       svg: {
-        width: theme('width.5'),
-        height: theme('height.5'),
+        width: theme('width.4'),
+        height: theme('height.4'),
       },
     },
     [`.${name}-md`]: {
@@ -35,8 +36,8 @@ const avatarPlugin = function({ addComponents, theme }) {
       height: theme('height.10'),
       fontSize: theme('fontSize.lg'),
       svg: {
-        width: theme('width.7'),
-        height: theme('height.7'),
+        width: theme('width.5'),
+        height: theme('height.5'),
       },
     },
     [`.${name}-lg`]: {
@@ -44,8 +45,8 @@ const avatarPlugin = function({ addComponents, theme }) {
       height: theme('height.12'),
       fontSize: theme('fontSize.2xl'),
       svg: {
-        width: theme('width.8'),
-        height: theme('height.8'),
+        width: theme('width.6'),
+        height: theme('height.6'),
       },
     },
     [`.${name}-clickable`]: {
