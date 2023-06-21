@@ -1,34 +1,24 @@
 import clsx from 'clsx';
 import UserIcon from '@prism2/icons/interstate/user.svg';
 
-## Recipe
-
 # Avatar Component Recipe Template
-
-<hr className='my-2' />
 
 ## Definition
 
-<section className='flex justify-center pt-2 gap-x-2'>
-  <span className='inline-flex text-sm sb-unstyled'>
+<section>
+  <span>
     An avatar is a representation of an individual user. It can be used as a
     link to an individual’s account content.
   </span>
 </section>
 
-<hr className='my-2' />
-
 ## Content
 
 An avatar should contain a scalable image of the user. If an image is not available, the avatar should display the user’s first and last initials. If neither is available, the avatar should display a generic person icon.
 
-<hr className='my-2' />
-
 ## Ingredients
 
 Avatars are made up of a combination of **elements** and **styles**. The styles will be made up of base, themeable, and **configurable** styles.
-
-<hr className='my-2' />
 
 ### Elements
 
@@ -38,19 +28,13 @@ Avatar elements consist of a `<div>` wrapper, can also be a `<span>` containing 
 - A background image within the url in the wrapper
 - A span element that contains the initials as text
 
-<hr className='my-2' />
-
 ### Base Styles
 
 - Base (Wrapper) Styles: `avatar flex items-center justify-center rounded-full`
 
 - Text Styles: `translate-y-[1px] text-2xl`
 
-<hr className='my-4' />
-
 ### Themeable Styles
-
-<hr className='my-2' />
 
 #### Clickable Styles:
 
@@ -59,8 +43,6 @@ Avatar elements consist of a `<div>` wrapper, can also be a `<span>` containing 
 - Icon Clickable Styles: `text-blue-700`
 - Text Clickable Styles: `text-blue-700`
 
-<hr className='my-2' />
-
 #### Non-Clickable Styles:
 
 - Wrapper Non-Clickable Styles: `bg-gray-100`
@@ -68,13 +50,9 @@ Avatar elements consist of a `<div>` wrapper, can also be a `<span>` containing 
 - Icon Non-Clickable Styles: `text-black`
 - Text Non-Clickable Styles: `text-black`
 
-<hr className='my-2' />
-
 ### Configurable Style
 
 Avatars are round and contain a scalable graphic or text. The avatar can be xs (24px), sm (32px), md (40px), or lg (48px).
-
-<section className="flex justify-center gap-x-0 gap-y-2 m-auto my-4 w-max-[600px]">
 
 **Size Styles:**
 
@@ -83,27 +61,21 @@ Avatars are round and contain a scalable graphic or text. The avatar can be xs (
 - `md`: `w-10 h-10`
 - `lg`: `w-12 h-12`
 
-Nested icon Size Styles tag (svg):
+**Nested icon Size Styles tag (svg):**
 
 - `xs`: `w-3 h-3`
 - `sm`: `w-4 h-4`
 - `md`: `w-5 h-5`
 - `lg`: `w-6 h-6`
 
-</section>
-
-<hr className='my-2' />
-
-## Directions and Examples
+## Directions
 
 How to use the styles within the Avatar examples
 
-<hr className='my-2' />
-
-<div className='flex justify-center gap-2 mb-2'>
-  <span className='flex items-center justify-center w-6 h-6 bg-white border border-blue-700 rounded-full avatar hover:cursor-pointer'>
+<div className="flex justify-center gap-2 mb-2">
+  <span className="avatar avatar-lg avatar-clickable">
     <UserIcon
-      className='w-6 h-6 first-letter:text-blue-700'
+      className="icon"
       alt='Avatar Icon'
     />
   </span>
@@ -111,14 +83,10 @@ How to use the styles within the Avatar examples
 
 Avatar with an image and is clickable uses the following elements: a single `<div>` or a `<span>` and a nested `<UserIcon>`. You will need to import the `<UserIcon>` from the library.
 
-<hr className='my-2' />
-
 ```sh
 // Typically, you can import from the icons interstate library
 import { UserIcon } from '@prism2/icons-react/interstate';
 ```
-
-<hr className='my-2' />
 
 You will need to add the following styles to the wrapping element:
 
@@ -130,106 +98,64 @@ In addition, the `<UserIcon>` styles are:
 
 - `clickable.styles` : `text-blue-700` and the `size.styles` : `w-3 h-3`
 
-<hr className='my-2' />
-
 ```html
-<div
-  class="flex items-center justify-center w-6 h-6 bg-white border border-blue-700 rounded-full avatar hover:cursor-pointer"
->
-  <UserIcon class="w-3 h-3 text-blue-700" alt="Avatar Icon" />
+<div class="avatar avatar-sm avatar-clickable">
+  <UserIcon class="icon" alt="Avatar Icon" />
 </div>
 ```
 
-<section className='gap-2 m-auto my-6 w-max-[600px]'>
-  <div className='flex mb-2 items-center justify-center gap-2'>
-    <div className="flex items-center justify-center bg-cover w-8 h-8 overflow-hidden rounded-full border border-blue-700 ring-1 ring-white ring-inset bg-[url('https://picsum.photos/id/64/128')]"></div>
-    <h3>Avatar with Image in size md (32px)</h3>
-  </div>
 
-Avatar with an image and is clickable uses the following element. A single `<div>` or a `<span>` with a background image's url included within the `bg-[url('@prism2/icons/interstate/user.svg')]`.
+### Avatar with Image in size md (32px)
 
-You will need to add the following classes to the wrapping element:
+<div className="avatar avatar-md avatar-clickable bg-[url('https://picsum.photos/id/64/128')]"></div>
 
-- `base.styles` : `avatar flex items-center justify-center rounded-full`
-- `clickable.styles` : `bg-white border border-blue-700 hover:cursor-pointer`
-- `image.styles` : `bg-cover ring-1 ring-white ring-inset bg-[url('@prism2/icons/interstate/user.svg')]`
-- `size.styles` : `w-8 h-8` for sm (32px).
-
-<hr className='my-2' />
+Avatar with an image and is clickable uses the following elements:
+- A single `<div>` or a `<span>` with a background image's url included within the `bg-[url('@prism2/icons/interstate/user.svg')]`
+- The `md` size as desired
+- The clickable flag
 
 ```html
 <div
-  class="flex items-center justify-center bg-cover w-8 h-8 overflow-hidden rounded-full border border-blue-700 ring-1 ring-white ring-inset bg-[url('https://picsum.photos/id/64/128')]"
+  class="avatar avatar-lg avatar-clickable bg-[url('https://picsum.photos/id/64/128')]"
 ></div>
 ```
 
-</section>
-<section className='gap-2 m-auto my-6 w-max-[600px]'>
-  <div className='flex mb-2 items-center justify-center gap-2'>
-    <div className='flex items-center justify-center w-10 h-10 bg-white border border-blue-700 rounded-full hover:cursor-pointer'>
-      <span className='translate-y-[1px] text-2xl text-blue-700'>JC</span>
-    </div>
-    <h3>Avatar with Initials in size md (40px)</h3>
-  </div>
+### Avatar with Initials in size md (40px)
 
-Avatar with initials and is clickable in size md (40px) contains the following ingredients: A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials).
+<div className="avatar avatar-md avatar-clickable"><span>JC</span></div>
 
-following styles in the wrapping element:
-
-- `base.styles`: `avatar flex items-center justify-center rounded-full`
-- `clickable.styles` : `bg-white border border-blue-700 hover:cursor-pointer`
-- `text.styles` : `text-blue-700`
-- `size.styles` : `w-10 h-10` for the md (40px)
-
-The nested `<span>` contains the following styles:
-
-- `base.styles` : `translate-y-[1px] text-2xl` -`text.styles` : `text-blue-700`
-
-<hr className='my-2' />
+Avatar with initials and is clickable in size md (40px) contains the following ingredients: 
+- A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials)
+- The `md` size as desired.
+- The clickable flag.
 
 ```html
-<div
-  class="flex items-center justify-center w-10 h-10 bg-white border border-blue-700 rounded-full hover:cursor-pointer"
->
-  <span class="translate-y-[1px] text-2xl text-blue-700">JC</span>
+<div class="avatar avatar-md avatar-clickable">
+  <span>JC</span>
 </div>
 ```
 
-</section>
 
-<section className='gap-2 m-auto my-6 w-max-[600px]'>
-  <div className='flex mb-2 items-center justify-center gap-2'>
-    <div className='flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full'>
-      <span className='translate-y-[1px] text-2xl text-black'>JC</span>
-    </div>
-    <h3>Avatar with Initials Non-Clickable in size lg (48px)</h3>
-  </div>
+### Avatar with Initials Non-Clickable in size lg (48px)
 
-Avatar with initials and non-clickable in size lg (48px) contains the following ingredients: A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials).
+<div className="avatar avatar-lg">
+  <span>JC</span>
+</div>
 
-following styles in the wrapping element:
-
-- `base.styles`: `avatar flex items-center justify-center rounded-full`
-- `clickable.styles` : `bg-gray-100`
-- `text.styles` : `text-black`
-- `size.styles` : `w-12 h-12` for the lg (48px)
-
-The nested `<span>` contains the following styles:
-
-- `base.styles` : `translate-y-[1px] text-2xl`
-- `text.styles` : `text-black`
-
-<hr className='my-2' />
+Avatar with initials and non-clickable in size lg (48px) contains the following ingredients: 
+- A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials)
+- The `lg` size as desired
 
 ```html
-<div
-  class="flex items-center justify-center w-12 h-12 bg-gray-100 rounded-full"
->
-  <span class="translate-y-[1px] text-2xl text-black">JC</span>
+<div class="avatar avatar-lg">
+  <span>JC</span>
 </div>
 ```
 
-</section>
+## Developer Kitchen
+
+Now it's your turn! Select options for the Avatar component and see how they can 
+be combined in the final output.
 
 export const argTypes = {
   label: {

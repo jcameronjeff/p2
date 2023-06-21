@@ -57,7 +57,7 @@ const Controls = () => {
   };
 
   return (
-    <div className='border-primary-dark bg-min border-y text-default'>
+    <div className="kitchen__controls">
       {Object.keys(argTypes).map((name) => {
         const { control, label = null } = argTypes[name];
 

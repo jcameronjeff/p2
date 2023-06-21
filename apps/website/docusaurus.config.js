@@ -59,6 +59,9 @@ const config = {
     /** @type {import('@docusaurus/preset-classic').ThemeConfig} */
     ({
       image: 'img/interstate-social-card.svg',
+      colorMode: {
+        disableSwitch: true,
+      },
       navbar: {
         title: 'Interstate',
         logo: {
@@ -117,6 +120,18 @@ const config = {
             title: 'Docs',
             items: [
               {
+                label: 'Getting Started',
+                to: '/docs/getting-started/',
+              },
+              {
+                label: 'What\'s New',
+                to: '/whats-new/',
+              },
+              {
+                label: 'Foundation',
+                to: '/docs/foundation/accessibility/',
+              },
+              {
                 label: 'Components',
                 to: '/docs/components/',
               },
@@ -135,7 +150,7 @@ const config = {
         copyright: `Interstate Design System. Copyright © ${new Date().getFullYear()} Cox Automotive Inc. All Rights Reserved.`,
       },
       prism: {
-        theme: require('prism-react-renderer/themes/nightOwl'),
+        theme: require('prism-react-renderer/themes/github'),
         darkTheme: darkCodeTheme,
       },
     }),

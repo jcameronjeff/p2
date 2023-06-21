@@ -5,7 +5,7 @@ const Preview = (props) => {
   const [{ args }, {}] = useContext(KitchenContext);
   const { render } = props;
 
-  return <div className="p-3">{render(args)}</div>;
+  return <div className="kitchen__preview">{render(args)}</div>;
 };
 
 export default Preview;

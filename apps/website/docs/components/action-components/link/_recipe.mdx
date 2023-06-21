@@ -1,3 +1,4 @@
+import clsx from 'clsx';
 import PhotoIcon from '@prism2/icons/interstate/photo.svg';
 
 ## Description
@@ -8,24 +9,24 @@ Links allow a user to navigate to another location via descriptive text.
 
 Links are made up of a combination of __elements__ and __styles__.  The styles will be made up of __Always__ and __configurables__ .
 
-(Always)
+### Required
   - label
 
-(Configurables)
+### Selectable
   - size
   - icon left
   - icon right
   - type [standalone, inline]
 
-(Optional)
-- None
+### Optional
 
+There are no optional ingredients.
 
 ## Directions
-- Link specs apply to all font sizes from text-xxs to text-3xl
-- Links always use the font-medium weight
-- - In body text, designers should use the underline link styles.
-- - For links that are not in body text, devlopers should use the link styles, which does not have an underline, but does allow for a left or right icon.  See: Standalone Label below
+  - Link specs apply to all font sizes from text-xxs to text-3xl
+  - Links always use the font-medium weight
+    - In body text, designers should use the underline link styles.
+    - For links that are not in body text, devlopers should use the link styles, which does not have an underline, but does allow for a left or right icon.  See: Standalone Label below
  
 
 <div className="flex flex-wrap gap-2 flex-col ">
@@ -33,6 +34,12 @@ Links are made up of a combination of __elements__ and __styles__.  The styles w
   ### Standalone label only
 
   For links that are not in body text, devlopers should use the Standalone link, which does not have an underline.
+
+  <a href="#">Anchor Element</a>
+  
+  <a href="#" className="text-sm">Anchor Element</a>
+
+  <a href="#" className="link-sm">Anchor Element</a>
 
   <span className="link">Base Link</span>
 
@@ -42,19 +49,19 @@ Links are made up of a combination of __elements__ and __styles__.  The styles w
 
   Standalone links which allow for a left or right icon and do not have an underline.
 
-  <span className="link link-xxs gap-x-1"><PhotoIcon className="icon" /> XXS Link <PhotoIcon className="icon" /></span>
+  <span className="link link-xxs"><PhotoIcon className="icon" /> XXS Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-sm gap-x-1"><PhotoIcon className="icon" /> Small Link <PhotoIcon className="icon" /></span>
+  <span className="link link-sm"><PhotoIcon className="icon" /> Small Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-visited gap-x-1"><PhotoIcon className="icon" /> Visited Link <PhotoIcon className="icon" /></span>
+  <span className="link link-visited"><PhotoIcon className="icon" /> Visited Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-lg gap-x-1"><PhotoIcon className="icon" /> Large Link <PhotoIcon className="icon" /></span>
+  <span className="link link-lg"><PhotoIcon className="icon" /> Large Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-xl gap-x-1"><PhotoIcon className="icon" /> xl Link <PhotoIcon className="icon" /></span>
+  <span className="link link-xl"><PhotoIcon className="icon" /> xl Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-2xl gap-x-1"><PhotoIcon className="icon" /> 2xl Link <PhotoIcon className="icon" /></span>
+  <span className="link link-2xl"><PhotoIcon className="icon" /> 2xl Link <PhotoIcon className="icon" /></span>
 
-  <span className="link link-3xl gap-x-1"><PhotoIcon className="icon" /> 3xl Link <PhotoIcon className="icon" /></span>
+  <span className="link link-3xl"><PhotoIcon className="icon" /> 3xl Link <PhotoIcon className="icon" /></span>
 
 </div>
 
@@ -64,26 +71,68 @@ In body text, designers should use the underline link styles.
 
 <p>Consequat est velit laborum <span className="link link-inline" href="">sample inline link</span> nisi.</p>
 
-## Kitchen
+## Developer Kitchen
 
-```
-argTypes {
+Now it's your turn! Select options for the Link component and see how they can 
+be combined in the final output.
+
+export const argTypes = {
+  tag: {
+    label: 'Tag name',
+    control: {
+      type: 'select',
+      options: ['a', 'span', 'div']
+    },
+  },
   label: {
-    control: string
+    control: { type: 'text' },
   },
   size: {
-    control: select
-    options: [xxs, xs, sm, md, xl, lg, 2xl, 3xl]
+    label: 'Select a Size',
+    control: { 
+      type: 'select', 
+      options: ['xxs', 'xs', 'sm', 'md', 'xl', 'lg', '2xl', '3xl'] 
+    },
   },
   iconLeft: {
-    control: boolean
+    left: 'Show left Icon?',
+    control: { type: 'boolean' },
   },
   iconRight: {
-    control: boolean
+    left: 'Show right Icon?',
+    control: { type: 'boolean' },
   },
   type: {
-    control: select
-    options: [standalone, inline]
-  }
-}
-```
+    label: 'Select the display type',
+    control: { 
+      type: 'select', 
+      options: ['standalone', 'inline'] 
+    },
+  },
+};
+
+<Kitchen
+  args={{ tag: 'a', label: 'link element', type: 'inline' }}
+  argTypes={argTypes}
+  render={({ label, tag: Tag, type, size = 'lg', iconLeft, iconRight }) => {
+    const props = {};
+    if (Tag === 'a') {
+      props.href = '#'
+    }
+    return (
+      <Tag
+        className={clsx(
+          Tag !== 'a' && 'link',
+          `link-${size}`,
+          type !== 'inline' && `avatar-${type}`
+        )}
+        {...props}
+      >
+        {iconLeft && <PhotoIcon className="icon" />}
+        {label}
+        {iconRight && <PhotoIcon className="icon" />}
+      </Tag>
+    )
+  }}
+/>
+

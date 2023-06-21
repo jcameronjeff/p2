@@ -6,8 +6,10 @@ const linkPlugin = function({ addComponents, theme }) {
     [`.${name}`]: {
       display: 'inline-flex',
       alignItems: 'center',
-      fontWeight: 'medium',
+      fontWeight: theme('typography.fontWeight.anchor.base'),
       color: theme('textColor.link.rest'),
+      cursor: theme('cursor.pointer'),
+      gap: theme('gap.2'),
       '.icon': {
         width: theme('width.40'),
         height: theme('height.40'),
@@ -74,6 +76,9 @@ const linkPlugin = function({ addComponents, theme }) {
       },
     },
     [`.${name}-visited`]: {
+      color: theme('textColor.link.visited'),
+    },
+    [`.${name}:visited`]: {
       color: theme('textColor.link.visited'),
     },
     [`.${name}:hover`]: {

@@ -8,9 +8,8 @@ const Kitchen = (props) => {
 
   return (
     <KitchenProvider defaultState={defaultState}>
-      <div className="flex-col my-6 min-w-[500px] mx-auto ">
-        <h2 className='my-2'>Developer Kitchen</h2>
-        <div className="flex flex-col border rounded border-primary-dark">
+      <div className="kitchen">
+        <div className="kitchen__counter not-prose">
           <Preview render={render} />
           <Controls />
           <Output render={render} />
