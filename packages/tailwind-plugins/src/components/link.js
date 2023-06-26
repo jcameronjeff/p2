@@ -1,19 +1,25 @@
 const plugin = require('tailwindcss/plugin')
 const name = 'link'
 
-const linkPlugin = function({ addComponents, theme }) {
-  addComponents({
-    [`.${name}`]: {
+const linkPlugin = function({ addBase, addComponents, theme }) {
+  const anchorBase = {
       display: 'inline-flex',
       alignItems: 'center',
       fontWeight: theme('typography.fontWeight.anchor.base'),
       gap: '0.4em',
       color: theme('textColor.link.rest'),
       cursor: theme('cursor.pointer'),
-        '.icon': {
-          width: '1em',
-          height: '1em',
-        },
+    }
+  addBase({
+    a: anchorBase
+  })
+  
+  addComponents({
+    [`.${name}`]: anchorBase,
+    [`.${name}-icon`]: {
+      width: '1em',
+      height: '1em',
+      lineHeight: theme('lineHeight.none')
     },
     [`.${name}-xxs`]: {
       fontSize: theme('fontSize.xxs'),

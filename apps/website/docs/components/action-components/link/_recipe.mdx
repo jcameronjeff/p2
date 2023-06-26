@@ -7,16 +7,16 @@ Links allow a user to navigate to another location via descriptive text.
 
 ## Ingredients
 
-Links are made up of a combination of __elements__ and __styles__.  The styles will be made up of __Always__ and __configurables__ .
+Links are made up of a combination of __elements__ and __classes__.  The styles will be made up of __Required__ and __Selectable__ .
 
 ### Required
-  - label
+  - label: Is used to display the text that is clickable in the link
 
 ### Selectable
-  - size
-  - icon left
-  - icon right
-  - type [standalone, inline]
+  - size(s) are available as the following: `link-xxs`, `link-xs`, `link-sm`, `link-md`, `link-lg`, `link-xl`, `link-2xl`, `link-3xl`
+  - icon left: Uses the following class in `<img class="link-icon" />` and preceeds the `label`
+  - icon right: Uses the following class in `<img class="link-icon" />`and follows after the `label`
+  - type [standalone, inline]: The type is used for links that are in the document. By default the inline version can be used in paragraphs or other bodies of naturally flowing text. If the desire is to stand alone, then use `link-stand-alone` class. 
 
 ### Optional
 
@@ -35,33 +35,33 @@ There are no optional ingredients.
 
   For links that are not in body text, devlopers should use the Standalone link, which does not have an underline.
 
-  <a href="#">Anchor Element</a>
-  
-  <a href="#" className="text-sm">Anchor Element</a>
+  <a className="link link-xxs link-xs link-sm link-md link-lg link-xl link-2xl link-3xl"></a>
 
-  <a href="#" className="link-sm">Anchor Element</a>
+  <a className="link link-stand-alone link-md">Base Link</a>
 
-  <span className="link">Base Link</span>
+  <a className="link link-stand-alone link-lg">Large Link</a>
 
-  <span className="link link-lg">Large Link</span>
+```
+<a className="link link-stand-alone link-lg">Large Link</a>
+```
 
   ### Standalone label with icon
 
   Standalone links which allow for a left or right icon and do not have an underline.
 
-  <span className="link link-xxs"><PhotoIcon className="icon" /> XXS Link <PhotoIcon className="icon" /></span>
+  <a className="link link-stand-alone link-xxs">
+    <PhotoIcon className="link-icon" /> 
+    XXS Link Label
+    <PhotoIcon className="link-icon" />
+  </a>
 
-  <span className="link link-sm"><PhotoIcon className="icon" /> Small Link <PhotoIcon className="icon" /></span>
-
-  <span className="link link-visited"><PhotoIcon className="icon" /> Visited Link <PhotoIcon className="icon" /></span>
-
-  <span className="link link-lg"><PhotoIcon className="icon" /> Large Link <PhotoIcon className="icon" /></span>
-
-  <span className="link link-xl"><PhotoIcon className="icon" /> xl Link <PhotoIcon className="icon" /></span>
-
-  <span className="link link-2xl"><PhotoIcon className="icon" /> 2xl Link <PhotoIcon className="icon" /></span>
-
-  <span className="link link-3xl"><PhotoIcon className="icon" /> 3xl Link <PhotoIcon className="icon" /></span>
+```
+<a className="link link-stand-alone link-xxs">
+  <PhotoIcon className="link-icon" />
+  XXS Link
+  <PhotoIcon className="link-icon" />
+</a>
+```
 
 </div>
 
@@ -69,7 +69,11 @@ There are no optional ingredients.
 
 In body text, designers should use the underline link styles.
 
-<p>Consequat est velit laborum <span className="link link-inline" href="">sample inline link</span> nisi.</p>
+<p>Consequat est velit laborum <a className="" href="">sample inline link</a> nisi.</p>
+
+```
+<a href="#">sample inline link</a>
+```
 
 ## Developer Kitchen
 
@@ -91,7 +95,7 @@ export const argTypes = {
     label: 'Select a Size',
     control: { 
       type: 'select', 
-      options: ['xxs', 'xs', 'sm', 'md', 'xl', 'lg', '2xl', '3xl'] 
+      options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] 
     },
   },
   iconLeft: {
@@ -106,7 +110,7 @@ export const argTypes = {
     label: 'Select the display type',
     control: { 
       type: 'select', 
-      options: ['standalone', 'inline'] 
+      options: ['inline', 'stand-alone'],
     },
   },
 };
@@ -118,19 +122,20 @@ export const argTypes = {
     const props = {};
     if (Tag === 'a') {
       props.href = '#'
-    }
+    } 
+    
     return (
       <Tag
         className={clsx(
           Tag !== 'a' && 'link',
           `link-${size}`,
-          type !== 'inline' && `avatar-${type}`
+          type !== 'inline' && `link-${type}`
         )}
         {...props}
       >
-        {iconLeft && <PhotoIcon className="icon" />}
+        {iconLeft && <PhotoIcon className="link-icon" />}
         {label}
-        {iconRight && <PhotoIcon className="icon" />}
+        {iconRight && <PhotoIcon className="link-icon" />}
       </Tag>
     )
   }}
