@@ -177,7 +177,7 @@ const jsTailwind = {
     })
 
     // Space token names are offset by 10. Need to divide names by 10 to correct for tailwind
-    allTokens.spacing = offsetTokens(allTokens.space)
+    allTokens.space = offsetTokens(allTokens.space)
 
     // move source tokens to new locations
     const paths = [
@@ -186,7 +186,9 @@ const jsTailwind = {
       ['color.border', 'borderColor'],
       ['size.font', 'fontSize'],
       ['size.border.radius', 'borderRadius'],
-      ['typography.default', 'typography.DEFAULT.css']
+      ['typography.default', 'typography.DEFAULT.css'],
+      ['space.font.leading', 'lineHeight'],
+      ['space', 'spacing'],
     ]
     allTokens = moveTokens(allTokens, paths, true)
 
