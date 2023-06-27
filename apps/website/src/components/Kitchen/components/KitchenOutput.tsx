@@ -33,6 +33,7 @@ const Output = (props) => {
   useEffect(() => {
     if (isBrowser) {
       DomRender(<>{render(args)}</>, outputDom, () => {
+        setTimeout(() => console.dir(outputDom.innerHTML), 1000)
         const formatted = format(outputDom.innerHTML, prettierOptions)
         setOutput(trimSemi(formatted))
       })

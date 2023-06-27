@@ -70,7 +70,8 @@ body {
   }
 
   &__brand {
-    @apply no-underline text-primary;
+    @apply no-underline text-primary gap-0;
+
     &:hover {
       @apply text-primary-light;
     }
@@ -83,9 +84,9 @@ body {
   }
   
   &__logo {
-    @apply w-12 h-12;
+    @apply w-8 h-8 m-0;
     & img {
-      @apply m-0 w-12 h-12;
+      @apply w-8 h-8;
     }
   }
 

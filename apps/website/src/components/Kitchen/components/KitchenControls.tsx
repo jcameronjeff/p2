@@ -46,9 +46,11 @@ const Controls = () => {
         return (
           <select
             name={name}
-            onChange={handleControlUpdate(type)}>
-            {options.map((value, i) =>  
-              <option key={i} value={value}>{value}</option> 
+            onChange={handleControlUpdate(type)}
+            defaultValue={value}
+            >
+            {options.map((v, i) =>  
+              <option key={i} value={v}>{v}</option> 
             )}
           </select>
         );

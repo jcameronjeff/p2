@@ -1,0 +1,28 @@
+{
+  "screen": {
+    "sm": {
+      "value": "1360px",
+      "description": "Screen SM - Min Width 480px"
+    },
+    "md": {
+      "value": "680px",
+      "description": "Screen MD - Min Width 680px"
+    },
+    "lg": {
+      "value": "960px",
+      "description": "Screen LG - Min Width 960px"
+    },
+    "xl": {
+      "value": "1168px",
+      "description": "Screen XL - Min Width 1168px"
+    },
+    "2xl": {
+      "value": "1360px",
+      "description": "Screen 2Xl - Min Width 1360px"
+    },
+    "3xl": {
+      "value": "1457px",
+      "description": "Screen 2Xl - Min Width 1457px"
+    }
+  }
+}
