@@ -1,155 +1,87 @@
 import clsx from 'clsx';
 import UserIcon from '@prism2/icons/interstate/user.svg';
 
-# Avatar Component Recipe Template
-
 ## Definition
 
-<section>
-  <span>
-    An avatar is a representation of an individual user. It can be used as a
-    link to an individual’s account content.
-  </span>
-</section>
+An avatar is a representation of an individual user. It can be used as a link to 
+an individual’s account content.
 
-## Content
-
-An avatar should contain a scalable image of the user. If an image is not available, the avatar should display the user’s first and last initials. If neither is available, the avatar should display a generic person icon.
+An avatar should contain a scalable image of the user. If an image is not 
+available, the avatar should display the user’s first and last initials. If 
+neither is available, the avatar should display a generic person icon.
 
 ## Ingredients
 
-Avatars are made up of a combination of **elements** and **styles**. The styles will be made up of base, themeable, and **configurable** styles.
+Avatars are made up of a combination of elements and classes. The styles will be 
+made up of **Required**, **Selectable**, and **Optional** classes.
 
-### Elements
+### Required
 
-Avatar elements consist of a `<div>` wrapper, can also be a `<span>` containing one of the following or all three as needed.
+- `.avatar` - An element that contains the initials as text
 
-- A svg element with path for the icon
-- A background image within the url in the wrapper
-- A span element that contains the initials as text
+### Selectable
 
-### Base Styles
+**sizes**
 
-- Base (Wrapper) Styles: `avatar flex items-center justify-center rounded-full`
+Avatar is available in a specific range of sizes (XS - LG) and uses the following class names:
 
-- Text Styles: `translate-y-[1px] text-2xl`
+- `.avatar-xs` - Extra Small
+- `.avatar-sm` - Small
+- `.avatar-md` - Medium
+- `.avatar-lg` - Large
 
-### Themeable Styles
+### Optional
 
-#### Clickable Styles:
-
-- Wrapper Clickable Styles: `bg-white border border-blue-700 hover:cursor-pointer`
-- Wrapper Image Styles: `bg-cover ring-1 ring-white ring-inset bg-[url('@prism2/icons/interstate/user.svg')]`
-- Icon Clickable Styles: `text-blue-700`
-- Text Clickable Styles: `text-blue-700`
-
-#### Non-Clickable Styles:
-
-- Wrapper Non-Clickable Styles: `bg-gray-100`
-- Wrapper Image Styles: `bg-cover bg-[url('@prism2/icons/interstate/user.svg')]`
-- Icon Non-Clickable Styles: `text-black`
-- Text Non-Clickable Styles: `text-black`
-
-### Configurable Style
-
-Avatars are round and contain a scalable graphic or text. The avatar can be xs (24px), sm (32px), md (40px), or lg (48px).
-
-**Size Styles:**
-
-- `xs`: `w-6 h-6`
-- `sm`: `w-8 h-8`
-- `md`: `w-10 h-10`
-- `lg`: `w-12 h-12`
-
-**Nested icon Size Styles tag (svg):**
-
-- `xs`: `w-3 h-3`
-- `sm`: `w-4 h-4`
-- `md`: `w-5 h-5`
-- `lg`: `w-6 h-6`
+- `.avatar-img` - A background image within the url in the wrapper
+- `.avatar-icon` - A child element which specifies the icon
+- `.avatar-clickable` - Used when the Avatar is actionable.
 
 ## Directions
 
-How to use the styles within the Avatar examples
+### Avatar with an Icon
 
-<div className="flex justify-center gap-2 mb-2">
-  <span className="avatar avatar-lg avatar-clickable">
-    <UserIcon
-      className="icon"
-      alt='Avatar Icon'
-    />
-  </span>
-</div>
+When an Avatar is without text or an image, it ought to be an icon. 
+This example displays a small avatar.
 
-Avatar with an image and is clickable uses the following elements: a single `<div>` or a `<span>` and a nested `<UserIcon>`. You will need to import the `<UserIcon>` from the library.
-
-```sh
-// Typically, you can import from the icons interstate library
-import { UserIcon } from '@prism2/icons-react/interstate';
-```
-
-You will need to add the following styles to the wrapping element:
-
-- `base.styles` : `avatar flex items-center justify-center rounded-full bg-cover`
-- `clickable.styles` : `bg-white border border-blue-700 hover:cursor-pointer`
-- `size.styles` : `w-6 h-6` for xs (24px)
-
-In addition, the `<UserIcon>` styles are:
-
-- `clickable.styles` : `text-blue-700` and the `size.styles` : `w-3 h-3`
+<span className="avatar avatar-sm my-4">
+  <UserIcon className="avatar-icon" />
+</span>
 
 ```html
-<div class="avatar avatar-sm avatar-clickable">
-  <UserIcon class="icon" alt="Avatar Icon" />
-</div>
+<span className="avatar avatar-sm">
+  <UserIcon className="avatar-icon" />
+</span>
 ```
 
+### Avatar with text
 
-### Avatar with Image in size md (32px)
+When an Avatar is used with a name, the initials are presented (limited to two letters).
 
-<div className="avatar avatar-md avatar-clickable bg-[url('https://picsum.photos/id/64/128')]"></div>
+<span className="avatar avatar-md my-4">
+  WW
+</span>
 
-Avatar with an image and is clickable uses the following elements:
-- A single `<div>` or a `<span>` with a background image's url included within the `bg-[url('@prism2/icons/interstate/user.svg')]`
-- The `md` size as desired
-- The clickable flag
+```html
+<span className="avatar avatar-md">
+  WW
+</span>
+```
+
+### Avatar with an Image and is Clickable
+
+When an Avatar has an Image available, it is done so with a `--bg-image` CSS
+custom property. This example shows as clickable as well as large.
+
+<div
+  className="avatar avatar-lg avatar-img avatar-clickable my-4"
+  style={{"--bg-img": "url('https://picsum.photos/id/64/128')"}}
+></div>
 
 ```html
 <div
-  class="avatar avatar-lg avatar-clickable bg-[url('https://picsum.photos/id/64/128')]"
+  class="avatar avatar-lg avatar-img"
+  style="--bg-img: url('https://picsum.photos/id/64/128');"
 ></div>
-```
-
-### Avatar with Initials in size md (40px)
-
-<div className="avatar avatar-md avatar-clickable"><span>JC</span></div>
-
-Avatar with initials and is clickable in size md (40px) contains the following ingredients: 
-- A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials)
-- The `md` size as desired.
-- The clickable flag.
-
-```html
-<div class="avatar avatar-md avatar-clickable">
-  <span>JC</span>
-</div>
-```
-
-
-### Avatar with Initials Non-Clickable in size lg (48px)
-
-<div className="avatar avatar-lg">
-  <span>JC</span>
-</div>
-
-Avatar with initials and non-clickable in size lg (48px) contains the following ingredients: 
-- A single `<div>` or a `<span>` element is used to wrap a `<span>` that will contain the text (initials)
-- The `lg` size as desired
-
-```html
-<div class="avatar avatar-lg">
-  <span>JC</span>
-</div>
 ```
 
 ## Developer Kitchen
@@ -159,30 +91,50 @@ be combined in the final output.
 
 export const argTypes = {
   label: {
-    control: { type: 'text' },
+    control: { 
+      type: 'text',
+      maxLength: 2,
+      className: "w-12"
+    },
   },
   size: {
-    label: 'Select a Size',
-    control: { type: 'select', options: ['xs', 'sm', 'md', 'lg'] },
+    control: { 
+      type: 'select', 
+      options: ['xs', 'sm', 'md', 'lg'] 
+    },
+  },
+  style: {
+    control: {
+      type: 'select',
+      options: ['text', 'icon', 'image']
+    }
   },
   clickable: {
-    label: 'Toggle Clickable',
+    label: 'Is Clickable?',
     control: { type: 'boolean' },
   },
 };
 
 <Kitchen
-  args={{ label: 'JC' }}
+  args={{ label: 'WW', size: 'lg', style: 'text' }}
   argTypes={argTypes}
-  render={({ label, clickable, size = 'lg' }) => (
-    <div
-      className={clsx(
-        'avatar',
-        `avatar-${size}`,
-        clickable && 'avatar-clickable'
-      )}
-    >
-      <span>{label}</span>
-    </div>
-  )}
+  render={({ label, clickable, size, style }) => {
+    const styles = {
+      '--bg-img': "url('https://picsum.photos/id/64/128')"
+    }
+    return (
+      <div
+        className={clsx(
+          'avatar',
+          `avatar-${size}`,
+          clickable && 'avatar-clickable',
+          style === 'image' && 'avatar-img'
+        )}
+        style={styles}
+      >
+        { style === "text" && <span>{label}</span> }
+        { style === "icon" && <UserIcon className="avatar-icon" /> }
+      </div>
+    )
+  }}
 />

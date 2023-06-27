@@ -80,8 +80,8 @@ const slideOutPlugin = function({ addComponents, theme }) {
         },
       },
     },
-    [`.${name}-pin-footer`]: {
-      paddingBottom: 0,
+    [`.${name}.${name}-pin-footer`]: {
+      paddingBottom: '0',
       [`.${name}-body`]: {
         ...pinFooter.body
       },

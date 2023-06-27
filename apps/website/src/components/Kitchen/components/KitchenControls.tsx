@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import clsx from 'clsx';
 import KitchenContext from "../KitchenContext";
 
 const Controls = () => {
@@ -22,11 +23,12 @@ const Controls = () => {
     }
   };
 
-  const makeControl = ({ type, name, value, options }) => {
+  const makeControl = ({ type, name, value, options, ...args }) => {
     switch (type) {
       case "text":
         return (
           <input
+            {...args}
             type="text"
             defaultValue={value}
             name={name}
@@ -36,6 +38,7 @@ const Controls = () => {
       case "boolean":
         return (
           <input
+            {...args}
             type="checkbox"
             name={name}
             onChange={handleControlUpdate(type)}
@@ -45,10 +48,11 @@ const Controls = () => {
       case "select":
         return (
           <select
+            {...args}
             name={name}
             onChange={handleControlUpdate(type)}
             defaultValue={value}
-            >
+          >
             {options.map((v, i) =>  
               <option key={i} value={v}>{v}</option> 
             )}
@@ -65,7 +69,11 @@ const Controls = () => {
 
         return (
           <div className="p-3" key={name}>
-            {label || name} {makeControl({ ...control, name, value: args[name] })}
+            <label className={clsx( !label && 'capitalize' )}>{label || name}
+              <span className="ml-2">
+                {makeControl({ ...control, name, value: args[name] })}
+              </span>
+            </label>
           </div>
         );
       })}
