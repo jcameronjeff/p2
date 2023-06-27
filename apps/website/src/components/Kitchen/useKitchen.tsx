@@ -1,4 +1,7 @@
-import { useReducer } from "react";
+import { useReducer, useState } from "react";
+import { format as prettyFormat } from "prettier"
+import parserHtml from "prettier/parser-html"
+import parserBabel from "prettier/parser-babel"
 
 const SET_ARG_VALUE = "SET_ARG_VALUE";
 
@@ -33,6 +36,7 @@ const reducer = (state, action) => {
 };
 
 const useKitchen = (defaultState = {}) => {
+  const [outputDom, setOutputDom] = useState(null)
   const [state, dispatch] = useReducer(
     reducer,
     sanitize(defaultState, initialState)
@@ -48,7 +52,20 @@ const useKitchen = (defaultState = {}) => {
     });
   };
 
-  return [state, { setArgValue }];
+  const format = (str) => {
+    const prettierOptions = {
+      parserName: "html",
+      semi: false,
+      plugins: [parserHtml, parserBabel],
+    }
+    
+    const trimSemi = (str) => str.replace(/^;/, '')
+
+    const formatted = prettyFormat(str, prettierOptions)
+    return trimSemi(formatted)
+  }
+
+  return [{...state, outputDom}, { format, setArgValue, setOutputDom }];
 };
 
 export default useKitchen;

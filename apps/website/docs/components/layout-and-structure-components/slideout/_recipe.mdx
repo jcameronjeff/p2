@@ -1,183 +1,13 @@
 import clsx from 'clsx';
 import XMarkIcon from '@prism2/icons/interstate/x-mark.svg';
 
-## Description
-
-Like a modal window, a slide out panel is a child “window” which appears in front of the main content. 
-They are an effective way to show and hide content that is only needed for short interactions.
-
-## Ingredients
-
-Links are made up of a combination of elements and classes. The styles will be 
-made up of **Required**, **Selectable**, and **Optional** classes.
-
-### Required
-
-- `.slideout` - the content container with the header and footer
-- `.slideout-header` - the lockup of the title and close buttons
-- `.slideout-title` - header text
-- `.slideout-close` - a close button fixed to the top right
-- `.slideout-body` - can be any content
-- `.slideout-footer` - expected to only have buttons as children
-
-### Selectable
-
-- `.slideout-left` - pins the slideout to the left of the container
-- `.slideout-right` - pins the slideout to the right of the container
-
-### Optional
-
-- `.slideout-pin-footer` - attaches the footer to the bottom of the modal window
-
-## Directions
-
-The Slideout component is used in conjunction with the Overlay component.
-
-The width of the Slideout is determined by the width of the content. Setting the
-width of the Slideout can also be done at the instance level.
-
-### Slideout anchored to the right
-
-To attach the slideout on the right of the, use the `slideout-right` class. 
-
-<div class="my-8 overflow-hidden relative min-h-[350px]">
-  <div class="overlay"></div>
-  <div class="slideout slideout-right w-[350px]">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 grow leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 grow leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-
-```
-<div class="my-8 overflow-hidden relative min-h-72">
-  <div class="overlay"></div>
-  <div class="slideout slideout-right">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body w-[350px]">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 grow leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 grow leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-```
-
-### Slideout anchored to the left
-
-To attach the slideout on the left of the, use the `slideout-left` class. 
-
-<div class="my-8 overflow-hidden relative h-96">
-  <div class="overlay"></div>
-  <div class="slideout slideout-sm slideout-left w-[350px]">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 grow leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 grow leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-
-```
-<div class="my-8 overflow-hidden relative h-96">
-  <div class="overlay"></div>
-  <div class="slideout slideout-sm slideout-left">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body  w-[350px]">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 grow leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 grow leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-```
-
-### Slideout anchored to the right with a pinned footer
-
-To pin the footer, use the `slideout-pin-footer` class. The footer will automatically
-pin to the bottom on small screens.
-
-<div class="my-8 overflow-hidden relative h-96">
-  <div class="overlay"></div>
-  <div class="slideout slideout-right slideout-pin-footer w-[350px]">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-
-```
-<div class="my-8 overflow-hidden relative h-96">
-  <div class="overlay"></div>
-  <div class="slideout slideout-right slideout-pin-footer w-[350px]">
-    <div class="slideout-header">
-      <div class="slideout-title">H3 Heading</div>
-      <XMarkIcon class="slideout-close" />
-    </div>
-    <div class="slideout-body">
-      <p>Width determined by designer and needs of content. Width is 100% on XS. 
-      Maintain L/R padding shown.</p>
-      <p>Only lock buttons to bottom of screen (as shown on XS version) if content 
-      exceeds viewport height and will force buttons below the fold.</p>
-    </div>
-    <div class="slideout-footer">
-      <button class="rounded-md p-4 leading-none hover:bg-blue-100 text-blue-900">Button</button>
-      <button class="rounded-md p-4 leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-    </div>
-  </div>
-</div>
-```
-
-## Developer Kitchen
-
-Now it's your turn! Select options for the Link component and see how they can be combined in the final output.
+export const defaultArgs = {
+  headerText: 'Slide Out Header',
+  exampleWidth: '350px',
+  paragraphCount: 2,
+  pinFooter: false,
+  position: 'right'
+}
 
 export const argTypes = {
   headerText: {
@@ -211,43 +41,118 @@ export const argTypes = {
   },
 }
 
-<Kitchen 
-  args={{
-    headerText: 'Slide Out Header',
-    exampleWidth: '350px',
-    paragraphCount: 2,
-    pinFooter: false,
-    position: 'right'
-  }}
-  argTypes={argTypes} 
-  render={({ headerText, exampleWidth, paragraphCount, pinFooter, position }) => {
-    return (
-      <div className="my-8 overflow-hidden relative min-h-96">
-        <div className="prose p-6">
-          <Ipsum size={7}>Ipsum Content</Ipsum>
+export const renderFn = ({ headerText, exampleWidth, paragraphCount, pinFooter, position }) => {
+  return (
+    <div className="fake-page-container overflow-hidden relative min-h-96">
+      <div className="prose p-6">
+        <Ipsum size={7}>Ipsum Content</Ipsum>
+      </div>
+      <div className="overlay"></div>
+      <div className={clsx(
+        'slideout', 
+        `slideout-${position}`,
+        pinFooter && 'slideout-pin-footer',
+        exampleWidth === '350px' && 'w-[350px]',
+        exampleWidth === '450px' && 'w-[450px]',
+        exampleWidth === 'full' && 'w-full',
+      )}>
+        <div className="slideout-header">
+          <div className="slideout-title">{headerText}</div>
+          <XMarkIcon className="slideout-close" />
         </div>
-        <div className="overlay"></div>
-        <div className={clsx(
-          'slideout', 
-          `slideout-${position}`,
-          pinFooter && 'slideout-pin-footer',
-          exampleWidth === '350px' && 'w-[350px]',
-          exampleWidth === '450px' && 'w-[450px]',
-          exampleWidth === 'full' && 'w-full',
-        )}>
-          <div className="slideout-header">
-            <div className="slideout-title">{headerText}</div>
-            <XMarkIcon className="slideout-close" />
-          </div>
-          <div className="slideout-body">
-            <Ipsum size={parseInt(paragraphCount)}>Ipsum Content</Ipsum>
-          </div>
-          <div className="slideout-footer">
-            <button className="rounded-md p-4 leading-none hover:bg-blue-100 text-blue-900">Button</button>
-            <button className="rounded-md p-4 leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
-          </div>
+        <div className="slideout-body">
+          <Ipsum size={parseInt(paragraphCount)}>Ipsum Content</Ipsum>
+        </div>
+        <div className="slideout-footer">
+          <button className="rounded-md p-4 leading-none hover:bg-blue-100 text-blue-900">Button</button>
+          <button className="rounded-md p-4 leading-none bg-blue-900 hover:bg-blue-700 text-white">Button</button>
         </div>
       </div>
-    )
-  }
-} />
+    </div>
+  )
+}
+
+export const SlideoutKitchen = (props) => (
+  <Kitchen 
+    args={defaultArgs} 
+    argTypes={argTypes} 
+    render={renderFn} 
+    targetSelector=".slideout" 
+    {...props}
+  />
+)
+
+## Description
+
+Like a modal window, a slide out panel is a child “window” which appears in front of the main content. 
+They are an effective way to show and hide content that is only needed for short interactions.
+
+## Ingredients
+
+Links are made up of a combination of elements and classes. The styles will be 
+made up of **Required**, **Selectable**, and **Optional** classes.
+
+### Required
+
+- `.slideout` - the content container with the header and footer
+- `.slideout-header` - the lockup of the title and close buttons
+- `.slideout-title` - header text
+- `.slideout-close` - a close button fixed to the top right
+- `.slideout-body` - can be any content
+- `.slideout-footer` - expected to only have buttons as children
+
+### Selectable
+
+**position**
+
+- `.slideout-left` - pins the Slideout to the left of the container
+- `.slideout-right` - pins the Slideout to the right of the container
+
+### Optional
+
+- `.slideout-pin-footer` - attaches the footer to the bottom of the modal window
+
+## Directions
+
+The Slideout component is used in conjunction with the Overlay component.
+
+The width of the Slideout is determined by the width of the content. Setting the
+width of the Slideout can also be done at the instance level.
+
+### Slideout anchored to the right
+
+To attach the Slideout on the right of the, use the `slideout-right` class. 
+
+<SlideoutKitchen hideControls args={{
+  ...defaultArgs,
+  position: 'right'
+}} />
+
+### Slideout anchored to the left
+
+To attach the Slideout on the left of the, use the `slideout-left` class. 
+
+
+<SlideoutKitchen hideControls args={{
+  ...defaultArgs,
+  position: 'left'
+}} />
+
+
+### Slideout anchored to the right with a pinned footer
+
+To pin the footer, use the `slideout-pin-footer` class. The footer will automatically
+pin to the bottom on small screens.
+
+<SlideoutKitchen hideControls args={{
+  ...defaultArgs,
+  pinFooter: true,
+  position: 'right'
+}} />
+
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Slideout component and see how they can be combined in the final output.
+
+<SlideoutKitchen targetSelector={null} />
