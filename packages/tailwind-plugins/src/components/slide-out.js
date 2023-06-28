@@ -2,14 +2,10 @@ const plugin = require('tailwindcss/plugin');
 const name = 'slideout'
 
 const slideOutPlugin = function({ addComponents, theme }) {
-  const footer = {
-    display: 'flex',
-    gap: theme('gap.4'),
-    justifyContent: 'flex-end',
-    paddingTop: theme('padding.5'),
-  }
-
   const pinFooter = {
+    root: {
+      paddingBottom: 0,
+    },
     body: {
       flexGrow: 1,
       overflowY: 'scroll',
@@ -51,9 +47,6 @@ const slideOutPlugin = function({ addComponents, theme }) {
       paddingBottom: theme('padding.6'),
       alignItems: 'flex-start',
     },
-    [`.${name}-body`]: {
-      ...pinFooter.body
-    },
     [`.${name}-title`]: {
       color: theme('color.blue.900'),
       fontWeight: theme('typography.fontWeight.h3'),
@@ -67,11 +60,14 @@ const slideOutPlugin = function({ addComponents, theme }) {
       height: theme('height.6'),
     },
     [`.${name}-footer`]: {
-      ...footer,
+      display: 'flex',
+      gap: theme('gap.4'),
+      justifyContent: 'flex-end',
+      paddingTop: theme('padding.5'),
     },
     [`@media (max-width: ${theme('screens.sm')})`]: {
       [`.${name}`]: {
-        paddingBottom: 0,
+        ...pinFooter.root,
         [`.${name}-body`]: {
           ...pinFooter.body
         },
@@ -81,7 +77,7 @@ const slideOutPlugin = function({ addComponents, theme }) {
       },
     },
     [`.${name}.${name}-pin-footer`]: {
-      paddingBottom: '0',
+      ...pinFooter.root,
       [`.${name}-body`]: {
         ...pinFooter.body
       },
