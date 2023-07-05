@@ -2,77 +2,48 @@
 title: 'Radio Button'
 ---
 
-## Usage
+## Description
 
-<definition>
+Radio buttons allow a user to select one item from a short list of two to four options. They are used when the list of options are mutually exclusive and the user must select exactly one choice. 
 
-### Definition
+To select a single item from a list of five or more options, use a [dropdown](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/selection-and-input-components/dropdown) or [combobox](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/selection-and-input-components/combobox)instead. 
 
-Radio buttons allow a user to select one item from a short list of two to four options. For single selection of five or more options, use a dropdown or select list instead.
+The user may interact with the radio button itself or its associated label. The label is vertically centered with the radio button even when the text wraps.  
+## Usage 
 
-For a single option, use a switch instead. For small screen applications avoid radio buttons and use a button group or custom select list instead.
+### Layout 
 
-Avoid nesting radio buttons.
+Allow 32px minimum horizontal space, or 8px minimum vertical space between radio buttons. 
 
-</definition>
+Avoid radio buttons on small screens and use [toggle chips](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/notification-components/chip) or a [toggle group](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/action-components/button-group) instead. 
 
-### Common Characteristics
+Avoid nesting radio buttons. 
+***
+*coming soon: example of radio button layout*
+***
+### Filter Counts 
 
-All radio buttons allow the user to tap the radio button or its associated label. The label is vertically centered with the radio button even when the text wraps. Radio buttons should normally be active and unchecked by default.
+When using radio buttons as filters with counts, display counts on a badge and right align the badges. 
 
-Radio buttons have these states: active unchecked, or hover/tap, or checked; and disabled unchecked, or checked.
+***
+*coming soon: example of radio button layout*
+***
 
-```example
-<SandboxDemo>
-  <Container className="bg-white px-3 py-1 w-50 mx-auto">
-    <FormGroup row>
-      <Col>
-        <RadioButton value="1" label="Select this" />
-        <RadioButton value="2" label="Select that" />
-        <RadioButton value="3" label="Select the other" />
-        <RadioButton
-          value="select"
-          label="Select a long wrapping checkbox label"
-        />
-      </Col>
-    </FormGroup>
-  </Container>
-</SandboxDemo>
-```
+### Best Practices 
 
-### Scenarios
+- **Structure options in a logical order** The list of selections should be structured, whenever possible, in a logical order, such as smallest to largest.
+- **Make selection options comprehensive** Avoid vague or misleading labels but include all the necessary information the user needs to make a decision about the selection. 
+- **Options should be clearly distinct from one another** Provide clear and distinct choices that are easy to understand. 
+- **Always offer a default selection** Radio buttons should always have exactly one option pre-selected. Select the safest and most secure option (to prevent data loss). 
+- **Offer “None” as an option where applicable** Permit users to skip making a selection where it is not otherwise required with a choice labeled as "none."
+***
+*Coming soon:example(s) of best practices*
+***
 
-### Horizontal
-
-When necessary to use a horizontal layout, ensure there is at least 32px space between each radio button/label element.
-
-![spacing](/img/components/radios/radiospacing.png)
-
-### Filter Counts
-
-When using radio buttons as filters with counts, right align the counts.
-
-```example
-<SandboxDemo>
-  <Container className="bg-white px-3 py-1 w-50 mx-auto">
-    <FormGroup row>
-      <Col>
-        <RadioButton disabled value="this2" label="Disabled" counts="12,345" />
-        <RadioButton value="that2" label="Select That" counts="54,321" />
-        <RadioButton value="select2" label="Select the other" counts="1,234" />
-      </Col>
-    </FormGroup>
-  </Container>
-</SandboxDemo>
-```
-
-## Design
-
-### States
-
-Radio buttons have these states: active unchecked, or checked, or hover/tap; and disabled unchecked, or checked.
-
-![radio](/img/components/radios/radiooptions.png)
+### Patterns 
+***
+*Coming soon:patterns that use this component*
+***
 
 ## Code
 
