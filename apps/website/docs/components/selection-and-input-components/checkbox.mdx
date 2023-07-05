@@ -1,107 +1,49 @@
 ---
 title: 'Checkbox'
 ---
+## Description 
 
-export function FilterCounts() {
-  const dataMakes = [
-    { label: 'Audi', count: 32, value: 'Audi', id: '_audi_' },
-    { label: 'BMW', count: 12, value: 'BMW', id: '_bmw_' },
-    { label: 'Cadillac', count: 55, value: 'Cadillac', id: '_cadillac_' },
-    { label: 'Chevrolet', count: 43, value: 'Chevrolet', id: '_chevrolet_' },
-  ];
-  return (
-    <Checkbox.List data={dataMakes} />
-  );
-}
+Checkboxes are used when there are lists of options and the user may select any number of choices, including zero, one, or several. This allows a user to select one or more items from a list of options or select preferred settings with a single checkbox.  
+
+Default selections can be set by an application as needed. 
+
+Checkboxes allow the user to interact with the checkbox or associated label. The label is vertically centered with the checkbox even when the text wraps. 
 
 ## Usage
+### Layout 
 
-<definition>
+Allow 32px minimum horizontal space, or 8px minimum vertical space between checkboxes. 
 
-### Definition
+When stacking checkboxes in unusually long lists such as left rail filters, combine checkboxes with a multi-select filter to help users more easily find desired options. 
 
-Checkboxes allow a user to select one or more items from a list of options. For unusually long lists which must be contained inside a scrollable area, combine checkboxes with a text search to help users more easily find the desired options.
+**Lay out your lists vertically** 
 
-Avoid using single checkboxes (exception: “Remember username” function in sign in forms).
+Try to present your lists vertically, with one choice per line. This rule works both for toggles and checkboxes. If you must lay your options in a horizontal layout with multiple options per line, make sure to space the buttons and ensure that labels connected which choices. 
+***
+*Example to come: checkbox layout do and do not*
+***
 
-</definition>
+### Nesting 
 
-### Common Characteristics
+In nested layouts or tables with multiselect, selecting a parent checkbox selects all its children. If child checkboxes are both checked and unchecked, the parent checkbox is indeterminate. 
 
-All checkboxes allow the user to tap the checkbox or associated label. The label is vertically centered with the checkbox even when the text wraps. Checkboxes should normally be active and unchecked by default.
+***
+*Example to come: checkbox nesting do and do not*
+***
 
-Checkboxes buttons have these states: active unchecked, or hover/tap, or checked, or indeterminate; and disabled unchecked, or checked, or
+### Filter Counts 
 
-```example
-<SandboxDemo>
-  <div className="card bg-white p-2">
-    <Checkbox id="check1" label="Select this" />
-    <Checkbox id="check2" label="Select that" />
-    <Checkbox id="check3" label="Select the other" />
-    <Checkbox id="check4" label="Select a long wrapping checkbox label" />
-  </div>
-</SandboxDemo>
-```
+When using checkboxes as filters with counts, display counts on a badge and right align the badges. 
 
-## Scenarios
+***
+*Example to come: checkbox filters*
+***
 
-### Horizontal
+### Best Practices 
 
-When necessary to use a horizontal layout, ensure there is at least 32px space between each checkbox/label element.
+Use positive and active wording for checkbox labels, so that it's clear what will happen if the user turns on the checkbox. Likewise, avoid negations such as "Don't send me an email," which would mean the user would have to make a selection in order for something not to happen. 
 
-![checkbox horizontal](/img/components/checkboxes/HORIZONTALCHECK.png)
-
-### Nesting
-
-In nested layouts, selecting a parent checkbox implies the selection of all its children, even though the child text boxes are not displayed as selected. Selecting any one child checkbox implies the selection of its parent, even though the parent is not displayed as selected.
-
-![check filters](/img/components/checkboxes/STATESCHECK.png)
-
-### With Filter Counts
-When using checkboxes as filters with counts, right align the counts.
-
-```example
-<SandboxDemo>
-  <div className="card bg-white p-2">
-    <FilterCounts />
-  </div>
-</SandboxDemo>
-```
-
-![check nested](/img/components/checkboxes/NESTED.png)
-
-### States
-
-Checkboxes buttons have these states: active unchecked, or hover/tap, or checked, or indeterminate; and disabled unchecked, or checked, or indeterminate.
-
-```example
-<SandboxDemo>
-  <div className="row">
-    <div className="col">
-      <Checkbox id="check5" label="Active Unchecked" />
-      <br />
-      <Checkbox id="check6" label="Unchecked long label like a sellers name" />
-      <br />
-      <Checkbox id="check7" label="Hover/Tap" className="hover" />
-      <br />
-      <Checkbox id="check8" label="Checked" checked />
-      <br />
-      <Checkbox id="check9" label="Disabled Unchecked" disabled />
-      <br />
-      <Checkbox id="check10" label="Disabled Checked" checked disabled />
-      <br />
-      <Checkbox id="check11" label="Indeterminate" className="indeterminate" />
-      <br />
-      <Checkbox
-        id="check12"
-        label="Disabled Indeterminate"
-        className="indeterminate"
-        disabled
-      />
-    </div>
-  </div>
-</SandboxDemo>
-```
+Write checkbox labels so that users know both what will happen if they check a particular box, and what will happen if they leave it unchecked. 
 
 ## Code
 ### Default Uncontrolled Checkbox
