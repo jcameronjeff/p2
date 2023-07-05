@@ -3,530 +3,148 @@ title: 'Button'
 sidebar_position: 2
 ---
 
-## Buttons
+## Button
+
+## Description
+
+Buttons allow a user to take an action. With a button, a user can submit or request information, make decisions, and navigate. 
+
+When choosing the right button for an action, consider the level of emphasis each button type provides  
+
+Primary buttons have the most visual emphasis. Secondary buttons have less visual emphasis. Text buttons have the least visual emphasis. 
+***
+*Coming Soon: Button Example*
+***
+
+## Sizes
+Button sizes are large, medium (default), small, and auxiliary (or extra small).  
+
+Button width is determined by a button’s content (icon and/or text) and minimum left/right padding. Designers may adjust buttons to exceed the minimum padding and content width.  
+
+Full-width buttons should be reserved for narrow layouts such as for mobile screens or narrow [slideouts](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/layout-and-structure-components/slideout/). 
+
+***
+*Coming Soon: Button Size Examples*
+***
 
 ## Usage
+### Icons 
+Buttons with text labels may have an optional left or right icon, but not both. Buttons may also have an [icon](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/images-and-icon-components/icon) without text. 
+***
+*Coming Soon: Button with Icon Examples*
+***
 
-Buttons allow a user to submit or request information, make decisions, and for navigation.
+### Hierarchy 
 
-Button hierarchy is established by whether a button is contained (i.e. with a background color) for most emphasis, or outlined (no background) for less emphasis, or text only for the least emphasis.
+Hierarchy gives subtle clues to users about which is the most desirable action. When creating a button system, make sure to match the styles with each button type's importance. 
 
-Buttons may be normal (40px high) or small (32px). Full-screen width buttons are only allowed on the XS grid (0-479). In all other cases, button width is determined by the length of the label plus minimum L/R padding.
+A primary action is an action that allows the user to accomplish their most common or most important goal. As such, primary buttons should only be used for the most important action.  
 
+Only one primary button may be used in a containing element. For example, a page without sections may have only one primary button, whereas a page of vehicle listings may have a primary button on each listing. 
 
-### Common Characteristics
+Not all buttons correspond to a desirable action. While the primary button is used for the action you want a user to take, secondary buttons are for alternatives (such as "Cancel" buttons). 
 
-All buttons have bold, ALL-CAPS labels.
+Secondary buttons should still look and feel like buttons but have a more toned-down style. 
 
-All buttons have these states: disabled, active, hover/tap, and focused.
+You can also use secondary buttons or text buttons when two or more actions are needed on a page. 
 
-```example
-<SandboxDemo>
-  <Button color="primary" className="m-2">CONTAINED BUTTON</Button>
-  <Button variant="outline" className="m-2">OUTLINE BUTTON</Button>
-  <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
-</SandboxDemo>
-```
+***
+*Coming Soon: Button hierarchy with do/do not*
+***
 
-### Size
+When pairing two buttons for submit/cancel, use a primary button for submit and a text button for cancel. When only one button is needed (such as, “Okay”) use a primary button. 
 
-Buttons are normally 40px high, but a small 32px alternative may be used when vertical space is at a premium. Whichever size is used, use the same size for any associated elements like inputs and selects.
+***
+*Coming Soon: Button hierarchy cancel example*
+***
 
-Special controls like the keyword search button, pagination controls, icon buttons, and menu buttons are always 32px high.
+### Scale Alignment 
 
-```example
-<SandboxDemo>
-  <div className="row d-inline-flex align-items-center">
-    <Button color="primary" className="m-w btn d-inline-flex m-2">
-      CONTAINED BUTTON
-    </Button>
-    <Button color="primary" size="sm" className="m-2">
-      CONTAINED BUTTON SMALL
-    </Button>
-  </div>
-</SandboxDemo>
-```
+Always match button size with input size: i.e., medium inputs with medium buttons; small inputs with small buttons. 
 
-### Hierarchy
+***
+*Coming Soon: Button scale alignment with do/do not*
+***
+Use Medium (default) buttons in most cases. In dense layouts where vertical space is at a premium, small buttons may be used on large screens.  
 
-#### Contained Buttons
+Small buttons are never used on mobile screens. Large buttons may be an appropriate option for certain applications intended for tablet use in the field.  
+### Disabling Buttons 
 
-Contained buttons have the most emphasis and should be used for primary actions. When one button is needed (such as an “OK”) use a contained button.
+In most cases, buttons should not be disabled. Potential exceptions to this may be: 
 
-An element cannot have more than one contained button.
+- When a user does not have role permissions to perform an action. 
+- When a button has been submitted and the request is in progress. 
+- When it is the most efficient approach to helping the user complete work accurately. 
 
-```example
-<SandboxDemo>
-  <Container>
-    <Row>
-      <Col>
-        <div className="row align-items-center">
-          <Button color="primary" className="m-2">CONTAINED BUTTON</Button>
-          <Button color="primary" className="m-2">
-            <i className="icon btn-icon__left interstate-icon-search" />
-            ICON BUTTON
-          </Button>
-          <Button disabled color="primary" className="m-2">
-            DISABLED BUTTON
-          </Button>
-          <Button color="primary" className="m-2">
-            ICON BUTTON
-            <i className="btn-icon__right icon interstate-icon-chevron-right" />
-          </Button>
-          <Button color="primary" size="sm" className="m-2">
-            CONTAINED SMALL BUTTON
-          </Button>
-          <Button color="primary" size="sm" icononly className="m-2">
-            <i className="icon interstate-icon-envelope" />
-          </Button>
-          <Button className="m-2" icononly disabled color="primary" size="sm">
-            <i className="icon interstate-icon-envelope" />
-          </Button>
-          <Button color="simulcast" className="m-2">SIMULCAST BID BUTTON</Button>
-        </div>
-      </Col>
-    </Row>
-  </Container>
-</SandboxDemo>
-```
+### Layout 
 
-#### Outlined Buttons
+Button placement matters when it comes to helping users intuitively know where and how to take an action, especially considering users are experienced in multiple web applications.  
 
-Outlined buttons provide less emphasis. When two or more buttons without hierarchy are needed, use multiple outlined buttons, or multiple text buttons.
+In general, but especially in small windows, the primary action button is placed at the bottom right. Our brains naturally scan the content on the screen, making it a common best practice to have the most important actions placed in the bottom right.  
 
-```example
-<SandboxDemo>
-  <div className="d-inline-flex align-items-center  row">
-    <Button variant="outline" className="m-2">
-      OUTLINE BUTTON
-    </Button>
-    <Button variant="outline" className="m-2">
-      <i className="icon btn-icon__left interstate-icon-search" />
-      ICON BUTTON
-    </Button>
-    <Button disabled variant="outline" className="m-2">
-      DISABLED BUTTON
-    </Button>
-    <Button variant="outline" className="m-2">
-      ICON BUTTON
-      <i className="btn-icon__right icon interstate-icon-chevron-right" />
-    </Button>
-    <Button variant="outline" className="m-2" size="sm">
-      OUTLINE SMALL BUTTON
-    </Button>
-    <Button className="btn-icon-only" variant="outline" className="m-2" size="sm">
-      <i className="icon interstate-icon-envelope" />
-    </Button>
-    <Button
-      icononly
-      className="m-2"
-      disabled
-      variant="outline"
-      size="sm"
-    >
-      <i className="icon interstate-icon-envelope" />
-    </Button>
-  </div>
-</SandboxDemo>
-```
+Additionally, when it comes to mobile use, the majority of mobile interactions are completed with the thumb and designed for the right-handed majority of the population. 
 
-#### Text Buttons
+Buttons are normally aligned to the right with the primary action on the far right.  
 
-Text buttons have the least emphasis. When two buttons with hierarchy are needed (e.g. “SUBMIT” OR “CANCEL”), use a contained button for the primary action, and a text button for the secondary action.
+In a multi-step process, a “Back” button may be aligned to the left. 
 
-When two or more buttons without hierarchy are needed, use multiple text buttons, or multiple outlined buttons.
+***
+*Coming Soon: Button Layout example*
+***
 
-```example
-<SandboxDemo>
-  <div className="d-inline-flex align-items-center row">
-    <Button variant="textonly" className="m-2">TEXT BUTTON</Button>
-    <Button variant="textonly" className="m-2">
-      <i className="icon btn-icon__left interstate-icon-search" />
-      ICON BUTTON
-    </Button>
-    <Button disabled variant="textonly" className="m-2">
-      DISABLED BUTTON
-    </Button>
-    <Button variant="textonly" className="m-2">
-      ICON BUTTON
-      <i className="btn-icon__right icon interstate-icon-chevron-right" />
-    </Button>
-    <Button variant="textonly" size="sm" className="m-2">
-      TEXT SMALL BUTTON
-    </Button>
-    <Button variant="textonly" icononly className="m-2">
-      <i className="icon interstate-icon-envelope" />
-    </Button>
-    <Button disabled variant="textonly" icononly className="m-2">
-      <i className="icon interstate-icon-envelope" />
-    </Button>
-  </div>
-</SandboxDemo>
-```
+When stacked on a narrow screen, the primary action is placed above the other action. 
 
-#### Specialty Buttons
+***
+*Coming Soon: Button Layout example when stacked*
+***
 
-These buttons can be used in a UI in addition to the core button hierarchy.
+When content is expected to push buttons below the viewport, they should normally be locked to the bottom of the viewport in a horizontal or stacked configuration. Locked buttons are placed on background with opacity so user has visual understanding of content below. 
 
+***
+*Coming Soon: Locked button example*
+***
+### Variations
 ##### Auxiliary Buttons
 
-Auxiliary buttons are small, 24px high text buttons with short labels. They can be used with a left or right icon and have only 4px L/R padding. In narrow contexts where a user could take multiple actions, auxiliary buttons provide button functionality without a heavy footprint.
-
-```example
-<SandboxDemo>
-   <div className="p-2 m-1 bg-white row">
-    <Button variant="aux" className='m-1'>
-      Auxiliary ACTIVE
-    </Button>
-    <Button variant="aux" className='hover m-1' >Auxiliary HOVER</Button>
-    <Button variant="aux"  className='focus m-1'>
-      Auxiliary Focus
-    </Button>
-    <Button variant="aux" disabled  className='m-1'>
-      Auxiliary Disabled
-    </Button>
-  </div>
-   <div className="bg-secondary-dark p-2 m-1 row">
-   <Button variant="aux" color='light' className='m-1'>
-      Auxiliary ACTIVE
-    </Button>
-    <Button variant="aux" color='light' className='hover m-1' >Auxiliary HOVER</Button>
-    <Button variant="aux" color='light'  className='focus m-1'>
-      Auxiliary Focus
-    </Button>
-    <Button variant="aux" color='light' disabled  className='m-1'>
-      Auxiliary Disabled
-    </Button>
-  </div>
-</SandboxDemo>
-```
+Auxiliary buttons are very small text buttons with short labels which are useful for infrequent actions (e.g.,“Refresh”), or to provide multiple actions in a tight layout (e.g.,“Details”, “Copy VIN”). They can be used with a left or right [icon](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/images-and-icon-components/icon). 
 
-```example
-<SandboxDemo>
-   <div className="p-2  m-1 bg-white">
-    <div className="d-block my-3">
-      <Button variant="aux">
-        <i className="icon btn-icon__left interstate-icon-refresh" /> Refresh
-      </Button>
-    </div>
-    <div className="d-block my-3">
-      <Button variant="aux" >
-        Edit <i className="icon btn-icon__right interstate-icon-edit" />
-      </Button>
-    </div>
-       <div className="d-block my-3">
-      <Button variant="aux" >
-      Clear
-      </Button>
-    </div>
-       <div className="d-block my-3">
-      <Button variant="aux">
-        Message
-      </Button>
-    </div>
-       <div className="d-block my-3">
-      <Button variant="aux" >
-        Hide
-      </Button>
-    </div>
-  </div>
-</SandboxDemo>
-```
-_Example uses for Auxiliary buttons_
+### Floating Action Buttons 
 
-![seller tools horizontal](/img/components/button/sellertools.png)
-
-_Auxiliary Buttons used in Seller Tools concept, and Search Results filters._
-
-
-#### Floating Action Buttons
-
-Floating Action Buttons allow a user to initiate an action related to the displayed content. They are contained buttons which are anchored in place above the content using the z-axis.
-
-Floating action buttons can initiate an action or display a menu of actions to the user.
-![checkbox horizontal](/img/components/button/FLOATING.png)
-
-_A contained button may be modified to create a floating action button. The floating action button can overlay content and is locked to a specific position in the lower right of the screen._
-
-![checkbox horizontal](/img/components/button/BACK-TO-TOP.png)
-
-_A floating action button can be used to scroll the user to the top of a screen. In this case, the button is hidden until the user has scrolled down 2x the height of the window._
-
-
-### Scenarios
-
-#### Single Button
-
-![checkbox horizontal](/img/components/button/SINGLECONTAINED.png)
-
-_When a single button is needed, use a contained button._
-
-#### Two Buttons with Hierarchy
-
-![checkbox horizontal](/img/components/button/BUTTONS-HEIRARCHY.png)
-
-#### Two Buttons without Hierarchy
-
-![checkbox horizontal](/img/components/button/TWO-BUTTONS-NO-HEIRARCHY.png)
-![checkbox horizontal](/img/components/button/CARD-2-TEXT-BUTTONS.png)
-
-_When two or more buttons without hierarchy are needed, they may be outlined buttons or text buttons, but cannot be contained buttons._
-
-#### Anchored Buttons
-
-![checkbox horizontal](/img/components/button/CANCEL-SUBMIT.png)
-
-_Buttons can be optionally anchored to the bottom of the screen on a semi-transparent action bar._
-
-![checkbox horizontal](/img/components/button/BACK-NEXT.png)
-
-_The text button can be optionally floated to the left._
-
-![checkbox horizontal](/img/components/button/TWO-BUTTONS-HEIRARCHY.png)
-
-_When stacking buttons, the higher priority button (if any) goes on top._
-
-#### Menu Bars
-
-![checkbox horizontal](/img/components/button/TAB-BAR.png)
-
-_Text Icon buttons may be modified to create a mobile menu bar. Small text labels are optional if needed._
-
-
-## Design
-
-
-### Basics
-
-<!-- ![large vs small](./images/LARGEVSSMALL.png) -->
-
-_All buttons have bold, ALL-CAPS labels and specified minimum left and right padding._
-
-### Hierarchy
-
-#### Contained Buttons
-
-Contained buttons have a background color to provide the most emphasis. Outline buttons have no background color, and thus have less emphasis. Text buttons have no background and no outline, and thus have the least emphasis.
-
-```example
-<SandboxDemo>
-  <Container>
-    <Row>
-      <Col md={5}>
-        <Button type="button" color="primary"  className="m-2">
-          CONTAINED BUTTON
-        </Button>
-        <br />
-        <Button type="button" variant="outline" className="m-2">
-          OUTLINE BUTTON
-        </Button>
-        <br />
-        <Button variant="textonly" className="m-2">
-          TEXT BUTTON
-        </Button>
-      </Col>
-      <Col>
-        <Button color="primary" size="sm" className="m-2">
-          CONTAINED SMALL BUTTON
-        </Button>
-        <br />
-        <Button variant="outline" size="sm" className="m-2">
-          OUTLINE SMALL BUTTON
-        </Button>
-        <br />
-        <Button variant="textonly" size="sm" className="m-2">
-          TEXT SMALL BUTTON
-        </Button>
-      </Col>
-    </Row>
-  </Container>
-</SandboxDemo>
-```
-
-See [Button Usage](#usage) for button type rules and scenarios.
-
-#### With Icons
-
-```example
-<SandboxDemo>
-  <Container>
-    <Row>
-      <Col md={5}>
-        <Button className="m-2" color="primary">
-          <i className="icon btn-icon__left interstate-icon-search" />
-          BUTTON
-        </Button>
-      <br />
-        <Button variant="outline" className="m-2">
-          <i className="icon btn-icon__left interstate-icon-search" />
-          OUTLINE BUTTON
-        </Button>
-      <br />
-        <Button type="button" variant="textonly" className="m-2">
-          <i className="icon btn-icon__left interstate-icon-search" />
-          TEXT BUTTON
-        </Button>
-      </Col>
-      <Col>
-        <Button color="primary" className="m-2">
-          BUTTON
-          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
-        </Button>
-      <br />
-        <Button variant="outline" className="m-2">
-          OUTLINE BUTTON
-          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
-        </Button>
-      <br />
-        <Button type="button" variant="textonly" className="m-2">
-          TEXT BUTTON
-          <i className="btn-icon__right  icon interstate-icon-chevron-right" />
-        </Button>
-      </Col>
-    </Row>
-  </Container>
-</SandboxDemo>
-```
-
-_Buttons may have an optional left or right icon. Never use two icons._
-
-### States
-
-#### Contained Button States
-
-```example
-<SandboxDemo>
-  <Row>
-    <Button color="primary" className="m-2">CONTAINED / ACTIVE</Button>
-    <Button color="primary" className="hover m-2">
-      HOVER
-    </Button>
-    <Button color="primary" className="focus m-2">
-      FOCUS
-    </Button>
-    <Button color="primary" disabled className="m-2">DISABLED</Button>
-  </Row>
-</SandboxDemo>
-```
-
-#### Outline Button States
-
-```example
-<SandboxDemo>
-  <Row>
-    <Button variant="outline" className="m-2">
-      OUTLINE / ACTIVE
-    </Button>
-    <Button variant="outline" className="hover m-2">
-      HOVER
-    </Button>
-    <Button variant="outline" className="focus m-2">
-      FOCUS
-    </Button>
-    <Button variant="outline" disabled className="m-2">
-      DISABLED
-    </Button>
-  </Row>
-</SandboxDemo>
-```
-
-#### Outline Button States (Light)
-
-```example
-<SandboxDemo>
-  <div className="row center">
-    <Button variant="outline" color="light" className="m-2">
-      OUTLINE / ACTIVE
-    </Button>
-    <Button variant="outline" color="light" type="button" className=" hover m-2">
-      HOVER
-    </Button>
-    <Button variant="outline" color="light" type="button" className="focus m-2">
-      FOCUS
-    </Button>
-    <Button variant="outline" disabled color="light" type="button" className="disabled m-2">
-      DISABLED
-    </Button>
-  </div>
-</SandboxDemo>
-```
-
-#### Text Button States
-
-```example
-<SandboxDemo>
-  <Row>
-    <Button variant="textonly" color="primary" className="m-2">
-      TEXT / ACTIVE
-    </Button>
-    <Button variant="textonly" color="primary" className="hover m-2">
-      HOVER
-    </Button>
-    <Button variant="textonly" color="primary" className="focus m-2">
-      FOCUS
-    </Button>
-    <Button variant="textonly" disabled className="m-2">
-      DISABLED
-    </Button>
-  </Row>
-</SandboxDemo>
-```
-
-#### Text Button States (Light)
-
-```example
-<SandboxDemo>
-  <div className="row center">
-    <Button variant="textonly" color="light" className="m-2">
-      TEXT / ACTIVE
-    </Button>
-    <Button variant="textonly" color="light" className="hover m-2">
-      HOVER
-    </Button>
-    <Button variant="textonly" color="light" className="focus m-2">
-      FOCUS
-    </Button>
-    <Button variant="textonly" disabled color="light" className="m-2">
-      DISABLED
-    </Button>
-  </div>
-</SandboxDemo>
-```
-
-#### Auxiliary Buttons
-
-### SCSS
-
-Use these modifiers with `.css-className`
-
-#### Color
-
-| Class          | Property                        |
-| -------------- | ------------------------------- |
-| `.btn-primary`   | Applies primary button styles   |
-| `.btn-secondary` | Applies secondary button styles |
-| `.btn-danger`    | Applies primary button styles   |
-| `.btn-success`   | Applies secondary button styles |
-| `.btn-simulcast` | Applies simulcast button styles |
-
-#### Size
-
-| Class   | Property                    |
-| ------- | --------------------------- |
-| .btn-sm | Applies small button styles |
-
-#### Type
-
-| Class                 | Property          |
-| --------------------- | ----------------- |
-| .btn-outline-{color}  | Outlined Button   |
-| .btn-textonly-{color} | Text-Only Button  |
-| .btn-icon-only        | Icon-Only Button  |
-| .disabled, :disabled  | Disabled Styles   |
-| .btn.dropdown-toggle  | Dropdown Button   |
-| .btn-floating         | Floating Button   |
-| .btn-pagination       | Pagination Button |
-| .btn-auxiliary        | Specialty Button |
+Floating Action Buttons are fixed in a specific location and are only displayed when relevant to the displayed content. These buttons overlay content on the screen when they display. 
+
+Common examples allow a user to create something new, scroll to the top of a page, or scroll horizontally in a carousel or media viewer.  
+
+Floating Action Buttons may be icon only, or text with a left or right icon. 
+
+***
+*Coming Soon: floating action button example*
+***
+
+## Best Practices 
+
+### Content and Labels 
+
+Button labels should always inspire your users to act. That’s why the best buttons use action verbs. When users read action verbs like Save, Download or Edit, they know exactly what the button will do when pressed.  
+
+Use simple and concise language in your button labels to clearly describe what action the user takes when they click it. 
+
+When they’re moving to the next step: “Continue” 
+
+When they’re completing payment: “Complete payment” 
+
+When they’re signing up: “Sign Up” 
+
+Avoid using terms that are generic and non-specific such as “ok”. Instead use words that relate to the action. One way to do this is to repeat the action verb that is used in the headline of the page or window.  
+
+***
+*Coming Soon: content scenarios and do/do not examples*
+***
+### Accessibility 
+
+Users should be able to navigate to and activate a button with assistive tech. 
+
+### Styles 
+*Styles for buttons are coming soon*
 
 ## Code
 
