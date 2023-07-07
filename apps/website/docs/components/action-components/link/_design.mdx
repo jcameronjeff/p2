@@ -1,161 +1,45 @@
+## Description 
+
+Links use descriptive text to provide navigation to content and features. Unlike buttons, links do not invite the user to take an action. Rather, they take the user somewhere in or outside the site. 
+
+For accessibility purposes, links will normally be a color that contrasts strongly with its surface and any surrounding text or UI elements. Links also use a heavier font weight than regular text. 
+
+## Sizes 
+
+Link size options are the same as body text size options. The base size (1 rem, 16px) is the default. Smaller sizes may be used in dense data displays or legal copy. 
+***
+*Link size example(s)coming soon*
+***
 
 ## Usage
+Users scan web pages and look for clues about where they should go next. As links help the user navigate they should stand out both visually and contextually.  
 
-<definition>
-  Anchors expose the content and functions a user can access via descriptive text.
-</definition>
+### Content  
 
-### Common Characteristics
+Links should use salient, descriptive text to help guide the user to the desired content or function.  
 
-All links have a specific color that clearly contrasts with other text elements and the background color.
+Links should have clearly explain where they will take users.  
 
-### Usage Guidelines
+Good links are unique and easy to understand. When writing, use the link text to answer this question:  ”What will the user get or where will they go when they clink this link?” 
 
-Anchors should use descriptive text to help guide the user to the desired content or function. Never use generic text like “click here”.
+Poor link text hurts usability, accessibility, and SEO. Even when links stand out, they need to be meaningful. Never use generic text like “Click here”. 
 
-### Normal Anchors
+Link text should begin with a verb (e.g., “View details”). 
+***
+*Link text do/do not example(s) coming soon*
+***
 
-```jsx dead
-  <Space vertical>
-    <Space className='p-4'>
-      <Anchor>Default Link</Anchor>
-      <Anchor className="active">Active Link</Anchor>
-      <Anchor className="visited">Visited Link</Anchor>
-    </Space>
-    <Space className='p-4 bg-dark-sample'>
-      <Anchor color='light'>Default Link</Anchor>
-      <Anchor color='light' className="active">Active Link</Anchor>
-      <Anchor color='light' className="visited">Visited Link</Anchor>
-    </Space>
-  </Space>
-```
+### Icons 
 
-### Medium Anchors
+Links may have an optional left or right icon, but not both. The optional icon must be the same size and color as the text. 
 
-```jsx dead
- <Space vertical>
-    <Space className='p-4'>
-    <Anchor>Default Link</Anchor>
-    <Anchor className="active">Active Link</Anchor>
-    <Anchor className="visited">Visited Link</Anchor>
-  </Space>
-  <Space className='p-4 bg-dark-sample'>
-    <Anchor color='light'>Default Link</Anchor>
-    <Anchor color='light' className="active">Active Link</Anchor>
-    <Anchor color='light' className="visited">Visited Link</Anchor>
-  </Space>
-</Space>
-```
+### Decoration 
 
-### Small Anchors
+The high contrast color of a link provides sufficient affordance when it stands alone in a layout. However, when a link is presented within body text it should be underlined to provide additional visual distinction. Links also use a heavier font weight than regular text. 
+***
+*Example coming soon*
+***
 
-```jsx dead
-  <Space vertical>
-    <Space className='p-4'>
-      <Anchor size="sm">Default Link</Anchor>
-      <Anchor size="sm" className="active">Active Link</Anchor>
-      <Anchor size="sm" className="visited">Visited Link</Anchor>
-    </Space>
-    <Space className='p-4 bg-dark-sample'>
-      <Anchor size="sm" color='light'>Default Link</Anchor>
-      <Anchor size="sm" color='light' className="active">Active Link</Anchor>
-      <Anchor size="sm" color='light' className="visited">Visited Link</Anchor>
-    </Space>
-  </Space>
-```
+### Visited State 
 
-### Legal/Smallest Anchors
-
-```jsx dead
-  <Space vertical>
-    <Space className='p-4'>
-      <Anchor size="xs">Default Link</Anchor>
-      <Anchor size="xs" className="active">Active Link</Anchor>
-      <Anchor size="xs" className="visited">Visited Link</Anchor>
-    </Space>
-    <Space className='p-4 bg-dark-sample'>
-      <Anchor size="xs" color='light'>Default Link</Anchor>
-      <Anchor size="xs" color='light' className="active">Active Link</Anchor>
-      <Anchor size="xs" color='light' className="visited">Visited Link</Anchor>
-    </Space>
-  </Space>
-```
-
-### With Icons
-
-```jsx dead
-  <Space vertical>
-    <Space className='p-4'>
-      <Anchor icon="search">Default Link</Anchor>
-      <Anchor icon="search" className="active">Active Link</Anchor>
-      <Anchor icon="search" className="visited">Visited Link</Anchor>
-    </Space>
-    <Space className='p-4 bg-dark-sample'>
-      <Anchor icon="search" color='light'>Default Link</Anchor>
-      <Anchor icon="search" color='light' className="active">Active Link</Anchor>
-      <Anchor icon="search" color='light' className="visited">Visited Link</Anchor>
-    </Space>
-  </Space>
-```
-
-```jsx dead
-  <Space vertical>
-    <Space className='p-4'>
-      <Anchor icon="search" size="sm">Default Link</Anchor>
-      <Anchor icon="search" size="sm" className="active">Active Link</Anchor>
-      <Anchor icon="search" size="sm" className="visited">Visited Link</Anchor>
-    </Space>
-    <Space className='p-4 bg-dark-sample'>
-      <Anchor float='right' icon="search" size="sm" color='light'>Default Link</Anchor>
-      <Anchor float='right' icon="search" size="sm" color='light' className="active">Active Link</Anchor>
-      <Anchor float='right' icon="search" size="sm" color='light' className="visited">Visited Link</Anchor>
-    </Space>
-  </Space>
-```
-
-_Anchors can have a single left or right icon. Never two icons._
-
-## Code
-
-### Default
-
-```jsx dead
-<Anchor href="#">Default Link</Anchor>
-```
-
-### Size
-
-```jsx dead
-<Space>
-  <Anchor icon="search" size="xs">Extra Small Link</Anchor>
-  <Anchor icon="search" size="sm">Small Link</Anchor>
-  <Anchor icon="search" size="md">Default Link</Anchor>
-  <Anchor icon="search" size="lg">Large Link</Anchor>
-</Space>
-```
-
-### Size, Color, and Icons
-
-```jsx dead
-<Space vertical style={{ backgroundColor: "#003468" }} className='p-4'>
-  <Anchor float='right' icon="search" size="xs" color='light'>
-    Default Link
-  </Anchor>
-  <Anchor float='right' icon="search" size="sm" color='light' className='active'>
-    Active Link
-  </Anchor>
-  <Anchor float='right' icon="search" color='light' className='visited'>
-    Visited Link
-  </Anchor>
-</Space>
-```
-
-### Anchor Props
-
-| Name                  | Type       | Default     | Description
-| --------------------- | ---------- | ----------- | ----------------------
-| size                  |string      | "lg"        | sets the anchor link to either xs, xm, md or lg
-| color                 |string      | "dark"      | sets the anchor link color to either light or dark
-| icon                  |string      | null        | displays an icon next to the anchor link
-| float                 |string      | "left"      | the position of the icon to either left or right of the link text
-| href                  |string      | null        | the url the anchor links to or the javascript that fires when the link is clicked
+Visited state styling should be used when it is likely to help a user recall that content has been viewed. However, since this can also be distracting in certain contexts (e.g., a search results page with many links). Developers please note: **visited styling can be suppressed in favor of other cues**. 
