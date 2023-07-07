@@ -43,7 +43,6 @@ const useKitchen = (defaultState = {}) => {
   );
 
   const setArgValue = (name, value) => {
-    console.log(name, value);
     dispatch({
       type: SET_ARG_VALUE,
       payload: {
@@ -52,20 +51,30 @@ const useKitchen = (defaultState = {}) => {
     });
   };
 
+  const fixVoidElements = (str) => {
+    const voidElements = ['area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta', 'param', 'source', 'track', 'wbr']
+    const matcher = /<([a-zA-Z]*)(.*?)(\/?>)/g
+
+    return str.replace(matcher, (match, tagName, args, tagEnd) => {
+      const tag = args.length ? `<${tagName} ${args.trim()}` : `<${tagName}`
+      return (voidElements.includes(tagName)) ? `${tag} />` : `${tag}${tagEnd}`
+    })
+  }
+
   const format = (str) => {
     const prettierOptions = {
       parserName: "html",
       semi: false,
       plugins: [parserHtml, parserBabel],
     }
-    
+
     const trimSemi = (str) => str.replace(/^;/, '')
 
-    const formatted = prettyFormat(str, prettierOptions)
+    const formatted = prettyFormat(fixVoidElements(str), prettierOptions)
     return trimSemi(formatted)
   }
 
-  return [{...state, outputDom}, { format, setArgValue, setOutputDom }];
+  return [{ ...state, outputDom }, { format, setArgValue, setOutputDom }];
 };
 
 export default useKitchen;
