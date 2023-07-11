@@ -79,7 +79,7 @@ const interstateList = [
   [Interstate.EllipsisVerticalIcon, 'EllipsisVerticalIcon'],
   [Interstate.EnterSolidIcon, 'EnterSolidIcon'],
   [Interstate.EnvelopeIcon, 'EnvelopeIcon'],
-  [Interstate.ExclaimationCircleIcon, 'ExclaimationCircleIcon'],
+  [Interstate.ExclaimationCircleIcon, 'ExclamationCircleIcon'],
   [Interstate.ExclamationTriangleIcon, 'ExclamationTriangleIcon'],
   [Interstate.EyeIcon, 'EyeIcon'],
   [Interstate.EyeSlashIcon, 'EyeSlashIcon'],
