@@ -1,397 +1,89 @@
 ---
 title: "Dropdown"
 ---
+## Description 
 
-## Usage
+Dropdowns (otherwise known as Select Menus) allow a user to select an option from a pre-defined list. Lists of five to twelve options are most suitable for the dropdown component. For lists of less than five options, consider [radio buttons](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/selection-and-input-components/radio-button). For more than twelve options, consider using a [combobox](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/selection-and-input-components/combobox). 
 
-<definition>
+## Sizes 
 
-### Definition
+Dropdown sizes are large, medium (default), and small. Dropdown width is determined by its content, layout requirements, and minimum left/right padding. 
 
-Dropdowns (aka select menus) allow a user to select one item from a list of five to twelve options.
+Designers are free to adjust dropdown widths wider than the minimum, but full-width dropdowns should be reserved for narrow layouts such as mobile screens or narrow slideouts. 
 
-For lists of less than five options, consider radio buttons instead. For lists with more than twelve options, consider using a text input with auto-complete instead.
+## Usage 
 
-Full-screen width drop-downs are only allowed on the XS grid (0-479). In all other cases, dropdowns should span to a specified number of Cols in the layout.
+### Scale Alignment 
 
-</definition>
+Always match the dropdown size with the button size: i.e., medium dropdowns with medium buttons; small dropdowns with small buttons. 
 
-### Common Characteristics
+Use medium (default) dropdowns in most cases. In dense layouts where vertical space is at a premium, small dropdowns may be used on large screens. Small dropdowns are never used on mobile screens. Large dropdowns may be an appropriate option for certain applications intended for tablet use in the field. 
 
-Dropdowns are normally 40px high, but a small 32px alternative may be used. Whichever size is used, use the same size for any associated elements like text inputs and buttons.
+***
+*Coming Soon: Example of scale alignment*
+***
 
-All dropdowns have these states: disabled, active, and focused.
+### Labels 
 
-```example
-<SandboxDemo>
-  <Form className="p-3 bg-white w-100 container">
-    <FormGroup className="form-row mt-2">
-      <Col>
-        <Label>Default</Label>
-        <Dropdown placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2">Bananas</DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-    <FormGroup className="form-row">
-      <Col>
-        <Label size="sm">Small</Label>
-        <Dropdown size="sm" placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2">Bananas</DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-  </Form>
-</SandboxDemo>
-```
+Labels are top aligned (default), right aligned, or hidden. The default is best for most scenarios. 
 
-### Usage Guidelines
+Only use right aligned labels when it is necessary to save vertical space. 
 
-Dropdowns are useful for presenting lists of options without cluttering up the UI. However, they are inefficient because they hide data and add clicks to the experience. They are also prone to usability problems, especially with very long lists, or on small screens. Therefore, use dropdowns cautiously—as a last resort—when other controls don't meet the need.
+Hidden labels should be used with caution and only when there are very few fields (e.g., a sign in form), or where the required input is very well understood by the user (e.g., the user’s street address). Hidden labels must still be represented in the code for accessibility purposes. 
 
-<definition className="success">
-<h3 className="success">Do</h3>
-<ul>
-  <li>Avoid dropdowns when possible, especially for short, or very long lists.</li>
-  <li>Consider dropdowns for lists of 5-12 items.</li>
-  <li>Consider dropdowns when users aren't familiar with the acceptable input options.</li>
-  <li>Support keyboard navigation within dropdowns for accessibility (tab, arrows, enter, characters).</li>
-  <li>Gray out unavailable options rather than hiding them.</li>
-  <li>Include placeholder text (e.g. “Select one…”), or pre-select an option when it is likely to assist a user.</li>
-  <li>Remember the last selection when it is likely to assist the user.</li>
-</ul>
-</definition>
+### Required vs Optional 
 
-<definition className="danger">
-<h3 className="danger">Don’t</h3>
-<ul>
-  <li>Use dropdowns for less than 5 options. Instead, use radio buttons or button groups.</li>
-  <li>Use dropdowns for more than 12 options. Instead, use a text input with auto-complete (e.g. for Makes, Models, Sellers, Auctions, States/Provinces).</li>
-  <li>Use dropdowns for entries that are highly familiar to users. Instead, use a text input (e.g. birth years, Mr/Mrs/Ms).</li>
-  <li>Use dropdowns for State/Province. Instead, use a ZIP code text field and auto-populate the city and state in a single editable text field.</li>
-</ul>
-</definition>
+When designing forms, aim to include only required fields. Avoid optional fields unless designing a search/filter scenario where all fields may be optional. 
 
-```example
-<SandboxDemo>
-  <Form className="px-3 py-1 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <Label>Default</Label>
-        <Dropdown placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2">Bananas</DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-    <FormGroup row>
-      <Col>
-        <Label size="sm">Small</Label>
-        <Dropdown size="sm" placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2">Bananas</DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-  </Form>
-</SandboxDemo>
-```
+When a mix of required and optional fields cannot be avoided, mark fields as “optional” or “required” next to the label. Do not mark required form fields with an asterisk (\*). Optionally, designers can include a text instruction, “All fields are required.” at the top of the form. Give required fields priority in the field order when possible. 
 
-_Disable options that are temporarily unavailable rather than hiding them._
+***
+*Coming Soon: Example of do/do not with required versus optional and exceptions*
+***
 
-### Label Options
+### Validation 
 
-Labels are normally top-left of the dropdown. However, when vertical space is at a premium, right-aligned Labels are acceptable.
+When dropdown input is required, validate the input on submit, and display a validation message if necessary. 
 
-```example
-<SandboxDemo>
-  <Form className="py-3 px-2 bg-white w-100 container">
-    <Row className="mx-auto">
-      <Col>
-        <FormGroup row inline className="mt-2 mb-4">
-          <Label className="col-form-label">Default</Label>
-          <Dropdown placeholder="Select One..." style={{width: 200}}>
-            <DrOption value="1">Apples</DrOption>
-            <DrOption value="2">Bananas</DrOption>
-            <DrOption value="3">Cherries</DrOption>
-            <DrOption value="4">Raspberries</DrOption>
-            <DrOption value="5">Strawberries</DrOption>
-          </Dropdown>
-        </FormGroup>
-        <FormGroup row inline className="mt-2  align-items-center">
-          <Label size="sm">Small</Label>
-          <Dropdown size="sm" placeholder="Select One..." style={{width: 200}}>
-            <DrOption value="1">Apples</DrOption>
-            <DrOption value="2">Bananas</DrOption>
-            <DrOption value="3">Cherries</DrOption>
-            <DrOption value="4">Raspberries</DrOption>
-            <DrOption value="5">Strawberries</DrOption>
-          </Dropdown>
-        </FormGroup>
-      </Col>
-    </Row>
-  </Form>
-</SandboxDemo>
-```
+### Helper Text 
 
-_Right-aligned Labels save vertical space in the UI._
+Dropdowns can optionally display helper text below the input. Helper text should be very brief (single line if possible) and explanatory. When an input fails validation, helper text is replaced by a validation message. 
 
-### Validation
+### Unavailable Options 
 
-When a dropdown is required, validate that a selection has been made when the form is submitted and show an error if required.
+When an option is temporarily unavailable, disabled it rather than hide it. 
 
-```example
-<SandboxDemo>
-  <Form className="px-3 py-1 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <Label>Default</Label>
-        <Dropdown invalid={true} placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2" disabled>
-            Bananas
-          </DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-        <FormFeedback className="d-flex align-items-center">
-          <span className="icon interstate-icon-notification-circle form-feedback__icon" />
-          This is required
-        </FormFeedback>
-      </Col>
-    </FormGroup>
-    <FormGroup row>
-      <Col>
-        <Label size="sm">Small</Label>
-        <Dropdown invalid={true} size="sm" placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1">Apples</DrOption>
-          <DrOption value="2">Bananas</DrOption>
-          <DrOption value="3">Cherries</DrOption>
-          <DrOption value="4">Raspberries</DrOption>
-          <DrOption value="5">Strawberries</DrOption>
-        </Dropdown>
-        <FormFeedback className="d-flex align-items-center">
-          <span className="icon interstate-icon-notification-circle form-feedback__icon" />
-          This is required
-        </FormFeedback>
-      </Col>
-    </FormGroup>
-    <Button className="ml-0 noop" type="submit">
-      Submit
-    </Button>
-  </Form>
-</SandboxDemo>
-```
+### Usability 
 
-## Design
+Dropdowns are useful for presenting lists of options without cluttering up the UI. However, they are inefficient because they also hide data and add clicks to the experience. They are also prone to usability problems with very long lists, or on small screens. Therefore, use dropdowns cautiously—as a last resort—when other controls don't meet the need. 
 
-### Size
+#### Do 
 
-Dropdowns are normally 40px high, but a small 32px alternative may be used when vertical space is at a premium. Whichever size is used, use the same size for any associated elements like text inputs and buttons.
+- Consider dropdowns for lists of 5-12 items. 
+- Consider dropdowns when users aren't familiar with the acceptable input options. 
+- Disable unavailable options rather than hiding them. 
+- Include placeholder text (e.g., “Select one…”) or pre-select a default option when it is likely to assist a user. 
+- Remember the user’s selection when it is likely to assist the user. 
 
-Full-width dropdowns are only allowed on the XS grid (0-479). In all other cases, inputs must span to a specified number of columns in the layout.
+#### Don’t 
 
-### States
+- Use dropdowns for less than 5 options. Instead, use radio buttons or a button group. 
+- Use dropdowns for more than 12 options. Instead, use a combobox. 
+- Use dropdowns for State/Province. Instead, use a ZIP code text field and auto-populate the city and state. Alternatives to consider are [combobox] or autocomplete when there is no ZIP code. 
+***
+*Coming Soon: Example of do/do not*
+***
+## Best Practices  
 
-All dropdowns have these states: default, disabled, and focused.
+### Content 
 
-### Default
+List titles should be concise and scannable: 
+- Use simple, clear language that can be read at a glance 
+- Keep list titles to a single sentence 
+- End titles that introduce a list with a colon. 
+- Write in sentence case 
 
-```example
-<SandboxDemo>
-  <Form className="p-3 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <label>Default</label>
-        <Dropdown placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1"> Apples</DrOption>
-          <DrOption value="2"> Bananas</DrOption>
-          <DrOption value="3"> Cherries</DrOption>
-          <DrOption value="4"> Raspberries</DrOption>
-          <DrOption value="5"> Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-  </Form>
-  <div className="interstate-docs__usage-demo__caption"><em>Default Dropdown</em></div>
-</SandboxDemo>
-```
-
-### Disabled
-
-```example
-<SandboxDemo>
-  <Form className="p-3 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <label>Default</label>
-        <Dropdown disabled={true} placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1"> Apples</DrOption>
-          <DrOption value="2"> Bananas</DrOption>
-          <DrOption value="3"> Cherries</DrOption>
-          <DrOption value="4"> Raspberries</DrOption>
-          <DrOption value="5"> Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-  </Form>
-  <div className="interstate-docs__usage-demo__caption"><em>Disabled Dropdown</em></div>
-</SandboxDemo>
-```
-
-### Focused
-
-```example
-<SandboxDemo>
-  <Form className="p-3 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <label>Default</label>
-        <Dropdown focus={true} placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1"> Apples</DrOption>
-          <DrOption value="2"> Bananas</DrOption>
-          <DrOption value="3"> Cherries</DrOption>
-          <DrOption value="4"> Raspberries</DrOption>
-          <DrOption value="5"> Strawberries</DrOption>
-        </Dropdown>
-      </Col>
-    </FormGroup>
-  </Form>
-  <div className="interstate-docs__usage-demo__caption"><em>Focused Dropdown</em></div>
-</SandboxDemo>
-```
-
-### Feedback Indicators
-
-### Error/Invalid
-
-```example
-<SandboxDemo>
-  <Form className="p-3 bg-white w-100 container">
-    <FormGroup className="mt-2" row>
-      <Col>
-        <label>Default</label>
-        <Dropdown invalid={true} placeholder="Select One..." style={{width: 200}}>
-          <DrOption value="1"> Apples</DrOption>
-          <DrOption value="2"> Bananas</DrOption>
-          <DrOption value="3"> Cherries</DrOption>
-          <DrOption value="4"> Raspberries</DrOption>
-          <DrOption value="5"> Strawberries</DrOption>
-        </Dropdown>
-        <FormFeedback className="d-flex align-items-center">
-          <span className="icon interstate-icon-notification-circle form-feedback__icon" />
-          This is required
-        </FormFeedback>
-      </Col>
-    </FormGroup>
-  </Form>
-  <div className="interstate-docs__usage-demo__caption"><em>Error State Dropdown</em></div>
-</SandboxDemo>
-```
-
-## Code
-
-### Default
-
-```jsx dead
-<div>
-  <Dropdown placeholder="Select One..." style={{width: 200}}>
-    <DrOption id="1" name="Apples" value="a1" />
-    <DrOption id="2" name="Bananas" disabled value="a2" />
-    <DrOption disabled={true} id="3" name="Cherries" value="a3" />
-    <DrOption id="4" name="Raspberries" value="a4" />
-    <DrOption id="5" name="Strawberries" value="a5" />
-    <DrOption
-      id="6"
-      name="Strawberries and Bananas and So Many Rasperries, You're gonna love it even when we run out of space for them all."
-      value="a6"
-    />
-  </Dropdown>
-</div>
-```
-
-### With readonly state
-
-```jsx dead
-<div>
-  <Dropdown readonly placeholder="Select One..." style={{width: 200}}>
-    <DrOption id="1" name="Apples" value="a1" />
-    <DrOption id="2" name="Bananas" value="a2" />
-    <DrOption id="3" name="Cherries" value="a3" />
-    <DrOption id="4" name="Raspberries" value="a4" />
-    <DrOption id="5" name="Strawberries" value="a5" />
-  </Dropdown>
-</div>
-```
-
-_The Dropdown component expects either the `<DrOption>` or `<DrOptionGroup>` component as children._
-
-### With default selection
-
-```jsx dead
-<div>
-  <Dropdown defaultSelection={["one"]} style={{width: 200}}>
-    <DrOption id="6" name="Apples" value="one" />
-    <DrOption id="7" name="Bananas" value="65" />
-    <DrOption id="8" name="Cherries" value="32" />
-    <DrOption id="9" name="Raspberries" value="2" />
-    <DrOption id="10" name="Strawberries" value="11" />
-  </Dropdown>
-</div>
-```
-
-_If the placeholder prop is omitted, the `defaultSelection` is displayed as a string instead. This will set the  DrOption with a matching `name` property as selected. For the `defaultSelection`, the data and behavior is based on `value`.
-
-### With onChange callback
-
-```jsx dead
-<div>
-  <Dropdown onChange={(event) => console.log(event)} style={{width: 200}}>
-    <DrOption id="11" name="Apples" value="one" />
-    <DrOption id="12" name="Bananas" value="65" />
-    <DrOption id="13" name="Cherries" value="32" />
-    <DrOption id="14" name="Raspberries" value="2" />
-    <DrOption id="15" name="Strawberries" value="11" />
-  </Dropdown>
-</div>
-```
-
-_If the placeholder prop is omitted, the default selection is displayed instead._
-
-### Dropdown Props
-
-| Name             | Type     | Default                     | Description                                                   |
-| ---------------- | -------- | --------------------------- | ------------------------------------------------------------- |
-| id               | `string` | `null`                      | Sets a unique id on the dropdown                              |
-| defaultSelection | `array`  | `null`                      | Sets the default DrOption array item selected                 |
-| children         | `node`   | `DrOption or DrOptionGroup` | Sets whether the dropdown items are DrOption or DrOptionGroup |
-| placeholder      | `string` | `null`                      | Sets the default Placeholder for the dropdown                 |
-| disabled         | `bool`   | `false`                     | Sets whether the dropdown is disabled                         |
-| multiple         | `bool`   | `false`                     | Enables multiselect                                           |
-| size             | `string` | `lg`                        | Sets either a small "sm" or large 'lg' dropdown size          |
-| valid            | `bool`   | `false`                     | Sets a dropdown optioned as valid                             |
-| readonly         | `bool`   | `false`                     | Sets the dropdown to readonly state                           |
-
-### DrOption Props
-
-| Name     | Type     | Default | Description                                              |
-| -------- | -------- | ------- | -------------------------------------------------------- |
-| id       | `string` | `null`  | Sets a unique id on the dropdown option                  |
-| name     | `string` | `null`  | Sets a unique name on the dropdown option                |
-| value    | `string` | `null`  | Sets the value of the drowndown option when selected     |
-| disabled | `bool`   | `false` | Disables the dropdown option and applies disabled styles |
+List choices: 
+- Start with a capital letter 
+- Do not use commas or semicolons at the end of each line 
+- Write in sentence case (the first word capitalized, the rest lowercase) 
