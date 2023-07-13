@@ -4,7 +4,7 @@ const name = 'overlay'
 const overlayPlugin = function({ addComponents, theme }) {
   addComponents({
     [`.${name}`]: {
-      backgroundColor: theme('backgroundColor.dim'),
+      backgroundColor: theme('backgroundColor.inverse'),
       position: 'absolute',
       top: 0,
       left: 0,

@@ -79,19 +79,19 @@
         "value": "{size.font.md} * .625",
         "type": "fontSizes",
         "description": "Font Size - 10px",
-        "category": "size"
+        "category": "space"
       },
       "xs": {
         "value": "{size.font.md} * 0.75",
         "type": "fontSizes",
         "description": "Font Size - 12px",
-        "category": "size"
+        "category": "space"
       },
       "sm": {
         "value": "{size.font.md} * 0.875",
         "type": "fontSizes",
         "description": "Font Size - 14px",
-        "category": "size"
+        "category": "space"
       },
       "base": {
         "value": "{size.font.md}",
@@ -103,13 +103,13 @@
         "value": "1.6rem",
         "type": "fontSizes",
         "description": "Font Size - 16px",
-        "category": "size"
+        "category": "space"
       },
       "lg": {
         "value": "{size.font.md} * 1.125",
         "type": "fontSizes",
         "description": "Font Size - 18px",
-        "category": "size"
+        "category": "space"
       },
       "xl": {
         "value": "{size.font.md} * 1.25",

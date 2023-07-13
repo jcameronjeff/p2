@@ -8,10 +8,10 @@ const avatarPlugin = function({ addComponents, theme }) {
       alignItems: 'center',
       justifyContent: 'center',
       color: theme('colors.black'),
-      backgroundColor: theme('backgroundColor.subtle'),
+      backgroundColor: theme('backgroundColor.muted'),
       border: `${theme('borderWidth.DEFAULT')} solid ${theme('colors.transparent')}`,
       borderRadius: theme('borderRadius.full'),
-      lineHeight: theme('space.font.leading.none'),
+      lineHeight: theme('lineHeight.none'),
     },
     [`.${name}-xs`]: {
       width: theme('width.6'),
@@ -50,14 +50,14 @@ const avatarPlugin = function({ addComponents, theme }) {
       },
     },
     [`.${name}-clickable`]: {
-      backgroundColor: theme('backgroundColor.white'),
-      borderColor: theme('borderColor.primary.DEFAULT'),
+      backgroundColor: theme('backgroundColor.interactive.rest'),
+      borderColor: theme('borderColor.interactive.rest'),
       boxShadow: `inset 0 0 0 2px ${theme('colors.white')}`,
-      color: theme('textColor.primary.DEFAULT'),
+      color: theme('textColor.interactive.rest'),
       cursor: theme('cursor.pointer'),
     },
     [`.${name}-clickable:hover`]: {
-      backgroundColor: theme('backgroundColor.hover'),
+      backgroundColor: theme('backgroundColor.interactive.hover'),
     },
     [`.${name}-img`]: {
       backgroundImage: 'var(--bg-img)',

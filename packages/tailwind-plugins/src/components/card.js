@@ -6,20 +6,15 @@ const cardPlugin = function({ addComponents, theme }) {
     [`.${name}`]: {
       display: 'inline-flex',
       backgroundColor: theme('backgroundColor.DEFAULT'),
-      border: `${theme('borderWidth.DEFAULT')} solid ${theme('borderColor.muted')}`,
+      border: `${theme('borderWidth.DEFAULT')} solid ${theme('borderColor.dim')}`,
       borderRadius: theme('borderRadius.sm'),
-      color: theme('colors.gray.600'),
+      color: theme('textColor.muted'),
       fontWeight: theme('medium'),
       lineHeight: theme('lineHeight.none'),
     },
-    [`.${name}-horizontal .${name}-layout`]: {
-      display: 'flex',
-      flexDirection: 'row',
-      alignItems: 'flex-start',
-    },
     [`.${name}-title`]: {
       display: 'flex',
-      color: theme('colors.black'),
+      color: theme('textColor.DEFAULT'),
       fontSize: theme('fontSize.md'),
       lineHeight: theme('lineHeight.snug'),
       paddingBottom: theme('padding.2'),
@@ -33,13 +28,10 @@ const cardPlugin = function({ addComponents, theme }) {
     },
     [`.${name}-footer`]: {
       display: 'inline-flex',
-      borderTop: `${theme('borderWidth.DEFAULT')} solid ${theme('borderColor.muted')}`, 
+      borderTop: `${theme('borderWidth.DEFAULT')} solid ${theme('borderColor.dim')}`, 
       gap: theme('gap.4'),
       lineHeight: theme('lineHeight.snug'),
-      paddingTop: theme('padding.3'),
-      paddingBottom: theme('padding.3'),
-      paddingRight: theme('padding.4'),
-      paddingLeft: theme('padding.4'),
+      padding: `${theme('padding[2.5]')} ${theme('padding.4')}`,
     },
     [`.${name} .${name}-media`]: {
       display: 'flex',
@@ -47,16 +39,23 @@ const cardPlugin = function({ addComponents, theme }) {
       alignItems: 'center',
       backgroundClip: 'border-box',
     },
-    [`.${name}-horizontal .${name}-media`]: {
-      width: '30%',
-    },
-    [`.${name}-horizontal .${name}-body`]: {
-      display: 'inline-flex',
-      padding: theme('padding.2'),
-      width: '70%',
-    },
-    [`.${name}-horizontal .${name}-title`]: {
-      paddingBottom: theme('padding.1'),
+    [`.${name}-horizontal`]: {
+      [`.${name}-layout`]: {
+        display: 'flex',
+        flexDirection: 'row',
+        alignItems: 'flex-start',
+      },
+      [`.${name}-media`]: {
+        width: '30%',
+      },
+      [`.${name}-body`]: {
+        display: 'inline-flex',
+        padding: theme('padding.2'),
+        width: '70%',
+      },
+      [`.${name}-title`]: {
+        paddingBottom: theme('padding.1'),
+      },
     },
   });
 };

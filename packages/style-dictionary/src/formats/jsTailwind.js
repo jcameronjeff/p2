@@ -23,12 +23,8 @@ const formatObj = (obj) => (format(obj, {
 const mergeColorValues = (colorSet, baseColors) => (
   Object.keys(colorSet).reduce((acc, name) => {
     if (baseColors[name]) {
-      const { light, dark, DEFAULT: _default} = baseColors[name]
-
       acc[name] = {
-        light,
-        dark,
-        base: _default,
+        ...baseColors[name],
         DEFAULT: colorSet[name]
       }
     } else {
@@ -168,11 +164,16 @@ const jsTailwind = {
       return acc
     }, {})
 
-    // Merge colors across color names (e.g. Success color values across surface.success)
+    // Merge colors across color names (e.g. Primary color values across surface.primary)
     const types = ['surface', 'on-surface', 'border']
     types.forEach(type => {
       if (allTokens.color[type]) {
         allTokens.color[type] = mergeColorValues(allTokens.color[type], allTokens.color)
+        if (allTokens.color[type].default) {
+          const defaultColor = allTokens.color[type].default
+          delete allTokens.color[type].default 
+          allTokens.color[type].DEFAULT = defaultColor
+        }
       }
     })
 
@@ -184,9 +185,11 @@ const jsTailwind = {
       ['color.surface', 'backgroundColor'],
       ['color.on-surface', 'textColor'],
       ['color.border', 'borderColor'],
-      ['size.font', 'fontSize'],
+      ['color', 'colors'],
       ['size.border.radius', 'borderRadius'],
       ['typography.default', 'typography.DEFAULT.css'],
+      ['size.border', 'borderWidth'],
+      ['size.font', 'fontSize'],
       ['space.font.leading', 'lineHeight'],
       ['space', 'spacing'],
     ]

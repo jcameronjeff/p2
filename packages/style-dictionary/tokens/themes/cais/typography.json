@@ -1,7 +1,7 @@
 {
   "typography": {
     "default": {
-      "color": { "value": "{color.on-surface.DEFAULT}" },
+      "color": { "value": "{color.on-surface.default}" },
       "fontSize": { "value": "{typography.fontSize.body.base}" },
       "fontFamily": { "value": "{typography.fontFamily.body.base}" },
       "fontWeight": { "value": "{typography.fontWeight.body.base}" },
@@ -31,7 +31,7 @@
         }
       },
       "h1": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h1}" },
         "fontFamily": { "value": "{typography.fontFamily.h1}" },
         "fontWeight": { "value": "{typography.fontWeight.h1}" },
@@ -45,7 +45,7 @@
         }
       },
       "h2": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h2}" },
         "fontFamily": { "value": "{typography.fontFamily.h2}" },
         "fontWeight": { "value": "{typography.fontWeight.h2}" },
@@ -57,7 +57,7 @@
         "marginBottom": { "value": "calc({typography.fontSize.h2} * {typography.lineHeight.h2})" }
       },
       "h3": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h3}" },
         "fontFamily": { "value": "{typography.fontFamily.h3}" },
         "fontWeight": { "value": "{typography.fontWeight.h3}" },
@@ -69,7 +69,7 @@
         "marginBottom": { "value": "calc({typography.fontSize.h3} * {typography.lineHeight.h3})" }
       },
       "h4": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h4}" },
         "fontFamily": { "value": "{typography.fontFamily.h4}" },
         "fontWeight": { "value": "{typography.fontWeight.h4}" },
@@ -81,7 +81,7 @@
         "marginBottom": { "value": "calc({typography.fontSize.h4} * {typography.lineHeight.h4})" }
       },
       "h5": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h5}" },
         "fontFamily": { "value": "{typography.fontFamily.h5}" },
         "fontWeight": { "value": "{typography.fontWeight.h5}" },
@@ -93,7 +93,7 @@
         "marginBottom": { "value": "calc({typography.fontSize.h5} * {typography.lineHeight.h5})" }
       },
       "h6": {
-        "color": { "value": "{color.on-surface.DEFAULT}" },
+        "color": { "value": "{color.on-surface.default}" },
         "fontSize": { "value": "{typography.fontSize.h6}" },
         "fontFamily": { "value": "{typography.fontFamily.h6}" },
         "fontWeight": { "value": "{typography.fontWeight.h6}" },

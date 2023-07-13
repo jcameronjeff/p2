@@ -11,8 +11,8 @@ const slideOutPlugin = function({ addComponents, theme }) {
       overflowY: 'scroll',
     },
     footer: {
-      backgroundColor: theme('backgroundColor.min'),
-      borderColor: theme('border.subtle'),
+      backgroundColor: theme('backgroundColor.subdued'),
+      borderColor: theme('borderColor.dim'),
       borderTopWidth: theme('borderWidth.DEFAULT'),
       padding: `${theme('padding.2')} ${theme('padding.6')}`,
       margin: `0 -${theme('padding.6')}`,
@@ -48,7 +48,7 @@ const slideOutPlugin = function({ addComponents, theme }) {
       alignItems: 'flex-start',
     },
     [`.${name}-title`]: {
-      color: theme('color.blue.900'),
+      color: theme('textColor.primary.DEFAULT'),
       fontWeight: theme('typography.fontWeight.h3'),
       lineHeight: theme('typography.lineHeight.h3'),
       fontSize: theme('typography.fontSize.h3'),

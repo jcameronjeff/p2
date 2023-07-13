@@ -7,7 +7,7 @@ const figma = require('./figma')
 const platforms = { css, scss, tailwind, figma }
 
 const buildPlatform = ({ name, destination }) => {
-  const platform = platforms[name]
+  const platform = Object.assign({}, platforms[name])
 
   if (!platform) {
     return null

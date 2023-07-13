@@ -11,7 +11,7 @@ const buttonPlugin = function ({
   const states = ['rest', 'hover', 'active', 'focus', 'disabled'];
   const base = {
     borderWidth: `${theme('borderWidth.DEFAULT')}`,
-    padding: `${theme('padding.2')} ${theme('padding.4')}`,
+    padding: `${theme('padding[3.5]')} ${theme('padding.4')}`,
     fontWeight: theme('fontWeight.semibold'),
     display: 'inline-flex',
     alignItems: 'center',
@@ -30,9 +30,9 @@ const buttonPlugin = function ({
           ? `.${name}-${variant}`
           : `.${name}-${variant}:${state}`;
       allStates[selector] = {
-        backgroundColor: theme(`backgroundColor.cta.${variant}.${state}`),
-        color: theme(`textColor.cta.${variant}.${state}`),
-        borderColor: theme(`borderColor.cta.${variant}.${state}`),
+        backgroundColor: theme(`backgroundColor.button.${variant}.${state}`),
+        color: theme(`textColor.button.${variant}.${state}`),
+        borderColor: theme(`borderColor.button.${variant}.${state}`),
         borderStyle: 'solid',
         borderWidth: '1px',
       };
@@ -46,17 +46,23 @@ const buttonPlugin = function ({
     ...buttons, // all primary, secondary, tertiary styles as `.btn-[variant]`
     [`.${name}-icon`]: {
       // icon only makes all padding equal and rounds
-      padding: theme('padding.2'),
-      borderRadius: theme('borderRadius.DEFAULT'),
-      width: '1em',
-      height: '1em',
+      padding: theme('padding.3'),
       svg: {
-        width: theme('fontSize.base'),
-        height: theme('fontSize.base'),
+        width: '1em',
+        height: '1em',
       },
       [`.interstate-icon`]: {
-        width: theme('fontSize.base'),
-        height: theme('fontSize.base'),
+        width: '1em',
+        height: '1em',
+      },
+      [`.${name}-sm`]: {
+        padding: theme('padding.2'),
+      },
+      [`.${name}-md`]: {
+        padding: theme('padding.3'),
+      },
+      [`.${name}-lg`]: {
+        padding: theme('padding[3.5]'),
       },
     },
     [`.${name}-float`]: {
@@ -64,42 +70,40 @@ const buttonPlugin = function ({
       borderRadius: theme('borderRadius.full'),
     },
     [`.${name}-aux`]: {
-      // small button that's fancy for no reason ¯\_(ツ)_/¯
-      fontSize: theme('fontSize.sm'),
+      padding: `${theme('padding[1.5]')} ${theme('padding.1')}`,
+      fontSize: theme('fontSize.xs'),
       textTransform: 'uppercase',
       fontFamily: theme('fontFamily.alt'),
     },
     [`.${name}-sm`]: {
-      padding: `${theme('padding.1')} ${theme('padding.2')}`,
+      padding: `${theme('padding.2')} ${theme('padding.2')}`,
       fontSize: theme('fontSize.sm'),
-      lineHeight: theme('lineHeight.sm'),
-      height: '3.2rem',
+      lineHeight: theme('lineHeight.tight'),
       svg: {
-        width: theme('fontSize.sm'),
-        height: theme('fontSize.sm'),
+        width: '1em',
+        height: '1em',
       },
       '.interstate-icon': {
-        width: theme('fontSize.sm'),
-        height: theme('fontSize.sm'),
+        width: '1em',
+        height: '1em',
       },
     },
     [`.${name}-md`]: {
-      padding: `${theme('padding.2')} ${theme('padding.4')}`,
+      padding: `${theme('padding.3')} ${theme('padding.3')}`,
       fontSize: theme('fontSize.base'),
-      lineHeight: theme('lineHeight.base'),
+      lineHeight: theme('lineHeight.tight'),
     },
     [`.${name}-lg`]: {
-      padding: `${theme('padding.3')} ${theme('padding.6')}`,
-      fontSize: theme('fontSize.lg'),
-      lineHeight: theme('lineHeight.lg'),
-      height: '4.8rem',
+      padding: `${theme('padding[3.5]')} ${theme('padding.4')}`,
+      fontSize: theme('fontSize.xl'),
+      lineHeight: theme('lineHeight.tight'),
       svg: {
-        width: theme('fontSize.lg'),
-        height: theme('fontSize.lg'),
+        width: '1em',
+        height: '1em',
       },
       [`.interstate-icon`]: {
-        width: theme('fontSize.lg'),
-        height: theme('fontSize.lg'),
+        width: '1em',
+        height: '1em',
       },
     },
   });
