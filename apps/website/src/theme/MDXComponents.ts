@@ -8,6 +8,8 @@ import TabSet from '@site/src/components/TabSet';
 import clsx from 'clsx';
 import * as Icon from '@prism2/icons-react/interstate';
 
+// remove MDX Components that are not needed
+delete MDXComponents.details
 
 export default {
   ...MDXComponents,

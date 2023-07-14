@@ -9,6 +9,9 @@ const Controls = () => {
     const { name } = e.target;
 
     switch (type) {
+      case "array":
+        setArgValue(name, e.target.value.split(',').map(v => v.trim()));
+        break;
       case "boolean":
         setArgValue(name, e.target.checked);
         break;
@@ -25,6 +28,16 @@ const Controls = () => {
 
   const makeControl = ({ type, name, value, options, ...args }) => {
     switch (type) {
+      case "array":
+        return (
+          <input
+            {...args}
+            type="text"
+            defaultValue={value.join(', ')}
+            name={name}
+            onChange={handleControlUpdate(type)}
+          />
+        );
       case "text":
         return (
           <input

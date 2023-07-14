@@ -1,0 +1,162 @@
+import clsx from 'clsx';
+import ChevronDownIcon from '@prism2/icons/interstate/chevron-down.svg';
+import ChevronRightIcon from '@prism2/icons/interstate/chevron-right.svg';
+import PhotoIcon from '@prism2/icons/interstate/photo.svg';
+
+export const defaultArgs = {
+  labels: ['Aardvark', 'Badger', 'Capybara'],
+  variant: 'default',
+  hasIcon: false,
+  isContained: false,
+}
+
+export const argTypes = {
+  labels: {
+    label: 'List of triggers',
+    control: {
+      type: 'array',
+    }
+  },
+  variant: {
+    label: 'Variant',
+    control: {
+      type: 'select',
+      options: ['default', 'filter', 'menu'],
+    },
+  },
+  hasIcon: {
+    label: 'Has Icon? (menu only)',
+    control: {
+      type: 'boolean',
+    },
+  },
+  isContained: {
+    label: 'Is Contained?',
+    control: {
+      type: 'boolean',
+    },
+  },
+};
+
+export const renderFn = ({ labels = [], variant, hasIcon, isContained }) => {
+  const makeAccordion = (label, key) => {
+    let content = (<>
+      <ChevronRightIcon className="accordion-icon accordion-indicator" />
+      <span className="accordion-label">{label}</span>
+    </>);
+    switch (variant) {
+      case 'menu':
+        content = (<>
+          {hasIcon && <PhotoIcon className="accordion-icon" />}
+          <span className="accordion-label">{label}</span>
+          <ChevronDownIcon className="accordion-icon accordion-indicator" />
+        </>);
+        break;
+      default:
+        break;
+    }
+    return (
+      <details className={`accordion-item`} key={key}>
+        <summary className="accordion-trigger">
+          {content}
+        </summary>
+        <div className="px-3 py-2">
+          <Ipsum size={1} >Ipsum Content</Ipsum>
+        </div>
+      </details>
+    )  
+  }
+  const accordionClass = clsx(
+    'accordion',
+    variant && variant !== 'default' && `accordion-${variant}`,
+    isContained && 'accordion-contained',
+  )
+  return (<div className={accordionClass}>{
+    labels.map((label, index) => {
+      const key = `accordion-${label}-${index}`
+      return makeAccordion(label, key)
+    })
+  }</div>)
+}
+
+export const AccordionKitchen = (props) => (
+  <Kitchen 
+    args={defaultArgs} 
+    argTypes={argTypes} 
+    render={renderFn} 
+    targetSelector=".accordion" 
+    {...props}
+  />
+)
+
+## Description
+
+Accordions allow a user to show or hide sections of related content or functionality on a page. 
+The header may contain an interactive label and icon that expands or collapses content below. 
+The expandable container ensures that the entire content within the accordion is clickable.
+
+## Ingredients
+
+Accordions are made up of a combination of elements and classes. The styles will be 
+made up of **Required** and **Optional** classes.
+
+It is preferred to create Accordions with `<details>` and `<summary>` elements with the class names listed below.
+However, this is required for all instances.
+If the preferred elements are not being used, be sure to have the `open` boolean attribute on the `.accordion-item` element do display it in the open state.
+
+### Required
+
+- `.accordion` - the container element of accordion items
+- `.accordion-item` - `<details>` elements which contain a `<summary>` element as a "trigger" and all other content afterwards
+- `.accordion-trigger` - the `<summary>` element within the container element
+- `.accordion-label` - the text within the `<summary>` element
+- `.accordion-icon` - the content within the `<summary>` element
+- `.accordion-indicator` - the special icon which indicates if the accordion item is expanded or collapsed
+
+### Optional
+
+**variant**
+
+- `.accordion-filter` - displays Accordion triggers with blue text
+- `.accordion-menu` - indicators on the right, can have icons
+
+**contained**
+
+- `.accordion-contained` - wraps the accordion items in a preferred border style
+
+## Directions
+
+### Accordions are unstyled by default
+
+When an accordion has no specified modifier (contained or other variant), the accordion is displayed shown.
+
+<AccordionKitchen hideControls args={{
+  ...defaultArgs,
+}} />
+
+### Accordions as contained
+
+Contained accordions can be created by adding the contained class to the accordion element.
+
+<AccordionKitchen hideControls args={{
+  ...defaultArgs,
+  isContained: true
+}} />
+
+### Accordions as Menu Accordions
+
+Here we illustrate the Menu Accordions with chevrons on the right and an icon before the label.
+Notice how the Summary sets the order and the content of these elements around the label.
+
+<AccordionKitchen hideControls args={{
+  ...defaultArgs,
+  variant: 'menu',
+  hasIcon: true,
+  isContaiend: true,
+}} />
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Accordion component and see how they can be combined in the final output.
+
+<AccordionKitchen targetSelector={null} />
