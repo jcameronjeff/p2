@@ -68,6 +68,7 @@ const buttonPlugin = function ({
     [`.${name}-float`]: {
       // float buttons get rounded ends
       borderRadius: theme('borderRadius.full'),
+      boxShadow: theme('boxShadow.md'),
     },
     [`.${name}-aux`]: {
       padding: `${theme('padding[1.5]')} ${theme('padding.1')}`,

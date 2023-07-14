@@ -1,5 +1,100 @@
 import clsx from 'clsx';
 
+export const defaultArgs = {
+  label: 'Button',
+  size: 'md',
+  type: 'default',
+  variant: 'primary',
+  isFloating: false,
+  hasIconLeft: false,
+  hasIconRight: false,
+}
+
+export const argTypes = {
+  label: {
+    control: {
+      type: 'text',
+      maxLength: 2,
+      className: 'w-12',
+    },
+  },
+  type: {
+    control: {
+      type: 'select',
+      options: ['default', 'icon', 'aux'],
+    },
+  },
+  size: {
+    control: {
+      type: 'select',
+      options: ['sm', 'md', 'lg'],
+    },
+    requires: (args) => (args.type !== 'aux'),
+  },
+  variant: {
+    control: {
+      type: 'select',
+      options: ['primary', 'secondary', 'tertiary'],
+    },
+    requires: (args) => (args.type !== 'aux'),
+  },
+  isFloating: {
+    label: 'Is Floating?',
+    control: {
+      type: 'boolean',
+    },
+    requires: (args) => (args.type !== 'aux'),
+  },
+  hasIconLeft: {
+    label: 'Show Left Icon?',
+    control: {
+      type: 'boolean',
+    },
+    requires: (args) => (args.type === 'default'),
+  },
+  hasIconRight: {
+    label: 'Show Left Icon?',
+    control: { 
+      type: 'boolean',
+    },
+    requires: (args) => (args.type === 'default'),
+  },
+};
+
+export const renderFn = ({ label, size, type, variant, isFloating, hasIconLeft, hasIconRight }) => {
+  return (
+    <button
+      className={clsx(
+        'btn',
+        type !== 'aux' && size && `btn-${size}`,
+        type !== 'aux' && `btn-${variant}`,
+        type !== 'aux' && isFloating && `btn-float`,
+        type === 'icon' && `btn-icon`,
+        type === 'aux' && `btn-aux btn-tertiary`,
+      )}
+    >
+      {type === 'icon' && <UserIcon />}
+      {type !== 'icon' && (
+        <>
+          {hasIconLeft && <UserIcon />}
+          {label}
+          {hasIconRight && <UserIcon />}
+        </>
+      )}
+    </button>
+  );
+}
+
+export const ButtonKitchen = (props) => (
+  <Kitchen 
+    args={defaultArgs} 
+    argTypes={argTypes} 
+    render={renderFn} 
+    targetSelector=".btn" 
+    {...props}
+  />
+)
+
 ## Definition
 
 ## Ingredients
@@ -13,135 +108,92 @@ made up of **Required**, **Selectable**, and **Optional** classes.
 
 ### Selectable
 
-**variants**
+#### Variants
 
 - `.btn-primary` - Solid Button
 - `.btn-secondary` - Outline Button
 - `.btn-tertiary` - Text Button
 
-<div class='container mb-3'>
-  <div className='row'>
-    <button className='btn btn-secondary btn-lg m-1'>Large </button>
-    <button className='btn btn-secondary btn-md m-1'>Medium </button>
-    <button className='btn btn-secondary btn-sm m-1'>Small </button>
-  </div>
-</div>
-
-### Optional
-
-**sizes**
+#### Sizes
 
 Button is available in a specific range of sizes (SM - LG) and uses the following class names:
 
-- `.btn-sm` - Small
-- `.btn-md` - Medium
-- `.btn-lg` - Large
+- `.btn-sm` - Small button size
+- `.btn-md` - Medium button size
+- `.btn-lg` - Large button size
 
-<div class='container my-3'>
-  <div className='row'>
-    <button className='btn btn-secondary btn-lg m-1'>Large </button>
-    <button className='btn btn-secondary btn-md m-1'>Medium </button>
-    <button className='btn btn-secondary btn-sm m-1'>Small </button>
-  </div>
-  <div className='row'>
-    <button className='btn btn-primary btn-icon btn-lg m-1'>
-      <UserIcon />
-    </button>
-    <button className='btn btn-secondary btn-icon m-1'>
-      <UserIcon />
-    </button>
-    <button className='btn btn-secondary btn-icon btn-sm m-1'>
-      <UserIcon />
-    </button>
-  </div>
-</div>
+### Optional
 
-**types**
+#### Types
+- `.btn-icon` - icon only buttons, use this when no text is used in the button
+- `.btn-aux` - auxilary buttons used to show a small control with no significance visually; has a fixed size; has a fixed variant
 
-- `.btn-icon`
-- `.btn-aux`
-- `.btn-floating`
+#### Floating
+- `.btn-float` - floating buttons fully round the button corners and adds a subtle drop shadow
 
-<div class='container'>
-  <div className='row'>
-    <button className='btn btn-secondary btn-icon m-1'>
-      <UserIcon />
-    </button>
-    <button className='btn btn-primary btn-aux m-1'>Aux </button>
-    <button className='btn btn-primary btn-float m-1'>Foating </button>
-  </div>
-</div>
+## Directions
+
+Below we see several examples for buttons that show how the options above can be used.
+
+### Medium Secondary Icon Only Button
+
+Medium buttons are the default size and align with default input sizes.
+Here we see a left placed icon with the label.
+
+<ButtonKitchen hideControls args={{
+  ...defaultArgs,
+  size: 'md',
+  variant: 'primary',
+}} />
+
+### Large Primary Button
+
+Large buttons are used to align with large inputs.
+Here we see a left placed icon with the label.
+
+<ButtonKitchen hideControls args={{
+  ...defaultArgs,
+  size: 'lg',
+  variant: 'secondary',
+  hasIconLeft: true,
+}} />
+
+### Small Tertiary Button
+
+Small buttons are used to align with small inputs.
+Here we see a right placed icon with the label.
+
+<ButtonKitchen hideControls args={{
+  ...defaultArgs,
+  size: 'sm',
+  variant: 'tertiary',
+  hasIconRight: true,
+}} />
+
+### Floating Primary Button
+
+Floating buttons are "lifted" above content using a subtle drop shadow and positioning. 
+In this example, we are only showing the styles of the button, not giving it position within the page.
+
+<ButtonKitchen hideControls args={{
+  ...defaultArgs,
+  isFloating: true
+}} />
+
+### Auxilary Button
+
+Auxilary buttons are special buttons used to show small controls but not so significant that it impacts scanability. (e.g. "Clear All")
+
+<ButtonKitchen hideControls args={{
+  ...defaultArgs,
+  size: null,
+  variant: 'tertiary',
+  type: 'aux'
+}} />
 
 ## Developer Kitchen
 
 Now it's your turn! Select options for the Button component and see how they can
 be combined in the final output.
 
-export const argTypes = {
-  label: {
-    control: {
-      type: 'text',
-      maxLength: 2,
-      className: 'w-12',
-    },
-  },
-  variant: {
-    control: {
-      type: 'select',
-      options: ['primary', 'secondary', 'tertiary'],
-    },
-  },
-  size: {
-    control: {
-      type: 'select',
-      options: ['sm', 'md', 'lg'],
-    },
-  },
-  type: {
-    control: {
-      type: 'select',
-      options: ['default', 'icon', 'aux', 'floating'],
-    },
-  },
-  prepend: {
-    label: 'Prepend Icon',
-    control: {
-      type: 'boolean',
-    },
-  },
-  append: {
-    label: 'Append Icon',
-    control: { type: 'boolean' },
-  },
-};
-
-<Kitchen
-  args={{
-    label: 'Button',
-    size: 'md',
-    type: 'default',
-    variant: 'primary',
-  }}
-  argTypes={argTypes}
-  render={({ label, size, type, variant, prepend, append }) => {
-    return (
-      <button
-        className={clsx(
-          'btn',
-          `btn-${size}`,
-          `btn-${variant}`,
-          type !== 'default' && `btn-${type}`
-        )}
-      >
-        {type === 'icon' && <UserIcon className='w-3 h-3' />}
-        {type !== 'icon' && (
-          <>
-            {prepend && <UserIcon className='w-3 h-3' />}
-            {label}
-            {append && <UserIcon className='w-3 h-3' />}
-          </>
-        )}
-      </button>
-    );
-  }}
-/>
+<ButtonKitchen targetSelector={null} />

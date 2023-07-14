@@ -182,6 +182,7 @@ const jsTailwind = {
 
     // move source tokens to new locations
     const paths = [
+      ['shadow', 'boxShadow'],
       ['color.surface', 'backgroundColor'],
       ['color.on-surface', 'textColor'],
       ['color.border', 'borderColor'],
