@@ -1,6 +1,68 @@
 import clsx from 'clsx';
 import UserIcon from '@prism2/icons/interstate/user.svg';
 
+export const defaultArgs = {
+  label: 'WW',
+  size: 'lg',
+  style: 'icon',
+  clickable: false,
+}
+
+export const argTypes = {
+  label: {
+    control: { 
+      type: 'text',
+      maxLength: 2,
+      className: "w-12"
+    },
+  },
+  size: {
+    control: { 
+      type: 'select', 
+      options: ['xs', 'sm', 'md', 'lg'] 
+    },
+  },
+  style: {
+    control: {
+      type: 'select',
+      options: ['icon', 'text', 'image']
+    }
+  },
+  clickable: {
+    label: 'Is Clickable?',
+    control: { type: 'boolean' },
+  },
+};
+
+export const renderFn = ({ label, clickable, size, style }) => {
+  const styles = {
+    '--bg-img': "url('https://picsum.photos/id/64/128')"
+  }
+  return (
+    <div
+      className={clsx(
+        'avatar',
+        `avatar-${size}`,
+        clickable && 'avatar-clickable',
+        style === 'image' && 'avatar-img'
+      )}
+      style={styles}
+    >
+      { style === "text" && <span>{label}</span> }
+      { style === "icon" && <UserIcon className="avatar-icon" /> }
+    </div>
+  )
+}
+
+export const AvatarKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={argTypes}
+    render={renderFn}
+    {...props}
+  />
+)
+
 ## Definition
 
 An avatar is a representation of an individual user. It can be used as a link to 
@@ -21,9 +83,9 @@ made up of **Required**, **Selectable**, and **Optional** classes.
 
 ### Selectable
 
-**sizes**
+#### sizes
 
-Avatar is available in a specific range of sizes (XS - LG) and uses the following class names:
+Avatar is available in a specific range of sizes (XS - LG) and uses the following class nam#### es:
 
 - `.avatar-xs` - Extra Small
 - `.avatar-sm` - Small
@@ -31,6 +93,8 @@ Avatar is available in a specific range of sizes (XS - LG) and uses the followin
 - `.avatar-lg` - Large
 
 ### Optional
+
+#### variant
 
 - `.avatar-img` - A background image within the url in the wrapper
 - `.avatar-icon` - A child element which specifies the icon
@@ -43,98 +107,37 @@ Avatar is available in a specific range of sizes (XS - LG) and uses the followin
 When an Avatar is without text or an image, it ought to be an icon. 
 This example displays a small avatar.
 
-<span className="avatar avatar-sm my-4">
-  <UserIcon className="avatar-icon" />
-</span>
-
-```html
-<span className="avatar avatar-sm">
-  <UserIcon className="avatar-icon" />
-</span>
-```
+<AvatarKitchen hideControls args={{
+  ...defaultArgs,
+  size: 'sm',
+}} />
 
 ### Avatar with text
 
 When an Avatar is used with a name, the initials are presented (limited to two letters).
 
-<span className="avatar avatar-md my-4">
-  WW
-</span>
-
-```html
-<span className="avatar avatar-md">
-  WW
-</span>
-```
+<AvatarKitchen hideControls args={{
+  ...defaultArgs,
+  style: 'text',
+  label: 'MM',
+  size: 'md',
+}} />
 
 ### Avatar with an Image and is Clickable
 
 When an Avatar has an Image available, it is done so with a `--bg-image` CSS
 custom property. This example shows as clickable as well as large.
 
-<div
-  className="avatar avatar-lg avatar-img avatar-clickable my-4"
-  style={{"--bg-img": "url('https://picsum.photos/id/64/128')"}}
-></div>
-
-```html
-<div
-  class="avatar avatar-lg avatar-img"
-  style="--bg-img: url('https://picsum.photos/id/64/128');"
-></div>
-```
+<AvatarKitchen hideControls args={{
+  ...defaultArgs,
+  size: 'lg',
+  style: 'image',
+  clickable: true
+}} />
 
 ## Developer Kitchen
 
 Now it's your turn! Select options for the Avatar component and see how they can 
 be combined in the final output.
 
-export const argTypes = {
-  label: {
-    control: { 
-      type: 'text',
-      maxLength: 2,
-      className: "w-12"
-    },
-  },
-  size: {
-    control: { 
-      type: 'select', 
-      options: ['xs', 'sm', 'md', 'lg'] 
-    },
-  },
-  style: {
-    control: {
-      type: 'select',
-      options: ['text', 'icon', 'image']
-    }
-  },
-  clickable: {
-    label: 'Is Clickable?',
-    control: { type: 'boolean' },
-  },
-};
-
-<Kitchen
-  args={{ label: 'WW', size: 'lg', style: 'text' }}
-  argTypes={argTypes}
-  render={({ label, clickable, size, style }) => {
-    const styles = {
-      '--bg-img': "url('https://picsum.photos/id/64/128')"
-    }
-    return (
-      <div
-        className={clsx(
-          'avatar',
-          `avatar-${size}`,
-          clickable && 'avatar-clickable',
-          style === 'image' && 'avatar-img'
-        )}
-        style={styles}
-      >
-        { style === "text" && <span>{label}</span> }
-        { style === "icon" && <UserIcon className="avatar-icon" /> }
-      </div>
-    )
-  }}
-/>
+<AvatarKitchen targetSelector={null} />
