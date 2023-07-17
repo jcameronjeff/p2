@@ -1,292 +1,47 @@
 ---
 title: 'Indicator'
 ---
+## Description 
 
-## Usage
+Indicators are simple, non-interactive displays of information (e.g., status) in a variety of visual forms. 
+***
+*Coming Soon - example of an indicator*
+***
 
-<definition>
+## Usage 
 
-### Definition
+### Labels 
 
-Indicators are labels which convey small amounts of information such as a status, in a variety of visual forms, and can use color to communicate meaning.
+Indicators with a text label should use no more than one or two words and avoid acronyms or abbreviations. 
 
-Indicators have either one or two states, and may have an optional tool tip. They are not used to navigate to additional content.
+### Badge 
 
-</definition>
+Badges are visually similar to chips and can use color to communicate meaning such as status. They may have an optional left or right icon, but not both. 
 
-### Common Characteristics
+Maintain a minimum of 4px vertical and horizontal space between badges. 
 
-All indicators have ALL-CAPS labels, or an icon.
+### Flag 
 
-All indicators are single-state (show/hide), or two-state (on/off).
+Flags can indicate status or provide light merchandizing. 
 
+When to use a flag:
+- Indicate a new product
+- Show a price has dropped
+- Indicate something has expired. 
+A flag may have an optional left icon. 
 
-### Single-State Indicators
+Flags can use any brand or status color for the surface. However, the surface color must have good contrast with a black or white text label. 
 
-Single-state indicators are displayed in the UI when relevant, and hidden when not.
+Only use one or two flags within a parent element (e.g., a card or vehicle listing). 
 
+### Ribbon 
 
-### Flags
+Like flags, ribbons are used to indicate status or provide merchandizing and have the same color options. However, a ribbon does not have an icon, and it can potentially overlay content, such as a vehicle image. 
 
-Flags are best used for words, not acronyms, and do not have tooltips.
+Only use one ribbon within a parent element. 
 
-Flags can be displayed horizontally with content, or diagonally over content. Any single item may have up to two horizontal flags, and/or one diagonal flag.
+## [Manheim Specific Styles](https://interstate-staging.awsgdmshednp.manheim.com/docs/styles/themes/manheim)
 
-![icon badges](/img/components/indicators/flags.png)
-_Flags can be used horizontally or diagonally_
+### Auction Lights 
 
-
-### Icon Badges
-
-Icon badges are visually identical to icon text buttons, but the only interaction is to display a tooltip on hover or tap.
-
-![icon badges](/img/components/indicators/icon_badges.png)
-
-
-### Two-State Indicators
-
-Two-state indicators have color when relevant, and gray when not.
-
-
-### Auction Lights
-
-![auction lights](/img/components/indicators/auction_lights.png)
-
-_Auctions lights have tooltips in both on and off states._
-
-
-### Task Indicators
-
-Task indicators indicate whether a task is complete or incomplete.
-
-![task indicator](/img/components/indicators/task_indicator.png)
-
-_Task indicators have tooltips in both states._
-
-
-## Design
-
-### Single-State Indicators
-
-![ribbon flags](/img/components/indicators/RIBBON-FLAGS-1.png)
-
-_Ribbons_
-
-![corner flags](/img/components/indicators/CORNERFLAGS.png)
-_Corner Flags_
-
-![icon badges](/img/components/indicators/icon_badges.png)
-_Icon Badges_
-
-### Two-State Indicators
-
-![auction](/img/components/indicators/Auction_lights_Two_state_indicator.png)
-_Auction Lights_
-
-
-# Documentation
-
-### Color
-
-| Class                    | Property                              |
-| ------------------------ | ------------------------------------- |
-| `.badge-primary`         | Applies primary button styles         |
-| `.badge-danger`          | Applies danger button styles          |
-| `.badge-danger-light`    | Applies danger-light button styles    |
-| `.badge-secondary`       | Applies secondary button styles       |
-| `.badge-secondary-light` | Applies secondary-light button styles |
-| `.badge-smoke`           | Applies smoke button styles           |
-| `.badge-gold`            | Applies gold button styles            |
-| `.badge-success`         | Applies success button styles         |
-
-
-## Code
-
-
-### Ribbon Flags
-
-```jsx dead
-<div>
-  <Indicator.Flag label={Indicator.Flag.LABEL_AS_IS} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_BETA} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_CERTIFIED} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_NEW} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_PRIOR} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_REDUCED} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_SALVAGE} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_SPECIAL} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_UPDATED} />
-  <Indicator.Flag label={Indicator.Flag.LABEL_CUSTOM} customText='CUSTOM' />
-  <Indicator.Flag
-    label={Indicator.Flag.LABEL_CUSTOM}
-    customText='CUSTOM'
-    color='danger'
-  />
-</div>
-```
-
-### Corner Flags
-
-
-```jsx dead
-<div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_AS_IS}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_BETA}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_CERTIFIED}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_NEW}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_PRIOR}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_REDUCED}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_SALVAGE}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_SPECIAL}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_UPDATED}
-        type={Indicator.Flag.TYPE_CORNER}
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_CUSTOM}
-        type={Indicator.Flag.TYPE_CORNER}
-        customText='CUSTOM'
-      />
-    </div>
-    <div className="demo-box" style={{width: '100px', height: '100px'}}>
-      <Indicator.Flag
-        label={Indicator.Flag.LABEL_CUSTOM}
-        type={Indicator.Flag.TYPE_CORNER}
-        customText='CUSTOM'
-        color='danger' 
-      />
-    </div>
-</div>
-```
-
-### Two-state Indicators
-
-### Auction Lights
-
-```jsx dead
-<div>
-  <div>
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_AS_IS}
-      id="TooltipAsIs"
-      tooltip="As Is"
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_CAUTION}
-      id="TooltipCaution"
-      tooltip="Caution"
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_GUARANTEE}
-      id="TooltipGuarantee"
-      tooltip="Guarantee"
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_TITLE_ABSENT}
-      id="TooltipAbsent"
-      tooltip="Title Absent"
-    />
-  </div>
-  <div>
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_AS_IS}
-      id="TooltipAsIs"
-      tooltip="As Is"
-      lit
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_CAUTION}
-      id="TooltipCaution"
-      tooltip="Caution"
-      lit
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_GUARANTEE}
-      id="TooltipGuarantee"
-      tooltip="Guarantee"
-      lit
-    />
-    <Indicator.AuctionLight
-      type={Indicator.AuctionLight.TYPE_TITLE_ABSENT}
-      id="TooltipAbsent"
-      tooltip="Title Absent"
-      lit
-    />
-  </div>
-</div>
-```
-
-### Task
-
-```jsx dead
-<div>
-  <div style={{ flexGrow: 1,
-  flexBasis: '100%',}}>
-    <Indicator.Task icon="car" name="Wash House" />
-  </div>
-  <div style={{ flexGrow: 1,
-  flexBasis: '100%',}}>
-    <Indicator.Task icon="truck" name="Load House" complete />
-  </div>
-  <div style={{ flexGrow: 1,
-  flexBasis: '100%',}}>
-    <Indicator.Task icon="car" name="Wash House" iconOnly />
-    <Indicator.Task icon="truck" name="Load House" iconOnly complete />
-  </div>
-</div>
-```
-
-### Indicator Props
-
-| Name             | Type       | Default                   | Description            |
-| ---------------- | ---------- | ------------------------- | ----------------------
-| id               | `string`   | `null`                    | Sets a unique id for an indicator
-| name             | `string`   | `null`                    | Sets the inline label text for a task indicator
-| label            | `string`   | `null`                    | Sets the label text for an indicator
-| type             | `string`   | `null`                    | Sets which type of indicator to use
-| tooltip          | `string`   | `null`                    | Sets the tooltip text for a task indicator
-| icon             | `string`   | `null`                    | Displays an icon next to the text for a task indicator
-
+Auction Lights are a specialty indicator used to digitally replicate live, in-lane auction lights. The digital version uses the same colors to indicate the same meaning as the in-lane version. 
