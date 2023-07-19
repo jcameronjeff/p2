@@ -1,0 +1,269 @@
+import { PhotoIcon, ChevronLeftIcon, ChevronRightIcon } from '@prism2/icons-react/interstate';
+
+export const defaultArgs = {
+  previous: false,
+  next: false,
+};
+
+export const tabArgTypes = {
+  previous: {
+    label: 'Previous Button',
+    control: { type: 'boolean' },
+  },
+  next: {
+    label: 'Next Button',
+    control: { type: 'boolean' }
+  },
+};
+
+export const renderTabsKitchen = ({previous, next}) => {
+  return (
+    <div>
+        <div class="int-tabs-container">
+          <div class="int-tabs-scroller">
+            <button class="int-tab">Tab <br />One</button>
+            <button class="int-tab">Tab Two</button>
+            <button class="int-tab">Tab Three</button>
+            <button class="int-tab">Tab Four</button>
+            <button class="int-tab" aria-selected="true">Tab Five</button>
+            <button class="int-tab">Tab Six</button>
+            <button class="int-tab">Tab Seven</button>
+            <button class="int-tab">Tab Eight</button>
+            <button class="int-tab">Tab Nine</button>
+            <button class="int-tab">Tab Ten</button>
+          </div>
+          {previous && (
+            <button class="int-tabs-overflow-prev"><ChevronLeftIcon className="h-3 w-3" /></button>
+          )}
+            {next && (
+            <button class="int-tabs-overflow-next"><ChevronRightIcon className="h-3 w-3" /></button>
+          )}
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item" hidden>Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab four Content</div>
+          <div class="int-tabs-content-item">Tab Five Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Six Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Seven Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Eight Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Nine Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Ten Content</div>
+        </div>
+      </div>
+  );
+};
+
+export const TabsKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={tabArgTypes}
+    render={renderTabsKitchen}
+    targetSelector=".int-tabs-container"
+    {...props}
+  />
+);
+
+## Definition
+
+Tabs organize content within a category in a horizontal menu of logical subsections.
+
+Each tab within a group contains a distinct subsection of content.
+
+## Common Characteristics
+
+All tabs are presented horizontally and can scroll when necessary.
+ 
+All tabs have a separator that spans the width of the content area governed by the tabs.
+
+Tabs have these states: default (selectable), selected, active, hover/tap, focused and disabled.
+
+A Tab with no content must have explanatory text rather than be left blank.
+
+## Ingredients
+
+Tabs are made up of at least one CTA and one pane for content.
+
+## State Definitions
+
+- `.tab` - Default state for a tab
+- `.tab[aria-selected="true"]` - State of a selected tab.
+- `.tab:hover` - State of a hovered or tapped tab.
+- `.tab:active` - State of an active tab.
+- `.tab:focus` - State of a focused tab.
+- `.tab[disabled]` - State of a disabled tab.
+
+
+<br />
+
+### Basic Tabs
+
+A basic tabs example.
+
+<Kitchen hideControls
+  render={() => {
+    return (
+      <div>
+        <div class="int-tabs-container">
+          <button class="int-tab" aria-selected="true">Tab One</button>
+          <button class="int-tab">Tab Two</button>
+          <button class="int-tab">Tab Three</button>
+          <button class="int-tab">Tab Four</button>
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item">Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+        </div>
+      </div>
+    )
+  }}
+/>
+
+<br />
+
+### Disabled Tab
+
+A basic tabs example with a disabled tab.
+
+<Kitchen hideControls
+  render={() => {
+    return (
+      <div>
+        <div class="int-tabs-container">
+          <button class="int-tab" aria-selected="true">Tab One</button>
+          <button class="int-tab">Tab Two</button>
+          <button class="int-tab">Tab Three</button>
+          <button class="int-tab" disabled>Tab Four</button>
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item">Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+        </div>
+      </div>
+    );
+  }}
+/>
+
+<br />
+
+### Tabs with icons
+
+Each tab can be prefixed with an icon as a visual aid.
+
+<Kitchen hideControls
+  render={() => {
+    return (
+      <div>
+        <div class="int-tabs-container">
+          <button class="int-tab" aria-selected="true">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab One
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Two
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Three
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Four
+          </button>
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item">Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+        </div>
+      </div>
+    );
+  }}
+/>
+
+<br />
+
+### Tabs with icons and wrapping labels
+
+Note: There are no specified rules for when a label should wrap. This example uses a <span class="not-prose">`<br>`</span> element to create a line break and demonstrate the look of a tab with a wrapping label.
+
+<Kitchen hideControls
+  render={() => {
+    return (
+      <div>
+        <div class="int-tabs-container">
+          <button class="int-tab" aria-selected="true">
+            <PhotoIcon className="mr-2 h-4 w-4" /> A Long <br /> Tab Label
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Two
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Three
+          </button>
+          <button class="int-tab">
+            <PhotoIcon className="mr-2 h-4 w-4" /> Tab Four
+          </button>
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item">Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+        </div>
+      </div>
+    );
+  }}
+/>
+
+<br />
+
+### Scrollable tabs
+
+Tabs will scroll horizontally when the container doesn't fit all the available tabs.
+
+<Kitchen hideControls
+  render={() => {
+    return (
+      <div>
+        <div class="int-tabs-container">
+          <div class="int-tabs-scroller">
+            <button class="int-tab">Tab <br />One</button>
+            <button class="int-tab">Tab Two</button>
+            <button class="int-tab">Tab Three</button>
+            <button class="int-tab">Tab Four</button>
+            <button class="int-tab" aria-selected="true">Tab Five</button>
+            <button class="int-tab">Tab Six</button>
+            <button class="int-tab">Tab Seven</button>
+            <button class="int-tab">Tab Eight</button>
+            <button class="int-tab">Tab Nine</button>
+            <button class="int-tab">Tab Ten</button>
+          </div>
+          <button class="int-tabs-overflow-prev"><ChevronLeftIcon className="h-3 w-3" /></button>
+          <button class="int-tabs-overflow-next"><ChevronRightIcon className="h-3 w-3" /></button>
+        </div>
+        <div class="int-tabs-content-container">
+          <div class="int-tabs-content-item" hidden>Tab One Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Two Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Three Content</div>
+          <div class="int-tabs-content-item" hidden>Tab four Content</div>
+          <div class="int-tabs-content-item">Tab Five Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Six Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Seven Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Eight Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Nine Content</div>
+          <div class="int-tabs-content-item" hidden>Tab Ten Content</div>
+        </div>
+      </div>
+    );
+  }}
+/>
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Card component and see how they can be combined in the final output.
+
+<TabsKitchen targetSelector={null} />

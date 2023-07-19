@@ -5,6 +5,7 @@ const card = require('./card.js');
 const link = require('./link.js');
 const overlay = require('./overlay.js');
 const slideOut = require('./slide-out.js');
+const tab = require('./tab.js')
 
 module.exports = { 
   accordion,
@@ -14,4 +15,5 @@ module.exports = {
   link,
   overlay,
   slideOut,
+  tab,
 };
