@@ -52,5 +52,5 @@ web
 
 
 **/.npmrc
-.github
+.github/workflows
 .devcontainer
