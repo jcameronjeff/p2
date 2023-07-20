@@ -1,91 +1,21 @@
 import clsx from 'clsx';
 import PhotoIcon from '@prism2/icons/interstate/photo.svg';
 
-## Description
-
-Links allow a user to navigate to another location via descriptive text.
-
-## Ingredients
-
-Links are made up of a combination of __elements__ and __classes__.  The styles will be made up of __Required__ and __Selectable__ .
-
-### Required
-  - label: Is used to display the text that is clickable in the link
-
-### Selectable
-  - size(s) are available as the following: `link-xxs`, `link-xs`, `link-sm`, `link-md`, `link-lg`, `link-xl`, `link-2xl`, `link-3xl`
-  - icon left: Uses the following class in `<img class="link-icon" />` and preceeds the `label`
-  - icon right: Uses the following class in `<img class="link-icon" />`and follows after the `label`
-  - type [standalone, inline]: The type is used for links that are in the document. By default the inline version can be used in paragraphs or other bodies of naturally flowing text. If the desire is to stand alone, then use `link-stand-alone` class. 
-
-### Optional
-
-There are no optional ingredients.
-
-## Directions
-  - Link specs apply to all font sizes from text-xxs to text-3xl
-  - Links always use the font-medium weight
-    - In body text, designers should use the underline link styles.
-    - For links that are not in body text, devlopers should use the link styles, which does not have an underline, but does allow for a left or right icon.  See: Standalone Label below
- 
-
-<div className="flex flex-wrap gap-2 flex-col ">
-
-  ### Standalone label only
-
-  For links that are not in body text, devlopers should use the Standalone link, which does not have an underline.
-
-  <a className="link link-xxs link-xs link-sm link-md link-lg link-xl link-2xl link-3xl"></a>
-
-  <a className="link link-stand-alone link-md">Base Link</a>
-
-  <a className="link link-stand-alone link-lg">Large Link</a>
-
-```
-<a className="link link-stand-alone link-lg">Large Link</a>
-```
-
-  ### Standalone label with icon
-
-  Standalone links which allow for a left or right icon and do not have an underline.
-
-  <a className="link link-stand-alone link-xxs">
-    <PhotoIcon className="link-icon" /> 
-    XXS Link Label
-    <PhotoIcon className="link-icon" />
-  </a>
-
-```
-<a className="link link-stand-alone link-xxs">
-  <PhotoIcon className="link-icon" />
-  XXS Link
-  <PhotoIcon className="link-icon" />
-</a>
-```
-
-</div>
-
-### Inline label only
-
-In body text, designers should use the underline link styles.
-
-<p>Consequat est velit laborum <a className="" href="">sample inline link</a> nisi.</p>
-
-```
-<a href="#">sample inline link</a>
-```
-
-## Developer Kitchen
-
-Now it's your turn! Select options for the Link component and see how they can 
-be combined in the final output.
+export const defaultArgs = {
+  tag: 'a',
+  label: 'Link Name',
+  size: 'md',
+  iconLeft: false,
+  iconRight: false,
+  isInLine: false
+}
 
 export const argTypes = {
   tag: {
     label: 'Tag name',
     control: {
       type: 'select',
-      options: ['a', 'span', 'div']
+      options: ['a', 'span', 'button']
     },
   },
   label: {
@@ -98,46 +28,141 @@ export const argTypes = {
       options: ['xxs', 'xs', 'sm', 'md', 'lg', 'xl', '2xl', '3xl'] 
     },
   },
+  isInLine: {
+    label: 'In-line only (no icons)?',
+    control: { type: 'boolean' },
+  },
   iconLeft: {
-    left: 'Show left Icon?',
+    label: 'Show Icon Left?',
     control: { type: 'boolean' },
   },
   iconRight: {
-    left: 'Show right Icon?',
+    label: 'Show Icon Right?',
     control: { type: 'boolean' },
-  },
-  type: {
-    label: 'Select the display type',
-    control: { 
-      type: 'select', 
-      options: ['inline', 'stand-alone'],
-    },
   },
 };
 
-<Kitchen
-  args={{ tag: 'a', label: 'link element', type: 'inline' }}
-  argTypes={argTypes}
-  render={({ label, tag: Tag, type, size = 'lg', iconLeft, iconRight }) => {
-    const props = {};
-    if (Tag === 'a') {
-      props.href = '#'
-    } 
-    
+export const renderFn = ({ tag: Tag, label, size, iconLeft, iconRight, isInLine }) => {
+  if (isInLine === true && Tag === 'a') {
+    return (
+      <Tag
+        href="#"
+      >
+        {label}
+      </Tag>
+    )
+  } else {
     return (
       <Tag
         className={clsx(
-          Tag !== 'a' && 'link',
+          'link',
+          'link-stand-alone',
           `link-${size}`,
-          type !== 'inline' && `link-${type}`
         )}
-        {...props}
       >
         {iconLeft && <PhotoIcon className="link-icon" />}
         {label}
         {iconRight && <PhotoIcon className="link-icon" />}
       </Tag>
     )
-  }}
-/>
+  }
+}
 
+export const LinkKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={argTypes}
+    render={renderFn}
+    {...props}
+  />
+)
+
+## Definition
+
+Links allow a user to navigate to another location via descriptive text.
+
+## Ingredients
+
+Links are made up of a combination of __elements__ and __classes__.  The styles will be made up of __Required__ and __Selectable__ .
+
+### Required
+
+- __Label__: Is used to display the text that is clickable in the link
+
+### Selectable
+
+#### Sizes
+
+size(s) are available as the following: 
+- `link-xxs` - Extra Extra Small button size
+- `link-xs` - Extra Small button size
+- `link-sm` - Small button size
+- `link-md` - Medium button size
+- `link-lg` - Large button size
+- `link-xl` - Extra Large button size
+- `link-2xl` - Extra Extra Large button size
+- `link-3xl` - Extra Extra Extra Large button size
+  
+#### Icons
+
+- `link-icon` - class is applied to the `img` or `svg`, which will either preceed or follow the __Label__ depending on where it the image is placed.
+  
+#### Standalone or inline
+
+- `link-stand-alone` - allows links to behave as a component recipe
+- `inline` - is intended to be used in body text links with underline styling
+
+The inline version can be used in paragraphs or other bodies of naturally flowing text. If this is your desire then check Inline Only item below. (Note: no icons will be displayed)
+
+## Directions
+- Link specs apply to all font sizes from text-xxs to text-3xl
+- Links always use the font-medium weight
+  - In body text, designers should use the underline link styles.
+  - For links that are not in body text, devlopers should use the link styles, which does not have an underline, but does allow for a left or right icon.  See: Standalone label below
+
+### Standalone label only
+
+For links that are not in body text, devlopers should use the Standalone link, which does not have an underline.
+
+<LinkKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Base Link',
+  size: 'md',
+}} />
+
+<LinkKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Large Link',
+  size: 'lg',
+}} />
+
+### Standalone label with icon
+
+Standalone links which allow for a left or right icon and do not have an underline.
+
+<LinkKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Standalone & Icons (md)',
+  size: 'md',
+  iconLeft: true,
+  iconRight: true,
+}} />
+
+### Inline label only
+
+In body text, designers should use the underline link styles.
+
+<p>Consequat est velit laborum <a href="#?">sample inline link</a> nisi.</p>
+
+<LinkKitchen hideControls args={{
+  ...defaultArgs,
+  isInLine: true,
+  label: 'sample inline link'
+}} />
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Link component and see how they can 
+be combined in the final output.
+
+<LinkKitchen targetSelector={null} />
