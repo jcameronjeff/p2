@@ -52,3 +52,5 @@ web
 
 
 **/.npmrc
+.github
+.devcontainer

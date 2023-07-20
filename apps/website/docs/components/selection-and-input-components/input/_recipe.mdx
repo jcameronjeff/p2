@@ -11,3 +11,36 @@ Links are made up of a combination of **elements** and **classes**. The styles w
 ### Required
 
 - label: Is u
+
+export const defaultArgs = {
+  label: 'Label',
+};
+
+export const argTypes = {
+  label: {
+    control: {
+      type: 'text',
+    },
+  },
+};
+
+export const renderInput = ({ label }) => {
+  return (
+    <div>
+      {label && <label>{label}</label>}
+      <input className='input' type='text' placeholder='placeholder' />
+    </div>
+  );
+};
+
+export const InputKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={argTypes}
+    render={renderInput}
+    targetSelector='.input'
+    {...props}
+  />
+);
+
+<InputKitchen />

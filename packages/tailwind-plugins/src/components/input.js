@@ -18,6 +18,9 @@ const inputPlugin = function ({ addComponents, theme }) {
       fontWeight: theme('medium'),
       lineHeight: theme('lineHeight.none'),
     },
+    [`.${name}:focus`]: {
+      outline: 'none',
+    },
     [`.${name}-label`]: {
       display: 'flex',
       color: theme('textColor.DEFAULT'),
