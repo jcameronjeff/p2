@@ -61,4 +61,3 @@ jobs:
         run: |
           CFID=$(aws ssm get-parameters --names "/deploy/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
           aws cloudfront create-invalidation --distribution-id ${CFID} --paths "/*"
-          
