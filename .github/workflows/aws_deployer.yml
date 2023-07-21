@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - next
-      - US1067648/aws deploy
 jobs:
   deploy-prod:
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
@@ -60,6 +59,6 @@ jobs:
           aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ secrets.AWS_S3_BUCKET }} s3://${{ secrets.AWS_S3_BUCKET }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
       - name: Invalidate Prod Cloudfront
         run: |
-          CFID=$(aws ssm get-parameters --names "/staging/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
+          CFID=$(aws ssm get-parameters --names "/deploy/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
           aws cloudfront create-invalidation --distribution-id ${CFID} --paths "/*"
           

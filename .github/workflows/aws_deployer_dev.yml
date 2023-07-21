@@ -4,7 +4,7 @@ on:
   push:
     branches:
       - next
-      - US1067648/aws deploy
+      
 jobs:
   deploy-nonprod:
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
