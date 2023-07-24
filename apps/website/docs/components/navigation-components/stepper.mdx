@@ -1,209 +1,59 @@
 ---
 title: 'Stepper'
 ---
+# STEPPER 
 
-## Usage
+## Description 
 
-<definition>
+The stepper illustrates a user's progress through a linear process and optionally, provides secondary navigation through the process. It provides the user with answers to these process questions: How many steps? Where am I now? What's next? and What is already complete? 
 
-### Definition
+The stepper may be a minimum of two and a maximum of seven steps. Designers should aim for as few steps as necessary in a logical process. 
 
-The stepper illustrates a user's progress through a series of steps to complete a process, and optionally, provides secondary navigation through the process. It provides the user with answers to these process questions: How many steps? Where am I now? What's next? and What's complete?
+## Usage 
 
-</definition>
+### Layout 
 
-The stepper can be interactive, allowing a user to complete a process. In this case, use buttons for primary navigation, and the steps as secondary, direct navigation. A non-interactive stepper simply indicates status of a process.
+The stepper is always placed above its relevant content and spans the same width. 
 
-An interactive stepper is most useful for a 2-7 step process. However, the number of steps should be as few as possible.
+On the M-XXL breakpoints a label is displayed for each step. Step labels are allowed to wrap as needed. 
 
+On the XS-S breakpoints only the label for the current step is displayed. The label may wrap as needed. 
 
-### Common Characteristics
+### Interaction 
 
-Individual steps in all steppers may be complete, valid vs. error, and required vs. optional.
+The stepper is interactive by default but can also be a non-interactive display of the status of a process. 
 
+#### Interactive 
 
-### Interactive Steppers
+Use an interactive stepper to help guide a user through a linear process. Buttons are always used to navigate through the process. An optional secondary navigation method can be provided for the user by making any completed step selectable. This allows a user to return directly to that step to review and make changes. 
 
-Interactive steppers should be used with buttons as primary navigation. Use a contained button for forward navigation, and a text or outlined button for backward navigation.
+Steps do not have a hover state other than changing the cursor to a pointer. 
 
-```example
-<SandboxDemo>
-<InteractiveStepper />
-</SandboxDemo>
-```
+#### Non-Interactive 
 
-_Interactive stepper with primary and secondary navigation._
+Use a non-interactive stepper to visually display that a process is currently at a specific step. This helps the user understand which steps are complete and incomplete. 
 
-### Small Screens
+The stepper also becomes non-interactive when a process is completed and information from the process is submitted. This provides confirmation that the process was completed successfully. 
 
-On small screens (XS breakpoint), only the current step label is displayed.
+### Buttons 
 
-```example
-<SandboxDemo>
-<InteractiveStepper size="sm" />
-</SandboxDemo>
-```
+To maintain a bias toward forward progress, the forward button should be higher hierarchically than the back button. Designers may also wish to reserve the primary button for the final, completion step. 
 
-_Interactive stepper with primary and secondary navigation._
+***
+*Coming soon: Example with do/do not*
+***
 
+## Best Practices 
 
-### Non-interactive Steppers
+Steppers should always provide a clear indication of progress. 
 
-```example
-<SandboxDemo>
-<Stepper currentStep={1} size="sm">
-  <Step complete>Step 1</Step>
-  <Step complete>Step 2</Step>
-  <Step>Step 3 Long Label</Step>
-</Stepper>
-</SandboxDemo>
-```
+### Content 
 
-&nbsp;
+- **Keep the steps clear and concise**: Steps should be easy to understand with clear labels that are simple and straightforward
+- **Use clear and visible error messages**: If errors occur, users should be able to clearly understand what went wrong and how to fix it.
 
-## Design
+ 
 
+ 
 
-### States
-
-Individual steps in all steppers may be complete, valid vs error, and required vs. optional. 
-
-### Implementations
-
-## Code
-
-### Sizes
-
-The Stepper comes in two different sizes. The largest of which is the
-default and is responsive. Starting at the smallest component size at the
-smallest screen width and then adjusting in size as the viewport changes in size.
-
-```jsx dead
-<Stepper currentStep={1}>
-  <Step complete>Pick Up Location</Step>
-  <Step>Confirm</Step>
-</Stepper>
-```
-
-### Small Size
-
-Occasionally you need to lock a component to the smallest size. This is done
-with the `size="sm"` property.
-
-```jsx dead
-<Stepper size="sm" currentStep={1}>
-  <Step complete>Pick Up Location</Step>
-  <Step>Confirm</Step>
-</Stepper>
-```
-
-
-### React Notation
-
-The Stepper comes with a Step component available to inject steps with
-custom props directly into the Stepper component.
-
-### Minimal
-
-When using the Step component, titles can be included either as a child of the
-Step component or as a title prop of the Step component.
-
-```jsx dead
-<Stepper currentStep={1}>
-  <Step>Pick Up Location</Step>
-  <Step>Shipping Address</Step>
-  <Step>Delivery Method</Step>
-  <Step>Confirm</Step>
-</Stepper>
-```
-
-### Expanded
-
-This example aims to highlight how you specify which step is complete. By default, all steps are complete if they are before the
-currentStep index.
-
-```jsx dead
-<Stepper currentStep={2}>
-  <Step complete title="Pick Up Location" />
-  <Step complete title="Shipping Address" />
-  <Step title="Delivery Method" />
-  <Step title="Confirm" />
-</Stepper>
-```
-
-
-### Object Notation
-
-Depending on the environment, an Array of step titles or objects may be used in
-lieu of using a Step component. As all Step components, steps before the
-currentStep index will be marked as complete by default.
-
-### Minimal
-
-Titles can be passes as a string or as a title property to the Step
-configuration object.
-
-```jsx dead
-<Stepper currentStep={2} steps={[
-  'Pick Up Location',
-  'Shipping Address',
-  'Delivery Method',
-  'Confirm'
-]} />
-```
-
-
-### Expanded
-
-In order to display a Step to specify one as complete, Step
-configuration objects will need to be used. These can also be mixed with title
-strings for when only one step needs to have complete specified.
-
-```jsx dead
-<Stepper currentStep={1} steps={[
-  { title: 'Pick Up Location', complete: true },
-  { title: 'Shipping Address'},
-  'Delivery Method',
-  'Confirm'
-]} />
-```
-
-### Step Locations and Callbacks
-
-Steps can be directed to other locations or actions by providing `href` or
-`onClick` properties to the step either when using `React Notation` or
-`Object Notation`.
-
-### React Notation
-
-```jsx dead
-<Stepper currentStep={1}>
-  <Step onClick={(e) => { e.preventDefault(); alert('#Pick-Up-Location'); }}>Pick Up Location</Step>
-  <Step href="#nope" title="Shipping Address" />
-</Stepper>
-```
-
-### Object Notation
-
-```jsx dead
-<Stepper currentStep={1} steps={[
-  {
-    title: 'Pick Up Location',
-    onClick: (e) => {
-      e.preventDefault();
-      alert('#Pick-Up-Location');
-    }
-  },
-  {
-    title: 'Shipping Address',
-    href: '#Shipping-Address'
-  }
-]} />
-```
-
-### Stepper Props
-
-| Name               | Type              | Default                   | Description
-| ------------------ | ----------------- | ------------------------- | ----------------------
-| currentStep        | `number`          | `1`                       | Sets the currently selected step
-| size               | `string`          | `"lg"`                    | Sets size of the tooltip to either sm or lg
+ 
