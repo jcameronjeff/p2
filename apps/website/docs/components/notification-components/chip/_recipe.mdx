@@ -1,0 +1,163 @@
+import { useState } from 'react';
+import clsx from 'clsx';
+import PhotoIcon from '@prism2/icons/interstate/photo.svg';
+import XMarkIcon from '@prism2/icons/interstate/x-mark.svg';
+
+export const defaultArgs = {
+  label: 'Chip',
+  variant: 'link',
+  hasIconLeft: false,
+  hasIconRight: false,
+}
+
+export const argTypes = {
+  label: {
+    label: 'Chip',
+    control: {
+      type: 'text'
+    }
+  },
+  variant: {
+    control: {
+      type: 'select',
+      options: ['link', 'toggle', 'filter']
+    }
+  },
+  hasIconLeft: {
+    label: 'Has Icon on Left?',
+    control: {
+      type: 'boolean',
+    },
+    requires: (args) => (
+      args.variant === 'link'
+    ),
+  },
+  hasIconRight: {
+    label: 'Has Icon on Right?',
+    control: {
+      type: 'boolean',
+    },
+    requires: (args) => (
+      args.variant === 'link'
+    ),
+  }
+}
+
+export const renderFn = (isSelected, setIsSelected) => ({ label, variant, hasIconLeft, hasIconRight }) => {
+  const className = clsx(
+    'chip',
+    variant && `chip-${variant}`,
+    variant === 'toggle' && isSelected && 'chip-selected'
+  )
+  let content = label
+  let props = {}
+  let Tag = 'span'
+  const handleToggle = () => setIsSelected(!isSelected)
+  const getLabel = () => label === defaultArgs.label ? `${label} ${variant}` : label
+  switch (variant) {
+    case 'link':
+      Tag = 'a'
+      props = {
+        href: '#'
+      }
+      content = (<>
+        {hasIconLeft && <PhotoIcon className="icon" />}
+        {getLabel()}
+        {hasIconRight && <PhotoIcon className="icon" />}
+      </>)
+      break;
+    case 'toggle':
+      Tag = 'label'
+      content = <><input type="checkbox" defaultChecked={isSelected} onChange={handleToggle} />{getLabel()}</>
+      break;
+    case 'filter':
+      Tag = 'button'
+      content = (<>{getLabel()}<XMarkIcon className="icon" /></>)
+      break;
+    default:
+      break;
+  }
+  return (
+    <Tag className={className} {...props}>
+      {content}
+    </Tag>
+  )
+}
+
+export const ChipKitchen = (props) => {
+  const [isSelected, setIsSelected] = useState(false)
+  return (
+    <Kitchen 
+      args={defaultArgs} 
+      argTypes={argTypes}
+      externalState={{ isSelected }}
+      render={renderFn(isSelected, setIsSelected)} 
+      targetSelector=".chip" 
+      {...props}
+    />
+  )
+}
+
+## Description
+
+Chips are small elements which present small amounts of information or offer optional actions.
+
+## Ingredients
+
+Chips are made up of a combination of elements and classes. The styles will be 
+made up of **Required**, **Selectable**, and **Optional** classes.
+
+### Required
+
+- `.chip` - the base style for all chip variants
+
+### Selectable
+
+#### Variant
+
+- `.chip-link` - links styled as a chip
+- `.chip-toggle` - checkbox or radio buttons styled as a chip
+- `.chip-filter` - buttons which disappear when clicked
+
+### Optional
+
+- `.chip-selected` - denotes a selected state in a toggle chip
+
+## Directions
+
+### Link Chip
+
+Link Chips are anchor tags with `chip` and `chip-link` class names. 
+Link Chips permit icons on left and right just as Links do.
+
+<ChipKitchen hideControls args={{
+  ...defaultArgs,
+  variant: 'link',
+  hasIconLeft: true,
+}} />
+
+
+### Toggle Chip
+
+Toggle Chips utilize an internal checkbox or radio button for form usage. 
+The styles, however, do not rely on the use of the input and thus rely on the use of the `chip-selected` class name.
+
+<ChipKitchen hideControls args={{
+  ...defaultArgs,
+  variant: 'toggle'
+}} />
+
+### Filter Chip
+
+Filter chip utilize a button and are expected to be removed when clicked.
+
+<ChipKitchen hideControls args={{
+  ...defaultArgs,
+  variant: 'filter'
+}} />
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Chip component and see how they can be combined in the final output.
+
+<ChipKitchen targetSelector={null} />

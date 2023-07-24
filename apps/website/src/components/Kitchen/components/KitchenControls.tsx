@@ -78,7 +78,11 @@ const Controls = () => {
   return (
     <div className="kitchen__controls">
       {Object.keys(argTypes).map((name) => {
-        const { control, label = null } = argTypes[name];
+        const { control, label = null, requires } = argTypes[name];
+
+        if (requires && !requires(args)) {
+          return null
+        }
 
         return (
           <div className="p-3" key={name}>

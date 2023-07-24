@@ -1,16 +1,15 @@
-name: Deploy Interstate to AWS (Non-Prod)
+name: Deploy Interstate to AWS (Prod)
 
 on:
   push:
     branches:
       - next
-      
 jobs:
-  deploy-nonprod:
+  deploy-prod:
     runs-on:  [self-hosted, Linux, CAI-Enterprise]
     environment:
-      name: development
-      url: https://interstate-staging.awsgdmshednp.manheim.com
+      name: prod
+      url: https://interstate.awsgdmshed.manheim.com
     strategy:
       matrix:
         node-version: [16.x]
@@ -52,13 +51,13 @@ jobs:
       - name: Build Docusaurus
         env:
           DOCUSAURUS_BASE: /
-          DOCUSAURUS_URL: https://interstate-staging.awsgdmshednp.manheim.com
+          DOCUSAURUS_URL: https://interstate.awsgdmshed.manheim.com
         run: pnpm turbo run build
       - name: Deploy to S3
         run: |
           aws s3 cp --recursive ./apps/website/build s3://${{ secrets.AWS_S3_BUCKET }}
           aws s3 cp --content-type image/svg+xml --acl public-read s3://${{ secrets.AWS_S3_BUCKET }} s3://${{ secrets.AWS_S3_BUCKET }} --metadata-directive REPLACE --exclude "*" --include "*.svg" --recursive
-      - name: Invalidate Non-Prod Cloudfront
+      - name: Invalidate Prod Cloudfront
         run: |
-          CFID=$(aws ssm get-parameters --names "/staging/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
+          CFID=$(aws ssm get-parameters --names "/deploy/uiux/prism/config/cloudfront_id_interstate" --region us-east-1 | jq -r '.Parameters[].Value')
           aws cloudfront create-invalidation --distribution-id ${CFID} --paths "/*"

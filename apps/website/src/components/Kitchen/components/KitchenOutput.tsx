@@ -6,7 +6,7 @@ import useIsBrowser from "@docusaurus/useIsBrowser"
 import CodeBlock from "@theme/CodeBlock"
 
 const Output = (props) => {
-  const [{ args, outputDom }, { format, setOutputDom }] = useContext(KitchenContext)
+  const [{ args, outputDom, externalState }, { format, setOutputDom }] = useContext(KitchenContext)
   const [output, setOutput] = useState('')
   const [targetSelector, setTargetSelector] = useState(props.targetSelector)
   const { render } = props
@@ -31,7 +31,7 @@ const Output = (props) => {
         setOutput(format(targetDom.outerHTML))
       })
     }
-  }, [args, isBrowser, outputDom])
+  }, [args, externalState, isBrowser, outputDom])
   
   return (
     <BrowserOnly fallback={<div>Loading...</div>}>

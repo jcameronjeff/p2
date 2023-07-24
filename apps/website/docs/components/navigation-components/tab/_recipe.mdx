@@ -3,6 +3,8 @@ import { PhotoIcon, ChevronLeftIcon, ChevronRightIcon } from '@prism2/icons-reac
 export const defaultArgs = {
   previous: false,
   next: false,
+  withIcon: false,
+  wrapLabels: false
 };
 
 export const tabArgTypes = {
@@ -12,25 +14,33 @@ export const tabArgTypes = {
   },
   next: {
     label: 'Next Button',
-    control: { type: 'boolean' }
+    control: { type: 'boolean' },
+  },
+  withIcon: {
+    label: 'With Icon',
+    control: { type : 'boolean' },
+  },
+  wrapLabels: {
+    label: 'Wrap Labels',
+    control: { type : 'boolean' },
   },
 };
 
-export const renderTabsKitchen = ({previous, next}) => {
+export const renderTabsKitchen = ({previous, next, withIcon, wrapLabels}) => {
   return (
     <div>
         <div class="int-tabs-container">
           <div class="int-tabs-scroller">
-            <button class="int-tab">Tab <br />One</button>
-            <button class="int-tab">Tab Two</button>
-            <button class="int-tab">Tab Three</button>
-            <button class="int-tab">Tab Four</button>
-            <button class="int-tab" aria-selected="true">Tab Five</button>
-            <button class="int-tab">Tab Six</button>
-            <button class="int-tab">Tab Seven</button>
-            <button class="int-tab">Tab Eight</button>
-            <button class="int-tab">Tab Nine</button>
-            <button class="int-tab">Tab Ten</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} One</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Two</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Three</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Four</button>
+            <button class="int-tab" aria-selected="true">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Five</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Six</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Seven</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Eight</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Nine</button>
+            <button class="int-tab">{withIcon && (<PhotoIcon className="mr-2 h-4 w-4" />)} Tab{wrapLabels && (<br />)} Ten</button>
           </div>
           {previous && (
             <button class="int-tabs-overflow-prev"><ChevronLeftIcon className="h-3 w-3" /></button>

@@ -9,6 +9,7 @@ const linkPlugin = function({ addBase, addComponents, theme }) {
       gap: '0.4em',
       color: theme('textColor.link.rest'),
       cursor: theme('cursor.pointer'),
+      textDecoration: 'underline',
     }
   addBase({
     a: anchorBase
@@ -45,6 +46,9 @@ const linkPlugin = function({ addBase, addComponents, theme }) {
     [`.${name}-3xl`]: {
       fontSize: theme('fontSize.3xl'),
     },
+    [`a:hover`]: {
+      color: theme('textColor.link.hover'),
+    },
     [`.${name}:hover`]: {
       color: theme('textColor.link.hover'),
     },
@@ -63,6 +67,12 @@ const linkPlugin = function({ addBase, addComponents, theme }) {
     [`.${name}-stand-alone`]: {
       textDecoration: 'none',
     },
+    [`button.${name}`]: {
+      borderStyle: 'none',
+      borderRadius: 'none',
+      borderWidth: '0',
+      padding: '0'
+    }
   });
 };
 

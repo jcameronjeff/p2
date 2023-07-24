@@ -8,6 +8,7 @@ const SET_ARG_VALUE = "SET_ARG_VALUE";
 export const initialState = {
   argTypes: {},
   args: {},
+  externalState: {}
 };
 
 const sanitize = (risky, safe) => {

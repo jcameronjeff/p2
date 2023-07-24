@@ -93,6 +93,14 @@ const buttonPlugin = function ({
       padding: `${theme('padding.3')} ${theme('padding.3')}`,
       fontSize: theme('fontSize.base'),
       lineHeight: theme('lineHeight.tight'),
+      svg: {
+        width: '1em',
+        height: '1em',
+      },
+      [`.interstate-icon`]: {
+        width: '1em',
+        height: '1em',
+      },
     },
     [`.${name}-lg`]: {
       padding: `${theme('padding[3.5]')} ${theme('padding.4')}`,
