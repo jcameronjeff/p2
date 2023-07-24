@@ -1,274 +1,65 @@
 ---
 title: 'Modal'
 ---
+## Description 
 
-## Usage
+Modals are interrupters which are intended to focus a user’s attention on information and required actions. They overlay the main screen to provide urgent information, or ask for information, or ask for a decision without navigating away from the main screen, thus keeping the user's current context. They must be acted upon or dismissed before a user can continue working on the main screen. 
 
-Modals are child windows which appear in front of the main window to provide urgent information, or ask for information, or ask for a decision while keeping the user's current context. Modals demand a user's attention and must be acted upon or dismissed before a user can continue working in the main window.
+Modals always include at least one action. 
 
-Modals are disruptive and can annoy users. Therefore, they should be used sparingly and kept brief, without multiple steps. They should be user initiated unless an urgent system message needs to be seen and acknowledged.
+## Related Components 
 
+- [Slideout](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/layout-and-structure-components/slideout/) - use the slideout instead of a modal for longer or more complex content
 
-### Common Characteristics
+## Sizes 
 
-All modals appear on a 50% opacity black background, and will contain content plus an action. Modals may only have one or two actions. Headings are optional.
+### Small 
 
-Users may close any modal by clicking on the main window, or keyboard ESC, or “X”, or an action button.
+The small modal is 90% of viewport width up to 320px maximum.  It has an optional H4 heading. Styling is the same for all breakpoints. 
 
-Modals are centered with the main page and appear near the top of the main page—80px from the top for XS, S, and M breakpoints; and 120px from the top for L, XL, and XXL breakpoints.
+### Large 
 
-```example
-<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
-  <div
-    style={{borderRadius: "3px", padding: "8px", display: "flex", justifyContent: "center",}}
-    className="bg-white"
-  >
-    <Examples.WithHeader/>
-  </div>
-</div>
-```
+The large modal is 90% of the viewport width up to 640px maximum, and up to 80% of viewport height. It has a required H3 heading and a “close” icon button. At the XS breakpoint the large modal is restyled as a full screen overlay. 
+***
+*Coming soon: visual examples or demos*
+***
 
-_Large modal with a confirming and dismissing actions._
+## Usage 
 
-### Usage Guidelines
+### When to Use 
 
-Modals are disruptors which are known to annoy users in many cases, so use them sparingly. Only use modals for brief processes when maintaining the user's current context is important. For long processes with multiple steps or options, consider a new page or full-page overlay.The optimal use cases for modals are:
+Since modals are disruptive and can annoy users, they should be used sparingly and kept as brief as possible. They should be user initiated unless an urgent system message needs to be seen and acknowledged. 
 
-Modals should only include one or two actions. If one, it must be an acknowledgement action (e.g. “OK”). If two, one must be a confirming action, and the other a dismissing action. (e.g. “SUBMIT” and “CANCEL”).
+Use the small modal for very simple acknowledgements (e.g., “Okay”) or confirmations (e.g., “Okay” / “Cancel”). 
 
-```example
-<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
-  <div
-    style={{borderRadius: "3px", padding: "8px", display: "flex", justifyContent: "center",}}
-    className="bg-white"
-  >
-    <Examples.Small/>
-  </div>
-</div>
-```
+Use the large modal for longer content or very short forms such as an address entry form. 
 
-_Small modal with an acknowledging action._
+For very long content, long forms, or multi-step processes, use a [slideout](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/layout-and-structure-components/slideout/) instead. 
+***
+*Coming soon:  Do/Don’t examples to illustrate appropriate use of small vs large vs slideout*
+***
 
-```example
-<div className="interstate-docs__usage-demo interstate-sandbox interstate-sandbox">
-  <div
-    style={{borderRadius: "3px", padding: "8px", display: "flex", justifyContent: "center",}}
-    className="bg-white"
-  >
-    <Examples.SmallWithHeader/>
-  </div>
-</div>
-```
+### Button Labels 
 
-_Small modal with an acknowledging action and header._
+For “okay”/”cancel” scenarios, the submit button label should reflect the action being taken (e.g., “Delete”, “Save Changes”) rather than the generic “okay”. 
 
-### Interaction
+### Interaction 
 
-When a modal is open, all functionality on the main window should be disabled including scrolling. Also, avoid scrolling content within a modal. If scrolling can't be avoided, lock the action buttons in view.
+A modal prevents the user from interacting with the main screen. All interactivity on the main screen is disabled including scrolling. Users may close a modal by selecting the main window, a close button, submit/cancel buttons, or keyboard ESC. 
 
-### Accessibility
+Scrolling content should be avoided in modals. A [slideout](https://interstate-staging.awsgdmshednp.manheim.com/docs/components/layout-and-structure-components/slideout/) is preferred for scrolling content. 
 
-When opening a modal, save the last element interacted with in the main window. Move keyboard focus to the modal, and trap focus in the modal until it is dismissed. When the user closes a modal, keyboard focus should be restored to the element that opened the modal, not to the top of the page. Allow the user to dismiss a modal using the keyboard's ESC key, or by clicking the main window, or by clicking close (“X”).
+### Locked Buttons 
 
-### Resources
+At the XS breakpoint, the large modal content area completely covers the main screen. If the large modal content on XS is taller than the viewport height, submit/cancel buttons should be locked to the bottom of the viewable content area. 
+***
+*Coming soon: Examples of locked buttons*
+***
 
-- [Best Practices for Modals / Overlays / Dialog Windows](https://uxplanet.org/best-practices-for-modals-overlays-dialog-windows-c00c66cddd8c)
-- [10 guidelines to consider when using overlays / modals](http://www.uxforthemasses.com/overlays/)
-- [Design Patterns for Replacing Modal Windows](https://community.appway.com/screen/kb/article/design-patterns-for-replacing-modal-windows-1482810903553)
-- [Bootstrap modal documentation](https://getbootstrap.com/docs/4.1/components/modal/#modal-components)
-- [Google Material dialog documentation](https://material.io/design/components/dialogs.html#)
-
-## Design
-
-### Anatomy
-
-![](/img/components/modal/MODALANATOMY.png)
-
-1. All modals have a stroke, drop shadow, and rounded corners.
-2. The background opacity is 50% of #000000.
-3. Headings are optional.
-4. Content.
-5. “X” only appears on the large modal.
-6. One or two buttons only. If two buttons, there must be a confirming contained button, and a dismissing text button.
-
-### Sizes
-
-#### Large
-
-Large modals are 90% of browser width up to 640px maximum, and up to 80% of main window height. These can be used in all breakpoints. However on the XS (0-479) breakpoint, it is rendered as a slide up, full-screen overlay.
-
-![](/img/components/modal/MODALLARGE.png)
-
-*Large modals convert to a slide-up, full-screen overlay on the XS breakpoint.*
-
-#### Small
-
-Small modals are 90% of browser width up to 320px maximum. Height varies to fit the content. Styling is the same for all breakpoints.
-
-![](/img/components/modal/MODALSMALL.png)
-
-*In two button scenarios, the confirming action should reflect the specific action being taken, rather than a generic “OK” label.*
-
-## Code
-
-### Default Modal
-
-```jsx dead
-function WithHeader() {
-  const [showModal, setShowModal] = useState(false);
-  const toggle = () => setShowModal(!showModal);
-
-  return (
-    <div>
-      <Button color="primary" onClick={toggle}>
-        OPEN MODAL
-      </Button>
-
-      <Modal
-        isOpen={showModal}
-        toggle={toggle}
-      >
-        <Modal.Header toggle={toggle}>Optional H3 Heading</Modal.Header>
-        <Modal.Body>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </Modal.Body>
-        <Modal.Footer>
-          <Modal.Cancel onClick={toggle} />
-          <Modal.Okay text="Submit" onClick={toggle} />
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-}
-```
-
-
-### Modal Without a Heading
-
-```jsx dead
-function WithoutHeader() {
-  const [showModal, setShowModal] = useState(false);
-  const toggle = () => setShowModal(!showModal);
-
-  return (
-    <div>
-      <Button color="primary" onClick={toggle}>
-        OPEN MODAL
-      </Button>
-      <Modal
-        isOpen={showModal}
-        toggle={toggle}
-      >
-        <Modal.Body>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor Lorem ipsum dolor sit amet, consectetur adipisicing
-        </Modal.Body>
-        <Modal.Footer>
-        <Modal.Okay text="Next" onClick={toggle} />
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-}
-```
-
-### Small Modal
-
-```jsx dead
-function ModalSmall() {
-  const [showModal, setShowModal] = useState(false);
-  const toggle = () => setShowModal(!showModal);
-
-  return (
-    <div>
-      <Button color="primary" onClick={toggle}>
-        OPEN MODAL
-      </Button>
-      <Modal
-        isOpen={showModal}
-        toggle={toggle}
-        size="sm"
-      >
-        <Modal.Body>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </Modal.Body>
-        <Modal.Footer>
-          <Modal.Cancel onClick={toggle} />
-          <Modal.Okay onClick={toggle} />
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-}
-```
-
-### Small Modal With Header
-
-```jsx dead
-function ModalSmall() {
-  const [showModal, setShowModal] = useState(false);
-  const toggle = () => setShowModal(!showModal);
-
-  return (
-    <div>
-      <Button color="primary" onClick={toggle}>
-        OPEN MODAL
-      </Button>
-      <Modal
-        isOpen={showModal}
-        toggle={toggle}
-        size="sm"
-      >
-        <Modal.Header>Optional H3 Heading</Modal.Header>
-        <Modal.Body>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-          ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur. Excepteur sint occaecat cupidatat non proident, sunt in
-          culpa qui officia deserunt mollit anim id est laborum.
-        </Modal.Body>
-        <Modal.Footer>
-          <Modal.Cancel onClick={toggle} />
-          <Modal.Okay onClick={toggle} />
-        </Modal.Footer>
-      </Modal>
-    </div>
-  );
-}
-```
-
-### Props
-
-#### Modal Props
-
-| Name        | Type       | Default | Description
-| ----------- | -----------| ------- | ----------------------
-| isOpen      | `boolean`  | `false` | Sets whether the modal is shown or hidden
-| toggle      | `function` | `null`  | Sets the function called when the modal is toggled
-| size        | `string`   | `"lg"`  | Sets the size of the modal to sm or lg
-
-#### ModalCancel Props
-
-| Name        | Type       | Default | Description
-| ----------- | -----------| ------- | ----------------------
-| onClick     | `function` | `null`  | Sets the function called when the modal cancel button is clicked
-
-#### ModalOkay Props
-
-| Name        | Type       | Default | Description
-| ----------- | -----------| ------- | ----------------------
-| onClick     | `function` | `null`  | Sets the function called when the modal okay button is clicked
+## Best Practices
+The purpose of a modal is to focus attention. Since modals appear within an active tab, it ensures visibility by the user. As modals are disruptive by design, they should be used intentionally and infrequently. 
+## Content
+Modals should help users quickly understand why the modal is displayed. As such, the texxt should be as brief and clear as possible. All modals should include:
+- Title text which states the intention of the modal
+- Clear indication of the action required to close the modal
+ 
