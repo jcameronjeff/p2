@@ -70,8 +70,15 @@ const inputPlugin = function ({ addComponents, theme }) {
     '&::placeholder': {
       color: styles.inputPlaceholderColor,
     },
+    //readonly
   };
-
+  const messages = {
+    // vailid message
+    // valid message icon
+    // error message
+    //error message icon
+    // Help Message
+  };
   const noBorderRight = {
     borderColor: styles.inputBorderColor,
     borderWidth: '1px 0px 1px 1px',
@@ -88,6 +95,7 @@ const inputPlugin = function ({ addComponents, theme }) {
     borderInlineStart: '0',
   };
   addComponents({
+    //sizes
     [`.text-${name}`]: {
       ...baseStyles,
       ...focusStyles,
@@ -106,6 +114,7 @@ const inputPlugin = function ({ addComponents, theme }) {
       fontSize: styles.inputFontSizeSm,
       padding: styles.inputPaddingSm,
     },
+    // prefixes and suffixess
     [`.${name}-prefix, .${name}-prefix:has(~ input[type="text"]), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
       {
         ...noBorderRight,
@@ -118,6 +127,7 @@ const inputPlugin = function ({ addComponents, theme }) {
         borderColor: styles.inputBorderColor,
         display: 'inline-flex',
       },
+    // labels
     [`.${name}-label`]: {
       display: 'flex',
       color: theme('textColor.DEFAULT'),
@@ -125,6 +135,7 @@ const inputPlugin = function ({ addComponents, theme }) {
       lineHeight: theme('lineHeight.snug'),
       paddingBottom: theme('padding.2'),
     },
+    // icons
     [`.${name}-icon, svg.${name}-icon`]: {
       width: '1em',
       color: theme('textColor.muted'),
