@@ -2,15 +2,7 @@ const plugin = require('tailwindcss/plugin');
 const name = 'input';
 
 const types = ['filter', 'text', 'textarea'];
-
-const states = ['DEFAULT', 'focused', 'disabled', 'valid', 'invalid'];
-
-const modifiers = ['inline'];
-
-const addOns = ['prefix', 'suffix'];
-
-const elements = ['label', 'icon'];
-
+const states = ['rest', 'focused', 'disabled', 'valid', 'invalid'];
 const sizes = ['sm', 'md', 'lg'];
 
 const inputPlugin = function ({ addComponents, theme }) {
@@ -22,7 +14,7 @@ const inputPlugin = function ({ addComponents, theme }) {
     inputRightIconColor: theme('colors.onSurface.subdued'),
     inputTextFieldColor: theme('colors.onSurface.default'),
     inputPlaceholderColor: theme('colors.onSurfaceSubtler'),
-    inputBorderColor: theme('border.highContrast'),
+    inputBorderColor: theme('border.onSurface.subtle'),
     inputLabelColor: theme('colors.onSurface.nuted'),
     //text
     inputLineHeight: theme('lineHeight.none'),
@@ -39,13 +31,20 @@ const inputPlugin = function ({ addComponents, theme }) {
     inputPaddingSm: theme('padding.2'),
     //states
     inputFocusBorderColor: theme('border.interactive.focus'),
+    inputValidBorderColor: theme('border.interactive.success'),
+    inputValidTextColor: theme('textColor.success'),
+    inputInvalidBorderColor: theme('border.interactive.error'),
+    inputInvalidTextColor: theme('textColor.error'),
+    inputFocusBoxShadow: `0px 0px 0px 3px ${theme(
+      'colors.blue.100'
+    )}, 0px 0px 0px 1px ${theme('colors.blue.700')}`,
   };
 
   const baseStyles = {
     display: 'flex',
     backgroundColor: styles.inputBackGroundColor,
     //text
-    color: styles.inputTextFizeldColor,
+    color: styles.inputTextFieldColor,
     fontWeight: styles.inputFontWeight,
     lineHeight: styles.inputLineHeight,
     //borders
@@ -54,15 +53,40 @@ const inputPlugin = function ({ addComponents, theme }) {
     borderColor: styles.inputBorderColor,
     borderRadius: styles.inputBorderRadius,
   };
+
   const focusStyles = {
     '&:focus': {
       borderColor: styles.inputFocusBorderColor,
+      boxShadow: styles.inputFocusBoxShadow,
+    },
+    '&:valid': {
+      borderColor: styles.inputValidBorderColor,
+      color: styles.inputValidTextColor,
+    },
+    '&:invalid': {
+      borderColor: styles.inputInvalidBorderColor,
+      color: styles.inputInvalidTextColor,
     },
     '&::placeholder': {
       color: styles.inputPlaceholderColor,
     },
   };
-  // const iconStyles = {};
+
+  const noBorderRight = {
+    borderColor: styles.inputBorderColor,
+    borderWidth: '1px 0px 1px 1px',
+    borderStyle: 'solid none solid solid',
+    borderRadius: '4px 0px 0px 4px',
+    borderInlineEnd: '0',
+  };
+
+  const noBorderLeft = {
+    borderColor: styles.inputBorderColor,
+    borderWidth: '1px 1px 1px 0px',
+    borderStyle: 'solid solid solid none',
+    borderRadius: '0px 4x 4px 0px',
+    borderInlineStart: '0',
+  };
   addComponents({
     [`.text-${name}`]: {
       ...baseStyles,
@@ -82,29 +106,18 @@ const inputPlugin = function ({ addComponents, theme }) {
       fontSize: styles.inputFontSizeSm,
       padding: styles.inputPaddingSm,
     },
-    [`.${name}-prefix:has(~ input[type="text"])`]: {
-      borderInlineEnd: '0',
-      borderTopRightRadius: '0',
-      borderBottomRightRadius: '0',
-    },
-    [`.${name}-prefix ~ input[type="text"]`]: {
-      borderInlineStart: '0',
-      borderTopLeftRadius: '0',
-      borderBottomLeftRadius: '0',
-    },
-    [`.${name}-suffix:has(~ input[type="text"])`]: {
-      borderInlineStart: '0',
-      borderTopLeftRadius: '0',
-      borderBottomLeftRadius: '0',
-    },
-    [`.${name}-suffix ~ input[type="text"]`]: {
-      borderInlineStart: '0',
-      borderTopLeftRadius: '0',
-      borderBottomLeftRadius: '0',
-    },
-  });
-
-  const elements = {
+    [`.${name}-prefix, .${name}-prefix:has(~ input[type="text"]), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
+      {
+        ...noBorderRight,
+        borderColor: styles.inputBorderColor,
+        display: 'inline-flex',
+      },
+    [`.${name}-suffix, .${name}-prefix ~ input[type="text"], .${name}-suffix:has(~ .text-input), .text-${name} ~ .${name}-suffix`]:
+      {
+        ...noBorderLeft,
+        borderColor: styles.inputBorderColor,
+        display: 'inline-flex',
+      },
     [`.${name}-label`]: {
       display: 'flex',
       color: theme('textColor.DEFAULT'),
@@ -112,23 +125,12 @@ const inputPlugin = function ({ addComponents, theme }) {
       lineHeight: theme('lineHeight.snug'),
       paddingBottom: theme('padding.2'),
     },
-    [`.${name}-icon`]: {
+    [`.${name}-icon, svg.${name}-icon`]: {
       width: '1em',
-      borderRadius: theme('borderRadius.xs'),
-      border: `${theme('borderWidth.DEFAULT')} solid ${theme(
-        'borderColor.dim'
-      )}`,
       color: theme('textColor.muted'),
       fill: theme('textColor.muted'),
     },
-  };
-  // addComponents(elements);
-};
-
-module.exports = {
-  name,
-  fn: inputPlugin,
-  plugin: plugin(inputPlugin),
+  });
 };
 
 module.exports = {
