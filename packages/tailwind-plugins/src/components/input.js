@@ -34,7 +34,6 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputIconLg: theme('space.5'),
     //
     // states
-    //
     // focus
     inputFocusBorderColor: theme('border.interactive.focus'),
     // valid
@@ -56,8 +55,9 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputDisabledPrefixColor: theme('colors.onSurfaceSubtle'),
 
     // read-only
-    inputReadOnlyBackgroundColor: theme('surface.none'),
-    inputReadOnlyBorderColor: theme('border.onSurface.subtle'),
+    inputReadOnlyBackgroundColor: 'none',
+    inputReadOnlyBorderColor: 'none',
+    inputReadOnlyIconColor: 'none',
     inputReadOnlyTextColor: theme('colors.onSurface.subtle'),
   };
 
@@ -125,7 +125,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   const sizes = {
     // TODO: Icon Sizing
     '': {
-      fontSize: styles.inputFontSize,
+      fontSize: styles.inputFontSize, b
       padding: styles.inputPadding,
       '& ~ .input-icon': {
         width: styles.inputIconWidth,
@@ -192,7 +192,6 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
           ...sizeStyles,
         },
       },
-
       [`.${name}-icon, .${name}-prefix, .${name}-suffix`]: {
         ...baseStyles,
         ...stateStyles,
@@ -215,11 +214,11 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
         borderColor: styles.inputBorderColor,
         display: 'inline-flex',
       },
-    [`.text-${name}-icon-left, .filter-${name}-icon-left`]: {
+    [`.${name}-icon-left`]: {
       color: styles.inputLeftIconColor,
       fill: styles.inputLeftIconColor,
     },
-    [`.${name}-icon-right`]: {
+    [`.filter-${name} ~ .${name}-icon-right`]: {
       color: styles.filterInputRightIconColor,
       fill: styles.filterInputRightIconColor,
     },
@@ -236,9 +235,8 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     },
     // icons
     [`.${name}-icon, svg.${name}-icon`]: {
-      width: '1em',
+     
       color: theme('textColor.muted'),
-      fill: theme('textColor.muted'),
     },
     [`.text-${name}:focus ~ .${name}-icon, .filter-${name}:focus ~ .${name}-icon, .textarea-${name}:focus ~ .${name}-icon`]:
       {
@@ -252,26 +250,18 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       {
         borderColor: styles.inputInvalidBorderColor,
       },
-    [`.text-${name}:disabled ~ .${name}-icon`]: {
+    [`.text-${name}:read-only ~ .${name}-icon`]: {
       fill: styles.inputReadOnlyBorderColor,
-      color: styles.inputReadOnlyTextColor,
+      color: inputReadOnlyIconColor,
       backgroundColor: styles.inputReadOnlyBackgroundColor,
       borderColor: styles.inputReadOnlyBorderColor,
     },
-    [`.text-${name}:disabled ~ .${name}-icon-left`]: {
-      fill: styles.inputDisabledTextColor,
-      color: styles.inputDisabledTextColor,
-      backgroundColor: styles.inputDisabledBackgroundColor,
-      borderColor: styles.inputDisabledBorderColor,
-    },
-    [`.text-${name}:disabled ~ .${name}-icon-right`]: {
-      fill: styles.inputDisabledRightIconColor,
+    [`.text-${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]: {
       color: styles.inputDisabledTextColor,
       backgroundColor: styles.inputDisabledBackgroundColor,
       borderColor: styles.inputDisabledBorderColor,
     },
     [`.filter-${name}:disabled ~ .${name}-icon-right`]: {
-      fill: 'none',
       color: 'none',
       backgroundColor: styles.inputDisabledBackgroundColor,
       borderColor: styles.inputDisabledBorderColor,
