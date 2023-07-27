@@ -9,11 +9,12 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   const styles = {
     // colors
     inputLeftIconColor: theme('colors.onSurface.subtle'),
-    inputRightIconColor: theme('colors.onSurface.muted'),
+    filterInputRightIconColor: theme('colors.onSurface.muted'),
     inputTextFieldColor: theme('colors.onSurface.default'),
     inputPlaceholderColor: theme('colors.onSurfaceSubtler'),
     inputBorderColor: theme('border.onSurface.subtle'),
-    inputLabelColor: theme('colors.onSurface.nuted'),
+    inputLabelColor: theme('colors.onSurface.muted'),
+    inputPrefixSuffixColor: theme('colors.onSurface.subtle'),
     //text
     inputLineHeight: theme('lineHeight.none'),
     inputFontWeight: theme('medium'),
@@ -48,7 +49,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputDisabledBackgroundColor: theme('surface.muted'),
     inputDisabledLeftIconColor: theme('colors.onSurfaceSubtler'),
     inputDisabledRightIconColor: theme('colors.subdued'),
-    inputRDisabledPrefixColor: theme('colors.onSurfaceSubtle'),
+    inputDisabledPrefixColor: theme('colors.onSurfaceSubtle'),
 
     // read-only
     inputReadOnlyBackgroundColor: theme('surface.none'),
@@ -166,19 +167,30 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   });
 
   addComponents({
-    // prefixes and suffixess
-    [`.${name}-prefix, .${name}-prefix:has(~ .text-${name}), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
+    // prefixes, suffixess, icon left, icon right
+    [`.${name}-prefix, .${name}-icon-left, .${name}-prefix:has(~ .text-${name}), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
       {
         ...noBorderRight,
         borderColor: styles.inputBorderColor,
         display: 'inline-flex',
       },
-    [`.${name}-suffix, .${name}-prefix ~ .text-${name}, .${name}-suffix:has(~ .text-input), .text-${name} ~ .${name}-suffix`]:
+    [`.${name}-suffix, .${name}-prefix, .${name}-icon-right, .${name}-prefix ~ .text-${name}, .${name}-suffix:has(~ .text-input), .text-${name} ~ .${name}-suffix`]:
       {
         ...noBorderLeft,
         borderColor: styles.inputBorderColor,
         display: 'inline-flex',
       },
+    [`.text-${name}-icon-left .filter-${name}-icon-left`]: {
+      color: styles.inputLeftIconColor,
+      fill: styles.inputLeftIconColor,
+    },
+    [`.${name}-icon-right`]: {
+      color: styles.filterInputRightIconColor,
+      fill: styles.filterInputRightIconColor,
+    },
+    [`.input-prefix, input-suffix`]: {
+      color: inputPrefixSuffixColor,
+    },
     // labels
     [`label.${name}-label`]: {
       display: 'flex',
