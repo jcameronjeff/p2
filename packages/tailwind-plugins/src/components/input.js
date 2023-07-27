@@ -35,10 +35,10 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputFocusBorderColor: theme('border.interactive.focus'),
     // valid
     inputValidBorderColor: theme('border.interactive.success'),
-    inputValidTextColor: theme('textColor.success'),
+    inputValidMessageColor: theme('textColor.success'),
     // invalid
-    inputInvalidMessagerColor: theme('border.interactive.error'),
-    inputInvalidMessageColor: theme('textColor.error'),
+    inputInvalidBorderColor: theme('border.interactive.error'),
+    inputErrorMessageColor: theme('textColor.error'),
     inputFocusBoxShadow: `0px 0px 0px 3px ${theme(
       'colors.blue.100'
     )}, 0px 0px 0px 1px ${theme('colors.blue.700')}`,
@@ -48,7 +48,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputDisabledTextColor: theme('colors.onSurface.subtle'),
     inputDisabledBackgroundColor: theme('surface.muted'),
     inputDisabledLeftIconColor: theme('colors.onSurfaceSubtler'),
-    inputDisabledRightIconColor: theme('colors.subdued'),
+    inputDisabledSuffix: theme('colors.subdued'),
     inputDisabledPrefixColor: theme('colors.onSurfaceSubtle'),
 
     // read-only
@@ -94,14 +94,13 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     valid: {
       color: styles.inputValidMessageColor,
     },
-    invalid: {
-      color: styles.inputInvalidMessageColor,
+    error: {
+      color: styles.inputErrorMessageColor,
     },
-    // vailid message
-    // valid message icon
-    // error message
-    // error message icon
-    // Help Message
+    help: {
+      color: styles.inputHelpMessageColor,
+    },
+    // TODO: Icon Styles
   };
   const noBorderRight = {
     borderColor: styles.inputBorderColor,
@@ -120,6 +119,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   };
 
   const sizes = {
+    // TODO: Icon Sizing
     '': {
       fontSize: styles.inputFontSize,
       padding: styles.inputPadding,
@@ -141,6 +141,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   Object.entries(messages).forEach(([message, messageStyles]) => {
     addComponents({
       [`${name}-message${message}`]: {
+        // TODO: Base message styles
         ...messageStyles,
       },
     });
@@ -180,7 +181,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
         borderColor: styles.inputBorderColor,
         display: 'inline-flex',
       },
-    [`.text-${name}-icon-left .filter-${name}-icon-left`]: {
+    [`.text-${name}-icon-left, .filter-${name}-icon-left`]: {
       color: styles.inputLeftIconColor,
       fill: styles.inputLeftIconColor,
     },
@@ -189,7 +190,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       fill: styles.filterInputRightIconColor,
     },
     [`.input-prefix, input-suffix`]: {
-      color: inputPrefixSuffixColor,
+      color: styles.inputPrefixSuffixColor,
     },
     // labels
     [`label.${name}-label`]: {
@@ -230,16 +231,17 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       borderColor: styles.inputDisabledBorderColor,
     },
     [`.text-${name}:disabled ~ .${name}-icon-right`]: {
-      fill: styles.inputReadOnlyBorderColor,
-      color: styles.inputReadOnlyRightIconColor,
+      fill: styles.inputDisabledRightIconColor,
+      color: styles.inputDisabledTextColor,
       backgroundColor: styles.inputDisabledBackgroundColor,
       borderColor: styles.inputDisabledBorderColor,
     },
-
-    // icon left
-    // icon right:
-    // prefix
-    // suffix
+    [`.filter-${name}:disabled ~ .${name}-icon-right`]: {
+      fill: 'none',
+      color: 'none',
+      backgroundColor: styles.inputDisabledBackgroundColor,
+      borderColor: styles.inputDisabledBorderColor,
+    },
   });
 };
 
