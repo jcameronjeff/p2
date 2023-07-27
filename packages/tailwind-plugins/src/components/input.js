@@ -125,7 +125,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   const sizes = {
     // TODO: Icon Sizing
     '': {
-      fontSize: styles.inputFontSize, b
+      fontSize: styles.inputFontSize,
       padding: styles.inputPadding,
       '& ~ .input-icon': {
         width: styles.inputIconWidth,
@@ -235,7 +235,6 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     },
     // icons
     [`.${name}-icon, svg.${name}-icon`]: {
-     
       color: theme('textColor.muted'),
     },
     [`.text-${name}:focus ~ .${name}-icon, .filter-${name}:focus ~ .${name}-icon, .textarea-${name}:focus ~ .${name}-icon`]:
@@ -252,15 +251,16 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       },
     [`.text-${name}:read-only ~ .${name}-icon`]: {
       fill: styles.inputReadOnlyBorderColor,
-      color: inputReadOnlyIconColor,
+      color: styles.inputReadOnlyIconColor,
       backgroundColor: styles.inputReadOnlyBackgroundColor,
       borderColor: styles.inputReadOnlyBorderColor,
     },
-    [`.text-${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]: {
-      color: styles.inputDisabledTextColor,
-      backgroundColor: styles.inputDisabledBackgroundColor,
-      borderColor: styles.inputDisabledBorderColor,
-    },
+    [`.text-${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]:
+      {
+        color: styles.inputDisabledTextColor,
+        backgroundColor: styles.inputDisabledBackgroundColor,
+        borderColor: styles.inputDisabledBorderColor,
+      },
     [`.filter-${name}:disabled ~ .${name}-icon-right`]: {
       color: 'none',
       backgroundColor: styles.inputDisabledBackgroundColor,
