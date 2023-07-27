@@ -1,4 +1,5 @@
 const plugin = require('tailwindcss/plugin');
+const tokens = require('./componentTokens');
 const name = 'input';
 
 const types = ['filter', 'text', 'textarea'];
@@ -6,108 +7,53 @@ const states = ['rest', 'focused', 'disabled', 'valid', 'invalid'];
 const sizes = ['sm', 'md', 'lg'];
 
 const inputPlugin = function ({ addBase, addComponents, theme }) {
-  const styles = {
-    // colors
-    inputLeftIconColor: theme('colors.onSurface.subtle'),
-    filterInputRightIconColor: theme('colors.onSurface.muted'),
-    inputTextFieldColor: theme('colors.onSurface.default'),
-    inputPlaceholderColor: theme('colors.onSurfaceSubtler'),
-    inputBorderColor: theme('border.onSurface.subtle'),
-    inputLabelColor: theme('colors.onSurface.muted'),
-    inputPrefixSuffixColor: theme('colors.onSurface.subtle'),
-    //text
-    inputLineHeight: theme('lineHeight.none'),
-    inputFontWeight: theme('medium'),
-    //borders:
-    inputBorderWidth: theme('borderWidth.default'),
-    inputBorderRadius: '4px',
-    //sizing
-    inputFontSize: theme('fontSize.base'),
-    inputPadding: theme('padding.3'),
-    inputFontSizeLg: theme('fontSize.xl'),
-    inputPaddingLg: theme('padding.4'),
-    inputFontSizeSm: theme('fontSize.sm'),
-    inputPaddingSm: theme('padding.2'),
-    inputIconWidthSmall: theme('space.3'),
-    // TODO Fix this sizing
-    inputIconWidth: theme('space.4'),
-    inputIconLg: theme('space.5'),
-    //
-    // states
-    // focus
-    inputFocusBorderColor: theme('border.interactive.focus'),
-    // valid
-    inputValidBorderColor: theme('border.interactive.success'),
-    inputValidMessageColor: theme('textColor.success'),
-    // invalid
-    inputInvalidBorderColor: theme('border.interactive.error'),
-    inputErrorMessageColor: theme('textColor.error'),
-    inputFocusBoxShadow: `0px 0px 0px 3px ${theme(
-      'colors.blue.100'
-    )}, 0px 0px 0px 1px ${theme('colors.blue.700')}`,
-
-    // disabled
-    inputDisabledBorderColor: theme('border.onSurface.subtle'),
-    inputDisabledTextColor: theme('colors.onSurface.subtle'),
-    inputDisabledBackgroundColor: theme('surface.muted'),
-    inputDisabledLeftIconColor: theme('colors.onSurfaceSubtler'),
-    inputDisabledSuffix: theme('colors.subdued'),
-    inputDisabledPrefixColor: theme('colors.onSurfaceSubtle'),
-
-    // read-only
-    inputReadOnlyBackgroundColor: 'none',
-    inputReadOnlyBorderColor: 'none',
-    inputReadOnlyIconColor: 'none',
-    inputReadOnlyTextColor: theme('colors.onSurface.subtle'),
-  };
-
   const baseStyles = {
     display: 'inline-flex',
-    backgroundColor: styles.inputBackGroundColor,
+    backgroundColor: tokens.inputBackGroundColor,
     //text
-    color: styles.inputTextFieldColor,
-    fontWeight: styles.inputFontWeight,
-    lineHeight: styles.inputLineHeight,
+    color: tokens.inputTextFieldColor,
+    fontWeight: tokens.inputFontWeight,
+    lineHeight: tokens.inputLineHeight,
     //borders
-    borderWidth: styles.inputBorderWidth,
+    borderWidth: tokens.inputBorderWidth,
     borderStyle: 'solid',
-    borderColor: styles.inputBorderColor,
-    borderRadius: styles.inputBorderRadius,
+    borderColor: tokens.inputBorderColor,
+    borderRadius: tokens.inputBorderRadius,
   };
 
   const stateStyles = {
     '&:focus': {
-      borderColor: styles.inputFocusBorderColor,
-      boxShadow: styles.inputFocusBoxShadow,
+      borderColor: tokens.inputFocusBorderColor,
+      boxShadow: tokens.inputFocusBoxShadow,
     },
     '&:valid': {
-      borderColor: styles.inputValidBorderColor,
+      borderColor: tokens.inputValidBorderColor,
     },
     '&:invalid': {
-      borderColor: styles.inputInvalidBorderColor,
+      borderColor: tokens.inputInvalidBorderColor,
     },
     '&::placeholder': {
-      color: styles.inputPlaceholderColor,
+      color: tokens.inputPlaceholderColor,
     },
     '&:read-only': {
-      backgroundColor: styles.inputReadOnlyBackgroundColor,
-      borderColor: styles.inputReadOnlyBorderColor,
+      backgroundColor: tokens.inputReadOnlyBackgroundColor,
+      borderColor: tokens.inputReadOnlyBorderColor,
     },
   };
   const messages = {
     valid: {
-      color: styles.inputValidMessageColor,
+      color: tokens.inputValidMessageColor,
     },
     error: {
-      color: styles.inputErrorMessageColor,
+      color: tokens.inputErrorMessageColor,
     },
     help: {
-      color: styles.inputHelpMessageColor,
+      color: tokens.inputHelpMessageColor,
     },
     // TODO: Icon Styles
   };
   const noBorderRight = {
-    borderColor: styles.inputBorderColor,
+    borderColor: tokens.inputBorderColor,
     borderWidth: '1px 0px 1px 1px',
     borderStyle: 'solid none solid solid',
     borderRadius: '4px 0px 0px 4px',
@@ -115,7 +61,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   };
 
   const noBorderLeft = {
-    borderColor: styles.inputBorderColor,
+    borderColor: tokens.inputBorderColor,
     borderWidth: '1px 1px 1px 0px',
     borderStyle: 'solid solid solid none',
     borderRadius: '0px 4px 4px 0px',
@@ -125,28 +71,28 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   const sizes = {
     // TODO: Icon Sizing
     '': {
-      fontSize: styles.inputFontSize,
-      padding: styles.inputPadding,
+      fontSize: tokens.inputFontSize,
+      padding: tokens.inputPadding,
       '& ~ .input-icon': {
-        width: styles.inputIconWidth,
-        padding: styles.inputPadding,
+        width: tokens.inputIconWidth,
+        padding: tokens.inputPadding,
       },
       '& ~ .input-prefix': {
-        fontSize: styles.inputFontSize,
-        padding: styles.inputPadding,
+        fontSize: tokens.inputFontSize,
+        padding: tokens.inputPadding,
       },
       '& ~ .input-suffix': {
-        fontSize: styles.inputFontSize,
-        padding: styles.inputPadding,
+        fontSize: tokens.inputFontSize,
+        padding: tokens.inputPadding,
       },
     },
     '-lg': {
-      fontSize: styles.inputFontSizeLg,
-      padding: styles.inputPaddingLg,
+      fontSize: tokens.inputFontSizeLg,
+      padding: tokens.inputPaddingLg,
     },
     '-sm': {
-      fontSize: styles.inputFontSizeSm,
-      padding: styles.inputPaddingSm,
+      fontSize: tokens.inputFontSizeSm,
+      padding: tokens.inputPaddingSm,
     },
   };
 
@@ -205,25 +151,25 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     [`.${name}-prefix, .${name}-icon-left, .${name}-prefix:has(~ .text-${name}), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
       {
         ...noBorderRight,
-        borderColor: styles.inputBorderColor,
+        borderColor: tokens.inputBorderColor,
         display: 'inline-flex',
       },
     [`.${name}-suffix, .${name}-prefix, .${name}-icon-right, .${name}-prefix ~ .text-${name}, .${name}-suffix:has(~ .text-input), .text-${name} ~ .${name}-suffix`]:
       {
         ...noBorderLeft,
-        borderColor: styles.inputBorderColor,
+        borderColor: tokens.inputBorderColor,
         display: 'inline-flex',
       },
     [`.${name}-icon-left`]: {
-      color: styles.inputLeftIconColor,
-      fill: styles.inputLeftIconColor,
+      color: tokens.inputLeftIconColor,
+      fill: tokens.inputLeftIconColor,
     },
     [`.filter-${name} ~ .${name}-icon-right`]: {
-      color: styles.filterInputRightIconColor,
-      fill: styles.filterInputRightIconColor,
+      color: tokens.filterInputRightIconColor,
+      fill: tokens.filterInputRightIconColor,
     },
     [`.input-prefix, input-suffix`]: {
-      color: styles.inputPrefixSuffixColor,
+      color: tokens.inputPrefixSuffixColor,
     },
     // labels
     [`label.${name}-label`]: {
@@ -239,32 +185,32 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     },
     [`.text-${name}:focus ~ .${name}-icon, .filter-${name}:focus ~ .${name}-icon, .textarea-${name}:focus ~ .${name}-icon`]:
       {
-        borderColor: styles.inputFocusBorderColor,
+        borderColor: tokens.inputFocusBorderColor,
       },
     [`.text-${name}:valid ~ .${name}-icon, .text-${name}:valid ~ .${name}-icon-left, .text-${name}:valid ~ .${name}-icon-right`]:
       {
-        borderColor: styles.inputValidBorderColor,
+        borderColor: tokens.inputValidBorderColor,
       },
     [`.text-${name}:invalid ~ .${name}-icon, .text-${name}:invalid ~ .${name}-icon-left, .text-${name}:invalid ~ .${name}-icon-right`]:
       {
-        borderColor: styles.inputInvalidBorderColor,
+        borderColor: tokens.inputInvalidBorderColor,
       },
     [`.text-${name}:read-only ~ .${name}-icon`]: {
-      fill: styles.inputReadOnlyBorderColor,
-      color: styles.inputReadOnlyIconColor,
-      backgroundColor: styles.inputReadOnlyBackgroundColor,
-      borderColor: styles.inputReadOnlyBorderColor,
+      fill: tokens.inputReadOnlyBorderColor,
+      color: tokens.inputReadOnlyIconColor,
+      backgroundColor: tokens.inputReadOnlyBackgroundColor,
+      borderColor: tokens.inputReadOnlyBorderColor,
     },
     [`.text-${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]:
       {
-        color: styles.inputDisabledTextColor,
-        backgroundColor: styles.inputDisabledBackgroundColor,
-        borderColor: styles.inputDisabledBorderColor,
+        color: tokens.inputDisabledTextColor,
+        backgroundColor: tokens.inputDisabledBackgroundColor,
+        borderColor: tokens.inputDisabledBorderColor,
       },
     [`.filter-${name}:disabled ~ .${name}-icon-right`]: {
       color: 'none',
-      backgroundColor: styles.inputDisabledBackgroundColor,
-      borderColor: styles.inputDisabledBorderColor,
+      backgroundColor: tokens.inputDisabledBackgroundColor,
+      borderColor: tokens.inputDisabledBorderColor,
     },
   });
 };
