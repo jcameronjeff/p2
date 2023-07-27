@@ -1,80 +1,42 @@
 ---
 title: 'Icon'
 ---
+## Description 
 
-import { AllIcons } from '@site/src/components/IconGallery';
-import { UsersIcon, CheckmarkSolidIcon } from '@prism2/icons-react/interstate';
-import UsersIconSVG from '@prism2/icons/interstate/users.svg';
+Icons are used to communicate and reinforce meaningful actions and content. They may be used with text or without text. They are meaningful, not merely decorative, and have defined meanings in the design system. 
 
-## Usage
+The [icon](https://interstate-staging.awsgdmshednp.manheim.com/docs/styles/icons) gallery is available and further defined in [Styles](https://interstate-staging.awsgdmshednp.manheim.com/docs/styles/). 
 
-### Definition
+## Related Components 
+- Icon Button - *component to come*
+- Floating Action Button - *component to come*
 
-Icons help communicate key touch-points in the experience. They are to be used in combination with text and without text.
+## Sizes 
 
-# Interstate Icons
+Icons are 16x16px by default. When used with text, icons must be the same size as associated text, e.g., 16px icon with 16px text, 14px with 14px text, etc. 
 
-The Interstate Icon set is available for download via npm as optimized SVG's.
+Large icons without text should be sized in multiples of eight, e.g., 24px, 32px, etc. Proportional blank space around large icons should also be sized in multiples of eight. 
 
-<UsersIconSVG className='ml-5 h-12' />
+10px and smaller icons should be avoided. As a best practice, Consider the visual complexity of the icon when scaling to sizes smaller than 16px. Complex icons can become illegible at smaller sizes." 
 
-```js
-const UsersIconSVG = require('@prism2/icons/interstate/users.svg');
-```
+*Hint: In Figma, when resizing icons, you may need to switch from outline to fill if your icons get thinner as they resize.* 
 
-### Icon Gallery
+## Usage 
 
-<AllIcons />
+Combine icons with text whenever possible to reinforce the meaning of the icon. In general, only icons that are widely understood should be used alone. For example, a left-pointing chevron could be used alone since it means “back” to most users. If used alone, include the meaning of the icon in the alt-text attribute. 
 
-### Usage Guidelines
+To promote ease of scanning and understanding, follow these UX best practices: 
 
-To promote ease of scanning and understanding, follow these UX best practices:
+### Do 
+- Use icons consistently according to their defined meaning
+- Use text with icons whenever possible
+- Use stand-alone icons only when widely understood and specify the alt-text to communicate the meaning of the icon on hover
+- Provide proportional white space around large standalone icons in multiples of 8
 
-<StopLightList
-  green={[
-    'Use icons to communicate meaning or emphasize meaning.',
-    'Use icons to mean the same thing that they mean in other Manheim applications.',
-    'Use text with icons whenever possible.',
-    'Use stand alone icons sparingly and specify the alt-text that communicates the meaning of the icon.',
-    'Icons with inline text are typically 12px, 14px, or 16px.',
-    'Large stand alone icons should be sized in multiples of 8 (e.g. 24px, 32px, 40px, etc).',
-    'Provide proportional white space around large standalone icons, also in multiples of 8.',
-  ]}
-  red={[
-    'Use icons as visual enhancements without meaning. Instead, use textures, illustrations, etc as visual enhancements when appropriate.',
-    'Use icons to mean something different than their common meaning at Manheim.',
-    'Use different icons to mean the same thing.',
-    'Use so small an icon that it becomes illegible.',
-    'Use so large an icon that it crowds out proportional whitespace.',
-  ]}
-/>
-
-## Code
-
-## Icon Methods
-
-**Icons can be applied by including the SVG in the file directly via `import` or the `require()` function.**
-
-```js
-const eyeIcon = require('@prism2/icons/eye.svg');
-```
-
-**Or Icons can be rendered as a React component**
-
-```jsx
-import { UsersIcon } from '@prism2/icons-react/interstate';
-
-function renderIcon() {
-  return <UsersIcon />;
-}
-```
-
-_Icons can also be added to the DOM via the icons-react package_
-
-## Color, Size
-
-Icons can be styled with utility classes.
-
-```jsx
-<CheckmarkSolidIcon className='self-center flex-none inline h-6 mr-2 text-green-500' />
-```
+### Don’t 
+- Use icons as visual enhancements without meaning. Instead, use textures or illustrations as visual enhancements when appropriate
+- Use icons to mean something different than their defined meaning in the system
+- Use multiple icons to mean the same thing
+- Use so small an icon that it becomes illegible
+- Use so large an icon that it crowds out proportional whitespace
+ 

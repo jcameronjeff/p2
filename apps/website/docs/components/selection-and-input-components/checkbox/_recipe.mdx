@@ -1,0 +1,144 @@
+import clsx from 'clsx';
+
+export const defaultArgs = {
+  label: 'Label Name',
+  state: 'unchecked',
+  isDisable: false,
+}
+
+export const argTypes = {
+  label: {
+    control: { type: 'text' },
+  },
+  state: {
+    control: {
+      type: 'select',
+      options: ['unchecked', 'checked', 'indeterminate'],
+    },
+  },
+  isDisabled: {
+    label: 'Checkbox Disabled?',
+    control: { type: 'boolean' },
+  },
+};
+
+export const renderFn = ({ label, isDisabled, state }) => {
+    return (
+      <label
+        className={clsx(
+          'cbox',
+          'cbox-label',
+          isDisabled === true && 'disabled',
+        )}
+      >
+        { isDisabled === true && state === 'unchecked' && <input className={clsx(
+          )}
+            type="checkbox"
+            disabled
+          />}
+          { isDisabled !== true && state === 'unchecked' && <input className={clsx(
+          )}
+            type="checkbox"
+          />}
+        { isDisabled !== true && state === 'checked' && <input className={clsx(
+          )}
+            type="checkbox"
+            checked
+          />}
+        { isDisabled !== true && state === 'indeterminate' && <input className={clsx(
+            state === 'indeterminate' && 'indeterminate',
+          )}
+            type="checkbox"
+            checked
+            indeterminate
+          />}
+        { isDisabled === true && state !== 'unchecked' && <input className={clsx(
+            state === 'indeterminate' && 'indeterminate',
+          )}
+            type="checkbox"
+            checked
+            indeterminate
+            disabled
+          />}
+        {label}
+      </label>
+    );
+  // }
+}
+
+export const CheckboxKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={argTypes}
+    render={renderFn}
+    {...props}
+  />
+)
+
+## Description
+
+Checkboxes are used when there are lists of options and the user may select any number of choices, including zero, one, or several. This allows a user to select one or more items from a list of options or select preferred settings with a single checkbox.
+
+Default selections can be set by an application as needed.
+
+Checkboxes allow the user to interact with the checkbox or associated label. The label is vertically centered with the checkbox even when the text wraps.
+
+## Ingredients
+
+The styles will be
+made up of **Required**, **Selectable**, and **Optional** classes.
+
+### Required
+
+- `.cbox` - Class for our checkboxes
+
+### Selectable
+
+#### The States:
+There three states to choose from when selecting the the checkbox:
+- `unchecked` - is the default unchecked checkbox
+- `checked` - is the typical 
+- `indeterminate` - is intended to be use as a mixed checked state
+
+### Optional
+- `disabled` - when the input is not selectable
+
+## Directions
+Below are several examples for input checkbox examples of from the options above
+
+### Active Unchecked
+
+<CheckboxKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Active Unchecked'
+}} />
+
+### Checked Checkbox
+
+<CheckboxKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Checked Checkbox',
+  state: 'checked',
+}} />
+
+### Indeterminate Checkbox
+
+<CheckboxKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Indeterminate Checkbox',
+  state: 'indeterminate',
+}} />
+
+### Disabled Checkbox
+<CheckboxKitchen hideControls args={{
+  ...defaultArgs,
+  label: 'Disabled Checkbox',
+  isDisabled: true,
+}} />
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Button component and see how they can
+be combined in the final output.
+
+<CheckboxKitchen targetSelector={null} />
