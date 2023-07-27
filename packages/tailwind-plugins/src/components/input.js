@@ -5,11 +5,11 @@ const types = ['filter', 'text', 'textarea'];
 const states = ['rest', 'focused', 'disabled', 'valid', 'invalid'];
 const sizes = ['sm', 'md', 'lg'];
 
-const inputPlugin = function ({ addComponents, theme }) {
+const inputPlugin = function ({ addBase, addComponents, theme }) {
   const styles = {
     // colors
     inputLeftIconColor: theme('colors.onSurface.subtle'),
-    inputRightIconColor: theme('colors.onSurface.subdued'),
+    inputRightIconColor: theme('colors.onSurface.muted'),
     inputTextFieldColor: theme('colors.onSurface.default'),
     inputPlaceholderColor: theme('colors.onSurfaceSubtler'),
     inputBorderColor: theme('border.onSurface.subtle'),
@@ -36,6 +36,12 @@ const inputPlugin = function ({ addComponents, theme }) {
     inputFocusBoxShadow: `0px 0px 0px 3px ${theme(
       'colors.blue.100'
     )}, 0px 0px 0px 1px ${theme('colors.blue.700')}`,
+    inputReadOnlyBorderColor: theme('border.onSurface.subtle'),
+    inputReadOnlyTextColor: theme('colors.onSurface.subtle'),
+    inputReadOnlyBackgroundColor: theme('surface.muted'),
+    inputReadOnlyLeftIconColor: theme('colors.onSurfaceSubtler'),
+    inputReadOnlyRightIconColor: theme('colors.subdued'),
+    inputReadOnlyPrefixColor: theme('colors.onSurfaceSubtle'),
   };
 
   const baseStyles = {
@@ -52,29 +58,31 @@ const inputPlugin = function ({ addComponents, theme }) {
     borderRadius: styles.inputBorderRadius,
   };
 
-  const focusStyles = {
+  const stateStyles = {
     '&:focus': {
       borderColor: styles.inputFocusBorderColor,
       boxShadow: styles.inputFocusBoxShadow,
     },
     '&:valid': {
       borderColor: styles.inputValidBorderColor,
-      color: styles.inputValidTextColor,
     },
     '&:invalid': {
       borderColor: styles.inputInvalidBorderColor,
-      color: styles.inputInvalidTextColor,
     },
     '&::placeholder': {
       color: styles.inputPlaceholderColor,
     },
-    //readonly
+    '&:read-only': {
+      color: styles.inputReadOnlyTextColor,
+      backgroundColor: styles.inputReadOnlyBackgroundColor,
+      borderColor: styles.inputReadOnlyBorderColor,
+    },
   };
   const messages = {
     // vailid message
     // valid message icon
     // error message
-    //error message icon
+    // error message icon
     // Help Message
   };
   const noBorderRight = {
@@ -92,26 +100,47 @@ const inputPlugin = function ({ addComponents, theme }) {
     borderRadius: '0px 4x 4px 0px',
     borderInlineStart: '0',
   };
-  addComponents({
-    // Sizes
-    [`.text-${name}`]: {
-      ...baseStyles,
-      ...focusStyles,
-      padding: styles.inputPadding,
+
+  const sizes = {
+    '': {
       fontSize: styles.inputFontSize,
+      padding: styles.inputPadding,
     },
-    [`.text-${name}-lg`]: {
-      ...baseStyles,
-      ...focusStyles,
+    '-lg': {
       fontSize: styles.inputFontSizeLg,
       padding: styles.inputPaddingLg,
     },
-    [`.text-${name}-sm`]: {
-      ...baseStyles,
-      ...focusStyles,
+    '-sm': {
       fontSize: styles.inputFontSizeSm,
       padding: styles.inputPaddingSm,
     },
+  };
+
+  const textInputStyles = {};
+  const filterInputStyles = {};
+  const textAreaStyles = {};
+
+  Object.entries(sizes).forEach(([size, sizeStyles]) => {
+    addComponents({
+      [`input[type="text"].text-${name}${size}`]: {
+        ...baseStyles,
+        ...stateStyles,
+        ...sizeStyles,
+      },
+      [`input[type="text"].filter-${name}${size}`]: {
+        ...baseStyles,
+        ...stateStyles,
+        ...sizeStyles,
+      },
+      [`input[type="textarea"]`]: {
+        ...baseStyles,
+        ...stateStyles,
+        ...sizeStyles,
+      },
+    });
+  });
+
+  addComponents({
     // prefixes and suffixess
     [`.${name}-prefix, .${name}-prefix:has(~ input[type="text"]), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
       {
@@ -139,6 +168,41 @@ const inputPlugin = function ({ addComponents, theme }) {
       color: theme('textColor.muted'),
       fill: theme('textColor.muted'),
     },
+    [`.text-${name}:focus ~ .${name}-icon`]: {
+      borderColor: styles.inputFocusBorderColor,
+      fill: styles.inputFocusBorderColor,
+    },
+    [`.text-${name}:valid ~ .${name}-icon`]: {
+      borderColor: styles.inputValidBorderColor,
+      fill: styles.inputValidBorderColor,
+    },
+    [`.text-${name}:invalid ~ .${name}-icon`]: {
+      borderColor: styles.inputInvalidBorderColor,
+      fill: styles.inputInvalidBorderColor,
+    },
+    [`.text-${name}:read-only ~ .${name}-icon`]: {
+      fill: styles.inputReadOnlyBorderColor,
+      color: styles.inputReadOnlyTextColor,
+      backgroundColor: styles.inputReadOnlyBackgroundColor,
+      borderColor: styles.inputReadOnlyBorderColor,
+    },
+    [`.text-${name}:read-only ~ .${name}-icon-left`]: {
+      fill: styles.inputReadOnlyBorderColor,
+      color: styles.inputReadOnlyLeftIconColor,
+      backgroundColor: styles.inputReadOnlyBackgroundColor,
+      borderColor: styles.inputReadOnlyBorderColor,
+    },
+    [`.text-${name}:read-only ~ .${name}-icon-right`]: {
+      fill: styles.inputReadOnlyBorderColor,
+      color: styles.inputReadOnlyRightIconColor,
+      backgroundColor: styles.inputReadOnlyBackgroundColor,
+      borderColor: styles.inputReadOnlyBorderColor,
+    },
+
+    // icon left
+    // icon right:
+    // prefix
+    // suffix
   });
 };
 

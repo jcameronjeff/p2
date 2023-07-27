@@ -4,13 +4,13 @@ import { Provider as KitchenProvider } from "../KitchenContext";
 import { Preview, Controls, Output } from "./index";
 
 const Kitchen = (props) => {
-  const { render, hideControls, targetSelector, ...defaultState } = props;
+  const { children, render = () => children, hideControls, targetSelector, ...defaultState } = props;
 
   return (
     <KitchenProvider defaultState={defaultState}>
       <div className="kitchen not-prose">
         <Preview render={render} />
-        { !hideControls && <Controls />}
+        { !hideControls && !children && <Controls />}
         <Output render={render} targetSelector={targetSelector} />
       </div>
     </KitchenProvider>
