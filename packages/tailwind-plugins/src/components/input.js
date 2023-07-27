@@ -6,8 +6,6 @@ const states = ['rest', 'focused', 'disabled', 'valid', 'invalid'];
 const sizes = ['sm', 'md', 'lg'];
 
 const inputPlugin = function ({ addComponents, theme }) {
-  console.log('running');
-
   const styles = {
     // colors
     inputLeftIconColor: theme('colors.onSurface.subtle'),
@@ -95,7 +93,7 @@ const inputPlugin = function ({ addComponents, theme }) {
     borderInlineStart: '0',
   };
   addComponents({
-    //sizes
+    // Sizes
     [`.text-${name}`]: {
       ...baseStyles,
       ...focusStyles,
