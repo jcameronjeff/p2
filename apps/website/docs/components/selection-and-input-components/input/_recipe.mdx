@@ -11,19 +11,28 @@ Links are made up of a combination of **elements** and **classes**. The styles w
 ### Required
 
 <Kitchen>
+  <div>
+    <label className='input-label'>Label</label>
+    <span className='input-prefix'>pre</span>
+    <MagnifyingGlassIcon className='input-icon input-icon-left' />
+    <input className='text-input' type='text' placeholder='placeholder' />
+    <span className='input-suffix'>suff</span>
+  </div>
+</Kitchen>
+
+<Kitchen>
   <label className='input-label'>Label</label>
-  <span className='input-prefix'>
-    <MagnifyingGlassIcon className='h4 w-4 input-icon' />
-  </span>
-  <input className='text-input' type='text' placeholder='placeholder' />
-</Kitchen>
-
-<Kitchen>
+  <span className='input-prefix'>pre</span>
   <input className='text-input-lg' type='text' placeholder='placeholder' />
+  <span className='input-suffix'>suff</span>
+  <MagnifyingGlassIcon className='input-icon input-icon-left' />
 </Kitchen>
 
 <Kitchen>
+  <label className='input-label'>Label</label>
+  <span className='input-prefix'>pre</span>
   <input className='text-input-sm' type='text' placeholder='placeholder' />
+  <span className='input-suffix'>suff</span>
 </Kitchen>
 
 export const defaultArgs = {

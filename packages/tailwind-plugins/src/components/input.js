@@ -28,6 +28,10 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     inputPaddingLg: theme('padding.4'),
     inputFontSizeSm: theme('fontSize.sm'),
     inputPaddingSm: theme('padding.2'),
+    inputIconWidthSmall: theme('space.3'),
+    // TODO Fix this sizing
+    inputIconWidth: theme('space.4'),
+    inputIconLg: theme('space.5'),
     //
     // states
     //
@@ -58,7 +62,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   };
 
   const baseStyles = {
-    display: 'flex',
+    display: 'inline-flex',
     backgroundColor: styles.inputBackGroundColor,
     //text
     color: styles.inputTextFieldColor,
@@ -114,7 +118,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     borderColor: styles.inputBorderColor,
     borderWidth: '1px 1px 1px 0px',
     borderStyle: 'solid solid solid none',
-    borderRadius: '0px 4x 4px 0px',
+    borderRadius: '0px 4px 4px 0px',
     borderInlineStart: '0',
   };
 
@@ -123,6 +127,18 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     '': {
       fontSize: styles.inputFontSize,
       padding: styles.inputPadding,
+      '& ~ .input-icon': {
+        width: styles.inputIconWidth,
+        padding: styles.inputPadding,
+      },
+      '& ~ .input-prefix': {
+        fontSize: styles.inputFontSize,
+        padding: styles.inputPadding,
+      },
+      '& ~ .input-suffix': {
+        fontSize: styles.inputFontSize,
+        padding: styles.inputPadding,
+      },
     },
     '-lg': {
       fontSize: styles.inputFontSizeLg,
@@ -158,8 +174,26 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
         ...baseStyles,
         ...stateStyles,
         ...sizeStyles,
+        '& ~ .input-icon': {
+          ...sizeStyles,
+        },
       },
-      [`input[type="textarea"].textarea-input`]: {
+      [`input[type="textarea"].textarea-${name}${size}`]: {
+        ...baseStyles,
+        ...stateStyles,
+        ...sizeStyles,
+        '& ~ .input-icon': {
+          ...sizeStyles,
+        },
+        '& ~ .input-prefix': {
+          ...sizeStyles,
+        },
+        '& ~ .input-suffix': {
+          ...sizeStyles,
+        },
+      },
+
+      [`.${name}-icon, .${name}-prefix, .${name}-suffix`]: {
         ...baseStyles,
         ...stateStyles,
         ...sizeStyles,
