@@ -1,5 +1,5 @@
 const plugin = require('tailwindcss/plugin');
-const tokens = require('./componentTokens');
+const t = require('./tokens');
 const name = 'input';
 
 const types = ['filter', 'text', 'textarea'];
@@ -9,51 +9,51 @@ const sizes = ['sm', 'md', 'lg'];
 const inputPlugin = function ({ addBase, addComponents, theme }) {
   const baseStyles = {
     display: 'inline-flex',
-    backgroundColor: tokens.inputBackGroundColor,
+    backgroundColor: t.inputBackGroundColor,
     //text
-    color: tokens.inputTextFieldColor,
-    fontWeight: tokens.inputFontWeight,
-    lineHeight: tokens.inputLineHeight,
+    color: t.inputTextFieldColor,
+    fontWeight: t.inputFontWeight,
+    lineHeight: t.inputLineHeight,
     //borders
-    borderWidth: tokens.inputBorderWidth,
+    borderWidth: t.inputBorderWidth,
     borderStyle: 'solid',
-    borderColor: tokens.inputBorderColor,
-    borderRadius: tokens.inputBorderRadius,
+    borderColor: t.inputBorderColor,
+    borderRadius: t.inputBorderRadius,
   };
 
   const stateStyles = {
     '&:focus': {
-      borderColor: tokens.inputFocusBorderColor,
-      boxShadow: tokens.inputFocusBoxShadow,
+      borderColor: t.inputFocusBorderColor,
+      boxShadow: t.inputFocusBoxShadow,
     },
     '&:valid': {
-      borderColor: tokens.inputValidBorderColor,
+      borderColor: t.inputValidBorderColor,
     },
     '&:invalid': {
-      borderColor: tokens.inputInvalidBorderColor,
+      borderColor: t.inputInvalidBorderColor,
     },
     '&::placeholder': {
-      color: tokens.inputPlaceholderColor,
+      color: t.inputPlaceholderColor,
     },
     '&:read-only': {
-      backgroundColor: tokens.inputReadOnlyBackgroundColor,
-      borderColor: tokens.inputReadOnlyBorderColor,
+      backgroundColor: t.inputReadOnlyBackgroundColor,
+      borderColor: t.inputReadOnlyBorderColor,
     },
   };
   const messages = {
     valid: {
-      color: tokens.inputValidMessageColor,
+      color: t.inputValidMessageColor,
     },
     error: {
-      color: tokens.inputErrorMessageColor,
+      color: t.inputErrorMessageColor,
     },
     help: {
-      color: tokens.inputHelpMessageColor,
+      color: t.inputHelpMessageColor,
     },
     // TODO: Icon Styles
   };
   const noBorderRight = {
-    borderColor: tokens.inputBorderColor,
+    borderColor: t.inputBorderColor,
     borderWidth: '1px 0px 1px 1px',
     borderStyle: 'solid none solid solid',
     borderRadius: '4px 0px 0px 4px',
@@ -61,7 +61,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   };
 
   const noBorderLeft = {
-    borderColor: tokens.inputBorderColor,
+    borderColor: t.inputBorderColor,
     borderWidth: '1px 1px 1px 0px',
     borderStyle: 'solid solid solid none',
     borderRadius: '0px 4px 4px 0px',
@@ -71,28 +71,28 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   const sizes = {
     // TODO: Icon Sizing
     '': {
-      fontSize: tokens.inputFontSize,
-      padding: tokens.inputPadding,
+      fontSize: t.inputFontSize,
+      padding: t.inputPadding,
       '& ~ .input-icon': {
-        width: tokens.inputIconWidth,
-        padding: tokens.inputPadding,
+        width: t.inputIconWidth,
+        padding: t.inputPadding,
       },
       '& ~ .input-prefix': {
-        fontSize: tokens.inputFontSize,
-        padding: tokens.inputPadding,
+        fontSize: t.inputFontSize,
+        padding: t.inputPadding,
       },
       '& ~ .input-suffix': {
-        fontSize: tokens.inputFontSize,
-        padding: tokens.inputPadding,
+        fontSize: t.inputFontSize,
+        padding: t.inputPadding,
       },
     },
     '-lg': {
-      fontSize: tokens.inputFontSizeLg,
-      padding: tokens.inputPaddingLg,
+      fontSize: t.inputFontSizeLg,
+      padding: t.inputPaddingLg,
     },
     '-sm': {
-      fontSize: tokens.inputFontSizeSm,
-      padding: tokens.inputPaddingSm,
+      fontSize: t.inputFontSizeSm,
+      padding: t.inputPaddingSm,
     },
   };
 
@@ -151,25 +151,25 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     [`.${name}-prefix, .${name}-icon-left, .${name}-prefix:has(~ .text-${name}), .text-${name}:has(~ .${name}-suffix), .${name}-suffix ~ .text-${name}`]:
       {
         ...noBorderRight,
-        borderColor: tokens.inputBorderColor,
+        borderColor: t.inputBorderColor,
         display: 'inline-flex',
       },
     [`.${name}-suffix, .${name}-prefix, .${name}-icon-right, .${name}-prefix ~ .text-${name}, .${name}-suffix:has(~ .text-input), .text-${name} ~ .${name}-suffix`]:
       {
         ...noBorderLeft,
-        borderColor: tokens.inputBorderColor,
+        borderColor: t.inputBorderColor,
         display: 'inline-flex',
       },
     [`.${name}-icon-left`]: {
-      color: tokens.inputLeftIconColor,
-      fill: tokens.inputLeftIconColor,
+      color: t.inputLeftIconColor,
+      fill: t.inputLeftIconColor,
     },
     [`.filter-${name} ~ .${name}-icon-right`]: {
-      color: tokens.filterInputRightIconColor,
-      fill: tokens.filterInputRightIconColor,
+      color: t.filterInputRightIconColor,
+      fill: t.filterInputRightIconColor,
     },
     [`.input-prefix, input-suffix`]: {
-      color: tokens.inputPrefixSuffixColor,
+      color: t.inputPrefixSuffixColor,
     },
     // labels
     [`label.${name}-label`]: {
@@ -185,32 +185,32 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     },
     [`.text-${name}:focus ~ .${name}-icon, .filter-${name}:focus ~ .${name}-icon, .textarea-${name}:focus ~ .${name}-icon`]:
       {
-        borderColor: tokens.inputFocusBorderColor,
+        borderColor: t.inputFocusBorderColor,
       },
     [`.text-${name}:valid ~ .${name}-icon, .text-${name}:valid ~ .${name}-icon-left, .text-${name}:valid ~ .${name}-icon-right`]:
       {
-        borderColor: tokens.inputValidBorderColor,
+        borderColor: t.inputValidBorderColor,
       },
     [`.text-${name}:invalid ~ .${name}-icon, .text-${name}:invalid ~ .${name}-icon-left, .text-${name}:invalid ~ .${name}-icon-right`]:
       {
-        borderColor: tokens.inputInvalidBorderColor,
+        borderColor: t.inputInvalidBorderColor,
       },
     [`.text-${name}:read-only ~ .${name}-icon`]: {
-      fill: tokens.inputReadOnlyBorderColor,
-      color: tokens.inputReadOnlyIconColor,
-      backgroundColor: tokens.inputReadOnlyBackgroundColor,
-      borderColor: tokens.inputReadOnlyBorderColor,
+      fill: t.inputReadOnlyBorderColor,
+      color: t.inputReadOnlyIconColor,
+      backgroundColor: t.inputReadOnlyBackgroundColor,
+      borderColor: t.inputReadOnlyBorderColor,
     },
     [`.text-${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]:
       {
-        color: tokens.inputDisabledTextColor,
-        backgroundColor: tokens.inputDisabledBackgroundColor,
-        borderColor: tokens.inputDisabledBorderColor,
+        color: t.inputDisabledTextColor,
+        backgroundColor: t.inputDisabledBackgroundColor,
+        borderColor: t.inputDisabledBorderColor,
       },
     [`.filter-${name}:disabled ~ .${name}-icon-right`]: {
       color: 'none',
-      backgroundColor: tokens.inputDisabledBackgroundColor,
-      borderColor: tokens.inputDisabledBorderColor,
+      backgroundColor: t.inputDisabledBackgroundColor,
+      borderColor: t.inputDisabledBorderColor,
     },
   });
 };
