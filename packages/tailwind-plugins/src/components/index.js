@@ -8,7 +8,7 @@ const link = require('./link.js');
 const overlay = require('./overlay.js');
 const slideOut = require('./slide-out.js');
 const tab = require('./tab.js');
-const input = require('./input/textinput.js');
+const input = require('./inputs/textinput.js');
 
 module.exports = {
   accordion,

@@ -1,6 +1,7 @@
 const plugin = require('tailwindcss/plugin');
+const name = 'text-input';
 
-module.exports = plugin(function ({ addBase, theme }) {
+const inputPlugin = function ({ addBase, theme }) {
   addBase({
     ':root': {
       '--border-color': 'black',
@@ -138,4 +139,10 @@ module.exports = plugin(function ({ addBase, theme }) {
       borderRadius: 'var(--input-border-radius)',
     },
   });
-});
+};
+
+module.exports = {
+  name,
+  fn: inputPlugin,
+  plugin: plugin(inputPlugin),
+};
