@@ -6,9 +6,6 @@ const name = 'text-input';
 // input controls (filter input)
 // input-group
 
-const textInputPlugin = function ({ theme }) {};
-
-const textInputPlugin = function ({ theme }) {};
 
 // padding, fontSize, gap
 const inputPlugin = function ({ addBase, addComponents, theme }) {

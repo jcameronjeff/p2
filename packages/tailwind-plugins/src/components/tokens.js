@@ -18,11 +18,11 @@ const tokens = function ({ theme }) {
     inputBorderWidth: theme('borderWidth.default'),
     inputBorderRadius: '4px',
     //sizing
-    inputFontSize: theme('fontSize.base'),
+    inputFontSize: '16px',
     inputPadding: theme('padding.3'),
-    inputFontSizeLg: theme('fontSize.xl'),
+    inputFontSizeLg: '20px',
     inputPaddingLg: theme('padding.4'),
-    inputFontSizeSm: theme('fontSize.sm'),
+    inputFontSizeSm: '14px',
     inputPaddingSm: theme('padding.2'),
     inputIconWidthSmall: theme('space.3'),
     // TODO Fix this sizing
