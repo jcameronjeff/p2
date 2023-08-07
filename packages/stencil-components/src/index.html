@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stencil Component Starter</title>
+
+  <link rel="stylesheet" type="text/css" href="/build/stencil-components.css">
+  <script type="module" src="/build/stencil-components.esm.js"></script>
+  <script nomodule src="/build/stencil-components.js"></script>
+</head>
+
+<body class="p-8">
+  <main>
+    <section>
+      <h2 class="mt-0">Card with text</h2>
+      <ids-card>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lacinia,
+        ex a ullamcorper sagittis, massa nisl maximus felis, ac pretium urna ex
+        sit amet arcu.
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title and text</h2>
+      <ids-card>
+        <div slot="card-title" class="card-title">Card Title</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lacinia,
+        ex a ullamcorper sagittis, massa nisl maximus felis, ac pretium urna ex
+        sit amet arcu.
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title and media props with text</h2>
+      <ids-card class="w-[200px]">
+        <div slot="card-media" class="card-media"><img src="https://picsum.photos/id/1072/315/236" alt="" /></div>
+        <div slot="card-title" class="card-title">Card Title</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title, media, and horizontal props with text</h2>
+      <ids-card class="w-[350px]" horizontal="true">
+        <div slot="card-media" class="card-media">
+          <img src="https://picsum.photos/id/1072/315/236" alt="" />
+        </div>
+        <div slot="card-title" class="card-title">Card Title</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title, media, horizontal, footer, and text</h2>
+      <ids-card horizontal="true">
+        <div slot="card-media" class="card-media">
+          <img src="https://picsum.photos/id/1072/315/236" alt="" />
+        </div>
+        <div slot="card-title" class="card-title">Card Title</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <div slot="card-footer" class="card-footer">
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title, media, footer, and text</h2>
+      <ids-card>
+        <div slot="card-media" class="card-media">
+          <img src="https://picsum.photos/id/1072/315/236" alt="" class="w-full" />
+        </div>
+        <div slot="card-title" class="card-title">Card Title</div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <div slot="card-footer" class="card-footer">
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
+      </ids-card>
+    </section>
+
+    <section>
+      <h2>Card with title, media, footer, and text using props</h2>
+      <ids-card header="Card Title" media="https://picsum.photos/id/1072/315/236">
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+        <div slot="card-footer" class="card-footer">
+          <a href="#">Link</a>
+          <a href="#">Link</a>
+        </div>
+      </ids-card>
+    </section>
+  </main>
+</body>
+
+</html>

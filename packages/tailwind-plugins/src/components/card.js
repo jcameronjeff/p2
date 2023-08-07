@@ -5,17 +5,20 @@ const cardPlugin = function({ addComponents, theme }) {
   addComponents({
     [`.${name}`]: {
       display: 'inline-flex',
+      flexDirection: 'column',
       backgroundColor: theme('backgroundColor.DEFAULT'),
       border: `${theme('borderWidth.DEFAULT')} solid ${theme('borderColor.dim')}`,
       borderRadius: theme('borderRadius.sm'),
       color: theme('textColor.muted'),
       fontWeight: theme('medium'),
       lineHeight: theme('lineHeight.none'),
+      overflow: 'hidden',
     },
     [`.${name}-title`]: {
       display: 'flex',
       color: theme('textColor.DEFAULT'),
       fontSize: theme('fontSize.md'),
+      fontWeight: theme('fontWeight.semibold'),
       lineHeight: theme('lineHeight.snug'),
       paddingBottom: theme('padding.2'),
     },
@@ -33,11 +36,14 @@ const cardPlugin = function({ addComponents, theme }) {
       lineHeight: theme('lineHeight.snug'),
       padding: `${theme('padding[2.5]')} ${theme('padding.4')}`,
     },
-    [`.${name} .${name}-media`]: {
+    [`.${name}-media`]: {
       display: 'flex',
       justifyContent: 'center',
       alignItems: 'center',
       backgroundClip: 'border-box',
+      '> *': {
+        width: '100%',
+      }
     },
     [`.${name}-horizontal`]: {
       [`.${name}-layout`]: {
