@@ -29,43 +29,8 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     padding: '0',
     outline: '0 !important',
   }
-
-  const stateStyles = {
-    '&:has(input:readonly), &:readonly, .readonly': {
-      backgroundColor: t.inputReadOnlyBackgroundColor,
-      borderColor: t.inputReadOnlyBorderColor,
-    },
-    '&:focus-within': {
-      borderColor: t.inputFocusBorderColor,
-      boxShadow: t.inputFocusBoxShadow,
-    },
-    '&:disabled, & .disabled, &:disabled ~ div': {
-      borderColor: t.inputDisabledBorderColor,
-      backgroundColor: t.inputDisabledBackgroundColor,
-     '& ~ .text-input-icon': {
-      borderColor: t.inputDisabledBorderColor,
-      backgroundColor: t.inputDisabledBackgroundColor,
-     },
-     '& ~ .text-input-decorator': {
-      borderColor: t.inputDisabledBorderColor,
-      backgroundColor: t.inputDisabledBackgroundColor,
-     }
-
-    },
-    '&::placeholder': {
-      color: t.inputPlaceholderColor,
-    },
-    '&.readOnly': {
-      backgroundColor: t.inputReadOnlyBackgroundColor,
-      borderColor: t.inputReadOnlyBorderColor,
-    },
-    '&.readOnly > .text-input-icon, &.readOnly > .text-input-decorator': {
-     display: 'none'
-    },
-  };
-
+ 
   const sizes = {
-    // TODO: Icon Sizing
     '': {
       fontSize: t.inputFontSize,
       padding: t.inputPadding,
@@ -80,19 +45,49 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     },
   };
 
-
+  // Apply styles to each size so we don't need additional size modifiers.
   Object.entries(sizes).forEach(([size, sizeStyles]) => {
     addComponents({
+      // style the input group class name and children
       [`.${name}-group${size}`]: {
         ...baseStyles,
-        ...stateStyles,
         ...sizeStyles,
+        [`&:focus-within`]: {
+          borderColor: t.inputFocusBorderColor,
+          boxShadow: t.inputFocusBoxShadow,
+        },
+        '&::placeholder': {
+          color: t.inputPlaceholderColor,
+        },
+        [`&.disabled`]: {
+          borderColor: t.inputDisabledBorderColor,
+          backgroundColor: t.inputDisabledBackgroundColor,
+          '.text-input-icon, .text-input-decorator, & > *': {
+            backgroundColor: t.inputDisabledBackgroundColor,
+          },
+        },
+        [`&.read-only`]: {
+          backgroundColor: t.inputReadOnlyBackgroundColor,
+          borderColor: t.inputReadOnlyBorderColor,
+          boxShadow: 'none',
+        },
+        [`&.read-only > .text-input-icon, &.read-only > .text-input-decorator`]: {
+          display: 'none'
+        },
       },
-      [`.${name}-group${size}.disabled`]: {
-        backgroundColor: t.inputDisabledBackgroundColor,
-      },
+      // style the input element, siblings, and pseudo classes
       [`.${name}-group${size} > input`]: {
-        ...inputStyles
+        ...inputStyles,
+        [`&:disabled`]: {
+          backgroundColor: t.inputDisabledBackgroundColor,
+          color: t.inputDisabledTextColor,
+        },
+        [`&:read-only:not(:disabled)`]: {
+          backgroundColor: t.inputReadOnlyBackgroundColor,
+          [`& ~ .${name}-icon, & ~ .${name}-decorator, & ~ *`]: {
+            display: 'none'
+          },
+        }
       },
       [`.${name}-icon, .${name}-decorator, .${name}-prefix, .${name}-suffix`]: {
         fontSize: '1em'
@@ -113,26 +108,14 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       width: t.inputIconWidth,
       color: theme('textColor.subtle'),
     },
-    [`.${name}:readonly ~ .${name}-icon`]: {
-      fill: t.inputReadOnlyBorderColor,
-      color: t.inputReadOnlyIconColor,
-      backgroundColor: t.inputReadOnlyBackgroundColor,
-      borderColor: t.inputReadOnlyBorderColor,
-    },
     [`.${name}-decorator`]: {
       color: t.inputDecoratorColor
     },
-    [`.${name}:disabled, ${name}:disabled ~ ${name}-icon, ${name}:disabled ~ .${name}-decorator`]:
+    [`${name}:disabled ~ ${name}-icon, ${name}:disabled ~ .${name}-decorator`]:
     {
       color: t.inputDisabledTextColor,
       backgroundColor: t.inputDisabledBackgroundColor,
-      borderColor: t.inputDisabledBorderColor,
-    },
-    [`.${name}:disabled ~ .${name}-icon-right`]: {
-      color: 'none',
-      backgroundColor: t.inputDisabledBackgroundColor,
-      borderColor: t.inputDisabledBorderColor,
-    },
+  }
   });
 };
 
