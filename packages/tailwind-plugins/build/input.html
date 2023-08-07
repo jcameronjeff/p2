@@ -4,95 +4,69 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Inputs</title>
-    <link rel="stylesheet" href="./output.css" />
-    <link rel="stylesheet" href="./tony.css" />
+    <link rel="stylesheet" type="text/css" href="./output.css" />
   </head>
   <body>
 	
   </body>
 </html>
 <html>
-  <div class="form-group">
-    <label>Label</label>
-    <div class="text-input-group">
-      <span class="text-input-icon">♥</span>
-      <span class="text-input-decorator">Pre</span>
-      <input type="text" />
-      <span class="text-input-decorator">Suf</span>
-    </div>
-    <div class="help">Helper</div>
-  </div>
-<div class="form-grop">
-    <label>Label</label>
+
+<h1> Input Sizing</h1>
+  <div class="form-group mt-3">
+    <label>Small</label>
     <div class="text-input-group-sm">
       <span class="text-input-icon">♥</span>
       <span class="text-input-decorator">Pre</span>
-      <input type="text" />
+      <input type="text" placeholder="Placeholder"/>
       <span class="text-input-decorator">Suf</span>
     </div>
     <div class="help">Helper</div>
   </div>
 
-  <div class="input-group">
-    <span class="input-prefix">\$</span>
-    <input type="text" placeholder="Text with prefix" />
-  </div>
-
-  <div class="input-group">
-    <input type="text" placeholder="Text with suffix" />
-    <span class="input-suffix">Su</span>
-  </div>
-
-  <div class="input-group">
-    <span class="input-prefix">CAD</span>
-    <input type="text" placeholder="Text with Prefix and Suffix..." />
-    <span class="input-suffix">Su</span>
-  </div>
-
-  <div class="input-group">
-    <span class="input-prefix">Pre</span>
-    <input
-      type="text"
-      placeholder="Placeholder Text..."
-      value="Initial default value"
-    />
-    <span class="input-suffix">Su</span>
-  </div>
-
-  <div class="input-group">
-    <span class="input-prefix">Pre</span>
-    <input
-      type="text"
-      placeholder="Disabled with prefix and suffix..."
-      disabled
-    />
-    <span class="input-suffix">Su</span>
-  </div>
-
-  <div class="form-group">
-    <span class="input-prefix">Pre</span>
-    <input type="text" placeholder="Readonly..." readonly />
-    <span class="input-suffix">Su</span>
-  </div>
-  <div class="f-grp">
-    <label>Lbl</label>
-    <div class="i-grp">
-      <span class="i">♥</span>
-      <span class="d">Pre</span>
-      <input type="text" />
-      <span class="d">Suf</span>
+  <div class="form-group mt-3">
+    <label>Default</label>
+    <div class="text-input-group">
+      <span class="text-input-icon">♥</span>
+      <span class="text-input-decorator">Pre</span>
+      <input type="text" placeholder="Placeholder"/>
+      <span class="text-input-decorator">Suf</span>
     </div>
     <div class="help">Helper</div>
   </div>
   
-  <div class="f-grp">
-    <label>Lbl</label>
-    <div class="i-grp i-grp-sm">
-      <span class="i">♥</span>
-      <span class="d">Pre</span>
-      <input type="text" />
-      <span class="d">Suf</span>
+  <div class="form-group mt-3">
+    <label>Label</label>
+    <div class="text-input-group-lg">
+      <span class="text-input-icon">♥</span>
+      <span class="text-input-decorator">Pre</span>
+      <input readonly type="text" value="Placeholder"/>
+      <span class="text-input-decorator">Suf</span>
     </div>
     <div class="help">Helper</div>
   </div>
+
+<h1>Input States</h1>
+<div class="form-group mt-3">
+  <label>Disabled</label>
+  <div disabled aria-disabled=“true" class="text-input-group readonly">
+    
+    <span class="text-input-decorator"><span class="text-input-icon">♥</span></span>
+    <input disabled type="text" placeholder="Placeholder"/>
+    <span class="text-input-decorator">Suf</span>
+  </div>
+  <div class="help">Helper</div>
+</div>
+ 
+<div class="form-group mt-3">
+  <label>Label</label>
+  <div	aria-disabled=“true" class="text-input-group-lg readonly">
+    <span class="text-input-icon">♥</span>
+    <span class="text-input-decorator">Pre</span>
+    <input aria-readonly=“true” readonly type="text" placeholder="Placeholder"/>
+    <span class="text-input-decorator">Suf</span>
+  </div>
+  <div class="help">Helper</div>
+</div>
+ 
 </html>

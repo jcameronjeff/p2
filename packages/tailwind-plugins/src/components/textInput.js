@@ -8,6 +8,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
 
   const baseStyles = {
     display: 'inline-flex',
+    alignItems: 'center',
     backgroundColor: t.inputBackGroundColor,
     //text
     color: t.inputTextFieldColor,
@@ -30,9 +31,26 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
   }
 
   const stateStyles = {
+    '&:has(input:readonly), &:readonly, .readonly': {
+      backgroundColor: t.inputReadOnlyBackgroundColor,
+      borderColor: t.inputReadOnlyBorderColor,
+    },
     '&:focus-within': {
       borderColor: t.inputFocusBorderColor,
       boxShadow: t.inputFocusBoxShadow,
+    },
+    '&:disabled, .disabled, &:disabled ~ div': {
+      borderColor: t.inputDisabledBorderColor,
+      backgroundColor: t.inputDisabledBackgroundColor,
+     '& ~ .text-input-icon': {
+      borderColor: t.inputDisabledBorderColor,
+      backgroundColor: t.inputDisabledBackgroundColor,
+     },
+     '& ~ .text-input-decorator': {
+      borderColor: t.inputDisabledBorderColor,
+      backgroundColor: t.inputDisabledBackgroundColor,
+     }
+
     },
     '&::placeholder': {
       color: t.inputPlaceholderColor,
@@ -102,7 +120,7 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       backgroundColor: t.inputReadOnlyBackgroundColor,
       borderColor: t.inputReadOnlyBorderColor,
     },
-    [`${name}:disabled ~ .${name}-icon,  .filter-${name}:disabled ~ .${name}-icon-left`]:
+    [`${name}:disabled, ${name}:disabled ~ ${name}-icon, ${name}:disabled ~ .${name}-decorator`]:
     {
       color: t.inputDisabledTextColor,
       backgroundColor: t.inputDisabledBackgroundColor,

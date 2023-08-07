@@ -31,30 +31,11 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
 
     'input[type="text"]': {
       outline: '0',
-      borderTopLeftRadius:
-        'var(--input-border-start-start-radius, var(--input-border-radius))',
-      borderTopRightRadius:
-        'var(--input-border-start-end-radius, var(--input-border-radius))',
-      borderBottomRightRadius:
-        'var(--input-border-end-end-radius, var(--input-border-radius))',
-      borderBottomLeftRadius:
-        'var(--input-border-end-start-radius, var(--input-border-radius))',
-      // Applies to the input
-      '&:has(~ .input-suffix)': {
-        borderInlineEndWidth: '0',
-        paddingInlineEnd: '0',
-        borderBottomRightRadius: '0',
-        borderTopRightRadius: '0',
-      },
-
-      '.input-prefix + &': {
-        borderInlineStartWidth: '0',
-        borderTopLeftRadius: '0',
-        borderBottomLeftRadius: '0',
-      },
+ 
+ 
 
       // Applies to the suffix
-      '~ .input-suffix': {
+      '~ .text-input-icon': {
         borderInlineEndWidth:
           'var(--input-prefix-border-inline-end-width, var(--border-width))',
         borderInlineEndColor:
@@ -63,11 +44,6 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
         borderBottomRightRadius: 'var(--input-border-radius)',
         borderTopRightRadius: 'var(--input-border-radius)',
       },
-
-      '&:focus:has(~ :not(.input-suffix))': {
-        boxShadow: 'var(--input-box-shadow)',
-      },
-
       '&:active:not([disabled]):not([readonly])': {
         '--input-border-inline-color': 'var(--input-border-color-active)',
         '.input-prefix:has(~ &), &,& ~ .input-suffix': {
