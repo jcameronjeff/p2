@@ -1,8 +1,10 @@
 const plugin = require('tailwindcss/plugin');
+const twToken = require('../../themeConfig.json');
 
-const tokens = plugin(function ({ theme }) {
-  const tokens = {
-    inputLeftIconColor: theme('colors.onSurface.subtle'),
+const tokens = function ({ theme }) {
+  const t = (token) => theme(`${token}`);
+  return {
+    inputLeftIconColor: t(twToken.colors.slate['50']),
     filterInputRightIconColor: theme('colors.onSurface.muted'),
     inputTextFieldColor: theme('colors.onSurface.default'),
     inputPlaceholderColor: theme('colors.onSurfaceSubtler'),
@@ -54,7 +56,6 @@ const tokens = plugin(function ({ theme }) {
     inputReadOnlyIconColor: 'none',
     inputReadOnlyTextColor: theme('colors.onSurface.subtle'),
   };
-  return { tokens };
-});
+};
 
-module.exports = { t: tokens };
+module.exports = tokens;

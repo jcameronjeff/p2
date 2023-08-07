@@ -1,10 +1,8 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: ['./**/*.html'],
+  content: ['./**/*.html', './**/*.js', './**/**/*.js'], // update this line
   theme: {
     extend: require('@prism2/tailwind-theme-manheim'),
   },
-  plugins: [
-    ...(require('./index').plugins)
-  ]
+  plugins: [...require('./index').plugins],
 };

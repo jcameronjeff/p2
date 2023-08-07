@@ -1,7 +1,17 @@
 const plugin = require('tailwindcss/plugin');
 const name = 'text-input';
 
-const inputPlugin = function ({ addBase, theme }) {
+// input icons
+// input decorators
+// input controls (filter input)
+// input-group
+
+const textInputPlugin = function ({ theme }) {};
+
+const textInputPlugin = function ({ theme }) {};
+
+// padding, fontSize, gap
+const inputPlugin = function ({ addBase, addComponents, theme }) {
   addBase({
     ':root': {
       '--border-color': 'black',
@@ -19,10 +29,9 @@ const inputPlugin = function ({ addBase, theme }) {
       '--input-disabled-background-color': 'hsl(0, 1%, 93%)',
       '--input-placeholder-color': 'hsl(0, 1%, 46%)',
       '--input-box-shadow': '0px 0px 0px 2px #CCE8FF, 0px 0px 0px 1px #005BA8',
+      '--input-icon-width': theme('fontSize.xl'),
     },
-    '.form-group': {
-      display: 'inline-flex',
-    },
+
     'input[type="text"]': {
       outline: '0',
       borderTopLeftRadius:
@@ -33,6 +42,86 @@ const inputPlugin = function ({ addBase, theme }) {
         'var(--input-border-end-end-radius, var(--input-border-radius))',
       borderBottomLeftRadius:
         'var(--input-border-end-start-radius, var(--input-border-radius))',
+      // Applies to the input
+      '&:has(~ .input-suffix)': {
+        borderInlineEndWidth: '0',
+        paddingInlineEnd: '0',
+        borderBottomRightRadius: '0',
+        borderTopRightRadius: '0',
+      },
+
+      '.input-prefix + &': {
+        borderInlineStartWidth: '0',
+        borderTopLeftRadius: '0',
+        borderBottomLeftRadius: '0',
+      },
+
+      // Applies to the suffix
+      '~ .input-suffix': {
+        borderInlineEndWidth:
+          'var(--input-prefix-border-inline-end-width, var(--border-width))',
+        borderInlineEndColor:
+          'var(--input-prefix-border-inline-end-color, var(--border-color))',
+        borderInlineStartWidth: '0',
+        borderBottomRightRadius: 'var(--input-border-radius)',
+        borderTopRightRadius: 'var(--input-border-radius)',
+      },
+
+      '&:focus:has(~ :not(.input-suffix))': {
+        boxShadow: 'var(--input-box-shadow)',
+      },
+
+      '&:active:not([disabled]):not([readonly])': {
+        '--input-border-inline-color': 'var(--input-border-color-active)',
+        '.input-prefix:has(~ &), &,& ~ .input-suffix': {
+          '--input-border-block-color': 'var(--input-border-color-active)',
+          '--input-prefix-border-inline-start-color':
+            'var(--input-border-color-active)',
+          '--input-prefix-border-inline-end-color':
+            'var(--input-border-color-active)',
+        },
+      },
+
+      '&:not([readonly]):focus': {
+        '--input-border-inline-color': 'var(--input-border-color-focus)',
+        '.input-prefix:has(~ &), &,& ~ .input-suffix': {
+          '--input-border-block-color': 'var(--input-border-color-focus)',
+          '--input-prefix-border-inline-start-color':
+            'var(--input-border-color-focus)',
+          '--input-prefix-border-inline-end-color':
+            'var(--input-border-color-focus)',
+        },
+      },
+
+      '&:disabled': {
+        borderColor: 'var(--input-disabled-border-color)',
+        backgroundColor: 'var(--input-disabled-background-color)',
+        '.input-prefix:has(~ &), ~ .input-suffix': {
+          color: 'var(--input-disabled-color)',
+          borderColor: 'var(--input-disabled-border-color)',
+          backgroundColor: 'var(--input-disabled-background-color)',
+          borderInlineStartColor: 'var(--input-disabled-border-color)',
+          borderInlineEndColor: 'var(--input-disabled-border-color)',
+        },
+
+        '::placeholder': {
+          color: 'var(--input-disabled-color)',
+        },
+      },
+
+      '.form-group:has(&:focus:not([readonly]))': {
+        boxShadow: 'var(--input-box-shadow)',
+        borderRadius: 'var(--input-border-radius)',
+      },
+    },
+
+    '::placeholder': {
+      color: 'var(--input-placeholder-color)',
+    },
+  });
+  addComponents({
+    '.form-group': {
+      display: 'inline-flex',
     },
 
     '.input-prefix:has(~ &)': {
@@ -49,10 +138,6 @@ const inputPlugin = function ({ addBase, theme }) {
       borderRightStyle: 'solid',
       borderRightColor:
         'var(--input-border-inline-color, var(--input-border-color))',
-    },
-
-    // Applies to the prefix
-    '.input-prefix:has(~ &)': {
       borderInlineStartColor:
         'var(--input-prefix-border-inline-start-color, var(--border-color))',
       borderInlineStartWidth:
@@ -65,78 +150,9 @@ const inputPlugin = function ({ addBase, theme }) {
       gap: '0.4rem',
     },
 
-    // Applies to the input
-    '&:has(~ .input-sufix)': {
-      borderInlineEndWidth: '0',
-      paddingInlineEnd: '0',
-      borderBottomRightRadius: '0',
-      borderTopRightRadius: '0',
-    },
-
-    '.input-prefix + &': {
-      borderInlineStartWidth: '0',
-      borderTopLeftRadius: '0',
-      borderBottomLeftRadius: '0',
-    },
-
-    // Applies to the suffix
-    '~ .input-sufix': {
-      borderInlineEndWidth:
-        'var(--input-prefix-border-inline-end-width, var(--border-width))',
-      borderInlineEndColor:
-        'var(--input-prefix-border-inline-end-color, var(--border-color))',
-      borderInlineStartWidth: '0',
-      borderBottomRightRadius: 'var(--input-border-radius)',
-      borderTopRightRadius: 'var(--input-border-radius)',
-    },
-
-    '&:focus:has(~ :not(.input-sufix))': {
-      boxShadow: 'var(--input-box-shadow)',
-    },
-
-    '&:active:not([disabled]):not([readonly])': {
-      '--input-border-inline-color': 'var(--input-border-color-active)',
-      '.input-prefix:has(~ &), &,& ~ .input-sufix': {
-        '--input-border-block-color': 'var(--input-border-color-active)',
-        '--input-prefix-border-inline-start-color':
-          'var(--input-border-color-active)',
-        '--input-prefix-border-inline-end-color':
-          'var(--input-border-color-active)',
-      },
-    },
-
-    '&:not([readonly]):focus': {
-      '--input-border-inline-color': 'var(--input-border-color-focus)',
-      '.input-prefix:has(~ &), &,& ~ .input-sufix': {
-        '--input-border-block-color': 'var(--input-border-color-focus)',
-        '--input-prefix-border-inline-start-color':
-          'var(--input-border-color-focus)',
-        '--input-prefix-border-inline-end-color':
-          'var(--input-border-color-focus)',
-      },
-    },
-
-    '&[disabled]': {
-      '.input-prefix:has(~ &), &,& ~ .input-sufix': {
-        color: 'var(--input-disabled-color)',
-        borderColor: 'var(--input-disabled-border-color)',
-        backgroundColor: 'var(--input-disabled-background-color)',
-        borderInlineStartColor: 'var(--input-disabled-border-color)',
-        borderInlineEndColor: 'var(--input-disabled-border-color)',
-      },
-
-      '::placeholder': {
-        color: 'var(--input-disabled-color)',
-      },
-    },
-
-    '::placeholder': {
-      color: 'var(--input-placeholder-color)',
-    },
-
-    '.form-group:has(&:focus:not([readonly]))': {
-      boxShadow: 'var(--input-box-shadow)',
-      borderRadius: 'var(--input-border-radius)',
+    // Applies to the prefix
+    '.input-prefix > svg': {
+      width: 'var(--input-icon-width)',
     },
   });
 };
