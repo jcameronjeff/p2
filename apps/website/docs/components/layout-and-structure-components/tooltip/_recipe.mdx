@@ -1,0 +1,160 @@
+import clsx from 'clsx';
+import InformationCircleIcon from '@prism2/icons/interstate/information-circle.svg';
+
+export const defaultArgs = {
+  trigger: 'Trigger Text',
+  tooltipMessage: 'Add your Tooltip message here.',
+  size: 'lg',
+  type: false,
+  position: 'bottom',
+  arrow: 'center',
+}
+
+export const argTypes = {
+  trigger: {
+    label: 'Trigger Name',
+    control: { type: 'text' },
+  },
+  tooltipMessage: {
+    label: 'Tooltip Message',
+    control: { type: 'text' },
+  },
+  size: {
+    label: 'Select a Size',
+    control: {
+      type: 'select',
+      options: [ 'sm', 'lg' ],
+    },
+  },
+  type: {
+    label: 'Trigger Type: Image/Icon?',
+    control: { type: 'boolean' }, 
+  },
+  position: {
+    label: 'Select a Position',
+    control: {
+      type: 'select',
+      options: [ 'top', 'right', 'bottom', 'left' ],
+    },
+  },
+  arrow: {
+    label: 'Select Alignment for the Arrow',
+    control: {
+      type: 'select',
+      options: [ 'start', 'center', 'end' ],
+    }
+  },
+};
+
+export const renderFn = ({ tooltipMessage, trigger, size, type, position, arrow }) => {
+  return (
+    <div className="fake-page-container h-32 flex justify-center items-center">
+      <div 
+        className={clsx(
+          'tooltip-wrapper',
+          arrow !== 'center' && position === 'top' && `tooltip-t-${arrow}`,
+          arrow !== 'center' && position === 'bottom' && `tooltip-b-${arrow}`,
+          arrow === 'center' && position === 'top' && 'tooltip-t',
+          arrow === 'center' && position === 'bottom' && 'tooltip-b',
+          position === 'right' && 'tooltip-r',
+          position === 'left' && 'tooltip-l',
+        )}
+      >
+        { size === 'sm' && type === false && (<span className="tooltip-trigger" aria-label="Settings">{trigger}</span>)}
+        { size !== 'sm' && type === false && (<span className="tooltip-trigger" aria-label="Settings">{trigger}</span>)}
+        { type === true && <InformationCircleIcon className="tooltip-trigger" aria-label="Settings" />}
+        <span 
+          className={clsx(
+            'tooltip-content',
+            `tooltip-${size}`,
+            'after:bg-transparent',
+          )}
+          role="tooltip"
+        >
+          { size === 'sm' && <span>{tooltipMessage}</span> }
+          { size !== 'sm' && (
+            <>
+            {tooltipMessage}
+            </>
+          )}
+        </span>
+      </div>
+    </div>
+  )
+}
+
+export const TooltipKitchen = (props) => (
+  <Kitchen
+    args={defaultArgs}
+    argTypes={argTypes}
+    render={renderFn}
+    targetSelector=".tooltip-wrapper"
+    {...props}
+  />
+)
+
+## Description
+
+Tooltips display text that describes an element or provides additional information.
+
+All tooltips are light text on a dark background and are normally positioned below the element they are paired with. They fade in and persist on hover or tap, and fade out off hover or another tap. Tooltips are stationary and do not follow the cursor.
+
+## Ingredients
+
+Tooltips are made up of a combination of elements and classes. The styles will be 
+made up of **Required** and **Selectable** classes.
+
+### Required
+
+- `.tooltip-wrapper` - The content container for the tooltip and text area
+- `.tooltip-b`* - the default position for the Tooltip
+- `.tooltip-trigger` - identifies the element responsible for displaying the Tooltip
+- `.tooltip-content` - The container for the Tooltip content
+- `.tooltip-lg` - The default size, can be changed to `.text-sm`
+- `aria-label="Settings` - is where the data for aria is Set
+- `role="tooltip"` - used to identify the use of Tooltips for non-displayed text
+
+### Selectable
+
+- `.tooltip-t` - sets the Tooltip to the top
+- `.tooltip-r` - sets the Tooltip to the right
+- `.tooltip-b` - sets the Tooltip to the bottom
+- `.tooltip-l` - sets the Tooltip to the left
+- `.tooltip-t-start` - places arrow at the start of the top positioned Tooltip
+- `.tooltip-t-end` - places arrow at the end of the top positioned Tooltip
+- `.tooltip-b-start` - places arrow at the start of the bottom positioned Tooltip
+- `.tooltip-b-end` - places arrow at the end of the bottom positioned Tooltip
+
+## Directions
+
+Tooltips come in two sizes: small and large. Small tooltips are always a single line of small, center-aligned text. Large tooltips have larger, left-aligned text that can wrap. To move the pointer/arrow you will need to select a different alignment for the arrow.
+
+### Tooltip placed at right
+
+To set Tooltip to the right, use `tooltip-r ` class. The Tooltip will automatically display to the right of the item. 
+
+<TooltipKitchen hideControls args={{
+  ...defaultArgs,
+  trigger: 'Tooltip set to top',
+  tooltipMessage: 'No wrapping. 200px max width.',
+  position: 'right',
+}} />
+
+### Tooltip with an Icon
+
+To set Tooltip to an Icon and to the top
+
+<TooltipKitchen hideControls args={{
+  ...defaultArgs,
+  trigger: 'Tooltip set to Top',
+  tooltipMessage: 'No wrapping. 200px max width.',
+  type: true,
+  position: 'top',
+}} />
+
+## Developer Kitchen
+
+Now it's your turn! Select options for the Button component and see how they can
+be combined in the final output.
+
+<TooltipKitchen targetSelector={null} />
