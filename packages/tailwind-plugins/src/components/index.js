@@ -9,6 +9,8 @@ const overlay = require('./overlay.js');
 const slideOut = require('./slide-out.js');
 const tab = require('./tab.js')
 const textInput = require('./text-input.js');
+const tooltip = require('./tooltip.js');
+
 
 module.exports = { 
   accordion,
@@ -22,4 +24,5 @@ module.exports = {
   slideOut,
   tab,
   textInput
+  tooltip,
 };
