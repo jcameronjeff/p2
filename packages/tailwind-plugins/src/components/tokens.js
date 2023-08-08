@@ -1,16 +1,16 @@
 const plugin = require('tailwindcss/plugin');
 
 const tokens = function ({ theme }) {
- // Some values need refinement
+  // Some values need refinement
+
   return {
-    inputLeftIconColor: theme('textColor.subtle'),
-    filterInputRightIconColor: theme('textColor.subdued'),
-    inputTextFieldColor:  theme('textColor.DEFAULT'),
+    inputLeftIconColor: theme('textColor.muted'),
+    filterInputRightIconColor: theme('textColor.muted'),
+    inputTextFieldColor: theme('textColor.DEFAULT'),
     inputPlaceholderColor: theme('textColor.dim'),
     inputBorderColor: theme('borderColor.subtle'),
     inputLabelColor: theme('textColor.muted'),
-    inputPrefixSuffixColor: theme('textColor.muted'),
-    inputDecoratorColor: theme('textColor.muted'),
+    inputPrefixSuffixColor: theme('textColor.subtle'),
     //text
     inputLineHeight: theme('lineHeight.none'),
     inputFontWeight: theme('medium'),
@@ -31,29 +31,27 @@ const tokens = function ({ theme }) {
     //
     // states
     // focus
-    inputFocusBorderColor: theme('borderColor.interactive.focus'),
+    inputFocusBorder: '1px solid #005BA8',
     // valid
     inputValidBorderColor: theme('borderColor.interactive.success'),
     inputValidMessageColor: theme('success'),
     // invalid
-    inputInvalidBorderColor:  theme('borderColor.interactive.error'),
-    inputErrorMessageColor:  theme('textColor.error'),
-    inputFocusBoxShadow: `0px 0px 0px 3px ${theme(
-      'colors.blue.100'
-    )}, 0px 0px 0px 1px ${theme('colors.blue.700')}`,
+    inputInvalidBorderColor: theme('borderColor.interactive.error'),
+    inputErrorMessageColor: theme('textColor.error'),
+    inputFocusBoxShadow: '0px 0px 0px 1px #005BA8',
 
     // disabled
     inputDisabledBorderColor: theme('borderColor.interactive.subtle'),
     inputDisabledTextColor: theme('textColor.subtle'),
     inputDisabledBackgroundColor: theme('backgroundColor.muted'),
     inputDisabledLeftIconColor: theme('colors.onSurfaceSubtler'),
-    inputDisabledSuffix:theme('textColor.subdued'),
+    inputDisabledSuffix: theme('textColor.subdued'),
     inputDisabledPrefixColor: theme('textColor.subtle'),
 
     // read-only
-    inputReadOnlyBackgroundColor: 'none',
-    inputReadOnlyBorderColor: 'none',
-    inputReadOnlyIconColor: 'none',
+    inputReadOnlyBackgroundColor: 'transparent',
+    inputReadOnlyBorderColor: 'transparent',
+    inputReadOnlyIconColor: 'transparent',
     inputReadOnlyTextColor: theme('textColor.subtle'),
   };
 };

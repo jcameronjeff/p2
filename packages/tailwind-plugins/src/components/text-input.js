@@ -6,7 +6,15 @@ const tokens = require('./tokens.js');
 const inputPlugin = function ({ addBase, addComponents, theme }) {
   const t = tokens({ theme });
 
-  const baseStyles = {
+  const inputStyles = {
+    flexGrow: '1',
+    fontSize: '1em',
+    border: 'none !important',
+    padding: '0',
+    outline: '0 !important',
+  };
+
+  const groupBaseStyles = {
     display: 'inline-flex',
     alignItems: 'center',
     backgroundColor: t.inputBackGroundColor,
@@ -15,87 +23,85 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
     fontWeight: t.inputFontWeight,
     lineHeight: t.inputLineHeight,
     //borders
-    borderWidth: t.inputBorderWidth,
+    borderWidth: '1px',
     borderStyle: 'solid',
     borderColor: t.inputBorderColor,
     borderRadius: t.inputBorderRadius,
-    gap: '.5em'
+    gap: '.5em',
+    fontSize: t.inputFontSize,
+    padding: t.inputPadding,
   };
 
-  const inputStyles = {
-    flexGrow: '1',
-    fontSize: '1em',
-    border: 'none !important',
-    padding: '0',
-    outline: '0 !important',
-  }
- 
-  const sizes = {
-    '': {
-      fontSize: t.inputFontSize,
-      padding: t.inputPadding,
-    },
-    '-lg': {
-      fontSize: t.inputFontSizeLg,
-      padding: t.inputPaddingLg,
-    },
-    '-sm': {
+  const groupSizes = {
+    sm: {
       fontSize: t.inputFontSizeSm,
       padding: t.inputPaddingSm,
+    },
+    lg: {
+      fontSize: t.inputFontSizeLg,
+      padding: t.inputPaddingLg,
     },
   };
 
   // Apply styles to each size so we don't need additional size modifiers.
-  Object.entries(sizes).forEach(([size, sizeStyles]) => {
+  const groupSelector = `.${name}-group`;
+  const inputSelector = `${groupSelector} > input, text-input`;
+  const subElementsSelector = `.${name}-icon, .${name}-decorator, .${name}-prefix, .${name}-suffix`;
+
+  const disabledStyles = {
+    borderColor: t.inputDisabledBorderColor,
+    backgroundColor: t.inputDisabledBackgroundColor,
+  };
+
+  const readOnlyStyles = {
+    backgroundColor: t.inputReadOnlyBackgroundColor,
+    borderColor: t.inputReadOnlyBorderColor,
+    boxShadow: 'none',
+  };
+
+  // apply sizing styles
+  Object.entries(groupSizes).forEach(([suffix, sizeStyles]) => {
     addComponents({
-      // style the input group class name and children
-      [`.${name}-group${size}`]: {
-        ...baseStyles,
-        ...sizeStyles,
-        [`&:focus-within`]: {
-          borderColor: t.inputFocusBorderColor,
-          boxShadow: t.inputFocusBoxShadow,
-        },
-        '&::placeholder': {
-          color: t.inputPlaceholderColor,
-        },
-        [`&.disabled`]: {
-          borderColor: t.inputDisabledBorderColor,
-          backgroundColor: t.inputDisabledBackgroundColor,
-          '.text-input-icon, .text-input-decorator, & > *': {
-            backgroundColor: t.inputDisabledBackgroundColor,
-          },
-        },
-        [`&.read-only`]: {
-          backgroundColor: t.inputReadOnlyBackgroundColor,
-          borderColor: t.inputReadOnlyBorderColor,
-          boxShadow: 'none',
-        },
-        [`&.read-only > .text-input-icon, &.read-only > .text-input-decorator`]: {
-          display: 'none'
-        },
-      },
-      // style the input element, siblings, and pseudo classes
-      [`.${name}-group${size} > input`]: {
-        ...inputStyles,
-        [`&:disabled`]: {
-          backgroundColor: t.inputDisabledBackgroundColor,
-          color: t.inputDisabledTextColor,
-        },
-        [`&:read-only:not(:disabled)`]: {
-          backgroundColor: t.inputReadOnlyBackgroundColor,
-          [`& ~ .${name}-icon, & ~ .${name}-decorator, & ~ *`]: {
-            display: 'none'
-          },
-        }
-      },
-      [`.${name}-icon, .${name}-decorator, .${name}-prefix, .${name}-suffix`]: {
-        fontSize: '1em'
-      },
+      [`${groupSelector}${groupSelector}-${suffix}`]: sizeStyles,
     });
   });
 
+  // apply base and state styles/classes
   addComponents({
+    [groupSelector]: {
+      ...groupBaseStyles,
+      [`&:focus-within:not(${groupSelector}-read-only)`]: {
+        border: t.inputFocusBorder,
+        boxShadow: t.inputFocusBoxShadow,
+      },
+      '&::placeholder': { color: t.inputPlaceholderColor },
+    },
+    [`${groupSelector}-disabled`]: {
+      ...disabledStyles,
+      [`.${name}-icon, .${name}-decorator, & > *`]: {
+        backgroundColor: t.inputDisabledBackgroundColor,
+      },
+    },
+    [`${groupSelector}-read-only`]: {
+      ...readOnlyStyles,
+      [`> .${name}-icon, > .${name}-decorator`]: { display: 'none' },
+    },
+
+    [inputSelector]: {
+      ...inputStyles,
+      '&:disabled': {
+        ...disabledStyles,
+        [`& ~ ${subElementsSelector}`]: {
+          color: t.inputDisabledTextColor,
+          backgroundColor: t.inputDisabledBackgroundColor,
+        },
+      },
+      '&:read-only:not(:disabled)': {
+        backgroundColor: t.inputReadOnlyBackgroundColor,
+        [`& ~ ${subElementsSelector}`]: { display: 'none' },
+      },
+    },
+    [subElementsSelector]: { fontSize: '1em' },
     // labels
     [`.${name}-label`]: {
       display: 'flex',
@@ -109,13 +115,8 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
       color: theme('textColor.subtle'),
     },
     [`.${name}-decorator`]: {
-      color: t.inputDecoratorColor
+      color: t.inputDecoratorColor,
     },
-    [`${name}:disabled ~ ${name}-icon, ${name}:disabled ~ .${name}-decorator`]:
-    {
-      color: t.inputDisabledTextColor,
-      backgroundColor: t.inputDisabledBackgroundColor,
-  }
   });
 };
 
