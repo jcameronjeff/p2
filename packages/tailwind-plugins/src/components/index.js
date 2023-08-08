@@ -7,12 +7,11 @@ const chip = require('./chip.js');
 const link = require('./link.js');
 const overlay = require('./overlay.js');
 const slideOut = require('./slide-out.js');
-const tab = require('./tab.js')
+const tab = require('./tab.js');
 const textInput = require('./text-input.js');
 const tooltip = require('./tooltip.js');
 
-
-module.exports = { 
+module.exports = {
   accordion,
   avatar,
   button,
@@ -23,6 +22,6 @@ module.exports = {
   overlay,
   slideOut,
   tab,
-  textInput
+  textInput,
   tooltip,
 };
