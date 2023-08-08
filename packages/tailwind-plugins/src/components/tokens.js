@@ -1,16 +1,19 @@
 const plugin = require('tailwindcss/plugin');
-
+ 
+const twToken = require('../../themeTokens.json');
+ 
 const tokens = function ({ theme }) {
-  // Some values need refinement
-
+ // Some values need refinement
   return {
-    inputLeftIconColor: theme('textColor.muted'),
-    filterInputRightIconColor: theme('textColor.muted'),
-    inputTextFieldColor: theme('textColor.DEFAULT'),
+    inputLeftIconColor: theme('textColor.subtle'),
+    filterInputRightIconColor: theme('textColor.subdued'),
+    inputTextFieldColor:  theme('textColor.DEFAULT'),
     inputPlaceholderColor: theme('textColor.dim'),
     inputBorderColor: theme('borderColor.subtle'),
     inputLabelColor: theme('textColor.muted'),
-    inputPrefixSuffixColor: theme('textColor.subtle'),
+    inputPrefixSuffixColor: theme('textColor.muted'),
+    inputDecoratorColor: theme('textColor.muted'),
+
     //text
     inputLineHeight: theme('lineHeight.none'),
     inputFontWeight: theme('medium'),
@@ -32,6 +35,7 @@ const tokens = function ({ theme }) {
     // states
     // focus
     inputFocusBorder: '1px solid #005BA8',
+
     // valid
     inputValidBorderColor: theme('borderColor.interactive.success'),
     inputValidMessageColor: theme('success'),
@@ -57,3 +61,4 @@ const tokens = function ({ theme }) {
 };
 
 module.exports = tokens;
+
