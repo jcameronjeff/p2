@@ -38,7 +38,7 @@ const tokens = function ({ theme }) {
     // invalid
     inputInvalidBorderColor: theme('borderColor.interactive.error'),
     inputErrorMessageColor: theme('textColor.error'),
-    inputFocusBoxShadow: '0px 0px 0px 1px #005BA8',
+    inputFocusBoxShadow: theme('boxShadow.primary')
 
     // disabled
     inputDisabledBorderColor: theme('borderColor.interactive.subtle'),
