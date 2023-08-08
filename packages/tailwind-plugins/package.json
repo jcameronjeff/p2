@@ -8,8 +8,10 @@
     "src"
   ],
   "scripts": {
+    "dev": "TAILWIND_MODE=watch tailwindcss -i ./build/input.css -o ./build/output.css --watch",
     "test": "echo skipping tests for @prism2/tailwind-plugin-plugins",
-    "build": "npx tailwindcss -i ./build/input.css -o ./build/output.css"
+    "build": "node generate-theme-tokens; tailwindcss -i ./build/input.css -o ./build/output.css",
+    "generate-theme-tokens": "node generate-theme-tokens.js"
   },
   "keywords": [
     "tailwind",
