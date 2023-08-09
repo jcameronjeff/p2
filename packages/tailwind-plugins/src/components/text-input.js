@@ -68,10 +68,12 @@ const inputPlugin = function ({ addBase, addComponents, theme }) {
 
   // apply base and state styles/classes
   addComponents({
-    [groupSelector]: {
+    [groupSelector ]: {
       ...groupBaseStyles,
+    },
+    [`${groupSelector}, ${groupSelector}-sm, ${groupSelector}-lg` ]: {
       [`&:focus-within:not(${groupSelector}-read-only)`]: {
-        border: t.inputFocusBorder,
+        borderColor: t.inputFocusBorderColor,
         boxShadow: t.inputFocusBoxShadow,
       },
       '&::placeholder': { color: t.inputPlaceholderColor },

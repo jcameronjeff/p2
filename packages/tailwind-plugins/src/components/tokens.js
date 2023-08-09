@@ -34,7 +34,11 @@ const tokens = function ({ theme }) {
     //
     // states
     // focus
-    inputFocusBorder: '1px solid #005BA8',
+    inputFocusBorder: `1px solid #005BA8`,
+    inputFocusBorderColor: '005BA8',
+    inputFocusBorderWidth: '1px',
+    inputFocusBorderStyle: 'solid',
+
 
     // valid
     inputValidBorderColor: theme('borderColor.interactive.success'),
